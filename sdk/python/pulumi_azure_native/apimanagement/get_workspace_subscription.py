@@ -26,10 +26,13 @@ class GetWorkspaceSubscriptionResult:
     """
     Subscription details.
     """
-    def __init__(__self__, allow_tracing=None, created_date=None, display_name=None, end_date=None, expiration_date=None, id=None, name=None, notification_date=None, owner_id=None, primary_key=None, scope=None, secondary_key=None, start_date=None, state=None, state_comment=None, type=None):
+    def __init__(__self__, allow_tracing=None, azure_api_version=None, created_date=None, display_name=None, end_date=None, expiration_date=None, id=None, name=None, notification_date=None, owner_id=None, primary_key=None, scope=None, secondary_key=None, start_date=None, state=None, state_comment=None, type=None):
         if allow_tracing and not isinstance(allow_tracing, bool):
             raise TypeError("Expected argument 'allow_tracing' to be a bool")
         pulumi.set(__self__, "allow_tracing", allow_tracing)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -83,6 +86,14 @@ class GetWorkspaceSubscriptionResult:
         Determines whether tracing is enabled
         """
         return pulumi.get(self, "allow_tracing")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -212,6 +223,7 @@ class AwaitableGetWorkspaceSubscriptionResult(GetWorkspaceSubscriptionResult):
             yield self
         return GetWorkspaceSubscriptionResult(
             allow_tracing=self.allow_tracing,
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             display_name=self.display_name,
             end_date=self.end_date,
@@ -238,8 +250,6 @@ def get_workspace_subscription(resource_group_name: Optional[str] = None,
     Gets the specified Subscription entity.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
@@ -256,6 +266,7 @@ def get_workspace_subscription(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkspaceSubscriptionResult(
         allow_tracing=pulumi.get(__ret__, 'allow_tracing'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         display_name=pulumi.get(__ret__, 'display_name'),
         end_date=pulumi.get(__ret__, 'end_date'),
@@ -280,8 +291,6 @@ def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input
     Gets the specified Subscription entity.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
@@ -297,6 +306,7 @@ def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceSubscription', __args__, opts=opts, typ=GetWorkspaceSubscriptionResult)
     return __ret__.apply(lambda __response__: GetWorkspaceSubscriptionResult(
         allow_tracing=pulumi.get(__response__, 'allow_tracing'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         display_name=pulumi.get(__response__, 'display_name'),
         end_date=pulumi.get(__response__, 'end_date'),

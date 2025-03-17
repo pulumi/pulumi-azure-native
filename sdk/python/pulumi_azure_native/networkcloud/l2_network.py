@@ -169,9 +169,7 @@ class L2Network(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,9 +189,7 @@ class L2Network(pulumi.CustomResource):
                  args: L2NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param L2NetworkArgs args: The arguments to use to populate this resource's properties.
@@ -244,16 +240,18 @@ class L2Network(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_resource_ids"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:L2Network")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:L2Network")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L2Network, __self__).__init__(
             'azure-native:networkcloud:L2Network',
@@ -278,9 +276,11 @@ class L2Network(pulumi.CustomResource):
         __props__ = L2NetworkArgs.__new__(L2NetworkArgs)
 
         __props__.__dict__["associated_resource_ids"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
         __props__.__dict__["hybrid_aks_plugin_type"] = None
@@ -302,6 +302,14 @@ class L2Network(pulumi.CustomResource):
         The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
         """
         return pulumi.get(self, "associated_resource_ids")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -326,6 +334,14 @@ class L2Network(pulumi.CustomResource):
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")

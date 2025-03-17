@@ -114,9 +114,7 @@ class IncidentRelation(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a relation between two resources
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +132,7 @@ class IncidentRelation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a relation between two resources
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param IncidentRelationArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +176,7 @@ class IncidentRelation(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["related_resource_kind"] = None
@@ -187,7 +184,7 @@ class IncidentRelation(pulumi.CustomResource):
             __props__.__dict__["related_resource_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231101:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240301:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240901:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:IncidentRelation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231101:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240301:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240901:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20250301:IncidentRelation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IncidentRelation, __self__).__init__(
             'azure-native:securityinsights:IncidentRelation',
@@ -211,6 +208,7 @@ class IncidentRelation(pulumi.CustomResource):
 
         __props__ = IncidentRelationArgs.__new__(IncidentRelationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["related_resource_id"] = None
@@ -220,6 +218,14 @@ class IncidentRelation(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return IncidentRelation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

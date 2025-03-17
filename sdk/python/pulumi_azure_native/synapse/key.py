@@ -115,9 +115,7 @@ class Key(pulumi.CustomResource):
                  __props__=None):
         """
         A workspace key
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,7 @@ class Key(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A workspace key
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +173,7 @@ class Key(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20190601preview:Key"), pulumi.Alias(type_="azure-native:synapse/v20201201:Key"), pulumi.Alias(type_="azure-native:synapse/v20210301:Key"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:Key"), pulumi.Alias(type_="azure-native:synapse/v20210501:Key"), pulumi.Alias(type_="azure-native:synapse/v20210601:Key"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:Key")])
@@ -203,11 +200,20 @@ class Key(pulumi.CustomResource):
 
         __props__ = KeyArgs.__new__(KeyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["is_active_cmk"] = None
         __props__.__dict__["key_vault_url"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="isActiveCMK")

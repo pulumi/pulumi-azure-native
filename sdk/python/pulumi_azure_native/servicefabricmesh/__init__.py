@@ -21,11 +21,3 @@ from .secret_value import *
 from .volume import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicefabricmesh.v20180901preview as __v20180901preview
-    v20180901preview = __v20180901preview
-else:
-    v20180901preview = _utilities.lazy_import('pulumi_azure_native.servicefabricmesh.v20180901preview')
-

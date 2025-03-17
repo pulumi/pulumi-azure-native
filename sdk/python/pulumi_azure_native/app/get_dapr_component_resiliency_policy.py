@@ -27,7 +27,10 @@ class GetDaprComponentResiliencyPolicyResult:
     """
     Dapr Component Resiliency Policy.
     """
-    def __init__(__self__, id=None, inbound_policy=None, name=None, outbound_policy=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, inbound_policy=None, name=None, outbound_policy=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,10 +51,18 @@ class GetDaprComponentResiliencyPolicyResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -102,6 +113,7 @@ class AwaitableGetDaprComponentResiliencyPolicyResult(GetDaprComponentResiliency
         if False:
             yield self
         return GetDaprComponentResiliencyPolicyResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             inbound_policy=self.inbound_policy,
             name=self.name,
@@ -117,9 +129,7 @@ def get_dapr_component_resiliency_policy(component_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaprComponentResiliencyPolicyResult:
     """
     Dapr Component Resiliency Policy.
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -136,6 +146,7 @@ def get_dapr_component_resiliency_policy(component_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getDaprComponentResiliencyPolicy', __args__, opts=opts, typ=GetDaprComponentResiliencyPolicyResult).value
 
     return AwaitableGetDaprComponentResiliencyPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         inbound_policy=pulumi.get(__ret__, 'inbound_policy'),
         name=pulumi.get(__ret__, 'name'),
@@ -149,9 +160,7 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
     """
     Dapr Component Resiliency Policy.
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -167,6 +176,7 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getDaprComponentResiliencyPolicy', __args__, opts=opts, typ=GetDaprComponentResiliencyPolicyResult)
     return __ret__.apply(lambda __response__: GetDaprComponentResiliencyPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         inbound_policy=pulumi.get(__response__, 'inbound_policy'),
         name=pulumi.get(__response__, 'name'),

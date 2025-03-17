@@ -27,7 +27,10 @@ class GetRouteResult:
     """
     Friendly Routes name mapping to the any Routes or secret related information.
     """
-    def __init__(__self__, cache_configuration=None, custom_domains=None, deployment_status=None, enabled_state=None, endpoint_name=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, cache_configuration=None, custom_domains=None, deployment_status=None, enabled_state=None, endpoint_name=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cache_configuration and not isinstance(cache_configuration, dict):
             raise TypeError("Expected argument 'cache_configuration' to be a dict")
         pulumi.set(__self__, "cache_configuration", cache_configuration)
@@ -82,6 +85,14 @@ class GetRouteResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cacheConfiguration")
@@ -231,6 +242,7 @@ class AwaitableGetRouteResult(GetRouteResult):
         if False:
             yield self
         return GetRouteResult(
+            azure_api_version=self.azure_api_version,
             cache_configuration=self.cache_configuration,
             custom_domains=self.custom_domains,
             deployment_status=self.deployment_status,
@@ -258,9 +270,7 @@ def get_route(endpoint_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -277,6 +287,7 @@ def get_route(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cache_configuration=pulumi.get(__ret__, 'cache_configuration'),
         custom_domains=pulumi.get(__ret__, 'custom_domains'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
@@ -302,9 +313,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -320,6 +329,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cache_configuration=pulumi.get(__response__, 'cache_configuration'),
         custom_domains=pulumi.get(__response__, 'custom_domains'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),

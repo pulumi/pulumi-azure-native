@@ -24,30 +24,29 @@ class VolumeArgs:
     def __init__(__self__, *,
                  elastic_san_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 size_gi_b: pulumi.Input[float],
                  volume_group_name: pulumi.Input[str],
                  creation_data: Optional[pulumi.Input['SourceCreationDataArgs']] = None,
-                 size_gi_b: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 managed_by: Optional[pulumi.Input['ManagedByInfoArgs']] = None,
                  volume_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[float] size_gi_b: Volume size.
         :param pulumi.Input[str] volume_group_name: The name of the VolumeGroup.
         :param pulumi.Input['SourceCreationDataArgs'] creation_data: State of the operation on the resource.
-        :param pulumi.Input[float] size_gi_b: Volume size.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input['ManagedByInfoArgs'] managed_by: Parent resource information.
         :param pulumi.Input[str] volume_name: The name of the Volume.
         """
         pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "size_gi_b", size_gi_b)
         pulumi.set(__self__, "volume_group_name", volume_group_name)
         if creation_data is not None:
             pulumi.set(__self__, "creation_data", creation_data)
-        if size_gi_b is not None:
-            pulumi.set(__self__, "size_gi_b", size_gi_b)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
         if volume_name is not None:
             pulumi.set(__self__, "volume_name", volume_name)
 
@@ -76,6 +75,18 @@ class VolumeArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="sizeGiB")
+    def size_gi_b(self) -> pulumi.Input[float]:
+        """
+        Volume size.
+        """
+        return pulumi.get(self, "size_gi_b")
+
+    @size_gi_b.setter
+    def size_gi_b(self, value: pulumi.Input[float]):
+        pulumi.set(self, "size_gi_b", value)
+
+    @property
     @pulumi.getter(name="volumeGroupName")
     def volume_group_name(self) -> pulumi.Input[str]:
         """
@@ -100,28 +111,16 @@ class VolumeArgs:
         pulumi.set(self, "creation_data", value)
 
     @property
-    @pulumi.getter(name="sizeGiB")
-    def size_gi_b(self) -> Optional[pulumi.Input[float]]:
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input['ManagedByInfoArgs']]:
         """
-        Volume size.
+        Parent resource information.
         """
-        return pulumi.get(self, "size_gi_b")
+        return pulumi.get(self, "managed_by")
 
-    @size_gi_b.setter
-    def size_gi_b(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "size_gi_b", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Azure resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input['ManagedByInfoArgs']]):
+        pulumi.set(self, "managed_by", value)
 
     @property
     @pulumi.getter(name="volumeName")
@@ -143,25 +142,23 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Response for Volume request.
-        Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
-
-        Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-11-20-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']] creation_data: State of the operation on the resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
+        :param pulumi.Input[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']] managed_by: Parent resource information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] size_gi_b: Volume size.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] volume_group_name: The name of the VolumeGroup.
         :param pulumi.Input[str] volume_name: The name of the Volume.
         """
@@ -173,9 +170,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response for Volume request.
-        Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
-
-        Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-11-20-preview.
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -194,9 +189,9 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -212,16 +207,20 @@ class Volume(pulumi.CustomResource):
             if elastic_san_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
+            __props__.__dict__["managed_by"] = managed_by
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if size_gi_b is None and not opts.urn:
+                raise TypeError("Missing required property 'size_gi_b'")
             __props__.__dict__["size_gi_b"] = size_gi_b
-            __props__.__dict__["tags"] = tags
             if volume_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_group_name'")
             __props__.__dict__["volume_group_name"] = volume_group_name
             __props__.__dict__["volume_name"] = volume_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["storage_target"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -250,15 +249,25 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_data"] = None
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["size_gi_b"] = None
         __props__.__dict__["storage_target"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volume_id"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationData")
@@ -269,16 +278,32 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "creation_data")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[Optional['outputs.ManagedByInfoResponse']]:
+        """
+        Parent resource information.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="sizeGiB")
-    def size_gi_b(self) -> pulumi.Output[Optional[float]]:
+    def size_gi_b(self) -> pulumi.Output[float]:
         """
         Volume size.
         """
@@ -296,23 +321,15 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource metadata required by ARM RPC
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Azure resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

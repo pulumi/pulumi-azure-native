@@ -307,9 +307,7 @@ class Extension(pulumi.CustomResource):
                  __props__=None):
         """
         The Extension object.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
-
-        Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,9 +336,7 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Extension object.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
-
-        Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -410,6 +406,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["statuses"] = statuses
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["current_version"] = None
             __props__.__dict__["custom_location_settings"] = None
             __props__.__dict__["error_info"] = None
@@ -419,7 +416,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20200701preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20210501preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20210901:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20211101preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220101preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220301:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220402preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220701:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20221101:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20230501:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20200701preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20210501preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20210901:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20211101preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220101preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220301:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220402preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220701:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20221101:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20230501:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20241101:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:kubernetesconfiguration:Extension',
@@ -445,6 +442,7 @@ class Extension(pulumi.CustomResource):
 
         __props__.__dict__["aks_assigned_identity"] = None
         __props__.__dict__["auto_upgrade_minor_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["configuration_protected_settings"] = None
         __props__.__dict__["configuration_settings"] = None
         __props__.__dict__["current_version"] = None
@@ -480,6 +478,14 @@ class Extension(pulumi.CustomResource):
         Flag to note if this extension participates in auto upgrade of minor version, or not.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationProtectedSettings")

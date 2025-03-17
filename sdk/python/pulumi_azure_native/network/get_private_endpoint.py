@@ -27,10 +27,13 @@ class GetPrivateEndpointResult:
     """
     Private endpoint resource.
     """
-    def __init__(__self__, application_security_groups=None, custom_dns_configs=None, custom_network_interface_name=None, etag=None, extended_location=None, id=None, ip_configurations=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
+    def __init__(__self__, application_security_groups=None, azure_api_version=None, custom_dns_configs=None, custom_network_interface_name=None, etag=None, extended_location=None, id=None, ip_configurations=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
         if application_security_groups and not isinstance(application_security_groups, list):
             raise TypeError("Expected argument 'application_security_groups' to be a list")
         pulumi.set(__self__, "application_security_groups", application_security_groups)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_dns_configs and not isinstance(custom_dns_configs, list):
             raise TypeError("Expected argument 'custom_dns_configs' to be a list")
         pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
@@ -84,6 +87,14 @@ class GetPrivateEndpointResult:
         Application security groups in which the private endpoint IP configuration is included.
         """
         return pulumi.get(self, "application_security_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customDnsConfigs")
@@ -213,6 +224,7 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
             yield self
         return GetPrivateEndpointResult(
             application_security_groups=self.application_security_groups,
+            azure_api_version=self.azure_api_version,
             custom_dns_configs=self.custom_dns_configs,
             custom_network_interface_name=self.custom_network_interface_name,
             etag=self.etag,
@@ -236,9 +248,7 @@ def get_private_endpoint(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
     Gets the specified private endpoint by resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -254,6 +264,7 @@ def get_private_endpoint(expand: Optional[str] = None,
 
     return AwaitableGetPrivateEndpointResult(
         application_security_groups=pulumi.get(__ret__, 'application_security_groups'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_dns_configs=pulumi.get(__ret__, 'custom_dns_configs'),
         custom_network_interface_name=pulumi.get(__ret__, 'custom_network_interface_name'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -275,9 +286,7 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets the specified private endpoint by resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -292,6 +301,7 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointResult(
         application_security_groups=pulumi.get(__response__, 'application_security_groups'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_dns_configs=pulumi.get(__response__, 'custom_dns_configs'),
         custom_network_interface_name=pulumi.get(__response__, 'custom_network_interface_name'),
         etag=pulumi.get(__response__, 'etag'),

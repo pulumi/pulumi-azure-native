@@ -66,7 +66,7 @@ class SecurityOperator(pulumi.CustomResource):
                  __props__=None):
         """
         Security operator under a given subscription and pricing
-        Azure REST API version: 2023-01-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class SecurityOperator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security operator under a given subscription and pricing
-        Azure REST API version: 2023-01-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SecurityOperatorArgs args: The arguments to use to populate this resource's properties.
@@ -113,6 +113,7 @@ class SecurityOperator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'pricing_name'")
             __props__.__dict__["pricing_name"] = pricing_name
             __props__.__dict__["security_operator_name"] = security_operator_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["identity"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -140,10 +141,19 @@ class SecurityOperator(pulumi.CustomResource):
 
         __props__ = SecurityOperatorArgs.__new__(SecurityOperatorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return SecurityOperator(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

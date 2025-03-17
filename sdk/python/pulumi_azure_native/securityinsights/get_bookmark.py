@@ -27,7 +27,10 @@ class GetBookmarkResult:
     """
     Represents a bookmark in Azure Security Insights.
     """
-    def __init__(__self__, created=None, created_by=None, display_name=None, etag=None, event_time=None, id=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_end_time=None, query_result=None, query_start_time=None, system_data=None, type=None, updated=None, updated_by=None):
+    def __init__(__self__, azure_api_version=None, created=None, created_by=None, display_name=None, etag=None, event_time=None, id=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_end_time=None, query_result=None, query_start_time=None, system_data=None, type=None, updated=None, updated_by=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -82,6 +85,14 @@ class GetBookmarkResult:
         if updated_by and not isinstance(updated_by, dict):
             raise TypeError("Expected argument 'updated_by' to be a dict")
         pulumi.set(__self__, "updated_by", updated_by)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -234,6 +245,7 @@ class AwaitableGetBookmarkResult(GetBookmarkResult):
         if False:
             yield self
         return GetBookmarkResult(
+            azure_api_version=self.azure_api_version,
             created=self.created,
             created_by=self.created_by,
             display_name=self.display_name,
@@ -260,9 +272,7 @@ def get_bookmark(bookmark_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
     Gets a bookmark.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str bookmark_id: Bookmark ID
@@ -277,6 +287,7 @@ def get_bookmark(bookmark_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getBookmark', __args__, opts=opts, typ=GetBookmarkResult).value
 
     return AwaitableGetBookmarkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created=pulumi.get(__ret__, 'created'),
         created_by=pulumi.get(__ret__, 'created_by'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -301,9 +312,7 @@ def get_bookmark_output(bookmark_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBookmarkResult]:
     """
     Gets a bookmark.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str bookmark_id: Bookmark ID
@@ -317,6 +326,7 @@ def get_bookmark_output(bookmark_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getBookmark', __args__, opts=opts, typ=GetBookmarkResult)
     return __ret__.apply(lambda __response__: GetBookmarkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created=pulumi.get(__response__, 'created'),
         created_by=pulumi.get(__response__, 'created_by'),
         display_name=pulumi.get(__response__, 'display_name'),

@@ -27,7 +27,10 @@ class GetLoadTestResult:
     """
     LoadTest details.
     """
-    def __init__(__self__, data_plane_uri=None, description=None, encryption=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_plane_uri=None, description=None, encryption=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_plane_uri and not isinstance(data_plane_uri, str):
             raise TypeError("Expected argument 'data_plane_uri' to be a str")
         pulumi.set(__self__, "data_plane_uri", data_plane_uri)
@@ -61,6 +64,14 @@ class GetLoadTestResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataPlaneURI")
@@ -157,6 +168,7 @@ class AwaitableGetLoadTestResult(GetLoadTestResult):
         if False:
             yield self
         return GetLoadTestResult(
+            azure_api_version=self.azure_api_version,
             data_plane_uri=self.data_plane_uri,
             description=self.description,
             encryption=self.encryption,
@@ -175,9 +187,7 @@ def get_load_test(load_test_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestResult:
     """
     Get a LoadTestResource
-    Azure REST API version: 2022-12-01.
-
-    Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str load_test_name: Load Test name
@@ -190,6 +200,7 @@ def get_load_test(load_test_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:loadtestservice:getLoadTest', __args__, opts=opts, typ=GetLoadTestResult).value
 
     return AwaitableGetLoadTestResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_plane_uri=pulumi.get(__ret__, 'data_plane_uri'),
         description=pulumi.get(__ret__, 'description'),
         encryption=pulumi.get(__ret__, 'encryption'),
@@ -206,9 +217,7 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadTestResult]:
     """
     Get a LoadTestResource
-    Azure REST API version: 2022-12-01.
-
-    Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str load_test_name: Load Test name
@@ -220,6 +229,7 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:loadtestservice:getLoadTest', __args__, opts=opts, typ=GetLoadTestResult)
     return __ret__.apply(lambda __response__: GetLoadTestResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_plane_uri=pulumi.get(__response__, 'data_plane_uri'),
         description=pulumi.get(__response__, 'description'),
         encryption=pulumi.get(__response__, 'encryption'),

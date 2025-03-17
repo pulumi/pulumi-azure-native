@@ -27,10 +27,13 @@ class GetInstanceDetailsResult:
     """
     Represents an instance of a DFP instance resource.
     """
-    def __init__(__self__, administration=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administration=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
         pulumi.set(__self__, "administration", administration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,6 +63,14 @@ class GetInstanceDetailsResult:
         A collection of DFP instance administrators
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetInstanceDetailsResult(GetInstanceDetailsResult):
             yield self
         return GetInstanceDetailsResult(
             administration=self.administration,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -153,6 +165,7 @@ def get_instance_details(instance_name: Optional[str] = None,
 
     return AwaitableGetInstanceDetailsResult(
         administration=pulumi.get(__ret__, 'administration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -178,6 +191,7 @@ def get_instance_details_output(instance_name: Optional[pulumi.Input[str]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure-native:dynamics365fraudprotection:getInstanceDetails', __args__, opts=opts, typ=GetInstanceDetailsResult)
     return __ret__.apply(lambda __response__: GetInstanceDetailsResult(
         administration=pulumi.get(__response__, 'administration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

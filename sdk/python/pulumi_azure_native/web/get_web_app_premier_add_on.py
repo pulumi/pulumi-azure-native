@@ -26,7 +26,10 @@ class GetWebAppPremierAddOnResult:
     """
     Premier add-on.
     """
-    def __init__(__self__, id=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, tags=None, type=None, vendor=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, tags=None, type=None, vendor=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,6 +65,14 @@ class GetWebAppPremierAddOnResult:
         pulumi.set(__self__, "vendor", vendor)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -73,7 +84,7 @@ class GetWebAppPremierAddOnResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -156,6 +167,7 @@ class AwaitableGetWebAppPremierAddOnResult(GetWebAppPremierAddOnResult):
         if False:
             yield self
         return GetWebAppPremierAddOnResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             location=self.location,
@@ -175,9 +187,7 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnResult:
     """
     Description for Gets a named add-on of an app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -192,6 +202,7 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppPremierAddOn', __args__, opts=opts, typ=GetWebAppPremierAddOnResult).value
 
     return AwaitableGetWebAppPremierAddOnResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
@@ -209,9 +220,7 @@ def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPremierAddOnResult]:
     """
     Description for Gets a named add-on of an app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -225,6 +234,7 @@ def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppPremierAddOn', __args__, opts=opts, typ=GetWebAppPremierAddOnResult)
     return __ret__.apply(lambda __response__: GetWebAppPremierAddOnResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),

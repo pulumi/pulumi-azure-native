@@ -115,9 +115,7 @@ class CodeVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,7 @@ class CodeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param CodeVersionInitArgs args: The arguments to use to populate this resource's properties.
@@ -181,9 +177,10 @@ class CodeVersion(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:CodeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:CodeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CodeVersion, __self__).__init__(
             'azure-native:machinelearningservices:CodeVersion',
@@ -207,11 +204,20 @@ class CodeVersion(pulumi.CustomResource):
 
         __props__ = CodeVersionInitArgs.__new__(CodeVersionInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["code_version_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CodeVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="codeVersionProperties")

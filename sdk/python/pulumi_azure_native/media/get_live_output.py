@@ -27,13 +27,16 @@ class GetLiveOutputResult:
     """
     The Live Output.
     """
-    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, rewind_window_length=None, system_data=None, type=None):
+    def __init__(__self__, archive_window_length=None, asset_name=None, azure_api_version=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, rewind_window_length=None, system_data=None, type=None):
         if archive_window_length and not isinstance(archive_window_length, str):
             raise TypeError("Expected argument 'archive_window_length' to be a str")
         pulumi.set(__self__, "archive_window_length", archive_window_length)
         if asset_name and not isinstance(asset_name, str):
             raise TypeError("Expected argument 'asset_name' to be a str")
         pulumi.set(__self__, "asset_name", asset_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -89,6 +92,14 @@ class GetLiveOutputResult:
         The asset that the live output will write to.
         """
         return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -203,6 +214,7 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
         return GetLiveOutputResult(
             archive_window_length=self.archive_window_length,
             asset_name=self.asset_name,
+            azure_api_version=self.azure_api_version,
             created=self.created,
             description=self.description,
             hls=self.hls,
@@ -244,6 +256,7 @@ def get_live_output(account_name: Optional[str] = None,
     return AwaitableGetLiveOutputResult(
         archive_window_length=pulumi.get(__ret__, 'archive_window_length'),
         asset_name=pulumi.get(__ret__, 'asset_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created=pulumi.get(__ret__, 'created'),
         description=pulumi.get(__ret__, 'description'),
         hls=pulumi.get(__ret__, 'hls'),
@@ -282,6 +295,7 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetLiveOutputResult(
         archive_window_length=pulumi.get(__response__, 'archive_window_length'),
         asset_name=pulumi.get(__response__, 'asset_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created=pulumi.get(__response__, 'created'),
         description=pulumi.get(__response__, 'description'),
         hls=pulumi.get(__response__, 'hls'),

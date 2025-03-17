@@ -27,16 +27,25 @@ class GetNodeTypeResult:
     """
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     """
-    def __init__(__self__, additional_data_disks=None, application_ports=None, capacities=None, data_disk_letter=None, data_disk_size_gb=None, data_disk_type=None, enable_accelerated_networking=None, enable_encryption_at_host=None, enable_node_public_ip=None, enable_over_provisioning=None, ephemeral_ports=None, eviction_policy=None, frontend_configurations=None, host_group_id=None, id=None, is_primary=None, is_spot_vm=None, is_stateless=None, multiple_placement_groups=None, name=None, nat_gateway_id=None, network_security_rules=None, placement_properties=None, provisioning_state=None, secure_boot_enabled=None, security_type=None, sku=None, spot_restore_timeout=None, subnet_id=None, system_data=None, tags=None, type=None, use_default_public_load_balancer=None, use_ephemeral_os_disk=None, use_temp_data_disk=None, vm_extensions=None, vm_image_offer=None, vm_image_plan=None, vm_image_publisher=None, vm_image_resource_id=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_managed_identity=None, vm_secrets=None, vm_setup_actions=None, vm_shared_gallery_image_id=None, vm_size=None, zones=None):
+    def __init__(__self__, additional_data_disks=None, additional_network_interface_configurations=None, application_ports=None, azure_api_version=None, capacities=None, computer_name_prefix=None, data_disk_letter=None, data_disk_size_gb=None, data_disk_type=None, dscp_configuration_id=None, enable_accelerated_networking=None, enable_encryption_at_host=None, enable_node_public_ip=None, enable_node_public_i_pv6=None, enable_over_provisioning=None, ephemeral_ports=None, eviction_policy=None, frontend_configurations=None, host_group_id=None, id=None, is_primary=None, is_spot_vm=None, is_stateless=None, multiple_placement_groups=None, name=None, nat_configurations=None, nat_gateway_id=None, network_security_rules=None, placement_properties=None, provisioning_state=None, secure_boot_enabled=None, security_type=None, service_artifact_reference_id=None, sku=None, spot_restore_timeout=None, subnet_id=None, system_data=None, tags=None, type=None, use_default_public_load_balancer=None, use_ephemeral_os_disk=None, use_temp_data_disk=None, vm_extensions=None, vm_image_offer=None, vm_image_plan=None, vm_image_publisher=None, vm_image_resource_id=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_managed_identity=None, vm_secrets=None, vm_setup_actions=None, vm_shared_gallery_image_id=None, vm_size=None, zones=None):
         if additional_data_disks and not isinstance(additional_data_disks, list):
             raise TypeError("Expected argument 'additional_data_disks' to be a list")
         pulumi.set(__self__, "additional_data_disks", additional_data_disks)
+        if additional_network_interface_configurations and not isinstance(additional_network_interface_configurations, list):
+            raise TypeError("Expected argument 'additional_network_interface_configurations' to be a list")
+        pulumi.set(__self__, "additional_network_interface_configurations", additional_network_interface_configurations)
         if application_ports and not isinstance(application_ports, dict):
             raise TypeError("Expected argument 'application_ports' to be a dict")
         pulumi.set(__self__, "application_ports", application_ports)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capacities and not isinstance(capacities, dict):
             raise TypeError("Expected argument 'capacities' to be a dict")
         pulumi.set(__self__, "capacities", capacities)
+        if computer_name_prefix and not isinstance(computer_name_prefix, str):
+            raise TypeError("Expected argument 'computer_name_prefix' to be a str")
+        pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if data_disk_letter and not isinstance(data_disk_letter, str):
             raise TypeError("Expected argument 'data_disk_letter' to be a str")
         pulumi.set(__self__, "data_disk_letter", data_disk_letter)
@@ -46,6 +55,9 @@ class GetNodeTypeResult:
         if data_disk_type and not isinstance(data_disk_type, str):
             raise TypeError("Expected argument 'data_disk_type' to be a str")
         pulumi.set(__self__, "data_disk_type", data_disk_type)
+        if dscp_configuration_id and not isinstance(dscp_configuration_id, str):
+            raise TypeError("Expected argument 'dscp_configuration_id' to be a str")
+        pulumi.set(__self__, "dscp_configuration_id", dscp_configuration_id)
         if enable_accelerated_networking and not isinstance(enable_accelerated_networking, bool):
             raise TypeError("Expected argument 'enable_accelerated_networking' to be a bool")
         pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
@@ -55,6 +67,9 @@ class GetNodeTypeResult:
         if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
             raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if enable_node_public_i_pv6 and not isinstance(enable_node_public_i_pv6, bool):
+            raise TypeError("Expected argument 'enable_node_public_i_pv6' to be a bool")
+        pulumi.set(__self__, "enable_node_public_i_pv6", enable_node_public_i_pv6)
         if enable_over_provisioning and not isinstance(enable_over_provisioning, bool):
             raise TypeError("Expected argument 'enable_over_provisioning' to be a bool")
         pulumi.set(__self__, "enable_over_provisioning", enable_over_provisioning)
@@ -88,6 +103,9 @@ class GetNodeTypeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nat_configurations and not isinstance(nat_configurations, list):
+            raise TypeError("Expected argument 'nat_configurations' to be a list")
+        pulumi.set(__self__, "nat_configurations", nat_configurations)
         if nat_gateway_id and not isinstance(nat_gateway_id, str):
             raise TypeError("Expected argument 'nat_gateway_id' to be a str")
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -106,6 +124,9 @@ class GetNodeTypeResult:
         if security_type and not isinstance(security_type, str):
             raise TypeError("Expected argument 'security_type' to be a str")
         pulumi.set(__self__, "security_type", security_type)
+        if service_artifact_reference_id and not isinstance(service_artifact_reference_id, str):
+            raise TypeError("Expected argument 'service_artifact_reference_id' to be a str")
+        pulumi.set(__self__, "service_artifact_reference_id", service_artifact_reference_id)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -185,6 +206,14 @@ class GetNodeTypeResult:
         return pulumi.get(self, "additional_data_disks")
 
     @property
+    @pulumi.getter(name="additionalNetworkInterfaceConfigurations")
+    def additional_network_interface_configurations(self) -> Optional[Sequence['outputs.AdditionalNetworkInterfaceConfigurationResponse']]:
+        """
+        Specifies the settings for any additional secondary network interfaces to attach to the node type.
+        """
+        return pulumi.get(self, "additional_network_interface_configurations")
+
+    @property
     @pulumi.getter(name="applicationPorts")
     def application_ports(self) -> Optional['outputs.EndpointRangeDescriptionResponse']:
         """
@@ -193,12 +222,28 @@ class GetNodeTypeResult:
         return pulumi.get(self, "application_ports")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def capacities(self) -> Optional[Mapping[str, str]]:
         """
         The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         """
         return pulumi.get(self, "capacities")
+
+    @property
+    @pulumi.getter(name="computerNamePrefix")
+    def computer_name_prefix(self) -> Optional[str]:
+        """
+        Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+        """
+        return pulumi.get(self, "computer_name_prefix")
 
     @property
     @pulumi.getter(name="dataDiskLetter")
@@ -225,6 +270,14 @@ class GetNodeTypeResult:
         return pulumi.get(self, "data_disk_type")
 
     @property
+    @pulumi.getter(name="dscpConfigurationId")
+    def dscp_configuration_id(self) -> Optional[str]:
+        """
+        Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+        """
+        return pulumi.get(self, "dscp_configuration_id")
+
+    @property
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[bool]:
         """
@@ -244,9 +297,17 @@ class GetNodeTypeResult:
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
-        Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="enableNodePublicIPv6")
+    def enable_node_public_i_pv6(self) -> Optional[bool]:
+        """
+        Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+        """
+        return pulumi.get(self, "enable_node_public_i_pv6")
 
     @property
     @pulumi.getter(name="enableOverProvisioning")
@@ -337,6 +398,14 @@ class GetNodeTypeResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="natConfigurations")
+    def nat_configurations(self) -> Optional[Sequence['outputs.NodeTypeNatConfigResponse']]:
+        """
+        Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+        """
+        return pulumi.get(self, "nat_configurations")
+
+    @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[str]:
         """
@@ -380,9 +449,17 @@ class GetNodeTypeResult:
     @pulumi.getter(name="securityType")
     def security_type(self) -> Optional[str]:
         """
-        Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         """
         return pulumi.get(self, "security_type")
+
+    @property
+    @pulumi.getter(name="serviceArtifactReferenceId")
+    def service_artifact_reference_id(self) -> Optional[str]:
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        """
+        return pulumi.get(self, "service_artifact_reference_id")
 
     @property
     @pulumi.getter
@@ -576,14 +653,19 @@ class AwaitableGetNodeTypeResult(GetNodeTypeResult):
             yield self
         return GetNodeTypeResult(
             additional_data_disks=self.additional_data_disks,
+            additional_network_interface_configurations=self.additional_network_interface_configurations,
             application_ports=self.application_ports,
+            azure_api_version=self.azure_api_version,
             capacities=self.capacities,
+            computer_name_prefix=self.computer_name_prefix,
             data_disk_letter=self.data_disk_letter,
             data_disk_size_gb=self.data_disk_size_gb,
             data_disk_type=self.data_disk_type,
+            dscp_configuration_id=self.dscp_configuration_id,
             enable_accelerated_networking=self.enable_accelerated_networking,
             enable_encryption_at_host=self.enable_encryption_at_host,
             enable_node_public_ip=self.enable_node_public_ip,
+            enable_node_public_i_pv6=self.enable_node_public_i_pv6,
             enable_over_provisioning=self.enable_over_provisioning,
             ephemeral_ports=self.ephemeral_ports,
             eviction_policy=self.eviction_policy,
@@ -595,12 +677,14 @@ class AwaitableGetNodeTypeResult(GetNodeTypeResult):
             is_stateless=self.is_stateless,
             multiple_placement_groups=self.multiple_placement_groups,
             name=self.name,
+            nat_configurations=self.nat_configurations,
             nat_gateway_id=self.nat_gateway_id,
             network_security_rules=self.network_security_rules,
             placement_properties=self.placement_properties,
             provisioning_state=self.provisioning_state,
             secure_boot_enabled=self.secure_boot_enabled,
             security_type=self.security_type,
+            service_artifact_reference_id=self.service_artifact_reference_id,
             sku=self.sku,
             spot_restore_timeout=self.spot_restore_timeout,
             subnet_id=self.subnet_id,
@@ -632,9 +716,7 @@ def get_node_type(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeTypeResult:
     """
     Get a Service Fabric node type of a given managed cluster.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -650,14 +732,19 @@ def get_node_type(cluster_name: Optional[str] = None,
 
     return AwaitableGetNodeTypeResult(
         additional_data_disks=pulumi.get(__ret__, 'additional_data_disks'),
+        additional_network_interface_configurations=pulumi.get(__ret__, 'additional_network_interface_configurations'),
         application_ports=pulumi.get(__ret__, 'application_ports'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capacities=pulumi.get(__ret__, 'capacities'),
+        computer_name_prefix=pulumi.get(__ret__, 'computer_name_prefix'),
         data_disk_letter=pulumi.get(__ret__, 'data_disk_letter'),
         data_disk_size_gb=pulumi.get(__ret__, 'data_disk_size_gb'),
         data_disk_type=pulumi.get(__ret__, 'data_disk_type'),
+        dscp_configuration_id=pulumi.get(__ret__, 'dscp_configuration_id'),
         enable_accelerated_networking=pulumi.get(__ret__, 'enable_accelerated_networking'),
         enable_encryption_at_host=pulumi.get(__ret__, 'enable_encryption_at_host'),
         enable_node_public_ip=pulumi.get(__ret__, 'enable_node_public_ip'),
+        enable_node_public_i_pv6=pulumi.get(__ret__, 'enable_node_public_i_pv6'),
         enable_over_provisioning=pulumi.get(__ret__, 'enable_over_provisioning'),
         ephemeral_ports=pulumi.get(__ret__, 'ephemeral_ports'),
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'),
@@ -669,12 +756,14 @@ def get_node_type(cluster_name: Optional[str] = None,
         is_stateless=pulumi.get(__ret__, 'is_stateless'),
         multiple_placement_groups=pulumi.get(__ret__, 'multiple_placement_groups'),
         name=pulumi.get(__ret__, 'name'),
+        nat_configurations=pulumi.get(__ret__, 'nat_configurations'),
         nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
         network_security_rules=pulumi.get(__ret__, 'network_security_rules'),
         placement_properties=pulumi.get(__ret__, 'placement_properties'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         secure_boot_enabled=pulumi.get(__ret__, 'secure_boot_enabled'),
         security_type=pulumi.get(__ret__, 'security_type'),
+        service_artifact_reference_id=pulumi.get(__ret__, 'service_artifact_reference_id'),
         sku=pulumi.get(__ret__, 'sku'),
         spot_restore_timeout=pulumi.get(__ret__, 'spot_restore_timeout'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
@@ -704,9 +793,7 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeTypeResult]:
     """
     Get a Service Fabric node type of a given managed cluster.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -721,14 +808,19 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric:getNodeType', __args__, opts=opts, typ=GetNodeTypeResult)
     return __ret__.apply(lambda __response__: GetNodeTypeResult(
         additional_data_disks=pulumi.get(__response__, 'additional_data_disks'),
+        additional_network_interface_configurations=pulumi.get(__response__, 'additional_network_interface_configurations'),
         application_ports=pulumi.get(__response__, 'application_ports'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capacities=pulumi.get(__response__, 'capacities'),
+        computer_name_prefix=pulumi.get(__response__, 'computer_name_prefix'),
         data_disk_letter=pulumi.get(__response__, 'data_disk_letter'),
         data_disk_size_gb=pulumi.get(__response__, 'data_disk_size_gb'),
         data_disk_type=pulumi.get(__response__, 'data_disk_type'),
+        dscp_configuration_id=pulumi.get(__response__, 'dscp_configuration_id'),
         enable_accelerated_networking=pulumi.get(__response__, 'enable_accelerated_networking'),
         enable_encryption_at_host=pulumi.get(__response__, 'enable_encryption_at_host'),
         enable_node_public_ip=pulumi.get(__response__, 'enable_node_public_ip'),
+        enable_node_public_i_pv6=pulumi.get(__response__, 'enable_node_public_i_pv6'),
         enable_over_provisioning=pulumi.get(__response__, 'enable_over_provisioning'),
         ephemeral_ports=pulumi.get(__response__, 'ephemeral_ports'),
         eviction_policy=pulumi.get(__response__, 'eviction_policy'),
@@ -740,12 +832,14 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
         is_stateless=pulumi.get(__response__, 'is_stateless'),
         multiple_placement_groups=pulumi.get(__response__, 'multiple_placement_groups'),
         name=pulumi.get(__response__, 'name'),
+        nat_configurations=pulumi.get(__response__, 'nat_configurations'),
         nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
         network_security_rules=pulumi.get(__response__, 'network_security_rules'),
         placement_properties=pulumi.get(__response__, 'placement_properties'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         secure_boot_enabled=pulumi.get(__response__, 'secure_boot_enabled'),
         security_type=pulumi.get(__response__, 'security_type'),
+        service_artifact_reference_id=pulumi.get(__response__, 'service_artifact_reference_id'),
         sku=pulumi.get(__response__, 'sku'),
         spot_restore_timeout=pulumi.get(__response__, 'spot_restore_timeout'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),

@@ -27,7 +27,10 @@ class GetCommunityTrainingResult:
     """
     A CommunityProviderHub resource
     """
-    def __init__(__self__, disaster_recovery_enabled=None, id=None, identity_configuration=None, location=None, name=None, portal_admin_email_address=None, portal_name=None, portal_owner_email_address=None, portal_owner_organization_name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None, zone_redundancy_enabled=None):
+    def __init__(__self__, azure_api_version=None, disaster_recovery_enabled=None, id=None, identity_configuration=None, location=None, name=None, portal_admin_email_address=None, portal_name=None, portal_owner_email_address=None, portal_owner_organization_name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None, zone_redundancy_enabled=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disaster_recovery_enabled and not isinstance(disaster_recovery_enabled, bool):
             raise TypeError("Expected argument 'disaster_recovery_enabled' to be a bool")
         pulumi.set(__self__, "disaster_recovery_enabled", disaster_recovery_enabled)
@@ -73,6 +76,14 @@ class GetCommunityTrainingResult:
         if zone_redundancy_enabled and not isinstance(zone_redundancy_enabled, bool):
             raise TypeError("Expected argument 'zone_redundancy_enabled' to be a bool")
         pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disasterRecoveryEnabled")
@@ -201,6 +212,7 @@ class AwaitableGetCommunityTrainingResult(GetCommunityTrainingResult):
         if False:
             yield self
         return GetCommunityTrainingResult(
+            azure_api_version=self.azure_api_version,
             disaster_recovery_enabled=self.disaster_recovery_enabled,
             id=self.id,
             identity_configuration=self.identity_configuration,
@@ -236,6 +248,7 @@ def get_community_training(community_training_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:community:getCommunityTraining', __args__, opts=opts, typ=GetCommunityTrainingResult).value
 
     return AwaitableGetCommunityTrainingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disaster_recovery_enabled=pulumi.get(__ret__, 'disaster_recovery_enabled'),
         id=pulumi.get(__ret__, 'id'),
         identity_configuration=pulumi.get(__ret__, 'identity_configuration'),
@@ -268,6 +281,7 @@ def get_community_training_output(community_training_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:community:getCommunityTraining', __args__, opts=opts, typ=GetCommunityTrainingResult)
     return __ret__.apply(lambda __response__: GetCommunityTrainingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disaster_recovery_enabled=pulumi.get(__response__, 'disaster_recovery_enabled'),
         id=pulumi.get(__response__, 'id'),
         identity_configuration=pulumi.get(__response__, 'identity_configuration'),

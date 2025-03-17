@@ -27,7 +27,10 @@ class GetExportResult:
     """
     An export resource.
     """
-    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, id=None, name=None, next_run_time_estimate=None, partition_data=None, run_history=None, schedule=None, type=None):
+    def __init__(__self__, azure_api_version=None, definition=None, delivery_info=None, e_tag=None, format=None, id=None, identity=None, location=None, name=None, next_run_time_estimate=None, partition_data=None, run_history=None, schedule=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
@@ -43,6 +46,12 @@ class GetExportResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -61,6 +70,14 @@ class GetExportResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -101,6 +118,22 @@ class GetExportResult:
         Resource Id.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
+        """
+        The managed identity associated with Export
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the Export's managed identity. Only required when utilizing managed identity.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -157,11 +190,14 @@ class AwaitableGetExportResult(GetExportResult):
         if False:
             yield self
         return GetExportResult(
+            azure_api_version=self.azure_api_version,
             definition=self.definition,
             delivery_info=self.delivery_info,
             e_tag=self.e_tag,
             format=self.format,
             id=self.id,
+            identity=self.identity,
+            location=self.location,
             name=self.name,
             next_run_time_estimate=self.next_run_time_estimate,
             partition_data=self.partition_data,
@@ -176,9 +212,7 @@ def get_export(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     The operation to get the export for the defined scope by export name.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
@@ -193,11 +227,14 @@ def get_export(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getExport', __args__, opts=opts, typ=GetExportResult).value
 
     return AwaitableGetExportResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         definition=pulumi.get(__ret__, 'definition'),
         delivery_info=pulumi.get(__ret__, 'delivery_info'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         next_run_time_estimate=pulumi.get(__ret__, 'next_run_time_estimate'),
         partition_data=pulumi.get(__ret__, 'partition_data'),
@@ -210,9 +247,7 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The operation to get the export for the defined scope by export name.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
@@ -226,11 +261,14 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getExport', __args__, opts=opts, typ=GetExportResult)
     return __ret__.apply(lambda __response__: GetExportResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         definition=pulumi.get(__response__, 'definition'),
         delivery_info=pulumi.get(__response__, 'delivery_info'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         next_run_time_estimate=pulumi.get(__response__, 'next_run_time_estimate'),
         partition_data=pulumi.get(__response__, 'partition_data'),

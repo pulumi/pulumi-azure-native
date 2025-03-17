@@ -26,10 +26,13 @@ class GetTagApiLinkResult:
     """
     Tag-API link details.
     """
-    def __init__(__self__, api_id=None, id=None, name=None, type=None):
+    def __init__(__self__, api_id=None, azure_api_version=None, id=None, name=None, type=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
         pulumi.set(__self__, "api_id", api_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +50,14 @@ class GetTagApiLinkResult:
         Full resource Id of an API.
         """
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -80,6 +91,7 @@ class AwaitableGetTagApiLinkResult(GetTagApiLinkResult):
             yield self
         return GetTagApiLinkResult(
             api_id=self.api_id,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             type=self.type)
@@ -93,8 +105,6 @@ def get_tag_api_link(api_link_id: Optional[str] = None,
     """
     Gets the API link for the tag.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.
@@ -112,6 +122,7 @@ def get_tag_api_link(api_link_id: Optional[str] = None,
 
     return AwaitableGetTagApiLinkResult(
         api_id=pulumi.get(__ret__, 'api_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
@@ -123,8 +134,6 @@ def get_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the API link for the tag.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.
@@ -141,6 +150,7 @@ def get_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getTagApiLink', __args__, opts=opts, typ=GetTagApiLinkResult)
     return __ret__.apply(lambda __response__: GetTagApiLinkResult(
         api_id=pulumi.get(__response__, 'api_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         type=pulumi.get(__response__, 'type')))

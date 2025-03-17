@@ -237,6 +237,8 @@ class AzureActiveDirectoryAppResponse(dict):
             suggest = "app_key"
         elif key == "applicationId":
             suggest = "application_id"
+        elif key == "ignoreAzurePermissions":
+            suggest = "ignore_azure_permissions"
         elif key == "tenantId":
             suggest = "tenant_id"
 
@@ -252,22 +254,29 @@ class AzureActiveDirectoryAppResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 app_key: str,
-                 application_id: str,
-                 tenant_id: str):
+                 app_key: Optional[str] = None,
+                 application_id: Optional[str] = None,
+                 ignore_azure_permissions: Optional[bool] = None,
+                 tenant_id: Optional[str] = None):
         """
         Azure Active Directory Application
         :param str app_key: Key used to authenticate to the Azure Active Directory Application
         :param str application_id: Application ID of the Azure Active Directory Application
+        :param bool ignore_azure_permissions: Ignore checking azure permissions on the AAD app
         :param str tenant_id: Tenant id of the customer
         """
-        pulumi.set(__self__, "app_key", app_key)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        if app_key is not None:
+            pulumi.set(__self__, "app_key", app_key)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if ignore_azure_permissions is not None:
+            pulumi.set(__self__, "ignore_azure_permissions", ignore_azure_permissions)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="appKey")
-    def app_key(self) -> str:
+    def app_key(self) -> Optional[str]:
         """
         Key used to authenticate to the Azure Active Directory Application
         """
@@ -275,15 +284,23 @@ class AzureActiveDirectoryAppResponse(dict):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> Optional[str]:
         """
         Application ID of the Azure Active Directory Application
         """
         return pulumi.get(self, "application_id")
 
     @property
+    @pulumi.getter(name="ignoreAzurePermissions")
+    def ignore_azure_permissions(self) -> Optional[bool]:
+        """
+        Ignore checking azure permissions on the AAD app
+        """
+        return pulumi.get(self, "ignore_azure_permissions")
+
+    @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> Optional[str]:
         """
         Tenant id of the customer
         """
@@ -545,16 +562,17 @@ class BlobShareResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sas_uri: str):
+                 sas_uri: Optional[str] = None):
         """
         Blob container storage information.
         :param str sas_uri: SAS URI of Azure Storage Account Container.
         """
-        pulumi.set(__self__, "sas_uri", sas_uri)
+        if sas_uri is not None:
+            pulumi.set(__self__, "sas_uri", sas_uri)
 
     @property
     @pulumi.getter(name="sasUri")
-    def sas_uri(self) -> str:
+    def sas_uri(self) -> Optional[str]:
         """
         SAS URI of Azure Storage Account Container.
         """
@@ -1547,6 +1565,8 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
             suggest = "collect_logins"
         elif key == "collectTdeCertificateInfo":
             suggest = "collect_tde_certificate_info"
+        elif key == "encryptedKeyForSecureFields":
+            suggest = "encrypted_key_for_secure_fields"
         elif key == "validateSsisCatalogOnly":
             suggest = "validate_ssis_catalog_only"
 
@@ -1568,6 +1588,7 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
                  collect_databases: Optional[bool] = None,
                  collect_logins: Optional[bool] = None,
                  collect_tde_certificate_info: Optional[bool] = None,
+                 encrypted_key_for_secure_fields: Optional[str] = None,
                  validate_ssis_catalog_only: Optional[bool] = None):
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
@@ -1577,6 +1598,7 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
         :param bool collect_databases: Flag for whether to collect databases from source server.
         :param bool collect_logins: Flag for whether to collect logins from source server.
         :param bool collect_tde_certificate_info: Flag for whether to collect TDE Certificate names from source server.
+        :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         :param bool validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the source server.
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -1598,6 +1620,8 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
             collect_tde_certificate_info = False
         if collect_tde_certificate_info is not None:
             pulumi.set(__self__, "collect_tde_certificate_info", collect_tde_certificate_info)
+        if encrypted_key_for_secure_fields is not None:
+            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
@@ -1650,6 +1674,14 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
         Flag for whether to collect TDE Certificate names from source server.
         """
         return pulumi.get(self, "collect_tde_certificate_info")
+
+    @property
+    @pulumi.getter(name="encryptedKeyForSecureFields")
+    def encrypted_key_for_secure_fields(self) -> Optional[str]:
+        """
+        encrypted key for secure fields
+        """
+        return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @property
     @pulumi.getter(name="validateSsisCatalogOnly")
@@ -2182,6 +2214,8 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "taskId":
+            suggest = "task_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2201,7 +2235,8 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
-                 input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None):
+                 input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None,
+                 task_id: Optional[str] = None):
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
@@ -2212,6 +2247,7 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
                Expected value is 'ConnectToSource.SqlServer'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
+        :param str task_id: Task id 
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -2222,6 +2258,8 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
             pulumi.set(__self__, "client_data", client_data)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
 
     @property
     @pulumi.getter
@@ -2279,6 +2317,14 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
         Task input
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[str]:
+        """
+        Task id 
+        """
+        return pulumi.get(self, "task_id")
 
 
 @pulumi.output_type
@@ -3068,6 +3114,8 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
         suggest = None
         if key == "targetConnectionInfo":
             suggest = "target_connection_info"
+        elif key == "queryObjectCounts":
+            suggest = "query_object_counts"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlDbTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3081,12 +3129,16 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 target_connection_info: 'outputs.SqlConnectionInfoResponse'):
+                 target_connection_info: 'outputs.SqlConnectionInfoResponse',
+                 query_object_counts: Optional[bool] = None):
         """
         Input for the task that validates connection to SQL DB and target server requirements
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
+        :param bool query_object_counts: Boolean flag indicating whether to query object counts for each database on the target server
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if query_object_counts is not None:
+            pulumi.set(__self__, "query_object_counts", query_object_counts)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -3095,6 +3147,14 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
         Connection information for target SQL DB
         """
         return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="queryObjectCounts")
+    def query_object_counts(self) -> Optional[bool]:
+        """
+        Boolean flag indicating whether to query object counts for each database on the target server
+        """
+        return pulumi.get(self, "query_object_counts")
 
 
 @pulumi.output_type
@@ -3183,6 +3243,8 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "createdOn":
+            suggest = "created_on"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlDbTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3202,6 +3264,7 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
+                 created_on: Optional[str] = None,
                  input: Optional['outputs.ConnectToTargetSqlDbTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements
@@ -3212,6 +3275,7 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.SqlDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
+        :param str created_on: DateTime in UTC when the task was created
         :param 'ConnectToTargetSqlDbTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
@@ -3221,6 +3285,8 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
         if client_data is not None:
             pulumi.set(__self__, "client_data", client_data)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if input is not None:
             pulumi.set(__self__, "input", input)
 
@@ -3274,6 +3340,14 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         return pulumi.get(self, "client_data")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        """
+        DateTime in UTC when the task was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter
     def input(self) -> Optional['outputs.ConnectToTargetSqlDbTaskInputResponse']:
         """
@@ -3311,7 +3385,7 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.MiSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
         pulumi.set(__self__, "azure_app", azure_app)
@@ -3321,7 +3395,7 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
     @pulumi.getter(name="azureApp")
     def azure_app(self) -> 'outputs.AzureActiveDirectoryAppResponse':
         """
-        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         """
         return pulumi.get(self, "azure_app")
 
@@ -4703,10 +4777,10 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
         :param str provisioning_state: Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
         :param str source_server_name: Name of the source sql server.
         :param str started_on: Database migration start time.
-        :param str migration_operation_id: ID tracking current migration operation.
+        :param str migration_operation_id: ID for current migration operation.
         :param str migration_service: Resource Id of the Migration Service.
         :param str provisioning_error: Error message for migration provisioning failure, if any.
-        :param str scope: Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        :param str scope: Resource Id of the target resource.
         :param str source_database_name: Name of the source database.
         :param 'SqlConnectionInformationResponse' source_sql_connection: Source SQL Server connection details.
         :param Sequence[str] table_list: List of tables to copy.
@@ -4818,7 +4892,7 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
     @pulumi.getter(name="migrationOperationId")
     def migration_operation_id(self) -> Optional[str]:
         """
-        ID tracking current migration operation.
+        ID for current migration operation.
         """
         return pulumi.get(self, "migration_operation_id")
 
@@ -4842,7 +4916,7 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
     @pulumi.getter
     def scope(self) -> Optional[str]:
         """
-        Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        Resource Id of the target resource.
         """
         return pulumi.get(self, "scope")
 
@@ -6480,6 +6554,8 @@ class GetUserTablesSqlTaskInputResponse(dict):
             suggest = "connection_info"
         elif key == "selectedDatabases":
             suggest = "selected_databases"
+        elif key == "encryptedKeyForSecureFields":
+            suggest = "encrypted_key_for_secure_fields"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GetUserTablesSqlTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6494,14 +6570,18 @@ class GetUserTablesSqlTaskInputResponse(dict):
 
     def __init__(__self__, *,
                  connection_info: 'outputs.SqlConnectionInfoResponse',
-                 selected_databases: Sequence[str]):
+                 selected_databases: Sequence[str],
+                 encrypted_key_for_secure_fields: Optional[str] = None):
         """
         Input for the task that collects user tables for the given list of databases
         :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[str] selected_databases: List of database names to collect tables for
+        :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         """
         pulumi.set(__self__, "connection_info", connection_info)
         pulumi.set(__self__, "selected_databases", selected_databases)
+        if encrypted_key_for_secure_fields is not None:
+            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -6518,6 +6598,14 @@ class GetUserTablesSqlTaskInputResponse(dict):
         List of database names to collect tables for
         """
         return pulumi.get(self, "selected_databases")
+
+    @property
+    @pulumi.getter(name="encryptedKeyForSecureFields")
+    def encrypted_key_for_secure_fields(self) -> Optional[str]:
+        """
+        encrypted key for secure fields
+        """
+        return pulumi.get(self, "encrypted_key_for_secure_fields")
 
 
 @pulumi.output_type
@@ -6595,6 +6683,8 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "taskId":
+            suggest = "task_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GetUserTablesSqlTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6614,7 +6704,8 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
-                 input: Optional['outputs.GetUserTablesSqlTaskInputResponse'] = None):
+                 input: Optional['outputs.GetUserTablesSqlTaskInputResponse'] = None,
+                 task_id: Optional[str] = None):
         """
         Properties for the task that collects user tables for the given list of databases
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
@@ -6625,6 +6716,7 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
                Expected value is 'GetUserTables.Sql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlTaskInputResponse' input: Task input
+        :param str task_id: Task id 
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -6635,6 +6727,8 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
             pulumi.set(__self__, "client_data", client_data)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
 
     @property
     @pulumi.getter
@@ -6692,6 +6786,14 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
         Task input
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[str]:
+        """
+        Task id 
+        """
+        return pulumi.get(self, "task_id")
 
 
 @pulumi.output_type
@@ -7107,6 +7209,8 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
             suggest = "source_connection_info"
         elif key == "targetConnectionInfo":
             suggest = "target_connection_info"
+        elif key == "encryptedKeyForSecureFields":
+            suggest = "encrypted_key_for_secure_fields"
         elif key == "makeSourceServerReadOnly":
             suggest = "make_source_server_read_only"
         elif key == "optionalAgentSettings":
@@ -7129,6 +7233,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
                  selected_databases: Sequence['outputs.MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse'],
                  source_connection_info: 'outputs.MySqlConnectionInfoResponse',
                  target_connection_info: 'outputs.MySqlConnectionInfoResponse',
+                 encrypted_key_for_secure_fields: Optional[str] = None,
                  make_source_server_read_only: Optional[bool] = None,
                  optional_agent_settings: Optional[Mapping[str, str]] = None,
                  started_on: Optional[str] = None):
@@ -7137,6 +7242,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
         :param Sequence['MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL
+        :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         :param bool make_source_server_read_only: Setting to set the source server read only
         :param Mapping[str, str] optional_agent_settings: Optional parameters for fine tuning the data transfer rate during migration
         :param str started_on: Parameter to specify when the migration started
@@ -7144,6 +7250,8 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if encrypted_key_for_secure_fields is not None:
+            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if make_source_server_read_only is None:
             make_source_server_read_only = False
         if make_source_server_read_only is not None:
@@ -7176,6 +7284,14 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
         Connection information for target Azure Database for MySQL
         """
         return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="encryptedKeyForSecureFields")
+    def encrypted_key_for_secure_fields(self) -> Optional[str]:
+        """
+        encrypted key for secure fields
+        """
+        return pulumi.get(self, "encrypted_key_for_secure_fields")
 
     @property
     @pulumi.getter(name="makeSourceServerReadOnly")
@@ -7925,6 +8041,10 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "isCloneable":
+            suggest = "is_cloneable"
+        elif key == "taskId":
+            suggest = "task_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -7944,7 +8064,9 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
-                 input: Optional['outputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse'] = None):
+                 input: Optional['outputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse'] = None,
+                 is_cloneable: Optional[bool] = None,
+                 task_id: Optional[str] = None):
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
@@ -7955,6 +8077,8 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
                Expected value is 'Migrate.MySql.AzureDbForMySql'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse' input: Task input
+        :param bool is_cloneable: whether the task can be cloned or not
+        :param str task_id: Task id 
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -7965,6 +8089,10 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
             pulumi.set(__self__, "client_data", client_data)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if is_cloneable is not None:
+            pulumi.set(__self__, "is_cloneable", is_cloneable)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
 
     @property
     @pulumi.getter
@@ -8022,6 +8150,22 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
         Task input
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="isCloneable")
+    def is_cloneable(self) -> Optional[bool]:
+        """
+        whether the task can be cloned or not
+        """
+        return pulumi.get(self, "is_cloneable")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[str]:
+        """
+        Task id 
+        """
+        return pulumi.get(self, "task_id")
 
 
 @pulumi.output_type
@@ -10081,7 +10225,8 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 migration_setting: Optional[Mapping[str, str]] = None,
+                 id: str,
+                 migration_setting: Optional[Any] = None,
                  name: Optional[str] = None,
                  selected_tables: Optional[Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse']] = None,
                  source_setting: Optional[Mapping[str, str]] = None,
@@ -10089,13 +10234,15 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
                  target_setting: Optional[Mapping[str, str]] = None):
         """
         Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
-        :param Mapping[str, str] migration_setting: Migration settings which tune the migration behavior
+        :param str id: Result identifier
+        :param Any migration_setting: Migration settings which tune the migration behavior
         :param str name: Name of the database
         :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse'] selected_tables: Tables selected for migration
         :param Mapping[str, str] source_setting: Source settings to tune source endpoint migration behavior
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        pulumi.set(__self__, "id", id)
         if migration_setting is not None:
             pulumi.set(__self__, "migration_setting", migration_setting)
         if name is not None:
@@ -10110,8 +10257,16 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
             pulumi.set(__self__, "target_setting", target_setting)
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="migrationSetting")
-    def migration_setting(self) -> Optional[Mapping[str, str]]:
+    def migration_setting(self) -> Optional[Any]:
         """
         Migration settings which tune the migration behavior
         """
@@ -10193,8 +10348,12 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
             suggest = "selected_databases"
         elif key == "sourceConnectionInfo":
             suggest = "source_connection_info"
+        elif key == "startedOn":
+            suggest = "started_on"
         elif key == "targetConnectionInfo":
             suggest = "target_connection_info"
+        elif key == "encryptedKeyForSecureFields":
+            suggest = "encrypted_key_for_secure_fields"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10210,16 +10369,23 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
     def __init__(__self__, *,
                  selected_databases: Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse'],
                  source_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
-                 target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
+                 started_on: str,
+                 target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+                 encrypted_key_for_secure_fields: Optional[str] = None):
         """
         Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
         :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL
+        :param str started_on: Migration start time
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
+        :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         """
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
+        pulumi.set(__self__, "started_on", started_on)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if encrypted_key_for_secure_fields is not None:
+            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -10238,12 +10404,28 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         return pulumi.get(self, "source_connection_info")
 
     @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
     @pulumi.getter(name="targetConnectionInfo")
     def target_connection_info(self) -> 'outputs.PostgreSqlConnectionInfoResponse':
         """
         Connection information for target Azure Database for PostgreSQL
         """
         return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="encryptedKeyForSecureFields")
+    def encrypted_key_for_secure_fields(self) -> Optional[str]:
+        """
+        encrypted key for secure fields
+        """
+        return pulumi.get(self, "encrypted_key_for_secure_fields")
 
 
 @pulumi.output_type
@@ -10583,16 +10765,20 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
     def __init__(__self__, *,
                  error: 'outputs.ReportableExceptionResponse',
                  id: str,
-                 result_type: str):
+                 result_type: str,
+                 events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None):
         """
         :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
+        :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "result_type", 'ErrorOutput')
+        if events is not None:
+            pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
@@ -10619,6 +10805,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
         """
         return pulumi.get(self, "result_type")
 
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']]:
+        """
+        List of error events
+        """
+        return pulumi.get(self, "events")
+
 
 @pulumi.output_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(dict):
@@ -10643,6 +10837,8 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
             suggest = "target_server_type"
         elif key == "targetServerVersion":
             suggest = "target_server_version"
+        elif key == "databaseCount":
+            suggest = "database_count"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10666,7 +10862,8 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
                  state: str,
                  target_server: str,
                  target_server_type: str,
-                 target_server_version: str):
+                 target_server_version: str,
+                 database_count: Optional[float] = None):
         """
         :param str ended_on: Migration end time
         :param str id: Result identifier
@@ -10680,6 +10877,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
         :param str target_server: Target server name
         :param str target_server_type: Target server type.
         :param str target_server_version: Target server version
+        :param float database_count: Number of databases to include
         """
         pulumi.set(__self__, "ended_on", ended_on)
         pulumi.set(__self__, "id", id)
@@ -10692,6 +10890,8 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
         pulumi.set(__self__, "target_server", target_server)
         pulumi.set(__self__, "target_server_type", target_server_type)
         pulumi.set(__self__, "target_server_version", target_server_version)
+        if database_count is not None:
+            pulumi.set(__self__, "database_count", database_count)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -10781,6 +10981,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
         Target server version
         """
         return pulumi.get(self, "target_server_version")
+
+    @property
+    @pulumi.getter(name="databaseCount")
+    def database_count(self) -> Optional[float]:
+        """
+        Number of databases to include
+        """
+        return pulumi.get(self, "database_count")
 
 
 @pulumi.output_type
@@ -11010,6 +11218,12 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "isCloneable":
+            suggest = "is_cloneable"
+        elif key == "taskId":
+            suggest = "task_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -11029,7 +11243,10 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
-                 input: Optional['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse'] = None):
+                 created_on: Optional[str] = None,
+                 input: Optional['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+                 is_cloneable: Optional[bool] = None,
+                 task_id: Optional[str] = None):
         """
         Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
@@ -11039,7 +11256,10 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param str task_type: Task type.
                Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
+        :param str created_on: DateTime in UTC when the task was created
         :param 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
+        :param bool is_cloneable: whether the task can be cloned or not
+        :param str task_id: task id
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -11048,8 +11268,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         pulumi.set(__self__, "task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
         if client_data is not None:
             pulumi.set(__self__, "client_data", client_data)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if is_cloneable is not None:
+            pulumi.set(__self__, "is_cloneable", is_cloneable)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
 
     @property
     @pulumi.getter
@@ -11101,12 +11327,36 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         return pulumi.get(self, "client_data")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        """
+        DateTime in UTC when the task was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter
     def input(self) -> Optional['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse']:
         """
         Task input
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="isCloneable")
+    def is_cloneable(self) -> Optional[bool]:
+        """
+        whether the task can be cloned or not
+        """
+        return pulumi.get(self, "is_cloneable")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[str]:
+        """
+        task id
+        """
+        return pulumi.get(self, "task_id")
 
 
 @pulumi.output_type
@@ -11119,6 +11369,8 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
         suggest = None
         if key == "makeSourceDbReadOnly":
             suggest = "make_source_db_read_only"
+        elif key == "schemaSetting":
+            suggest = "schema_setting"
         elif key == "tableMap":
             suggest = "table_map"
         elif key == "targetDatabaseName":
@@ -11136,25 +11388,41 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 id: Optional[str] = None,
                  make_source_db_read_only: Optional[bool] = None,
                  name: Optional[str] = None,
+                 schema_setting: Optional[Any] = None,
                  table_map: Optional[Mapping[str, str]] = None,
                  target_database_name: Optional[str] = None):
         """
         Database specific information for SQL to Azure SQL DB migration task inputs
+        :param str id: id of the database
         :param bool make_source_db_read_only: Whether to set database read only before migration
         :param str name: Name of the database
+        :param Any schema_setting: Settings selected for DB schema migration.
         :param Mapping[str, str] table_map: Mapping of source to target tables
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if make_source_db_read_only is not None:
             pulumi.set(__self__, "make_source_db_read_only", make_source_db_read_only)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if schema_setting is not None:
+            pulumi.set(__self__, "schema_setting", schema_setting)
         if table_map is not None:
             pulumi.set(__self__, "table_map", table_map)
         if target_database_name is not None:
             pulumi.set(__self__, "target_database_name", target_database_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        id of the database
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="makeSourceDbReadOnly")
@@ -11171,6 +11439,14 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
         Name of the database
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaSetting")
+    def schema_setting(self) -> Optional[Any]:
+        """
+        Settings selected for DB schema migration.
+        """
+        return pulumi.get(self, "schema_setting")
 
     @property
     @pulumi.getter(name="tableMap")
@@ -12255,6 +12531,10 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
             suggest = "source_connection_info"
         elif key == "targetConnectionInfo":
             suggest = "target_connection_info"
+        elif key == "encryptedKeyForSecureFields":
+            suggest = "encrypted_key_for_secure_fields"
+        elif key == "startedOn":
+            suggest = "started_on"
         elif key == "validationOptions":
             suggest = "validation_options"
 
@@ -12273,12 +12553,16 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
                  selected_databases: Sequence['outputs.MigrateSqlServerSqlDbDatabaseInputResponse'],
                  source_connection_info: 'outputs.SqlConnectionInfoResponse',
                  target_connection_info: 'outputs.SqlConnectionInfoResponse',
+                 encrypted_key_for_secure_fields: Optional[str] = None,
+                 started_on: Optional[str] = None,
                  validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
         :param Sequence['MigrateSqlServerSqlDbDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param str encrypted_key_for_secure_fields: encrypted key for secure fields
+        :param str started_on: Date and time relative to UTC when the migration was started on
         :param 'MigrationValidationOptionsResponse' validation_options: Options for enabling various post migration validations. Available options, 
                 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
@@ -12286,6 +12570,10 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
         pulumi.set(__self__, "selected_databases", selected_databases)
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if encrypted_key_for_secure_fields is not None:
+            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+        if started_on is not None:
+            pulumi.set(__self__, "started_on", started_on)
         if validation_options is not None:
             pulumi.set(__self__, "validation_options", validation_options)
 
@@ -12312,6 +12600,22 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
         Information for connecting to target
         """
         return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="encryptedKeyForSecureFields")
+    def encrypted_key_for_secure_fields(self) -> Optional[str]:
+        """
+        encrypted key for secure fields
+        """
+        return pulumi.get(self, "encrypted_key_for_secure_fields")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> Optional[str]:
+        """
+        Date and time relative to UTC when the migration was started on
+        """
+        return pulumi.get(self, "started_on")
 
     @property
     @pulumi.getter(name="validationOptions")
@@ -13270,6 +13574,12 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "isCloneable":
+            suggest = "is_cloneable"
+        elif key == "taskId":
+            suggest = "task_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -13289,7 +13599,10 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
-                 input: Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse'] = None):
+                 created_on: Optional[str] = None,
+                 input: Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse'] = None,
+                 is_cloneable: Optional[bool] = None,
+                 task_id: Optional[str] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
@@ -13299,7 +13612,10 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.SqlDb'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
+        :param str created_on: DateTime in UTC when the task was created
         :param 'MigrateSqlServerSqlDbTaskInputResponse' input: Task input
+        :param bool is_cloneable: whether the task can be cloned or not
+        :param str task_id: task id
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -13308,8 +13624,14 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
         if client_data is not None:
             pulumi.set(__self__, "client_data", client_data)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if is_cloneable is not None:
+            pulumi.set(__self__, "is_cloneable", is_cloneable)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
 
     @property
     @pulumi.getter
@@ -13361,12 +13683,36 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         return pulumi.get(self, "client_data")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        """
+        DateTime in UTC when the task was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter
     def input(self) -> Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse']:
         """
         Task input
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="isCloneable")
+    def is_cloneable(self) -> Optional[bool]:
+        """
+        whether the task can be cloned or not
+        """
+        return pulumi.get(self, "is_cloneable")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[str]:
+        """
+        task id
+        """
+        return pulumi.get(self, "task_id")
 
 
 @pulumi.output_type
@@ -13399,13 +13745,15 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
                  name: str,
                  restore_database_name: str,
                  backup_file_paths: Optional[Sequence[str]] = None,
-                 backup_file_share: Optional['outputs.FileShareResponse'] = None):
+                 backup_file_share: Optional['outputs.FileShareResponse'] = None,
+                 id: Optional[str] = None):
         """
         Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
         :param str name: Name of the database
         :param str restore_database_name: Name of the database at destination
         :param Sequence[str] backup_file_paths: The list of backup files to be used in case of existing backups.
         :param 'FileShareResponse' backup_file_share: Backup file share information for backing up this database.
+        :param str id: id of the database
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "restore_database_name", restore_database_name)
@@ -13413,6 +13761,8 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
             pulumi.set(__self__, "backup_file_paths", backup_file_paths)
         if backup_file_share is not None:
             pulumi.set(__self__, "backup_file_share", backup_file_share)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -13446,6 +13796,14 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
         """
         return pulumi.get(self, "backup_file_share")
 
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        id of the database
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
@@ -13467,6 +13825,8 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
             suggest = "target_connection_info"
         elif key == "backupFileShare":
             suggest = "backup_file_share"
+        elif key == "numberOfParallelDatabaseMigrations":
+            suggest = "number_of_parallel_database_migrations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMISyncTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
@@ -13485,15 +13845,17 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
                  source_connection_info: 'outputs.SqlConnectionInfoResponse',
                  storage_resource_id: str,
                  target_connection_info: 'outputs.MiSqlConnectionInfoResponse',
-                 backup_file_share: Optional['outputs.FileShareResponse'] = None):
+                 backup_file_share: Optional['outputs.FileShareResponse'] = None,
+                 number_of_parallel_database_migrations: Optional[float] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param str storage_resource_id: Fully qualified resourceId of storage
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
+        :param float number_of_parallel_database_migrations: Number of database migrations to start in parallel
         """
         pulumi.set(__self__, "azure_app", azure_app)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -13502,12 +13864,14 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
         pulumi.set(__self__, "target_connection_info", target_connection_info)
         if backup_file_share is not None:
             pulumi.set(__self__, "backup_file_share", backup_file_share)
+        if number_of_parallel_database_migrations is not None:
+            pulumi.set(__self__, "number_of_parallel_database_migrations", number_of_parallel_database_migrations)
 
     @property
     @pulumi.getter(name="azureApp")
     def azure_app(self) -> 'outputs.AzureActiveDirectoryAppResponse':
         """
-        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         """
         return pulumi.get(self, "azure_app")
 
@@ -13550,6 +13914,14 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
         Backup file share information for all selected databases.
         """
         return pulumi.get(self, "backup_file_share")
+
+    @property
+    @pulumi.getter(name="numberOfParallelDatabaseMigrations")
+    def number_of_parallel_database_migrations(self) -> Optional[float]:
+        """
+        Number of database migrations to start in parallel
+        """
+        return pulumi.get(self, "number_of_parallel_database_migrations")
 
 
 @pulumi.output_type
@@ -14003,6 +14375,8 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "createdOn":
+            suggest = "created_on"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMISyncTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -14022,6 +14396,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
+                 created_on: Optional[str] = None,
                  input: Optional['outputs.MigrateSqlServerSqlMISyncTaskInputResponse'] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
@@ -14032,6 +14407,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
+        :param str created_on: DateTime in UTC when the task was created
         :param 'MigrateSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "commands", commands)
@@ -14041,6 +14417,8 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
             pulumi.set(__self__, "client_data", client_data)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if input is not None:
             pulumi.set(__self__, "input", input)
 
@@ -14094,6 +14472,14 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
         return pulumi.get(self, "client_data")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        """
+        DateTime in UTC when the task was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter
     def input(self) -> Optional['outputs.MigrateSqlServerSqlMISyncTaskInputResponse']:
         """
@@ -14124,10 +14510,14 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
             suggest = "backup_file_share"
         elif key == "backupMode":
             suggest = "backup_mode"
+        elif key == "encryptedKeyForSecureFields":
+            suggest = "encrypted_key_for_secure_fields"
         elif key == "selectedAgentJobs":
             suggest = "selected_agent_jobs"
         elif key == "selectedLogins":
             suggest = "selected_logins"
+        elif key == "startedOn":
+            suggest = "started_on"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskInputResponse. Access the value via the '{suggest}' property getter instead.")
@@ -14148,8 +14538,10 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
                  aad_domain_name: Optional[str] = None,
                  backup_file_share: Optional['outputs.FileShareResponse'] = None,
                  backup_mode: Optional[str] = None,
+                 encrypted_key_for_secure_fields: Optional[str] = None,
                  selected_agent_jobs: Optional[Sequence[str]] = None,
-                 selected_logins: Optional[Sequence[str]] = None):
+                 selected_logins: Optional[Sequence[str]] = None,
+                 started_on: Optional[str] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
         :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
@@ -14159,8 +14551,10 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
         :param str aad_domain_name: Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
         :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         :param str backup_mode: Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
+        :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         :param Sequence[str] selected_agent_jobs: Agent Jobs to migrate.
         :param Sequence[str] selected_logins: Logins to migrate.
+        :param str started_on: Date and time relative to UTC when the migration was started on
         """
         pulumi.set(__self__, "backup_blob_share", backup_blob_share)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -14172,10 +14566,14 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
             pulumi.set(__self__, "backup_file_share", backup_file_share)
         if backup_mode is not None:
             pulumi.set(__self__, "backup_mode", backup_mode)
+        if encrypted_key_for_secure_fields is not None:
+            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if selected_agent_jobs is not None:
             pulumi.set(__self__, "selected_agent_jobs", selected_agent_jobs)
         if selected_logins is not None:
             pulumi.set(__self__, "selected_logins", selected_logins)
+        if started_on is not None:
+            pulumi.set(__self__, "started_on", started_on)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -14234,6 +14632,14 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
         return pulumi.get(self, "backup_mode")
 
     @property
+    @pulumi.getter(name="encryptedKeyForSecureFields")
+    def encrypted_key_for_secure_fields(self) -> Optional[str]:
+        """
+        encrypted key for secure fields
+        """
+        return pulumi.get(self, "encrypted_key_for_secure_fields")
+
+    @property
     @pulumi.getter(name="selectedAgentJobs")
     def selected_agent_jobs(self) -> Optional[Sequence[str]]:
         """
@@ -14248,6 +14654,14 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
         Logins to migrate.
         """
         return pulumi.get(self, "selected_logins")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> Optional[str]:
+        """
+        Date and time relative to UTC when the migration was started on
+        """
+        return pulumi.get(self, "started_on")
 
 
 @pulumi.output_type
@@ -14966,6 +15380,14 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
             suggest = "task_type"
         elif key == "clientData":
             suggest = "client_data"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "isCloneable":
+            suggest = "is_cloneable"
+        elif key == "parentTaskId":
+            suggest = "parent_task_id"
+        elif key == "taskId":
+            suggest = "task_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -14985,7 +15407,11 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
                  state: str,
                  task_type: str,
                  client_data: Optional[Mapping[str, str]] = None,
-                 input: Optional['outputs.MigrateSqlServerSqlMITaskInputResponse'] = None):
+                 created_on: Optional[str] = None,
+                 input: Optional['outputs.MigrateSqlServerSqlMITaskInputResponse'] = None,
+                 is_cloneable: Optional[bool] = None,
+                 parent_task_id: Optional[str] = None,
+                 task_id: Optional[str] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
@@ -14995,7 +15421,11 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
+        :param str created_on: DateTime in UTC when the task was created
         :param 'MigrateSqlServerSqlMITaskInputResponse' input: Task input
+        :param bool is_cloneable: whether the task can be cloned or not
+        :param str parent_task_id: parent task id
+        :param str task_id: task id
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "errors", errors)
@@ -15004,8 +15434,16 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI')
         if client_data is not None:
             pulumi.set(__self__, "client_data", client_data)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if is_cloneable is not None:
+            pulumi.set(__self__, "is_cloneable", is_cloneable)
+        if parent_task_id is not None:
+            pulumi.set(__self__, "parent_task_id", parent_task_id)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
 
     @property
     @pulumi.getter
@@ -15057,12 +15495,44 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         return pulumi.get(self, "client_data")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        """
+        DateTime in UTC when the task was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter
     def input(self) -> Optional['outputs.MigrateSqlServerSqlMITaskInputResponse']:
         """
         Task input
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="isCloneable")
+    def is_cloneable(self) -> Optional[bool]:
+        """
+        whether the task can be cloned or not
+        """
+        return pulumi.get(self, "is_cloneable")
+
+    @property
+    @pulumi.getter(name="parentTaskId")
+    def parent_task_id(self) -> Optional[str]:
+        """
+        parent task id
+        """
+        return pulumi.get(self, "parent_task_id")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[str]:
+        """
+        task id
+        """
+        return pulumi.get(self, "task_id")
 
 
 @pulumi.output_type
@@ -15655,6 +16125,8 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         suggest = None
         if key == "commandType":
             suggest = "command_type"
+        elif key == "commandId":
+            suggest = "command_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateSyncCompleteCommandPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -15672,6 +16144,7 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: 'outputs.MigrateSyncCompleteCommandOutputResponse',
                  state: str,
+                 command_id: Optional[str] = None,
                  input: Optional['outputs.MigrateSyncCompleteCommandInputResponse'] = None):
         """
         Properties for the command that completes sync migration for a database.
@@ -15680,12 +16153,15 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param 'MigrateSyncCompleteCommandOutputResponse' output: Command output. This is ignored if submitted.
         :param str state: The state of the command. This is ignored if submitted.
+        :param str command_id: Command id
         :param 'MigrateSyncCompleteCommandInputResponse' input: Command input
         """
         pulumi.set(__self__, "command_type", 'Migrate.Sync.Complete.Database')
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
         pulumi.set(__self__, "state", state)
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
         if input is not None:
             pulumi.set(__self__, "input", input)
 
@@ -15721,6 +16197,14 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         The state of the command. This is ignored if submitted.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[str]:
+        """
+        Command id
+        """
+        return pulumi.get(self, "command_id")
 
     @property
     @pulumi.getter
@@ -16662,6 +17146,22 @@ class MongoDbConnectionInfoResponse(dict):
         suggest = None
         if key == "connectionString":
             suggest = "connection_string"
+        elif key == "additionalSettings":
+            suggest = "additional_settings"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "encryptConnection":
+            suggest = "encrypt_connection"
+        elif key == "enforceSSL":
+            suggest = "enforce_ssl"
+        elif key == "serverBrandVersion":
+            suggest = "server_brand_version"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serverVersion":
+            suggest = "server_version"
+        elif key == "trustServerCertificate":
+            suggest = "trust_server_certificate"
         elif key == "userName":
             suggest = "user_name"
 
@@ -16679,20 +17179,61 @@ class MongoDbConnectionInfoResponse(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  type: str,
+                 additional_settings: Optional[str] = None,
+                 authentication: Optional[str] = None,
+                 data_source: Optional[str] = None,
+                 encrypt_connection: Optional[bool] = None,
+                 enforce_ssl: Optional[bool] = None,
                  password: Optional[str] = None,
+                 port: Optional[int] = None,
+                 server_brand_version: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 server_version: Optional[str] = None,
+                 trust_server_certificate: Optional[bool] = None,
                  user_name: Optional[str] = None):
         """
         Describes a connection to a MongoDB data source
         :param str connection_string: A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
         :param str type: Type of connection info
                Expected value is 'MongoDbConnectionInfo'.
+        :param str additional_settings: Additional connection settings
+        :param str authentication: Authentication type to use for connection
+        :param str data_source: Data source 
+        :param bool encrypt_connection: Whether to encrypt the connection
         :param str password: Password credential.
+        :param int port: port for server
+        :param str server_brand_version: server brand version
+        :param str server_name: name of the server
+        :param str server_version: server version
+        :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'MongoDbConnectionInfo')
+        if additional_settings is not None:
+            pulumi.set(__self__, "additional_settings", additional_settings)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if encrypt_connection is not None:
+            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+        if enforce_ssl is not None:
+            pulumi.set(__self__, "enforce_ssl", enforce_ssl)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_brand_version is not None:
+            pulumi.set(__self__, "server_brand_version", server_brand_version)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
+        if trust_server_certificate is None:
+            trust_server_certificate = False
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -16714,12 +17255,89 @@ class MongoDbConnectionInfoResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="additionalSettings")
+    def additional_settings(self) -> Optional[str]:
+        """
+        Additional connection settings
+        """
+        return pulumi.get(self, "additional_settings")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[str]:
+        """
+        Authentication type to use for connection
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        """
+        Data source 
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter(name="encryptConnection")
+    def encrypt_connection(self) -> Optional[bool]:
+        """
+        Whether to encrypt the connection
+        """
+        return pulumi.get(self, "encrypt_connection")
+
+    @property
+    @pulumi.getter(name="enforceSSL")
+    def enforce_ssl(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce_ssl")
+
+    @property
     @pulumi.getter
     def password(self) -> Optional[str]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        port for server
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverBrandVersion")
+    def server_brand_version(self) -> Optional[str]:
+        """
+        server brand version
+        """
+        return pulumi.get(self, "server_brand_version")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        name of the server
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        server version
+        """
+        return pulumi.get(self, "server_version")
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[bool]:
+        """
+        Whether to trust the server certificate
+        """
+        return pulumi.get(self, "trust_server_certificate")
 
     @property
     @pulumi.getter(name="userName")
@@ -17589,14 +18207,15 @@ class MongoDbShardKeySettingResponse(dict):
 
     def __init__(__self__, *,
                  fields: Sequence['outputs.MongoDbShardKeyFieldResponse'],
-                 is_unique: bool):
+                 is_unique: Optional[bool] = None):
         """
         Describes a MongoDB shard key
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
         pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "is_unique", is_unique)
+        if is_unique is not None:
+            pulumi.set(__self__, "is_unique", is_unique)
 
     @property
     @pulumi.getter
@@ -17608,7 +18227,7 @@ class MongoDbShardKeySettingResponse(dict):
 
     @property
     @pulumi.getter(name="isUnique")
-    def is_unique(self) -> bool:
+    def is_unique(self) -> Optional[bool]:
         """
         Whether the shard key is unique
         """
@@ -17879,6 +18498,10 @@ class MySqlConnectionInfoResponse(dict):
         suggest = None
         if key == "serverName":
             suggest = "server_name"
+        elif key == "additionalSettings":
+            suggest = "additional_settings"
+        elif key == "dataSource":
+            suggest = "data_source"
         elif key == "encryptConnection":
             suggest = "encrypt_connection"
         elif key == "userName":
@@ -17899,6 +18522,9 @@ class MySqlConnectionInfoResponse(dict):
                  port: int,
                  server_name: str,
                  type: str,
+                 additional_settings: Optional[str] = None,
+                 authentication: Optional[str] = None,
+                 data_source: Optional[str] = None,
                  encrypt_connection: Optional[bool] = None,
                  password: Optional[str] = None,
                  user_name: Optional[str] = None):
@@ -17908,6 +18534,9 @@ class MySqlConnectionInfoResponse(dict):
         :param str server_name: Name of the server
         :param str type: Type of connection info
                Expected value is 'MySqlConnectionInfo'.
+        :param str additional_settings: Additional connection settings
+        :param str authentication: Authentication type to use for connection
+        :param str data_source: Data source 
         :param bool encrypt_connection: Whether to encrypt the connection
         :param str password: Password credential.
         :param str user_name: User name
@@ -17915,6 +18544,12 @@ class MySqlConnectionInfoResponse(dict):
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "type", 'MySqlConnectionInfo')
+        if additional_settings is not None:
+            pulumi.set(__self__, "additional_settings", additional_settings)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
@@ -17948,6 +18583,30 @@ class MySqlConnectionInfoResponse(dict):
         Expected value is 'MySqlConnectionInfo'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalSettings")
+    def additional_settings(self) -> Optional[str]:
+        """
+        Additional connection settings
+        """
+        return pulumi.get(self, "additional_settings")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[str]:
+        """
+        Authentication type to use for connection
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        """
+        Data source 
+        """
+        return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="encryptConnection")
@@ -18137,6 +18796,10 @@ class OracleConnectionInfoResponse(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serverVersion":
+            suggest = "server_version"
         elif key == "userName":
             suggest = "user_name"
 
@@ -18154,20 +18817,36 @@ class OracleConnectionInfoResponse(dict):
     def __init__(__self__, *,
                  data_source: str,
                  type: str,
+                 authentication: Optional[str] = None,
                  password: Optional[str] = None,
+                 port: Optional[int] = None,
+                 server_name: Optional[str] = None,
+                 server_version: Optional[str] = None,
                  user_name: Optional[str] = None):
         """
         Information for connecting to Oracle server
         :param str data_source: EZConnect or TNSName connection string.
         :param str type: Type of connection info
                Expected value is 'OracleConnectionInfo'.
+        :param str authentication: Authentication type to use for connection
         :param str password: Password credential.
+        :param int port: port for server
+        :param str server_name: name of the server
+        :param str server_version: server version
         :param str user_name: User name
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "type", 'OracleConnectionInfo')
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -18190,11 +18869,43 @@ class OracleConnectionInfoResponse(dict):
 
     @property
     @pulumi.getter
+    def authentication(self) -> Optional[str]:
+        """
+        Authentication type to use for connection
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
     def password(self) -> Optional[str]:
         """
         Password credential.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        port for server
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        name of the server
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        server version
+        """
+        return pulumi.get(self, "server_version")
 
     @property
     @pulumi.getter(name="userName")
@@ -18267,10 +18978,18 @@ class PostgreSqlConnectionInfoResponse(dict):
         suggest = None
         if key == "serverName":
             suggest = "server_name"
+        elif key == "additionalSettings":
+            suggest = "additional_settings"
+        elif key == "dataSource":
+            suggest = "data_source"
         elif key == "databaseName":
             suggest = "database_name"
         elif key == "encryptConnection":
             suggest = "encrypt_connection"
+        elif key == "serverBrandVersion":
+            suggest = "server_brand_version"
+        elif key == "serverVersion":
+            suggest = "server_version"
         elif key == "trustServerCertificate":
             suggest = "trust_server_certificate"
         elif key == "userName":
@@ -18291,9 +19010,14 @@ class PostgreSqlConnectionInfoResponse(dict):
                  port: int,
                  server_name: str,
                  type: str,
+                 additional_settings: Optional[str] = None,
+                 authentication: Optional[str] = None,
+                 data_source: Optional[str] = None,
                  database_name: Optional[str] = None,
                  encrypt_connection: Optional[bool] = None,
                  password: Optional[str] = None,
+                 server_brand_version: Optional[str] = None,
+                 server_version: Optional[str] = None,
                  trust_server_certificate: Optional[bool] = None,
                  user_name: Optional[str] = None):
         """
@@ -18302,15 +19026,26 @@ class PostgreSqlConnectionInfoResponse(dict):
         :param str server_name: Name of the server
         :param str type: Type of connection info
                Expected value is 'PostgreSqlConnectionInfo'.
+        :param str additional_settings: Additional connection settings
+        :param str authentication: Authentication type to use for connection
+        :param str data_source: Data source 
         :param str database_name: Name of the database
         :param bool encrypt_connection: Whether to encrypt the connection
         :param str password: Password credential.
+        :param str server_brand_version: server brand version
+        :param str server_version: server version
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "type", 'PostgreSqlConnectionInfo')
+        if additional_settings is not None:
+            pulumi.set(__self__, "additional_settings", additional_settings)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if encrypt_connection is None:
@@ -18319,6 +19054,10 @@ class PostgreSqlConnectionInfoResponse(dict):
             pulumi.set(__self__, "encrypt_connection", encrypt_connection)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if server_brand_version is not None:
+            pulumi.set(__self__, "server_brand_version", server_brand_version)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
@@ -18352,6 +19091,30 @@ class PostgreSqlConnectionInfoResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="additionalSettings")
+    def additional_settings(self) -> Optional[str]:
+        """
+        Additional connection settings
+        """
+        return pulumi.get(self, "additional_settings")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[str]:
+        """
+        Authentication type to use for connection
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        """
+        Data source 
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
         """
@@ -18374,6 +19137,22 @@ class PostgreSqlConnectionInfoResponse(dict):
         Password credential.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="serverBrandVersion")
+    def server_brand_version(self) -> Optional[str]:
+        """
+        server brand version
+        """
+        return pulumi.get(self, "server_brand_version")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        server version
+        """
+        return pulumi.get(self, "server_version")
 
     @property
     @pulumi.getter(name="trustServerCertificate")
@@ -19115,6 +19894,14 @@ class SqlConnectionInfoResponse(dict):
             suggest = "additional_settings"
         elif key == "encryptConnection":
             suggest = "encrypt_connection"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "serverBrandVersion":
+            suggest = "server_brand_version"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serverVersion":
+            suggest = "server_version"
         elif key == "trustServerCertificate":
             suggest = "trust_server_certificate"
         elif key == "userName":
@@ -19139,6 +19926,11 @@ class SqlConnectionInfoResponse(dict):
                  encrypt_connection: Optional[bool] = None,
                  password: Optional[str] = None,
                  platform: Optional[str] = None,
+                 port: Optional[int] = None,
+                 resource_id: Optional[str] = None,
+                 server_brand_version: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 server_version: Optional[str] = None,
                  trust_server_certificate: Optional[bool] = None,
                  user_name: Optional[str] = None):
         """
@@ -19151,6 +19943,11 @@ class SqlConnectionInfoResponse(dict):
         :param bool encrypt_connection: Whether to encrypt the connection
         :param str password: Password credential.
         :param str platform: Server platform type for connection
+        :param int port: Port for Server
+        :param str resource_id: Represents the ID of an HTTP resource represented by an Azure resource provider.
+        :param str server_brand_version: server brand version
+        :param str server_name: name of the server
+        :param str server_version: server version
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
@@ -19168,6 +19965,16 @@ class SqlConnectionInfoResponse(dict):
             pulumi.set(__self__, "password", password)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if server_brand_version is not None:
+            pulumi.set(__self__, "server_brand_version", server_brand_version)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
@@ -19231,6 +20038,46 @@ class SqlConnectionInfoResponse(dict):
         Server platform type for connection
         """
         return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Port for Server
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Represents the ID of an HTTP resource represented by an Azure resource provider.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="serverBrandVersion")
+    def server_brand_version(self) -> Optional[str]:
+        """
+        server brand version
+        """
+        return pulumi.get(self, "server_brand_version")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        name of the server
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        server version
+        """
+        return pulumi.get(self, "server_version")
 
     @property
     @pulumi.getter(name="trustServerCertificate")
@@ -19476,7 +20323,7 @@ class SsisMigrationInfoResponse(dict):
         SSIS migration info with SSIS store type, overwrite policy.
         :param str environment_overwrite_option: The overwrite option for the SSIS environment migration
         :param str project_overwrite_option: The overwrite option for the SSIS project migration
-        :param str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS
+        :param str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         """
         if environment_overwrite_option is not None:
             pulumi.set(__self__, "environment_overwrite_option", environment_overwrite_option)
@@ -19505,7 +20352,7 @@ class SsisMigrationInfoResponse(dict):
     @pulumi.getter(name="ssisStoreType")
     def ssis_store_type(self) -> Optional[str]:
         """
-        The SSIS store type of source, only SSIS catalog is supported now in DMS
+        The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         """
         return pulumi.get(self, "ssis_store_type")
 
@@ -19638,9 +20485,6 @@ class SyncMigrationDatabaseErrorEventResponse(dict):
 
 @pulumi.output_type
 class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19675,15 +20519,6 @@ class SystemDataResponse(dict):
                  last_modified_at: Optional[str] = None,
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if created_by is not None:
@@ -19700,49 +20535,31 @@ class SystemDataResponse(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
         return pulumi.get(self, "created_by_type")
 
     @property
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
         return pulumi.get(self, "last_modified_at")
 
     @property
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
         return pulumi.get(self, "last_modified_by")
 
     @property
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
         return pulumi.get(self, "last_modified_by_type")
 
 
@@ -19898,7 +20715,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
                  backup_file_share: Optional['outputs.FileShareResponse'] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param str storage_resource_id: Fully qualified resourceId of storage
@@ -19917,7 +20734,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
     @pulumi.getter(name="azureApp")
     def azure_app(self) -> 'outputs.AzureActiveDirectoryAppResponse':
         """
-        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         """
         return pulumi.get(self, "azure_app")
 

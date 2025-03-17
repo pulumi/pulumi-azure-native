@@ -32,8 +32,8 @@ class PrivateEndpointConnectionInitArgs:
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
-        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
+        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
@@ -59,7 +59,7 @@ class PrivateEndpointConnectionInitArgs:
     @pulumi.getter(name="parentName")
     def parent_name(self) -> pulumi.Input[str]:
         """
-        The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
         """
         return pulumi.get(self, "parent_name")
 
@@ -71,7 +71,7 @@ class PrivateEndpointConnectionInitArgs:
     @pulumi.getter(name="parentType")
     def parent_type(self) -> pulumi.Input[str]:
         """
-        The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+        The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
         """
         return pulumi.get(self, "parent_type")
 
@@ -167,15 +167,13 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
-
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
-        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
-        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
+        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
         :param pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection connection.
         :param pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']] private_link_service_connection_state: Details about the state of the connection.
@@ -189,9 +187,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  args: PrivateEndpointConnectionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
-
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
@@ -239,6 +235,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20250215:PrivateEndpointConnection")])
@@ -265,6 +262,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionInitArgs.__new__(PrivateEndpointConnectionInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
@@ -272,6 +270,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")

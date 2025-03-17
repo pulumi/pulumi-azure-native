@@ -27,7 +27,10 @@ class GetScheduleResult:
     """
     Schedule for automatically turning virtual machines in a lab on and off at specified times.
     """
-    def __init__(__self__, id=None, name=None, notes=None, provisioning_state=None, recurrence_pattern=None, start_at=None, stop_at=None, system_data=None, time_zone_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, notes=None, provisioning_state=None, recurrence_pattern=None, resource_operation_error=None, start_at=None, stop_at=None, system_data=None, time_zone_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,9 @@ class GetScheduleResult:
         if recurrence_pattern and not isinstance(recurrence_pattern, dict):
             raise TypeError("Expected argument 'recurrence_pattern' to be a dict")
         pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
+        if resource_operation_error and not isinstance(resource_operation_error, dict):
+            raise TypeError("Expected argument 'resource_operation_error' to be a dict")
+        pulumi.set(__self__, "resource_operation_error", resource_operation_error)
         if start_at and not isinstance(start_at, str):
             raise TypeError("Expected argument 'start_at' to be a str")
         pulumi.set(__self__, "start_at", start_at)
@@ -58,6 +64,14 @@ class GetScheduleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -98,6 +112,14 @@ class GetScheduleResult:
         The recurrence pattern of the scheduled actions.
         """
         return pulumi.get(self, "recurrence_pattern")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> 'outputs.ResourceOperationErrorResponse':
+        """
+        Error details of last operation done on schedule.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="startAt")
@@ -146,11 +168,13 @@ class AwaitableGetScheduleResult(GetScheduleResult):
         if False:
             yield self
         return GetScheduleResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             notes=self.notes,
             provisioning_state=self.provisioning_state,
             recurrence_pattern=self.recurrence_pattern,
+            resource_operation_error=self.resource_operation_error,
             start_at=self.start_at,
             stop_at=self.stop_at,
             system_data=self.system_data,
@@ -164,9 +188,7 @@ def get_schedule(lab_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Returns the properties of a lab Schedule.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2023-06-07.
+    Azure REST API version: 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -181,11 +203,13 @@ def get_schedule(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         notes=pulumi.get(__ret__, 'notes'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         recurrence_pattern=pulumi.get(__ret__, 'recurrence_pattern'),
+        resource_operation_error=pulumi.get(__ret__, 'resource_operation_error'),
         start_at=pulumi.get(__ret__, 'start_at'),
         stop_at=pulumi.get(__ret__, 'stop_at'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -197,9 +221,7 @@ def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Returns the properties of a lab Schedule.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2023-06-07.
+    Azure REST API version: 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -213,11 +235,13 @@ def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         notes=pulumi.get(__response__, 'notes'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         recurrence_pattern=pulumi.get(__response__, 'recurrence_pattern'),
+        resource_operation_error=pulumi.get(__response__, 'resource_operation_error'),
         start_at=pulumi.get(__response__, 'start_at'),
         stop_at=pulumi.get(__response__, 'stop_at'),
         system_data=pulumi.get(__response__, 'system_data'),

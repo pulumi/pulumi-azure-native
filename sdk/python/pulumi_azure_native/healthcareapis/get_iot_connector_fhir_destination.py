@@ -27,7 +27,10 @@ class GetIotConnectorFhirDestinationResult:
     """
     IoT Connector FHIR destination definition.
     """
-    def __init__(__self__, etag=None, fhir_mapping=None, fhir_service_resource_id=None, id=None, location=None, name=None, resource_identity_resolution_type=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, fhir_mapping=None, fhir_service_resource_id=None, id=None, location=None, name=None, resource_identity_resolution_type=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -55,6 +58,14 @@ class GetIotConnectorFhirDestinationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetIotConnectorFhirDestinationResult(GetIotConnectorFhirDestinati
         if False:
             yield self
         return GetIotConnectorFhirDestinationResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             fhir_mapping=self.fhir_mapping,
             fhir_service_resource_id=self.fhir_service_resource_id,
@@ -153,9 +165,7 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotConnectorFhirDestinationResult:
     """
     Gets the properties of the specified Iot Connector FHIR destination.
-    Azure REST API version: 2023-02-28.
-
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Azure REST API version: 2024-03-31.
 
 
     :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.
@@ -172,6 +182,7 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getIotConnectorFhirDestination', __args__, opts=opts, typ=GetIotConnectorFhirDestinationResult).value
 
     return AwaitableGetIotConnectorFhirDestinationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         fhir_mapping=pulumi.get(__ret__, 'fhir_mapping'),
         fhir_service_resource_id=pulumi.get(__ret__, 'fhir_service_resource_id'),
@@ -188,9 +199,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
     """
     Gets the properties of the specified Iot Connector FHIR destination.
-    Azure REST API version: 2023-02-28.
-
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Azure REST API version: 2024-03-31.
 
 
     :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.
@@ -206,6 +215,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis:getIotConnectorFhirDestination', __args__, opts=opts, typ=GetIotConnectorFhirDestinationResult)
     return __ret__.apply(lambda __response__: GetIotConnectorFhirDestinationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         fhir_mapping=pulumi.get(__response__, 'fhir_mapping'),
         fhir_service_resource_id=pulumi.get(__response__, 'fhir_service_resource_id'),

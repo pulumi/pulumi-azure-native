@@ -71,8 +71,8 @@ __all__ = [
     'NetworkFunctionDefinitionResourceElementTemplateDetailsResponse',
     'NetworkFunctionRoleConfigurationResponse',
     'NetworkFunctionTemplateResponse',
-    'NetworkFunctionUserConfigurationResponse',
-    'NetworkFunctionUserConfigurationResponseOsProfile',
+    'NetworkFunctionValueWithSecretsResponse',
+    'NetworkFunctionValueWithoutSecretsResponse',
     'NetworkInterfaceIPConfigurationResponse',
     'NetworkInterfaceResponse',
     'NetworkServiceDesignGroupPropertiesFormatResponse',
@@ -461,6 +461,8 @@ class ArtifactStorePropertiesFormatResponse(dict):
             suggest = "provisioning_state"
         elif key == "storageResourceId":
             suggest = "storage_resource_id"
+        elif key == "backingResourcePublicNetworkAccess":
+            suggest = "backing_resource_public_network_access"
         elif key == "managedResourceGroupConfiguration":
             suggest = "managed_resource_group_configuration"
         elif key == "replicationStrategy":
@@ -482,6 +484,7 @@ class ArtifactStorePropertiesFormatResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  storage_resource_id: str,
+                 backing_resource_public_network_access: Optional[str] = None,
                  managed_resource_group_configuration: Optional['outputs.ArtifactStorePropertiesFormatResponseManagedResourceGroupConfiguration'] = None,
                  replication_strategy: Optional[str] = None,
                  store_type: Optional[str] = None):
@@ -489,11 +492,14 @@ class ArtifactStorePropertiesFormatResponse(dict):
         Artifact store properties.
         :param str provisioning_state: The provisioning state of the application groups resource.
         :param str storage_resource_id: The created storage resource id
+        :param str backing_resource_public_network_access: The artifact store backing resource network access type
         :param str replication_strategy: The replication strategy.
         :param str store_type: The artifact store type.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        if backing_resource_public_network_access is not None:
+            pulumi.set(__self__, "backing_resource_public_network_access", backing_resource_public_network_access)
         if managed_resource_group_configuration is not None:
             pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
         if replication_strategy is not None:
@@ -516,6 +522,14 @@ class ArtifactStorePropertiesFormatResponse(dict):
         The created storage resource id
         """
         return pulumi.get(self, "storage_resource_id")
+
+    @property
+    @pulumi.getter(name="backingResourcePublicNetworkAccess")
+    def backing_resource_public_network_access(self) -> Optional[str]:
+        """
+        The artifact store backing resource network access type
+        """
+        return pulumi.get(self, "backing_resource_public_network_access")
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
@@ -3660,125 +3674,405 @@ class NetworkFunctionTemplateResponse(dict):
 
 
 @pulumi.output_type
-class NetworkFunctionUserConfigurationResponse(dict):
+class NetworkFunctionValueWithSecretsResponse(dict):
     """
-    The network function user configuration.
+    NetworkFunction with secrets.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "networkInterfaces":
-            suggest = "network_interfaces"
-        elif key == "osProfile":
-            suggest = "os_profile"
-        elif key == "roleName":
-            suggest = "role_name"
-        elif key == "userDataParameters":
-            suggest = "user_data_parameters"
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowSoftwareUpdate":
+            suggest = "allow_software_update"
+        elif key == "networkFunctionDefinitionGroupName":
+            suggest = "network_function_definition_group_name"
+        elif key == "networkFunctionDefinitionOfferingLocation":
+            suggest = "network_function_definition_offering_location"
+        elif key == "networkFunctionDefinitionVersion":
+            suggest = "network_function_definition_version"
+        elif key == "networkFunctionDefinitionVersionResourceReference":
+            suggest = "network_function_definition_version_resource_reference"
+        elif key == "nfviId":
+            suggest = "nfvi_id"
+        elif key == "nfviType":
+            suggest = "nfvi_type"
+        elif key == "publisherName":
+            suggest = "publisher_name"
+        elif key == "publisherScope":
+            suggest = "publisher_scope"
+        elif key == "roleOverrideValues":
+            suggest = "role_override_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionUserConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionValueWithSecretsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        NetworkFunctionUserConfigurationResponse.__key_warning(key)
+        NetworkFunctionValueWithSecretsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        NetworkFunctionUserConfigurationResponse.__key_warning(key)
+        NetworkFunctionValueWithSecretsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
-                 os_profile: Optional['outputs.NetworkFunctionUserConfigurationResponseOsProfile'] = None,
-                 role_name: Optional[str] = None,
-                 user_data_parameters: Optional[Any] = None):
+                 configuration_type: str,
+                 provisioning_state: str,
+                 allow_software_update: Optional[bool] = None,
+                 network_function_definition_group_name: Optional[str] = None,
+                 network_function_definition_offering_location: Optional[str] = None,
+                 network_function_definition_version: Optional[str] = None,
+                 network_function_definition_version_resource_reference: Optional[Any] = None,
+                 nfvi_id: Optional[str] = None,
+                 nfvi_type: Optional[str] = None,
+                 publisher_name: Optional[str] = None,
+                 publisher_scope: Optional[str] = None,
+                 role_override_values: Optional[Sequence[str]] = None):
         """
-        The network function user configuration.
-        :param Sequence['NetworkInterfaceResponse'] network_interfaces: The network interface configuration.
-        :param 'NetworkFunctionUserConfigurationResponseOsProfile' os_profile: Specifies the operating system settings for the role instance.
-        :param str role_name: The name of the network function role.
-        :param Any user_data_parameters: The user data parameters from the customer.
+        NetworkFunction with secrets.
+        :param str configuration_type: The secret type which indicates if secret or not.
+               Expected value is 'Secret'.
+        :param str provisioning_state: The provisioning state of the network function resource.
+        :param bool allow_software_update: Indicates if software updates are allowed during deployment.
+        :param str network_function_definition_group_name: The network function definition group name for the network function.
+        :param str network_function_definition_offering_location: The location of the network function definition offering.
+        :param str network_function_definition_version: The network function definition version for the network function.
+        :param Union['OpenDeploymentResourceReferenceResponse', 'SecretDeploymentResourceReferenceResponse'] network_function_definition_version_resource_reference: The network function definition version resource reference.
+        :param str nfvi_id: The nfviId for the network function.
+        :param str nfvi_type: The nfvi type for the network function.
+        :param str publisher_name: The publisher name for the network function.
+        :param str publisher_scope: The scope of the publisher.
+        :param Sequence[str] role_override_values: The role configuration override values from the user.
         """
-        if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
-        if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
-        if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
-        if user_data_parameters is not None:
-            pulumi.set(__self__, "user_data_parameters", user_data_parameters)
+        pulumi.set(__self__, "configuration_type", 'Secret')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allow_software_update is not None:
+            pulumi.set(__self__, "allow_software_update", allow_software_update)
+        if network_function_definition_group_name is not None:
+            pulumi.set(__self__, "network_function_definition_group_name", network_function_definition_group_name)
+        if network_function_definition_offering_location is not None:
+            pulumi.set(__self__, "network_function_definition_offering_location", network_function_definition_offering_location)
+        if network_function_definition_version is not None:
+            pulumi.set(__self__, "network_function_definition_version", network_function_definition_version)
+        if network_function_definition_version_resource_reference is not None:
+            pulumi.set(__self__, "network_function_definition_version_resource_reference", network_function_definition_version_resource_reference)
+        if nfvi_id is not None:
+            pulumi.set(__self__, "nfvi_id", nfvi_id)
+        if nfvi_type is not None:
+            pulumi.set(__self__, "nfvi_type", nfvi_type)
+        if publisher_name is not None:
+            pulumi.set(__self__, "publisher_name", publisher_name)
+        if publisher_scope is not None:
+            pulumi.set(__self__, "publisher_scope", publisher_scope)
+        if role_override_values is not None:
+            pulumi.set(__self__, "role_override_values", role_override_values)
 
     @property
-    @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceResponse']]:
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
         """
-        The network interface configuration.
+        The secret type which indicates if secret or not.
+        Expected value is 'Secret'.
         """
-        return pulumi.get(self, "network_interfaces")
+        return pulumi.get(self, "configuration_type")
 
     @property
-    @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.NetworkFunctionUserConfigurationResponseOsProfile']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
-        Specifies the operating system settings for the role instance.
+        The provisioning state of the network function resource.
         """
-        return pulumi.get(self, "os_profile")
+        return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[str]:
+    @pulumi.getter(name="allowSoftwareUpdate")
+    def allow_software_update(self) -> Optional[bool]:
         """
-        The name of the network function role.
+        Indicates if software updates are allowed during deployment.
         """
-        return pulumi.get(self, "role_name")
+        return pulumi.get(self, "allow_software_update")
 
     @property
-    @pulumi.getter(name="userDataParameters")
-    def user_data_parameters(self) -> Optional[Any]:
+    @pulumi.getter(name="networkFunctionDefinitionGroupName")
+    def network_function_definition_group_name(self) -> Optional[str]:
         """
-        The user data parameters from the customer.
+        The network function definition group name for the network function.
         """
-        return pulumi.get(self, "user_data_parameters")
+        return pulumi.get(self, "network_function_definition_group_name")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionOfferingLocation")
+    def network_function_definition_offering_location(self) -> Optional[str]:
+        """
+        The location of the network function definition offering.
+        """
+        return pulumi.get(self, "network_function_definition_offering_location")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionVersion")
+    def network_function_definition_version(self) -> Optional[str]:
+        """
+        The network function definition version for the network function.
+        """
+        return pulumi.get(self, "network_function_definition_version")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionVersionResourceReference")
+    def network_function_definition_version_resource_reference(self) -> Optional[Any]:
+        """
+        The network function definition version resource reference.
+        """
+        return pulumi.get(self, "network_function_definition_version_resource_reference")
+
+    @property
+    @pulumi.getter(name="nfviId")
+    def nfvi_id(self) -> Optional[str]:
+        """
+        The nfviId for the network function.
+        """
+        return pulumi.get(self, "nfvi_id")
+
+    @property
+    @pulumi.getter(name="nfviType")
+    def nfvi_type(self) -> Optional[str]:
+        """
+        The nfvi type for the network function.
+        """
+        return pulumi.get(self, "nfvi_type")
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> Optional[str]:
+        """
+        The publisher name for the network function.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @property
+    @pulumi.getter(name="publisherScope")
+    def publisher_scope(self) -> Optional[str]:
+        """
+        The scope of the publisher.
+        """
+        return pulumi.get(self, "publisher_scope")
+
+    @property
+    @pulumi.getter(name="roleOverrideValues")
+    def role_override_values(self) -> Optional[Sequence[str]]:
+        """
+        The role configuration override values from the user.
+        """
+        return pulumi.get(self, "role_override_values")
 
 
 @pulumi.output_type
-class NetworkFunctionUserConfigurationResponseOsProfile(dict):
+class NetworkFunctionValueWithoutSecretsResponse(dict):
     """
-    Specifies the operating system settings for the role instance.
+    NetworkFunction with no secrets.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customData":
-            suggest = "custom_data"
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowSoftwareUpdate":
+            suggest = "allow_software_update"
+        elif key == "deploymentValues":
+            suggest = "deployment_values"
+        elif key == "networkFunctionDefinitionGroupName":
+            suggest = "network_function_definition_group_name"
+        elif key == "networkFunctionDefinitionOfferingLocation":
+            suggest = "network_function_definition_offering_location"
+        elif key == "networkFunctionDefinitionVersion":
+            suggest = "network_function_definition_version"
+        elif key == "networkFunctionDefinitionVersionResourceReference":
+            suggest = "network_function_definition_version_resource_reference"
+        elif key == "nfviId":
+            suggest = "nfvi_id"
+        elif key == "nfviType":
+            suggest = "nfvi_type"
+        elif key == "publisherName":
+            suggest = "publisher_name"
+        elif key == "publisherScope":
+            suggest = "publisher_scope"
+        elif key == "roleOverrideValues":
+            suggest = "role_override_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionUserConfigurationResponseOsProfile. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionValueWithoutSecretsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        NetworkFunctionUserConfigurationResponseOsProfile.__key_warning(key)
+        NetworkFunctionValueWithoutSecretsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        NetworkFunctionUserConfigurationResponseOsProfile.__key_warning(key)
+        NetworkFunctionValueWithoutSecretsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_data: Optional[str] = None):
+                 configuration_type: str,
+                 provisioning_state: str,
+                 allow_software_update: Optional[bool] = None,
+                 deployment_values: Optional[str] = None,
+                 network_function_definition_group_name: Optional[str] = None,
+                 network_function_definition_offering_location: Optional[str] = None,
+                 network_function_definition_version: Optional[str] = None,
+                 network_function_definition_version_resource_reference: Optional[Any] = None,
+                 nfvi_id: Optional[str] = None,
+                 nfvi_type: Optional[str] = None,
+                 publisher_name: Optional[str] = None,
+                 publisher_scope: Optional[str] = None,
+                 role_override_values: Optional[Sequence[str]] = None):
         """
-        Specifies the operating system settings for the role instance.
-        :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        NetworkFunction with no secrets.
+        :param str configuration_type: The secret type which indicates if secret or not.
+               Expected value is 'Open'.
+        :param str provisioning_state: The provisioning state of the network function resource.
+        :param bool allow_software_update: Indicates if software updates are allowed during deployment.
+        :param str deployment_values: The JSON-serialized deployment values from the user.
+        :param str network_function_definition_group_name: The network function definition group name for the network function.
+        :param str network_function_definition_offering_location: The location of the network function definition offering.
+        :param str network_function_definition_version: The network function definition version for the network function.
+        :param Union['OpenDeploymentResourceReferenceResponse', 'SecretDeploymentResourceReferenceResponse'] network_function_definition_version_resource_reference: The network function definition version resource reference.
+        :param str nfvi_id: The nfviId for the network function.
+        :param str nfvi_type: The nfvi type for the network function.
+        :param str publisher_name: The publisher name for the network function.
+        :param str publisher_scope: The scope of the publisher.
+        :param Sequence[str] role_override_values: The role configuration override values from the user.
         """
-        if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+        pulumi.set(__self__, "configuration_type", 'Open')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allow_software_update is not None:
+            pulumi.set(__self__, "allow_software_update", allow_software_update)
+        if deployment_values is not None:
+            pulumi.set(__self__, "deployment_values", deployment_values)
+        if network_function_definition_group_name is not None:
+            pulumi.set(__self__, "network_function_definition_group_name", network_function_definition_group_name)
+        if network_function_definition_offering_location is not None:
+            pulumi.set(__self__, "network_function_definition_offering_location", network_function_definition_offering_location)
+        if network_function_definition_version is not None:
+            pulumi.set(__self__, "network_function_definition_version", network_function_definition_version)
+        if network_function_definition_version_resource_reference is not None:
+            pulumi.set(__self__, "network_function_definition_version_resource_reference", network_function_definition_version_resource_reference)
+        if nfvi_id is not None:
+            pulumi.set(__self__, "nfvi_id", nfvi_id)
+        if nfvi_type is not None:
+            pulumi.set(__self__, "nfvi_type", nfvi_type)
+        if publisher_name is not None:
+            pulumi.set(__self__, "publisher_name", publisher_name)
+        if publisher_scope is not None:
+            pulumi.set(__self__, "publisher_scope", publisher_scope)
+        if role_override_values is not None:
+            pulumi.set(__self__, "role_override_values", role_override_values)
 
     @property
-    @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[str]:
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
         """
-        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        The secret type which indicates if secret or not.
+        Expected value is 'Open'.
         """
-        return pulumi.get(self, "custom_data")
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the network function resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="allowSoftwareUpdate")
+    def allow_software_update(self) -> Optional[bool]:
+        """
+        Indicates if software updates are allowed during deployment.
+        """
+        return pulumi.get(self, "allow_software_update")
+
+    @property
+    @pulumi.getter(name="deploymentValues")
+    def deployment_values(self) -> Optional[str]:
+        """
+        The JSON-serialized deployment values from the user.
+        """
+        return pulumi.get(self, "deployment_values")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionGroupName")
+    def network_function_definition_group_name(self) -> Optional[str]:
+        """
+        The network function definition group name for the network function.
+        """
+        return pulumi.get(self, "network_function_definition_group_name")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionOfferingLocation")
+    def network_function_definition_offering_location(self) -> Optional[str]:
+        """
+        The location of the network function definition offering.
+        """
+        return pulumi.get(self, "network_function_definition_offering_location")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionVersion")
+    def network_function_definition_version(self) -> Optional[str]:
+        """
+        The network function definition version for the network function.
+        """
+        return pulumi.get(self, "network_function_definition_version")
+
+    @property
+    @pulumi.getter(name="networkFunctionDefinitionVersionResourceReference")
+    def network_function_definition_version_resource_reference(self) -> Optional[Any]:
+        """
+        The network function definition version resource reference.
+        """
+        return pulumi.get(self, "network_function_definition_version_resource_reference")
+
+    @property
+    @pulumi.getter(name="nfviId")
+    def nfvi_id(self) -> Optional[str]:
+        """
+        The nfviId for the network function.
+        """
+        return pulumi.get(self, "nfvi_id")
+
+    @property
+    @pulumi.getter(name="nfviType")
+    def nfvi_type(self) -> Optional[str]:
+        """
+        The nfvi type for the network function.
+        """
+        return pulumi.get(self, "nfvi_type")
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> Optional[str]:
+        """
+        The publisher name for the network function.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @property
+    @pulumi.getter(name="publisherScope")
+    def publisher_scope(self) -> Optional[str]:
+        """
+        The scope of the publisher.
+        """
+        return pulumi.get(self, "publisher_scope")
+
+    @property
+    @pulumi.getter(name="roleOverrideValues")
+    def role_override_values(self) -> Optional[Sequence[str]]:
+        """
+        The role configuration override values from the user.
+        """
+        return pulumi.get(self, "role_override_values")
 
 
 @pulumi.output_type

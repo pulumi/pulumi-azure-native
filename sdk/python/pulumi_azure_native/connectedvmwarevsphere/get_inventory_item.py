@@ -27,7 +27,10 @@ class GetInventoryItemResult:
     """
     Defines the inventory item.
     """
-    def __init__(__self__, id=None, inventory_type=None, kind=None, managed_resource_id=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, inventory_type=None, kind=None, managed_resource_id=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,10 +63,18 @@ class GetInventoryItemResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -119,7 +130,7 @@ class GetInventoryItemResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -127,7 +138,7 @@ class GetInventoryItemResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -146,6 +157,7 @@ class AwaitableGetInventoryItemResult(GetInventoryItemResult):
         if False:
             yield self
         return GetInventoryItemResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             inventory_type=self.inventory_type,
             kind=self.kind,
@@ -164,9 +176,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
     Implements InventoryItem GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -181,6 +191,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getInventoryItem', __args__, opts=opts, typ=GetInventoryItemResult).value
 
     return AwaitableGetInventoryItemResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         inventory_type=pulumi.get(__ret__, 'inventory_type'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -197,9 +208,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Implements InventoryItem GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -213,6 +222,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getInventoryItem', __args__, opts=opts, typ=GetInventoryItemResult)
     return __ret__.apply(lambda __response__: GetInventoryItemResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         inventory_type=pulumi.get(__response__, 'inventory_type'),
         kind=pulumi.get(__response__, 'kind'),

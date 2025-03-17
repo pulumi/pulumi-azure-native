@@ -26,7 +26,10 @@ class GetLoggerResult:
     """
     Logger details.
     """
-    def __init__(__self__, credentials=None, description=None, id=None, is_buffered=None, logger_type=None, name=None, resource_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, credentials=None, description=None, id=None, is_buffered=None, logger_type=None, name=None, resource_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -51,6 +54,14 @@ class GetLoggerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetLoggerResult(GetLoggerResult):
         if False:
             yield self
         return GetLoggerResult(
+            azure_api_version=self.azure_api_version,
             credentials=self.credentials,
             description=self.description,
             id=self.id,
@@ -140,9 +152,7 @@ def get_logger(logger_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoggerResult:
     """
     Gets the details of the logger specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.
@@ -157,6 +167,7 @@ def get_logger(logger_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getLogger', __args__, opts=opts, typ=GetLoggerResult).value
 
     return AwaitableGetLoggerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credentials=pulumi.get(__ret__, 'credentials'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -171,9 +182,7 @@ def get_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggerResult]:
     """
     Gets the details of the logger specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.
@@ -187,6 +196,7 @@ def get_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getLogger', __args__, opts=opts, typ=GetLoggerResult)
     return __ret__.apply(lambda __response__: GetLoggerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credentials=pulumi.get(__response__, 'credentials'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

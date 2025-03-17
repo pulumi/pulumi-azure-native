@@ -27,7 +27,10 @@ class GetSecuritySettingResult:
     """
     Security settings proxy resource
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, secured_core_compliance_assignment=None, security_compliance_status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, provisioning_state=None, secured_core_compliance_assignment=None, security_compliance_status=None, smb_encryption_for_intra_cluster_traffic_compliance_assignment=None, system_data=None, type=None, wdac_compliance_assignment=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,18 +46,32 @@ class GetSecuritySettingResult:
         if security_compliance_status and not isinstance(security_compliance_status, dict):
             raise TypeError("Expected argument 'security_compliance_status' to be a dict")
         pulumi.set(__self__, "security_compliance_status", security_compliance_status)
+        if smb_encryption_for_intra_cluster_traffic_compliance_assignment and not isinstance(smb_encryption_for_intra_cluster_traffic_compliance_assignment, str):
+            raise TypeError("Expected argument 'smb_encryption_for_intra_cluster_traffic_compliance_assignment' to be a str")
+        pulumi.set(__self__, "smb_encryption_for_intra_cluster_traffic_compliance_assignment", smb_encryption_for_intra_cluster_traffic_compliance_assignment)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if wdac_compliance_assignment and not isinstance(wdac_compliance_assignment, str):
+            raise TypeError("Expected argument 'wdac_compliance_assignment' to be a str")
+        pulumi.set(__self__, "wdac_compliance_assignment", wdac_compliance_assignment)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -91,6 +108,14 @@ class GetSecuritySettingResult:
         return pulumi.get(self, "security_compliance_status")
 
     @property
+    @pulumi.getter(name="smbEncryptionForIntraClusterTrafficComplianceAssignment")
+    def smb_encryption_for_intra_cluster_traffic_compliance_assignment(self) -> Optional[str]:
+        """
+        SMB encryption for intra-cluster traffic Compliance Assignment
+        """
+        return pulumi.get(self, "smb_encryption_for_intra_cluster_traffic_compliance_assignment")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -106,6 +131,14 @@ class GetSecuritySettingResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="wdacComplianceAssignment")
+    def wdac_compliance_assignment(self) -> Optional[str]:
+        """
+        WDAC Compliance Assignment
+        """
+        return pulumi.get(self, "wdac_compliance_assignment")
+
 
 class AwaitableGetSecuritySettingResult(GetSecuritySettingResult):
     # pylint: disable=using-constant-test
@@ -113,13 +146,16 @@ class AwaitableGetSecuritySettingResult(GetSecuritySettingResult):
         if False:
             yield self
         return GetSecuritySettingResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             secured_core_compliance_assignment=self.secured_core_compliance_assignment,
             security_compliance_status=self.security_compliance_status,
+            smb_encryption_for_intra_cluster_traffic_compliance_assignment=self.smb_encryption_for_intra_cluster_traffic_compliance_assignment,
             system_data=self.system_data,
-            type=self.type)
+            type=self.type,
+            wdac_compliance_assignment=self.wdac_compliance_assignment)
 
 
 def get_security_setting(cluster_name: Optional[str] = None,
@@ -128,9 +164,7 @@ def get_security_setting(cluster_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecuritySettingResult:
     """
     Get a SecuritySetting
-    Azure REST API version: 2023-11-01-preview.
-
-    Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -145,22 +179,23 @@ def get_security_setting(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getSecuritySetting', __args__, opts=opts, typ=GetSecuritySettingResult).value
 
     return AwaitableGetSecuritySettingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         secured_core_compliance_assignment=pulumi.get(__ret__, 'secured_core_compliance_assignment'),
         security_compliance_status=pulumi.get(__ret__, 'security_compliance_status'),
+        smb_encryption_for_intra_cluster_traffic_compliance_assignment=pulumi.get(__ret__, 'smb_encryption_for_intra_cluster_traffic_compliance_assignment'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        wdac_compliance_assignment=pulumi.get(__ret__, 'wdac_compliance_assignment'))
 def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 security_settings_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecuritySettingResult]:
     """
     Get a SecuritySetting
-    Azure REST API version: 2023-11-01-preview.
-
-    Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -174,10 +209,13 @@ def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getSecuritySetting', __args__, opts=opts, typ=GetSecuritySettingResult)
     return __ret__.apply(lambda __response__: GetSecuritySettingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         secured_core_compliance_assignment=pulumi.get(__response__, 'secured_core_compliance_assignment'),
         security_compliance_status=pulumi.get(__response__, 'security_compliance_status'),
+        smb_encryption_for_intra_cluster_traffic_compliance_assignment=pulumi.get(__response__, 'smb_encryption_for_intra_cluster_traffic_compliance_assignment'),
         system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        wdac_compliance_assignment=pulumi.get(__response__, 'wdac_compliance_assignment')))

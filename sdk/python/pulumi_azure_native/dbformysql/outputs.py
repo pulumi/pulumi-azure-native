@@ -20,12 +20,21 @@ __all__ = [
     'BackupResponse',
     'DataEncryptionResponse',
     'HighAvailabilityResponse',
-    'IdentityResponse',
+    'ImportSourcePropertiesResponse',
     'MaintenanceWindowResponse',
+    'MySQLServerIdentityResponse',
+    'MySQLServerSkuResponse',
     'NetworkResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointPropertyResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceIdentityResponse',
+    'ServerPrivateEndpointConnectionPropertiesResponse',
+    'ServerPrivateEndpointConnectionResponse',
+    'ServerPrivateLinkServiceConnectionStatePropertyResponse',
     'SkuResponse',
+    'StorageProfileResponse',
     'StorageResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
@@ -41,6 +50,8 @@ class BackupResponse(dict):
         suggest = None
         if key == "earliestRestoreDate":
             suggest = "earliest_restore_date"
+        elif key == "backupIntervalHours":
+            suggest = "backup_interval_hours"
         elif key == "backupRetentionDays":
             suggest = "backup_retention_days"
         elif key == "geoRedundantBackup":
@@ -59,15 +70,19 @@ class BackupResponse(dict):
 
     def __init__(__self__, *,
                  earliest_restore_date: str,
+                 backup_interval_hours: Optional[int] = None,
                  backup_retention_days: Optional[int] = None,
                  geo_redundant_backup: Optional[str] = None):
         """
         Storage Profile properties of a server
         :param str earliest_restore_date: Earliest restore point creation time (ISO8601 format)
+        :param int backup_interval_hours: Backup interval hours for the server.
         :param int backup_retention_days: Backup retention days for the server.
         :param str geo_redundant_backup: Whether or not geo redundant backup is enabled.
         """
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
+        if backup_interval_hours is not None:
+            pulumi.set(__self__, "backup_interval_hours", backup_interval_hours)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if geo_redundant_backup is None:
@@ -82,6 +97,14 @@ class BackupResponse(dict):
         Earliest restore point creation time (ISO8601 format)
         """
         return pulumi.get(self, "earliest_restore_date")
+
+    @property
+    @pulumi.getter(name="backupIntervalHours")
+    def backup_interval_hours(self) -> Optional[int]:
+        """
+        Backup interval hours for the server.
+        """
+        return pulumi.get(self, "backup_interval_hours")
 
     @property
     @pulumi.getter(name="backupRetentionDays")
@@ -197,7 +220,7 @@ class DataEncryptionResponse(dict):
 @pulumi.output_type
 class HighAvailabilityResponse(dict):
     """
-    Network related properties of a server
+    High availability properties of a server
     """
     @staticmethod
     def __key_warning(key: str):
@@ -221,7 +244,7 @@ class HighAvailabilityResponse(dict):
                  mode: Optional[str] = None,
                  standby_availability_zone: Optional[str] = None):
         """
-        Network related properties of a server
+        High availability properties of a server
         :param str state: The state of server high availability.
         :param str mode: High availability mode for a server.
         :param str standby_availability_zone: Availability zone of the standby server.
@@ -258,81 +281,71 @@ class HighAvailabilityResponse(dict):
 
 
 @pulumi.output_type
-class IdentityResponse(dict):
+class ImportSourcePropertiesResponse(dict):
     """
-    Properties to configure Identity for Bring your Own Keys
+    Import source related properties.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
+        if key == "dataDirPath":
+            suggest = "data_dir_path"
+        elif key == "storageType":
+            suggest = "storage_type"
+        elif key == "storageUrl":
+            suggest = "storage_url"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ImportSourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        IdentityResponse.__key_warning(key)
+        ImportSourcePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        IdentityResponse.__key_warning(key)
+        ImportSourcePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]] = None):
+                 data_dir_path: Optional[str] = None,
+                 storage_type: Optional[str] = None,
+                 storage_url: Optional[str] = None):
         """
-        Properties to configure Identity for Bring your Own Keys
-        :param str principal_id: ObjectId from the KeyVault
-        :param str tenant_id: TenantId from the KeyVault
-        :param str type: Type of managed service identity.
-        :param Mapping[str, Sequence['UserAssignedIdentityResponse']] user_assigned_identities: Metadata of user assigned identity.
+        Import source related properties.
+        :param str data_dir_path: Relative path of data directory in storage.
+        :param str storage_type: Storage type of import source.
+        :param str storage_url: Uri of the import source storage.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+        if data_dir_path is not None:
+            pulumi.set(__self__, "data_dir_path", data_dir_path)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if storage_url is not None:
+            pulumi.set(__self__, "storage_url", storage_url)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    @pulumi.getter(name="dataDirPath")
+    def data_dir_path(self) -> Optional[str]:
         """
-        ObjectId from the KeyVault
+        Relative path of data directory in storage.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "data_dir_path")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
         """
-        TenantId from the KeyVault
+        Storage type of import source.
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "storage_type")
 
     @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
+    @pulumi.getter(name="storageUrl")
+    def storage_url(self) -> Optional[str]:
         """
-        Type of managed service identity.
+        Uri of the import source storage.
         """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]]:
-        """
-        Metadata of user assigned identity.
-        """
-        return pulumi.get(self, "user_assigned_identities")
+        return pulumi.get(self, "storage_url")
 
 
 @pulumi.output_type
@@ -418,6 +431,117 @@ class MaintenanceWindowResponse(dict):
 
 
 @pulumi.output_type
+class MySQLServerIdentityResponse(dict):
+    """
+    Properties to configure Identity for Bring your Own Keys
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MySQLServerIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MySQLServerIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MySQLServerIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]] = None):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        :param str principal_id: ObjectId from the KeyVault
+        :param str tenant_id: TenantId from the KeyVault
+        :param str type: Type of managed service identity.
+        :param Mapping[str, Sequence['UserAssignedIdentityResponse']] user_assigned_identities: Metadata of user assigned identity.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]]:
+        """
+        Metadata of user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class MySQLServerSkuResponse(dict):
+    """
+    Billing information related properties of a server.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        Billing information related properties of a server.
+        :param str name: The name of the sku, e.g. Standard_D32s_v3.
+        :param str tier: The tier of the particular SKU, e.g. GeneralPurpose.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the sku, e.g. Standard_D32s_v3.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The tier of the particular SKU, e.g. GeneralPurpose.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class NetworkResponse(dict):
     """
     Network related properties of a server
@@ -425,12 +549,12 @@ class NetworkResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "publicNetworkAccess":
-            suggest = "public_network_access"
-        elif key == "delegatedSubnetResourceId":
+        if key == "delegatedSubnetResourceId":
             suggest = "delegated_subnet_resource_id"
         elif key == "privateDnsZoneResourceId":
             suggest = "private_dns_zone_resource_id"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkResponse. Access the value via the '{suggest}' property getter instead.")
@@ -444,28 +568,21 @@ class NetworkResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 public_network_access: str,
                  delegated_subnet_resource_id: Optional[str] = None,
-                 private_dns_zone_resource_id: Optional[str] = None):
+                 private_dns_zone_resource_id: Optional[str] = None,
+                 public_network_access: Optional[str] = None):
         """
         Network related properties of a server
-        :param str public_network_access: Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
         :param str delegated_subnet_resource_id: Delegated subnet resource id used to setup vnet for a server.
         :param str private_dns_zone_resource_id: Private DNS zone resource id.
+        :param str public_network_access: Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
         """
-        pulumi.set(__self__, "public_network_access", public_network_access)
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
         if private_dns_zone_resource_id is not None:
             pulumi.set(__self__, "private_dns_zone_resource_id", private_dns_zone_resource_id)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> str:
-        """
-        Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
-        """
-        return pulumi.get(self, "public_network_access")
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="delegatedSubnetResourceId")
@@ -482,6 +599,158 @@ class NetworkResponse(dict):
         Private DNS zone resource id.
         """
         return pulumi.get(self, "private_dns_zone_resource_id")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
+        """
+        return pulumi.get(self, "public_network_access")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The private endpoint connection resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointPropertyResponse(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -571,36 +840,376 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ResourceIdentityResponse(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str principal_id: The Azure Active Directory principal id.
+        :param str tenant_id: The Azure Active Directory tenant id.
+        :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory principal id.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServerPrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Properties of a private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerPrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerPrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerPrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None):
+        """
+        Properties of a private endpoint connection.
+        :param str provisioning_state: State of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'ServerPrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class ServerPrivateEndpointConnectionResponse(dict):
+    """
+    A private endpoint connection under a server
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse'):
+        """
+        A private endpoint connection under a server
+        :param str id: Resource Id of the private endpoint connection.
+        :param 'ServerPrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id of the private endpoint connection.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ServerPrivateEndpointConnectionPropertiesResponse':
+        """
+        Private endpoint connection properties
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerPrivateLinkServiceConnectionStatePropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerPrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerPrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: str):
+        """
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     Billing information related properties of a server.
     """
     def __init__(__self__, *,
                  name: str,
-                 tier: str):
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
         """
         Billing information related properties of a server.
-        :param str name: The name of the sku, e.g. Standard_D32s_v3.
-        :param str tier: The tier of the particular SKU, e.g. GeneralPurpose.
+        :param str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+        :param int capacity: The scale up/out capacity, representing server's compute units.
+        :param str family: The family of hardware.
+        :param str size: The size code, to be interpreted by resource as appropriate.
+        :param str tier: The tier of the particular SKU, e.g. Basic.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the sku, e.g. Standard_D32s_v3.
+        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tier(self) -> str:
+    def capacity(self) -> Optional[int]:
         """
-        The tier of the particular SKU, e.g. GeneralPurpose.
+        The scale up/out capacity, representing server's compute units.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        The family of hardware.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The size code, to be interpreted by resource as appropriate.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier of the particular SKU, e.g. Basic.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class StorageProfileResponse(dict):
+    """
+    Storage Profile properties of a server
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupRetentionDays":
+            suggest = "backup_retention_days"
+        elif key == "geoRedundantBackup":
+            suggest = "geo_redundant_backup"
+        elif key == "storageAutogrow":
+            suggest = "storage_autogrow"
+        elif key == "storageMB":
+            suggest = "storage_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_retention_days: Optional[int] = None,
+                 geo_redundant_backup: Optional[str] = None,
+                 storage_autogrow: Optional[str] = None,
+                 storage_mb: Optional[int] = None):
+        """
+        Storage Profile properties of a server
+        :param int backup_retention_days: Backup retention days for the server.
+        :param str geo_redundant_backup: Enable Geo-redundant or not for server backup.
+        :param str storage_autogrow: Enable Storage Auto Grow.
+        :param int storage_mb: Max storage allowed for a server.
+        """
+        if backup_retention_days is not None:
+            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if geo_redundant_backup is not None:
+            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
+        if storage_autogrow is not None:
+            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
+        if storage_mb is not None:
+            pulumi.set(__self__, "storage_mb", storage_mb)
+
+    @property
+    @pulumi.getter(name="backupRetentionDays")
+    def backup_retention_days(self) -> Optional[int]:
+        """
+        Backup retention days for the server.
+        """
+        return pulumi.get(self, "backup_retention_days")
+
+    @property
+    @pulumi.getter(name="geoRedundantBackup")
+    def geo_redundant_backup(self) -> Optional[str]:
+        """
+        Enable Geo-redundant or not for server backup.
+        """
+        return pulumi.get(self, "geo_redundant_backup")
+
+    @property
+    @pulumi.getter(name="storageAutogrow")
+    def storage_autogrow(self) -> Optional[str]:
+        """
+        Enable Storage Auto Grow.
+        """
+        return pulumi.get(self, "storage_autogrow")
+
+    @property
+    @pulumi.getter(name="storageMB")
+    def storage_mb(self) -> Optional[int]:
+        """
+        Max storage allowed for a server.
+        """
+        return pulumi.get(self, "storage_mb")
 
 
 @pulumi.output_type
@@ -619,6 +1228,8 @@ class StorageResponse(dict):
             suggest = "auto_io_scaling"
         elif key == "logOnDisk":
             suggest = "log_on_disk"
+        elif key == "storageRedundancy":
+            suggest = "storage_redundancy"
         elif key == "storageSizeGB":
             suggest = "storage_size_gb"
 
@@ -639,6 +1250,7 @@ class StorageResponse(dict):
                  auto_io_scaling: Optional[str] = None,
                  iops: Optional[int] = None,
                  log_on_disk: Optional[str] = None,
+                 storage_redundancy: Optional[str] = None,
                  storage_size_gb: Optional[int] = None):
         """
         Storage Profile properties of a server
@@ -647,6 +1259,7 @@ class StorageResponse(dict):
         :param str auto_io_scaling: Enable IO Auto Scaling or not.
         :param int iops: Storage IOPS for a server.
         :param str log_on_disk: Enable Log On Disk or not.
+        :param str storage_redundancy: The redundant type of the server storage. The parameter is used for server creation.
         :param int storage_size_gb: Max storage size allowed for a server.
         """
         pulumi.set(__self__, "storage_sku", storage_sku)
@@ -655,7 +1268,7 @@ class StorageResponse(dict):
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
         if auto_io_scaling is None:
-            auto_io_scaling = 'Disabled'
+            auto_io_scaling = 'Enabled'
         if auto_io_scaling is not None:
             pulumi.set(__self__, "auto_io_scaling", auto_io_scaling)
         if iops is not None:
@@ -664,6 +1277,10 @@ class StorageResponse(dict):
             log_on_disk = 'Disabled'
         if log_on_disk is not None:
             pulumi.set(__self__, "log_on_disk", log_on_disk)
+        if storage_redundancy is None:
+            storage_redundancy = 'LocalRedundancy'
+        if storage_redundancy is not None:
+            pulumi.set(__self__, "storage_redundancy", storage_redundancy)
         if storage_size_gb is not None:
             pulumi.set(__self__, "storage_size_gb", storage_size_gb)
 
@@ -706,6 +1323,14 @@ class StorageResponse(dict):
         Enable Log On Disk or not.
         """
         return pulumi.get(self, "log_on_disk")
+
+    @property
+    @pulumi.getter(name="storageRedundancy")
+    def storage_redundancy(self) -> Optional[str]:
+        """
+        The redundant type of the server storage. The parameter is used for server creation.
+        """
+        return pulumi.get(self, "storage_redundancy")
 
     @property
     @pulumi.getter(name="storageSizeGB")

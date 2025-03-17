@@ -170,7 +170,7 @@ class NetworkTap(pulumi.CustomResource):
                  __props__=None):
         """
         The Network Tap resource definition.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,7 +191,7 @@ class NetworkTap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Tap resource definition.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param NetworkTapArgs args: The arguments to use to populate this resource's properties.
@@ -242,6 +242,7 @@ class NetworkTap(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["administrative_state"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -274,6 +275,7 @@ class NetworkTap(pulumi.CustomResource):
 
         __props__.__dict__["administrative_state"] = None
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["configuration_state"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["location"] = None
@@ -302,6 +304,14 @@ class NetworkTap(pulumi.CustomResource):
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationState")

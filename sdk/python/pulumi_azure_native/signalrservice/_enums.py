@@ -59,7 +59,7 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
 
 class ServiceKind(str, Enum):
     """
-    The kind of the service, it can be SignalR or RawWebSockets
+    The kind of the service
     """
     SIGNAL_R = "SignalR"
     RAW_WEB_SOCKETS = "RawWebSockets"

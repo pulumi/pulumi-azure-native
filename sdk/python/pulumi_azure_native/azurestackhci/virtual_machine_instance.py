@@ -23,9 +23,11 @@ __all__ = ['VirtualMachineInstanceArgs', 'VirtualMachineInstance']
 class VirtualMachineInstanceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[str],
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  hardware_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  network_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs']] = None,
                  os_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs']] = None,
                  resource_uid: Optional[pulumi.Input[str]] = None,
@@ -33,10 +35,12 @@ class VirtualMachineInstanceArgs:
                  storage_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
-        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input[bool] create_from_local: Boolean indicating whether this is an existing local virtual machine or if one should be created.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs'] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine instance.
-        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
+        :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs'] network_profile: NetworkProfile - describes the network configuration the virtual machine instance
         :param pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs'] os_profile: OsProfile - describes the configuration of the operating system and sets login data
         :param pulumi.Input[str] resource_uid: Unique identifier defined by ARC to identify the guest of the VM.
@@ -44,10 +48,16 @@ class VirtualMachineInstanceArgs:
         :param pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs'] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine instance
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
+        if create_from_local is None:
+            create_from_local = False
+        if create_from_local is not None:
+            pulumi.set(__self__, "create_from_local", create_from_local)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if network_profile is not None:
@@ -65,13 +75,25 @@ class VirtualMachineInstanceArgs:
     @pulumi.getter(name="resourceUri")
     def resource_uri(self) -> pulumi.Input[str]:
         """
-        The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "resource_uri")
 
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_uri", value)
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating whether this is an existing local virtual machine or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
+
+    @create_from_local.setter
+    def create_from_local(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_from_local", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -98,15 +120,27 @@ class VirtualMachineInstanceArgs:
         pulumi.set(self, "hardware_profile", value)
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional[pulumi.Input['HttpProxyConfigurationArgs']]:
         """
-        Identity for the resource.
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @http_proxy_config.setter
+    def http_proxy_config(self, value: Optional[pulumi.Input['HttpProxyConfigurationArgs']]):
+        pulumi.set(self, "http_proxy_config", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -175,9 +209,11 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hardware_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  network_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
                  resource_uid: Optional[pulumi.Input[str]] = None,
@@ -187,19 +223,19 @@ class VirtualMachineInstance(pulumi.CustomResource):
                  __props__=None):
         """
         The virtual machine instance resource definition.
-        Azure REST API version: 2023-07-01-preview.
-
-        Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] create_from_local: Boolean indicating whether this is an existing local virtual machine or if one should be created.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine instance.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
+        :param pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']] http_proxy_config: HTTP Proxy configuration for the VM.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']] network_profile: NetworkProfile - describes the network configuration the virtual machine instance
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']] os_profile: OsProfile - describes the configuration of the operating system and sets login data
         :param pulumi.Input[str] resource_uid: Unique identifier defined by ARC to identify the guest of the VM.
-        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesSecurityProfileArgs', 'VirtualMachineInstancePropertiesSecurityProfileArgsDict']] security_profile: SecurityProfile - Specifies the security settings for the virtual machine instance.
         :param pulumi.Input[Union['VirtualMachineInstancePropertiesStorageProfileArgs', 'VirtualMachineInstancePropertiesStorageProfileArgsDict']] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine instance
         """
@@ -211,9 +247,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual machine instance resource definition.
-        Azure REST API version: 2023-07-01-preview.
-
-        Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -230,9 +264,11 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hardware_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesHardwareProfileArgs', 'VirtualMachineInstancePropertiesHardwareProfileArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  network_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesNetworkProfileArgs', 'VirtualMachineInstancePropertiesNetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['VirtualMachineInstancePropertiesOsProfileArgs', 'VirtualMachineInstancePropertiesOsProfileArgsDict']]] = None,
                  resource_uid: Optional[pulumi.Input[str]] = None,
@@ -248,8 +284,12 @@ class VirtualMachineInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineInstanceArgs.__new__(VirtualMachineInstanceArgs)
 
+            if create_from_local is None:
+                create_from_local = False
+            __props__.__dict__["create_from_local"] = create_from_local
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hardware_profile"] = hardware_profile
+            __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["identity"] = identity
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["os_profile"] = os_profile
@@ -259,6 +299,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
             __props__.__dict__["resource_uri"] = resource_uri
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_profile"] = storage_profile
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["guest_agent_install_status"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
@@ -291,9 +332,12 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
         __props__ = VirtualMachineInstanceArgs.__new__(VirtualMachineInstanceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["create_from_local"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["guest_agent_install_status"] = None
         __props__.__dict__["hardware_profile"] = None
+        __props__.__dict__["http_proxy_config"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["name"] = None
@@ -308,6 +352,22 @@ class VirtualMachineInstance(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["vm_id"] = None
         return VirtualMachineInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean indicating whether this is an existing local virtual machine or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -327,17 +387,25 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesResponseHardwareProfile']]:
+    def hardware_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesHardwareProfileResponse']]:
         """
         HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         """
         return pulumi.get(self, "hardware_profile")
 
     @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> pulumi.Output[Optional['outputs.HttpProxyConfigurationResponse']]:
         """
-        Identity for the resource.
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -359,7 +427,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesResponseNetworkProfile']]:
+    def network_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesNetworkProfileResponse']]:
         """
         NetworkProfile - describes the network configuration the virtual machine instance
         """
@@ -367,7 +435,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesResponseOsProfile']]:
+    def os_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesOsProfileResponse']]:
         """
         OsProfile - describes the configuration of the operating system and sets login data
         """
@@ -391,7 +459,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesResponseSecurityProfile']]:
+    def security_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesSecurityProfileResponse']]:
         """
         SecurityProfile - Specifies the security settings for the virtual machine instance.
         """
@@ -407,7 +475,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesResponseStorageProfile']]:
+    def storage_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineInstancePropertiesStorageProfileResponse']]:
         """
         StorageProfile - contains information about the disks and storage information for the virtual machine instance
         """

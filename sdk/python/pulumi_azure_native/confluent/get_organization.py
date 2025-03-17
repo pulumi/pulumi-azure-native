@@ -27,7 +27,10 @@ class GetOrganizationResult:
     """
     Organization resource.
     """
-    def __init__(__self__, created_time=None, id=None, location=None, name=None, offer_detail=None, organization_id=None, provisioning_state=None, sso_url=None, system_data=None, tags=None, type=None, user_detail=None):
+    def __init__(__self__, azure_api_version=None, created_time=None, id=None, location=None, name=None, offer_detail=None, organization_id=None, provisioning_state=None, sso_url=None, system_data=None, tags=None, type=None, user_detail=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -64,6 +67,14 @@ class GetOrganizationResult:
         if user_detail and not isinstance(user_detail, dict):
             raise TypeError("Expected argument 'user_detail' to be a dict")
         pulumi.set(__self__, "user_detail", user_detail)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -168,6 +179,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
         if False:
             yield self
         return GetOrganizationResult(
+            azure_api_version=self.azure_api_version,
             created_time=self.created_time,
             id=self.id,
             location=self.location,
@@ -187,9 +199,7 @@ def get_organization(organization_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
     Organization resource.
-    Azure REST API version: 2021-12-01.
-
-    Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+    Azure REST API version: 2024-07-01.
 
 
     :param str organization_name: Organization resource name
@@ -202,6 +212,7 @@ def get_organization(organization_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confluent:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_time=pulumi.get(__ret__, 'created_time'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -219,9 +230,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Organization resource.
-    Azure REST API version: 2021-12-01.
-
-    Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+    Azure REST API version: 2024-07-01.
 
 
     :param str organization_name: Organization resource name
@@ -233,6 +242,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
     return __ret__.apply(lambda __response__: GetOrganizationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_time=pulumi.get(__response__, 'created_time'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

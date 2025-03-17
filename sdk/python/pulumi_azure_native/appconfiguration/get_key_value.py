@@ -26,7 +26,10 @@ class GetKeyValueResult:
     """
     The key-value resource along with all resource properties.
     """
-    def __init__(__self__, content_type=None, e_tag=None, id=None, key=None, label=None, last_modified=None, locked=None, name=None, tags=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, content_type=None, e_tag=None, id=None, key=None, label=None, last_modified=None, locked=None, name=None, tags=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -60,6 +63,14 @@ class GetKeyValueResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentType")
@@ -160,6 +171,7 @@ class AwaitableGetKeyValueResult(GetKeyValueResult):
         if False:
             yield self
         return GetKeyValueResult(
+            azure_api_version=self.azure_api_version,
             content_type=self.content_type,
             e_tag=self.e_tag,
             id=self.id,
@@ -179,9 +191,7 @@ def get_key_value(config_store_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyValueResult:
     """
     Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -196,6 +206,7 @@ def get_key_value(config_store_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appconfiguration:getKeyValue', __args__, opts=opts, typ=GetKeyValueResult).value
 
     return AwaitableGetKeyValueResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_type=pulumi.get(__ret__, 'content_type'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
@@ -213,9 +224,7 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyValueResult]:
     """
     Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -229,6 +238,7 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration:getKeyValue', __args__, opts=opts, typ=GetKeyValueResult)
     return __ret__.apply(lambda __response__: GetKeyValueResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_type=pulumi.get(__response__, 'content_type'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),

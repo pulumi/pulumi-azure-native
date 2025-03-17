@@ -183,7 +183,7 @@ class Job(pulumi.CustomResource):
                  __props__=None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 2.x: 2022-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,7 +205,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 2.x: 2022-07-01.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -259,6 +259,7 @@ class Job(pulumi.CustomResource):
             if transform_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transform_name'")
             __props__.__dict__["transform_name"] = transform_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["end_time"] = None
             __props__.__dict__["last_modified"] = None
@@ -291,6 +292,7 @@ class Job(pulumi.CustomResource):
 
         __props__ = JobArgs.__new__(JobArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["correlation_data"] = None
         __props__.__dict__["created"] = None
         __props__.__dict__["description"] = None
@@ -305,6 +307,14 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="correlationData")

@@ -115,9 +115,7 @@ class Configuration(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Configuration.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Configuration.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +174,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["value"] = value
             __props__.__dict__["allowed_values"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_type"] = None
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
@@ -208,6 +205,7 @@ class Configuration(pulumi.CustomResource):
         __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
         __props__.__dict__["allowed_values"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_type"] = None
         __props__.__dict__["default_value"] = None
         __props__.__dict__["description"] = None
@@ -224,6 +222,14 @@ class Configuration(pulumi.CustomResource):
         Allowed values of the configuration.
         """
         return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataType")

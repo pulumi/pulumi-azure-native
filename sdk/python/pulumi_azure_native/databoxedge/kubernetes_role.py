@@ -173,7 +173,7 @@ class KubernetesRole(pulumi.CustomResource):
             For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
             Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
             By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
-           Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+           Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +202,7 @@ class KubernetesRole(pulumi.CustomResource):
             For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
             Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
             By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
-           Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+           Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param KubernetesRoleArgs args: The arguments to use to populate this resource's properties.
@@ -258,11 +258,12 @@ class KubernetesRole(pulumi.CustomResource):
             if role_status is None and not opts.urn:
                 raise TypeError("Missing required property 'role_status'")
             __props__.__dict__["role_status"] = role_status
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["host_platform_type"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:KubernetesRole")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge:MECRole")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubernetesRole, __self__).__init__(
             'azure-native:databoxedge:KubernetesRole',
@@ -286,6 +287,7 @@ class KubernetesRole(pulumi.CustomResource):
 
         __props__ = KubernetesRoleArgs.__new__(KubernetesRoleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["host_platform"] = None
         __props__.__dict__["host_platform_type"] = None
         __props__.__dict__["kind"] = None
@@ -297,6 +299,14 @@ class KubernetesRole(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return KubernetesRole(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hostPlatform")

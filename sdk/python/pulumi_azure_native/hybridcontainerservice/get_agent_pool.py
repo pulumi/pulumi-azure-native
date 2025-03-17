@@ -27,10 +27,13 @@ class GetAgentPoolResult:
     """
     The agentPool resource definition
     """
-    def __init__(__self__, availability_zones=None, cloud_provider_profile=None, count=None, extended_location=None, id=None, location=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, os_type=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, vm_size=None):
+    def __init__(__self__, availability_zones=None, azure_api_version=None, cloud_provider_profile=None, count=None, extended_location=None, id=None, location=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, os_type=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, vm_size=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_provider_profile and not isinstance(cloud_provider_profile, dict):
             raise TypeError("Expected argument 'cloud_provider_profile' to be a dict")
         pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
@@ -99,6 +102,14 @@ class GetAgentPoolResult:
         AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudProviderProfile")
@@ -262,6 +273,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             yield self
         return GetAgentPoolResult(
             availability_zones=self.availability_zones,
+            azure_api_version=self.azure_api_version,
             cloud_provider_profile=self.cloud_provider_profile,
             count=self.count,
             extended_location=self.extended_location,
@@ -306,6 +318,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
 
     return AwaitableGetAgentPoolResult(
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_provider_profile=pulumi.get(__ret__, 'cloud_provider_profile'),
         count=pulumi.get(__ret__, 'count'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -347,6 +360,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
     return __ret__.apply(lambda __response__: GetAgentPoolResult(
         availability_zones=pulumi.get(__response__, 'availability_zones'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_provider_profile=pulumi.get(__response__, 'cloud_provider_profile'),
         count=pulumi.get(__response__, 'count'),
         extended_location=pulumi.get(__response__, 'extended_location'),

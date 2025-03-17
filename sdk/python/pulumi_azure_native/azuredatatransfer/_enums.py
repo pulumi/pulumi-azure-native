@@ -7,11 +7,15 @@ from enum import Enum
 __all__ = [
     'DataType',
     'Direction',
+    'FlowBillingTier',
     'FlowStatus',
     'FlowType',
     'ListApprovedSchemasDirection',
     'ManagedServiceIdentityType',
+    'SchemaDirection',
     'SchemaStatus',
+    'SchemaType',
+    'StreamProtocol',
 ]
 
 
@@ -29,6 +33,15 @@ class Direction(str, Enum):
     """
     SEND = "Send"
     RECEIVE = "Receive"
+
+
+class FlowBillingTier(str, Enum):
+    """
+    Billing tier for this messaging flow
+    """
+    BLOB_TRANSPORT = "BlobTransport"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class FlowStatus(str, Enum):
@@ -51,6 +64,10 @@ class FlowType(str, Enum):
     MICROSOFT_INTERNAL = "MicrosoftInternal"
     BASIC_FILES = "BasicFiles"
     DATA = "Data"
+    STANDARD = "Standard"
+    STREAMING_VIDEO = "StreamingVideo"
+    OPAQUE = "Opaque"
+    MISSION_OPAQUE_XML = "MissionOpaqueXML"
 
 
 class ListApprovedSchemasDirection(str, Enum):
@@ -71,9 +88,34 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+class SchemaDirection(str, Enum):
+    """
+    The direction of the schema.
+    """
+    SEND = "Send"
+    RECEIVE = "Receive"
+
+
 class SchemaStatus(str, Enum):
     """
     Status of the schema
     """
     NEW = "New"
     APPROVED = "Approved"
+
+
+class SchemaType(str, Enum):
+    """
+    The Schema Type
+    """
+    XSD = "Xsd"
+    ZIP = "Zip"
+
+
+class StreamProtocol(str, Enum):
+    """
+    The protocol of the stream
+    """
+    UDP = "UDP"
+    SRT = "SRT"
+    RTP = "RTP"

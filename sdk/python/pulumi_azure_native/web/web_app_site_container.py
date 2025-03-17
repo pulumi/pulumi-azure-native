@@ -269,9 +269,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
                  __props__=None):
         """
         Container of a site
-        Azure REST API version: 2023-12-01.
-
-        Other available API versions: 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,9 +296,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container of a site
-        Azure REST API version: 2023-12-01.
-
-        Other available API versions: 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSiteContainerArgs args: The arguments to use to populate this resource's properties.
@@ -362,6 +358,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
             __props__.__dict__["user_managed_identity_client_id"] = user_managed_identity_client_id
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["volume_mounts"] = volume_mounts
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
@@ -390,6 +387,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
         __props__ = WebAppSiteContainerArgs.__new__(WebAppSiteContainerArgs)
 
         __props__.__dict__["auth_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["image"] = None
@@ -413,6 +411,14 @@ class WebAppSiteContainer(pulumi.CustomResource):
         Auth Type
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")

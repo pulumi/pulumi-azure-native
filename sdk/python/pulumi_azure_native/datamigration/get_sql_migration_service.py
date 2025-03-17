@@ -27,7 +27,10 @@ class GetSqlMigrationServiceResult:
     """
     A SQL Migration Service.
     """
-    def __init__(__self__, id=None, integration_runtime_state=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, integration_runtime_state=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetSqlMigrationServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetSqlMigrationServiceResult(GetSqlMigrationServiceResult):
         if False:
             yield self
         return GetSqlMigrationServiceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             integration_runtime_state=self.integration_runtime_state,
             location=self.location,
@@ -121,9 +133,7 @@ def get_sql_migration_service(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlMigrationServiceResult:
     """
     Retrieve the Database Migration Service
-    Azure REST API version: 2022-03-30-preview.
-
-    Other available API versions: 2023-07-15-preview.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -136,6 +146,7 @@ def get_sql_migration_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration:getSqlMigrationService', __args__, opts=opts, typ=GetSqlMigrationServiceResult).value
 
     return AwaitableGetSqlMigrationServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         integration_runtime_state=pulumi.get(__ret__, 'integration_runtime_state'),
         location=pulumi.get(__ret__, 'location'),
@@ -149,9 +160,7 @@ def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlMigrationServiceResult]:
     """
     Retrieve the Database Migration Service
-    Azure REST API version: 2022-03-30-preview.
-
-    Other available API versions: 2023-07-15-preview.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -163,6 +172,7 @@ def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getSqlMigrationService', __args__, opts=opts, typ=GetSqlMigrationServiceResult)
     return __ret__.apply(lambda __response__: GetSqlMigrationServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         integration_runtime_state=pulumi.get(__response__, 'integration_runtime_state'),
         location=pulumi.get(__response__, 'location'),

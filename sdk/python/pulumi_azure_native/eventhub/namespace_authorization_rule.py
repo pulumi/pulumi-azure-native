@@ -99,9 +99,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in a List or Get AuthorizationRule operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -160,6 +156,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
             __props__.__dict__["rights"] = rights
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -188,12 +185,21 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         __props__ = NamespaceAuthorizationRuleArgs.__new__(NamespaceAuthorizationRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rights"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

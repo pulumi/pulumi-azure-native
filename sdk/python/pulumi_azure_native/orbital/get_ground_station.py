@@ -27,10 +27,13 @@ class GetGroundStationResult:
     """
     Ground Station contains one or more antennas.
     """
-    def __init__(__self__, altitude_meters=None, capabilities=None, city=None, global_communications_site=None, id=None, latitude_degrees=None, location=None, longitude_degrees=None, name=None, provider_name=None, release_mode=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, altitude_meters=None, azure_api_version=None, capabilities=None, city=None, global_communications_site=None, id=None, latitude_degrees=None, location=None, longitude_degrees=None, name=None, provider_name=None, release_mode=None, system_data=None, tags=None, type=None):
         if altitude_meters and not isinstance(altitude_meters, float):
             raise TypeError("Expected argument 'altitude_meters' to be a float")
         pulumi.set(__self__, "altitude_meters", altitude_meters)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -78,6 +81,14 @@ class GetGroundStationResult:
         Altitude of the ground station.
         """
         return pulumi.get(self, "altitude_meters")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -191,6 +202,7 @@ class AwaitableGetGroundStationResult(GetGroundStationResult):
             yield self
         return GetGroundStationResult(
             altitude_meters=self.altitude_meters,
+            azure_api_version=self.azure_api_version,
             capabilities=self.capabilities,
             city=self.city,
             global_communications_site=self.global_communications_site,
@@ -213,8 +225,6 @@ def get_ground_station(ground_station_name: Optional[str] = None,
     Gets the specified ground station in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
-
 
     :param str ground_station_name: Ground Station name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -227,6 +237,7 @@ def get_ground_station(ground_station_name: Optional[str] = None,
 
     return AwaitableGetGroundStationResult(
         altitude_meters=pulumi.get(__ret__, 'altitude_meters'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capabilities=pulumi.get(__ret__, 'capabilities'),
         city=pulumi.get(__ret__, 'city'),
         global_communications_site=pulumi.get(__ret__, 'global_communications_site'),
@@ -247,8 +258,6 @@ def get_ground_station_output(ground_station_name: Optional[pulumi.Input[str]] =
     Gets the specified ground station in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
-
 
     :param str ground_station_name: Ground Station name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,6 +269,7 @@ def get_ground_station_output(ground_station_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getGroundStation', __args__, opts=opts, typ=GetGroundStationResult)
     return __ret__.apply(lambda __response__: GetGroundStationResult(
         altitude_meters=pulumi.get(__response__, 'altitude_meters'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capabilities=pulumi.get(__response__, 'capabilities'),
         city=pulumi.get(__response__, 'city'),
         global_communications_site=pulumi.get(__response__, 'global_communications_site'),

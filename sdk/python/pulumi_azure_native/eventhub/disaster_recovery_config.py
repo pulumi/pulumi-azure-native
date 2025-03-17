@@ -116,9 +116,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +174,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["pending_replication_operations_count"] = None
@@ -210,6 +207,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         __props__ = DisasterRecoveryConfigArgs.__new__(DisasterRecoveryConfigArgs)
 
         __props__.__dict__["alternate_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_namespace"] = None
@@ -227,6 +225,14 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         Alternate name specified when alias and namespace names are same.
         """
         return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

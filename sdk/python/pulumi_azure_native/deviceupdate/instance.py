@@ -169,7 +169,7 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         Device Update instance details.
-        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device Update instance details.
-        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -236,6 +236,7 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -265,6 +266,7 @@ class Instance(pulumi.CustomResource):
         __props__ = InstanceArgs.__new__(InstanceArgs)
 
         __props__.__dict__["account_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["diagnostic_storage_properties"] = None
         __props__.__dict__["enable_diagnostics"] = None
         __props__.__dict__["iot_hubs"] = None
@@ -283,6 +285,14 @@ class Instance(pulumi.CustomResource):
         Parent Device Update Account name which Instance belongs to.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="diagnosticStorageProperties")

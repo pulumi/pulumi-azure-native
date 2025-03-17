@@ -27,7 +27,10 @@ class GetNamespaceTopicResult:
     """
     Namespace topic details.
     """
-    def __init__(__self__, event_retention_in_days=None, id=None, input_schema=None, name=None, provisioning_state=None, publisher_type=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, event_retention_in_days=None, id=None, input_schema=None, name=None, provisioning_state=None, publisher_type=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if event_retention_in_days and not isinstance(event_retention_in_days, int):
             raise TypeError("Expected argument 'event_retention_in_days' to be a int")
         pulumi.set(__self__, "event_retention_in_days", event_retention_in_days)
@@ -52,6 +55,14 @@ class GetNamespaceTopicResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eventRetentionInDays")
@@ -106,7 +117,7 @@ class GetNamespaceTopicResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to namespace topic resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -125,6 +136,7 @@ class AwaitableGetNamespaceTopicResult(GetNamespaceTopicResult):
         if False:
             yield self
         return GetNamespaceTopicResult(
+            azure_api_version=self.azure_api_version,
             event_retention_in_days=self.event_retention_in_days,
             id=self.id,
             input_schema=self.input_schema,
@@ -141,9 +153,7 @@ def get_namespace_topic(namespace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceTopicResult:
     """
     Get properties of a namespace topic.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str namespace_name: Name of the namespace.
@@ -158,6 +168,7 @@ def get_namespace_topic(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getNamespaceTopic', __args__, opts=opts, typ=GetNamespaceTopicResult).value
 
     return AwaitableGetNamespaceTopicResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         event_retention_in_days=pulumi.get(__ret__, 'event_retention_in_days'),
         id=pulumi.get(__ret__, 'id'),
         input_schema=pulumi.get(__ret__, 'input_schema'),
@@ -172,9 +183,7 @@ def get_namespace_topic_output(namespace_name: Optional[pulumi.Input[str]] = Non
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicResult]:
     """
     Get properties of a namespace topic.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str namespace_name: Name of the namespace.
@@ -188,6 +197,7 @@ def get_namespace_topic_output(namespace_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getNamespaceTopic', __args__, opts=opts, typ=GetNamespaceTopicResult)
     return __ret__.apply(lambda __response__: GetNamespaceTopicResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         event_retention_in_days=pulumi.get(__response__, 'event_retention_in_days'),
         id=pulumi.get(__response__, 'id'),
         input_schema=pulumi.get(__response__, 'input_schema'),

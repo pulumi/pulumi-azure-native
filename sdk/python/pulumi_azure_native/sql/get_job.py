@@ -27,7 +27,10 @@ class GetJobResult:
     """
     A job.
     """
-    def __init__(__self__, description=None, id=None, name=None, schedule=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, name=None, schedule=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -46,6 +49,14 @@ class GetJobResult:
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -119,8 +131,6 @@ def get_job(job_agent_name: Optional[str] = None,
     Gets a job.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str job_agent_name: The name of the job agent.
     :param str job_name: The name of the job to get.
@@ -136,6 +146,7 @@ def get_job(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -151,8 +162,6 @@ def get_job_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     Gets a job.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str job_agent_name: The name of the job agent.
     :param str job_name: The name of the job to get.
@@ -167,6 +176,7 @@ def get_job_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getJob', __args__, opts=opts, typ=GetJobResult)
     return __ret__.apply(lambda __response__: GetJobResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

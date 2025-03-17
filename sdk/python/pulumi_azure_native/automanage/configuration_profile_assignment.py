@@ -100,7 +100,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
-        Azure REST API version: 2022-05-04. Prior API version in Azure Native 1.x: 2020-06-30-preview.
+        Azure REST API version: 2022-05-04. Prior API version in Azure Native 2.x: 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
-        Azure REST API version: 2022-05-04. Prior API version in Azure Native 1.x: 2020-06-30-preview.
+        Azure REST API version: 2022-05-04. Prior API version in Azure Native 2.x: 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -183,12 +184,21 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
 
         __props__ = ConfigurationProfileAssignmentArgs.__new__(ConfigurationProfileAssignmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConfigurationProfileAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="managedBy")

@@ -26,7 +26,10 @@ class GetProductGroupLinkResult:
     """
     Product-group link details.
     """
-    def __init__(__self__, group_id=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_id=None, id=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
         pulumi.set(__self__, "group_id", group_id)
@@ -39,6 +42,14 @@ class GetProductGroupLinkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupId")
@@ -79,6 +90,7 @@ class AwaitableGetProductGroupLinkResult(GetProductGroupLinkResult):
         if False:
             yield self
         return GetProductGroupLinkResult(
+            azure_api_version=self.azure_api_version,
             group_id=self.group_id,
             id=self.id,
             name=self.name,
@@ -93,8 +105,6 @@ def get_product_group_link(group_link_id: Optional[str] = None,
     """
     Gets the group link for the product.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str group_link_id: Product-Group link identifier. Must be unique in the current API Management service instance.
@@ -111,6 +121,7 @@ def get_product_group_link(group_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getProductGroupLink', __args__, opts=opts, typ=GetProductGroupLinkResult).value
 
     return AwaitableGetProductGroupLinkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_id=pulumi.get(__ret__, 'group_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -123,8 +134,6 @@ def get_product_group_link_output(group_link_id: Optional[pulumi.Input[str]] = N
     """
     Gets the group link for the product.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str group_link_id: Product-Group link identifier. Must be unique in the current API Management service instance.
@@ -140,6 +149,7 @@ def get_product_group_link_output(group_link_id: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getProductGroupLink', __args__, opts=opts, typ=GetProductGroupLinkResult)
     return __ret__.apply(lambda __response__: GetProductGroupLinkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_id=pulumi.get(__response__, 'group_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -387,7 +387,7 @@ class DiscoveredAsset(pulumi.CustomResource):
                  __props__=None):
         """
         Discovered Asset definition.
-        Azure REST API version: 2024-09-01-preview.
+        Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -421,7 +421,7 @@ class DiscoveredAsset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Discovered Asset definition.
-        Azure REST API version: 2024-09-01-preview.
+        Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetArgs args: The arguments to use to populate this resource's properties.
@@ -499,6 +499,7 @@ class DiscoveredAsset(pulumi.CustomResource):
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -528,6 +529,7 @@ class DiscoveredAsset(pulumi.CustomResource):
         __props__ = DiscoveredAssetArgs.__new__(DiscoveredAssetArgs)
 
         __props__.__dict__["asset_endpoint_profile_ref"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["datasets"] = None
         __props__.__dict__["default_datasets_configuration"] = None
         __props__.__dict__["default_events_configuration"] = None
@@ -559,6 +561,14 @@ class DiscoveredAsset(pulumi.CustomResource):
         A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         """
         return pulumi.get(self, "asset_endpoint_profile_ref")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

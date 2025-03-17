@@ -27,7 +27,10 @@ class GetLabResult:
     """
     Lab details.
     """
-    def __init__(__self__, budget_per_student=None, currency=None, description=None, display_name=None, effective_date=None, expiration_date=None, id=None, invitation_code=None, max_student_count=None, name=None, status=None, system_data=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, budget_per_student=None, currency=None, description=None, display_name=None, effective_date=None, expiration_date=None, id=None, invitation_code=None, max_student_count=None, name=None, status=None, system_data=None, total_budget=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if budget_per_student and not isinstance(budget_per_student, dict):
             raise TypeError("Expected argument 'budget_per_student' to be a dict")
         pulumi.set(__self__, "budget_per_student", budget_per_student)
@@ -64,12 +67,23 @@ class GetLabResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if total_budget and not isinstance(total_budget, dict):
+            raise TypeError("Expected argument 'total_budget' to be a dict")
+        pulumi.set(__self__, "total_budget", total_budget)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
         if value and not isinstance(value, float):
             raise TypeError("Expected argument 'value' to be a float")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="budgetPerStudent")
@@ -168,6 +182,14 @@ class GetLabResult:
         return pulumi.get(self, "system_data")
 
     @property
+    @pulumi.getter(name="totalBudget")
+    def total_budget(self) -> 'outputs.AmountResponse':
+        """
+        Total budget
+        """
+        return pulumi.get(self, "total_budget")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -190,6 +212,7 @@ class AwaitableGetLabResult(GetLabResult):
         if False:
             yield self
         return GetLabResult(
+            azure_api_version=self.azure_api_version,
             budget_per_student=self.budget_per_student,
             currency=self.currency,
             description=self.description,
@@ -202,6 +225,7 @@ class AwaitableGetLabResult(GetLabResult):
             name=self.name,
             status=self.status,
             system_data=self.system_data,
+            total_budget=self.total_budget,
             type=self.type,
             value=self.value)
 
@@ -230,6 +254,7 @@ def get_lab(billing_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:education:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         budget_per_student=pulumi.get(__ret__, 'budget_per_student'),
         currency=pulumi.get(__ret__, 'currency'),
         description=pulumi.get(__ret__, 'description'),
@@ -242,6 +267,7 @@ def get_lab(billing_account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        total_budget=pulumi.get(__ret__, 'total_budget'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
@@ -267,6 +293,7 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:education:getLab', __args__, opts=opts, typ=GetLabResult)
     return __ret__.apply(lambda __response__: GetLabResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         budget_per_student=pulumi.get(__response__, 'budget_per_student'),
         currency=pulumi.get(__response__, 'currency'),
         description=pulumi.get(__response__, 'description'),
@@ -279,5 +306,6 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),
+        total_budget=pulumi.get(__response__, 'total_budget'),
         type=pulumi.get(__response__, 'type'),
         value=pulumi.get(__response__, 'value')))

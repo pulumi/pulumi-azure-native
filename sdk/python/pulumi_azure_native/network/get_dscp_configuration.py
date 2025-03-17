@@ -27,10 +27,13 @@ class GetDscpConfigurationResult:
     """
     Differentiated Services Code Point configuration for any given network interface
     """
-    def __init__(__self__, associated_network_interfaces=None, destination_ip_ranges=None, destination_port_ranges=None, etag=None, id=None, location=None, markings=None, name=None, protocol=None, provisioning_state=None, qos_collection_id=None, qos_definition_collection=None, resource_guid=None, source_ip_ranges=None, source_port_ranges=None, tags=None, type=None):
+    def __init__(__self__, associated_network_interfaces=None, azure_api_version=None, destination_ip_ranges=None, destination_port_ranges=None, etag=None, id=None, location=None, markings=None, name=None, protocol=None, provisioning_state=None, qos_collection_id=None, qos_definition_collection=None, resource_guid=None, source_ip_ranges=None, source_port_ranges=None, tags=None, type=None):
         if associated_network_interfaces and not isinstance(associated_network_interfaces, list):
             raise TypeError("Expected argument 'associated_network_interfaces' to be a list")
         pulumi.set(__self__, "associated_network_interfaces", associated_network_interfaces)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if destination_ip_ranges and not isinstance(destination_ip_ranges, list):
             raise TypeError("Expected argument 'destination_ip_ranges' to be a list")
         pulumi.set(__self__, "destination_ip_ranges", destination_ip_ranges)
@@ -87,6 +90,14 @@ class GetDscpConfigurationResult:
         Associated Network Interfaces to the DSCP Configuration.
         """
         return pulumi.get(self, "associated_network_interfaces")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="destinationIpRanges")
@@ -224,6 +235,7 @@ class AwaitableGetDscpConfigurationResult(GetDscpConfigurationResult):
             yield self
         return GetDscpConfigurationResult(
             associated_network_interfaces=self.associated_network_interfaces,
+            azure_api_version=self.azure_api_version,
             destination_ip_ranges=self.destination_ip_ranges,
             destination_port_ranges=self.destination_port_ranges,
             etag=self.etag,
@@ -247,9 +259,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
     Gets a DSCP Configuration.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str dscp_configuration_name: The name of the resource.
@@ -263,6 +273,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
 
     return AwaitableGetDscpConfigurationResult(
         associated_network_interfaces=pulumi.get(__ret__, 'associated_network_interfaces'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         destination_ip_ranges=pulumi.get(__ret__, 'destination_ip_ranges'),
         destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -284,9 +295,7 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDscpConfigurationResult]:
     """
     Gets a DSCP Configuration.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str dscp_configuration_name: The name of the resource.
@@ -299,6 +308,7 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDscpConfiguration', __args__, opts=opts, typ=GetDscpConfigurationResult)
     return __ret__.apply(lambda __response__: GetDscpConfigurationResult(
         associated_network_interfaces=pulumi.get(__response__, 'associated_network_interfaces'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         destination_ip_ranges=pulumi.get(__response__, 'destination_ip_ranges'),
         destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
         etag=pulumi.get(__response__, 'etag'),

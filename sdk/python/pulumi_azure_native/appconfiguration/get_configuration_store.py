@@ -27,10 +27,16 @@ class GetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     """
-    def __init__(__self__, creation_date=None, disable_local_auth=None, enable_purge_protection=None, encryption=None, endpoint=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, soft_delete_retention_in_days=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_date=None, data_plane_proxy=None, disable_local_auth=None, enable_purge_protection=None, encryption=None, endpoint=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, soft_delete_retention_in_days=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if data_plane_proxy and not isinstance(data_plane_proxy, dict):
+            raise TypeError("Expected argument 'data_plane_proxy' to be a dict")
+        pulumi.set(__self__, "data_plane_proxy", data_plane_proxy)
         if disable_local_auth and not isinstance(disable_local_auth, bool):
             raise TypeError("Expected argument 'disable_local_auth' to be a bool")
         pulumi.set(__self__, "disable_local_auth", disable_local_auth)
@@ -81,12 +87,28 @@ class GetConfigurationStoreResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
         """
         The creation date of configuration store.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="dataPlaneProxy")
+    def data_plane_proxy(self) -> Optional['outputs.DataPlaneProxyPropertiesResponse']:
+        """
+        Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+        """
+        return pulumi.get(self, "data_plane_proxy")
 
     @property
     @pulumi.getter(name="disableLocalAuth")
@@ -223,7 +245,9 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
         if False:
             yield self
         return GetConfigurationStoreResult(
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
+            data_plane_proxy=self.data_plane_proxy,
             disable_local_auth=self.disable_local_auth,
             enable_purge_protection=self.enable_purge_protection,
             encryption=self.encryption,
@@ -247,9 +271,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationStoreResult:
     """
     Gets the properties of the specified configuration store.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -262,7 +284,9 @@ def get_configuration_store(config_store_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appconfiguration:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult).value
 
     return AwaitableGetConfigurationStoreResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
+        data_plane_proxy=pulumi.get(__ret__, 'data_plane_proxy'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         enable_purge_protection=pulumi.get(__ret__, 'enable_purge_protection'),
         encryption=pulumi.get(__ret__, 'encryption'),
@@ -284,9 +308,7 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationStoreResult]:
     """
     Gets the properties of the specified configuration store.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -298,7 +320,9 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult)
     return __ret__.apply(lambda __response__: GetConfigurationStoreResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
+        data_plane_proxy=pulumi.get(__response__, 'data_plane_proxy'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         enable_purge_protection=pulumi.get(__response__, 'enable_purge_protection'),
         encryption=pulumi.get(__response__, 'encryption'),

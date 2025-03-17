@@ -288,9 +288,7 @@ class InboundNatRule(pulumi.CustomResource):
                  __props__=None):
         """
         Inbound NAT rule of the load balancer.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,9 +316,7 @@ class InboundNatRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Inbound NAT rule of the load balancer.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param InboundNatRuleInitArgs args: The arguments to use to populate this resource's properties.
@@ -380,6 +376,7 @@ class InboundNatRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["backend_ip_configuration"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -408,6 +405,7 @@ class InboundNatRule(pulumi.CustomResource):
 
         __props__ = InboundNatRuleInitArgs.__new__(InboundNatRuleInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backend_address_pool"] = None
         __props__.__dict__["backend_ip_configuration"] = None
         __props__.__dict__["backend_port"] = None
@@ -424,6 +422,14 @@ class InboundNatRule(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return InboundNatRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backendAddressPool")

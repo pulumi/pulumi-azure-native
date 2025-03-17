@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetKubernetesClusterResult:
-    def __init__(__self__, aad_configuration=None, administrator_configuration=None, attached_network_ids=None, available_upgrades=None, cluster_id=None, connected_cluster_id=None, control_plane_kubernetes_version=None, control_plane_node_configuration=None, detailed_status=None, detailed_status_message=None, extended_location=None, feature_statuses=None, id=None, initial_agent_pool_configurations=None, kubernetes_version=None, location=None, managed_resource_group_configuration=None, name=None, network_configuration=None, nodes=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, aad_configuration=None, administrator_configuration=None, attached_network_ids=None, available_upgrades=None, azure_api_version=None, cluster_id=None, connected_cluster_id=None, control_plane_kubernetes_version=None, control_plane_node_configuration=None, detailed_status=None, detailed_status_message=None, etag=None, extended_location=None, feature_statuses=None, id=None, initial_agent_pool_configurations=None, kubernetes_version=None, location=None, managed_resource_group_configuration=None, name=None, network_configuration=None, nodes=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if aad_configuration and not isinstance(aad_configuration, dict):
             raise TypeError("Expected argument 'aad_configuration' to be a dict")
         pulumi.set(__self__, "aad_configuration", aad_configuration)
@@ -37,6 +37,9 @@ class GetKubernetesClusterResult:
         if available_upgrades and not isinstance(available_upgrades, list):
             raise TypeError("Expected argument 'available_upgrades' to be a list")
         pulumi.set(__self__, "available_upgrades", available_upgrades)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -55,6 +58,9 @@ class GetKubernetesClusterResult:
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -131,6 +137,14 @@ class GetKubernetesClusterResult:
         return pulumi.get(self, "available_upgrades")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
@@ -179,6 +193,14 @@ class GetKubernetesClusterResult:
         return pulumi.get(self, "detailed_status_message")
 
     @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> 'outputs.ExtendedLocationResponse':
         """
@@ -214,7 +236,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> str:
         """
-        The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        The Kubernetes version for this cluster.
         """
         return pulumi.get(self, "kubernetes_version")
 
@@ -301,12 +323,14 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             administrator_configuration=self.administrator_configuration,
             attached_network_ids=self.attached_network_ids,
             available_upgrades=self.available_upgrades,
+            azure_api_version=self.azure_api_version,
             cluster_id=self.cluster_id,
             connected_cluster_id=self.connected_cluster_id,
             control_plane_kubernetes_version=self.control_plane_kubernetes_version,
             control_plane_node_configuration=self.control_plane_node_configuration,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             extended_location=self.extended_location,
             feature_statuses=self.feature_statuses,
             id=self.id,
@@ -328,9 +352,7 @@ def get_kubernetes_cluster(kubernetes_cluster_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterResult:
     """
     Get properties of the provided the Kubernetes cluster.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
@@ -347,12 +369,14 @@ def get_kubernetes_cluster(kubernetes_cluster_name: Optional[str] = None,
         administrator_configuration=pulumi.get(__ret__, 'administrator_configuration'),
         attached_network_ids=pulumi.get(__ret__, 'attached_network_ids'),
         available_upgrades=pulumi.get(__ret__, 'available_upgrades'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         connected_cluster_id=pulumi.get(__ret__, 'connected_cluster_id'),
         control_plane_kubernetes_version=pulumi.get(__ret__, 'control_plane_kubernetes_version'),
         control_plane_node_configuration=pulumi.get(__ret__, 'control_plane_node_configuration'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         feature_statuses=pulumi.get(__ret__, 'feature_statuses'),
         id=pulumi.get(__ret__, 'id'),
@@ -372,9 +396,7 @@ def get_kubernetes_cluster_output(kubernetes_cluster_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterResult]:
     """
     Get properties of the provided the Kubernetes cluster.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
@@ -390,12 +412,14 @@ def get_kubernetes_cluster_output(kubernetes_cluster_name: Optional[pulumi.Input
         administrator_configuration=pulumi.get(__response__, 'administrator_configuration'),
         attached_network_ids=pulumi.get(__response__, 'attached_network_ids'),
         available_upgrades=pulumi.get(__response__, 'available_upgrades'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         connected_cluster_id=pulumi.get(__response__, 'connected_cluster_id'),
         control_plane_kubernetes_version=pulumi.get(__response__, 'control_plane_kubernetes_version'),
         control_plane_node_configuration=pulumi.get(__response__, 'control_plane_node_configuration'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         feature_statuses=pulumi.get(__response__, 'feature_statuses'),
         id=pulumi.get(__response__, 'id'),

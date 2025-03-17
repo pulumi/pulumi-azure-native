@@ -63,7 +63,7 @@ def list_connection_all_models(resource_group_name: Optional[str] = None,
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionAllModelsResult:
     """
-    Azure REST API version: 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -82,7 +82,7 @@ def list_connection_all_models_output(resource_group_name: Optional[pulumi.Input
                                       workspace_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionAllModelsResult]:
     """
-    Azure REST API version: 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

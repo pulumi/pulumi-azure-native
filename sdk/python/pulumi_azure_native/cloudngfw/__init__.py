@@ -56,32 +56,3 @@ from .prefix_list_global_rulestack import *
 from .prefix_list_local_rulestack import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cloudngfw.v20220829 as __v20220829
-    v20220829 = __v20220829
-    import pulumi_azure_native.cloudngfw.v20220829preview as __v20220829preview
-    v20220829preview = __v20220829preview
-    import pulumi_azure_native.cloudngfw.v20230901 as __v20230901
-    v20230901 = __v20230901
-    import pulumi_azure_native.cloudngfw.v20230901preview as __v20230901preview
-    v20230901preview = __v20230901preview
-    import pulumi_azure_native.cloudngfw.v20231010preview as __v20231010preview
-    v20231010preview = __v20231010preview
-    import pulumi_azure_native.cloudngfw.v20240119preview as __v20240119preview
-    v20240119preview = __v20240119preview
-    import pulumi_azure_native.cloudngfw.v20240207preview as __v20240207preview
-    v20240207preview = __v20240207preview
-    import pulumi_azure_native.cloudngfw.v20250206preview as __v20250206preview
-    v20250206preview = __v20250206preview
-else:
-    v20220829 = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20220829')
-    v20220829preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20220829preview')
-    v20230901 = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20230901')
-    v20230901preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20230901preview')
-    v20231010preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20231010preview')
-    v20240119preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20240119preview')
-    v20240207preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20240207preview')
-    v20250206preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20250206preview')
-

@@ -27,10 +27,16 @@ class GetWebApplicationFirewallPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, http_listeners=None, id=None, location=None, managed_rules=None, name=None, path_based_rules=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, application_gateway_for_containers=None, application_gateways=None, azure_api_version=None, custom_rules=None, etag=None, http_listeners=None, id=None, location=None, managed_rules=None, name=None, path_based_rules=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+        if application_gateway_for_containers and not isinstance(application_gateway_for_containers, list):
+            raise TypeError("Expected argument 'application_gateway_for_containers' to be a list")
+        pulumi.set(__self__, "application_gateway_for_containers", application_gateway_for_containers)
         if application_gateways and not isinstance(application_gateways, list):
             raise TypeError("Expected argument 'application_gateways' to be a list")
         pulumi.set(__self__, "application_gateways", application_gateways)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_rules and not isinstance(custom_rules, list):
             raise TypeError("Expected argument 'custom_rules' to be a list")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -72,12 +78,28 @@ class GetWebApplicationFirewallPolicyResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="applicationGatewayForContainers")
+    def application_gateway_for_containers(self) -> Sequence['outputs.ApplicationGatewayForContainersReferenceDefinitionResponse']:
+        """
+        A collection of references to application gateway for containers.
+        """
+        return pulumi.get(self, "application_gateway_for_containers")
+
+    @property
     @pulumi.getter(name="applicationGateways")
     def application_gateways(self) -> Sequence['outputs.ApplicationGatewayResponse']:
         """
         A collection of references to application gateways.
         """
         return pulumi.get(self, "application_gateways")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customRules")
@@ -190,7 +212,9 @@ class AwaitableGetWebApplicationFirewallPolicyResult(GetWebApplicationFirewallPo
         if False:
             yield self
         return GetWebApplicationFirewallPolicyResult(
+            application_gateway_for_containers=self.application_gateway_for_containers,
             application_gateways=self.application_gateways,
+            azure_api_version=self.azure_api_version,
             custom_rules=self.custom_rules,
             etag=self.etag,
             http_listeners=self.http_listeners,
@@ -211,9 +235,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebApplicationFirewallPolicyResult:
     """
     Retrieve protection policy with specified name within a resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str policy_name: The name of the policy.
@@ -226,7 +248,9 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getWebApplicationFirewallPolicy', __args__, opts=opts, typ=GetWebApplicationFirewallPolicyResult).value
 
     return AwaitableGetWebApplicationFirewallPolicyResult(
+        application_gateway_for_containers=pulumi.get(__ret__, 'application_gateway_for_containers'),
         application_gateways=pulumi.get(__ret__, 'application_gateways'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_rules=pulumi.get(__ret__, 'custom_rules'),
         etag=pulumi.get(__ret__, 'etag'),
         http_listeners=pulumi.get(__ret__, 'http_listeners'),
@@ -245,9 +269,7 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
     """
     Retrieve protection policy with specified name within a resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str policy_name: The name of the policy.
@@ -259,7 +281,9 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getWebApplicationFirewallPolicy', __args__, opts=opts, typ=GetWebApplicationFirewallPolicyResult)
     return __ret__.apply(lambda __response__: GetWebApplicationFirewallPolicyResult(
+        application_gateway_for_containers=pulumi.get(__response__, 'application_gateway_for_containers'),
         application_gateways=pulumi.get(__response__, 'application_gateways'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_rules=pulumi.get(__response__, 'custom_rules'),
         etag=pulumi.get(__response__, 'etag'),
         http_listeners=pulumi.get(__response__, 'http_listeners'),

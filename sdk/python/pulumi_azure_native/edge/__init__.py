@@ -11,11 +11,3 @@ from .site import *
 from .sites_by_subscription import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.edge.v20240201preview as __v20240201preview
-    v20240201preview = __v20240201preview
-else:
-    v20240201preview = _utilities.lazy_import('pulumi_azure_native.edge.v20240201preview')
-

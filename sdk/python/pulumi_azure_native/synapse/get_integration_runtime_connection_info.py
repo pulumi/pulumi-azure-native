@@ -117,8 +117,6 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
     Get connection info for an integration runtime
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
-
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -145,8 +143,6 @@ def get_integration_runtime_connection_info_output(integration_runtime_name: Opt
     """
     Get connection info for an integration runtime
     Azure REST API version: 2021-06-01.
-
-    Other available API versions: 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name

@@ -27,7 +27,10 @@ class GetSecurityConnectorResult:
     """
     The security connector resource.
     """
-    def __init__(__self__, environment_data=None, environment_name=None, etag=None, hierarchy_identifier=None, hierarchy_identifier_trial_end_date=None, id=None, kind=None, location=None, name=None, offerings=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, environment_data=None, environment_name=None, etag=None, hierarchy_identifier=None, hierarchy_identifier_trial_end_date=None, id=None, kind=None, location=None, name=None, offerings=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if environment_data and not isinstance(environment_data, dict):
             raise TypeError("Expected argument 'environment_data' to be a dict")
         pulumi.set(__self__, "environment_data", environment_data)
@@ -67,6 +70,14 @@ class GetSecurityConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="environmentData")
@@ -179,6 +190,7 @@ class AwaitableGetSecurityConnectorResult(GetSecurityConnectorResult):
         if False:
             yield self
         return GetSecurityConnectorResult(
+            azure_api_version=self.azure_api_version,
             environment_data=self.environment_data,
             environment_name=self.environment_name,
             etag=self.etag,
@@ -199,9 +211,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConnectorResult:
     """
     Retrieves details of a specific security connector
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    Azure REST API version: 2024-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -214,6 +224,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityConnector', __args__, opts=opts, typ=GetSecurityConnectorResult).value
 
     return AwaitableGetSecurityConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         environment_data=pulumi.get(__ret__, 'environment_data'),
         environment_name=pulumi.get(__ret__, 'environment_name'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -232,9 +243,7 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConnectorResult]:
     """
     Retrieves details of a specific security connector
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    Azure REST API version: 2024-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -246,6 +255,7 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getSecurityConnector', __args__, opts=opts, typ=GetSecurityConnectorResult)
     return __ret__.apply(lambda __response__: GetSecurityConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         environment_data=pulumi.get(__response__, 'environment_data'),
         environment_name=pulumi.get(__response__, 'environment_name'),
         etag=pulumi.get(__response__, 'etag'),

@@ -27,7 +27,10 @@ class GetClientGroupResult:
     """
     The Client group resource.
     """
-    def __init__(__self__, description=None, id=None, name=None, provisioning_state=None, query=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, name=None, provisioning_state=None, query=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -49,6 +52,14 @@ class GetClientGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -95,7 +106,7 @@ class GetClientGroupResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the ClientGroup resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -114,6 +125,7 @@ class AwaitableGetClientGroupResult(GetClientGroupResult):
         if False:
             yield self
         return GetClientGroupResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -129,9 +141,7 @@ def get_client_group(client_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientGroupResult:
     """
     Get properties of a client group.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str client_group_name: Name of the client group.
@@ -146,6 +156,7 @@ def get_client_group(client_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getClientGroup', __args__, opts=opts, typ=GetClientGroupResult).value
 
     return AwaitableGetClientGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -159,9 +170,7 @@ def get_client_group_output(client_group_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientGroupResult]:
     """
     Get properties of a client group.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str client_group_name: Name of the client group.
@@ -175,6 +184,7 @@ def get_client_group_output(client_group_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getClientGroup', __args__, opts=opts, typ=GetClientGroupResult)
     return __ret__.apply(lambda __response__: GetClientGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

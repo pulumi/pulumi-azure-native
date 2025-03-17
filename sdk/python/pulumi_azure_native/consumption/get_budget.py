@@ -27,10 +27,13 @@ class GetBudgetResult:
     """
     A budget resource.
     """
-    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filter=None, forecast_spend=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+    def __init__(__self__, amount=None, azure_api_version=None, category=None, current_spend=None, e_tag=None, filter=None, forecast_spend=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
         if amount and not isinstance(amount, float):
             raise TypeError("Expected argument 'amount' to be a float")
         pulumi.set(__self__, "amount", amount)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -72,6 +75,14 @@ class GetBudgetResult:
         The total amount of cost to track with the budget
         """
         return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             yield self
         return GetBudgetResult(
             amount=self.amount,
+            azure_api_version=self.azure_api_version,
             category=self.category,
             current_spend=self.current_spend,
             e_tag=self.e_tag,
@@ -187,9 +199,7 @@ def get_budget(budget_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
     Gets the budget for the scope by budget name.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str budget_name: Budget Name.
@@ -203,6 +213,7 @@ def get_budget(budget_name: Optional[str] = None,
 
     return AwaitableGetBudgetResult(
         amount=pulumi.get(__ret__, 'amount'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         category=pulumi.get(__ret__, 'category'),
         current_spend=pulumi.get(__ret__, 'current_spend'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
@@ -219,9 +230,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Gets the budget for the scope by budget name.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str budget_name: Budget Name.
@@ -234,6 +243,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:consumption:getBudget', __args__, opts=opts, typ=GetBudgetResult)
     return __ret__.apply(lambda __response__: GetBudgetResult(
         amount=pulumi.get(__response__, 'amount'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         category=pulumi.get(__response__, 'category'),
         current_spend=pulumi.get(__response__, 'current_spend'),
         e_tag=pulumi.get(__response__, 'e_tag'),

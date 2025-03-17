@@ -27,7 +27,10 @@ class GetManagementGroupSubscriptionResult:
     """
     The details of subscription under management group.
     """
-    def __init__(__self__, display_name=None, id=None, name=None, parent=None, state=None, tenant=None, type=None):
+    def __init__(__self__, azure_api_version=None, display_name=None, id=None, name=None, parent=None, state=None, tenant=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -49,6 +52,14 @@ class GetManagementGroupSubscriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -113,6 +124,7 @@ class AwaitableGetManagementGroupSubscriptionResult(GetManagementGroupSubscripti
         if False:
             yield self
         return GetManagementGroupSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             id=self.id,
             name=self.name,
@@ -128,9 +140,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
     """
     Retrieves details about given subscription which is associated with the management group.
 
-    Azure REST API version: 2021-04-01.
-
-    Other available API versions: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str group_id: Management Group ID.
@@ -143,6 +153,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:management:getManagementGroupSubscription', __args__, opts=opts, typ=GetManagementGroupSubscriptionResult).value
 
     return AwaitableGetManagementGroupSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -156,9 +167,7 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str
     """
     Retrieves details about given subscription which is associated with the management group.
 
-    Azure REST API version: 2021-04-01.
-
-    Other available API versions: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str group_id: Management Group ID.
@@ -170,6 +179,7 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:management:getManagementGroupSubscription', __args__, opts=opts, typ=GetManagementGroupSubscriptionResult)
     return __ret__.apply(lambda __response__: GetManagementGroupSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

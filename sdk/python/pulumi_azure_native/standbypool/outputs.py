@@ -175,6 +175,8 @@ class StandbyVirtualMachinePoolElasticityProfileResponse(dict):
         suggest = None
         if key == "maxReadyCapacity":
             suggest = "max_ready_capacity"
+        elif key == "minReadyCapacity":
+            suggest = "min_ready_capacity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StandbyVirtualMachinePoolElasticityProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -188,12 +190,16 @@ class StandbyVirtualMachinePoolElasticityProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_ready_capacity: float):
+                 max_ready_capacity: float,
+                 min_ready_capacity: Optional[float] = None):
         """
         Details of the elasticity profile.
         :param float max_ready_capacity: Specifies the maximum number of virtual machines in the standby virtual machine pool.
+        :param float min_ready_capacity: Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
         """
         pulumi.set(__self__, "max_ready_capacity", max_ready_capacity)
+        if min_ready_capacity is not None:
+            pulumi.set(__self__, "min_ready_capacity", min_ready_capacity)
 
     @property
     @pulumi.getter(name="maxReadyCapacity")
@@ -202,6 +208,14 @@ class StandbyVirtualMachinePoolElasticityProfileResponse(dict):
         Specifies the maximum number of virtual machines in the standby virtual machine pool.
         """
         return pulumi.get(self, "max_ready_capacity")
+
+    @property
+    @pulumi.getter(name="minReadyCapacity")
+    def min_ready_capacity(self) -> Optional[float]:
+        """
+        Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
+        """
+        return pulumi.get(self, "min_ready_capacity")
 
 
 @pulumi.output_type

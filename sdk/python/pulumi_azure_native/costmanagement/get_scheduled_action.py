@@ -27,7 +27,10 @@ class GetScheduledActionResult:
     """
     Scheduled action definition.
     """
-    def __init__(__self__, display_name=None, e_tag=None, file_destination=None, id=None, kind=None, name=None, notification=None, notification_email=None, schedule=None, scope=None, status=None, system_data=None, type=None, view_id=None):
+    def __init__(__self__, azure_api_version=None, display_name=None, e_tag=None, file_destination=None, id=None, kind=None, name=None, notification=None, notification_email=None, schedule=None, scope=None, status=None, system_data=None, type=None, view_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -70,6 +73,14 @@ class GetScheduledActionResult:
         if view_id and not isinstance(view_id, str):
             raise TypeError("Expected argument 'view_id' to be a str")
         pulumi.set(__self__, "view_id", view_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -190,6 +201,7 @@ class AwaitableGetScheduledActionResult(GetScheduledActionResult):
         if False:
             yield self
         return GetScheduledActionResult(
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             e_tag=self.e_tag,
             file_destination=self.file_destination,
@@ -210,9 +222,7 @@ def get_scheduled_action(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledActionResult:
     """
     Get the private scheduled action by name.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str name: Scheduled action name.
@@ -223,6 +233,7 @@ def get_scheduled_action(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult).value
 
     return AwaitableGetScheduledActionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         file_destination=pulumi.get(__ret__, 'file_destination'),
@@ -241,9 +252,7 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     Get the private scheduled action by name.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str name: Scheduled action name.
@@ -253,6 +262,7 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult)
     return __ret__.apply(lambda __response__: GetScheduledActionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         file_destination=pulumi.get(__response__, 'file_destination'),

@@ -27,10 +27,13 @@ class GetProximityPlacementGroupResult:
     """
     Specifies information about the proximity placement group.
     """
-    def __init__(__self__, availability_sets=None, colocation_status=None, id=None, intent=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None, zones=None):
+    def __init__(__self__, availability_sets=None, azure_api_version=None, colocation_status=None, id=None, intent=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None, zones=None):
         if availability_sets and not isinstance(availability_sets, list):
             raise TypeError("Expected argument 'availability_sets' to be a list")
         pulumi.set(__self__, "availability_sets", availability_sets)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if colocation_status and not isinstance(colocation_status, dict):
             raise TypeError("Expected argument 'colocation_status' to be a dict")
         pulumi.set(__self__, "colocation_status", colocation_status)
@@ -72,6 +75,14 @@ class GetProximityPlacementGroupResult:
         A list of references to all availability sets in the proximity placement group.
         """
         return pulumi.get(self, "availability_sets")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="colocationStatus")
@@ -169,6 +180,7 @@ class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult
             yield self
         return GetProximityPlacementGroupResult(
             availability_sets=self.availability_sets,
+            azure_api_version=self.azure_api_version,
             colocation_status=self.colocation_status,
             id=self.id,
             intent=self.intent,
@@ -188,9 +200,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
     Retrieves information about a proximity placement group .
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -206,6 +216,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
 
     return AwaitableGetProximityPlacementGroupResult(
         availability_sets=pulumi.get(__ret__, 'availability_sets'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         colocation_status=pulumi.get(__ret__, 'colocation_status'),
         id=pulumi.get(__ret__, 'id'),
         intent=pulumi.get(__ret__, 'intent'),
@@ -223,9 +234,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
     Retrieves information about a proximity placement group .
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -240,6 +249,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getProximityPlacementGroup', __args__, opts=opts, typ=GetProximityPlacementGroupResult)
     return __ret__.apply(lambda __response__: GetProximityPlacementGroupResult(
         availability_sets=pulumi.get(__response__, 'availability_sets'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         colocation_status=pulumi.get(__response__, 'colocation_status'),
         id=pulumi.get(__response__, 'id'),
         intent=pulumi.get(__response__, 'intent'),

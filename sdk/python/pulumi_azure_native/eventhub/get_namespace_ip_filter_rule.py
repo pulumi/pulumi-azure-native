@@ -26,10 +26,13 @@ class GetNamespaceIpFilterRuleResult:
     """
     Single item in a List or Get IpFilterRules operation
     """
-    def __init__(__self__, action=None, filter_name=None, id=None, ip_mask=None, name=None, type=None):
+    def __init__(__self__, action=None, azure_api_version=None, filter_name=None, id=None, ip_mask=None, name=None, type=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if filter_name and not isinstance(filter_name, str):
             raise TypeError("Expected argument 'filter_name' to be a str")
         pulumi.set(__self__, "filter_name", filter_name)
@@ -53,6 +56,14 @@ class GetNamespaceIpFilterRuleResult:
         The IP Filter Action
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="filterName")
@@ -102,6 +113,7 @@ class AwaitableGetNamespaceIpFilterRuleResult(GetNamespaceIpFilterRuleResult):
             yield self
         return GetNamespaceIpFilterRuleResult(
             action=self.action,
+            azure_api_version=self.azure_api_version,
             filter_name=self.filter_name,
             id=self.id,
             ip_mask=self.ip_mask,
@@ -131,6 +143,7 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
 
     return AwaitableGetNamespaceIpFilterRuleResult(
         action=pulumi.get(__ret__, 'action'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         filter_name=pulumi.get(__ret__, 'filter_name'),
         id=pulumi.get(__ret__, 'id'),
         ip_mask=pulumi.get(__ret__, 'ip_mask'),
@@ -157,6 +170,7 @@ def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Inp
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getNamespaceIpFilterRule', __args__, opts=opts, typ=GetNamespaceIpFilterRuleResult)
     return __ret__.apply(lambda __response__: GetNamespaceIpFilterRuleResult(
         action=pulumi.get(__response__, 'action'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         filter_name=pulumi.get(__response__, 'filter_name'),
         id=pulumi.get(__response__, 'id'),
         ip_mask=pulumi.get(__response__, 'ip_mask'),

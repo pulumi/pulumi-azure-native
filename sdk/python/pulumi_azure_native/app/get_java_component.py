@@ -27,25 +27,19 @@ class GetJavaComponentResult:
     """
     Java Component.
     """
-    def __init__(__self__, component_type=None, configurations=None, id=None, name=None, provisioning_state=None, service_binds=None, system_data=None, type=None):
-        if component_type and not isinstance(component_type, str):
-            raise TypeError("Expected argument 'component_type' to be a str")
-        pulumi.set(__self__, "component_type", component_type)
-        if configurations and not isinstance(configurations, list):
-            raise TypeError("Expected argument 'configurations' to be a list")
-        pulumi.set(__self__, "configurations", configurations)
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if service_binds and not isinstance(service_binds, list):
-            raise TypeError("Expected argument 'service_binds' to be a list")
-        pulumi.set(__self__, "service_binds", service_binds)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -54,26 +48,18 @@ class GetJavaComponentResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        Type of the Java Component.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "component_type")
-
-    @property
-    @pulumi.getter
-    def configurations(self) -> Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]:
-        """
-        List of Java Components configuration properties
-        """
-        return pulumi.get(self, "configurations")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -86,20 +72,12 @@ class GetJavaComponentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
-        Provisioning state of the Java Component.
+        Java Component resource specific properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serviceBinds")
-    def service_binds(self) -> Optional[Sequence['outputs.JavaComponentServiceBindResponse']]:
-        """
-        List of Java Components that are bound to the Java component
-        """
-        return pulumi.get(self, "service_binds")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -124,12 +102,10 @@ class AwaitableGetJavaComponentResult(GetJavaComponentResult):
         if False:
             yield self
         return GetJavaComponentResult(
-            component_type=self.component_type,
-            configurations=self.configurations,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            service_binds=self.service_binds,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -140,9 +116,7 @@ def get_java_component(environment_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJavaComponentResult:
     """
     Java Component.
-    Azure REST API version: 2023-11-02-preview.
-
-    Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -157,12 +131,10 @@ def get_java_component(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getJavaComponent', __args__, opts=opts, typ=GetJavaComponentResult).value
 
     return AwaitableGetJavaComponentResult(
-        component_type=pulumi.get(__ret__, 'component_type'),
-        configurations=pulumi.get(__ret__, 'configurations'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        service_binds=pulumi.get(__ret__, 'service_binds'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = None,
@@ -171,9 +143,7 @@ def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = No
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJavaComponentResult]:
     """
     Java Component.
-    Azure REST API version: 2023-11-02-preview.
-
-    Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -187,11 +157,9 @@ def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getJavaComponent', __args__, opts=opts, typ=GetJavaComponentResult)
     return __ret__.apply(lambda __response__: GetJavaComponentResult(
-        component_type=pulumi.get(__response__, 'component_type'),
-        configurations=pulumi.get(__response__, 'configurations'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        service_binds=pulumi.get(__response__, 'service_binds'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

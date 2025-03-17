@@ -40,10 +40,12 @@ class VirtualMachineArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
                  os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
+                 placement: Optional[pulumi.Input['PlacementArgs']] = None,
                  plan: Optional[pulumi.Input['PlanArgs']] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 scheduled_events_policy: Optional[pulumi.Input['ScheduledEventsPolicyArgs']] = None,
                  scheduled_events_profile: Optional[pulumi.Input['ScheduledEventsProfileArgs']] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
@@ -72,10 +74,12 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+        :param pulumi.Input['PlacementArgs'] placement: Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
         :param pulumi.Input['PlanArgs'] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[int] platform_fault_domain: Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains. This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set. The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' greater than 1. This property cannot be updated once the Virtual Machine is created. Fault domain assignment can be viewed in the Virtual Machine Instance View. Minimum api‐version: 2020‐12‐01.
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
+        :param pulumi.Input['ScheduledEventsPolicyArgs'] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
         :param pulumi.Input['ScheduledEventsProfileArgs'] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -120,6 +124,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if os_profile is not None:
             pulumi.set(__self__, "os_profile", os_profile)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
         if platform_fault_domain is not None:
@@ -128,6 +134,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group is not None:
             pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if scheduled_events_policy is not None:
+            pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if scheduled_events_profile is not None:
             pulumi.set(__self__, "scheduled_events_profile", scheduled_events_profile)
         if security_profile is not None:
@@ -363,6 +371,18 @@ class VirtualMachineArgs:
 
     @property
     @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['PlacementArgs']]:
+        """
+        Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['PlacementArgs']]):
+        pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -408,6 +428,18 @@ class VirtualMachineArgs:
     @proximity_placement_group.setter
     def proximity_placement_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "proximity_placement_group", value)
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional[pulumi.Input['ScheduledEventsPolicyArgs']]:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
+
+    @scheduled_events_policy.setter
+    def scheduled_events_policy(self, value: Optional[pulumi.Input['ScheduledEventsPolicyArgs']]):
+        pulumi.set(self, "scheduled_events_policy", value)
 
     @property
     @pulumi.getter(name="scheduledEventsProfile")
@@ -528,11 +560,13 @@ class VirtualMachine(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 placement: Optional[pulumi.Input[Union['PlacementArgs', 'PlacementArgsDict']]] = None,
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  scheduled_events_profile: Optional[pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
                  security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
@@ -544,9 +578,7 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -567,11 +599,13 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+        :param pulumi.Input[Union['PlacementArgs', 'PlacementArgsDict']] placement: Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
         :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[int] platform_fault_domain: Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains. This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set. The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' greater than 1. This property cannot be updated once the Virtual Machine is created. Fault domain assignment can be viewed in the Virtual Machine Instance View. Minimum api‐version: 2020‐12‐01.
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
         :param pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -589,9 +623,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -625,11 +657,13 @@ class VirtualMachine(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 placement: Optional[pulumi.Input[Union['PlacementArgs', 'PlacementArgsDict']]] = None,
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  scheduled_events_profile: Optional[pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
                  security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
@@ -664,6 +698,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["os_profile"] = os_profile
+            __props__.__dict__["placement"] = placement
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain"] = platform_fault_domain
             __props__.__dict__["priority"] = priority
@@ -671,6 +706,7 @@ class VirtualMachine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scheduled_events_policy"] = scheduled_events_policy
             __props__.__dict__["scheduled_events_profile"] = scheduled_events_profile
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_profile"] = storage_profile
@@ -679,14 +715,17 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["virtual_machine_scale_set"] = virtual_machine_scale_set
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["instance_view"] = None
+            __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resources"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20241101:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-native:compute:VirtualMachine',
@@ -713,9 +752,11 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["application_profile"] = None
         __props__.__dict__["availability_set"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["billing_profile"] = None
         __props__.__dict__["capacity_reservation"] = None
         __props__.__dict__["diagnostics_profile"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["eviction_policy"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["extensions_time_budget"] = None
@@ -726,15 +767,18 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_profile"] = None
         __props__.__dict__["os_profile"] = None
+        __props__.__dict__["placement"] = None
         __props__.__dict__["plan"] = None
         __props__.__dict__["platform_fault_domain"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["proximity_placement_group"] = None
         __props__.__dict__["resources"] = None
+        __props__.__dict__["scheduled_events_policy"] = None
         __props__.__dict__["scheduled_events_profile"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["storage_profile"] = None
@@ -772,6 +816,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "availability_set")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="billingProfile")
     def billing_profile(self) -> pulumi.Output[Optional['outputs.BillingProfileResponse']]:
         """
@@ -794,6 +846,14 @@ class VirtualMachine(pulumi.CustomResource):
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -876,6 +936,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -898,6 +966,14 @@ class VirtualMachine(pulumi.CustomResource):
         Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         """
         return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> pulumi.Output[Optional['outputs.PlacementResponse']]:
+        """
+        Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+        """
+        return pulumi.get(self, "placement")
 
     @property
     @pulumi.getter
@@ -946,6 +1022,14 @@ class VirtualMachine(pulumi.CustomResource):
         The virtual machine child extension resources.
         """
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> pulumi.Output[Optional['outputs.ScheduledEventsPolicyResponse']]:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
 
     @property
     @pulumi.getter(name="scheduledEventsProfile")

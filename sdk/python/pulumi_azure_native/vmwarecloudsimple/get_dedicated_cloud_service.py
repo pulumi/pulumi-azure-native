@@ -26,7 +26,10 @@ class GetDedicatedCloudServiceResult:
     """
     Dedicated cloud service model
     """
-    def __init__(__self__, gateway_subnet=None, id=None, is_account_onboarded=None, location=None, name=None, nodes=None, service_url=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, gateway_subnet=None, id=None, is_account_onboarded=None, location=None, name=None, nodes=None, service_url=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if gateway_subnet and not isinstance(gateway_subnet, str):
             raise TypeError("Expected argument 'gateway_subnet' to be a str")
         pulumi.set(__self__, "gateway_subnet", gateway_subnet)
@@ -54,6 +57,14 @@ class GetDedicatedCloudServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="gatewaySubnet")
@@ -134,6 +145,7 @@ class AwaitableGetDedicatedCloudServiceResult(GetDedicatedCloudServiceResult):
         if False:
             yield self
         return GetDedicatedCloudServiceResult(
+            azure_api_version=self.azure_api_version,
             gateway_subnet=self.gateway_subnet,
             id=self.id,
             is_account_onboarded=self.is_account_onboarded,
@@ -163,6 +175,7 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:vmwarecloudsimple:getDedicatedCloudService', __args__, opts=opts, typ=GetDedicatedCloudServiceResult).value
 
     return AwaitableGetDedicatedCloudServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         gateway_subnet=pulumi.get(__ret__, 'gateway_subnet'),
         id=pulumi.get(__ret__, 'id'),
         is_account_onboarded=pulumi.get(__ret__, 'is_account_onboarded'),
@@ -189,6 +202,7 @@ def get_dedicated_cloud_service_output(dedicated_cloud_service_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:vmwarecloudsimple:getDedicatedCloudService', __args__, opts=opts, typ=GetDedicatedCloudServiceResult)
     return __ret__.apply(lambda __response__: GetDedicatedCloudServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         gateway_subnet=pulumi.get(__response__, 'gateway_subnet'),
         id=pulumi.get(__response__, 'id'),
         is_account_onboarded=pulumi.get(__response__, 'is_account_onboarded'),

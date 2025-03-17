@@ -45,7 +45,7 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[str] event_hub_resource_id: The resource ID where the event grid is configured to send events.
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
                Expected value is 'EventGrid'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_account_resource_id: The resource ID of the storage account where the data resides.
         :param pulumi.Input[Union[str, 'BlobStorageEventType']] blob_storage_event_type: The name of blob storage event type to process.
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
@@ -153,7 +153,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -319,7 +319,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an Event Grid data connection.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,7 +338,7 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_account_resource_id: The resource ID of the storage account where the data resides.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
@@ -350,7 +350,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an Event Grid data connection.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param EventGridDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -426,11 +426,12 @@ class EventGridDataConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_resource_id'")
             __props__.__dict__["storage_account_resource_id"] = storage_account_resource_id
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["managed_identity_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190121:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210827:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220201:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220707:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221111:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230815:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20240413:EventGridDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190121:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210827:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220201:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220707:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221111:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:CosmosDbDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:CosmosDbDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230815:CosmosDbDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230815:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230815:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230815:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20240413:CosmosDbDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20240413:EventGridDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20240413:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20240413:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto:CosmosDbDataConnection"), pulumi.Alias(type_="azure-native:kusto:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto:IotHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventGridDataConnection, __self__).__init__(
             'azure-native:kusto:EventGridDataConnection',
@@ -454,6 +455,7 @@ class EventGridDataConnection(pulumi.CustomResource):
 
         __props__ = EventGridDataConnectionArgs.__new__(EventGridDataConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["blob_storage_event_type"] = None
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
@@ -472,6 +474,14 @@ class EventGridDataConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return EventGridDataConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobStorageEventType")

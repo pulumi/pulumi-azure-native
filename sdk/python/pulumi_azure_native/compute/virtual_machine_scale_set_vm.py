@@ -37,6 +37,7 @@ class VirtualMachineScaleSetVMArgs:
                  os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
                  plan: Optional[pulumi.Input['PlanArgs']] = None,
                  protection_policy: Optional[pulumi.Input['VirtualMachineScaleSetVMProtectionPolicyArgs']] = None,
+                 resilient_vm_deletion_status: Optional[pulumi.Input[Union[str, 'ResilientVMDeletionStatus']]] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -58,10 +59,11 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings for the virtual machine.
         :param pulumi.Input['PlanArgs'] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input['VirtualMachineScaleSetVMProtectionPolicyArgs'] protection_policy: Specifies the protection policy of the virtual machine.
+        :param pulumi.Input[Union[str, 'ResilientVMDeletionStatus']] resilient_vm_deletion_status: Specifies the resilient VM deletion status for the virtual machine.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
@@ -91,6 +93,8 @@ class VirtualMachineScaleSetVMArgs:
             pulumi.set(__self__, "plan", plan)
         if protection_policy is not None:
             pulumi.set(__self__, "protection_policy", protection_policy)
+        if resilient_vm_deletion_status is not None:
+            pulumi.set(__self__, "resilient_vm_deletion_status", resilient_vm_deletion_status)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile is not None:
@@ -281,6 +285,18 @@ class VirtualMachineScaleSetVMArgs:
         pulumi.set(self, "protection_policy", value)
 
     @property
+    @pulumi.getter(name="resilientVMDeletionStatus")
+    def resilient_vm_deletion_status(self) -> Optional[pulumi.Input[Union[str, 'ResilientVMDeletionStatus']]]:
+        """
+        Specifies the resilient VM deletion status for the virtual machine.
+        """
+        return pulumi.get(self, "resilient_vm_deletion_status")
+
+    @resilient_vm_deletion_status.setter
+    def resilient_vm_deletion_status(self, value: Optional[pulumi.Input[Union[str, 'ResilientVMDeletionStatus']]]):
+        pulumi.set(self, "resilient_vm_deletion_status", value)
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
         """
@@ -320,7 +336,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         return pulumi.get(self, "user_data")
 
@@ -347,6 +363,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  protection_policy: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']]] = None,
+                 resilient_vm_deletion_status: Optional[pulumi.Input[Union[str, 'ResilientVMDeletionStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
@@ -356,9 +373,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a virtual machine scale set virtual machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,11 +390,12 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings for the virtual machine.
         :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']] protection_policy: Specifies the protection policy of the virtual machine.
+        :param pulumi.Input[Union[str, 'ResilientVMDeletionStatus']] resilient_vm_deletion_status: Specifies the resilient VM deletion status for the virtual machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
         """
         ...
@@ -390,9 +406,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a virtual machine scale set virtual machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMArgs args: The arguments to use to populate this resource's properties.
@@ -422,6 +436,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  protection_policy: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']]] = None,
+                 resilient_vm_deletion_status: Optional[pulumi.Input[Union[str, 'ResilientVMDeletionStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
@@ -450,6 +465,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["os_profile"] = os_profile
             __props__.__dict__["plan"] = plan
             __props__.__dict__["protection_policy"] = protection_policy
+            __props__.__dict__["resilient_vm_deletion_status"] = resilient_vm_deletion_status
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -460,6 +476,8 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["latest_model_applied"] = None
             __props__.__dict__["model_definition_applied"] = None
@@ -467,10 +485,11 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resources"] = None
             __props__.__dict__["sku"] = None
+            __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
             __props__.__dict__["zones"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachineScaleSetVM")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20241101:VirtualMachineScaleSetVM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVM, __self__).__init__(
             'azure-native:compute:VirtualMachineScaleSetVM',
@@ -496,7 +515,9 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
 
         __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["availability_set"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["diagnostics_profile"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["hardware_profile"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["instance_id"] = None
@@ -512,11 +533,13 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         __props__.__dict__["plan"] = None
         __props__.__dict__["protection_policy"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resilient_vm_deletion_status"] = None
         __props__.__dict__["resources"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_profile"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_data"] = None
         __props__.__dict__["vm_id"] = None
@@ -540,12 +563,28 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         return pulumi.get(self, "availability_set")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="diagnosticsProfile")
     def diagnostics_profile(self) -> pulumi.Output[Optional['outputs.DiagnosticsProfileResponse']]:
         """
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="hardwareProfile")
@@ -668,6 +707,14 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resilientVMDeletionStatus")
+    def resilient_vm_deletion_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the resilient VM deletion status for the virtual machine.
+        """
+        return pulumi.get(self, "resilient_vm_deletion_status")
+
+    @property
     @pulumi.getter
     def resources(self) -> pulumi.Output[Sequence['outputs.VirtualMachineExtensionResponse']]:
         """
@@ -708,6 +755,14 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        """
+        Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
@@ -719,7 +774,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[str]]:
         """
-        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         return pulumi.get(self, "user_data")
 

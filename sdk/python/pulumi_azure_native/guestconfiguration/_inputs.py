@@ -159,6 +159,10 @@ if not MYPY:
         """
         Combined hash of the guest configuration package and configuration parameters.
         """
+        content_managed_identity: NotRequired[pulumi.Input[str]]
+        """
+        Managed identity with storage access of the guest configuration package and configuration parameters.
+        """
         content_uri: NotRequired[pulumi.Input[str]]
         """
         Uri of the storage where guest configuration package is uploaded.
@@ -185,6 +189,7 @@ class GuestConfigurationNavigationArgs:
                  configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
                  configuration_protected_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
                  content_hash: Optional[pulumi.Input[str]] = None,
+                 content_managed_identity: Optional[pulumi.Input[str]] = None,
                  content_uri: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -195,6 +200,7 @@ class GuestConfigurationNavigationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_parameter: The configuration parameters for the guest configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
         :param pulumi.Input[str] content_hash: Combined hash of the guest configuration package and configuration parameters.
+        :param pulumi.Input[str] content_managed_identity: Managed identity with storage access of the guest configuration package and configuration parameters.
         :param pulumi.Input[str] content_uri: Uri of the storage where guest configuration package is uploaded.
         :param pulumi.Input[Union[str, 'Kind']] kind: Kind of the guest configuration. For example:DSC
         :param pulumi.Input[str] name: Name of the guest configuration.
@@ -208,6 +214,8 @@ class GuestConfigurationNavigationArgs:
             pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
+        if content_managed_identity is not None:
+            pulumi.set(__self__, "content_managed_identity", content_managed_identity)
         if content_uri is not None:
             pulumi.set(__self__, "content_uri", content_uri)
         if kind is not None:
@@ -264,6 +272,18 @@ class GuestConfigurationNavigationArgs:
     @content_hash.setter
     def content_hash(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_hash", value)
+
+    @property
+    @pulumi.getter(name="contentManagedIdentity")
+    def content_managed_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed identity with storage access of the guest configuration package and configuration parameters.
+        """
+        return pulumi.get(self, "content_managed_identity")
+
+    @content_managed_identity.setter
+    def content_managed_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_managed_identity", value)
 
     @property
     @pulumi.getter(name="contentUri")

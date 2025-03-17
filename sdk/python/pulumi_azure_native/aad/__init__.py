@@ -12,11 +12,3 @@ from .get_ou_container import *
 from .ou_container import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.aad.v20221201 as __v20221201
-    v20221201 = __v20221201
-else:
-    v20221201 = _utilities.lazy_import('pulumi_azure_native.aad.v20221201')
-

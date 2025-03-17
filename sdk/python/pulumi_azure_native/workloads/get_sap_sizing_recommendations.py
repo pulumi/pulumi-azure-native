@@ -63,9 +63,7 @@ def get_sap_sizing_recommendations(app_location: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPSizingRecommendationsResult:
     """
     Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -108,9 +106,7 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPSizingRecommendationsResult]:
     """
     Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str app_location: The geo-location where the resource is to be created.

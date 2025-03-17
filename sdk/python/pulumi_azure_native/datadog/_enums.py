@@ -15,7 +15,7 @@ __all__ = [
 
 class ManagedIdentityTypes(str, Enum):
     """
-    Identity type
+    Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"

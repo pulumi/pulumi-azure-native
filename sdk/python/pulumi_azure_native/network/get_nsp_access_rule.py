@@ -27,10 +27,13 @@ class GetNspAccessRuleResult:
     """
     The NSP access rule resource
     """
-    def __init__(__self__, address_prefixes=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, subscriptions=None, tags=None, type=None):
+    def __init__(__self__, address_prefixes=None, azure_api_version=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, service_tags=None, subscriptions=None, tags=None, type=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if direction and not isinstance(direction, str):
             raise TypeError("Expected argument 'direction' to be a str")
         pulumi.set(__self__, "direction", direction)
@@ -58,6 +61,9 @@ class GetNspAccessRuleResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_tags and not isinstance(service_tags, list):
+            raise TypeError("Expected argument 'service_tags' to be a list")
+        pulumi.set(__self__, "service_tags", service_tags)
         if subscriptions and not isinstance(subscriptions, list):
             raise TypeError("Expected argument 'subscriptions' to be a list")
         pulumi.set(__self__, "subscriptions", subscriptions)
@@ -75,6 +81,14 @@ class GetNspAccessRuleResult:
         Inbound address prefixes (IPv4/IPv6)
         """
         return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -149,6 +163,14 @@ class GetNspAccessRuleResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="serviceTags")
+    def service_tags(self) -> Optional[Sequence[str]]:
+        """
+        Inbound rules service tag names.
+        """
+        return pulumi.get(self, "service_tags")
+
+    @property
     @pulumi.getter
     def subscriptions(self) -> Optional[Sequence['outputs.SubscriptionIdResponse']]:
         """
@@ -180,6 +202,7 @@ class AwaitableGetNspAccessRuleResult(GetNspAccessRuleResult):
             yield self
         return GetNspAccessRuleResult(
             address_prefixes=self.address_prefixes,
+            azure_api_version=self.azure_api_version,
             direction=self.direction,
             email_addresses=self.email_addresses,
             fully_qualified_domain_names=self.fully_qualified_domain_names,
@@ -189,6 +212,7 @@ class AwaitableGetNspAccessRuleResult(GetNspAccessRuleResult):
             network_security_perimeters=self.network_security_perimeters,
             phone_numbers=self.phone_numbers,
             provisioning_state=self.provisioning_state,
+            service_tags=self.service_tags,
             subscriptions=self.subscriptions,
             tags=self.tags,
             type=self.type)
@@ -201,9 +225,7 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspAccessRuleResult:
     """
     Gets the specified NSP access rule by name.
-    Azure REST API version: 2021-02-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.
@@ -221,6 +243,7 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
 
     return AwaitableGetNspAccessRuleResult(
         address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         direction=pulumi.get(__ret__, 'direction'),
         email_addresses=pulumi.get(__ret__, 'email_addresses'),
         fully_qualified_domain_names=pulumi.get(__ret__, 'fully_qualified_domain_names'),
@@ -230,6 +253,7 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
         network_security_perimeters=pulumi.get(__ret__, 'network_security_perimeters'),
         phone_numbers=pulumi.get(__ret__, 'phone_numbers'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_tags=pulumi.get(__ret__, 'service_tags'),
         subscriptions=pulumi.get(__ret__, 'subscriptions'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -240,9 +264,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspAccessRuleResult]:
     """
     Gets the specified NSP access rule by name.
-    Azure REST API version: 2021-02-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.
@@ -259,6 +281,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNspAccessRule', __args__, opts=opts, typ=GetNspAccessRuleResult)
     return __ret__.apply(lambda __response__: GetNspAccessRuleResult(
         address_prefixes=pulumi.get(__response__, 'address_prefixes'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         direction=pulumi.get(__response__, 'direction'),
         email_addresses=pulumi.get(__response__, 'email_addresses'),
         fully_qualified_domain_names=pulumi.get(__response__, 'fully_qualified_domain_names'),
@@ -268,6 +291,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
         network_security_perimeters=pulumi.get(__response__, 'network_security_perimeters'),
         phone_numbers=pulumi.get(__response__, 'phone_numbers'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_tags=pulumi.get(__response__, 'service_tags'),
         subscriptions=pulumi.get(__response__, 'subscriptions'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

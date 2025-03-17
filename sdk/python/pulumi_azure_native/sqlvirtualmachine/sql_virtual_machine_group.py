@@ -153,9 +153,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL virtual machine group.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,9 +173,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL virtual machine group.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineGroupArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +215,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
             __props__.__dict__["sql_virtual_machine_group_name"] = sql_virtual_machine_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["wsfc_domain_profile"] = wsfc_domain_profile
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cluster_configuration"] = None
             __props__.__dict__["cluster_manager_type"] = None
             __props__.__dict__["name"] = None
@@ -250,6 +247,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
 
         __props__ = SqlVirtualMachineGroupArgs.__new__(SqlVirtualMachineGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_configuration"] = None
         __props__.__dict__["cluster_manager_type"] = None
         __props__.__dict__["location"] = None
@@ -263,6 +261,14 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["wsfc_domain_profile"] = None
         return SqlVirtualMachineGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterConfiguration")

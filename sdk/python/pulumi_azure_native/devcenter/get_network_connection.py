@@ -27,7 +27,10 @@ class GetNetworkConnectionResult:
     """
     Network related settings
     """
-    def __init__(__self__, domain_join_type=None, domain_name=None, domain_password=None, domain_username=None, health_check_status=None, id=None, location=None, name=None, networking_resource_group_name=None, organization_unit=None, provisioning_state=None, subnet_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, domain_join_type=None, domain_name=None, domain_password=None, domain_username=None, health_check_status=None, id=None, location=None, name=None, networking_resource_group_name=None, organization_unit=None, provisioning_state=None, subnet_id=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if domain_join_type and not isinstance(domain_join_type, str):
             raise TypeError("Expected argument 'domain_join_type' to be a str")
         pulumi.set(__self__, "domain_join_type", domain_join_type)
@@ -75,6 +78,14 @@ class GetNetworkConnectionResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="domainJoinType")
     def domain_join_type(self) -> str:
         """
@@ -118,7 +129,7 @@ class GetNetworkConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -201,6 +212,7 @@ class AwaitableGetNetworkConnectionResult(GetNetworkConnectionResult):
         if False:
             yield self
         return GetNetworkConnectionResult(
+            azure_api_version=self.azure_api_version,
             domain_join_type=self.domain_join_type,
             domain_name=self.domain_name,
             domain_password=self.domain_password,
@@ -223,9 +235,7 @@ def get_network_connection(network_connection_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkConnectionResult:
     """
     Gets a network connection resource
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
@@ -238,6 +248,7 @@ def get_network_connection(network_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getNetworkConnection', __args__, opts=opts, typ=GetNetworkConnectionResult).value
 
     return AwaitableGetNetworkConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         domain_join_type=pulumi.get(__ret__, 'domain_join_type'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         domain_password=pulumi.get(__ret__, 'domain_password'),
@@ -258,9 +269,7 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
     Gets a network connection resource
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
@@ -272,6 +281,7 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getNetworkConnection', __args__, opts=opts, typ=GetNetworkConnectionResult)
     return __ret__.apply(lambda __response__: GetNetworkConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         domain_join_type=pulumi.get(__response__, 'domain_join_type'),
         domain_name=pulumi.get(__response__, 'domain_name'),
         domain_password=pulumi.get(__response__, 'domain_password'),

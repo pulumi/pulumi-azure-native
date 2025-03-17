@@ -27,7 +27,10 @@ class GetJobResult:
     """
     Container App Job
     """
-    def __init__(__self__, configuration=None, environment_id=None, event_stream_endpoint=None, id=None, identity=None, location=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
+    def __init__(__self__, azure_api_version=None, configuration=None, environment_id=None, event_stream_endpoint=None, id=None, identity=None, location=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -70,6 +73,14 @@ class GetJobResult:
         if workload_profile_name and not isinstance(workload_profile_name, str):
             raise TypeError("Expected argument 'workload_profile_name' to be a str")
         pulumi.set(__self__, "workload_profile_name", workload_profile_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
+            azure_api_version=self.azure_api_version,
             configuration=self.configuration,
             environment_id=self.environment_id,
             event_stream_endpoint=self.event_stream_endpoint,
@@ -211,9 +223,7 @@ def get_job(job_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Container App Job
-    Azure REST API version: 2023-04-01-preview.
-
-    Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str job_name: Job Name
@@ -226,6 +236,7 @@ def get_job(job_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration=pulumi.get(__ret__, 'configuration'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
@@ -245,9 +256,7 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Container App Job
-    Azure REST API version: 2023-04-01-preview.
-
-    Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str job_name: Job Name
@@ -259,6 +268,7 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getJob', __args__, opts=opts, typ=GetJobResult)
     return __ret__.apply(lambda __response__: GetJobResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration=pulumi.get(__response__, 'configuration'),
         environment_id=pulumi.get(__response__, 'environment_id'),
         event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),

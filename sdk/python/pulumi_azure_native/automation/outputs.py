@@ -310,7 +310,7 @@ class ContentLinkResponse(dict):
         """
         Definition of the content link.
         :param 'ContentHashResponse' content_hash: Gets or sets the hash.
-        :param str uri: Gets or sets the uri of the runbook content.
+        :param str uri: Gets or sets the uri of content.
         :param str version: Gets or sets the version of the content.
         """
         if content_hash is not None:
@@ -332,7 +332,7 @@ class ContentLinkResponse(dict):
     @pulumi.getter
     def uri(self) -> Optional[str]:
         """
-        Gets or sets the uri of the runbook content.
+        Gets or sets the uri of content.
         """
         return pulumi.get(self, "uri")
 
@@ -1112,8 +1112,8 @@ class ModuleErrorInfoResponse(dict):
                  message: Optional[str] = None):
         """
         Definition of the module error info type.
-        :param str code: Gets or sets the error code.
-        :param str message: Gets or sets the error message.
+        :param str code: Gets the error code.
+        :param str message: Gets the error message.
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
@@ -1124,7 +1124,7 @@ class ModuleErrorInfoResponse(dict):
     @pulumi.getter
     def code(self) -> Optional[str]:
         """
-        Gets or sets the error code.
+        Gets the error code.
         """
         return pulumi.get(self, "code")
 
@@ -1132,7 +1132,7 @@ class ModuleErrorInfoResponse(dict):
     @pulumi.getter
     def message(self) -> Optional[str]:
         """
-        Gets or sets the error message.
+        Gets the error message.
         """
         return pulumi.get(self, "message")
 
@@ -1466,8 +1466,6 @@ class RunbookDraftResponse(dict):
         suggest = None
         if key == "creationTime":
             suggest = "creation_time"
-        elif key == "draftContentLink":
-            suggest = "draft_content_link"
         elif key == "inEdit":
             suggest = "in_edit"
         elif key == "lastModifiedTime":
@@ -1488,14 +1486,12 @@ class RunbookDraftResponse(dict):
 
     def __init__(__self__, *,
                  creation_time: Optional[str] = None,
-                 draft_content_link: Optional['outputs.ContentLinkResponse'] = None,
                  in_edit: Optional[bool] = None,
                  last_modified_time: Optional[str] = None,
                  output_types: Optional[Sequence[str]] = None,
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
-        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[str] output_types: Gets or sets the runbook output types.
@@ -1503,8 +1499,6 @@ class RunbookDraftResponse(dict):
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
-        if draft_content_link is not None:
-            pulumi.set(__self__, "draft_content_link", draft_content_link)
         if in_edit is not None:
             pulumi.set(__self__, "in_edit", in_edit)
         if last_modified_time is not None:
@@ -1521,14 +1515,6 @@ class RunbookDraftResponse(dict):
         Gets or sets the creation time of the runbook draft.
         """
         return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="draftContentLink")
-    def draft_content_link(self) -> Optional['outputs.ContentLinkResponse']:
-        """
-        Gets or sets the draft runbook content link.
-        """
-        return pulumi.get(self, "draft_content_link")
 
     @property
     @pulumi.getter(name="inEdit")

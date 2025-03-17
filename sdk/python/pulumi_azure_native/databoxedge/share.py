@@ -234,9 +234,7 @@ class Share(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,9 +259,7 @@ class Share(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.
@@ -323,6 +319,7 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'share_status'")
             __props__.__dict__["share_status"] = share_status
             __props__.__dict__["user_access_rights"] = user_access_rights
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["share_mappings"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -351,6 +348,7 @@ class Share(pulumi.CustomResource):
         __props__ = ShareArgs.__new__(ShareArgs)
 
         __props__.__dict__["access_protocol"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_container_info"] = None
         __props__.__dict__["client_access_rights"] = None
         __props__.__dict__["data_policy"] = None
@@ -372,6 +370,14 @@ class Share(pulumi.CustomResource):
         Access protocol to be used by the share.
         """
         return pulumi.get(self, "access_protocol")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureContainerInfo")

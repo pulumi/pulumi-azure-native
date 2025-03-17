@@ -27,10 +27,13 @@ class GetAlertsSuppressionRuleResult:
     """
     Describes the suppression rule
     """
-    def __init__(__self__, alert_type=None, comment=None, expiration_date_utc=None, id=None, last_modified_utc=None, name=None, reason=None, state=None, suppression_alerts_scope=None, type=None):
+    def __init__(__self__, alert_type=None, azure_api_version=None, comment=None, expiration_date_utc=None, id=None, last_modified_utc=None, name=None, reason=None, state=None, suppression_alerts_scope=None, type=None):
         if alert_type and not isinstance(alert_type, str):
             raise TypeError("Expected argument 'alert_type' to be a str")
         pulumi.set(__self__, "alert_type", alert_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -66,6 +69,14 @@ class GetAlertsSuppressionRuleResult:
         Type of the alert to automatically suppress. For all alert types, use '*'
         """
         return pulumi.get(self, "alert_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetAlertsSuppressionRuleResult(GetAlertsSuppressionRuleResult):
             yield self
         return GetAlertsSuppressionRuleResult(
             alert_type=self.alert_type,
+            azure_api_version=self.azure_api_version,
             comment=self.comment,
             expiration_date_utc=self.expiration_date_utc,
             id=self.id,
@@ -174,6 +186,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
 
     return AwaitableGetAlertsSuppressionRuleResult(
         alert_type=pulumi.get(__ret__, 'alert_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         comment=pulumi.get(__ret__, 'comment'),
         expiration_date_utc=pulumi.get(__ret__, 'expiration_date_utc'),
         id=pulumi.get(__ret__, 'id'),
@@ -198,6 +211,7 @@ def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pu
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAlertsSuppressionRule', __args__, opts=opts, typ=GetAlertsSuppressionRuleResult)
     return __ret__.apply(lambda __response__: GetAlertsSuppressionRuleResult(
         alert_type=pulumi.get(__response__, 'alert_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         comment=pulumi.get(__response__, 'comment'),
         expiration_date_utc=pulumi.get(__response__, 'expiration_date_utc'),
         id=pulumi.get(__response__, 'id'),

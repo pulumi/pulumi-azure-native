@@ -27,7 +27,10 @@ class GetDiskAccessResult:
     """
     disk access resource.
     """
-    def __init__(__self__, extended_location=None, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, time_created=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, time_created=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -55,6 +58,14 @@ class GetDiskAccessResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -135,6 +146,7 @@ class AwaitableGetDiskAccessResult(GetDiskAccessResult):
         if False:
             yield self
         return GetDiskAccessResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
@@ -151,9 +163,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessResult:
     """
     Gets information about a disk access resource.
-    Azure REST API version: 2022-07-02.
-
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Azure REST API version: 2024-03-02.
 
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -166,6 +176,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult).value
 
     return AwaitableGetDiskAccessResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -180,9 +191,7 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
     Gets information about a disk access resource.
-    Azure REST API version: 2022-07-02.
-
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Azure REST API version: 2024-03-02.
 
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -194,6 +203,7 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult)
     return __ret__.apply(lambda __response__: GetDiskAccessResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

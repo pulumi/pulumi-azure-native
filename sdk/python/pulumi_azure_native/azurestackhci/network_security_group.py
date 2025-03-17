@@ -119,9 +119,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         NetworkSecurityGroup resource.
-        Azure REST API version: 2024-02-01-preview.
-
-        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,9 +137,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkSecurityGroup resource.
-        Azure REST API version: 2024-02-01-preview.
-
-        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityGroupArgs args: The arguments to use to populate this resource's properties.
@@ -179,10 +175,12 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["subnets"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -210,17 +208,27 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
         __props__ = NetworkSecurityGroupArgs.__new__(NetworkSecurityGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_interfaces"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["subnets"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return NetworkSecurityGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -269,6 +277,14 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         The provisioning state of the network security group resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output['outputs.NetworkSecurityGroupStatusResponse']:
+        """
+        The observed state of Network Security Group
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter

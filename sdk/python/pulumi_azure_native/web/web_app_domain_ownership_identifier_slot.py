@@ -131,9 +131,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                  __props__=None):
         """
         A domain specific resource identifier.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,9 +150,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A domain specific resource identifier.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppDomainOwnershipIdentifierSlotArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +194,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
             __props__.__dict__["value"] = value
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppDomainOwnershipIdentifierSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -223,11 +220,20 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
 
         __props__ = WebAppDomainOwnershipIdentifierSlotArgs.__new__(WebAppDomainOwnershipIdentifierSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["value"] = None
         return WebAppDomainOwnershipIdentifierSlot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

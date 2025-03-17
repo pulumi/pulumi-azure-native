@@ -27,10 +27,13 @@ class GetCustomImageResult:
     """
     A custom image.
     """
-    def __init__(__self__, author=None, creation_date=None, custom_image_plan=None, data_disk_storage_info=None, description=None, id=None, is_plan_authorized=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
+    def __init__(__self__, author=None, azure_api_version=None, creation_date=None, custom_image_plan=None, data_disk_storage_info=None, description=None, id=None, is_plan_authorized=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -87,6 +90,14 @@ class GetCustomImageResult:
         The author of the custom image.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -224,6 +235,7 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
             yield self
         return GetCustomImageResult(
             author=self.author,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             custom_image_plan=self.custom_image_plan,
             data_disk_storage_info=self.data_disk_storage_info,
@@ -267,6 +279,7 @@ def get_custom_image(expand: Optional[str] = None,
 
     return AwaitableGetCustomImageResult(
         author=pulumi.get(__ret__, 'author'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         custom_image_plan=pulumi.get(__ret__, 'custom_image_plan'),
         data_disk_storage_info=pulumi.get(__ret__, 'data_disk_storage_info'),
@@ -307,6 +320,7 @@ def get_custom_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult)
     return __ret__.apply(lambda __response__: GetCustomImageResult(
         author=pulumi.get(__response__, 'author'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         custom_image_plan=pulumi.get(__response__, 'custom_image_plan'),
         data_disk_storage_info=pulumi.get(__response__, 'data_disk_storage_info'),

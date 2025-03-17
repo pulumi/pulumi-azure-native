@@ -27,7 +27,10 @@ class GetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Private Endpoint connection on an application gateway.
     """
-    def __init__(__self__, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -52,6 +55,14 @@ class GetApplicationGatewayPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(GetApplicati
         if False:
             yield self
         return GetApplicationGatewayPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             link_identifier=self.link_identifier,
@@ -140,9 +152,7 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection on application gateway.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -157,6 +167,7 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
     __ret__ = pulumi.runtime.invoke('azure-native:network:getApplicationGatewayPrivateEndpointConnection', __args__, opts=opts, typ=GetApplicationGatewayPrivateEndpointConnectionResult).value
 
     return AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         link_identifier=pulumi.get(__ret__, 'link_identifier'),
@@ -171,9 +182,7 @@ def get_application_gateway_private_endpoint_connection_output(application_gatew
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection on application gateway.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -187,6 +196,7 @@ def get_application_gateway_private_endpoint_connection_output(application_gatew
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getApplicationGatewayPrivateEndpointConnection', __args__, opts=opts, typ=GetApplicationGatewayPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetApplicationGatewayPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         link_identifier=pulumi.get(__response__, 'link_identifier'),

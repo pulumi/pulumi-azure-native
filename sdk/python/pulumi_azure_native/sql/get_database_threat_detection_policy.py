@@ -26,7 +26,10 @@ class GetDatabaseThreatDetectionPolicyResult:
     """
     Contains information about a database Threat Detection policy.
     """
-    def __init__(__self__, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, kind=None, location=None, name=None, retention_days=None, state=None, storage_endpoint=None, type=None, use_server_default=None):
+    def __init__(__self__, azure_api_version=None, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, kind=None, location=None, name=None, retention_days=None, state=None, storage_endpoint=None, type=None, use_server_default=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disabled_alerts and not isinstance(disabled_alerts, str):
             raise TypeError("Expected argument 'disabled_alerts' to be a str")
         pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -63,6 +66,14 @@ class GetDatabaseThreatDetectionPolicyResult:
         if use_server_default and not isinstance(use_server_default, str):
             raise TypeError("Expected argument 'use_server_default' to be a str")
         pulumi.set(__self__, "use_server_default", use_server_default)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -167,6 +178,7 @@ class AwaitableGetDatabaseThreatDetectionPolicyResult(GetDatabaseThreatDetection
         if False:
             yield self
         return GetDatabaseThreatDetectionPolicyResult(
+            azure_api_version=self.azure_api_version,
             disabled_alerts=self.disabled_alerts,
             email_account_admins=self.email_account_admins,
             email_addresses=self.email_addresses,
@@ -205,6 +217,7 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getDatabaseThreatDetectionPolicy', __args__, opts=opts, typ=GetDatabaseThreatDetectionPolicyResult).value
 
     return AwaitableGetDatabaseThreatDetectionPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disabled_alerts=pulumi.get(__ret__, 'disabled_alerts'),
         email_account_admins=pulumi.get(__ret__, 'email_account_admins'),
         email_addresses=pulumi.get(__ret__, 'email_addresses'),
@@ -240,6 +253,7 @@ def get_database_threat_detection_policy_output(database_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabaseThreatDetectionPolicy', __args__, opts=opts, typ=GetDatabaseThreatDetectionPolicyResult)
     return __ret__.apply(lambda __response__: GetDatabaseThreatDetectionPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disabled_alerts=pulumi.get(__response__, 'disabled_alerts'),
         email_account_admins=pulumi.get(__response__, 'email_account_admins'),
         email_addresses=pulumi.get(__response__, 'email_addresses'),

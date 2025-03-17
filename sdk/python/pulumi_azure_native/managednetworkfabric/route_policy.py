@@ -22,31 +22,58 @@ __all__ = ['RoutePolicyArgs', 'RoutePolicy']
 @pulumi.input_type
 class RoutePolicyArgs:
     def __init__(__self__, *,
+                 network_fabric_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  statements: pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]],
+                 address_family_type: Optional[pulumi.Input[Union[str, 'AddressFamilyType']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RoutePolicy resource.
+        :param pulumi.Input[str] network_fabric_id: Arm Resource ID of Network Fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]] statements: Route Policy statements.
+        :param pulumi.Input[Union[str, 'AddressFamilyType']] address_family_type: AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
         :param pulumi.Input[str] annotation: Switch configuration description.
+        :param pulumi.Input[Union[str, 'CommunityActionTypes']] default_action: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] route_policy_name: Name of the Route Policy
+        :param pulumi.Input[str] route_policy_name: Name of the Route Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "statements", statements)
+        if address_family_type is None:
+            address_family_type = 'IPv4'
+        if address_family_type is not None:
+            pulumi.set(__self__, "address_family_type", address_family_type)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
+        if default_action is None:
+            default_action = 'Deny'
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if route_policy_name is not None:
             pulumi.set(__self__, "route_policy_name", route_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="networkFabricId")
+    def network_fabric_id(self) -> pulumi.Input[str]:
+        """
+        Arm Resource ID of Network Fabric.
+        """
+        return pulumi.get(self, "network_fabric_id")
+
+    @network_fabric_id.setter
+    def network_fabric_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_fabric_id", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -73,6 +100,18 @@ class RoutePolicyArgs:
         pulumi.set(self, "statements", value)
 
     @property
+    @pulumi.getter(name="addressFamilyType")
+    def address_family_type(self) -> Optional[pulumi.Input[Union[str, 'AddressFamilyType']]]:
+        """
+        AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+        """
+        return pulumi.get(self, "address_family_type")
+
+    @address_family_type.setter
+    def address_family_type(self, value: Optional[pulumi.Input[Union[str, 'AddressFamilyType']]]):
+        pulumi.set(self, "address_family_type", value)
+
+    @property
     @pulumi.getter
     def annotation(self) -> Optional[pulumi.Input[str]]:
         """
@@ -83,6 +122,18 @@ class RoutePolicyArgs:
     @annotation.setter
     def annotation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "annotation", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]]:
+        """
+        Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]]):
+        pulumi.set(self, "default_action", value)
 
     @property
     @pulumi.getter
@@ -100,7 +151,7 @@ class RoutePolicyArgs:
     @pulumi.getter(name="routePolicyName")
     def route_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Route Policy
+        Name of the Route Policy.
         """
         return pulumi.get(self, "route_policy_name")
 
@@ -126,8 +177,11 @@ class RoutePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 address_family_type: Optional[pulumi.Input[Union[str, 'AddressFamilyType']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_fabric_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
                  statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
@@ -135,16 +189,17 @@ class RoutePolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The RoutePolicy resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AddressFamilyType']] address_family_type: AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
         :param pulumi.Input[str] annotation: Switch configuration description.
+        :param pulumi.Input[Union[str, 'CommunityActionTypes']] default_action: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] network_fabric_id: Arm Resource ID of Network Fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] route_policy_name: Name of the Route Policy
+        :param pulumi.Input[str] route_policy_name: Name of the Route Policy.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]] statements: Route Policy statements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -156,9 +211,7 @@ class RoutePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The RoutePolicy resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RoutePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -175,8 +228,11 @@ class RoutePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 address_family_type: Optional[pulumi.Input[Union[str, 'AddressFamilyType']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_fabric_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
                  statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
@@ -190,8 +246,17 @@ class RoutePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoutePolicyArgs.__new__(RoutePolicyArgs)
 
+            if address_family_type is None:
+                address_family_type = 'IPv4'
+            __props__.__dict__["address_family_type"] = address_family_type
             __props__.__dict__["annotation"] = annotation
+            if default_action is None:
+                default_action = 'Deny'
+            __props__.__dict__["default_action"] = default_action
             __props__.__dict__["location"] = location
+            if network_fabric_id is None and not opts.urn:
+                raise TypeError("Missing required property 'network_fabric_id'")
+            __props__.__dict__["network_fabric_id"] = network_fabric_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -200,6 +265,9 @@ class RoutePolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'statements'")
             __props__.__dict__["statements"] = statements
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["administrative_state"] = None
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -228,9 +296,15 @@ class RoutePolicy(pulumi.CustomResource):
 
         __props__ = RoutePolicyArgs.__new__(RoutePolicyArgs)
 
+        __props__.__dict__["address_family_type"] = None
+        __props__.__dict__["administrative_state"] = None
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["configuration_state"] = None
+        __props__.__dict__["default_action"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_fabric_id"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["statements"] = None
         __props__.__dict__["system_data"] = None
@@ -239,12 +313,52 @@ class RoutePolicy(pulumi.CustomResource):
         return RoutePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="addressFamilyType")
+    def address_family_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+        """
+        return pulumi.get(self, "address_family_type")
+
+    @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> pulumi.Output[str]:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @property
     @pulumi.getter
     def annotation(self) -> pulumi.Output[Optional[str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[str]:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        """
+        return pulumi.get(self, "default_action")
 
     @property
     @pulumi.getter
@@ -263,10 +377,18 @@ class RoutePolicy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkFabricId")
+    def network_fabric_id(self) -> pulumi.Output[str]:
+        """
+        Arm Resource ID of Network Fabric.
+        """
+        return pulumi.get(self, "network_fabric_id")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

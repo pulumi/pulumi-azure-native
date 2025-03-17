@@ -147,9 +147,7 @@ class Contact(pulumi.CustomResource):
                  __props__=None):
         """
         Customer creates a contact resource for a spacecraft resource.
-        Azure REST API version: 2022-11-01.
-
-        Other available API versions: 2022-03-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,9 +167,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a contact resource for a spacecraft resource.
-        Azure REST API version: 2022-11-01.
-
-        Other available API versions: 2022-03-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.
@@ -224,6 +220,7 @@ class Contact(pulumi.CustomResource):
                 raise TypeError("Missing required property 'spacecraft_name'")
             __props__.__dict__["spacecraft_name"] = spacecraft_name
             __props__.__dict__["antenna_configuration"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["end_azimuth_degrees"] = None
             __props__.__dict__["end_elevation_degrees"] = None
             __props__.__dict__["error_message"] = None
@@ -263,6 +260,7 @@ class Contact(pulumi.CustomResource):
         __props__ = ContactArgs.__new__(ContactArgs)
 
         __props__.__dict__["antenna_configuration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["contact_profile"] = None
         __props__.__dict__["end_azimuth_degrees"] = None
         __props__.__dict__["end_elevation_degrees"] = None
@@ -290,6 +288,14 @@ class Contact(pulumi.CustomResource):
         The configuration associated with the allocated antenna.
         """
         return pulumi.get(self, "antenna_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contactProfile")

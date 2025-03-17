@@ -27,7 +27,10 @@ class GetSourceControlResult:
     """
     Represents a SourceControl in Azure Security Insights.
     """
-    def __init__(__self__, content_types=None, description=None, display_name=None, etag=None, id=None, last_deployment_info=None, name=None, repo_type=None, repository=None, repository_resource_info=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, content_types=None, description=None, display_name=None, etag=None, id=None, last_deployment_info=None, name=None, repo_type=None, repository=None, repository_resource_info=None, system_data=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_types and not isinstance(content_types, list):
             raise TypeError("Expected argument 'content_types' to be a list")
         pulumi.set(__self__, "content_types", content_types)
@@ -67,6 +70,14 @@ class GetSourceControlResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentTypes")
@@ -179,6 +190,7 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
         if False:
             yield self
         return GetSourceControlResult(
+            azure_api_version=self.azure_api_version,
             content_types=self.content_types,
             description=self.description,
             display_name=self.display_name,
@@ -202,8 +214,6 @@ def get_source_control(resource_group_name: Optional[str] = None,
     Gets a source control byt its identifier.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_id: Source control Id
@@ -217,6 +227,7 @@ def get_source_control(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult).value
 
     return AwaitableGetSourceControlResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_types=pulumi.get(__ret__, 'content_types'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -238,8 +249,6 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] =
     Gets a source control byt its identifier.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_id: Source control Id
@@ -252,6 +261,7 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
     return __ret__.apply(lambda __response__: GetSourceControlResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_types=pulumi.get(__response__, 'content_types'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

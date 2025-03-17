@@ -27,7 +27,7 @@ class GetApplicationResult:
     """
     Information about managed application.
     """
-    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, billing_details=None, created_by=None, customer_support=None, id=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, system_data=None, tags=None, type=None, updated_by=None):
+    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, azure_api_version=None, billing_details=None, created_by=None, customer_support=None, id=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, system_data=None, tags=None, type=None, updated_by=None):
         if application_definition_id and not isinstance(application_definition_id, str):
             raise TypeError("Expected argument 'application_definition_id' to be a str")
         pulumi.set(__self__, "application_definition_id", application_definition_id)
@@ -37,6 +37,9 @@ class GetApplicationResult:
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if billing_details and not isinstance(billing_details, dict):
             raise TypeError("Expected argument 'billing_details' to be a dict")
         pulumi.set(__self__, "billing_details", billing_details)
@@ -130,6 +133,14 @@ class GetApplicationResult:
         The  read-only authorizations property that is retrieved from the application package.
         """
         return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingDetails")
@@ -325,6 +336,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             application_definition_id=self.application_definition_id,
             artifacts=self.artifacts,
             authorizations=self.authorizations,
+            azure_api_version=self.azure_api_version,
             billing_details=self.billing_details,
             created_by=self.created_by,
             customer_support=self.customer_support,
@@ -357,8 +369,6 @@ def get_application(application_name: Optional[str] = None,
     Gets the managed application.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
-
 
     :param str application_name: The name of the managed application.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -373,6 +383,7 @@ def get_application(application_name: Optional[str] = None,
         application_definition_id=pulumi.get(__ret__, 'application_definition_id'),
         artifacts=pulumi.get(__ret__, 'artifacts'),
         authorizations=pulumi.get(__ret__, 'authorizations'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         billing_details=pulumi.get(__ret__, 'billing_details'),
         created_by=pulumi.get(__ret__, 'created_by'),
         customer_support=pulumi.get(__ret__, 'customer_support'),
@@ -403,8 +414,6 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     Gets the managed application.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
-
 
     :param str application_name: The name of the managed application.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -418,6 +427,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
         application_definition_id=pulumi.get(__response__, 'application_definition_id'),
         artifacts=pulumi.get(__response__, 'artifacts'),
         authorizations=pulumi.get(__response__, 'authorizations'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         billing_details=pulumi.get(__response__, 'billing_details'),
         created_by=pulumi.get(__response__, 'created_by'),
         customer_support=pulumi.get(__response__, 'customer_support'),

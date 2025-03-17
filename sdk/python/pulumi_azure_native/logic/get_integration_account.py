@@ -27,7 +27,10 @@ class GetIntegrationAccountResult:
     """
     The integration account.
     """
-    def __init__(__self__, id=None, integration_service_environment=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, integration_service_environment=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetIntegrationAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetIntegrationAccountResult(GetIntegrationAccountResult):
         if False:
             yield self
         return GetIntegrationAccountResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             integration_service_environment=self.integration_service_environment,
             location=self.location,
@@ -141,8 +153,6 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     Gets an integration account.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
-
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
@@ -154,6 +164,7 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic:getIntegrationAccount', __args__, opts=opts, typ=GetIntegrationAccountResult).value
 
     return AwaitableGetIntegrationAccountResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         integration_service_environment=pulumi.get(__ret__, 'integration_service_environment'),
         location=pulumi.get(__ret__, 'location'),
@@ -169,8 +180,6 @@ def get_integration_account_output(integration_account_name: Optional[pulumi.Inp
     Gets an integration account.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
-
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
@@ -181,6 +190,7 @@ def get_integration_account_output(integration_account_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccount', __args__, opts=opts, typ=GetIntegrationAccountResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         integration_service_environment=pulumi.get(__response__, 'integration_service_environment'),
         location=pulumi.get(__response__, 'location'),

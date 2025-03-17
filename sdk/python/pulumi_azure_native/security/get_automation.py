@@ -27,10 +27,13 @@ class GetAutomationResult:
     """
     The security automation resource.
     """
-    def __init__(__self__, actions=None, description=None, etag=None, id=None, is_enabled=None, kind=None, location=None, name=None, scopes=None, sources=None, tags=None, type=None):
+    def __init__(__self__, actions=None, azure_api_version=None, description=None, etag=None, id=None, is_enabled=None, kind=None, location=None, name=None, scopes=None, sources=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -72,6 +75,14 @@ class GetAutomationResult:
         A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetAutomationResult(GetAutomationResult):
             yield self
         return GetAutomationResult(
             actions=self.actions,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
@@ -187,9 +199,7 @@ def get_automation(automation_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationResult:
     """
     Retrieves information about the model of a security automation.
-    Azure REST API version: 2019-01-01-preview.
-
-    Other available API versions: 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str automation_name: The security automation name.
@@ -203,6 +213,7 @@ def get_automation(automation_name: Optional[str] = None,
 
     return AwaitableGetAutomationResult(
         actions=pulumi.get(__ret__, 'actions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -219,9 +230,7 @@ def get_automation_output(automation_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationResult]:
     """
     Retrieves information about the model of a security automation.
-    Azure REST API version: 2019-01-01-preview.
-
-    Other available API versions: 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str automation_name: The security automation name.
@@ -234,6 +243,7 @@ def get_automation_output(automation_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAutomation', __args__, opts=opts, typ=GetAutomationResult)
     return __ret__.apply(lambda __response__: GetAutomationResult(
         actions=pulumi.get(__response__, 'actions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

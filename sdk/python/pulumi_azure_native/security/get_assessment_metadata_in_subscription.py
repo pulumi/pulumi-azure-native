@@ -27,10 +27,13 @@ class GetAssessmentMetadataInSubscriptionResult:
     """
     Security assessment metadata response
     """
-    def __init__(__self__, assessment_type=None, categories=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, partner_data=None, planned_deprecation_date=None, policy_definition_id=None, preview=None, publish_dates=None, remediation_description=None, severity=None, tactics=None, techniques=None, threats=None, type=None, user_impact=None):
+    def __init__(__self__, assessment_type=None, azure_api_version=None, categories=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, partner_data=None, planned_deprecation_date=None, policy_definition_id=None, preview=None, publish_dates=None, remediation_description=None, severity=None, tactics=None, techniques=None, threats=None, type=None, user_impact=None):
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if categories and not isinstance(categories, list):
             raise TypeError("Expected argument 'categories' to be a list")
         pulumi.set(__self__, "categories", categories)
@@ -93,6 +96,14 @@ class GetAssessmentMetadataInSubscriptionResult:
         BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         """
         return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -228,6 +239,7 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
             yield self
         return GetAssessmentMetadataInSubscriptionResult(
             assessment_type=self.assessment_type,
+            azure_api_version=self.azure_api_version,
             categories=self.categories,
             description=self.description,
             display_name=self.display_name,
@@ -264,6 +276,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
 
     return AwaitableGetAssessmentMetadataInSubscriptionResult(
         assessment_type=pulumi.get(__ret__, 'assessment_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         categories=pulumi.get(__ret__, 'categories'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -297,6 +310,7 @@ def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Opt
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAssessmentMetadataInSubscription', __args__, opts=opts, typ=GetAssessmentMetadataInSubscriptionResult)
     return __ret__.apply(lambda __response__: GetAssessmentMetadataInSubscriptionResult(
         assessment_type=pulumi.get(__response__, 'assessment_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         categories=pulumi.get(__response__, 'categories'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

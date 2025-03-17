@@ -27,7 +27,10 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, explicit_proxy=None, firewalls=None, id=None, identity=None, insights=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, snat=None, sql=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
+    def __init__(__self__, azure_api_version=None, base_policy=None, child_policies=None, dns_settings=None, etag=None, explicit_proxy=None, firewalls=None, id=None, identity=None, insights=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, size=None, sku=None, snat=None, sql=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -70,6 +73,9 @@ class GetFirewallPolicyResult:
         if rule_collection_groups and not isinstance(rule_collection_groups, list):
             raise TypeError("Expected argument 'rule_collection_groups' to be a list")
         pulumi.set(__self__, "rule_collection_groups", rule_collection_groups)
+        if size and not isinstance(size, str):
+            raise TypeError("Expected argument 'size' to be a str")
+        pulumi.set(__self__, "size", size)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -94,6 +100,14 @@ class GetFirewallPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="basePolicy")
@@ -209,6 +223,14 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
+    def size(self) -> str:
+        """
+        A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
     def sku(self) -> Optional['outputs.FirewallPolicySkuResponse']:
         """
         The Firewall Policy SKU.
@@ -278,6 +300,7 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
         if False:
             yield self
         return GetFirewallPolicyResult(
+            azure_api_version=self.azure_api_version,
             base_policy=self.base_policy,
             child_policies=self.child_policies,
             dns_settings=self.dns_settings,
@@ -292,6 +315,7 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             rule_collection_groups=self.rule_collection_groups,
+            size=self.size,
             sku=self.sku,
             snat=self.snat,
             sql=self.sql,
@@ -308,9 +332,7 @@ def get_firewall_policy(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
     Gets the specified Firewall Policy.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -325,6 +347,7 @@ def get_firewall_policy(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
 
     return AwaitableGetFirewallPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         base_policy=pulumi.get(__ret__, 'base_policy'),
         child_policies=pulumi.get(__ret__, 'child_policies'),
         dns_settings=pulumi.get(__ret__, 'dns_settings'),
@@ -339,6 +362,7 @@ def get_firewall_policy(expand: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rule_collection_groups=pulumi.get(__ret__, 'rule_collection_groups'),
+        size=pulumi.get(__ret__, 'size'),
         sku=pulumi.get(__ret__, 'sku'),
         snat=pulumi.get(__ret__, 'snat'),
         sql=pulumi.get(__ret__, 'sql'),
@@ -353,9 +377,7 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Gets the specified Firewall Policy.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -369,6 +391,7 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         base_policy=pulumi.get(__response__, 'base_policy'),
         child_policies=pulumi.get(__response__, 'child_policies'),
         dns_settings=pulumi.get(__response__, 'dns_settings'),
@@ -383,6 +406,7 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         rule_collection_groups=pulumi.get(__response__, 'rule_collection_groups'),
+        size=pulumi.get(__response__, 'size'),
         sku=pulumi.get(__response__, 'sku'),
         snat=pulumi.get(__response__, 'snat'),
         sql=pulumi.get(__response__, 'sql'),

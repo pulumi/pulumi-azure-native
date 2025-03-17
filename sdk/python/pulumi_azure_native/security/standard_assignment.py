@@ -204,7 +204,7 @@ class StandardAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Security Assignment on a resource group over a given scope
-        Azure REST API version: 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +227,7 @@ class StandardAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Assignment on a resource group over a given scope
-        Azure REST API version: 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param StandardAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -275,6 +275,7 @@ class StandardAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["standard_assignment_name"] = standard_assignment_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -304,6 +305,7 @@ class StandardAssignment(pulumi.CustomResource):
 
         __props__.__dict__["assigned_standard"] = None
         __props__.__dict__["attestation_data"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["effect"] = None
@@ -330,6 +332,14 @@ class StandardAssignment(pulumi.CustomResource):
         Additional data about assignment that has Attest effect
         """
         return pulumi.get(self, "attestation_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

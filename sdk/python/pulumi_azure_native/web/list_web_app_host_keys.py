@@ -78,9 +78,7 @@ def list_web_app_host_keys(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHostKeysResult:
     """
     Description for Get host secrets for a function app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Site name.
@@ -101,9 +99,7 @@ def list_web_app_host_keys_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHostKeysResult]:
     """
     Description for Get host secrets for a function app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Site name.

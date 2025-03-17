@@ -122,8 +122,6 @@ def list_workflow_version_trigger_callback_url(key_type: Optional[Union[str, 'Ke
     Get the callback url for a trigger of a workflow version.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2018-07-01-preview.
-
 
     :param Union[str, 'KeyType'] key_type: The key type.
     :param str not_after: The expiry time.
@@ -159,8 +157,6 @@ def list_workflow_version_trigger_callback_url_output(key_type: Optional[pulumi.
     """
     Get the callback url for a trigger of a workflow version.
     Azure REST API version: 2019-05-01.
-
-    Other available API versions: 2018-07-01-preview.
 
 
     :param Union[str, 'KeyType'] key_type: The key type.

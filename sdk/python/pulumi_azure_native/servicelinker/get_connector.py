@@ -27,10 +27,13 @@ class GetConnectorResult:
     """
     Linker of source and target resource
     """
-    def __init__(__self__, auth_info=None, client_type=None, configuration_info=None, id=None, name=None, provisioning_state=None, public_network_solution=None, scope=None, secret_store=None, system_data=None, target_service=None, type=None, v_net_solution=None):
+    def __init__(__self__, auth_info=None, azure_api_version=None, client_type=None, configuration_info=None, id=None, name=None, provisioning_state=None, public_network_solution=None, scope=None, secret_store=None, system_data=None, target_service=None, type=None, v_net_solution=None):
         if auth_info and not isinstance(auth_info, dict):
             raise TypeError("Expected argument 'auth_info' to be a dict")
         pulumi.set(__self__, "auth_info", auth_info)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_type and not isinstance(client_type, str):
             raise TypeError("Expected argument 'client_type' to be a str")
         pulumi.set(__self__, "client_type", client_type)
@@ -75,6 +78,14 @@ class GetConnectorResult:
         The authentication type.
         """
         return pulumi.get(self, "auth_info")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientType")
@@ -180,6 +191,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             yield self
         return GetConnectorResult(
             auth_info=self.auth_info,
+            azure_api_version=self.azure_api_version,
             client_type=self.client_type,
             configuration_info=self.configuration_info,
             id=self.id,
@@ -201,9 +213,7 @@ def get_connector(connector_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Returns Connector resource for a given name.
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str connector_name: The name of resource.
@@ -221,6 +231,7 @@ def get_connector(connector_name: Optional[str] = None,
 
     return AwaitableGetConnectorResult(
         auth_info=pulumi.get(__ret__, 'auth_info'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_type=pulumi.get(__ret__, 'client_type'),
         configuration_info=pulumi.get(__ret__, 'configuration_info'),
         id=pulumi.get(__ret__, 'id'),
@@ -240,9 +251,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Returns Connector resource for a given name.
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str connector_name: The name of resource.
@@ -259,6 +268,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
         auth_info=pulumi.get(__response__, 'auth_info'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_type=pulumi.get(__response__, 'client_type'),
         configuration_info=pulumi.get(__response__, 'configuration_info'),
         id=pulumi.get(__response__, 'id'),

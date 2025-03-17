@@ -186,7 +186,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                  __props__=None):
         """
         Details about environment name, metadata and environment id of an environment
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +208,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details about environment name, metadata and environment id of an environment
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param OrganizationEnvironmentByIdArgs args: The arguments to use to populate this resource's properties.
@@ -256,6 +256,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["stream_governance_config"] = stream_governance_config
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationEnvironmentById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrganizationEnvironmentById, __self__).__init__(
@@ -280,12 +281,21 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
 
         __props__ = OrganizationEnvironmentByIdArgs.__new__(OrganizationEnvironmentByIdArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["stream_governance_config"] = None
         __props__.__dict__["type"] = None
         return OrganizationEnvironmentById(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

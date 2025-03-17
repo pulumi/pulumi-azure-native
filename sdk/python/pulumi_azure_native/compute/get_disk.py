@@ -27,7 +27,10 @@ class GetDiskResult:
     """
     Disk resource.
     """
-    def __init__(__self__, bursting_enabled=None, bursting_enabled_time=None, completion_percent=None, creation_data=None, data_access_auth_mode=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, optimized_for_frequent_attach=None, os_type=None, property_updates_in_progress=None, provisioning_state=None, public_network_access=None, purchase_plan=None, security_profile=None, share_info=None, sku=None, supported_capabilities=None, supports_hibernation=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
+    def __init__(__self__, azure_api_version=None, bursting_enabled=None, bursting_enabled_time=None, completion_percent=None, creation_data=None, data_access_auth_mode=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, last_ownership_update_time=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, optimized_for_frequent_attach=None, os_type=None, property_updates_in_progress=None, provisioning_state=None, public_network_access=None, purchase_plan=None, security_profile=None, share_info=None, sku=None, supported_capabilities=None, supports_hibernation=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bursting_enabled and not isinstance(bursting_enabled, bool):
             raise TypeError("Expected argument 'bursting_enabled' to be a bool")
         pulumi.set(__self__, "bursting_enabled", bursting_enabled)
@@ -82,6 +85,9 @@ class GetDiskResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_ownership_update_time and not isinstance(last_ownership_update_time, str):
+            raise TypeError("Expected argument 'last_ownership_update_time' to be a str")
+        pulumi.set(__self__, "last_ownership_update_time", last_ownership_update_time)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -151,6 +157,14 @@ class GetDiskResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="burstingEnabled")
@@ -295,6 +309,14 @@ class GetDiskResult:
         Resource Id
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastOwnershipUpdateTime")
+    def last_ownership_update_time(self) -> str:
+        """
+        The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
+        """
+        return pulumi.get(self, "last_ownership_update_time")
 
     @property
     @pulumi.getter
@@ -487,6 +509,7 @@ class AwaitableGetDiskResult(GetDiskResult):
         if False:
             yield self
         return GetDiskResult(
+            azure_api_version=self.azure_api_version,
             bursting_enabled=self.bursting_enabled,
             bursting_enabled_time=self.bursting_enabled_time,
             completion_percent=self.completion_percent,
@@ -505,6 +528,7 @@ class AwaitableGetDiskResult(GetDiskResult):
             extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
+            last_ownership_update_time=self.last_ownership_update_time,
             location=self.location,
             managed_by=self.managed_by,
             managed_by_extended=self.managed_by_extended,
@@ -535,9 +559,7 @@ def get_disk(disk_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
     Gets information about a disk.
-    Azure REST API version: 2022-07-02.
-
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Azure REST API version: 2024-03-02.
 
 
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -550,6 +572,7 @@ def get_disk(disk_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getDisk', __args__, opts=opts, typ=GetDiskResult).value
 
     return AwaitableGetDiskResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bursting_enabled=pulumi.get(__ret__, 'bursting_enabled'),
         bursting_enabled_time=pulumi.get(__ret__, 'bursting_enabled_time'),
         completion_percent=pulumi.get(__ret__, 'completion_percent'),
@@ -568,6 +591,7 @@ def get_disk(disk_name: Optional[str] = None,
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
         id=pulumi.get(__ret__, 'id'),
+        last_ownership_update_time=pulumi.get(__ret__, 'last_ownership_update_time'),
         location=pulumi.get(__ret__, 'location'),
         managed_by=pulumi.get(__ret__, 'managed_by'),
         managed_by_extended=pulumi.get(__ret__, 'managed_by_extended'),
@@ -596,9 +620,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskResult]:
     """
     Gets information about a disk.
-    Azure REST API version: 2022-07-02.
-
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Azure REST API version: 2024-03-02.
 
 
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -610,6 +632,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getDisk', __args__, opts=opts, typ=GetDiskResult)
     return __ret__.apply(lambda __response__: GetDiskResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bursting_enabled=pulumi.get(__response__, 'bursting_enabled'),
         bursting_enabled_time=pulumi.get(__response__, 'bursting_enabled_time'),
         completion_percent=pulumi.get(__response__, 'completion_percent'),
@@ -628,6 +651,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
         extended_location=pulumi.get(__response__, 'extended_location'),
         hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
         id=pulumi.get(__response__, 'id'),
+        last_ownership_update_time=pulumi.get(__response__, 'last_ownership_update_time'),
         location=pulumi.get(__response__, 'location'),
         managed_by=pulumi.get(__response__, 'managed_by'),
         managed_by_extended=pulumi.get(__response__, 'managed_by_extended'),

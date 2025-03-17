@@ -16,18 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AddonArcPropertiesArgs',
-    'AddonArcPropertiesArgsDict',
-    'AddonHcxPropertiesArgs',
-    'AddonHcxPropertiesArgsDict',
-    'AddonSrmPropertiesArgs',
-    'AddonSrmPropertiesArgsDict',
-    'AddonVrPropertiesArgs',
-    'AddonVrPropertiesArgsDict',
     'AvailabilityPropertiesArgs',
     'AvailabilityPropertiesArgsDict',
     'DiskPoolVolumeArgs',
     'DiskPoolVolumeArgsDict',
+    'ElasticSanVolumeArgs',
+    'ElasticSanVolumeArgsDict',
     'EncryptionKeyVaultPropertiesArgs',
     'EncryptionKeyVaultPropertiesArgsDict',
     'EncryptionArgs',
@@ -40,257 +34,19 @@ __all__ = [
     'NetAppVolumeArgsDict',
     'PSCredentialExecutionParameterArgs',
     'PSCredentialExecutionParameterArgsDict',
-    'PrivateCloudIdentityArgs',
-    'PrivateCloudIdentityArgsDict',
     'ScriptSecureStringExecutionParameterArgs',
     'ScriptSecureStringExecutionParameterArgsDict',
     'ScriptStringExecutionParameterArgs',
     'ScriptStringExecutionParameterArgsDict',
     'SkuArgs',
     'SkuArgsDict',
-    'VmHostPlacementPolicyPropertiesArgs',
-    'VmHostPlacementPolicyPropertiesArgsDict',
-    'VmVmPlacementPolicyPropertiesArgs',
-    'VmVmPlacementPolicyPropertiesArgsDict',
-    'WorkloadNetworkDhcpRelayArgs',
-    'WorkloadNetworkDhcpRelayArgsDict',
-    'WorkloadNetworkDhcpServerArgs',
-    'WorkloadNetworkDhcpServerArgsDict',
+    'SystemAssignedServiceIdentityArgs',
+    'SystemAssignedServiceIdentityArgsDict',
     'WorkloadNetworkSegmentSubnetArgs',
     'WorkloadNetworkSegmentSubnetArgsDict',
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AddonArcPropertiesArgsDict(TypedDict):
-        """
-        The properties of an Arc addon
-        """
-        addon_type: pulumi.Input[str]
-        """
-        The type of private cloud addon
-        Expected value is 'Arc'.
-        """
-        v_center: NotRequired[pulumi.Input[str]]
-        """
-        The VMware vCenter resource ID
-        """
-elif False:
-    AddonArcPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AddonArcPropertiesArgs:
-    def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 v_center: Optional[pulumi.Input[str]] = None):
-        """
-        The properties of an Arc addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'Arc'.
-        :param pulumi.Input[str] v_center: The VMware vCenter resource ID
-        """
-        pulumi.set(__self__, "addon_type", 'Arc')
-        if v_center is not None:
-            pulumi.set(__self__, "v_center", v_center)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'Arc'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
-
-    @property
-    @pulumi.getter(name="vCenter")
-    def v_center(self) -> Optional[pulumi.Input[str]]:
-        """
-        The VMware vCenter resource ID
-        """
-        return pulumi.get(self, "v_center")
-
-    @v_center.setter
-    def v_center(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_center", value)
-
-
-if not MYPY:
-    class AddonHcxPropertiesArgsDict(TypedDict):
-        """
-        The properties of an HCX addon
-        """
-        addon_type: pulumi.Input[str]
-        """
-        The type of private cloud addon
-        Expected value is 'HCX'.
-        """
-        offer: pulumi.Input[str]
-        """
-        The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-        """
-elif False:
-    AddonHcxPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AddonHcxPropertiesArgs:
-    def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 offer: pulumi.Input[str]):
-        """
-        The properties of an HCX addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'HCX'.
-        :param pulumi.Input[str] offer: The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-        """
-        pulumi.set(__self__, "addon_type", 'HCX')
-        pulumi.set(__self__, "offer", offer)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'HCX'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
-
-    @property
-    @pulumi.getter
-    def offer(self) -> pulumi.Input[str]:
-        """
-        The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-        """
-        return pulumi.get(self, "offer")
-
-    @offer.setter
-    def offer(self, value: pulumi.Input[str]):
-        pulumi.set(self, "offer", value)
-
-
-if not MYPY:
-    class AddonSrmPropertiesArgsDict(TypedDict):
-        """
-        The properties of a Site Recovery Manager (SRM) addon
-        """
-        addon_type: pulumi.Input[str]
-        """
-        The type of private cloud addon
-        Expected value is 'SRM'.
-        """
-        license_key: NotRequired[pulumi.Input[str]]
-        """
-        The Site Recovery Manager (SRM) license
-        """
-elif False:
-    AddonSrmPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AddonSrmPropertiesArgs:
-    def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 license_key: Optional[pulumi.Input[str]] = None):
-        """
-        The properties of a Site Recovery Manager (SRM) addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'SRM'.
-        :param pulumi.Input[str] license_key: The Site Recovery Manager (SRM) license
-        """
-        pulumi.set(__self__, "addon_type", 'SRM')
-        if license_key is not None:
-            pulumi.set(__self__, "license_key", license_key)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'SRM'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
-
-    @property
-    @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Site Recovery Manager (SRM) license
-        """
-        return pulumi.get(self, "license_key")
-
-    @license_key.setter
-    def license_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "license_key", value)
-
-
-if not MYPY:
-    class AddonVrPropertiesArgsDict(TypedDict):
-        """
-        The properties of a vSphere Replication (VR) addon
-        """
-        addon_type: pulumi.Input[str]
-        """
-        The type of private cloud addon
-        Expected value is 'VR'.
-        """
-        vrs_count: pulumi.Input[int]
-        """
-        The vSphere Replication Server (VRS) count
-        """
-elif False:
-    AddonVrPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AddonVrPropertiesArgs:
-    def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 vrs_count: pulumi.Input[int]):
-        """
-        The properties of a vSphere Replication (VR) addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'VR'.
-        :param pulumi.Input[int] vrs_count: The vSphere Replication Server (VRS) count
-        """
-        pulumi.set(__self__, "addon_type", 'VR')
-        pulumi.set(__self__, "vrs_count", vrs_count)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'VR'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
-
-    @property
-    @pulumi.getter(name="vrsCount")
-    def vrs_count(self) -> pulumi.Input[int]:
-        """
-        The vSphere Replication Server (VRS) count
-        """
-        return pulumi.get(self, "vrs_count")
-
-    @vrs_count.setter
-    def vrs_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "vrs_count", value)
-
 
 if not MYPY:
     class AvailabilityPropertiesArgsDict(TypedDict):
@@ -383,7 +139,8 @@ if not MYPY:
         """
         mount_option: NotRequired[pulumi.Input[Union[str, 'MountOptionEnum']]]
         """
-        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        Mode that describes whether the LUN has to be mounted as a datastore or
+        attached as a LUN
         """
 elif False:
     DiskPoolVolumeArgsDict: TypeAlias = Mapping[str, Any]
@@ -398,7 +155,8 @@ class DiskPoolVolumeArgs:
         An iSCSI volume from Microsoft.StoragePool provider
         :param pulumi.Input[str] lun_name: Name of the LUN to be used for datastore
         :param pulumi.Input[str] target_id: Azure resource ID of the iSCSI target
-        :param pulumi.Input[Union[str, 'MountOptionEnum']] mount_option: Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        :param pulumi.Input[Union[str, 'MountOptionEnum']] mount_option: Mode that describes whether the LUN has to be mounted as a datastore or
+               attached as a LUN
         """
         pulumi.set(__self__, "lun_name", lun_name)
         pulumi.set(__self__, "target_id", target_id)
@@ -435,13 +193,49 @@ class DiskPoolVolumeArgs:
     @pulumi.getter(name="mountOption")
     def mount_option(self) -> Optional[pulumi.Input[Union[str, 'MountOptionEnum']]]:
         """
-        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        Mode that describes whether the LUN has to be mounted as a datastore or
+        attached as a LUN
         """
         return pulumi.get(self, "mount_option")
 
     @mount_option.setter
     def mount_option(self, value: Optional[pulumi.Input[Union[str, 'MountOptionEnum']]]):
         pulumi.set(self, "mount_option", value)
+
+
+if not MYPY:
+    class ElasticSanVolumeArgsDict(TypedDict):
+        """
+        An Elastic SAN volume from Microsoft.ElasticSan provider
+        """
+        target_id: pulumi.Input[str]
+        """
+        Azure resource ID of the Elastic SAN Volume
+        """
+elif False:
+    ElasticSanVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ElasticSanVolumeArgs:
+    def __init__(__self__, *,
+                 target_id: pulumi.Input[str]):
+        """
+        An Elastic SAN volume from Microsoft.ElasticSan provider
+        :param pulumi.Input[str] target_id: Azure resource ID of the Elastic SAN Volume
+        """
+        pulumi.set(__self__, "target_id", target_id)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input[str]:
+        """
+        Azure resource ID of the Elastic SAN Volume
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_id", value)
 
 
 if not MYPY:
@@ -603,7 +397,8 @@ if not MYPY:
         """
         password: NotRequired[pulumi.Input[str]]
         """
-        The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        The password of the Active Directory user with a minimum of read-only access to
+        Base DN for users and groups.
         """
         primary_server: NotRequired[pulumi.Input[str]]
         """
@@ -619,7 +414,8 @@ if not MYPY:
         """
         username: NotRequired[pulumi.Input[str]]
         """
-        The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        The ID of an Active Directory user with a minimum of read-only access to Base
+        DN for users and group
         """
 elif False:
     IdentitySourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -644,11 +440,13 @@ class IdentitySourceArgs:
         :param pulumi.Input[str] base_user_dn: The base distinguished name for users
         :param pulumi.Input[str] domain: The domain's dns name
         :param pulumi.Input[str] name: The name of the identity source
-        :param pulumi.Input[str] password: The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        :param pulumi.Input[str] password: The password of the Active Directory user with a minimum of read-only access to
+               Base DN for users and groups.
         :param pulumi.Input[str] primary_server: Primary server URL
         :param pulumi.Input[str] secondary_server: Secondary server URL
         :param pulumi.Input[Union[str, 'SslEnum']] ssl: Protect LDAP communication using SSL certificate (LDAPS)
-        :param pulumi.Input[str] username: The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        :param pulumi.Input[str] username: The ID of an Active Directory user with a minimum of read-only access to Base
+               DN for users and group
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -735,7 +533,8 @@ class IdentitySourceArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        The password of the Active Directory user with a minimum of read-only access to
+        Base DN for users and groups.
         """
         return pulumi.get(self, "password")
 
@@ -783,7 +582,8 @@ class IdentitySourceArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        The ID of an Active Directory user with a minimum of read-only access to Base
+        DN for users and group
         """
         return pulumi.get(self, "username")
 
@@ -797,7 +597,7 @@ if not MYPY:
         """
         The properties of a management cluster
         """
-        cluster_size: pulumi.Input[int]
+        cluster_size: NotRequired[pulumi.Input[int]]
         """
         The cluster size
         """
@@ -805,33 +605,42 @@ if not MYPY:
         """
         The hosts
         """
+        vsan_datastore_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the vsan datastore associated with the cluster
+        """
 elif False:
     ManagementClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementClusterArgs:
     def __init__(__self__, *,
-                 cluster_size: pulumi.Input[int],
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 cluster_size: Optional[pulumi.Input[int]] = None,
+                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vsan_datastore_name: Optional[pulumi.Input[str]] = None):
         """
         The properties of a management cluster
         :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
+        :param pulumi.Input[str] vsan_datastore_name: Name of the vsan datastore associated with the cluster
         """
-        pulumi.set(__self__, "cluster_size", cluster_size)
+        if cluster_size is not None:
+            pulumi.set(__self__, "cluster_size", cluster_size)
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
+        if vsan_datastore_name is not None:
+            pulumi.set(__self__, "vsan_datastore_name", vsan_datastore_name)
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Input[int]:
+    def cluster_size(self) -> Optional[pulumi.Input[int]]:
         """
         The cluster size
         """
         return pulumi.get(self, "cluster_size")
 
     @cluster_size.setter
-    def cluster_size(self, value: pulumi.Input[int]):
+    def cluster_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cluster_size", value)
 
     @property
@@ -845,6 +654,18 @@ class ManagementClusterArgs:
     @hosts.setter
     def hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "hosts", value)
+
+    @property
+    @pulumi.getter(name="vsanDatastoreName")
+    def vsan_datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the vsan datastore associated with the cluster
+        """
+        return pulumi.get(self, "vsan_datastore_name")
+
+    @vsan_datastore_name.setter
+    def vsan_datastore_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vsan_datastore_name", value)
 
 
 if not MYPY:
@@ -893,7 +714,7 @@ if not MYPY:
         """
         type: pulumi.Input[str]
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'Credential'.
         """
         password: NotRequired[pulumi.Input[str]]
@@ -917,7 +738,7 @@ class PSCredentialExecutionParameterArgs:
         """
         a powershell credential object
         :param pulumi.Input[str] name: The parameter name
-        :param pulumi.Input[str] type: The type of execution parameter
+        :param pulumi.Input[str] type: script execution parameter type
                Expected value is 'Credential'.
         :param pulumi.Input[str] password: password for login
         :param pulumi.Input[str] username: username for login
@@ -945,7 +766,7 @@ class PSCredentialExecutionParameterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'Credential'.
         """
         return pulumi.get(self, "type")
@@ -980,42 +801,6 @@ class PSCredentialExecutionParameterArgs:
 
 
 if not MYPY:
-    class PrivateCloudIdentityArgsDict(TypedDict):
-        """
-        Identity for the virtual machine.
-        """
-        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
-        """
-        The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
-        """
-elif False:
-    PrivateCloudIdentityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateCloudIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]] = None):
-        """
-        Identity for the virtual machine.
-        :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]:
-        """
-        The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
-        pulumi.set(self, "type", value)
-
-
-if not MYPY:
     class ScriptSecureStringExecutionParameterArgsDict(TypedDict):
         """
         a plain text value execution parameter
@@ -1026,7 +811,7 @@ if not MYPY:
         """
         type: pulumi.Input[str]
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'SecureValue'.
         """
         secure_value: NotRequired[pulumi.Input[str]]
@@ -1045,7 +830,7 @@ class ScriptSecureStringExecutionParameterArgs:
         """
         a plain text value execution parameter
         :param pulumi.Input[str] name: The parameter name
-        :param pulumi.Input[str] type: The type of execution parameter
+        :param pulumi.Input[str] type: script execution parameter type
                Expected value is 'SecureValue'.
         :param pulumi.Input[str] secure_value: A secure value for the passed parameter, not to be stored in logs
         """
@@ -1070,7 +855,7 @@ class ScriptSecureStringExecutionParameterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'SecureValue'.
         """
         return pulumi.get(self, "type")
@@ -1103,7 +888,7 @@ if not MYPY:
         """
         type: pulumi.Input[str]
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'Value'.
         """
         value: NotRequired[pulumi.Input[str]]
@@ -1122,7 +907,7 @@ class ScriptStringExecutionParameterArgs:
         """
         a plain text value execution parameter
         :param pulumi.Input[str] name: The parameter name
-        :param pulumi.Input[str] type: The type of execution parameter
+        :param pulumi.Input[str] type: script execution parameter type
                Expected value is 'Value'.
         :param pulumi.Input[str] value: The value for the passed parameter
         """
@@ -1147,7 +932,7 @@ class ScriptStringExecutionParameterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'Value'.
         """
         return pulumi.get(self, "type")
@@ -1176,7 +961,23 @@ if not MYPY:
         """
         name: pulumi.Input[str]
         """
-        The name of the SKU.
+        The name of the SKU. E.g. P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
 elif False:
     SkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -1184,18 +985,34 @@ elif False:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         The resource model definition representing SKU
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the SKU.
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
 
@@ -1203,512 +1020,88 @@ class SkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
-
-if not MYPY:
-    class VmHostPlacementPolicyPropertiesArgsDict(TypedDict):
-        """
-        VM-Host placement policy properties
-        """
-        affinity_type: pulumi.Input[Union[str, 'AffinityType']]
-        """
-        placement policy affinity type
-        """
-        host_members: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Host members list
-        """
-        type: pulumi.Input[str]
-        """
-        placement policy type
-        Expected value is 'VmHost'.
-        """
-        vm_members: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Virtual machine members list
-        """
-        affinity_strength: NotRequired[pulumi.Input[Union[str, 'AffinityStrength']]]
-        """
-        vm-host placement policy affinity strength (should/must)
-        """
-        azure_hybrid_benefit_type: NotRequired[pulumi.Input[Union[str, 'AzureHybridBenefitType']]]
-        """
-        placement policy azure hybrid benefit opt-in type
-        """
-        display_name: NotRequired[pulumi.Input[str]]
-        """
-        Display name of the placement policy
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'PlacementPolicyState']]]
-        """
-        Whether the placement policy is enabled or disabled
-        """
-elif False:
-    VmHostPlacementPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VmHostPlacementPolicyPropertiesArgs:
-    def __init__(__self__, *,
-                 affinity_type: pulumi.Input[Union[str, 'AffinityType']],
-                 host_members: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str],
-                 vm_members: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 affinity_strength: Optional[pulumi.Input[Union[str, 'AffinityStrength']]] = None,
-                 azure_hybrid_benefit_type: Optional[pulumi.Input[Union[str, 'AzureHybridBenefitType']]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'PlacementPolicyState']]] = None):
-        """
-        VM-Host placement policy properties
-        :param pulumi.Input[Union[str, 'AffinityType']] affinity_type: placement policy affinity type
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_members: Host members list
-        :param pulumi.Input[str] type: placement policy type
-               Expected value is 'VmHost'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vm_members: Virtual machine members list
-        :param pulumi.Input[Union[str, 'AffinityStrength']] affinity_strength: vm-host placement policy affinity strength (should/must)
-        :param pulumi.Input[Union[str, 'AzureHybridBenefitType']] azure_hybrid_benefit_type: placement policy azure hybrid benefit opt-in type
-        :param pulumi.Input[str] display_name: Display name of the placement policy
-        :param pulumi.Input[Union[str, 'PlacementPolicyState']] state: Whether the placement policy is enabled or disabled
-        """
-        pulumi.set(__self__, "affinity_type", affinity_type)
-        pulumi.set(__self__, "host_members", host_members)
-        pulumi.set(__self__, "type", 'VmHost')
-        pulumi.set(__self__, "vm_members", vm_members)
-        if affinity_strength is not None:
-            pulumi.set(__self__, "affinity_strength", affinity_strength)
-        if azure_hybrid_benefit_type is not None:
-            pulumi.set(__self__, "azure_hybrid_benefit_type", azure_hybrid_benefit_type)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
     @property
-    @pulumi.getter(name="affinityType")
-    def affinity_type(self) -> pulumi.Input[Union[str, 'AffinityType']]:
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        placement policy affinity type
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
-        return pulumi.get(self, "affinity_type")
+        return pulumi.get(self, "capacity")
 
-    @affinity_type.setter
-    def affinity_type(self, value: pulumi.Input[Union[str, 'AffinityType']]):
-        pulumi.set(self, "affinity_type", value)
-
-    @property
-    @pulumi.getter(name="hostMembers")
-    def host_members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Host members list
-        """
-        return pulumi.get(self, "host_members")
-
-    @host_members.setter
-    def host_members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "host_members", value)
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def family(self) -> Optional[pulumi.Input[str]]:
         """
-        placement policy type
-        Expected value is 'VmHost'.
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+        pulumi.set(self, "tier", value)
+
+
+if not MYPY:
+    class SystemAssignedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (either system assigned, or none)
+        """
+        type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+elif False:
+    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SystemAssignedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]):
+        """
+        Managed service identity (either system assigned, or none)
+        :param pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']] type: Type of managed service identity (either system assigned, or none).
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]:
+        """
+        Type of managed service identity (either system assigned, or none).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="vmMembers")
-    def vm_members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Virtual machine members list
-        """
-        return pulumi.get(self, "vm_members")
-
-    @vm_members.setter
-    def vm_members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "vm_members", value)
-
-    @property
-    @pulumi.getter(name="affinityStrength")
-    def affinity_strength(self) -> Optional[pulumi.Input[Union[str, 'AffinityStrength']]]:
-        """
-        vm-host placement policy affinity strength (should/must)
-        """
-        return pulumi.get(self, "affinity_strength")
-
-    @affinity_strength.setter
-    def affinity_strength(self, value: Optional[pulumi.Input[Union[str, 'AffinityStrength']]]):
-        pulumi.set(self, "affinity_strength", value)
-
-    @property
-    @pulumi.getter(name="azureHybridBenefitType")
-    def azure_hybrid_benefit_type(self) -> Optional[pulumi.Input[Union[str, 'AzureHybridBenefitType']]]:
-        """
-        placement policy azure hybrid benefit opt-in type
-        """
-        return pulumi.get(self, "azure_hybrid_benefit_type")
-
-    @azure_hybrid_benefit_type.setter
-    def azure_hybrid_benefit_type(self, value: Optional[pulumi.Input[Union[str, 'AzureHybridBenefitType']]]):
-        pulumi.set(self, "azure_hybrid_benefit_type", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the placement policy
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'PlacementPolicyState']]]:
-        """
-        Whether the placement policy is enabled or disabled
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'PlacementPolicyState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class VmVmPlacementPolicyPropertiesArgsDict(TypedDict):
-        """
-        VM-VM placement policy properties
-        """
-        affinity_type: pulumi.Input[Union[str, 'AffinityType']]
-        """
-        placement policy affinity type
-        """
-        type: pulumi.Input[str]
-        """
-        placement policy type
-        Expected value is 'VmVm'.
-        """
-        vm_members: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Virtual machine members list
-        """
-        display_name: NotRequired[pulumi.Input[str]]
-        """
-        Display name of the placement policy
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'PlacementPolicyState']]]
-        """
-        Whether the placement policy is enabled or disabled
-        """
-elif False:
-    VmVmPlacementPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VmVmPlacementPolicyPropertiesArgs:
-    def __init__(__self__, *,
-                 affinity_type: pulumi.Input[Union[str, 'AffinityType']],
-                 type: pulumi.Input[str],
-                 vm_members: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'PlacementPolicyState']]] = None):
-        """
-        VM-VM placement policy properties
-        :param pulumi.Input[Union[str, 'AffinityType']] affinity_type: placement policy affinity type
-        :param pulumi.Input[str] type: placement policy type
-               Expected value is 'VmVm'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vm_members: Virtual machine members list
-        :param pulumi.Input[str] display_name: Display name of the placement policy
-        :param pulumi.Input[Union[str, 'PlacementPolicyState']] state: Whether the placement policy is enabled or disabled
-        """
-        pulumi.set(__self__, "affinity_type", affinity_type)
-        pulumi.set(__self__, "type", 'VmVm')
-        pulumi.set(__self__, "vm_members", vm_members)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="affinityType")
-    def affinity_type(self) -> pulumi.Input[Union[str, 'AffinityType']]:
-        """
-        placement policy affinity type
-        """
-        return pulumi.get(self, "affinity_type")
-
-    @affinity_type.setter
-    def affinity_type(self, value: pulumi.Input[Union[str, 'AffinityType']]):
-        pulumi.set(self, "affinity_type", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        placement policy type
-        Expected value is 'VmVm'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="vmMembers")
-    def vm_members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Virtual machine members list
-        """
-        return pulumi.get(self, "vm_members")
-
-    @vm_members.setter
-    def vm_members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "vm_members", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the placement policy
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'PlacementPolicyState']]]:
-        """
-        Whether the placement policy is enabled or disabled
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'PlacementPolicyState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class WorkloadNetworkDhcpRelayArgsDict(TypedDict):
-        """
-        NSX DHCP Relay
-        """
-        dhcp_type: pulumi.Input[str]
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'RELAY'.
-        """
-        display_name: NotRequired[pulumi.Input[str]]
-        """
-        Display name of the DHCP entity.
-        """
-        revision: NotRequired[pulumi.Input[float]]
-        """
-        NSX revision number.
-        """
-        server_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        DHCP Relay Addresses. Max 3.
-        """
-elif False:
-    WorkloadNetworkDhcpRelayArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class WorkloadNetworkDhcpRelayArgs:
-    def __init__(__self__, *,
-                 dhcp_type: pulumi.Input[str],
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 revision: Optional[pulumi.Input[float]] = None,
-                 server_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        NSX DHCP Relay
-        :param pulumi.Input[str] dhcp_type: Type of DHCP: SERVER or RELAY.
-               Expected value is 'RELAY'.
-        :param pulumi.Input[str] display_name: Display name of the DHCP entity.
-        :param pulumi.Input[float] revision: NSX revision number.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] server_addresses: DHCP Relay Addresses. Max 3.
-        """
-        pulumi.set(__self__, "dhcp_type", 'RELAY')
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if server_addresses is not None:
-            pulumi.set(__self__, "server_addresses", server_addresses)
-
-    @property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> pulumi.Input[str]:
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'RELAY'.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @dhcp_type.setter
-    def dhcp_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "dhcp_type", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[float]]:
-        """
-        NSX revision number.
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "revision", value)
-
-    @property
-    @pulumi.getter(name="serverAddresses")
-    def server_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        DHCP Relay Addresses. Max 3.
-        """
-        return pulumi.get(self, "server_addresses")
-
-    @server_addresses.setter
-    def server_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "server_addresses", value)
-
-
-if not MYPY:
-    class WorkloadNetworkDhcpServerArgsDict(TypedDict):
-        """
-        NSX DHCP Server
-        """
-        dhcp_type: pulumi.Input[str]
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'SERVER'.
-        """
-        display_name: NotRequired[pulumi.Input[str]]
-        """
-        Display name of the DHCP entity.
-        """
-        lease_time: NotRequired[pulumi.Input[float]]
-        """
-        DHCP Server Lease Time.
-        """
-        revision: NotRequired[pulumi.Input[float]]
-        """
-        NSX revision number.
-        """
-        server_address: NotRequired[pulumi.Input[str]]
-        """
-        DHCP Server Address.
-        """
-elif False:
-    WorkloadNetworkDhcpServerArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class WorkloadNetworkDhcpServerArgs:
-    def __init__(__self__, *,
-                 dhcp_type: pulumi.Input[str],
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 lease_time: Optional[pulumi.Input[float]] = None,
-                 revision: Optional[pulumi.Input[float]] = None,
-                 server_address: Optional[pulumi.Input[str]] = None):
-        """
-        NSX DHCP Server
-        :param pulumi.Input[str] dhcp_type: Type of DHCP: SERVER or RELAY.
-               Expected value is 'SERVER'.
-        :param pulumi.Input[str] display_name: Display name of the DHCP entity.
-        :param pulumi.Input[float] lease_time: DHCP Server Lease Time.
-        :param pulumi.Input[float] revision: NSX revision number.
-        :param pulumi.Input[str] server_address: DHCP Server Address.
-        """
-        pulumi.set(__self__, "dhcp_type", 'SERVER')
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if lease_time is not None:
-            pulumi.set(__self__, "lease_time", lease_time)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if server_address is not None:
-            pulumi.set(__self__, "server_address", server_address)
-
-    @property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> pulumi.Input[str]:
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'SERVER'.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @dhcp_type.setter
-    def dhcp_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "dhcp_type", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="leaseTime")
-    def lease_time(self) -> Optional[pulumi.Input[float]]:
-        """
-        DHCP Server Lease Time.
-        """
-        return pulumi.get(self, "lease_time")
-
-    @lease_time.setter
-    def lease_time(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "lease_time", value)
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[float]]:
-        """
-        NSX revision number.
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "revision", value)
-
-    @property
-    @pulumi.getter(name="serverAddress")
-    def server_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        DHCP Server Address.
-        """
-        return pulumi.get(self, "server_address")
-
-    @server_address.setter
-    def server_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_address", value)
 
 
 if not MYPY:

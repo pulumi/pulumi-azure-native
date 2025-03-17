@@ -27,10 +27,13 @@ class GetIpAllocationResult:
     """
     IpAllocation resource.
     """
-    def __init__(__self__, allocation_tags=None, etag=None, id=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, subnet=None, tags=None, type=None, virtual_network=None):
+    def __init__(__self__, allocation_tags=None, azure_api_version=None, etag=None, id=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, subnet=None, tags=None, type=None, virtual_network=None):
         if allocation_tags and not isinstance(allocation_tags, dict):
             raise TypeError("Expected argument 'allocation_tags' to be a dict")
         pulumi.set(__self__, "allocation_tags", allocation_tags)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -75,6 +78,14 @@ class GetIpAllocationResult:
         IpAllocation tags.
         """
         return pulumi.get(self, "allocation_tags")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -180,6 +191,7 @@ class AwaitableGetIpAllocationResult(GetIpAllocationResult):
             yield self
         return GetIpAllocationResult(
             allocation_tags=self.allocation_tags,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             ipam_allocation_id=self.ipam_allocation_id,
@@ -200,9 +212,7 @@ def get_ip_allocation(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAllocationResult:
     """
     Gets the specified IpAllocation by resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -218,6 +228,7 @@ def get_ip_allocation(expand: Optional[str] = None,
 
     return AwaitableGetIpAllocationResult(
         allocation_tags=pulumi.get(__ret__, 'allocation_tags'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         ipam_allocation_id=pulumi.get(__ret__, 'ipam_allocation_id'),
@@ -236,9 +247,7 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpAllocationResult]:
     """
     Gets the specified IpAllocation by resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -253,6 +262,7 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getIpAllocation', __args__, opts=opts, typ=GetIpAllocationResult)
     return __ret__.apply(lambda __response__: GetIpAllocationResult(
         allocation_tags=pulumi.get(__response__, 'allocation_tags'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         ipam_allocation_id=pulumi.get(__response__, 'ipam_allocation_id'),

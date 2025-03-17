@@ -80,7 +80,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20.
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 2.x: 2021-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +94,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  args: ResourceTypeRegistrationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20.
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 2.x: 2021-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.
@@ -128,6 +128,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -155,11 +156,20 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
         __props__ = ResourceTypeRegistrationInitArgs.__new__(ResourceTypeRegistrationInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ResourceTypeRegistration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

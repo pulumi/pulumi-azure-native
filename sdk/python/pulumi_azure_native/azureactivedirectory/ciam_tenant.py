@@ -151,7 +151,7 @@ class CIAMTenant(pulumi.CustomResource):
                  __props__=None):
         """
         The Azure AD for customers resource.
-        Azure REST API version: 2023-05-17-preview.
+        Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2023-05-17-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class CIAMTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Azure AD for customers resource.
-        Azure REST API version: 2023-05-17-preview.
+        Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2023-05-17-preview.
 
         :param str resource_name: The name of the resource.
         :param CIAMTenantArgs args: The arguments to use to populate this resource's properties.
@@ -217,6 +217,7 @@ class CIAMTenant(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["billing_type"] = None
             __props__.__dict__["domain_name"] = None
             __props__.__dict__["effective_start_date_utc"] = None
@@ -248,6 +249,7 @@ class CIAMTenant(pulumi.CustomResource):
 
         __props__ = CIAMTenantArgs.__new__(CIAMTenantArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["billing_type"] = None
         __props__.__dict__["create_tenant_properties"] = None
         __props__.__dict__["domain_name"] = None
@@ -261,6 +263,14 @@ class CIAMTenant(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return CIAMTenant(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingType")

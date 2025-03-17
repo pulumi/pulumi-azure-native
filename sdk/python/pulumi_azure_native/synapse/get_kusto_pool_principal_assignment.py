@@ -27,10 +27,13 @@ class GetKustoPoolPrincipalAssignmentResult:
     """
     Class representing a cluster principal assignment.
     """
-    def __init__(__self__, aad_object_id=None, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, system_data=None, tenant_id=None, tenant_name=None, type=None):
+    def __init__(__self__, aad_object_id=None, azure_api_version=None, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, system_data=None, tenant_id=None, tenant_name=None, type=None):
         if aad_object_id and not isinstance(aad_object_id, str):
             raise TypeError("Expected argument 'aad_object_id' to be a str")
         pulumi.set(__self__, "aad_object_id", aad_object_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,6 +75,14 @@ class GetKustoPoolPrincipalAssignmentResult:
         The service principal object id in AAD (Azure active directory)
         """
         return pulumi.get(self, "aad_object_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetKustoPoolPrincipalAssignmentResult(GetKustoPoolPrincipalAssign
             yield self
         return GetKustoPoolPrincipalAssignmentResult(
             aad_object_id=self.aad_object_id,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             principal_id=self.principal_id,
@@ -207,6 +219,7 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[str] = None,
 
     return AwaitableGetKustoPoolPrincipalAssignmentResult(
         aad_object_id=pulumi.get(__ret__, 'aad_object_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
@@ -242,6 +255,7 @@ def get_kusto_pool_principal_assignment_output(kusto_pool_name: Optional[pulumi.
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getKustoPoolPrincipalAssignment', __args__, opts=opts, typ=GetKustoPoolPrincipalAssignmentResult)
     return __ret__.apply(lambda __response__: GetKustoPoolPrincipalAssignmentResult(
         aad_object_id=pulumi.get(__response__, 'aad_object_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         principal_id=pulumi.get(__response__, 'principal_id'),

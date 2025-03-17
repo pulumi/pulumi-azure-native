@@ -26,7 +26,10 @@ class GetWorkspaceApiSchemaResult:
     """
     API Schema Contract details.
     """
-    def __init__(__self__, components=None, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, components=None, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if components and not isinstance(components, dict):
             raise TypeError("Expected argument 'components' to be a dict")
         pulumi.set(__self__, "components", components)
@@ -48,6 +51,14 @@ class GetWorkspaceApiSchemaResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -112,6 +123,7 @@ class AwaitableGetWorkspaceApiSchemaResult(GetWorkspaceApiSchemaResult):
         if False:
             yield self
         return GetWorkspaceApiSchemaResult(
+            azure_api_version=self.azure_api_version,
             components=self.components,
             content_type=self.content_type,
             definitions=self.definitions,
@@ -131,8 +143,6 @@ def get_workspace_api_schema(api_id: Optional[str] = None,
     Get the schema configuration at the API level.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
-
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -150,6 +160,7 @@ def get_workspace_api_schema(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceApiSchema', __args__, opts=opts, typ=GetWorkspaceApiSchemaResult).value
 
     return AwaitableGetWorkspaceApiSchemaResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         components=pulumi.get(__ret__, 'components'),
         content_type=pulumi.get(__ret__, 'content_type'),
         definitions=pulumi.get(__ret__, 'definitions'),
@@ -167,8 +178,6 @@ def get_workspace_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
     Get the schema configuration at the API level.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
-
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,6 +194,7 @@ def get_workspace_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceApiSchema', __args__, opts=opts, typ=GetWorkspaceApiSchemaResult)
     return __ret__.apply(lambda __response__: GetWorkspaceApiSchemaResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         components=pulumi.get(__response__, 'components'),
         content_type=pulumi.get(__response__, 'content_type'),
         definitions=pulumi.get(__response__, 'definitions'),

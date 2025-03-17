@@ -14,11 +14,3 @@ from .get_virtual_machine import *
 from .virtual_machine import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.vmwarecloudsimple.v20190401 as __v20190401
-    v20190401 = __v20190401
-else:
-    v20190401 = _utilities.lazy_import('pulumi_azure_native.vmwarecloudsimple.v20190401')
-

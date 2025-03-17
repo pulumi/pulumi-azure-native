@@ -27,10 +27,13 @@ class GetJobStepResult:
     """
     A job step.
     """
-    def __init__(__self__, action=None, credential=None, execution_options=None, id=None, name=None, output=None, step_id=None, target_group=None, type=None):
+    def __init__(__self__, action=None, azure_api_version=None, credential=None, execution_options=None, id=None, name=None, output=None, step_id=None, target_group=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credential and not isinstance(credential, str):
             raise TypeError("Expected argument 'credential' to be a str")
         pulumi.set(__self__, "credential", credential)
@@ -63,6 +66,14 @@ class GetJobStepResult:
         The action payload of the job step.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetJobStepResult(GetJobStepResult):
             yield self
         return GetJobStepResult(
             action=self.action,
+            azure_api_version=self.azure_api_version,
             credential=self.credential,
             execution_options=self.execution_options,
             id=self.id,
@@ -156,8 +168,6 @@ def get_job_step(job_agent_name: Optional[str] = None,
     Gets a job step in a job's current version.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str job_agent_name: The name of the job agent.
     :param str job_name: The name of the job.
@@ -176,6 +186,7 @@ def get_job_step(job_agent_name: Optional[str] = None,
 
     return AwaitableGetJobStepResult(
         action=pulumi.get(__ret__, 'action'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credential=pulumi.get(__ret__, 'credential'),
         execution_options=pulumi.get(__ret__, 'execution_options'),
         id=pulumi.get(__ret__, 'id'),
@@ -194,8 +205,6 @@ def get_job_step_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     Gets a job step in a job's current version.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str job_agent_name: The name of the job agent.
     :param str job_name: The name of the job.
@@ -213,6 +222,7 @@ def get_job_step_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getJobStep', __args__, opts=opts, typ=GetJobStepResult)
     return __ret__.apply(lambda __response__: GetJobStepResult(
         action=pulumi.get(__response__, 'action'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credential=pulumi.get(__response__, 'credential'),
         execution_options=pulumi.get(__response__, 'execution_options'),
         id=pulumi.get(__response__, 'id'),

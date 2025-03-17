@@ -152,7 +152,7 @@ class RoleDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Role definition.
-        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 2.x: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +172,7 @@ class RoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role definition.
-        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 2.x: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RoleDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -214,6 +214,7 @@ class RoleDefinition(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["name"] = None
@@ -245,6 +246,7 @@ class RoleDefinition(pulumi.CustomResource):
         __props__ = RoleDefinitionArgs.__new__(RoleDefinitionArgs)
 
         __props__.__dict__["assignable_scopes"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_on"] = None
         __props__.__dict__["description"] = None
@@ -264,6 +266,14 @@ class RoleDefinition(pulumi.CustomResource):
         Role definition assignable scopes.
         """
         return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")

@@ -18,20 +18,3 @@ from .get_maintenance_configuration import *
 from .maintenance_configuration import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.maintenance.v20221101preview as __v20221101preview
-    v20221101preview = __v20221101preview
-    import pulumi_azure_native.maintenance.v20230401 as __v20230401
-    v20230401 = __v20230401
-    import pulumi_azure_native.maintenance.v20230901preview as __v20230901preview
-    v20230901preview = __v20230901preview
-    import pulumi_azure_native.maintenance.v20231001preview as __v20231001preview
-    v20231001preview = __v20231001preview
-else:
-    v20221101preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20221101preview')
-    v20230401 = _utilities.lazy_import('pulumi_azure_native.maintenance.v20230401')
-    v20230901preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20230901preview')
-    v20231001preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20231001preview')
-

@@ -41,7 +41,7 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[str] password: Certificate password.
@@ -151,7 +151,7 @@ class CertificateArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -253,9 +253,7 @@ class Certificate(pulumi.CustomResource):
                  __props__=None):
         """
         SSL certificate for an app.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,7 +262,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[str] password: Certificate password.
@@ -281,9 +279,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SSL certificate for an app.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -337,6 +333,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["server_farm_id"] = server_farm_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cer_blob"] = None
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["friendly_name"] = None
@@ -375,6 +372,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = CertificateArgs.__new__(CertificateArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["canonical_name"] = None
         __props__.__dict__["cer_blob"] = None
         __props__.__dict__["domain_validation_method"] = None
@@ -401,6 +399,14 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["valid"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="canonicalName")
@@ -502,7 +508,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

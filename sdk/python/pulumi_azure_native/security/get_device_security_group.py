@@ -27,10 +27,13 @@ class GetDeviceSecurityGroupResult:
     """
     The device security group resource
     """
-    def __init__(__self__, allowlist_rules=None, denylist_rules=None, id=None, name=None, threshold_rules=None, time_window_rules=None, type=None):
+    def __init__(__self__, allowlist_rules=None, azure_api_version=None, denylist_rules=None, id=None, name=None, threshold_rules=None, time_window_rules=None, type=None):
         if allowlist_rules and not isinstance(allowlist_rules, list):
             raise TypeError("Expected argument 'allowlist_rules' to be a list")
         pulumi.set(__self__, "allowlist_rules", allowlist_rules)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if denylist_rules and not isinstance(denylist_rules, list):
             raise TypeError("Expected argument 'denylist_rules' to be a list")
         pulumi.set(__self__, "denylist_rules", denylist_rules)
@@ -57,6 +60,14 @@ class GetDeviceSecurityGroupResult:
         The allow-list custom alert rules.
         """
         return pulumi.get(self, "allowlist_rules")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="denylistRules")
@@ -114,6 +125,7 @@ class AwaitableGetDeviceSecurityGroupResult(GetDeviceSecurityGroupResult):
             yield self
         return GetDeviceSecurityGroupResult(
             allowlist_rules=self.allowlist_rules,
+            azure_api_version=self.azure_api_version,
             denylist_rules=self.denylist_rules,
             id=self.id,
             name=self.name,
@@ -141,6 +153,7 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
 
     return AwaitableGetDeviceSecurityGroupResult(
         allowlist_rules=pulumi.get(__ret__, 'allowlist_rules'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         denylist_rules=pulumi.get(__ret__, 'denylist_rules'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -165,6 +178,7 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getDeviceSecurityGroup', __args__, opts=opts, typ=GetDeviceSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetDeviceSecurityGroupResult(
         allowlist_rules=pulumi.get(__response__, 'allowlist_rules'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         denylist_rules=pulumi.get(__response__, 'denylist_rules'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

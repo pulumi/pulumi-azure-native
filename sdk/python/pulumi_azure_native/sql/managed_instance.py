@@ -545,9 +545,7 @@ class ManagedInstance(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure SQL managed instance.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -598,9 +596,7 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL managed instance.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -686,6 +682,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["timezone_id"] = timezone_id
             __props__.__dict__["v_cores"] = v_cores
             __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["current_backup_storage_redundancy"] = None
             __props__.__dict__["dns_zone"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
@@ -720,6 +717,7 @@ class ManagedInstance(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["administrators"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["collation"] = None
         __props__.__dict__["current_backup_storage_redundancy"] = None
         __props__.__dict__["dns_zone"] = None
@@ -765,6 +763,14 @@ class ManagedInstance(pulumi.CustomResource):
         The Azure Active Directory administrator of the server.
         """
         return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

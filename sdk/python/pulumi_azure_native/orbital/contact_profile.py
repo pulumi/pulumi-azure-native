@@ -219,9 +219,7 @@ class ContactProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        Azure REST API version: 2022-11-01.
-
-        Other available API versions: 2022-03-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,9 +243,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        Azure REST API version: 2022-11-01.
-
-        Other available API versions: 2022-03-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.
@@ -301,6 +297,7 @@ class ContactProfile(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["third_party_configurations"] = third_party_configurations
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -329,6 +326,7 @@ class ContactProfile(pulumi.CustomResource):
         __props__ = ContactProfileArgs.__new__(ContactProfileArgs)
 
         __props__.__dict__["auto_tracking_configuration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["event_hub_uri"] = None
         __props__.__dict__["links"] = None
         __props__.__dict__["location"] = None
@@ -349,6 +347,14 @@ class ContactProfile(pulumi.CustomResource):
         Auto-tracking configuration.
         """
         return pulumi.get(self, "auto_tracking_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eventHubUri")

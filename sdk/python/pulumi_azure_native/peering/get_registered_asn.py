@@ -26,10 +26,13 @@ class GetRegisteredAsnResult:
     """
     The customer's ASN that is registered by the peering service provider.
     """
-    def __init__(__self__, asn=None, id=None, name=None, peering_service_prefix_key=None, provisioning_state=None, type=None):
+    def __init__(__self__, asn=None, azure_api_version=None, id=None, name=None, peering_service_prefix_key=None, provisioning_state=None, type=None):
         if asn and not isinstance(asn, int):
             raise TypeError("Expected argument 'asn' to be a int")
         pulumi.set(__self__, "asn", asn)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,6 +56,14 @@ class GetRegisteredAsnResult:
         The customer's ASN from which traffic originates.
         """
         return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetRegisteredAsnResult(GetRegisteredAsnResult):
             yield self
         return GetRegisteredAsnResult(
             asn=self.asn,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             peering_service_prefix_key=self.peering_service_prefix_key,
@@ -131,6 +143,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
 
     return AwaitableGetRegisteredAsnResult(
         asn=pulumi.get(__ret__, 'asn'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         peering_service_prefix_key=pulumi.get(__ret__, 'peering_service_prefix_key'),
@@ -157,6 +170,7 @@ def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getRegisteredAsn', __args__, opts=opts, typ=GetRegisteredAsnResult)
     return __ret__.apply(lambda __response__: GetRegisteredAsnResult(
         asn=pulumi.get(__response__, 'asn'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         peering_service_prefix_key=pulumi.get(__response__, 'peering_service_prefix_key'),

@@ -27,10 +27,13 @@ class GetVirtualHubRouteTableV2Result:
     """
     VirtualHubRouteTableV2 Resource.
     """
-    def __init__(__self__, attached_connections=None, etag=None, id=None, name=None, provisioning_state=None, routes=None):
+    def __init__(__self__, attached_connections=None, azure_api_version=None, etag=None, id=None, name=None, provisioning_state=None, routes=None):
         if attached_connections and not isinstance(attached_connections, list):
             raise TypeError("Expected argument 'attached_connections' to be a list")
         pulumi.set(__self__, "attached_connections", attached_connections)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -54,6 +57,14 @@ class GetVirtualHubRouteTableV2Result:
         List of all connections attached to this route table v2.
         """
         return pulumi.get(self, "attached_connections")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetVirtualHubRouteTableV2Result(GetVirtualHubRouteTableV2Result):
             yield self
         return GetVirtualHubRouteTableV2Result(
             attached_connections=self.attached_connections,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -116,9 +128,7 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubRouteTableV2Result:
     """
     Retrieves the details of a VirtualHubRouteTableV2.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.
@@ -134,6 +144,7 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVirtualHubRouteTableV2Result(
         attached_connections=pulumi.get(__ret__, 'attached_connections'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -145,9 +156,7 @@ def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.I
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubRouteTableV2Result]:
     """
     Retrieves the details of a VirtualHubRouteTableV2.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.
@@ -162,6 +171,7 @@ def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.I
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualHubRouteTableV2', __args__, opts=opts, typ=GetVirtualHubRouteTableV2Result)
     return __ret__.apply(lambda __response__: GetVirtualHubRouteTableV2Result(
         attached_connections=pulumi.get(__response__, 'attached_connections'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

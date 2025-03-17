@@ -27,10 +27,13 @@ class GetIntegrationAccountAgreementResult:
     """
     The integration account agreement.
     """
-    def __init__(__self__, agreement_type=None, changed_time=None, content=None, created_time=None, guest_identity=None, guest_partner=None, host_identity=None, host_partner=None, id=None, location=None, metadata=None, name=None, tags=None, type=None):
+    def __init__(__self__, agreement_type=None, azure_api_version=None, changed_time=None, content=None, created_time=None, guest_identity=None, guest_partner=None, host_identity=None, host_partner=None, id=None, location=None, metadata=None, name=None, tags=None, type=None):
         if agreement_type and not isinstance(agreement_type, str):
             raise TypeError("Expected argument 'agreement_type' to be a str")
         pulumi.set(__self__, "agreement_type", agreement_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -78,6 +81,14 @@ class GetIntegrationAccountAgreementResult:
         The agreement type.
         """
         return pulumi.get(self, "agreement_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")
@@ -191,6 +202,7 @@ class AwaitableGetIntegrationAccountAgreementResult(GetIntegrationAccountAgreeme
             yield self
         return GetIntegrationAccountAgreementResult(
             agreement_type=self.agreement_type,
+            azure_api_version=self.azure_api_version,
             changed_time=self.changed_time,
             content=self.content,
             created_time=self.created_time,
@@ -214,8 +226,6 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
     Gets an integration account agreement.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
-
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.
@@ -230,6 +240,7 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
 
     return AwaitableGetIntegrationAccountAgreementResult(
         agreement_type=pulumi.get(__ret__, 'agreement_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         changed_time=pulumi.get(__ret__, 'changed_time'),
         content=pulumi.get(__ret__, 'content'),
         created_time=pulumi.get(__ret__, 'created_time'),
@@ -251,8 +262,6 @@ def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Inp
     Gets an integration account agreement.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
-
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.
@@ -266,6 +275,7 @@ def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Inp
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountAgreement', __args__, opts=opts, typ=GetIntegrationAccountAgreementResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountAgreementResult(
         agreement_type=pulumi.get(__response__, 'agreement_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         changed_time=pulumi.get(__response__, 'changed_time'),
         content=pulumi.get(__response__, 'content'),
         created_time=pulumi.get(__response__, 'created_time'),

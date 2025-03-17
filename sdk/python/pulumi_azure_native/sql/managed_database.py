@@ -320,9 +320,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         A managed database resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,9 +350,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed database resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -418,6 +414,7 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__.__dict__["storage_container_sas_token"] = storage_container_sas_token
             __props__.__dict__["storage_container_uri"] = storage_container_uri
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["default_secondary_location"] = None
             __props__.__dict__["earliest_restore_point"] = None
@@ -449,6 +446,7 @@ class ManagedDatabase(pulumi.CustomResource):
 
         __props__ = ManagedDatabaseArgs.__new__(ManagedDatabaseArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["catalog_collation"] = None
         __props__.__dict__["collation"] = None
         __props__.__dict__["creation_date"] = None
@@ -461,6 +459,14 @@ class ManagedDatabase(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ManagedDatabase(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="catalogCollation")

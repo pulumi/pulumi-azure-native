@@ -204,9 +204,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         An attestation resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,9 +227,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An attestation resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param AttestationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -279,6 +275,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
             __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_compliance_state_change_at"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -309,6 +306,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
         __props__ = AttestationAtSubscriptionArgs.__new__(AttestationAtSubscriptionArgs)
 
         __props__.__dict__["assessment_date"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["comments"] = None
         __props__.__dict__["compliance_state"] = None
         __props__.__dict__["evidence"] = None
@@ -331,6 +329,14 @@ class AttestationAtSubscription(pulumi.CustomResource):
         The time the evidence was assessed
         """
         return pulumi.get(self, "assessment_date")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

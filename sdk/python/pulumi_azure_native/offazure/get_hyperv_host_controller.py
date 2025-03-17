@@ -27,7 +27,10 @@ class GetHypervHostControllerResult:
     """
     A host resource belonging to a site resource.
     """
-    def __init__(__self__, created_timestamp=None, errors=None, fqdn=None, id=None, name=None, provisioning_state=None, run_as_account_id=None, system_data=None, type=None, updated_timestamp=None, version=None):
+    def __init__(__self__, azure_api_version=None, created_timestamp=None, errors=None, fqdn=None, id=None, name=None, provisioning_state=None, run_as_account_id=None, system_data=None, type=None, updated_timestamp=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -61,6 +64,14 @@ class GetHypervHostControllerResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -157,6 +168,7 @@ class AwaitableGetHypervHostControllerResult(GetHypervHostControllerResult):
         if False:
             yield self
         return GetHypervHostControllerResult(
+            azure_api_version=self.azure_api_version,
             created_timestamp=self.created_timestamp,
             errors=self.errors,
             fqdn=self.fqdn,
@@ -176,9 +188,7 @@ def get_hyperv_host_controller(host_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHypervHostControllerResult:
     """
     Get a HypervHost
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str host_name:  Host name
@@ -193,6 +203,7 @@ def get_hyperv_host_controller(host_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:offazure:getHypervHostController', __args__, opts=opts, typ=GetHypervHostControllerResult).value
 
     return AwaitableGetHypervHostControllerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         errors=pulumi.get(__ret__, 'errors'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
@@ -210,9 +221,7 @@ def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[str]] = N
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervHostControllerResult]:
     """
     Get a HypervHost
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str host_name:  Host name
@@ -226,6 +235,7 @@ def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getHypervHostController', __args__, opts=opts, typ=GetHypervHostControllerResult)
     return __ret__.apply(lambda __response__: GetHypervHostControllerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         errors=pulumi.get(__response__, 'errors'),
         fqdn=pulumi.get(__response__, 'fqdn'),

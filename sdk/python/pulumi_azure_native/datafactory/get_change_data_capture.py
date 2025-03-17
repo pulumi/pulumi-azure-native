@@ -27,10 +27,13 @@ class GetChangeDataCaptureResult:
     """
     Change data capture resource type.
     """
-    def __init__(__self__, allow_v_net_override=None, description=None, etag=None, folder=None, id=None, name=None, policy=None, source_connections_info=None, status=None, target_connections_info=None, type=None):
+    def __init__(__self__, allow_v_net_override=None, azure_api_version=None, description=None, etag=None, folder=None, id=None, name=None, policy=None, source_connections_info=None, status=None, target_connections_info=None, type=None):
         if allow_v_net_override and not isinstance(allow_v_net_override, bool):
             raise TypeError("Expected argument 'allow_v_net_override' to be a bool")
         pulumi.set(__self__, "allow_v_net_override", allow_v_net_override)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -69,6 +72,14 @@ class GetChangeDataCaptureResult:
         A boolean to determine if the vnet configuration needs to be overwritten.
         """
         return pulumi.get(self, "allow_v_net_override")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -158,6 +169,7 @@ class AwaitableGetChangeDataCaptureResult(GetChangeDataCaptureResult):
             yield self
         return GetChangeDataCaptureResult(
             allow_v_net_override=self.allow_v_net_override,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             folder=self.folder,
@@ -192,6 +204,7 @@ def get_change_data_capture(change_data_capture_name: Optional[str] = None,
 
     return AwaitableGetChangeDataCaptureResult(
         allow_v_net_override=pulumi.get(__ret__, 'allow_v_net_override'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         folder=pulumi.get(__ret__, 'folder'),
@@ -223,6 +236,7 @@ def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Inp
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getChangeDataCapture', __args__, opts=opts, typ=GetChangeDataCaptureResult)
     return __ret__.apply(lambda __response__: GetChangeDataCaptureResult(
         allow_v_net_override=pulumi.get(__response__, 'allow_v_net_override'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         folder=pulumi.get(__response__, 'folder'),

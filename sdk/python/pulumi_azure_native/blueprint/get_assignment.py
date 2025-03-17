@@ -27,7 +27,10 @@ class GetAssignmentResult:
     """
     Represents a blueprint assignment.
     """
-    def __init__(__self__, blueprint_id=None, description=None, display_name=None, id=None, identity=None, location=None, locks=None, name=None, parameters=None, provisioning_state=None, resource_groups=None, scope=None, status=None, type=None):
+    def __init__(__self__, azure_api_version=None, blueprint_id=None, description=None, display_name=None, id=None, identity=None, location=None, locks=None, name=None, parameters=None, provisioning_state=None, resource_groups=None, scope=None, status=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blueprint_id and not isinstance(blueprint_id, str):
             raise TypeError("Expected argument 'blueprint_id' to be a str")
         pulumi.set(__self__, "blueprint_id", blueprint_id)
@@ -70,6 +73,14 @@ class GetAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blueprintId")
@@ -190,6 +201,7 @@ class AwaitableGetAssignmentResult(GetAssignmentResult):
         if False:
             yield self
         return GetAssignmentResult(
+            azure_api_version=self.azure_api_version,
             blueprint_id=self.blueprint_id,
             description=self.description,
             display_name=self.display_name,
@@ -224,6 +236,7 @@ def get_assignment(assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint:getAssignment', __args__, opts=opts, typ=GetAssignmentResult).value
 
     return AwaitableGetAssignmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blueprint_id=pulumi.get(__ret__, 'blueprint_id'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -255,6 +268,7 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getAssignment', __args__, opts=opts, typ=GetAssignmentResult)
     return __ret__.apply(lambda __response__: GetAssignmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blueprint_id=pulumi.get(__response__, 'blueprint_id'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

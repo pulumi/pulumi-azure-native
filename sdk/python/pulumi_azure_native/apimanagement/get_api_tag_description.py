@@ -26,7 +26,10 @@ class GetApiTagDescriptionResult:
     """
     Contract details.
     """
-    def __init__(__self__, description=None, display_name=None, external_docs_description=None, external_docs_url=None, id=None, name=None, tag_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, external_docs_description=None, external_docs_url=None, id=None, name=None, tag_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -51,6 +54,14 @@ class GetApiTagDescriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -123,6 +134,7 @@ class AwaitableGetApiTagDescriptionResult(GetApiTagDescriptionResult):
         if False:
             yield self
         return GetApiTagDescriptionResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             external_docs_description=self.external_docs_description,
@@ -140,9 +152,7 @@ def get_api_tag_description(api_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTagDescriptionResult:
     """
     Get Tag description in scope of API
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -159,6 +169,7 @@ def get_api_tag_description(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiTagDescription', __args__, opts=opts, typ=GetApiTagDescriptionResult).value
 
     return AwaitableGetApiTagDescriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         external_docs_description=pulumi.get(__ret__, 'external_docs_description'),
@@ -174,9 +185,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
     Get Tag description in scope of API
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -192,6 +201,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiTagDescription', __args__, opts=opts, typ=GetApiTagDescriptionResult)
     return __ret__.apply(lambda __response__: GetApiTagDescriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         external_docs_description=pulumi.get(__response__, 'external_docs_description'),

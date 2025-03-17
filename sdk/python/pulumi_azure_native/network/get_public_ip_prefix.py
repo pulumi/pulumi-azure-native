@@ -27,7 +27,10 @@ class GetPublicIPPrefixResult:
     """
     Public IP prefix resource.
     """
-    def __init__(__self__, custom_ip_prefix=None, etag=None, extended_location=None, id=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, nat_gateway=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, custom_ip_prefix=None, etag=None, extended_location=None, id=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, nat_gateway=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_ip_prefix and not isinstance(custom_ip_prefix, dict):
             raise TypeError("Expected argument 'custom_ip_prefix' to be a dict")
         pulumi.set(__self__, "custom_ip_prefix", custom_ip_prefix)
@@ -85,6 +88,14 @@ class GetPublicIPPrefixResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customIPPrefix")
@@ -245,6 +256,7 @@ class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
         if False:
             yield self
         return GetPublicIPPrefixResult(
+            azure_api_version=self.azure_api_version,
             custom_ip_prefix=self.custom_ip_prefix,
             etag=self.etag,
             extended_location=self.extended_location,
@@ -272,9 +284,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPPrefixResult:
     """
     Gets the specified public IP prefix in a specified resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -289,6 +299,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPublicIPPrefix', __args__, opts=opts, typ=GetPublicIPPrefixResult).value
 
     return AwaitableGetPublicIPPrefixResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_ip_prefix=pulumi.get(__ret__, 'custom_ip_prefix'),
         etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -314,9 +325,7 @@ def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIPPrefixResult]:
     """
     Gets the specified public IP prefix in a specified resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -330,6 +339,7 @@ def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPublicIPPrefix', __args__, opts=opts, typ=GetPublicIPPrefixResult)
     return __ret__.apply(lambda __response__: GetPublicIPPrefixResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_ip_prefix=pulumi.get(__response__, 'custom_ip_prefix'),
         etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),

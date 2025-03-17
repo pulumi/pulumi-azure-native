@@ -27,7 +27,10 @@ class GetConnectionResult:
     """
     Definition of the connection.
     """
-    def __init__(__self__, connection_type=None, creation_time=None, description=None, field_definition_values=None, id=None, last_modified_time=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, connection_type=None, creation_time=None, description=None, field_definition_values=None, id=None, last_modified_time=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_type and not isinstance(connection_type, dict):
             raise TypeError("Expected argument 'connection_type' to be a dict")
         pulumi.set(__self__, "connection_type", connection_type)
@@ -52,6 +55,14 @@ class GetConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionType")
@@ -124,6 +135,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
         if False:
             yield self
         return GetConnectionResult(
+            azure_api_version=self.azure_api_version,
             connection_type=self.connection_type,
             creation_time=self.creation_time,
             description=self.description,
@@ -140,9 +152,7 @@ def get_connection(automation_account_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     Retrieve the connection identified by connection name.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -157,6 +167,7 @@ def get_connection(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_type=pulumi.get(__ret__, 'connection_type'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
@@ -171,9 +182,7 @@ def get_connection_output(automation_account_name: Optional[pulumi.Input[str]] =
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieve the connection identified by connection name.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -187,6 +196,7 @@ def get_connection_output(automation_account_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_type=pulumi.get(__response__, 'connection_type'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),

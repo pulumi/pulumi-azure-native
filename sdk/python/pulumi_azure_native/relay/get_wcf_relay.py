@@ -27,7 +27,10 @@ class GetWCFRelayResult:
     """
     Description of the WCF relay resource.
     """
-    def __init__(__self__, created_at=None, id=None, is_dynamic=None, listener_count=None, location=None, name=None, relay_type=None, requires_client_authorization=None, requires_transport_security=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, id=None, is_dynamic=None, listener_count=None, location=None, name=None, relay_type=None, requires_client_authorization=None, requires_transport_security=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -67,6 +70,14 @@ class GetWCFRelayResult:
         if user_metadata and not isinstance(user_metadata, str):
             raise TypeError("Expected argument 'user_metadata' to be a str")
         pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -179,6 +190,7 @@ class AwaitableGetWCFRelayResult(GetWCFRelayResult):
         if False:
             yield self
         return GetWCFRelayResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             id=self.id,
             is_dynamic=self.is_dynamic,
@@ -200,9 +212,7 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayResult:
     """
     Returns the description for the specified WCF relay.
-    Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
@@ -217,6 +227,7 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:relay:getWCFRelay', __args__, opts=opts, typ=GetWCFRelayResult).value
 
     return AwaitableGetWCFRelayResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         is_dynamic=pulumi.get(__ret__, 'is_dynamic'),
@@ -236,9 +247,7 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWCFRelayResult]:
     """
     Returns the description for the specified WCF relay.
-    Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
@@ -252,6 +261,7 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:relay:getWCFRelay', __args__, opts=opts, typ=GetWCFRelayResult)
     return __ret__.apply(lambda __response__: GetWCFRelayResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         is_dynamic=pulumi.get(__response__, 'is_dynamic'),

@@ -27,7 +27,10 @@ class GetCapacityReservationResult:
     """
     Specifies information about the capacity reservation.
     """
-    def __init__(__self__, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, time_created=None, type=None, virtual_machines_associated=None, zones=None):
+    def __init__(__self__, azure_api_version=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, time_created=None, type=None, virtual_machines_associated=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -70,6 +73,14 @@ class GetCapacityReservationResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
         if False:
             yield self
         return GetCapacityReservationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             instance_view=self.instance_view,
             location=self.location,
@@ -213,9 +225,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     The operation that retrieves information about the capacity reservation.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -232,6 +242,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult).value
 
     return AwaitableGetCapacityReservationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         instance_view=pulumi.get(__ret__, 'instance_view'),
         location=pulumi.get(__ret__, 'location'),
@@ -253,9 +264,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     The operation that retrieves information about the capacity reservation.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -271,6 +280,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         instance_view=pulumi.get(__response__, 'instance_view'),
         location=pulumi.get(__response__, 'location'),

@@ -27,7 +27,10 @@ class GetKustoTableDataSetMappingResult:
     """
     A Kusto database data set mapping
     """
-    def __init__(__self__, data_set_id=None, data_set_mapping_status=None, id=None, kind=None, kusto_cluster_resource_id=None, location=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_set_id=None, data_set_mapping_status=None, id=None, kind=None, kusto_cluster_resource_id=None, location=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_set_id and not isinstance(data_set_id, str):
             raise TypeError("Expected argument 'data_set_id' to be a str")
         pulumi.set(__self__, "data_set_id", data_set_id)
@@ -58,6 +61,14 @@ class GetKustoTableDataSetMappingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -147,6 +158,7 @@ class AwaitableGetKustoTableDataSetMappingResult(GetKustoTableDataSetMappingResu
         if False:
             yield self
         return GetKustoTableDataSetMappingResult(
+            azure_api_version=self.azure_api_version,
             data_set_id=self.data_set_id,
             data_set_mapping_status=self.data_set_mapping_status,
             id=self.id,
@@ -183,6 +195,7 @@ def get_kusto_table_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getKustoTableDataSetMapping', __args__, opts=opts, typ=GetKustoTableDataSetMappingResult).value
 
     return AwaitableGetKustoTableDataSetMappingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_set_id=pulumi.get(__ret__, 'data_set_id'),
         data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
         id=pulumi.get(__ret__, 'id'),
@@ -216,6 +229,7 @@ def get_kusto_table_data_set_mapping_output(account_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getKustoTableDataSetMapping', __args__, opts=opts, typ=GetKustoTableDataSetMappingResult)
     return __ret__.apply(lambda __response__: GetKustoTableDataSetMappingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_set_id=pulumi.get(__response__, 'data_set_id'),
         data_set_mapping_status=pulumi.get(__response__, 'data_set_mapping_status'),
         id=pulumi.get(__response__, 'id'),

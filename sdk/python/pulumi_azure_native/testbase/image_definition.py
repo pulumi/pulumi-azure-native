@@ -131,7 +131,7 @@ class ImageDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         The test base image definition resource.
-        Azure REST API version: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class ImageDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The test base image definition resource.
-        Azure REST API version: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ImageDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +198,7 @@ class ImageDefinition(pulumi.CustomResource):
             if test_base_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'test_base_account_name'")
             __props__.__dict__["test_base_account_name"] = test_base_account_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -227,6 +228,7 @@ class ImageDefinition(pulumi.CustomResource):
         __props__ = ImageDefinitionArgs.__new__(ImageDefinitionArgs)
 
         __props__.__dict__["architecture"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["os_state"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -242,6 +244,14 @@ class ImageDefinition(pulumi.CustomResource):
         Custom image architecture.
         """
         return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

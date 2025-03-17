@@ -27,7 +27,10 @@ class GetRuntimeEnvironmentResult:
     """
     Definition of the Runtime Environment type.
     """
-    def __init__(__self__, default_packages=None, description=None, id=None, language=None, location=None, name=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, default_packages=None, description=None, id=None, language=None, location=None, name=None, system_data=None, tags=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_packages and not isinstance(default_packages, dict):
             raise TypeError("Expected argument 'default_packages' to be a dict")
         pulumi.set(__self__, "default_packages", default_packages)
@@ -58,6 +61,14 @@ class GetRuntimeEnvironmentResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultPackages")
@@ -146,6 +157,7 @@ class AwaitableGetRuntimeEnvironmentResult(GetRuntimeEnvironmentResult):
         if False:
             yield self
         return GetRuntimeEnvironmentResult(
+            azure_api_version=self.azure_api_version,
             default_packages=self.default_packages,
             description=self.description,
             id=self.id,
@@ -166,8 +178,6 @@ def get_runtime_environment(automation_account_name: Optional[str] = None,
     Get information about the Runtime Environment
     Azure REST API version: 2023-05-15-preview.
 
-    Other available API versions: 2024-10-23.
-
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -181,6 +191,7 @@ def get_runtime_environment(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getRuntimeEnvironment', __args__, opts=opts, typ=GetRuntimeEnvironmentResult).value
 
     return AwaitableGetRuntimeEnvironmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_packages=pulumi.get(__ret__, 'default_packages'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -199,8 +210,6 @@ def get_runtime_environment_output(automation_account_name: Optional[pulumi.Inpu
     Get information about the Runtime Environment
     Azure REST API version: 2023-05-15-preview.
 
-    Other available API versions: 2024-10-23.
-
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -213,6 +222,7 @@ def get_runtime_environment_output(automation_account_name: Optional[pulumi.Inpu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getRuntimeEnvironment', __args__, opts=opts, typ=GetRuntimeEnvironmentResult)
     return __ret__.apply(lambda __response__: GetRuntimeEnvironmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_packages=pulumi.get(__response__, 'default_packages'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

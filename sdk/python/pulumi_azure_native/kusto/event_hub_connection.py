@@ -198,7 +198,7 @@ class EventHubConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an event hub connection.
-        Azure REST API version: 2018-09-07-preview. Prior API version in Azure Native 1.x: 2018-09-07-preview.
+        Azure REST API version: 2018-09-07-preview. Prior API version in Azure Native 2.x: 2018-09-07-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class EventHubConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an event hub connection.
-        Azure REST API version: 2018-09-07-preview. Prior API version in Azure Native 1.x: 2018-09-07-preview.
+        Azure REST API version: 2018-09-07-preview. Prior API version in Azure Native 2.x: 2018-09-07-preview.
 
         :param str resource_name: The name of the resource.
         :param EventHubConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -277,6 +277,7 @@ class EventHubConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:EventHubConnection"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:EventHubConnection")])
@@ -303,6 +304,7 @@ class EventHubConnection(pulumi.CustomResource):
 
         __props__ = EventHubConnectionArgs.__new__(EventHubConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
         __props__.__dict__["event_hub_resource_id"] = None
@@ -312,6 +314,14 @@ class EventHubConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return EventHubConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consumerGroup")

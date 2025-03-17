@@ -167,7 +167,7 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the Windows IoT Device Service.
-        Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2019-06-01. Prior API version in Azure Native 2.x: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,7 +188,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the Windows IoT Device Service.
-        Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2019-06-01. Prior API version in Azure Native 2.x: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -232,6 +232,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["start_date"] = None
@@ -261,6 +262,7 @@ class Service(pulumi.CustomResource):
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
         __props__.__dict__["admin_domain_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["billing_domain_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
@@ -279,6 +281,14 @@ class Service(pulumi.CustomResource):
         Windows IoT Device Service OEM AAD domain
         """
         return pulumi.get(self, "admin_domain_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingDomainName")

@@ -100,9 +100,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The storage account blob inventory policy.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account blob inventory policy.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param BlobInventoryPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +157,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -189,12 +186,21 @@ class BlobInventoryPolicy(pulumi.CustomResource):
 
         __props__ = BlobInventoryPolicyArgs.__new__(BlobInventoryPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return BlobInventoryPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="lastModifiedTime")

@@ -385,9 +385,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  __props__=None):
         """
         External OAuth authorization server settings.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -421,9 +419,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         External OAuth authorization server settings.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationServerArgs args: The arguments to use to populate this resource's properties.
@@ -505,6 +501,7 @@ class AuthorizationServer(pulumi.CustomResource):
             __props__.__dict__["token_endpoint"] = token_endpoint
             __props__.__dict__["use_in_api_documentation"] = use_in_api_documentation
             __props__.__dict__["use_in_test_console"] = use_in_test_console
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:AuthorizationServer")])
@@ -533,6 +530,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
         __props__.__dict__["authorization_endpoint"] = None
         __props__.__dict__["authorization_methods"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bearer_token_sending_methods"] = None
         __props__.__dict__["client_authentication_method"] = None
         __props__.__dict__["client_id"] = None
@@ -568,6 +566,14 @@ class AuthorizationServer(pulumi.CustomResource):
         HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         """
         return pulumi.get(self, "authorization_methods")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")

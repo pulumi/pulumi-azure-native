@@ -25,14 +25,3 @@ from .skus_nested_resource_type_second import *
 from .skus_nested_resource_type_third import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.providerhub.v20210501preview as __v20210501preview
-    v20210501preview = __v20210501preview
-    import pulumi_azure_native.providerhub.v20210901preview as __v20210901preview
-    v20210901preview = __v20210901preview
-else:
-    v20210501preview = _utilities.lazy_import('pulumi_azure_native.providerhub.v20210501preview')
-    v20210901preview = _utilities.lazy_import('pulumi_azure_native.providerhub.v20210901preview')
-

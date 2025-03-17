@@ -27,7 +27,10 @@ class GetTargetResult:
     """
     Model that represents a Target resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetTargetResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetTargetResult(GetTargetResult):
         if False:
             yield self
         return GetTargetResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -118,9 +130,7 @@ def get_target(parent_provider_namespace: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
     Get a Target resource that extends a tracked regional resource.
-    Azure REST API version: 2023-04-15-preview.
-
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.
@@ -139,6 +149,7 @@ def get_target(parent_provider_namespace: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:chaos:getTarget', __args__, opts=opts, typ=GetTargetResult).value
 
     return AwaitableGetTargetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -153,9 +164,7 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target resource that extends a tracked regional resource.
-    Azure REST API version: 2023-04-15-preview.
-
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.
@@ -173,6 +182,7 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getTarget', __args__, opts=opts, typ=GetTargetResult)
     return __ret__.apply(lambda __response__: GetTargetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

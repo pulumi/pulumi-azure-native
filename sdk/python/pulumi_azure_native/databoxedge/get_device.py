@@ -27,7 +27,10 @@ class GetDeviceResult:
     """
     The Data Box Edge/Gateway device.
     """
-    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, data_residency=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, edge_profile=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, model_description=None, name=None, node_count=None, resource_move_details=None, serial_number=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, azure_api_version=None, configured_role_types=None, culture=None, data_box_edge_device_status=None, data_residency=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, edge_profile=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, kubernetes_workload_profile=None, location=None, model_description=None, name=None, node_count=None, resource_move_details=None, serial_number=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configured_role_types and not isinstance(configured_role_types, list):
             raise TypeError("Expected argument 'configured_role_types' to be a list")
         pulumi.set(__self__, "configured_role_types", configured_role_types)
@@ -76,6 +79,9 @@ class GetDeviceResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if kubernetes_workload_profile and not isinstance(kubernetes_workload_profile, str):
+            raise TypeError("Expected argument 'kubernetes_workload_profile' to be a str")
+        pulumi.set(__self__, "kubernetes_workload_profile", kubernetes_workload_profile)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -109,6 +115,14 @@ class GetDeviceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configuredRoleTypes")
@@ -239,6 +253,14 @@ class GetDeviceResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="kubernetesWorkloadProfile")
+    def kubernetes_workload_profile(self) -> str:
+        """
+        Kubernetes Workload Profile
+        """
+        return pulumi.get(self, "kubernetes_workload_profile")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -333,6 +355,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         if False:
             yield self
         return GetDeviceResult(
+            azure_api_version=self.azure_api_version,
             configured_role_types=self.configured_role_types,
             culture=self.culture,
             data_box_edge_device_status=self.data_box_edge_device_status,
@@ -349,6 +372,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             id=self.id,
             identity=self.identity,
             kind=self.kind,
+            kubernetes_workload_profile=self.kubernetes_workload_profile,
             location=self.location,
             model_description=self.model_description,
             name=self.name,
@@ -367,9 +391,7 @@ def get_device(device_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Gets the properties of the Data Box Edge/Data Box Gateway device.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -382,6 +404,7 @@ def get_device(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configured_role_types=pulumi.get(__ret__, 'configured_role_types'),
         culture=pulumi.get(__ret__, 'culture'),
         data_box_edge_device_status=pulumi.get(__ret__, 'data_box_edge_device_status'),
@@ -398,6 +421,7 @@ def get_device(device_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         kind=pulumi.get(__ret__, 'kind'),
+        kubernetes_workload_profile=pulumi.get(__ret__, 'kubernetes_workload_profile'),
         location=pulumi.get(__ret__, 'location'),
         model_description=pulumi.get(__ret__, 'model_description'),
         name=pulumi.get(__ret__, 'name'),
@@ -414,9 +438,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Gets the properties of the Data Box Edge/Data Box Gateway device.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -428,6 +450,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getDevice', __args__, opts=opts, typ=GetDeviceResult)
     return __ret__.apply(lambda __response__: GetDeviceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configured_role_types=pulumi.get(__response__, 'configured_role_types'),
         culture=pulumi.get(__response__, 'culture'),
         data_box_edge_device_status=pulumi.get(__response__, 'data_box_edge_device_status'),
@@ -444,6 +467,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         kind=pulumi.get(__response__, 'kind'),
+        kubernetes_workload_profile=pulumi.get(__response__, 'kubernetes_workload_profile'),
         location=pulumi.get(__response__, 'location'),
         model_description=pulumi.get(__response__, 'model_description'),
         name=pulumi.get(__response__, 'name'),

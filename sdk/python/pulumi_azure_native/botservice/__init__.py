@@ -20,29 +20,3 @@ from .list_qn_a_maker_endpoint_key import *
 from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.botservice.v20180712 as __v20180712
-    v20180712 = __v20180712
-    import pulumi_azure_native.botservice.v20200602 as __v20200602
-    v20200602 = __v20200602
-    import pulumi_azure_native.botservice.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.botservice.v20210501preview as __v20210501preview
-    v20210501preview = __v20210501preview
-    import pulumi_azure_native.botservice.v20220615preview as __v20220615preview
-    v20220615preview = __v20220615preview
-    import pulumi_azure_native.botservice.v20220915 as __v20220915
-    v20220915 = __v20220915
-    import pulumi_azure_native.botservice.v20230915preview as __v20230915preview
-    v20230915preview = __v20230915preview
-else:
-    v20180712 = _utilities.lazy_import('pulumi_azure_native.botservice.v20180712')
-    v20200602 = _utilities.lazy_import('pulumi_azure_native.botservice.v20200602')
-    v20210301 = _utilities.lazy_import('pulumi_azure_native.botservice.v20210301')
-    v20210501preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20210501preview')
-    v20220615preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20220615preview')
-    v20220915 = _utilities.lazy_import('pulumi_azure_native.botservice.v20220915')
-    v20230915preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20230915preview')
-

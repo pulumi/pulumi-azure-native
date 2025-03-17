@@ -27,7 +27,10 @@ class GetInboundNatRuleResult:
     """
     Inbound NAT rule of the load balancer.
     """
-    def __init__(__self__, backend_address_pool=None, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, etag=None, frontend_ip_configuration=None, frontend_port=None, frontend_port_range_end=None, frontend_port_range_start=None, id=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, backend_address_pool=None, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, etag=None, frontend_ip_configuration=None, frontend_port=None, frontend_port_range_end=None, frontend_port_range_start=None, id=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend_address_pool and not isinstance(backend_address_pool, dict):
             raise TypeError("Expected argument 'backend_address_pool' to be a dict")
         pulumi.set(__self__, "backend_address_pool", backend_address_pool)
@@ -76,6 +79,14 @@ class GetInboundNatRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backendAddressPool")
@@ -212,6 +223,7 @@ class AwaitableGetInboundNatRuleResult(GetInboundNatRuleResult):
         if False:
             yield self
         return GetInboundNatRuleResult(
+            azure_api_version=self.azure_api_version,
             backend_address_pool=self.backend_address_pool,
             backend_ip_configuration=self.backend_ip_configuration,
             backend_port=self.backend_port,
@@ -237,9 +249,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundNatRuleResult:
     """
     Gets the specified load balancer inbound NAT rule.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -256,6 +266,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getInboundNatRule', __args__, opts=opts, typ=GetInboundNatRuleResult).value
 
     return AwaitableGetInboundNatRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend_address_pool=pulumi.get(__ret__, 'backend_address_pool'),
         backend_ip_configuration=pulumi.get(__ret__, 'backend_ip_configuration'),
         backend_port=pulumi.get(__ret__, 'backend_port'),
@@ -279,9 +290,7 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInboundNatRuleResult]:
     """
     Gets the specified load balancer inbound NAT rule.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -297,6 +306,7 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getInboundNatRule', __args__, opts=opts, typ=GetInboundNatRuleResult)
     return __ret__.apply(lambda __response__: GetInboundNatRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend_address_pool=pulumi.get(__response__, 'backend_address_pool'),
         backend_ip_configuration=pulumi.get(__response__, 'backend_ip_configuration'),
         backend_port=pulumi.get(__response__, 'backend_port'),

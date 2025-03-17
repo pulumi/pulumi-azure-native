@@ -130,9 +130,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a federated identity credential.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
-
-        Other available API versions: 2023-07-31-preview, 2024-11-30.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,9 +149,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a federated identity credential.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
-
-        Other available API versions: 2023-07-31-preview, 2024-11-30.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         :param str resource_name: The name of the resource.
         :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -201,10 +197,11 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             if subject is None and not opts.urn:
                 raise TypeError("Missing required property 'subject'")
             __props__.__dict__["subject"] = subject
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20230731preview:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20241130:FederatedIdentityCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20230731preview:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20241130:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20250131preview:FederatedIdentityCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FederatedIdentityCredential, __self__).__init__(
             'azure-native:managedidentity:FederatedIdentityCredential',
@@ -229,6 +226,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         __props__ = FederatedIdentityCredentialArgs.__new__(FederatedIdentityCredentialArgs)
 
         __props__.__dict__["audiences"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["issuer"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["subject"] = None
@@ -243,6 +241,14 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         The list of audiences that can appear in the issued token.
         """
         return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

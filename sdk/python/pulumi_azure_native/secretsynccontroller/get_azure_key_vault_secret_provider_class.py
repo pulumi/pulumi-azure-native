@@ -27,7 +27,10 @@ class GetAzureKeyVaultSecretProviderClassResult:
     """
     The AzureKeyVaultSecretProviderClass resource.
     """
-    def __init__(__self__, client_id=None, extended_location=None, id=None, keyvault_name=None, location=None, name=None, objects=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, client_id=None, extended_location=None, id=None, keyvault_name=None, location=None, name=None, objects=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -64,6 +67,14 @@ class GetAzureKeyVaultSecretProviderClassResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientId")
@@ -168,6 +179,7 @@ class AwaitableGetAzureKeyVaultSecretProviderClassResult(GetAzureKeyVaultSecretP
         if False:
             yield self
         return GetAzureKeyVaultSecretProviderClassResult(
+            azure_api_version=self.azure_api_version,
             client_id=self.client_id,
             extended_location=self.extended_location,
             id=self.id,
@@ -200,6 +212,7 @@ def get_azure_key_vault_secret_provider_class(azure_key_vault_secret_provider_cl
     __ret__ = pulumi.runtime.invoke('azure-native:secretsynccontroller:getAzureKeyVaultSecretProviderClass', __args__, opts=opts, typ=GetAzureKeyVaultSecretProviderClassResult).value
 
     return AwaitableGetAzureKeyVaultSecretProviderClassResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_id=pulumi.get(__ret__, 'client_id'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -229,6 +242,7 @@ def get_azure_key_vault_secret_provider_class_output(azure_key_vault_secret_prov
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:secretsynccontroller:getAzureKeyVaultSecretProviderClass', __args__, opts=opts, typ=GetAzureKeyVaultSecretProviderClassResult)
     return __ret__.apply(lambda __response__: GetAzureKeyVaultSecretProviderClassResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_id=pulumi.get(__response__, 'client_id'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

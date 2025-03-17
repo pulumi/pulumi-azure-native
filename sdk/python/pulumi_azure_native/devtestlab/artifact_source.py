@@ -252,7 +252,7 @@ class ArtifactSource(pulumi.CustomResource):
                  __props__=None):
         """
         Properties of an artifact source.
-        Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+        Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +278,7 @@ class ArtifactSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of an artifact source.
-        Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+        Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param ArtifactSourceArgs args: The arguments to use to populate this resource's properties.
@@ -334,6 +334,7 @@ class ArtifactSource(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uri"] = uri
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -363,6 +364,7 @@ class ArtifactSource(pulumi.CustomResource):
         __props__ = ArtifactSourceArgs.__new__(ArtifactSourceArgs)
 
         __props__.__dict__["arm_template_folder_path"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["branch_ref"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["display_name"] = None
@@ -386,6 +388,14 @@ class ArtifactSource(pulumi.CustomResource):
         The folder containing Azure Resource Manager templates.
         """
         return pulumi.get(self, "arm_template_folder_path")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="branchRef")

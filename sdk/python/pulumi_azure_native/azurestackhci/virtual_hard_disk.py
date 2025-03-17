@@ -25,8 +25,10 @@ class VirtualHardDiskArgs:
                  resource_group_name: pulumi.Input[str],
                  block_size_bytes: Optional[pulumi.Input[int]] = None,
                  container_id: Optional[pulumi.Input[str]] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  disk_file_format: Optional[pulumi.Input[Union[str, 'DiskFileFormat']]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 download_url: Optional[pulumi.Input[str]] = None,
                  dynamic: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
@@ -38,13 +40,18 @@ class VirtualHardDiskArgs:
         """
         The set of arguments for constructing a VirtualHardDisk resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[int] block_size_bytes: Block size in bytes
         :param pulumi.Input[str] container_id: Storage ContainerID of the storage container to be used for VHD
+        :param pulumi.Input[bool] create_from_local: Boolean indicating whether it is an existing local hard disk or if one should be created.
         :param pulumi.Input[Union[str, 'DiskFileFormat']] disk_file_format: The format of the actual VHD file [vhd, vhdx]
         :param pulumi.Input[float] disk_size_gb: Size of the disk in GB
+        :param pulumi.Input[str] download_url: URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
         :param pulumi.Input[bool] dynamic: Boolean for enabling dynamic sizing on the virtual hard disk
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[int] logical_sector_bytes: Logical sector in bytes
+        :param pulumi.Input[int] physical_sector_bytes: Physical sector in bytes
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hard_disk_name: Name of the virtual hard disk
         """
@@ -53,10 +60,16 @@ class VirtualHardDiskArgs:
             pulumi.set(__self__, "block_size_bytes", block_size_bytes)
         if container_id is not None:
             pulumi.set(__self__, "container_id", container_id)
+        if create_from_local is None:
+            create_from_local = False
+        if create_from_local is not None:
+            pulumi.set(__self__, "create_from_local", create_from_local)
         if disk_file_format is not None:
             pulumi.set(__self__, "disk_file_format", disk_file_format)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if download_url is not None:
+            pulumi.set(__self__, "download_url", download_url)
         if dynamic is not None:
             pulumi.set(__self__, "dynamic", dynamic)
         if extended_location is not None:
@@ -89,6 +102,9 @@ class VirtualHardDiskArgs:
     @property
     @pulumi.getter(name="blockSizeBytes")
     def block_size_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Block size in bytes
+        """
         return pulumi.get(self, "block_size_bytes")
 
     @block_size_bytes.setter
@@ -106,6 +122,18 @@ class VirtualHardDiskArgs:
     @container_id.setter
     def container_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_id", value)
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating whether it is an existing local hard disk or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
+
+    @create_from_local.setter
+    def create_from_local(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_from_local", value)
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -130,6 +158,18 @@ class VirtualHardDiskArgs:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="downloadUrl")
+    def download_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+        """
+        return pulumi.get(self, "download_url")
+
+    @download_url.setter
+    def download_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "download_url", value)
 
     @property
     @pulumi.getter
@@ -182,6 +222,9 @@ class VirtualHardDiskArgs:
     @property
     @pulumi.getter(name="logicalSectorBytes")
     def logical_sector_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Logical sector in bytes
+        """
         return pulumi.get(self, "logical_sector_bytes")
 
     @logical_sector_bytes.setter
@@ -191,6 +234,9 @@ class VirtualHardDiskArgs:
     @property
     @pulumi.getter(name="physicalSectorBytes")
     def physical_sector_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Physical sector in bytes
+        """
         return pulumi.get(self, "physical_sector_bytes")
 
     @physical_sector_bytes.setter
@@ -229,8 +275,10 @@ class VirtualHardDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_size_bytes: Optional[pulumi.Input[int]] = None,
                  container_id: Optional[pulumi.Input[str]] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  disk_file_format: Optional[pulumi.Input[Union[str, 'DiskFileFormat']]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 download_url: Optional[pulumi.Input[str]] = None,
                  dynamic: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
@@ -243,19 +291,22 @@ class VirtualHardDisk(pulumi.CustomResource):
                  __props__=None):
         """
         The virtual hard disk resource definition.
-        Azure REST API version: 2022-12-15-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] block_size_bytes: Block size in bytes
         :param pulumi.Input[str] container_id: Storage ContainerID of the storage container to be used for VHD
+        :param pulumi.Input[bool] create_from_local: Boolean indicating whether it is an existing local hard disk or if one should be created.
         :param pulumi.Input[Union[str, 'DiskFileFormat']] disk_file_format: The format of the actual VHD file [vhd, vhdx]
         :param pulumi.Input[float] disk_size_gb: Size of the disk in GB
+        :param pulumi.Input[str] download_url: URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
         :param pulumi.Input[bool] dynamic: Boolean for enabling dynamic sizing on the virtual hard disk
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[int] logical_sector_bytes: Logical sector in bytes
+        :param pulumi.Input[int] physical_sector_bytes: Physical sector in bytes
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hard_disk_name: Name of the virtual hard disk
@@ -268,9 +319,7 @@ class VirtualHardDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual hard disk resource definition.
-        Azure REST API version: 2022-12-15-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualHardDiskArgs args: The arguments to use to populate this resource's properties.
@@ -289,8 +338,10 @@ class VirtualHardDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_size_bytes: Optional[pulumi.Input[int]] = None,
                  container_id: Optional[pulumi.Input[str]] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  disk_file_format: Optional[pulumi.Input[Union[str, 'DiskFileFormat']]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 download_url: Optional[pulumi.Input[str]] = None,
                  dynamic: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
@@ -311,8 +362,12 @@ class VirtualHardDisk(pulumi.CustomResource):
 
             __props__.__dict__["block_size_bytes"] = block_size_bytes
             __props__.__dict__["container_id"] = container_id
+            if create_from_local is None:
+                create_from_local = False
+            __props__.__dict__["create_from_local"] = create_from_local
             __props__.__dict__["disk_file_format"] = disk_file_format
             __props__.__dict__["disk_size_gb"] = disk_size_gb
+            __props__.__dict__["download_url"] = download_url
             __props__.__dict__["dynamic"] = dynamic
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
@@ -324,12 +379,13 @@ class VirtualHardDisk(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_hard_disk_name"] = virtual_hard_disk_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:VirtualHardDisk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:VirtualHardDisk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHardDisk, __self__).__init__(
             'azure-native:azurestackhci:VirtualHardDisk',
@@ -353,10 +409,13 @@ class VirtualHardDisk(pulumi.CustomResource):
 
         __props__ = VirtualHardDiskArgs.__new__(VirtualHardDiskArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["block_size_bytes"] = None
         __props__.__dict__["container_id"] = None
+        __props__.__dict__["create_from_local"] = None
         __props__.__dict__["disk_file_format"] = None
         __props__.__dict__["disk_size_gb"] = None
+        __props__.__dict__["download_url"] = None
         __props__.__dict__["dynamic"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["hyper_v_generation"] = None
@@ -372,8 +431,19 @@ class VirtualHardDisk(pulumi.CustomResource):
         return VirtualHardDisk(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="blockSizeBytes")
     def block_size_bytes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Block size in bytes
+        """
         return pulumi.get(self, "block_size_bytes")
 
     @property
@@ -383,6 +453,14 @@ class VirtualHardDisk(pulumi.CustomResource):
         Storage ContainerID of the storage container to be used for VHD
         """
         return pulumi.get(self, "container_id")
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean indicating whether it is an existing local hard disk or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -399,6 +477,14 @@ class VirtualHardDisk(pulumi.CustomResource):
         Size of the disk in GB
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="downloadUrl")
+    def download_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+        """
+        return pulumi.get(self, "download_url")
 
     @property
     @pulumi.getter
@@ -435,6 +521,9 @@ class VirtualHardDisk(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logicalSectorBytes")
     def logical_sector_bytes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Logical sector in bytes
+        """
         return pulumi.get(self, "logical_sector_bytes")
 
     @property
@@ -448,6 +537,9 @@ class VirtualHardDisk(pulumi.CustomResource):
     @property
     @pulumi.getter(name="physicalSectorBytes")
     def physical_sector_bytes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Physical sector in bytes
+        """
         return pulumi.get(self, "physical_sector_bytes")
 
     @property

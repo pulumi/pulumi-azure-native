@@ -27,7 +27,10 @@ class GetDataLakeConnectorResult:
     """
     MQ dataLakeConnector resource
     """
-    def __init__(__self__, database_format=None, extended_location=None, id=None, image=None, instances=None, local_broker_connection=None, location=None, log_level=None, name=None, node_tolerations=None, protocol=None, provisioning_state=None, system_data=None, tags=None, target=None, type=None):
+    def __init__(__self__, azure_api_version=None, database_format=None, extended_location=None, id=None, image=None, instances=None, local_broker_connection=None, location=None, log_level=None, name=None, node_tolerations=None, protocol=None, provisioning_state=None, system_data=None, tags=None, target=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if database_format and not isinstance(database_format, str):
             raise TypeError("Expected argument 'database_format' to be a str")
         pulumi.set(__self__, "database_format", database_format)
@@ -76,6 +79,14 @@ class GetDataLakeConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseFormat")
@@ -212,6 +223,7 @@ class AwaitableGetDataLakeConnectorResult(GetDataLakeConnectorResult):
         if False:
             yield self
         return GetDataLakeConnectorResult(
+            azure_api_version=self.azure_api_version,
             database_format=self.database_format,
             extended_location=self.extended_location,
             id=self.id,
@@ -251,6 +263,7 @@ def get_data_lake_connector(data_lake_connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsmq:getDataLakeConnector', __args__, opts=opts, typ=GetDataLakeConnectorResult).value
 
     return AwaitableGetDataLakeConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         database_format=pulumi.get(__ret__, 'database_format'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -287,6 +300,7 @@ def get_data_lake_connector_output(data_lake_connector_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getDataLakeConnector', __args__, opts=opts, typ=GetDataLakeConnectorResult)
     return __ret__.apply(lambda __response__: GetDataLakeConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         database_format=pulumi.get(__response__, 'database_format'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

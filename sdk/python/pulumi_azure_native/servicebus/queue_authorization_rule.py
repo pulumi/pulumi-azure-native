@@ -24,14 +24,14 @@ class QueueAuthorizationRuleArgs:
                  namespace_name: pulumi.Input[str],
                  queue_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
+                 rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
                  authorization_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a QueueAuthorizationRule resource.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] queue_name: The queue name.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -69,7 +69,7 @@ class QueueAuthorizationRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -79,14 +79,14 @@ class QueueAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input['AccessRights']]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input['AccessRights']]]):
         pulumi.set(self, "rights", value)
 
     @property
@@ -111,21 +111,19 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  __props__=None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] queue_name: The queue name.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         """
         ...
     @overload
@@ -135,9 +133,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +154,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -181,6 +177,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
             __props__.__dict__["rights"] = rights
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -209,12 +206,21 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
         __props__ = QueueAuthorizationRuleArgs.__new__(QueueAuthorizationRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rights"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return QueueAuthorizationRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -26,7 +26,10 @@ class GetDiskResult:
     """
     A Disk.
     """
-    def __init__(__self__, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, id=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, storage_account_id=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, id=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, storage_account_id=None, tags=None, type=None, unique_identifier=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -75,6 +78,14 @@ class GetDiskResult:
         if unique_identifier and not isinstance(unique_identifier, str):
             raise TypeError("Expected argument 'unique_identifier' to be a str")
         pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -211,6 +222,7 @@ class AwaitableGetDiskResult(GetDiskResult):
         if False:
             yield self
         return GetDiskResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             disk_blob_name=self.disk_blob_name,
             disk_size_gi_b=self.disk_size_gi_b,
@@ -256,6 +268,7 @@ def get_disk(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getDisk', __args__, opts=opts, typ=GetDiskResult).value
 
     return AwaitableGetDiskResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         disk_blob_name=pulumi.get(__ret__, 'disk_blob_name'),
         disk_size_gi_b=pulumi.get(__ret__, 'disk_size_gi_b'),
@@ -298,6 +311,7 @@ def get_disk_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getDisk', __args__, opts=opts, typ=GetDiskResult)
     return __ret__.apply(lambda __response__: GetDiskResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         disk_blob_name=pulumi.get(__response__, 'disk_blob_name'),
         disk_size_gi_b=pulumi.get(__response__, 'disk_size_gi_b'),

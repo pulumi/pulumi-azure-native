@@ -343,7 +343,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
                  __props__=None):
         """
         Object model for the Azure PowerShell script.
-        Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,7 +375,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Object model for the Azure PowerShell script.
-        Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param AzurePowerShellScriptArgs args: The arguments to use to populate this resource's properties.
@@ -449,13 +449,14 @@ class AzurePowerShellScript(pulumi.CustomResource):
             if timeout is None:
                 timeout = 'P1D'
             __props__.__dict__["timeout"] = timeout
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["outputs"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzurePowerShellScript")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20191001preview:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources:AzureCliScript")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzurePowerShellScript, __self__).__init__(
             'azure-native:resources:AzurePowerShellScript',
@@ -481,6 +482,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
 
         __props__.__dict__["arguments"] = None
         __props__.__dict__["az_power_shell_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cleanup_preference"] = None
         __props__.__dict__["container_settings"] = None
         __props__.__dict__["environment_variables"] = None
@@ -518,6 +520,14 @@ class AzurePowerShellScript(pulumi.CustomResource):
         Azure PowerShell module version to be used.
         """
         return pulumi.get(self, "az_power_shell_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cleanupPreference")

@@ -28,7 +28,10 @@ class GetAzureLargeInstanceResult:
     Azure Large Instance info on Azure (ARM properties and AzureLargeInstance
     properties)
     """
-    def __init__(__self__, azure_large_instance_id=None, hardware_profile=None, hw_revision=None, id=None, location=None, name=None, network_profile=None, os_profile=None, power_state=None, provisioning_state=None, proximity_placement_group=None, storage_profile=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_large_instance_id=None, hardware_profile=None, hw_revision=None, id=None, location=None, name=None, network_profile=None, os_profile=None, power_state=None, provisioning_state=None, proximity_placement_group=None, storage_profile=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_large_instance_id and not isinstance(azure_large_instance_id, str):
             raise TypeError("Expected argument 'azure_large_instance_id' to be a str")
         pulumi.set(__self__, "azure_large_instance_id", azure_large_instance_id)
@@ -74,6 +77,14 @@ class GetAzureLargeInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureLargeInstanceId")
@@ -202,6 +213,7 @@ class AwaitableGetAzureLargeInstanceResult(GetAzureLargeInstanceResult):
         if False:
             yield self
         return GetAzureLargeInstanceResult(
+            azure_api_version=self.azure_api_version,
             azure_large_instance_id=self.azure_large_instance_id,
             hardware_profile=self.hardware_profile,
             hw_revision=self.hw_revision,
@@ -238,6 +250,7 @@ def get_azure_large_instance(azure_large_instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurelargeinstance:getAzureLargeInstance', __args__, opts=opts, typ=GetAzureLargeInstanceResult).value
 
     return AwaitableGetAzureLargeInstanceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_large_instance_id=pulumi.get(__ret__, 'azure_large_instance_id'),
         hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
         hw_revision=pulumi.get(__ret__, 'hw_revision'),
@@ -271,6 +284,7 @@ def get_azure_large_instance_output(azure_large_instance_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurelargeinstance:getAzureLargeInstance', __args__, opts=opts, typ=GetAzureLargeInstanceResult)
     return __ret__.apply(lambda __response__: GetAzureLargeInstanceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_large_instance_id=pulumi.get(__response__, 'azure_large_instance_id'),
         hardware_profile=pulumi.get(__response__, 'hardware_profile'),
         hw_revision=pulumi.get(__response__, 'hw_revision'),

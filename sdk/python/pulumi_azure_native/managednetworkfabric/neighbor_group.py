@@ -134,7 +134,7 @@ class NeighborGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the Neighbor Group.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class NeighborGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the Neighbor Group.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param NeighborGroupArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +195,7 @@ class NeighborGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_tap_ids"] = None
             __props__.__dict__["network_tap_rule_ids"] = None
@@ -226,6 +227,7 @@ class NeighborGroup(pulumi.CustomResource):
         __props__ = NeighborGroupArgs.__new__(NeighborGroupArgs)
 
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["destination"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -244,6 +246,14 @@ class NeighborGroup(pulumi.CustomResource):
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

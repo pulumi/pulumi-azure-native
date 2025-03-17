@@ -27,7 +27,10 @@ class GetEmailTemplateResult:
     """
     Email Template details.
     """
-    def __init__(__self__, body=None, description=None, id=None, is_default=None, name=None, parameters=None, subject=None, title=None, type=None):
+    def __init__(__self__, azure_api_version=None, body=None, description=None, id=None, is_default=None, name=None, parameters=None, subject=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -55,6 +58,14 @@ class GetEmailTemplateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetEmailTemplateResult(GetEmailTemplateResult):
         if False:
             yield self
         return GetEmailTemplateResult(
+            azure_api_version=self.azure_api_version,
             body=self.body,
             description=self.description,
             id=self.id,
@@ -152,9 +164,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailTemplateResult:
     """
     Gets the details of the email template specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +179,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getEmailTemplate', __args__, opts=opts, typ=GetEmailTemplateResult).value
 
     return AwaitableGetEmailTemplateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         body=pulumi.get(__ret__, 'body'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,9 +195,7 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailTemplateResult]:
     """
     Gets the details of the email template specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -200,6 +209,7 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getEmailTemplate', __args__, opts=opts, typ=GetEmailTemplateResult)
     return __ret__.apply(lambda __response__: GetEmailTemplateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         body=pulumi.get(__response__, 'body'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

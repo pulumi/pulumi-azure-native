@@ -27,13 +27,16 @@ class GetIntegrationServiceEnvironmentManagedApiResult:
     """
     The integration service environment managed api.
     """
-    def __init__(__self__, api_definition_url=None, api_definitions=None, backend_service=None, capabilities=None, category=None, connection_parameters=None, deployment_parameters=None, general_information=None, id=None, integration_service_environment=None, location=None, metadata=None, name=None, policies=None, provisioning_state=None, runtime_urls=None, tags=None, type=None):
+    def __init__(__self__, api_definition_url=None, api_definitions=None, azure_api_version=None, backend_service=None, capabilities=None, category=None, connection_parameters=None, deployment_parameters=None, general_information=None, id=None, integration_service_environment=None, location=None, metadata=None, name=None, policies=None, provisioning_state=None, runtime_urls=None, tags=None, type=None):
         if api_definition_url and not isinstance(api_definition_url, str):
             raise TypeError("Expected argument 'api_definition_url' to be a str")
         pulumi.set(__self__, "api_definition_url", api_definition_url)
         if api_definitions and not isinstance(api_definitions, dict):
             raise TypeError("Expected argument 'api_definitions' to be a dict")
         pulumi.set(__self__, "api_definitions", api_definitions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend_service and not isinstance(backend_service, dict):
             raise TypeError("Expected argument 'backend_service' to be a dict")
         pulumi.set(__self__, "backend_service", backend_service)
@@ -98,6 +101,14 @@ class GetIntegrationServiceEnvironmentManagedApiResult:
         The api definitions.
         """
         return pulumi.get(self, "api_definitions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backendService")
@@ -236,6 +247,7 @@ class AwaitableGetIntegrationServiceEnvironmentManagedApiResult(GetIntegrationSe
         return GetIntegrationServiceEnvironmentManagedApiResult(
             api_definition_url=self.api_definition_url,
             api_definitions=self.api_definitions,
+            azure_api_version=self.azure_api_version,
             backend_service=self.backend_service,
             capabilities=self.capabilities,
             category=self.category,
@@ -277,6 +289,7 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
     return AwaitableGetIntegrationServiceEnvironmentManagedApiResult(
         api_definition_url=pulumi.get(__ret__, 'api_definition_url'),
         api_definitions=pulumi.get(__ret__, 'api_definitions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend_service=pulumi.get(__ret__, 'backend_service'),
         capabilities=pulumi.get(__ret__, 'capabilities'),
         category=pulumi.get(__ret__, 'category'),
@@ -315,6 +328,7 @@ def get_integration_service_environment_managed_api_output(api_name: Optional[pu
     return __ret__.apply(lambda __response__: GetIntegrationServiceEnvironmentManagedApiResult(
         api_definition_url=pulumi.get(__response__, 'api_definition_url'),
         api_definitions=pulumi.get(__response__, 'api_definitions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend_service=pulumi.get(__response__, 'backend_service'),
         capabilities=pulumi.get(__response__, 'capabilities'),
         category=pulumi.get(__response__, 'category'),

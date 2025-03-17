@@ -27,7 +27,10 @@ class GetSecurityPartnerProviderResult:
     """
     Security Partner Provider resource.
     """
-    def __init__(__self__, connection_status=None, etag=None, id=None, location=None, name=None, provisioning_state=None, security_provider_name=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, azure_api_version=None, connection_status=None, etag=None, id=None, location=None, name=None, provisioning_state=None, security_provider_name=None, tags=None, type=None, virtual_hub=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
         pulumi.set(__self__, "connection_status", connection_status)
@@ -58,6 +61,14 @@ class GetSecurityPartnerProviderResult:
         if virtual_hub and not isinstance(virtual_hub, dict):
             raise TypeError("Expected argument 'virtual_hub' to be a dict")
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionStatus")
@@ -146,6 +157,7 @@ class AwaitableGetSecurityPartnerProviderResult(GetSecurityPartnerProviderResult
         if False:
             yield self
         return GetSecurityPartnerProviderResult(
+            azure_api_version=self.azure_api_version,
             connection_status=self.connection_status,
             etag=self.etag,
             id=self.id,
@@ -163,9 +175,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPartnerProviderResult:
     """
     Gets the specified Security Partner Provider.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -178,6 +188,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getSecurityPartnerProvider', __args__, opts=opts, typ=GetSecurityPartnerProviderResult).value
 
     return AwaitableGetSecurityPartnerProviderResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_status=pulumi.get(__ret__, 'connection_status'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -193,9 +204,7 @@ def get_security_partner_provider_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPartnerProviderResult]:
     """
     Gets the specified Security Partner Provider.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -207,6 +216,7 @@ def get_security_partner_provider_output(resource_group_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getSecurityPartnerProvider', __args__, opts=opts, typ=GetSecurityPartnerProviderResult)
     return __ret__.apply(lambda __response__: GetSecurityPartnerProviderResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_status=pulumi.get(__response__, 'connection_status'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

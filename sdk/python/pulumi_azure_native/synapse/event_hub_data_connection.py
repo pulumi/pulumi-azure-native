@@ -284,7 +284,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an event hub data connection.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,7 +313,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an event hub data connection.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EventHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -383,11 +383,12 @@ class EventHubDataConnection(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventHubDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse:IotHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubDataConnection, __self__).__init__(
             'azure-native:synapse:EventHubDataConnection',
@@ -411,6 +412,7 @@ class EventHubDataConnection(pulumi.CustomResource):
 
         __props__ = EventHubDataConnectionArgs.__new__(EventHubDataConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["compression"] = None
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
@@ -426,6 +428,14 @@ class EventHubDataConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return EventHubDataConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

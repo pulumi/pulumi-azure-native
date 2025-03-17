@@ -34,7 +34,10 @@ class GetKubernetesRoleResult:
      Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
      By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
     """
-    def __init__(__self__, host_platform=None, host_platform_type=None, id=None, kind=None, kubernetes_cluster_info=None, kubernetes_role_resources=None, name=None, provisioning_state=None, role_status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, host_platform=None, host_platform_type=None, id=None, kind=None, kubernetes_cluster_info=None, kubernetes_role_resources=None, name=None, provisioning_state=None, role_status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if host_platform and not isinstance(host_platform, str):
             raise TypeError("Expected argument 'host_platform' to be a str")
         pulumi.set(__self__, "host_platform", host_platform)
@@ -68,6 +71,14 @@ class GetKubernetesRoleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hostPlatform")
@@ -165,6 +176,7 @@ class AwaitableGetKubernetesRoleResult(GetKubernetesRoleResult):
         if False:
             yield self
         return GetKubernetesRoleResult(
+            azure_api_version=self.azure_api_version,
             host_platform=self.host_platform,
             host_platform_type=self.host_platform_type,
             id=self.id,
@@ -184,7 +196,7 @@ def get_kubernetes_role(device_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesRoleResult:
     """
     Gets a specific role by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -199,6 +211,7 @@ def get_kubernetes_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getKubernetesRole', __args__, opts=opts, typ=GetKubernetesRoleResult).value
 
     return AwaitableGetKubernetesRoleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         host_platform=pulumi.get(__ret__, 'host_platform'),
         host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -216,7 +229,7 @@ def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesRoleResult]:
     """
     Gets a specific role by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -230,6 +243,7 @@ def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getKubernetesRole', __args__, opts=opts, typ=GetKubernetesRoleResult)
     return __ret__.apply(lambda __response__: GetKubernetesRoleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         host_platform=pulumi.get(__response__, 'host_platform'),
         host_platform_type=pulumi.get(__response__, 'host_platform_type'),
         id=pulumi.get(__response__, 'id'),

@@ -27,7 +27,10 @@ class GetLiveEventResult:
     """
     The live event.
     """
-    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, id=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, system_data=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
+    def __init__(__self__, azure_api_version=None, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, id=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, system_data=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -85,6 +88,14 @@ class GetLiveEventResult:
         if use_static_hostname and not isinstance(use_static_hostname, bool):
             raise TypeError("Expected argument 'use_static_hostname' to be a bool")
         pulumi.set(__self__, "use_static_hostname", use_static_hostname)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -245,6 +256,7 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
         if False:
             yield self
         return GetLiveEventResult(
+            azure_api_version=self.azure_api_version,
             created=self.created,
             cross_site_access_policies=self.cross_site_access_policies,
             description=self.description,
@@ -274,8 +286,6 @@ def get_live_event(account_name: Optional[str] = None,
     Gets properties of a live event.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
-
 
     :param str account_name: The Media Services account name.
     :param str live_event_name: The name of the live event, maximum length is 32.
@@ -289,6 +299,7 @@ def get_live_event(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getLiveEvent', __args__, opts=opts, typ=GetLiveEventResult).value
 
     return AwaitableGetLiveEventResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created=pulumi.get(__ret__, 'created'),
         cross_site_access_policies=pulumi.get(__ret__, 'cross_site_access_policies'),
         description=pulumi.get(__ret__, 'description'),
@@ -316,8 +327,6 @@ def get_live_event_output(account_name: Optional[pulumi.Input[str]] = None,
     Gets properties of a live event.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
-
 
     :param str account_name: The Media Services account name.
     :param str live_event_name: The name of the live event, maximum length is 32.
@@ -330,6 +339,7 @@ def get_live_event_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getLiveEvent', __args__, opts=opts, typ=GetLiveEventResult)
     return __ret__.apply(lambda __response__: GetLiveEventResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created=pulumi.get(__response__, 'created'),
         cross_site_access_policies=pulumi.get(__response__, 'cross_site_access_policies'),
         description=pulumi.get(__response__, 'description'),

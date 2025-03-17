@@ -235,9 +235,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRouteConnection resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,9 +260,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRouteConnection resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteConnectionInitArgs args: The arguments to use to populate this resource's properties.
@@ -322,6 +318,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing_configuration"] = routing_configuration
             __props__.__dict__["routing_weight"] = routing_weight
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20221101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20230201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20230401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20230501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20230601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20230901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20231101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20240101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20240301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20240501:ExpressRouteConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -348,6 +345,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         __props__ = ExpressRouteConnectionInitArgs.__new__(ExpressRouteConnectionInitArgs)
 
         __props__.__dict__["authorization_key"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["enable_internet_security"] = None
         __props__.__dict__["enable_private_link_fast_path"] = None
         __props__.__dict__["express_route_circuit_peering"] = None
@@ -365,6 +363,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
         Authorization key to establish the connection.
         """
         return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableInternetSecurity")

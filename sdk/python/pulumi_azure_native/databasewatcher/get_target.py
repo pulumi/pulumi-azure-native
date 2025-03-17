@@ -27,7 +27,10 @@ class GetTargetResult:
     """
     Concrete proxy resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, connection_server_name=None, id=None, name=None, provisioning_state=None, system_data=None, target_authentication_type=None, target_type=None, target_vault=None, type=None):
+    def __init__(__self__, azure_api_version=None, connection_server_name=None, id=None, name=None, provisioning_state=None, system_data=None, target_authentication_type=None, target_type=None, target_vault=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_server_name and not isinstance(connection_server_name, str):
             raise TypeError("Expected argument 'connection_server_name' to be a str")
         pulumi.set(__self__, "connection_server_name", connection_server_name)
@@ -57,10 +60,18 @@ class GetTargetResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="connectionServerName")
     def connection_server_name(self) -> str:
         """
-        The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         """
         return pulumi.get(self, "connection_server_name")
 
@@ -68,7 +79,7 @@ class GetTargetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -135,6 +146,7 @@ class AwaitableGetTargetResult(GetTargetResult):
         if False:
             yield self
         return GetTargetResult(
+            azure_api_version=self.azure_api_version,
             connection_server_name=self.connection_server_name,
             id=self.id,
             name=self.name,
@@ -152,9 +164,7 @@ def get_target(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
     Get a Target
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +179,7 @@ def get_target(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databasewatcher:getTarget', __args__, opts=opts, typ=GetTargetResult).value
 
     return AwaitableGetTargetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_server_name=pulumi.get(__ret__, 'connection_server_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -184,9 +195,7 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -200,6 +209,7 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databasewatcher:getTarget', __args__, opts=opts, typ=GetTargetResult)
     return __ret__.apply(lambda __response__: GetTargetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_server_name=pulumi.get(__response__, 'connection_server_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

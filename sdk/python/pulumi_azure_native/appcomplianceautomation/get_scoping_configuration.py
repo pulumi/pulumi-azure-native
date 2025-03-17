@@ -27,10 +27,13 @@ class GetScopingConfigurationResult:
     """
     A class represent an AppComplianceAutomation scoping configuration resource.
     """
-    def __init__(__self__, answers=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, answers=None, azure_api_version=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if answers and not isinstance(answers, list):
             raise TypeError("Expected argument 'answers' to be a list")
         pulumi.set(__self__, "answers", answers)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetScopingConfigurationResult:
         List of scoping question answers.
         """
         return pulumi.get(self, "answers")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetScopingConfigurationResult(GetScopingConfigurationResult):
             yield self
         return GetScopingConfigurationResult(
             answers=self.answers,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -129,6 +141,7 @@ def get_scoping_configuration(report_name: Optional[str] = None,
 
     return AwaitableGetScopingConfigurationResult(
         answers=pulumi.get(__ret__, 'answers'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -152,6 +165,7 @@ def get_scoping_configuration_output(report_name: Optional[pulumi.Input[str]] = 
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:getScopingConfiguration', __args__, opts=opts, typ=GetScopingConfigurationResult)
     return __ret__.apply(lambda __response__: GetScopingConfigurationResult(
         answers=pulumi.get(__response__, 'answers'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

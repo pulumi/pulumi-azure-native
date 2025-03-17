@@ -168,9 +168,7 @@ class ProtectionContainer(pulumi.CustomResource):
                  __props__=None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,9 +189,7 @@ class ProtectionContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +237,7 @@ class ProtectionContainer(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20161201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20201201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210101:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20230601:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20230801:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20240101:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20240430preview:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20240730preview:ProtectionContainer"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ProtectionContainer")])
@@ -267,6 +264,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
         __props__ = ProtectionContainerArgs.__new__(ProtectionContainerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -274,6 +272,14 @@ class ProtectionContainer(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ProtectionContainer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

@@ -115,7 +115,7 @@ class Credential(pulumi.CustomResource):
                  __props__=None):
         """
         The test base credential resource.
-        Azure REST API version: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +133,7 @@ class Credential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The test base credential resource.
-        Azure REST API version: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CredentialArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +177,7 @@ class Credential(pulumi.CustomResource):
             if test_base_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'test_base_account_name'")
             __props__.__dict__["test_base_account_name"] = test_base_account_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -204,12 +205,21 @@ class Credential(pulumi.CustomResource):
 
         __props__ = CredentialArgs.__new__(CredentialArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["credential_type"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Credential(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="credentialType")

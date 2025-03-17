@@ -149,9 +149,7 @@ class Group(pulumi.CustomResource):
                  __props__=None):
         """
         Contract details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,9 +169,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contract details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +215,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["built_in"] = None
             __props__.__dict__["name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Group")])
@@ -245,6 +242,7 @@ class Group(pulumi.CustomResource):
 
         __props__ = GroupArgs.__new__(GroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["built_in"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -252,6 +250,14 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return Group(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="builtIn")

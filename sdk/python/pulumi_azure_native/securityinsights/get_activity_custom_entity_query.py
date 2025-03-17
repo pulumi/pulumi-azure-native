@@ -27,7 +27,10 @@ class GetActivityCustomEntityQueryResult:
     """
     Represents Activity entity query.
     """
-    def __init__(__self__, content=None, created_time_utc=None, description=None, enabled=None, entities_filter=None, etag=None, id=None, input_entity_type=None, kind=None, last_modified_time_utc=None, name=None, query_definitions=None, required_input_fields_sets=None, system_data=None, template_name=None, title=None, type=None):
+    def __init__(__self__, azure_api_version=None, content=None, created_time_utc=None, description=None, enabled=None, entities_filter=None, etag=None, id=None, input_entity_type=None, kind=None, last_modified_time_utc=None, name=None, query_definitions=None, required_input_fields_sets=None, system_data=None, template_name=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content and not isinstance(content, str):
             raise TypeError("Expected argument 'content' to be a str")
         pulumi.set(__self__, "content", content)
@@ -79,6 +82,14 @@ class GetActivityCustomEntityQueryResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -224,6 +235,7 @@ class AwaitableGetActivityCustomEntityQueryResult(GetActivityCustomEntityQueryRe
         if False:
             yield self
         return GetActivityCustomEntityQueryResult(
+            azure_api_version=self.azure_api_version,
             content=self.content,
             created_time_utc=self.created_time_utc,
             description=self.description,
@@ -249,7 +261,7 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityCustomEntityQueryResult:
     """
     Gets an entity query.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str entity_query_id: entity query ID
@@ -264,6 +276,7 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getActivityCustomEntityQuery', __args__, opts=opts, typ=GetActivityCustomEntityQueryResult).value
 
     return AwaitableGetActivityCustomEntityQueryResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content=pulumi.get(__ret__, 'content'),
         created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
         description=pulumi.get(__ret__, 'description'),
@@ -287,7 +300,7 @@ def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Inp
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityCustomEntityQueryResult]:
     """
     Gets an entity query.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str entity_query_id: entity query ID
@@ -301,6 +314,7 @@ def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getActivityCustomEntityQuery', __args__, opts=opts, typ=GetActivityCustomEntityQueryResult)
     return __ret__.apply(lambda __response__: GetActivityCustomEntityQueryResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content=pulumi.get(__response__, 'content'),
         created_time_utc=pulumi.get(__response__, 'created_time_utc'),
         description=pulumi.get(__response__, 'description'),

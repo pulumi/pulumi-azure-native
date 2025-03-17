@@ -27,10 +27,13 @@ class GetBusinessApplicationAgentResult:
     """
     Describes the configuration of a Business Application Agent.
     """
-    def __init__(__self__, agent_systems=None, configuration=None, display_name=None, etag=None, id=None, last_modified_time_utc=None, name=None, system_data=None, type=None):
+    def __init__(__self__, agent_systems=None, azure_api_version=None, configuration=None, display_name=None, etag=None, id=None, last_modified_time_utc=None, name=None, system_data=None, type=None):
         if agent_systems and not isinstance(agent_systems, list):
             raise TypeError("Expected argument 'agent_systems' to be a list")
         pulumi.set(__self__, "agent_systems", agent_systems)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -60,6 +63,14 @@ class GetBusinessApplicationAgentResult:
     @pulumi.getter(name="agentSystems")
     def agent_systems(self) -> Sequence['outputs.AgentSystemResponse']:
         return pulumi.get(self, "agent_systems")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -127,6 +138,7 @@ class AwaitableGetBusinessApplicationAgentResult(GetBusinessApplicationAgentResu
             yield self
         return GetBusinessApplicationAgentResult(
             agent_systems=self.agent_systems,
+            azure_api_version=self.azure_api_version,
             configuration=self.configuration,
             display_name=self.display_name,
             etag=self.etag,
@@ -143,9 +155,7 @@ def get_business_application_agent(agent_resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessApplicationAgentResult:
     """
     Gets Business Application Agent.
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name
@@ -161,6 +171,7 @@ def get_business_application_agent(agent_resource_name: Optional[str] = None,
 
     return AwaitableGetBusinessApplicationAgentResult(
         agent_systems=pulumi.get(__ret__, 'agent_systems'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration=pulumi.get(__ret__, 'configuration'),
         display_name=pulumi.get(__ret__, 'display_name'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -175,9 +186,7 @@ def get_business_application_agent_output(agent_resource_name: Optional[pulumi.I
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessApplicationAgentResult]:
     """
     Gets Business Application Agent.
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name
@@ -192,6 +201,7 @@ def get_business_application_agent_output(agent_resource_name: Optional[pulumi.I
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getBusinessApplicationAgent', __args__, opts=opts, typ=GetBusinessApplicationAgentResult)
     return __ret__.apply(lambda __response__: GetBusinessApplicationAgentResult(
         agent_systems=pulumi.get(__response__, 'agent_systems'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration=pulumi.get(__response__, 'configuration'),
         display_name=pulumi.get(__response__, 'display_name'),
         etag=pulumi.get(__response__, 'etag'),

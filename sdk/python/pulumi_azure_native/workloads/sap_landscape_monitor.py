@@ -100,9 +100,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
                  __props__=None):
         """
         configuration associated with SAP Landscape Monitor Dashboard.
-        Azure REST API version: 2023-04-01.
-
-        Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         configuration associated with SAP Landscape Monitor Dashboard.
-        Azure REST API version: 2023-04-01.
-
-        Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param SapLandscapeMonitorArgs args: The arguments to use to populate this resource's properties.
@@ -159,6 +155,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["top_metrics_thresholds"] = top_metrics_thresholds
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -187,6 +184,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
 
         __props__ = SapLandscapeMonitorArgs.__new__(SapLandscapeMonitorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["grouping"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -196,8 +194,16 @@ class SapLandscapeMonitor(pulumi.CustomResource):
         return SapLandscapeMonitor(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def grouping(self) -> pulumi.Output[Optional['outputs.SapLandscapeMonitorPropertiesResponseGrouping']]:
+    def grouping(self) -> pulumi.Output[Optional['outputs.SapLandscapeMonitorPropertiesGroupingResponse']]:
         """
         Gets or sets the SID groupings by landscape and Environment.
         """

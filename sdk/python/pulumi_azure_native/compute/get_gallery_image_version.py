@@ -27,7 +27,10 @@ class GetGalleryImageVersionResult:
     """
     Specifies information about the gallery image version that you want to create or update.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, safety_profile=None, storage_profile=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, restore=None, safety_profile=None, security_profile=None, storage_profile=None, tags=None, type=None, validations_profile=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,9 +49,15 @@ class GetGalleryImageVersionResult:
         if replication_status and not isinstance(replication_status, dict):
             raise TypeError("Expected argument 'replication_status' to be a dict")
         pulumi.set(__self__, "replication_status", replication_status)
+        if restore and not isinstance(restore, bool):
+            raise TypeError("Expected argument 'restore' to be a bool")
+        pulumi.set(__self__, "restore", restore)
         if safety_profile and not isinstance(safety_profile, dict):
             raise TypeError("Expected argument 'safety_profile' to be a dict")
         pulumi.set(__self__, "safety_profile", safety_profile)
+        if security_profile and not isinstance(security_profile, dict):
+            raise TypeError("Expected argument 'security_profile' to be a dict")
+        pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
@@ -58,6 +67,17 @@ class GetGalleryImageVersionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if validations_profile and not isinstance(validations_profile, dict):
+            raise TypeError("Expected argument 'validations_profile' to be a dict")
+        pulumi.set(__self__, "validations_profile", validations_profile)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -108,12 +128,28 @@ class GetGalleryImageVersionResult:
         return pulumi.get(self, "replication_status")
 
     @property
+    @pulumi.getter
+    def restore(self) -> Optional[bool]:
+        """
+        Indicates if this is a soft-delete resource restoration request.
+        """
+        return pulumi.get(self, "restore")
+
+    @property
     @pulumi.getter(name="safetyProfile")
     def safety_profile(self) -> Optional['outputs.GalleryImageVersionSafetyProfileResponse']:
         """
         This is the safety profile of the Gallery Image Version.
         """
         return pulumi.get(self, "safety_profile")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.ImageVersionSecurityProfileResponse']:
+        """
+        The security profile of a gallery image version
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="storageProfile")
@@ -139,6 +175,14 @@ class GetGalleryImageVersionResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="validationsProfile")
+    def validations_profile(self) -> 'outputs.ValidationsProfileResponse':
+        """
+        This is the validations profile of a Gallery Image Version.
+        """
+        return pulumi.get(self, "validations_profile")
+
 
 class AwaitableGetGalleryImageVersionResult(GetGalleryImageVersionResult):
     # pylint: disable=using-constant-test
@@ -146,16 +190,20 @@ class AwaitableGetGalleryImageVersionResult(GetGalleryImageVersionResult):
         if False:
             yield self
         return GetGalleryImageVersionResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             publishing_profile=self.publishing_profile,
             replication_status=self.replication_status,
+            restore=self.restore,
             safety_profile=self.safety_profile,
+            security_profile=self.security_profile,
             storage_profile=self.storage_profile,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            validations_profile=self.validations_profile)
 
 
 def get_gallery_image_version(expand: Optional[str] = None,
@@ -166,9 +214,7 @@ def get_gallery_image_version(expand: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageVersionResult:
     """
     Retrieves information about a gallery image version.
-    Azure REST API version: 2022-03-03.
-
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Azure REST API version: 2024-03-03.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -187,16 +233,20 @@ def get_gallery_image_version(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGalleryImageVersion', __args__, opts=opts, typ=GetGalleryImageVersionResult).value
 
     return AwaitableGetGalleryImageVersionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         publishing_profile=pulumi.get(__ret__, 'publishing_profile'),
         replication_status=pulumi.get(__ret__, 'replication_status'),
+        restore=pulumi.get(__ret__, 'restore'),
         safety_profile=pulumi.get(__ret__, 'safety_profile'),
+        security_profile=pulumi.get(__ret__, 'security_profile'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        validations_profile=pulumi.get(__ret__, 'validations_profile'))
 def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                      gallery_image_name: Optional[pulumi.Input[str]] = None,
                                      gallery_image_version_name: Optional[pulumi.Input[str]] = None,
@@ -205,9 +255,7 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
     """
     Retrieves information about a gallery image version.
-    Azure REST API version: 2022-03-03.
-
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Azure REST API version: 2024-03-03.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -225,13 +273,17 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getGalleryImageVersion', __args__, opts=opts, typ=GetGalleryImageVersionResult)
     return __ret__.apply(lambda __response__: GetGalleryImageVersionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         publishing_profile=pulumi.get(__response__, 'publishing_profile'),
         replication_status=pulumi.get(__response__, 'replication_status'),
+        restore=pulumi.get(__response__, 'restore'),
         safety_profile=pulumi.get(__response__, 'safety_profile'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        validations_profile=pulumi.get(__response__, 'validations_profile')))

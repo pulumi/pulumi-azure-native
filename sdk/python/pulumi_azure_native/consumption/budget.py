@@ -183,9 +183,7 @@ class Budget(pulumi.CustomResource):
                  __props__=None):
         """
         A budget resource.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
-
-        Other available API versions: 2023-11-01, 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,9 +205,7 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A budget resource.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
-
-        Other available API versions: 2023-11-01, 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.
@@ -263,6 +259,7 @@ class Budget(pulumi.CustomResource):
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["forecast_spend"] = None
             __props__.__dict__["name"] = None
@@ -292,6 +289,7 @@ class Budget(pulumi.CustomResource):
         __props__ = BudgetArgs.__new__(BudgetArgs)
 
         __props__.__dict__["amount"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["category"] = None
         __props__.__dict__["current_spend"] = None
         __props__.__dict__["e_tag"] = None
@@ -311,6 +309,14 @@ class Budget(pulumi.CustomResource):
         The total amount of cost to track with the budget
         """
         return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

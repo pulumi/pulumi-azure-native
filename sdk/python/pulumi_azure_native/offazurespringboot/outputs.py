@@ -728,6 +728,7 @@ class SpringbootserversPropertiesResponse(dict):
                  server: str,
                  errors: Optional[Sequence['outputs.ErrorResponse']] = None,
                  fqdn_and_ip_address_list: Optional[Sequence[str]] = None,
+                 labels: Optional[Mapping[str, str]] = None,
                  machine_arm_id: Optional[str] = None,
                  port: Optional[int] = None,
                  provisioning_state: Optional[str] = None,
@@ -738,6 +739,7 @@ class SpringbootserversPropertiesResponse(dict):
         :param str server: Server is the target server name or ip address to discover of SpringBootServer.
         :param Sequence['ErrorResponse'] errors: The list of errors.
         :param Sequence[str] fqdn_and_ip_address_list: The alternative FQDN or IP addresses to discover for this server
+        :param Mapping[str, str] labels: Resource labels
         :param str machine_arm_id: The machine Id from ARM
         :param int port: Target server port for remote login
         :param str provisioning_state: The resource provisioning state.
@@ -749,6 +751,8 @@ class SpringbootserversPropertiesResponse(dict):
             pulumi.set(__self__, "errors", errors)
         if fqdn_and_ip_address_list is not None:
             pulumi.set(__self__, "fqdn_and_ip_address_list", fqdn_and_ip_address_list)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
         if machine_arm_id is not None:
             pulumi.set(__self__, "machine_arm_id", machine_arm_id)
         if port is not None:
@@ -783,6 +787,14 @@ class SpringbootserversPropertiesResponse(dict):
         The alternative FQDN or IP addresses to discover for this server
         """
         return pulumi.get(self, "fqdn_and_ip_address_list")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource labels
+        """
+        return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="machineArmId")

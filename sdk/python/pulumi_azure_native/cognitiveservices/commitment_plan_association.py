@@ -23,13 +23,15 @@ class CommitmentPlanAssociationArgs:
                  commitment_plan_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[str]] = None,
-                 commitment_plan_association_name: Optional[pulumi.Input[str]] = None):
+                 commitment_plan_association_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CommitmentPlanAssociation resource.
         :param pulumi.Input[str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] account_id: The Azure resource id of the account.
         :param pulumi.Input[str] commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -37,6 +39,8 @@ class CommitmentPlanAssociationArgs:
             pulumi.set(__self__, "account_id", account_id)
         if commitment_plan_association_name is not None:
             pulumi.set(__self__, "commitment_plan_association_name", commitment_plan_association_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="commitmentPlanName")
@@ -86,6 +90,18 @@ class CommitmentPlanAssociationArgs:
     def commitment_plan_association_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "commitment_plan_association_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class CommitmentPlanAssociation(pulumi.CustomResource):
     @overload
@@ -96,12 +112,11 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
                  commitment_plan_association_name: Optional[pulumi.Input[str]] = None,
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The commitment plan association.
-        Azure REST API version: 2023-05-01.
-
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,6 +124,7 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
         :param pulumi.Input[str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -118,9 +134,7 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The commitment plan association.
-        Azure REST API version: 2023-05-01.
-
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param CommitmentPlanAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -141,6 +155,7 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
                  commitment_plan_association_name: Optional[pulumi.Input[str]] = None,
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,6 +173,8 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -187,9 +204,11 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         __props__ = CommitmentPlanAssociationArgs.__new__(CommitmentPlanAssociationArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return CommitmentPlanAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -200,6 +219,14 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         The Azure resource id of the account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -224,6 +251,14 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

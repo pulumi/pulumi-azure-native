@@ -27,7 +27,10 @@ class GetGalleryResult:
     """
     Represents a gallery.
     """
-    def __init__(__self__, gallery_resource_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, gallery_resource_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if gallery_resource_id and not isinstance(gallery_resource_id, str):
             raise TypeError("Expected argument 'gallery_resource_id' to be a str")
         pulumi.set(__self__, "gallery_resource_id", gallery_resource_id)
@@ -48,6 +51,14 @@ class GetGalleryResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="galleryResourceId")
     def gallery_resource_id(self) -> str:
         """
@@ -59,7 +70,7 @@ class GetGalleryResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -102,6 +113,7 @@ class AwaitableGetGalleryResult(GetGalleryResult):
         if False:
             yield self
         return GetGalleryResult(
+            azure_api_version=self.azure_api_version,
             gallery_resource_id=self.gallery_resource_id,
             id=self.id,
             name=self.name,
@@ -116,9 +128,7 @@ def get_gallery(dev_center_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Gets a gallery
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -133,6 +143,7 @@ def get_gallery(dev_center_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getGallery', __args__, opts=opts, typ=GetGalleryResult).value
 
     return AwaitableGetGalleryResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         gallery_resource_id=pulumi.get(__ret__, 'gallery_resource_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -145,9 +156,7 @@ def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Gets a gallery
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -161,6 +170,7 @@ def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getGallery', __args__, opts=opts, typ=GetGalleryResult)
     return __ret__.apply(lambda __response__: GetGalleryResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         gallery_resource_id=pulumi.get(__response__, 'gallery_resource_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

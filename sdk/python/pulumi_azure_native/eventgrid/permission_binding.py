@@ -155,9 +155,7 @@ class PermissionBinding(pulumi.CustomResource):
                  __props__=None):
         """
         The Permission binding resource.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,9 +177,7 @@ class PermissionBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Permission binding resource.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PermissionBindingArgs args: The arguments to use to populate this resource's properties.
@@ -225,6 +221,7 @@ class PermissionBinding(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["topic_space_name"] = topic_space_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -253,6 +250,7 @@ class PermissionBinding(pulumi.CustomResource):
 
         __props__ = PermissionBindingArgs.__new__(PermissionBindingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_group_name"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -262,6 +260,14 @@ class PermissionBinding(pulumi.CustomResource):
         __props__.__dict__["topic_space_name"] = None
         __props__.__dict__["type"] = None
         return PermissionBinding(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientGroupName")
@@ -308,7 +314,7 @@ class PermissionBinding(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to the PermissionBinding resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

@@ -29,7 +29,9 @@ class GalleryImageVersionArgs:
                  gallery_image_version_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  publishing_profile: Optional[pulumi.Input['GalleryImageVersionPublishingProfileArgs']] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
                  safety_profile: Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']] = None,
+                 security_profile: Optional[pulumi.Input['ImageVersionSecurityProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GalleryImageVersion resource.
@@ -40,7 +42,9 @@ class GalleryImageVersionArgs:
         :param pulumi.Input[str] gallery_image_version_name: The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['GalleryImageVersionPublishingProfileArgs'] publishing_profile: The publishing profile of a gallery image Version.
+        :param pulumi.Input[bool] restore: Indicates if this is a soft-delete resource restoration request.
         :param pulumi.Input['GalleryImageVersionSafetyProfileArgs'] safety_profile: This is the safety profile of the Gallery Image Version.
+        :param pulumi.Input['ImageVersionSecurityProfileArgs'] security_profile: The security profile of a gallery image version
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "gallery_image_name", gallery_image_name)
@@ -53,8 +57,12 @@ class GalleryImageVersionArgs:
             pulumi.set(__self__, "location", location)
         if publishing_profile is not None:
             pulumi.set(__self__, "publishing_profile", publishing_profile)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
         if safety_profile is not None:
             pulumi.set(__self__, "safety_profile", safety_profile)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -143,6 +151,18 @@ class GalleryImageVersionArgs:
         pulumi.set(self, "publishing_profile", value)
 
     @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if this is a soft-delete resource restoration request.
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restore", value)
+
+    @property
     @pulumi.getter(name="safetyProfile")
     def safety_profile(self) -> Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']]:
         """
@@ -153,6 +173,18 @@ class GalleryImageVersionArgs:
     @safety_profile.setter
     def safety_profile(self, value: Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']]):
         pulumi.set(self, "safety_profile", value)
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['ImageVersionSecurityProfileArgs']]:
+        """
+        The security profile of a gallery image version
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['ImageVersionSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
 
     @property
     @pulumi.getter
@@ -178,15 +210,15 @@ class GalleryImageVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  publishing_profile: Optional[pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
                  safety_profile: Optional[pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Specifies information about the gallery image version that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
-
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,7 +228,9 @@ class GalleryImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']] publishing_profile: The publishing profile of a gallery image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] restore: Indicates if this is a soft-delete resource restoration request.
         :param pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']] safety_profile: This is the safety profile of the Gallery Image Version.
+        :param pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']] security_profile: The security profile of a gallery image version
         :param pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']] storage_profile: This is the storage profile of a Gallery Image Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -208,9 +242,7 @@ class GalleryImageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery image version that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
-
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryImageVersionArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +265,9 @@ class GalleryImageVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  publishing_profile: Optional[pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
                  safety_profile: Optional[pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -257,15 +291,19 @@ class GalleryImageVersion(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restore"] = restore
             __props__.__dict__["safety_profile"] = safety_profile
+            __props__.__dict__["security_profile"] = security_profile
             if storage_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile'")
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["replication_status"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["validations_profile"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryImageVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImageVersion, __self__).__init__(
@@ -290,16 +328,28 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         __props__ = GalleryImageVersionArgs.__new__(GalleryImageVersionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["publishing_profile"] = None
         __props__.__dict__["replication_status"] = None
+        __props__.__dict__["restore"] = None
         __props__.__dict__["safety_profile"] = None
+        __props__.__dict__["security_profile"] = None
         __props__.__dict__["storage_profile"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["validations_profile"] = None
         return GalleryImageVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -342,12 +392,28 @@ class GalleryImageVersion(pulumi.CustomResource):
         return pulumi.get(self, "replication_status")
 
     @property
+    @pulumi.getter
+    def restore(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates if this is a soft-delete resource restoration request.
+        """
+        return pulumi.get(self, "restore")
+
+    @property
     @pulumi.getter(name="safetyProfile")
     def safety_profile(self) -> pulumi.Output[Optional['outputs.GalleryImageVersionSafetyProfileResponse']]:
         """
         This is the safety profile of the Gallery Image Version.
         """
         return pulumi.get(self, "safety_profile")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.ImageVersionSecurityProfileResponse']]:
+        """
+        The security profile of a gallery image version
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="storageProfile")
@@ -372,4 +438,12 @@ class GalleryImageVersion(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationsProfile")
+    def validations_profile(self) -> pulumi.Output['outputs.ValidationsProfileResponse']:
+        """
+        This is the validations profile of a Gallery Image Version.
+        """
+        return pulumi.get(self, "validations_profile")
 

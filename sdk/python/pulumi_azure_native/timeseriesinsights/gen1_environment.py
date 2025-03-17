@@ -186,7 +186,7 @@ class Gen1Environment(pulumi.CustomResource):
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +209,7 @@ class Gen1Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param Gen1EnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -261,6 +261,7 @@ class Gen1Environment(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_limit_exceeded_behavior"] = storage_limit_exceeded_behavior
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["data_access_fqdn"] = None
             __props__.__dict__["data_access_id"] = None
@@ -268,7 +269,7 @@ class Gen1Environment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:Gen1Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights:Gen2Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gen1Environment, __self__).__init__(
             'azure-native:timeseriesinsights:Gen1Environment',
@@ -292,6 +293,7 @@ class Gen1Environment(pulumi.CustomResource):
 
         __props__ = Gen1EnvironmentArgs.__new__(Gen1EnvironmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["data_access_fqdn"] = None
         __props__.__dict__["data_access_id"] = None
@@ -307,6 +309,14 @@ class Gen1Environment(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Gen1Environment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")

@@ -27,7 +27,10 @@ class GetMigrateProjectsControllerMigrateProjectResult:
     """
     Migrate project.
     """
-    def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, e_tag=None, id=None, location=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -49,6 +52,14 @@ class GetMigrateProjectsControllerMigrateProjectResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -113,6 +124,7 @@ class AwaitableGetMigrateProjectsControllerMigrateProjectResult(GetMigrateProjec
         if False:
             yield self
         return GetMigrateProjectsControllerMigrateProjectResult(
+            azure_api_version=self.azure_api_version,
             e_tag=self.e_tag,
             id=self.id,
             location=self.location,
@@ -129,8 +141,6 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
     Azure REST API version: 2020-05-01.
 
-    Other available API versions: 2023-01-01.
-
 
     :param str migrate_project_name: Migrate project name.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -142,6 +152,7 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:migrate:getMigrateProjectsControllerMigrateProject', __args__, opts=opts, typ=GetMigrateProjectsControllerMigrateProjectResult).value
 
     return AwaitableGetMigrateProjectsControllerMigrateProjectResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -156,8 +167,6 @@ def get_migrate_projects_controller_migrate_project_output(migrate_project_name:
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
     Azure REST API version: 2020-05-01.
 
-    Other available API versions: 2023-01-01.
-
 
     :param str migrate_project_name: Migrate project name.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -168,6 +177,7 @@ def get_migrate_projects_controller_migrate_project_output(migrate_project_name:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getMigrateProjectsControllerMigrateProject', __args__, opts=opts, typ=GetMigrateProjectsControllerMigrateProjectResult)
     return __ret__.apply(lambda __response__: GetMigrateProjectsControllerMigrateProjectResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

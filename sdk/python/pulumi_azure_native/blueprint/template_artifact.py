@@ -201,7 +201,7 @@ class TemplateArtifact(pulumi.CustomResource):
                  __props__=None):
         """
         Blueprint artifact that deploys a Resource Manager template.
-        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 2.x: 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +225,7 @@ class TemplateArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Blueprint artifact that deploys a Resource Manager template.
-        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 2.x: 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TemplateArtifactArgs args: The arguments to use to populate this resource's properties.
@@ -281,9 +281,10 @@ class TemplateArtifact(pulumi.CustomResource):
             if template is None and not opts.urn:
                 raise TypeError("Missing required property 'template'")
             __props__.__dict__["template"] = template
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact"), pulumi.Alias(type_="azure-native:blueprint:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint:RoleAssignmentArtifact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateArtifact, __self__).__init__(
             'azure-native:blueprint:TemplateArtifact',
@@ -307,6 +308,7 @@ class TemplateArtifact(pulumi.CustomResource):
 
         __props__ = TemplateArtifactArgs.__new__(TemplateArtifactArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["depends_on"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -317,6 +319,14 @@ class TemplateArtifact(pulumi.CustomResource):
         __props__.__dict__["template"] = None
         __props__.__dict__["type"] = None
         return TemplateArtifact(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dependsOn")

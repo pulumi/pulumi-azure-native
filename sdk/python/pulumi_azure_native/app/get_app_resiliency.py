@@ -27,7 +27,10 @@ class GetAppResiliencyResult:
     """
     Configuration to setup App Resiliency
     """
-    def __init__(__self__, circuit_breaker_policy=None, http_connection_pool=None, http_retry_policy=None, id=None, name=None, system_data=None, tcp_connection_pool=None, tcp_retry_policy=None, timeout_policy=None, type=None):
+    def __init__(__self__, azure_api_version=None, circuit_breaker_policy=None, http_connection_pool=None, http_retry_policy=None, id=None, name=None, system_data=None, tcp_connection_pool=None, tcp_retry_policy=None, timeout_policy=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if circuit_breaker_policy and not isinstance(circuit_breaker_policy, dict):
             raise TypeError("Expected argument 'circuit_breaker_policy' to be a dict")
         pulumi.set(__self__, "circuit_breaker_policy", circuit_breaker_policy)
@@ -60,6 +63,14 @@ class GetAppResiliencyResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="circuitBreakerPolicy")
     def circuit_breaker_policy(self) -> Optional['outputs.CircuitBreakerPolicyResponse']:
         """
@@ -87,7 +98,7 @@ class GetAppResiliencyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -146,6 +157,7 @@ class AwaitableGetAppResiliencyResult(GetAppResiliencyResult):
         if False:
             yield self
         return GetAppResiliencyResult(
+            azure_api_version=self.azure_api_version,
             circuit_breaker_policy=self.circuit_breaker_policy,
             http_connection_pool=self.http_connection_pool,
             http_retry_policy=self.http_retry_policy,
@@ -164,9 +176,7 @@ def get_app_resiliency(app_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResiliencyResult:
     """
     Get container app resiliency policy.
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str app_name: Name of the Container App.
@@ -181,6 +191,7 @@ def get_app_resiliency(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getAppResiliency', __args__, opts=opts, typ=GetAppResiliencyResult).value
 
     return AwaitableGetAppResiliencyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         circuit_breaker_policy=pulumi.get(__ret__, 'circuit_breaker_policy'),
         http_connection_pool=pulumi.get(__ret__, 'http_connection_pool'),
         http_retry_policy=pulumi.get(__ret__, 'http_retry_policy'),
@@ -197,9 +208,7 @@ def get_app_resiliency_output(app_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResiliencyResult]:
     """
     Get container app resiliency policy.
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str app_name: Name of the Container App.
@@ -213,6 +222,7 @@ def get_app_resiliency_output(app_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getAppResiliency', __args__, opts=opts, typ=GetAppResiliencyResult)
     return __ret__.apply(lambda __response__: GetAppResiliencyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         circuit_breaker_policy=pulumi.get(__response__, 'circuit_breaker_policy'),
         http_connection_pool=pulumi.get(__response__, 'http_connection_pool'),
         http_retry_policy=pulumi.get(__response__, 'http_retry_policy'),

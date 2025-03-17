@@ -133,7 +133,7 @@ class PipelineJob(pulumi.CustomResource):
                  __props__=None):
         """
         Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class PipelineJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PipelineJobArgs args: The arguments to use to populate this resource's properties.
@@ -196,6 +196,7 @@ class PipelineJob(pulumi.CustomResource):
             if topology_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topology_name'")
             __props__.__dict__["topology_name"] = topology_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["error"] = None
             __props__.__dict__["expiration"] = None
             __props__.__dict__["name"] = None
@@ -226,6 +227,7 @@ class PipelineJob(pulumi.CustomResource):
 
         __props__ = PipelineJobArgs.__new__(PipelineJobArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["error"] = None
         __props__.__dict__["expiration"] = None
@@ -236,6 +238,14 @@ class PipelineJob(pulumi.CustomResource):
         __props__.__dict__["topology_name"] = None
         __props__.__dict__["type"] = None
         return PipelineJob(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

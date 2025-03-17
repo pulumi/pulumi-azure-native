@@ -183,9 +183,7 @@ class Query(pulumi.CustomResource):
                  __props__=None):
         """
         A Log Analytics QueryPack-Query definition.
-        Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
-
-        Other available API versions: 2019-09-01-preview, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,9 +205,7 @@ class Query(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Log Analytics QueryPack-Query definition.
-        Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
-
-        Other available API versions: 2019-09-01-preview, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param QueryArgs args: The arguments to use to populate this resource's properties.
@@ -262,12 +258,13 @@ class Query(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["author"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Query")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Query")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Query, __self__).__init__(
             'azure-native:operationalinsights:Query',
@@ -292,6 +289,7 @@ class Query(pulumi.CustomResource):
         __props__ = QueryArgs.__new__(QueryArgs)
 
         __props__.__dict__["author"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["body"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -312,6 +310,14 @@ class Query(pulumi.CustomResource):
         Object Id of user creating the query.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -341,7 +347,7 @@ class Query(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -365,7 +371,7 @@ class Query(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -397,7 +403,7 @@ class Query(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -26,7 +26,10 @@ class GetStaticSiteCustomDomainResult:
     """
     Static Site Custom Domain Overview ARM resource.
     """
-    def __init__(__self__, created_on=None, domain_name=None, error_message=None, id=None, kind=None, name=None, status=None, type=None, validation_token=None):
+    def __init__(__self__, azure_api_version=None, created_on=None, domain_name=None, error_message=None, id=None, kind=None, name=None, status=None, type=None, validation_token=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_on and not isinstance(created_on, str):
             raise TypeError("Expected argument 'created_on' to be a str")
         pulumi.set(__self__, "created_on", created_on)
@@ -54,6 +57,14 @@ class GetStaticSiteCustomDomainResult:
         if validation_token and not isinstance(validation_token, str):
             raise TypeError("Expected argument 'validation_token' to be a str")
         pulumi.set(__self__, "validation_token", validation_token)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdOn")
@@ -131,6 +142,7 @@ class AwaitableGetStaticSiteCustomDomainResult(GetStaticSiteCustomDomainResult):
         if False:
             yield self
         return GetStaticSiteCustomDomainResult(
+            azure_api_version=self.azure_api_version,
             created_on=self.created_on,
             domain_name=self.domain_name,
             error_message=self.error_message,
@@ -148,9 +160,7 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteCustomDomainResult:
     """
     Description for Gets an existing custom domain for a particular static site.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str domain_name: The custom domain name.
@@ -165,6 +175,7 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSiteCustomDomain', __args__, opts=opts, typ=GetStaticSiteCustomDomainResult).value
 
     return AwaitableGetStaticSiteCustomDomainResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_on=pulumi.get(__ret__, 'created_on'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         error_message=pulumi.get(__ret__, 'error_message'),
@@ -180,9 +191,7 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteCustomDomainResult]:
     """
     Description for Gets an existing custom domain for a particular static site.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str domain_name: The custom domain name.
@@ -196,6 +205,7 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getStaticSiteCustomDomain', __args__, opts=opts, typ=GetStaticSiteCustomDomainResult)
     return __ret__.apply(lambda __response__: GetStaticSiteCustomDomainResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_on=pulumi.get(__response__, 'created_on'),
         domain_name=pulumi.get(__response__, 'domain_name'),
         error_message=pulumi.get(__response__, 'error_message'),

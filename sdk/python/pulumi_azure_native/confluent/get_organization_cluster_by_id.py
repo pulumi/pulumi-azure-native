@@ -27,7 +27,10 @@ class GetOrganizationClusterByIdResult:
     """
     Details of cluster record
     """
-    def __init__(__self__, id=None, kind=None, metadata=None, name=None, spec=None, status=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, metadata=None, name=None, spec=None, status=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetOrganizationClusterByIdResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetOrganizationClusterByIdResult(GetOrganizationClusterByIdResult
         if False:
             yield self
         return GetOrganizationClusterByIdResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             metadata=self.metadata,
@@ -146,6 +158,7 @@ def get_organization_cluster_by_id(cluster_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confluent:getOrganizationClusterById', __args__, opts=opts, typ=GetOrganizationClusterByIdResult).value
 
     return AwaitableGetOrganizationClusterByIdResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         metadata=pulumi.get(__ret__, 'metadata'),
@@ -176,6 +189,7 @@ def get_organization_cluster_by_id_output(cluster_id: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:getOrganizationClusterById', __args__, opts=opts, typ=GetOrganizationClusterByIdResult)
     return __ret__.apply(lambda __response__: GetOrganizationClusterByIdResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         metadata=pulumi.get(__response__, 'metadata'),

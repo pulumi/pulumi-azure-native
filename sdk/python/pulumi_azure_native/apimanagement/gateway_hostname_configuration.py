@@ -199,9 +199,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Gateway hostname configuration details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,9 +222,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway hostname configuration details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param GatewayHostnameConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -278,6 +274,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tls10_enabled"] = tls10_enabled
             __props__.__dict__["tls11_enabled"] = tls11_enabled
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:GatewayHostnameConfiguration")])
@@ -304,6 +301,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
         __props__ = GatewayHostnameConfigurationArgs.__new__(GatewayHostnameConfigurationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["certificate_id"] = None
         __props__.__dict__["hostname"] = None
         __props__.__dict__["http2_enabled"] = None
@@ -313,6 +311,14 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         __props__.__dict__["tls11_enabled"] = None
         __props__.__dict__["type"] = None
         return GatewayHostnameConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certificateId")

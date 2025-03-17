@@ -27,10 +27,13 @@ class GetVideoResult:
     """
     Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
     """
-    def __init__(__self__, archival=None, content_urls=None, description=None, flags=None, id=None, media_info=None, name=None, system_data=None, title=None, type=None):
+    def __init__(__self__, archival=None, azure_api_version=None, content_urls=None, description=None, flags=None, id=None, media_info=None, name=None, system_data=None, title=None, type=None):
         if archival and not isinstance(archival, dict):
             raise TypeError("Expected argument 'archival' to be a dict")
         pulumi.set(__self__, "archival", archival)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_urls and not isinstance(content_urls, dict):
             raise TypeError("Expected argument 'content_urls' to be a dict")
         pulumi.set(__self__, "content_urls", content_urls)
@@ -66,6 +69,14 @@ class GetVideoResult:
         Video archival properties.
         """
         return pulumi.get(self, "archival")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentUrls")
@@ -147,6 +158,7 @@ class AwaitableGetVideoResult(GetVideoResult):
             yield self
         return GetVideoResult(
             archival=self.archival,
+            azure_api_version=self.azure_api_version,
             content_urls=self.content_urls,
             description=self.description,
             flags=self.flags,
@@ -166,8 +178,6 @@ def get_video(account_name: Optional[str] = None,
     Retrieves an existing video resource with the given name.
     Azure REST API version: 2021-11-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
-
 
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -182,6 +192,7 @@ def get_video(account_name: Optional[str] = None,
 
     return AwaitableGetVideoResult(
         archival=pulumi.get(__ret__, 'archival'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_urls=pulumi.get(__ret__, 'content_urls'),
         description=pulumi.get(__ret__, 'description'),
         flags=pulumi.get(__ret__, 'flags'),
@@ -199,8 +210,6 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
     Retrieves an existing video resource with the given name.
     Azure REST API version: 2021-11-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
-
 
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -214,6 +223,7 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getVideo', __args__, opts=opts, typ=GetVideoResult)
     return __ret__.apply(lambda __response__: GetVideoResult(
         archival=pulumi.get(__response__, 'archival'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_urls=pulumi.get(__response__, 'content_urls'),
         description=pulumi.get(__response__, 'description'),
         flags=pulumi.get(__response__, 'flags'),

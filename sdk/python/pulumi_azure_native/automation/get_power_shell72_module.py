@@ -27,10 +27,13 @@ class GetPowerShell72ModuleResult:
     """
     Definition of the module type.
     """
-    def __init__(__self__, activity_count=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
+    def __init__(__self__, activity_count=None, azure_api_version=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
         if activity_count and not isinstance(activity_count, int):
             raise TypeError("Expected argument 'activity_count' to be a int")
         pulumi.set(__self__, "activity_count", activity_count)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -84,6 +87,14 @@ class GetPowerShell72ModuleResult:
         Gets the activity count of the module.
         """
         return pulumi.get(self, "activity_count")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -213,6 +224,7 @@ class AwaitableGetPowerShell72ModuleResult(GetPowerShell72ModuleResult):
             yield self
         return GetPowerShell72ModuleResult(
             activity_count=self.activity_count,
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             error=self.error,
@@ -252,6 +264,7 @@ def get_power_shell72_module(automation_account_name: Optional[str] = None,
 
     return AwaitableGetPowerShell72ModuleResult(
         activity_count=pulumi.get(__ret__, 'activity_count'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         error=pulumi.get(__ret__, 'error'),
@@ -288,6 +301,7 @@ def get_power_shell72_module_output(automation_account_name: Optional[pulumi.Inp
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getPowerShell72Module', __args__, opts=opts, typ=GetPowerShell72ModuleResult)
     return __ret__.apply(lambda __response__: GetPowerShell72ModuleResult(
         activity_count=pulumi.get(__response__, 'activity_count'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         error=pulumi.get(__response__, 'error'),

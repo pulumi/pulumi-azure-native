@@ -27,7 +27,10 @@ class GetDevOpsConfigurationResult:
     """
     DevOps Configuration resource.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetDevOpsConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetDevOpsConfigurationResult(GetDevOpsConfigurationResult):
         if False:
             yield self
         return GetDevOpsConfigurationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -103,9 +115,7 @@ def get_dev_ops_configuration(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevOpsConfigurationResult:
     """
     DevOps Configuration resource.
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-04-01, 2024-05-15-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -118,6 +128,7 @@ def get_dev_ops_configuration(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getDevOpsConfiguration', __args__, opts=opts, typ=GetDevOpsConfigurationResult).value
 
     return AwaitableGetDevOpsConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -128,9 +139,7 @@ def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevOpsConfigurationResult]:
     """
     DevOps Configuration resource.
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-04-01, 2024-05-15-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -142,6 +151,7 @@ def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getDevOpsConfiguration', __args__, opts=opts, typ=GetDevOpsConfigurationResult)
     return __ret__.apply(lambda __response__: GetDevOpsConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

@@ -133,9 +133,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
                  __props__=None):
         """
         Replication protection Cluster.
-        Azure REST API version: 2024-02-01.
-
-        Other available API versions: 2024-04-01, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,9 +152,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Replication protection Cluster.
-        Azure REST API version: 2024-02-01.
-
-        Other available API versions: 2024-04-01, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionClusterArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +198,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ReplicationProtectionCluster")])
@@ -228,10 +225,19 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
 
         __props__ = ReplicationProtectionClusterArgs.__new__(ReplicationProtectionClusterArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ReplicationProtectionCluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

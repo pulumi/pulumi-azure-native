@@ -31,7 +31,7 @@ class TargetArgs:
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
         The set of arguments for constructing a Target resource.
-        :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        :param pulumi.Input[str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
@@ -53,7 +53,7 @@ class TargetArgs:
     @pulumi.getter(name="connectionServerName")
     def connection_server_name(self) -> pulumi.Input[str]:
         """
-        The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         """
         return pulumi.get(self, "connection_server_name")
 
@@ -149,13 +149,11 @@ class Target(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        :param pulumi.Input[str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_name: The target resource name.
@@ -171,9 +169,7 @@ class Target(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.
@@ -223,6 +219,7 @@ class Target(pulumi.CustomResource):
             if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")
             __props__.__dict__["watcher_name"] = watcher_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -251,6 +248,7 @@ class Target(pulumi.CustomResource):
 
         __props__ = TargetArgs.__new__(TargetArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connection_server_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -262,10 +260,18 @@ class Target(pulumi.CustomResource):
         return Target(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="connectionServerName")
     def connection_server_name(self) -> pulumi.Output[str]:
         """
-        The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         """
         return pulumi.get(self, "connection_server_name")
 

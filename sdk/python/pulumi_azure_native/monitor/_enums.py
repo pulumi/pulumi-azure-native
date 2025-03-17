@@ -5,16 +5,63 @@
 from enum import Enum
 
 __all__ = [
+    'AccessMode',
+    'ConditionOperator',
+    'CriterionType',
+    'DimensionOperator',
     'ExporterType',
     'ExtendedLocationType',
     'ExternalNetworkingMode',
+    'IdentityType',
+    'IncidentManagementService',
+    'JsonMapperElement',
+    'Kind',
+    'ManagedServiceIdentityType',
     'PipelineType',
+    'PrivateEndpointServiceConnectionStatus',
     'ProcessorType',
-    'PublicNetworkAccess',
     'ReceiverType',
+    'ScopedResourceKind',
     'StreamEncodingType',
     'SyslogProtocol',
+    'TimeAggregation',
 ]
+
+
+class AccessMode(str, Enum):
+    """
+    Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    """
+    OPEN = "Open"
+    PRIVATE_ONLY = "PrivateOnly"
+
+
+class ConditionOperator(str, Enum):
+    """
+    The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    """
+    EQUALS = "Equals"
+    GREATER_THAN = "GreaterThan"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN = "LessThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    GREATER_OR_LESS_THAN = "GreaterOrLessThan"
+
+
+class CriterionType(str, Enum):
+    """
+    Specifies the type of threshold criteria
+    """
+    STATIC_THRESHOLD_CRITERION = "StaticThresholdCriterion"
+    DYNAMIC_THRESHOLD_CRITERION = "DynamicThresholdCriterion"
+
+
+class DimensionOperator(str, Enum):
+    """
+    Operator for dimension values
+    """
+    INCLUDE = "Include"
+    EXCLUDE = "Exclude"
 
 
 class ExporterType(str, Enum):
@@ -55,14 +102,72 @@ class ExternalNetworkingMode(str, Enum):
     """
 
 
+class IdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    NONE = "None"
+
+
+class IncidentManagementService(str, Enum):
+    """
+    The incident management service type
+    """
+    ICM = "Icm"
+
+
+class JsonMapperElement(str, Enum):
+    """
+    Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+    """
+    BODY = "body"
+    """
+    Read or write the json array from or to the body of the message.
+    """
+    ATTRIBUTES = "attributes"
+    """
+    Read or write the json array from or to the attributes of the message.
+    """
+
+
+class Kind(str, Enum):
+    """
+    Indicates the type of scheduled query rule. The default is LogAlert.
+    """
+    LOG_ALERT = "LogAlert"
+    EVENT_LOG_ALERT = "EventLogAlert"
+    LOG_TO_METRIC = "LogToMetric"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 class PipelineType(str, Enum):
     """
     The type of pipeline
     """
-    LOGS = "logs"
+    LOGS = "Logs"
     """
     Pipeline for logs telemetry.
     """
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class ProcessorType(str, Enum):
@@ -73,14 +178,6 @@ class ProcessorType(str, Enum):
     """
     Batch processor.
     """
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Gets or sets allow or disallow public network access to Azure Monitor Workspace
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class ReceiverType(str, Enum):
@@ -107,6 +204,14 @@ class ReceiverType(str, Enum):
     """
     Receives data from an UDP collector.
     """
+
+
+class ScopedResourceKind(str, Enum):
+    """
+    The kind of scoped Azure monitor resource.
+    """
+    RESOURCE = "Resource"
+    METRICS = "Metrics"
 
 
 class StreamEncodingType(str, Enum):
@@ -151,3 +256,14 @@ class SyslogProtocol(str, Enum):
     """
     rfc5424 protocol.
     """
+
+
+class TimeAggregation(str, Enum):
+    """
+    Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    """
+    COUNT = "Count"
+    AVERAGE = "Average"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+    TOTAL = "Total"

@@ -27,7 +27,10 @@ class FileShareArgs:
                  access_tier: Optional[pulumi.Input[Union[str, 'ShareAccessTier']]] = None,
                  enabled_protocols: Optional[pulumi.Input[Union[str, 'EnabledProtocols']]] = None,
                  expand: Optional[pulumi.Input[str]] = None,
+                 file_share_paid_bursting: Optional[pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs']] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 provisioned_bandwidth_mibps: Optional[pulumi.Input[int]] = None,
+                 provisioned_iops: Optional[pulumi.Input[int]] = None,
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
@@ -39,10 +42,13 @@ class FileShareArgs:
         :param pulumi.Input[Union[str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[Union[str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
         :param pulumi.Input[str] expand: Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
+        :param pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs'] file_share_paid_bursting: File Share Paid Bursting properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
+        :param pulumi.Input[int] provisioned_bandwidth_mibps: The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        :param pulumi.Input[int] provisioned_iops: The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
         :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        :param pulumi.Input[int] share_quota: The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         :param pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the share.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -53,8 +59,14 @@ class FileShareArgs:
             pulumi.set(__self__, "enabled_protocols", enabled_protocols)
         if expand is not None:
             pulumi.set(__self__, "expand", expand)
+        if file_share_paid_bursting is not None:
+            pulumi.set(__self__, "file_share_paid_bursting", file_share_paid_bursting)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if provisioned_bandwidth_mibps is not None:
+            pulumi.set(__self__, "provisioned_bandwidth_mibps", provisioned_bandwidth_mibps)
+        if provisioned_iops is not None:
+            pulumi.set(__self__, "provisioned_iops", provisioned_iops)
         if root_squash is not None:
             pulumi.set(__self__, "root_squash", root_squash)
         if share_name is not None:
@@ -125,6 +137,18 @@ class FileShareArgs:
         pulumi.set(self, "expand", value)
 
     @property
+    @pulumi.getter(name="fileSharePaidBursting")
+    def file_share_paid_bursting(self) -> Optional[pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs']]:
+        """
+        File Share Paid Bursting properties.
+        """
+        return pulumi.get(self, "file_share_paid_bursting")
+
+    @file_share_paid_bursting.setter
+    def file_share_paid_bursting(self, value: Optional[pulumi.Input['FileSharePropertiesFileSharePaidBurstingArgs']]):
+        pulumi.set(self, "file_share_paid_bursting", value)
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -135,6 +159,30 @@ class FileShareArgs:
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="provisionedBandwidthMibps")
+    def provisioned_bandwidth_mibps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        """
+        return pulumi.get(self, "provisioned_bandwidth_mibps")
+
+    @provisioned_bandwidth_mibps.setter
+    def provisioned_bandwidth_mibps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_bandwidth_mibps", value)
+
+    @property
+    @pulumi.getter(name="provisionedIops")
+    def provisioned_iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+        """
+        return pulumi.get(self, "provisioned_iops")
+
+    @provisioned_iops.setter
+    def provisioned_iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_iops", value)
 
     @property
     @pulumi.getter(name="rootSquash")
@@ -164,7 +212,7 @@ class FileShareArgs:
     @pulumi.getter(name="shareQuota")
     def share_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         """
         return pulumi.get(self, "share_quota")
 
@@ -194,7 +242,10 @@ class FileShare(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  enabled_protocols: Optional[pulumi.Input[Union[str, 'EnabledProtocols']]] = None,
                  expand: Optional[pulumi.Input[str]] = None,
+                 file_share_paid_bursting: Optional[pulumi.Input[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 provisioned_bandwidth_mibps: Optional[pulumi.Input[int]] = None,
+                 provisioned_iops: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
@@ -203,9 +254,7 @@ class FileShare(pulumi.CustomResource):
                  __props__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,11 +262,14 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Union[str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
         :param pulumi.Input[str] expand: Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
+        :param pulumi.Input[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']] file_share_paid_bursting: File Share Paid Bursting properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
+        :param pulumi.Input[int] provisioned_bandwidth_mibps: The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        :param pulumi.Input[int] provisioned_iops: The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        :param pulumi.Input[int] share_quota: The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]] signed_identifiers: List of stored access policies specified on the share.
         """
         ...
@@ -228,9 +280,7 @@ class FileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param FileShareArgs args: The arguments to use to populate this resource's properties.
@@ -251,7 +301,10 @@ class FileShare(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  enabled_protocols: Optional[pulumi.Input[Union[str, 'EnabledProtocols']]] = None,
                  expand: Optional[pulumi.Input[str]] = None,
+                 file_share_paid_bursting: Optional[pulumi.Input[Union['FileSharePropertiesFileSharePaidBurstingArgs', 'FileSharePropertiesFileSharePaidBurstingArgsDict']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 provisioned_bandwidth_mibps: Optional[pulumi.Input[int]] = None,
+                 provisioned_iops: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
@@ -272,7 +325,10 @@ class FileShare(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["enabled_protocols"] = enabled_protocols
             __props__.__dict__["expand"] = expand
+            __props__.__dict__["file_share_paid_bursting"] = file_share_paid_bursting
             __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["provisioned_bandwidth_mibps"] = provisioned_bandwidth_mibps
+            __props__.__dict__["provisioned_iops"] = provisioned_iops
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -282,14 +338,20 @@ class FileShare(pulumi.CustomResource):
             __props__.__dict__["signed_identifiers"] = signed_identifiers
             __props__.__dict__["access_tier_change_time"] = None
             __props__.__dict__["access_tier_status"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deleted"] = None
             __props__.__dict__["deleted_time"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["included_burst_iops"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["lease_duration"] = None
             __props__.__dict__["lease_state"] = None
             __props__.__dict__["lease_status"] = None
+            __props__.__dict__["max_burst_credits_for_iops"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["next_allowed_provisioned_bandwidth_downgrade_time"] = None
+            __props__.__dict__["next_allowed_provisioned_iops_downgrade_time"] = None
+            __props__.__dict__["next_allowed_quota_downgrade_time"] = None
             __props__.__dict__["remaining_retention_days"] = None
             __props__.__dict__["share_usage_bytes"] = None
             __props__.__dict__["snapshot_time"] = None
@@ -322,16 +384,25 @@ class FileShare(pulumi.CustomResource):
         __props__.__dict__["access_tier"] = None
         __props__.__dict__["access_tier_change_time"] = None
         __props__.__dict__["access_tier_status"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["deleted"] = None
         __props__.__dict__["deleted_time"] = None
         __props__.__dict__["enabled_protocols"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["file_share_paid_bursting"] = None
+        __props__.__dict__["included_burst_iops"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["lease_duration"] = None
         __props__.__dict__["lease_state"] = None
         __props__.__dict__["lease_status"] = None
+        __props__.__dict__["max_burst_credits_for_iops"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["next_allowed_provisioned_bandwidth_downgrade_time"] = None
+        __props__.__dict__["next_allowed_provisioned_iops_downgrade_time"] = None
+        __props__.__dict__["next_allowed_quota_downgrade_time"] = None
+        __props__.__dict__["provisioned_bandwidth_mibps"] = None
+        __props__.__dict__["provisioned_iops"] = None
         __props__.__dict__["remaining_retention_days"] = None
         __props__.__dict__["root_squash"] = None
         __props__.__dict__["share_quota"] = None
@@ -367,6 +438,14 @@ class FileShare(pulumi.CustomResource):
         return pulumi.get(self, "access_tier_status")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def deleted(self) -> pulumi.Output[bool]:
         """
@@ -397,6 +476,22 @@ class FileShare(pulumi.CustomResource):
         Resource Etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="fileSharePaidBursting")
+    def file_share_paid_bursting(self) -> pulumi.Output[Optional['outputs.FileSharePropertiesResponseFileSharePaidBursting']]:
+        """
+        File Share Paid Bursting properties.
+        """
+        return pulumi.get(self, "file_share_paid_bursting")
+
+    @property
+    @pulumi.getter(name="includedBurstIops")
+    def included_burst_iops(self) -> pulumi.Output[int]:
+        """
+        The calculated burst IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "included_burst_iops")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -431,6 +526,14 @@ class FileShare(pulumi.CustomResource):
         return pulumi.get(self, "lease_status")
 
     @property
+    @pulumi.getter(name="maxBurstCreditsForIops")
+    def max_burst_credits_for_iops(self) -> pulumi.Output[float]:
+        """
+        The calculated maximum burst credits for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "max_burst_credits_for_iops")
+
+    @property
     @pulumi.getter
     def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -445,6 +548,46 @@ class FileShare(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextAllowedProvisionedBandwidthDowngradeTime")
+    def next_allowed_provisioned_bandwidth_downgrade_time(self) -> pulumi.Output[str]:
+        """
+        Returns the next allowed provisioned bandwidth downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "next_allowed_provisioned_bandwidth_downgrade_time")
+
+    @property
+    @pulumi.getter(name="nextAllowedProvisionedIopsDowngradeTime")
+    def next_allowed_provisioned_iops_downgrade_time(self) -> pulumi.Output[str]:
+        """
+        Returns the next allowed provisioned IOPS downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "next_allowed_provisioned_iops_downgrade_time")
+
+    @property
+    @pulumi.getter(name="nextAllowedQuotaDowngradeTime")
+    def next_allowed_quota_downgrade_time(self) -> pulumi.Output[str]:
+        """
+        Returns the next allowed provisioned storage size downgrade time for the share. This property is only for file shares created under Files Provisioned v1 SSD and Files Provisioned v2 account type
+        """
+        return pulumi.get(self, "next_allowed_quota_downgrade_time")
+
+    @property
+    @pulumi.getter(name="provisionedBandwidthMibps")
+    def provisioned_bandwidth_mibps(self) -> pulumi.Output[Optional[int]]:
+        """
+        The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        """
+        return pulumi.get(self, "provisioned_bandwidth_mibps")
+
+    @property
+    @pulumi.getter(name="provisionedIops")
+    def provisioned_iops(self) -> pulumi.Output[Optional[int]]:
+        """
+        The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+        """
+        return pulumi.get(self, "provisioned_iops")
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
@@ -466,7 +609,7 @@ class FileShare(pulumi.CustomResource):
     @pulumi.getter(name="shareQuota")
     def share_quota(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         """
         return pulumi.get(self, "share_quota")
 

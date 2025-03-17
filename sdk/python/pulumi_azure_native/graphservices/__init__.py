@@ -9,11 +9,3 @@ from .account import *
 from .get_account import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.graphservices.v20230413 as __v20230413
-    v20230413 = __v20230413
-else:
-    v20230413 = _utilities.lazy_import('pulumi_azure_native.graphservices.v20230413')
-

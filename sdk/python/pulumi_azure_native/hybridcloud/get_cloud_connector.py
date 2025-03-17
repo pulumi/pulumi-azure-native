@@ -27,10 +27,13 @@ class GetCloudConnectorResult:
     """
     Cloud Connector resource.
     """
-    def __init__(__self__, account_id=None, cloud_type=None, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, azure_api_version=None, cloud_type=None, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_type and not isinstance(cloud_type, str):
             raise TypeError("Expected argument 'cloud_type' to be a str")
         pulumi.set(__self__, "cloud_type", cloud_type)
@@ -66,6 +69,14 @@ class GetCloudConnectorResult:
         Account identifier of the remote cloud.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudType")
@@ -147,6 +158,7 @@ class AwaitableGetCloudConnectorResult(GetCloudConnectorResult):
             yield self
         return GetCloudConnectorResult(
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             cloud_type=self.cloud_type,
             etag=self.etag,
             id=self.id,
@@ -177,6 +189,7 @@ def get_cloud_connector(cloud_connector_name: Optional[str] = None,
 
     return AwaitableGetCloudConnectorResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_type=pulumi.get(__ret__, 'cloud_type'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -204,6 +217,7 @@ def get_cloud_connector_output(cloud_connector_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcloud:getCloudConnector', __args__, opts=opts, typ=GetCloudConnectorResult)
     return __ret__.apply(lambda __response__: GetCloudConnectorResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_type=pulumi.get(__response__, 'cloud_type'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

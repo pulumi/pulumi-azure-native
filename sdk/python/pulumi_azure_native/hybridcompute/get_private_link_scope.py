@@ -27,7 +27,10 @@ class GetPrivateLinkScopeResult:
     """
     An Azure Arc PrivateLinkScope definition.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetPrivateLinkScopeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetPrivateLinkScopeResult(GetPrivateLinkScopeResult):
         if False:
             yield self
         return GetPrivateLinkScopeResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -127,9 +139,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
     Returns a Azure Arc PrivateLinkScope.
-    Azure REST API version: 2022-12-27.
-
-    Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    Azure REST API version: 2024-07-10.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -142,6 +152,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcompute:getPrivateLinkScope', __args__, opts=opts, typ=GetPrivateLinkScopeResult).value
 
     return AwaitableGetPrivateLinkScopeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -154,9 +165,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
     Returns a Azure Arc PrivateLinkScope.
-    Azure REST API version: 2022-12-27.
-
-    Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    Azure REST API version: 2024-07-10.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -168,6 +177,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute:getPrivateLinkScope', __args__, opts=opts, typ=GetPrivateLinkScopeResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkScopeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

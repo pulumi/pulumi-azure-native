@@ -131,9 +131,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A short term retention policy.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,9 +150,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A short term retention policy.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param BackupShortTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +194,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:BackupShortTermRetentionPolicy")])
@@ -224,11 +221,20 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
 
         __props__ = BackupShortTermRetentionPolicyArgs.__new__(BackupShortTermRetentionPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["diff_backup_interval_in_hours"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["retention_days"] = None
         __props__.__dict__["type"] = None
         return BackupShortTermRetentionPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="diffBackupIntervalInHours")

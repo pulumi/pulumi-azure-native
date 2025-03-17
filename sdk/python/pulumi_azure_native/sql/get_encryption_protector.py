@@ -26,10 +26,13 @@ class GetEncryptionProtectorResult:
     """
     The server encryption protector.
     """
-    def __init__(__self__, auto_rotation_enabled=None, id=None, kind=None, location=None, name=None, server_key_name=None, server_key_type=None, subregion=None, thumbprint=None, type=None, uri=None):
+    def __init__(__self__, auto_rotation_enabled=None, azure_api_version=None, id=None, kind=None, location=None, name=None, server_key_name=None, server_key_type=None, subregion=None, thumbprint=None, type=None, uri=None):
         if auto_rotation_enabled and not isinstance(auto_rotation_enabled, bool):
             raise TypeError("Expected argument 'auto_rotation_enabled' to be a bool")
         pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -68,6 +71,14 @@ class GetEncryptionProtectorResult:
         Key auto rotation opt-in flag. Either true or false.
         """
         return pulumi.get(self, "auto_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetEncryptionProtectorResult(GetEncryptionProtectorResult):
             yield self
         return GetEncryptionProtectorResult(
             auto_rotation_enabled=self.auto_rotation_enabled,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             location=self.location,
@@ -177,8 +189,6 @@ def get_encryption_protector(encryption_protector_name: Optional[str] = None,
     Gets a server encryption protector.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -193,6 +203,7 @@ def get_encryption_protector(encryption_protector_name: Optional[str] = None,
 
     return AwaitableGetEncryptionProtectorResult(
         auto_rotation_enabled=pulumi.get(__ret__, 'auto_rotation_enabled'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
@@ -211,8 +222,6 @@ def get_encryption_protector_output(encryption_protector_name: Optional[pulumi.I
     Gets a server encryption protector.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -226,6 +235,7 @@ def get_encryption_protector_output(encryption_protector_name: Optional[pulumi.I
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getEncryptionProtector', __args__, opts=opts, typ=GetEncryptionProtectorResult)
     return __ret__.apply(lambda __response__: GetEncryptionProtectorResult(
         auto_rotation_enabled=pulumi.get(__response__, 'auto_rotation_enabled'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),

@@ -26,6 +26,7 @@ class ConfigurationStoreArgs:
                  sku: pulumi.Input['SkuArgs'],
                  config_store_name: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input['CreateMode']] = None,
+                 data_plane_proxy: Optional[pulumi.Input['DataPlaneProxyPropertiesArgs']] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
@@ -40,6 +41,7 @@ class ConfigurationStoreArgs:
         :param pulumi.Input['SkuArgs'] sku: The sku of the configuration store.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
         :param pulumi.Input['CreateMode'] create_mode: Indicates whether the configuration store need to be recovered.
+        :param pulumi.Input['DataPlaneProxyPropertiesArgs'] data_plane_proxy: Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
         :param pulumi.Input[bool] disable_local_auth: Disables all authentication methods other than AAD authentication.
         :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this configuration store.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: The encryption settings of the configuration store.
@@ -55,6 +57,8 @@ class ConfigurationStoreArgs:
             pulumi.set(__self__, "config_store_name", config_store_name)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if data_plane_proxy is not None:
+            pulumi.set(__self__, "data_plane_proxy", data_plane_proxy)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
@@ -125,6 +129,18 @@ class ConfigurationStoreArgs:
     @create_mode.setter
     def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
         pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="dataPlaneProxy")
+    def data_plane_proxy(self) -> Optional[pulumi.Input['DataPlaneProxyPropertiesArgs']]:
+        """
+        Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+        """
+        return pulumi.get(self, "data_plane_proxy")
+
+    @data_plane_proxy.setter
+    def data_plane_proxy(self, value: Optional[pulumi.Input['DataPlaneProxyPropertiesArgs']]):
+        pulumi.set(self, "data_plane_proxy", value)
 
     @property
     @pulumi.getter(name="disableLocalAuth")
@@ -230,6 +246,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_store_name: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input['CreateMode']] = None,
+                 data_plane_proxy: Optional[pulumi.Input[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
@@ -243,14 +260,13 @@ class ConfigurationStore(pulumi.CustomResource):
                  __props__=None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
-
-        Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
         :param pulumi.Input['CreateMode'] create_mode: Indicates whether the configuration store need to be recovered.
+        :param pulumi.Input[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']] data_plane_proxy: Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
         :param pulumi.Input[bool] disable_local_auth: Disables all authentication methods other than AAD authentication.
         :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this configuration store.
         :param pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']] encryption: The encryption settings of the configuration store.
@@ -270,9 +286,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
-
-        Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.
@@ -291,6 +305,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_store_name: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input['CreateMode']] = None,
+                 data_plane_proxy: Optional[pulumi.Input[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
@@ -312,6 +327,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
             __props__.__dict__["config_store_name"] = config_store_name
             __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["data_plane_proxy"] = data_plane_proxy
             if disable_local_auth is None:
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
@@ -332,6 +348,7 @@ class ConfigurationStore(pulumi.CustomResource):
                 soft_delete_retention_in_days = 7
             __props__.__dict__["soft_delete_retention_in_days"] = soft_delete_retention_in_days
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["name"] = None
@@ -363,7 +380,9 @@ class ConfigurationStore(pulumi.CustomResource):
 
         __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_date"] = None
+        __props__.__dict__["data_plane_proxy"] = None
         __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["enable_purge_protection"] = None
         __props__.__dict__["encryption"] = None
@@ -382,12 +401,28 @@ class ConfigurationStore(pulumi.CustomResource):
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of configuration store.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="dataPlaneProxy")
+    def data_plane_proxy(self) -> pulumi.Output[Optional['outputs.DataPlaneProxyPropertiesResponse']]:
+        """
+        Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+        """
+        return pulumi.get(self, "data_plane_proxy")
 
     @property
     @pulumi.getter(name="disableLocalAuth")

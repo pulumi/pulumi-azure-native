@@ -27,10 +27,13 @@ class GetContactProfileResult:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     """
-    def __init__(__self__, auto_tracking_configuration=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, network_configuration=None, system_data=None, tags=None, third_party_configurations=None, type=None):
+    def __init__(__self__, auto_tracking_configuration=None, azure_api_version=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, network_configuration=None, system_data=None, tags=None, third_party_configurations=None, type=None):
         if auto_tracking_configuration and not isinstance(auto_tracking_configuration, str):
             raise TypeError("Expected argument 'auto_tracking_configuration' to be a str")
         pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if event_hub_uri and not isinstance(event_hub_uri, str):
             raise TypeError("Expected argument 'event_hub_uri' to be a str")
         pulumi.set(__self__, "event_hub_uri", event_hub_uri)
@@ -75,6 +78,14 @@ class GetContactProfileResult:
         Auto-tracking configuration.
         """
         return pulumi.get(self, "auto_tracking_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eventHubUri")
@@ -180,6 +191,7 @@ class AwaitableGetContactProfileResult(GetContactProfileResult):
             yield self
         return GetContactProfileResult(
             auto_tracking_configuration=self.auto_tracking_configuration,
+            azure_api_version=self.azure_api_version,
             event_hub_uri=self.event_hub_uri,
             id=self.id,
             links=self.links,
@@ -201,8 +213,6 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
     Gets the specified contact Profile in a specified resource group.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2022-03-01.
-
 
     :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -215,6 +225,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
 
     return AwaitableGetContactProfileResult(
         auto_tracking_configuration=pulumi.get(__ret__, 'auto_tracking_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         event_hub_uri=pulumi.get(__ret__, 'event_hub_uri'),
         id=pulumi.get(__ret__, 'id'),
         links=pulumi.get(__ret__, 'links'),
@@ -234,8 +245,6 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
     Gets the specified contact Profile in a specified resource group.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2022-03-01.
-
 
     :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -247,6 +256,7 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getContactProfile', __args__, opts=opts, typ=GetContactProfileResult)
     return __ret__.apply(lambda __response__: GetContactProfileResult(
         auto_tracking_configuration=pulumi.get(__response__, 'auto_tracking_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         event_hub_uri=pulumi.get(__response__, 'event_hub_uri'),
         id=pulumi.get(__response__, 'id'),
         links=pulumi.get(__response__, 'links'),

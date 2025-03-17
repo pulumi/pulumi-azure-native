@@ -27,7 +27,10 @@ class GetStudentResult:
     """
     Student details.
     """
-    def __init__(__self__, budget=None, effective_date=None, email=None, expiration_date=None, first_name=None, id=None, last_name=None, name=None, role=None, status=None, subscription_alias=None, subscription_id=None, subscription_invite_last_sent_date=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, budget=None, effective_date=None, email=None, expiration_date=None, first_name=None, id=None, last_name=None, name=None, role=None, status=None, subscription_alias=None, subscription_id=None, subscription_invite_last_sent_date=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if budget and not isinstance(budget, dict):
             raise TypeError("Expected argument 'budget' to be a dict")
         pulumi.set(__self__, "budget", budget)
@@ -73,6 +76,14 @@ class GetStudentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -201,6 +212,7 @@ class AwaitableGetStudentResult(GetStudentResult):
         if False:
             yield self
         return GetStudentResult(
+            azure_api_version=self.azure_api_version,
             budget=self.budget,
             effective_date=self.effective_date,
             email=self.email,
@@ -242,6 +254,7 @@ def get_student(billing_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:education:getStudent', __args__, opts=opts, typ=GetStudentResult).value
 
     return AwaitableGetStudentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         budget=pulumi.get(__ret__, 'budget'),
         effective_date=pulumi.get(__ret__, 'effective_date'),
         email=pulumi.get(__ret__, 'email'),
@@ -280,6 +293,7 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:education:getStudent', __args__, opts=opts, typ=GetStudentResult)
     return __ret__.apply(lambda __response__: GetStudentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         budget=pulumi.get(__response__, 'budget'),
         effective_date=pulumi.get(__response__, 'effective_date'),
         email=pulumi.get(__response__, 'email'),

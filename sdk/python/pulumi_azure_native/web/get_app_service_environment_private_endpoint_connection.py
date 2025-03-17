@@ -27,7 +27,10 @@ class GetAppServiceEnvironmentPrivateEndpointConnectionResult:
     """
     Remote Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetAppServiceEnvironmentPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -121,6 +132,7 @@ class AwaitableGetAppServiceEnvironmentPrivateEndpointConnectionResult(GetAppSer
         if False:
             yield self
         return GetAppServiceEnvironmentPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             ip_addresses=self.ip_addresses,
             kind=self.kind,
@@ -137,9 +149,7 @@ def get_app_service_environment_private_endpoint_connection(name: Optional[str] 
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentPrivateEndpointConnectionResult:
     """
     Description for Gets a private endpoint connection
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -154,6 +164,7 @@ def get_app_service_environment_private_endpoint_connection(name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection', __args__, opts=opts, typ=GetAppServiceEnvironmentPrivateEndpointConnectionResult).value
 
     return AwaitableGetAppServiceEnvironmentPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -168,9 +179,7 @@ def get_app_service_environment_private_endpoint_connection_output(name: Optiona
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentPrivateEndpointConnectionResult]:
     """
     Description for Gets a private endpoint connection
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -184,6 +193,7 @@ def get_app_service_environment_private_endpoint_connection_output(name: Optiona
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection', __args__, opts=opts, typ=GetAppServiceEnvironmentPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetAppServiceEnvironmentPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         ip_addresses=pulumi.get(__response__, 'ip_addresses'),
         kind=pulumi.get(__response__, 'kind'),

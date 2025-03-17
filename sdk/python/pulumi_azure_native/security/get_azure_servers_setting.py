@@ -27,7 +27,10 @@ class GetAzureServersSettingResult:
     """
     A vulnerability assessments setting on Azure servers in the defined scope.
     """
-    def __init__(__self__, id=None, kind=None, name=None, selected_provider=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, name=None, selected_provider=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetAzureServersSettingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetAzureServersSettingResult(GetAzureServersSettingResult):
         if False:
             yield self
         return GetAzureServersSettingResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             name=self.name,
@@ -126,6 +138,7 @@ def get_azure_servers_setting(setting_kind: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getAzureServersSetting', __args__, opts=opts, typ=GetAzureServersSettingResult).value
 
     return AwaitableGetAzureServersSettingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
@@ -146,6 +159,7 @@ def get_azure_servers_setting_output(setting_kind: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAzureServersSetting', __args__, opts=opts, typ=GetAzureServersSettingResult)
     return __ret__.apply(lambda __response__: GetAzureServersSettingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),

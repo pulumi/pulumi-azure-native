@@ -27,7 +27,10 @@ class GetPublicIPAddressResult:
     """
     Public IP address resource.
     """
-    def __init__(__self__, ddos_settings=None, delete_option=None, dns_settings=None, etag=None, extended_location=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, linked_public_ip_address=None, location=None, migration_phase=None, name=None, nat_gateway=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, service_public_ip_address=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, ddos_settings=None, delete_option=None, dns_settings=None, etag=None, extended_location=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, linked_public_ip_address=None, location=None, migration_phase=None, name=None, nat_gateway=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, service_public_ip_address=None, sku=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if ddos_settings and not isinstance(ddos_settings, dict):
             raise TypeError("Expected argument 'ddos_settings' to be a dict")
         pulumi.set(__self__, "ddos_settings", ddos_settings)
@@ -103,6 +106,14 @@ class GetPublicIPAddressResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="ddosSettings")
@@ -311,6 +322,7 @@ class AwaitableGetPublicIPAddressResult(GetPublicIPAddressResult):
         if False:
             yield self
         return GetPublicIPAddressResult(
+            azure_api_version=self.azure_api_version,
             ddos_settings=self.ddos_settings,
             delete_option=self.delete_option,
             dns_settings=self.dns_settings,
@@ -344,9 +356,7 @@ def get_public_ip_address(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPAddressResult:
     """
     Gets the specified public IP address in a specified resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -361,6 +371,7 @@ def get_public_ip_address(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPublicIPAddress', __args__, opts=opts, typ=GetPublicIPAddressResult).value
 
     return AwaitableGetPublicIPAddressResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         ddos_settings=pulumi.get(__ret__, 'ddos_settings'),
         delete_option=pulumi.get(__ret__, 'delete_option'),
         dns_settings=pulumi.get(__ret__, 'dns_settings'),
@@ -392,9 +403,7 @@ def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIPAddressResult]:
     """
     Gets the specified public IP address in a specified resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -408,6 +417,7 @@ def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[str]]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPublicIPAddress', __args__, opts=opts, typ=GetPublicIPAddressResult)
     return __ret__.apply(lambda __response__: GetPublicIPAddressResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         ddos_settings=pulumi.get(__response__, 'ddos_settings'),
         delete_option=pulumi.get(__response__, 'delete_option'),
         dns_settings=pulumi.get(__response__, 'dns_settings'),

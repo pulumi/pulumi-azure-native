@@ -27,10 +27,13 @@ class GetFavoriteProcessResult:
     """
     A favorite process identifier.
     """
-    def __init__(__self__, actual_process_name=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, actual_process_name=None, azure_api_version=None, id=None, name=None, system_data=None, type=None):
         if actual_process_name and not isinstance(actual_process_name, str):
             raise TypeError("Expected argument 'actual_process_name' to be a str")
         pulumi.set(__self__, "actual_process_name", actual_process_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,10 +56,18 @@ class GetFavoriteProcessResult:
         return pulumi.get(self, "actual_process_name")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -64,7 +75,7 @@ class GetFavoriteProcessResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -72,7 +83,7 @@ class GetFavoriteProcessResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -80,7 +91,7 @@ class GetFavoriteProcessResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -92,6 +103,7 @@ class AwaitableGetFavoriteProcessResult(GetFavoriteProcessResult):
             yield self
         return GetFavoriteProcessResult(
             actual_process_name=self.actual_process_name,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             system_data=self.system_data,
@@ -105,14 +117,12 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFavoriteProcessResult:
     """
     Gets a favorite process for a Test Base Package.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -125,6 +135,7 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
 
     return AwaitableGetFavoriteProcessResult(
         actual_process_name=pulumi.get(__ret__, 'actual_process_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -136,14 +147,12 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFavoriteProcessResult]:
     """
     Gets a favorite process for a Test Base Package.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -155,6 +164,7 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getFavoriteProcess', __args__, opts=opts, typ=GetFavoriteProcessResult)
     return __ret__.apply(lambda __response__: GetFavoriteProcessResult(
         actual_process_name=pulumi.get(__response__, 'actual_process_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         system_data=pulumi.get(__response__, 'system_data'),

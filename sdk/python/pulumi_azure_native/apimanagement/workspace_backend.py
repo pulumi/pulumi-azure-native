@@ -298,9 +298,7 @@ class WorkspaceBackend(pulumi.CustomResource):
                  __props__=None):
         """
         Backend details.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,9 +326,7 @@ class WorkspaceBackend(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backend details.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceBackendArgs args: The arguments to use to populate this resource's properties.
@@ -398,6 +394,7 @@ class WorkspaceBackend(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceBackend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -423,6 +420,7 @@ class WorkspaceBackend(pulumi.CustomResource):
 
         __props__ = WorkspaceBackendArgs.__new__(WorkspaceBackendArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["circuit_breaker"] = None
         __props__.__dict__["credentials"] = None
         __props__.__dict__["description"] = None
@@ -437,6 +435,14 @@ class WorkspaceBackend(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["url"] = None
         return WorkspaceBackend(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="circuitBreaker")

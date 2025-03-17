@@ -12,11 +12,3 @@ from .get_secret_sync import *
 from .secret_sync import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.secretsynccontroller.v20240821preview as __v20240821preview
-    v20240821preview = __v20240821preview
-else:
-    v20240821preview = _utilities.lazy_import('pulumi_azure_native.secretsynccontroller.v20240821preview')
-

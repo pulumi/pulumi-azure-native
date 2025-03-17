@@ -133,9 +133,7 @@ class AccessPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
-
-        Other available API versions: 2021-06-30-preview.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,9 +152,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
-
-        Other available API versions: 2021-06-30-preview.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +194,7 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["roles"] = roles
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:AccessPolicy")])
@@ -224,12 +221,21 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_object_id"] = None
         __props__.__dict__["roles"] = None
         __props__.__dict__["type"] = None
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

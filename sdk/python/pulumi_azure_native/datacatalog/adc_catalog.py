@@ -204,7 +204,7 @@ class ADCCatalog(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Data Catalog.
-        Azure REST API version: 2016-03-30. Prior API version in Azure Native 1.x: 2016-03-30.
+        Azure REST API version: 2016-03-30. Prior API version in Azure Native 2.x: 2016-03-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +227,7 @@ class ADCCatalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Data Catalog.
-        Azure REST API version: 2016-03-30. Prior API version in Azure Native 1.x: 2016-03-30.
+        Azure REST API version: 2016-03-30. Prior API version in Azure Native 2.x: 2016-03-30.
 
         :param str resource_name: The name of the resource.
         :param ADCCatalogArgs args: The arguments to use to populate this resource's properties.
@@ -275,6 +275,7 @@ class ADCCatalog(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["units"] = units
             __props__.__dict__["users"] = users
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -303,6 +304,7 @@ class ADCCatalog(pulumi.CustomResource):
         __props__ = ADCCatalogArgs.__new__(ADCCatalogArgs)
 
         __props__.__dict__["admins"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["enable_automatic_unit_adjustment"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
@@ -322,6 +324,14 @@ class ADCCatalog(pulumi.CustomResource):
         Azure data catalog admin list.
         """
         return pulumi.get(self, "admins")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableAutomaticUnitAdjustment")
