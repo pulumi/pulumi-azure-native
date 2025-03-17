@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Get the storage task assignment properties
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetStorageTaskAssignmentResult> InvokeAsync(GetStorageTaskAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTaskAssignmentResult>("azure-native:storage:getStorageTaskAssignment", args ?? new GetStorageTaskAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the storage task assignment properties
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetStorageTaskAssignmentResult> Invoke(GetStorageTaskAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTaskAssignmentResult>("azure-native:storage:getStorageTaskAssignment", args ?? new GetStorageTaskAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the storage task assignment properties
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetStorageTaskAssignmentResult> Invoke(GetStorageTaskAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTaskAssignmentResult>("azure-native:storage:getStorageTaskAssignment", args ?? new GetStorageTaskAssignmentInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetStorageTaskAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Storage
 
         [OutputConstructor]
         private GetStorageTaskAssignmentResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Storage
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

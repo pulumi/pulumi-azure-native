@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.StoragePool
 {
     /// <summary>
     /// Response for Disk Pool request.
-    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview.
-    /// 
-    /// Other available API versions: 2020-03-15-preview.
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool:DiskPool")]
     public partial class DiskPool : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.StoragePool
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// List of Azure Managed Disks to attach to a Disk Pool.

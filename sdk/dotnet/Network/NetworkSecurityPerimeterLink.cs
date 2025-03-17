@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network security perimeter link resource
-    /// Azure REST API version: 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterLink")]
     public partial class NetworkSecurityPerimeterLink : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("autoApprovedRemotePerimeterResourceId")]
         public Output<string?> AutoApprovedRemotePerimeterResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
@@ -120,9 +126,13 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

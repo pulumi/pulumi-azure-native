@@ -10,19 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
-    /// Backup of a Volume
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    /// Backup under a Backup Vault
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// UUID v4 used to identify the Backup
         /// </summary>
         [Output("backupId")]
         public Output<string> BackupId { get; private set; } = null!;
+
+        /// <summary>
+        /// ResourceId used to identify the backup policy
+        /// </summary>
+        [Output("backupPolicyResourceId")]
+        public Output<string> BackupPolicyResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Type of backup Manual or Scheduled
@@ -49,12 +59,6 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string?> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -67,10 +71,16 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Size of backup
+        /// Size of backup in bytes
         /// </summary>
         [Output("size")]
         public Output<double> Size { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the snapshot
+        /// </summary>
+        [Output("snapshotName")]
+        public Output<string?> SnapshotName { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -91,10 +101,10 @@ namespace Pulumi.AzureNative.NetApp
         public Output<bool?> UseExistingSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// Volume name
+        /// ResourceId used to identify the Volume
         /// </summary>
-        [Output("volumeName")]
-        public Output<string> VolumeName { get; private set; } = null!;
+        [Output("volumeResourceId")]
+        public Output<string> VolumeResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,24 +131,21 @@ namespace Pulumi.AzureNative.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200501:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200801:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:Backup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,22 +182,16 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string>? BackupName { get; set; }
 
         /// <summary>
+        /// The name of the Backup Vault
+        /// </summary>
+        [Input("backupVaultName", required: true)]
+        public Input<string> BackupVaultName { get; set; } = null!;
+
+        /// <summary>
         /// Label for backup
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
-
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the capacity pool
-        /// </summary>
-        [Input("poolName", required: true)]
-        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -199,16 +200,22 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the snapshot
+        /// </summary>
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
+
+        /// <summary>
         /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         /// </summary>
         [Input("useExistingSnapshot")]
         public Input<bool>? UseExistingSnapshot { get; set; }
 
         /// <summary>
-        /// The name of the volume
+        /// ResourceId used to identify the Volume
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeResourceId", required: true)]
+        public Input<string> VolumeResourceId { get; set; } = null!;
 
         public BackupArgs()
         {

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents an attached NetworkConnection.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:AttachedNetworkByDevCenter")]
     public partial class AttachedNetworkByDevCenter : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// AAD Join type of the network. This is populated based on the referenced Network Connection.
         /// </summary>
@@ -105,6 +109,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:AttachedNetworkByDevCenter" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:AttachedNetworkByDevCenter" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:AttachedNetworkByDevCenter" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:AttachedNetworkByDevCenter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

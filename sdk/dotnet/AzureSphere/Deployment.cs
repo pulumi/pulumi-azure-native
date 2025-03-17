@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AzureSphere
 {
     /// <summary>
     /// An deployment resource belonging to a device group resource.
-    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Images deployed
         /// </summary>

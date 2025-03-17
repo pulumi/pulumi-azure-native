@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// Arm Resource Id of IpPrefix.
         /// </summary>
         public readonly string? IpPrefixId;
+        /// <summary>
+        /// Type of the condition used.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private StatementConditionPropertiesResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 
             ImmutableArray<string> ipExtendedCommunityIds,
 
-            string? ipPrefixId)
+            string? ipPrefixId,
+
+            string? type)
         {
             IpCommunityIds = ipCommunityIds;
             IpExtendedCommunityIds = ipExtendedCommunityIds;
             IpPrefixId = ipPrefixId;
+            Type = type;
         }
     }
 }

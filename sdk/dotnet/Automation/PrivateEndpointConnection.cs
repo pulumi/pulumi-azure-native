@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// A private endpoint connection
-    /// Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2020-01-13-preview.
-    /// 
-    /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+    /// Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2020-01-13-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets the groupIds.
         /// </summary>
@@ -43,7 +47,13 @@ namespace Pulumi.AzureNative.Automation
         public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

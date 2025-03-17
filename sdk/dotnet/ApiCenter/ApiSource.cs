@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiCenter
 {
     /// <summary>
     /// API source entity.
-    /// Azure REST API version: 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:ApiSource")]
     public partial class ApiSource : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         [Output("azureApiManagementSource")]
         public Output<Outputs.AzureApiManagementSourceResponse?> AzureApiManagementSource { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if the specification should be imported along with metadata.

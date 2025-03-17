@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.Inputs
     public sealed class ApiEntityReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        /// The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         public ApiEntityReferenceArgs()
         {

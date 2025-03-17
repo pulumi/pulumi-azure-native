@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-    /// Azure REST API version: 2024-03-02-preview.
-    /// 
-    /// Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+    /// Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-03-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("allowServicePlacement")]
         public Output<bool?> AllowServicePlacement { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -103,6 +107,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240602preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240702preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the product link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetTagProductLinkResult> InvokeAsync(GetTagProductLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagProductLinkResult>("azure-native:apimanagement:getTagProductLink", args ?? new GetTagProductLinkArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the product link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetTagProductLinkResult> Invoke(GetTagProductLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagProductLinkResult>("azure-native:apimanagement:getTagProductLink", args ?? new GetTagProductLinkInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the product link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetTagProductLinkResult> Invoke(GetTagProductLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagProductLinkResult>("azure-native:apimanagement:getTagProductLink", args ?? new GetTagProductLinkInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetTagProductLinkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetTagProductLinkResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProductId = productId;

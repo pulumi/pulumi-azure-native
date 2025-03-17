@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines the security user rule collection.
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityUserRuleCollection")]
     public partial class SecurityUserRuleCollection : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("appliesToGroups")]
         public Output<ImmutableArray<Outputs.SecurityUserGroupItemResponse>> AppliesToGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A description of the security user rule collection.
@@ -92,11 +96,15 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:UserRuleCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

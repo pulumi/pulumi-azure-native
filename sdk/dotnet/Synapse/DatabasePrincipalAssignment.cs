@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a database principal assignment.
-    /// Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+    /// Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 2.x: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -103,6 +109,8 @@ namespace Pulumi.AzureNative.Synapse
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDatabasePrincipalAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

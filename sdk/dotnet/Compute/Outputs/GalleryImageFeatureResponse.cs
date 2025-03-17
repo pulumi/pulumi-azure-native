@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// The minimum gallery image version which supports this feature.
+        /// </summary>
+        public readonly string? StartsAtVersion;
+        /// <summary>
         /// The value of the gallery image feature.
         /// </summary>
         public readonly string? Value;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private GalleryImageFeatureResponse(
             string? name,
 
+            string? startsAtVersion,
+
             string? value)
         {
             Name = name;
+            StartsAtVersion = startsAtVersion;
             Value = value;
         }
     }

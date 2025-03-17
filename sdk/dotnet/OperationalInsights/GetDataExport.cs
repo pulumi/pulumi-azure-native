@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a data export instance.
-        /// Azure REST API version: 2020-08-01.
-        /// 
-        /// Other available API versions: 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights:getDataExport", args ?? new GetDataExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data export instance.
-        /// Azure REST API version: 2020-08-01.
-        /// 
-        /// Other available API versions: 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data export instance.
-        /// Azure REST API version: 2020-08-01.
-        /// 
-        /// Other available API versions: 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetDataExportResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The latest data export rule modification time.
         /// </summary>
         public readonly string? CreatedDate;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         [OutputConstructor]
         private GetDataExportResult(
+            string azureApiVersion,
+
             string? createdDate,
 
             string? dataExportId,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             DataExportId = dataExportId;
             Enable = enable;

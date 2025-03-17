@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Subscription
     public sealed class GetSubscriptionTarDirectoryResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified ID for the Subscription Changed Directory resource.
         /// </summary>
         public readonly string Id;
@@ -85,6 +89,8 @@ namespace Pulumi.AzureNative.Subscription
 
         [OutputConstructor]
         private GetSubscriptionTarDirectoryResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNative.Subscription
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

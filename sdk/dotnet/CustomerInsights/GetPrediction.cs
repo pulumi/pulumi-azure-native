@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public readonly bool AutoAnalyze;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Description of the prediction.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Description;
@@ -175,6 +179,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         private GetPredictionResult(
             bool autoAnalyze,
 
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? description,
 
             ImmutableDictionary<string, string>? displayName,
@@ -214,6 +220,7 @@ namespace Pulumi.AzureNative.CustomerInsights
             string type)
         {
             AutoAnalyze = autoAnalyze;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Grades = grades;

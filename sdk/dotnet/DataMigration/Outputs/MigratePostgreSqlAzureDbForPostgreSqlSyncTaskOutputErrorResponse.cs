@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.ReportableExceptionResponse Error;
         /// <summary>
+        /// List of error events
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SyncMigrationDatabaseErrorEventResponse> Events;
+        /// <summary>
         /// Result identifier
         /// </summary>
         public readonly string Id;
@@ -31,11 +35,14 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         private MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(
             Outputs.ReportableExceptionResponse error,
 
+            ImmutableArray<Outputs.SyncMigrationDatabaseErrorEventResponse> events,
+
             string id,
 
             string resultType)
         {
             Error = error;
+            Events = events;
             Id = id;
             ResultType = resultType;
         }

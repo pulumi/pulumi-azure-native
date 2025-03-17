@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified cache rule resource.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Task<GetCacheRuleResult> InvokeAsync(GetCacheRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheRuleResult>("azure-native:containerregistry:getCacheRule", args ?? new GetCacheRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified cache rule resource.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetCacheRuleResult> Invoke(GetCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheRuleResult>("azure-native:containerregistry:getCacheRule", args ?? new GetCacheRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified cache rule resource.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetCacheRuleResult> Invoke(GetCacheRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheRuleResult>("azure-native:containerregistry:getCacheRule", args ?? new GetCacheRuleInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public sealed class GetCacheRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the cache rule.
         /// </summary>
         public readonly string CreationDate;
@@ -136,6 +134,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
         [OutputConstructor]
         private GetCacheRuleResult(
+            string azureApiVersion,
+
             string creationDate,
 
             string? credentialSetResourceId,
@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             CredentialSetResourceId = credentialSetResourceId;
             Id = id;

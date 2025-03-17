@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Security assessment metadata response
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("assessmentType")]
         public Output<string> AssessmentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         [Output("categories")]
         public Output<ImmutableArray<string>> Categories { get; private set; } = null!;
@@ -132,8 +138,10 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentMetadataInSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentMetadataInSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentMetadataInSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:security:AssessmentsMetadataSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -48,9 +48,16 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
             set => _eventListeners = value;
         }
 
+        /// <summary>
+        /// The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
+        /// </summary>
+        [Input("webSocketKeepAliveIntervalInSeconds")]
+        public Input<int>? WebSocketKeepAliveIntervalInSeconds { get; set; }
+
         public WebPubSubHubPropertiesArgs()
         {
             AnonymousConnectPolicy = "deny";
+            WebSocketKeepAliveIntervalInSeconds = 20;
         }
         public static new WebPubSubHubPropertiesArgs Empty => new WebPubSubHubPropertiesArgs();
     }

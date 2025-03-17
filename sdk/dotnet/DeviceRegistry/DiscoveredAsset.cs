@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
 {
     /// <summary>
     /// Discovered Asset definition.
-    /// Azure REST API version: 2024-09-01-preview.
+    /// Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:DiscoveredAsset")]
     public partial class DiscoveredAsset : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         [Output("assetEndpointProfileRef")]
         public Output<string> AssetEndpointProfileRef { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.

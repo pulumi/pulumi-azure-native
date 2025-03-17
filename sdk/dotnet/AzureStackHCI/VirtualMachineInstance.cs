@@ -11,13 +11,23 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The virtual machine instance resource definition.
-    /// Azure REST API version: 2023-07-01-preview.
-    /// 
-    /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    /// Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualMachineInstance")]
     public partial class VirtualMachineInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean indicating whether this is an existing local virtual machine or if one should be created.
+        /// </summary>
+        [Output("createFromLocal")]
+        public Output<bool?> CreateFromLocal { get; private set; } = null!;
+
         /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
@@ -34,13 +44,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         /// </summary>
         [Output("hardwareProfile")]
-        public Output<Outputs.VirtualMachineInstancePropertiesResponseHardwareProfile?> HardwareProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineInstancePropertiesHardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Identity for the resource.
+        /// HTTP Proxy configuration for the VM.
+        /// </summary>
+        [Output("httpProxyConfig")]
+        public Output<Outputs.HttpProxyConfigurationResponse?> HttpProxyConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine instance view.
@@ -58,13 +74,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// NetworkProfile - describes the network configuration the virtual machine instance
         /// </summary>
         [Output("networkProfile")]
-        public Output<Outputs.VirtualMachineInstancePropertiesResponseNetworkProfile?> NetworkProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineInstancePropertiesNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// OsProfile - describes the configuration of the operating system and sets login data
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.VirtualMachineInstancePropertiesResponseOsProfile?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineInstancePropertiesOsProfileResponse?> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the virtual machine instance.
@@ -82,7 +98,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// SecurityProfile - Specifies the security settings for the virtual machine instance.
         /// </summary>
         [Output("securityProfile")]
-        public Output<Outputs.VirtualMachineInstancePropertiesResponseSecurityProfile?> SecurityProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineInstancePropertiesSecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
 
         /// <summary>
         /// The observed state of virtual machine instances
@@ -94,7 +110,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// StorageProfile - contains information about the disks and storage information for the virtual machine instance
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.VirtualMachineInstancePropertiesResponseStorageProfile?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineInstancePropertiesStorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -172,6 +188,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class VirtualMachineInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean indicating whether this is an existing local virtual machine or if one should be created.
+        /// </summary>
+        [Input("createFromLocal")]
+        public Input<bool>? CreateFromLocal { get; set; }
+
+        /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
         [Input("extendedLocation")]
@@ -184,10 +206,16 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<Inputs.VirtualMachineInstancePropertiesHardwareProfileArgs>? HardwareProfile { get; set; }
 
         /// <summary>
-        /// Identity for the resource.
+        /// HTTP Proxy configuration for the VM.
+        /// </summary>
+        [Input("httpProxyConfig")]
+        public Input<Inputs.HttpProxyConfigurationArgs>? HttpProxyConfig { get; set; }
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// NetworkProfile - describes the network configuration the virtual machine instance
@@ -208,7 +236,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string>? ResourceUid { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -227,6 +255,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         public VirtualMachineInstanceArgs()
         {
+            CreateFromLocal = false;
         }
         public static new VirtualMachineInstanceArgs Empty => new VirtualMachineInstanceArgs();
     }

@@ -37,9 +37,9 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Reference of the PublicIP resource.
+        /// Reference of the PublicIP resource. Null for private only bastion
         /// </summary>
-        public readonly Outputs.SubResourceResponse PublicIPAddress;
+        public readonly Outputs.SubResourceResponse? PublicIPAddress;
         /// <summary>
         /// Reference of the subnet resource.
         /// </summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            Outputs.SubResourceResponse publicIPAddress,
+            Outputs.SubResourceResponse? publicIPAddress,
 
             Outputs.SubResourceResponse subnet,
 

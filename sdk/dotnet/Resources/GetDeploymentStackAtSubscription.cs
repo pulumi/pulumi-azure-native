@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.Resources
     public static class GetDeploymentStackAtSubscription
     {
         /// <summary>
-        /// Gets a Deployment Stack with a given name.
-        /// Azure REST API version: 2022-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
+        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetDeploymentStackAtSubscriptionResult> InvokeAsync(GetDeploymentStackAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a Deployment Stack with a given name.
-        /// Azure REST API version: 2022-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
+        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a Deployment Stack with a given name.
-        /// Azure REST API version: 2022-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
+        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());
@@ -73,15 +67,23 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetDeploymentStackAtSubscriptionResult
     {
         /// <summary>
-        /// Defines the behavior of resources that are not managed immediately after the stack is updated.
+        /// Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         /// </summary>
-        public readonly Outputs.DeploymentStackPropertiesResponseActionOnUnmanage ActionOnUnmanage;
+        public readonly Outputs.ActionOnUnmanageResponse ActionOnUnmanage;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        /// </summary>
+        public readonly string CorrelationId;
         /// <summary>
         /// The debug setting of the deployment.
         /// </summary>
         public readonly Outputs.DeploymentStacksDebugSettingResponse? DebugSetting;
         /// <summary>
-        /// An array of resources that were deleted during the most recent update.
+        /// An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceResponse> DeletedResources;
         /// <summary>
@@ -97,23 +99,23 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string? DeploymentScope;
         /// <summary>
-        /// Deployment stack description.
+        /// Deployment stack description. Max length of 4096 characters.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An array of resources that were detached during the most recent update.
+        /// An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceResponse> DetachedResources;
         /// <summary>
-        /// The duration of the deployment stack update.
+        /// The duration of the last successful Deployment stack update.
         /// </summary>
         public readonly string Duration;
         /// <summary>
-        /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        /// The error detail.
         /// </summary>
-        public readonly Outputs.ErrorResponseResponse? Error;
+        public readonly Outputs.ErrorDetailResponse? Error;
         /// <summary>
-        /// An array of resources that failed to reach goal state during the most recent update.
+        /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceExtendedResponse> FailedResources;
         /// <summary>
@@ -121,7 +123,7 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        /// The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -129,13 +131,13 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The outputs of the underlying deployment.
+        /// The outputs of the deployment resource created by the deployment stack.
         /// </summary>
         public readonly object Outputs;
         /// <summary>
-        /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         /// </summary>
-        public readonly object? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.DeploymentParameterResponse>? Parameters;
         /// <summary>
         /// The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         /// </summary>
@@ -163,7 +165,11 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetDeploymentStackAtSubscriptionResult(
-            Outputs.DeploymentStackPropertiesResponseActionOnUnmanage actionOnUnmanage,
+            Outputs.ActionOnUnmanageResponse actionOnUnmanage,
+
+            string azureApiVersion,
+
+            string correlationId,
 
             Outputs.DeploymentStacksDebugSettingResponse? debugSetting,
 
@@ -181,7 +187,7 @@ namespace Pulumi.AzureNative.Resources
 
             string duration,
 
-            Outputs.ErrorResponseResponse? error,
+            Outputs.ErrorDetailResponse? error,
 
             ImmutableArray<Outputs.ResourceReferenceExtendedResponse> failedResources,
 
@@ -193,7 +199,7 @@ namespace Pulumi.AzureNative.Resources
 
             object outputs,
 
-            object? parameters,
+            ImmutableDictionary<string, Outputs.DeploymentParameterResponse>? parameters,
 
             Outputs.DeploymentStacksParametersLinkResponse? parametersLink,
 
@@ -208,6 +214,8 @@ namespace Pulumi.AzureNative.Resources
             string type)
         {
             ActionOnUnmanage = actionOnUnmanage;
+            AzureApiVersion = azureApiVersion;
+            CorrelationId = correlationId;
             DebugSetting = debugSetting;
             DeletedResources = deletedResources;
             DenySettings = denySettings;

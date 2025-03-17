@@ -11,13 +11,23 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Mobile network resource.
-    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-    /// 
-    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:MobileNetwork")]
     public partial class MobileNetwork : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -37,10 +47,16 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        /// The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
         /// </summary>
         [Output("publicLandMobileNetworkIdentifier")]
         public Output<Outputs.PlmnIdResponse> PublicLandMobileNetworkIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+        /// </summary>
+        [Output("publicLandMobileNetworks")]
+        public Output<ImmutableArray<Outputs.PublicLandMobileNetworkResponse>> PublicLandMobileNetworks { get; private set; } = null!;
 
         /// <summary>
         /// The mobile network resource identifier
@@ -122,6 +138,12 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class MobileNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -134,10 +156,22 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? MobileNetworkName { get; set; }
 
         /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        /// The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
         /// </summary>
         [Input("publicLandMobileNetworkIdentifier", required: true)]
         public Input<Inputs.PlmnIdArgs> PublicLandMobileNetworkIdentifier { get; set; } = null!;
+
+        [Input("publicLandMobileNetworks")]
+        private InputList<Inputs.PublicLandMobileNetworkArgs>? _publicLandMobileNetworks;
+
+        /// <summary>
+        /// A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+        /// </summary>
+        public InputList<Inputs.PublicLandMobileNetworkArgs> PublicLandMobileNetworks
+        {
+            get => _publicLandMobileNetworks ?? (_publicLandMobileNetworks = new InputList<Inputs.PublicLandMobileNetworkArgs>());
+            set => _publicLandMobileNetworks = value;
+        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

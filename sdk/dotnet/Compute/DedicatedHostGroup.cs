@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
@@ -120,6 +124,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:DedicatedHostGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:DedicatedHostGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:DedicatedHostGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:DedicatedHostGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

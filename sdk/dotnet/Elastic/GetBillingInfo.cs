@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
-        /// Azure REST API version: 2023-07-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetBillingInfoResult> InvokeAsync(GetBillingInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingInfoResult>("azure-native:elastic:getBillingInfo", args ?? new GetBillingInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
-        /// Azure REST API version: 2023-07-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:elastic:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
-        /// Azure REST API version: 2023-07-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:elastic:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());

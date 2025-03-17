@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
-    /// Azure REST API version: 2020-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+    /// Azure REST API version: 2020-01-01. Prior API version in Azure Native 2.x: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:JitNetworkAccessPolicy")]
     public partial class JitNetworkAccessPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Kind of the resource
         /// </summary>

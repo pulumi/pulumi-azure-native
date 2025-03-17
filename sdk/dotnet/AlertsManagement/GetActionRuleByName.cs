@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.AlertsManagement
     public sealed class GetActionRuleByNameResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.AlertsManagement
 
         [OutputConstructor]
         private GetActionRuleByNameResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

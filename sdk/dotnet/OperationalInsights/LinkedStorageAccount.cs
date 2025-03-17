@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// Linked storage accounts top level resource container.
-    /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
-    /// 
-    /// Other available API versions: 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:LinkedStorageAccount")]
     public partial class LinkedStorageAccount : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Linked storage accounts type.
         /// </summary>
@@ -71,6 +75,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:LinkedStorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:LinkedStorageAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

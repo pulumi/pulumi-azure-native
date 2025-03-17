@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetACSSBackupConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Information about the recovery services vault and backup policy used for backup.
         /// </summary>
         public readonly object? BackupData;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetACSSBackupConnectionResult(
+            string azureApiVersion,
+
             object? backupData,
 
             Outputs.ConnectorErrorDefinitionResponse errors,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BackupData = backupData;
             Errors = errors;
             Id = id;

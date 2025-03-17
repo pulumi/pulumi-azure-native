@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Get a Catalog
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetCatalogResult> InvokeAsync(GetCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Catalog
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Catalog
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.AzureSphere
     public sealed class GetCatalogResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -109,12 +107,18 @@ namespace Pulumi.AzureNative.AzureSphere
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The Azure Sphere tenant ID associated with the catalog.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetCatalogResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -127,14 +131,18 @@ namespace Pulumi.AzureNative.AzureSphere
 
             ImmutableDictionary<string, string>? tags,
 
+            string tenantId,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
         }
     }

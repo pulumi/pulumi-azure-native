@@ -11,18 +11,28 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Information about workspace.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
-    /// 
-    /// Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Access Connector Resource that is going to be associated with Databricks Workspace
+        /// </summary>
+        [Output("accessConnector")]
+        public Output<Outputs.WorkspacePropertiesResponseAccessConnector?> AccessConnector { get; private set; } = null!;
+
+        /// <summary>
         /// The workspace provider authorizations.
         /// </summary>
         [Output("authorizations")]
         public Output<ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
@@ -37,6 +47,18 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> CreatedDateTime { get; private set; } = null!;
 
         /// <summary>
+        /// Properties for Default Catalog configuration during workspace creation.
+        /// </summary>
+        [Output("defaultCatalog")]
+        public Output<Outputs.DefaultCatalogPropertiesResponse?> DefaultCatalog { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or Sets Default Storage Firewall configuration information
+        /// </summary>
+        [Output("defaultStorageFirewall")]
+        public Output<string?> DefaultStorageFirewall { get; private set; } = null!;
+
+        /// <summary>
         /// The resource Id of the managed disk encryption set.
         /// </summary>
         [Output("diskEncryptionSetId")]
@@ -47,6 +69,18 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.WorkspacePropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains settings related to the Enhanced Security and Compliance Add-On.
+        /// </summary>
+        [Output("enhancedSecurityCompliance")]
+        public Output<Outputs.EnhancedSecurityComplianceDefinitionResponse?> EnhancedSecurityCompliance { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether unity catalog enabled for the workspace or not.
+        /// </summary>
+        [Output("isUcEnabled")]
+        public Output<bool> IsUcEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -211,6 +245,12 @@ namespace Pulumi.AzureNative.Databricks
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Access Connector Resource that is going to be associated with Databricks Workspace
+        /// </summary>
+        [Input("accessConnector")]
+        public Input<Inputs.WorkspacePropertiesAccessConnectorArgs>? AccessConnector { get; set; }
+
         [Input("authorizations")]
         private InputList<Inputs.WorkspaceProviderAuthorizationArgs>? _authorizations;
 
@@ -224,10 +264,28 @@ namespace Pulumi.AzureNative.Databricks
         }
 
         /// <summary>
+        /// Properties for Default Catalog configuration during workspace creation.
+        /// </summary>
+        [Input("defaultCatalog")]
+        public Input<Inputs.DefaultCatalogPropertiesArgs>? DefaultCatalog { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Default Storage Firewall configuration information
+        /// </summary>
+        [Input("defaultStorageFirewall")]
+        public InputUnion<string, Pulumi.AzureNative.Databricks.DefaultStorageFirewall>? DefaultStorageFirewall { get; set; }
+
+        /// <summary>
         /// Encryption properties for databricks workspace
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspacePropertiesEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Contains settings related to the Enhanced Security and Compliance Add-On.
+        /// </summary>
+        [Input("enhancedSecurityCompliance")]
+        public Input<Inputs.EnhancedSecurityComplianceDefinitionArgs>? EnhancedSecurityCompliance { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

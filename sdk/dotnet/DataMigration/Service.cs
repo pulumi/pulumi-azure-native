@@ -10,14 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
-    /// A Database Migration Service resource
-    /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
-    /// 
-    /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    /// An Azure Database Migration Service (classic) resource
+    /// Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time delay before the service is auto-stopped when idle.
+        /// </summary>
+        [Output("autoStopDelay")]
+        public Output<string?> AutoStopDelay { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether service resources should be deleted when stopped. (Turned on by default)
+        /// </summary>
+        [Output("deleteResourcesOnStop")]
+        public Output<bool?> DeleteResourcesOnStop { get; private set; } = null!;
+
         /// <summary>
         /// HTTP strong entity tag value. Ignored if submitted
         /// </summary>
@@ -30,15 +46,9 @@ namespace Pulumi.AzureNative.DataMigration
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource location.
-        /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -60,21 +70,12 @@ namespace Pulumi.AzureNative.DataMigration
         [Output("sku")]
         public Output<Outputs.ServiceSkuResponse?> Sku { get; private set; } = null!;
 
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource type.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -88,7 +89,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         /// </summary>
         [Output("virtualSubnetId")]
-        public Output<string> VirtualSubnetId { get; private set; } = null!;
+        public Output<string?> VirtualSubnetId { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,6 +150,18 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The time delay before the service is auto-stopped when idle.
+        /// </summary>
+        [Input("autoStopDelay")]
+        public Input<string>? AutoStopDelay { get; set; }
+
+        /// <summary>
+        /// Whether service resources should be deleted when stopped. (Turned on by default)
+        /// </summary>
+        [Input("deleteResourcesOnStop")]
+        public Input<bool>? DeleteResourcesOnStop { get; set; }
+
+        /// <summary>
         /// Name of the resource group
         /// </summary>
         [Input("groupName", required: true)]
@@ -160,9 +173,6 @@ namespace Pulumi.AzureNative.DataMigration
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        /// <summary>
-        /// Resource location.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -186,10 +196,6 @@ namespace Pulumi.AzureNative.DataMigration
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -205,8 +211,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         /// </summary>
-        [Input("virtualSubnetId", required: true)]
-        public Input<string> VirtualSubnetId { get; set; } = null!;
+        [Input("virtualSubnetId")]
+        public Input<string>? VirtualSubnetId { get; set; }
 
         public ServiceArgs()
         {

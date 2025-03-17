@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get a specified connection created by this subscription.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSubscriptionNetworkManagerConnectionResult> InvokeAsync(GetSubscriptionNetworkManagerConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specified connection created by this subscription.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specified connection created by this subscription.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
@@ -73,6 +67,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSubscriptionNetworkManagerConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description of the network manager connection.
         /// </summary>
         public readonly string? Description;
@@ -103,6 +101,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetSubscriptionNetworkManagerConnectionResult(
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

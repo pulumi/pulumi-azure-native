@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     /// <summary>
     /// Data Lake Analytics compute policy information.
-    /// Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2016-11-01.
+    /// Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 2.x: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:ComputePolicy")]
     public partial class ComputePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The maximum degree of parallelism per job this user can use to submit jobs.
         /// </summary>

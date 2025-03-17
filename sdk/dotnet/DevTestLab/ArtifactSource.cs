@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// Properties of an artifact source.
-    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ArtifactSource")]
     public partial class ArtifactSource : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("armTemplateFolderPath")]
         public Output<string?> ArmTemplateFolderPath { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The artifact source's branch reference.

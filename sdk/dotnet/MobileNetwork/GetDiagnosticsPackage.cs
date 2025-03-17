@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified diagnostics package.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetDiagnosticsPackageResult> InvokeAsync(GetDiagnosticsPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticsPackageResult>("azure-native:mobilenetwork:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified diagnostics package.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDiagnosticsPackageResult> Invoke(GetDiagnosticsPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticsPackageResult>("azure-native:mobilenetwork:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified diagnostics package.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDiagnosticsPackageResult> Invoke(GetDiagnosticsPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticsPackageResult>("azure-native:mobilenetwork:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetDiagnosticsPackageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetDiagnosticsPackageResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

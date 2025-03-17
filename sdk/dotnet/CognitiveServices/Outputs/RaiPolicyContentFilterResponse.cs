@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class RaiPolicyContentFilterResponse
     {
         /// <summary>
-        /// Level at which content is filtered.
-        /// </summary>
-        public readonly string? AllowedContentLevel;
-        /// <summary>
         /// If blocking would occur.
         /// </summary>
         public readonly bool? Blocking;
@@ -33,26 +29,30 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Level at which content is filtered.
+        /// </summary>
+        public readonly string? SeverityThreshold;
+        /// <summary>
         /// Content source to apply the Content Filters.
         /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]
         private RaiPolicyContentFilterResponse(
-            string? allowedContentLevel,
-
             bool? blocking,
 
             bool? enabled,
 
             string? name,
 
+            string? severityThreshold,
+
             string? source)
         {
-            AllowedContentLevel = allowedContentLevel;
             Blocking = blocking;
             Enabled = enabled;
             Name = name;
+            SeverityThreshold = severityThreshold;
             Source = source;
         }
     }

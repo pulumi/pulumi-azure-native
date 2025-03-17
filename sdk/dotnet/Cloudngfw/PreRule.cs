@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Cloudngfw
 {
     /// <summary>
     /// PreRulestack rule list
-    /// Azure REST API version: 2023-09-01.
-    /// 
-    /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    /// Azure REST API version: 2025-02-06-preview. Prior API version in Azure Native 2.x: 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudngfw:PreRule")]
     public partial class PreRule : global::Pulumi.CustomResource
@@ -35,6 +33,12 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         [Output("auditComment")]
         public Output<string?> AuditComment { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// rule category

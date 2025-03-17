@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ResourceGraph
 {
     /// <summary>
     /// Graph Query entity definition.
-    /// Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
-    /// 
-    /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourcegraph:GraphQuery")]
     public partial class GraphQuery : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The description of a graph query.
         /// </summary>
@@ -25,7 +29,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// This will be used to handle Optimistic Concurrency.
+        /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
@@ -34,7 +38,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// The location of the resource
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
@@ -55,7 +59,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Output<string> ResultKind { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// The system metadata relating to this resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -139,13 +143,19 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The location of the resource
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// KQL query that will be graph.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

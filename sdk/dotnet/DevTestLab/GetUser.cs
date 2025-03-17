@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetUserResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the user profile.
         /// </summary>
         public readonly string CreatedDate;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetUserResult(
+            string azureApiVersion,
+
             string createdDate,
 
             string id,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string uniqueIdentifier)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             Id = id;
             Identity = identity;

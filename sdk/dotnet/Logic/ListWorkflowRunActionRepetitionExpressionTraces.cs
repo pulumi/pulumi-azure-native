@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Lists a workflow run expression trace.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Task<ListWorkflowRunActionRepetitionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionRepetitionExpressionTracesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Lists a workflow run expression trace.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<ListWorkflowRunActionRepetitionExpressionTracesResult> Invoke(ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Lists a workflow run expression trace.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<ListWorkflowRunActionRepetitionExpressionTracesResult> Invoke(ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithDefaults());

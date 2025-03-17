@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Gets information about the specified Batch account.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified Batch account.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified Batch account.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Batch
         /// Contains information about the auto-storage account associated with a Batch account.
         /// </summary>
         public readonly Outputs.AutoStoragePropertiesResponse AutoStorage;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         /// </summary>
@@ -181,6 +179,8 @@ namespace Pulumi.AzureNative.Batch
 
             Outputs.AutoStoragePropertiesResponse autoStorage,
 
+            string azureApiVersion,
+
             int dedicatedCoreQuota,
 
             ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse> dedicatedCoreQuotaPerVMFamily,
@@ -223,6 +223,7 @@ namespace Pulumi.AzureNative.Batch
             ActiveJobAndJobScheduleQuota = activeJobAndJobScheduleQuota;
             AllowedAuthenticationModes = allowedAuthenticationModes;
             AutoStorage = autoStorage;
+            AzureApiVersion = azureApiVersion;
             DedicatedCoreQuota = dedicatedCoreQuota;
             DedicatedCoreQuotaPerVMFamily = dedicatedCoreQuotaPerVMFamily;
             DedicatedCoreQuotaPerVMFamilyEnforced = dedicatedCoreQuotaPerVMFamilyEnforced;

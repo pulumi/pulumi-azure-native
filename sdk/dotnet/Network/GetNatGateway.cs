@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified nat gateway in a specified resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified nat gateway in a specified resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified nat gateway in a specified resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNatGatewayResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNatGatewayResult(
+            string azureApiVersion,
+
             string etag,
 
             string? id,
@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;

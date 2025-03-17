@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// <summary>
         /// Retrieves an existing video resource with the given name.
         /// Azure REST API version: 2021-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Task<GetVideoResult> InvokeAsync(GetVideoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVideoResult>("azure-native:videoanalyzer:getVideo", args ?? new GetVideoArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// <summary>
         /// Retrieves an existing video resource with the given name.
         /// Azure REST API version: 2021-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer:getVideo", args ?? new GetVideoInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// <summary>
         /// Retrieves an existing video resource with the given name.
         /// Azure REST API version: 2021-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer:getVideo", args ?? new GetVideoInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly Outputs.VideoArchivalResponse? Archival;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Set of URLs to the video content.
         /// </summary>
         public readonly Outputs.VideoContentUrlsResponse ContentUrls;
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         private GetVideoResult(
             Outputs.VideoArchivalResponse? archival,
 
+            string azureApiVersion,
+
             Outputs.VideoContentUrlsResponse contentUrls,
 
             string? description,
@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
             string type)
         {
             Archival = archival;
+            AzureApiVersion = azureApiVersion;
             ContentUrls = contentUrls;
             Description = description;
             Flags = flags;

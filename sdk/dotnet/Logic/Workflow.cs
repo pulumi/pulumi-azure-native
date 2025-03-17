@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The workflow type.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-    /// 
-    /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Output("accessEndpoint")]
         public Output<string> AccessEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Gets the changed time.

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets a Test Base CustomerEvent.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Task<GetCustomerEventResult> InvokeAsync(GetCustomerEventArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base CustomerEvent.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base CustomerEvent.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.TestBase
         public string CustomerEventName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -75,7 +69,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string> CustomerEventName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -97,15 +91,19 @@ namespace Pulumi.AzureNative.TestBase
     public sealed class GetCustomerEventResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name of the event subscribed to.
         /// </summary>
         public readonly string EventName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -113,16 +111,18 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationEventReceiverResponse> Receivers;
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetCustomerEventResult(
+            string azureApiVersion,
+
             string eventName,
 
             string id,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.TestBase
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EventName = eventName;
             Id = id;
             Name = name;

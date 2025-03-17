@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceNetworking
     {
         /// <summary>
         /// Get a TrafficController
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Task<GetTrafficControllerInterfaceResult> InvokeAsync(GetTrafficControllerInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a TrafficController
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetTrafficControllerInterfaceResult> Invoke(GetTrafficControllerInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a TrafficController
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetTrafficControllerInterfaceResult> Invoke(GetTrafficControllerInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceIdResponse> Associations;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration Endpoints.
         /// </summary>
         public readonly ImmutableArray<string> ConfigurationEndpoints;
@@ -113,6 +111,14 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Security Policies References List
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceIdResponse> SecurityPolicies;
+        /// <summary>
+        /// Security Policy Configuration
+        /// </summary>
+        public readonly Outputs.SecurityPolicyConfigurationsResponse? SecurityPolicyConfigurations;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -129,6 +135,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         private GetTrafficControllerInterfaceResult(
             ImmutableArray<Outputs.ResourceIdResponse> associations,
 
+            string azureApiVersion,
+
             ImmutableArray<string> configurationEndpoints,
 
             ImmutableArray<Outputs.ResourceIdResponse> frontends,
@@ -141,6 +149,10 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
             string provisioningState,
 
+            ImmutableArray<Outputs.ResourceIdResponse> securityPolicies,
+
+            Outputs.SecurityPolicyConfigurationsResponse? securityPolicyConfigurations,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -148,12 +160,15 @@ namespace Pulumi.AzureNative.ServiceNetworking
             string type)
         {
             Associations = associations;
+            AzureApiVersion = azureApiVersion;
             ConfigurationEndpoints = configurationEndpoints;
             Frontends = frontends;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SecurityPolicies = securityPolicies;
+            SecurityPolicyConfigurations = securityPolicyConfigurations;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly Outputs.TemporaryDiskResponse? TemporaryDisk;
         /// <summary>
+        /// State of test endpoint auth.
+        /// </summary>
+        public readonly string? TestEndpointAuthState;
+        /// <summary>
         /// URL of the App
         /// </summary>
         public readonly string Url;
@@ -103,6 +107,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             Outputs.TemporaryDiskResponse? temporaryDisk,
 
+            string? testEndpointAuthState,
+
             string url,
 
             Outputs.AppVNetAddonsResponse? vnetAddons,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             Public = @public;
             Secrets = secrets;
             TemporaryDisk = temporaryDisk;
+            TestEndpointAuthState = testEndpointAuthState;
             Url = url;
             VnetAddons = vnetAddons;
             WorkloadProfileName = workloadProfileName;

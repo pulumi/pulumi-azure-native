@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a database script.
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-    /// 
-    /// Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+    /// Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Script")]
     public partial class Script : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Flag that indicates whether to continue if one of the command fails.
         /// </summary>
@@ -37,10 +41,22 @@ namespace Pulumi.AzureNative.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if the permissions for the script caller are kept following completion of the script.
+        /// </summary>
+        [Output("principalPermissionsAction")]
+        public Output<string?> PrincipalPermissionsAction { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioned state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+        /// </summary>
+        [Output("scriptLevel")]
+        public Output<string?> ScriptLevel { get; private set; } = null!;
 
         /// <summary>
         /// The url to the KQL script blob file. Must not be used together with scriptContent property
@@ -142,7 +158,13 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// Indicates if the permissions for the script caller are kept following completion of the script.
+        /// </summary>
+        [Input("principalPermissionsAction")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.PrincipalPermissionsAction>? PrincipalPermissionsAction { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -152,6 +174,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Input("scriptContent")]
         public Input<string>? ScriptContent { get; set; }
+
+        /// <summary>
+        /// Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+        /// </summary>
+        [Input("scriptLevel")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.ScriptLevel>? ScriptLevel { get; set; }
 
         /// <summary>
         /// The name of the Kusto database script.

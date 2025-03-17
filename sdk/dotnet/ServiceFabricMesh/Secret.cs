@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     /// <summary>
     /// This type describes a secret resource.
-    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

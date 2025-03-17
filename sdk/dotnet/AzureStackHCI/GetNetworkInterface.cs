@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Gets a network interface
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:azurestackhci:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network interface
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:azurestackhci:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network interface
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:azurestackhci:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetNetworkInterfaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Boolean indicating whether this is a existing local network interface or if one should be created.
+        /// </summary>
+        public readonly bool? CreateFromLocal;
+        /// <summary>
         /// DNS Settings for the interface
         /// </summary>
         public readonly Outputs.InterfaceDNSSettingsResponse? DnsSettings;
@@ -93,7 +95,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -112,6 +114,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the network interface.
+        /// </summary>
+        public readonly Outputs.NetworkSecurityGroupArmReferenceResponse? NetworkSecurityGroup;
         /// <summary>
         /// Provisioning state of the network interface.
         /// </summary>
@@ -135,6 +141,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
+            string azureApiVersion,
+
+            bool? createFromLocal,
+
             Outputs.InterfaceDNSSettingsResponse? dnsSettings,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
@@ -149,6 +159,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string name,
 
+            Outputs.NetworkSecurityGroupArmReferenceResponse? networkSecurityGroup,
+
             string provisioningState,
 
             Outputs.NetworkInterfaceStatusResponse status,
@@ -159,6 +171,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
+            CreateFromLocal = createFromLocal;
             DnsSettings = dnsSettings;
             ExtendedLocation = extendedLocation;
             Id = id;
@@ -166,6 +180,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             Location = location;
             MacAddress = macAddress;
             Name = name;
+            NetworkSecurityGroup = networkSecurityGroup;
             ProvisioningState = provisioningState;
             Status = status;
             SystemData = systemData;

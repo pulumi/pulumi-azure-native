@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Returns a Storage Target from a cache.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a Storage Target from a cache.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a Storage Target from a cache.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly int AllocationPercentage;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties when targetType is blobNfs.
         /// </summary>
         public readonly Outputs.BlobNfsTargetResponse? BlobNfs;
@@ -157,6 +155,8 @@ namespace Pulumi.AzureNative.StorageCache
         private GetStorageTargetResult(
             int allocationPercentage,
 
+            string azureApiVersion,
+
             Outputs.BlobNfsTargetResponse? blobNfs,
 
             Outputs.ClfsTargetResponse? clfs,
@@ -184,6 +184,7 @@ namespace Pulumi.AzureNative.StorageCache
             Outputs.UnknownTargetResponse? unknown)
         {
             AllocationPercentage = allocationPercentage;
+            AzureApiVersion = azureApiVersion;
             BlobNfs = blobNfs;
             Clfs = clfs;
             Id = id;

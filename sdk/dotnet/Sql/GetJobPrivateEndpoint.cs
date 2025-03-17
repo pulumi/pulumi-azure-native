@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a private endpoint.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-05-01-preview.
         /// </summary>
         public static Task<GetJobPrivateEndpointResult> InvokeAsync(GetJobPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobPrivateEndpointResult>("azure-native:sql:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobPrivateEndpointResult> Invoke(GetJobPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobPrivateEndpointResult>("azure-native:sql:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobPrivateEndpointResult> Invoke(GetJobPrivateEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobPrivateEndpointResult>("azure-native:sql:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetJobPrivateEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetJobPrivateEndpointResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PrivateEndpointId = privateEndpointId;

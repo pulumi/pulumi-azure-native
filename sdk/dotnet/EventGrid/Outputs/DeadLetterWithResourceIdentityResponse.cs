@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     {
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
-        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         /// </summary>
         public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
         /// <summary>

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get domain ownership identifier for web app.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppDomainOwnershipIdentifierResult> InvokeAsync(GetWebAppDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierResult>("azure-native:web:getWebAppDomainOwnershipIdentifier", args ?? new GetWebAppDomainOwnershipIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get domain ownership identifier for web app.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppDomainOwnershipIdentifierResult> Invoke(GetWebAppDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDomainOwnershipIdentifierResult>("azure-native:web:getWebAppDomainOwnershipIdentifier", args ?? new GetWebAppDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get domain ownership identifier for web app.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppDomainOwnershipIdentifierResult> Invoke(GetWebAppDomainOwnershipIdentifierInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDomainOwnershipIdentifierResult>("azure-native:web:getWebAppDomainOwnershipIdentifier", args ?? new GetWebAppDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetWebAppDomainOwnershipIdentifierResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetWebAppDomainOwnershipIdentifierResult(
+            string azureApiVersion,
+
             string id,
 
             string? kind,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Web
 
             string? value)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Name = name;

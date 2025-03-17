@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Advisor
     {
         /// <summary>
         /// Obtains the details of a suppression.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2023-09-01-preview.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Obtains the details of a suppression.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2023-09-01-preview.
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Obtains the details of a suppression.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2023-09-01-preview.
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Advisor
     public sealed class GetSuppressionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the expiration time stamp.
         /// </summary>
         public readonly string ExpirationTimeStamp;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.Advisor
 
         [OutputConstructor]
         private GetSuppressionResult(
+            string azureApiVersion,
+
             string expirationTimeStamp,
 
             string id,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Advisor
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExpirationTimeStamp = expirationTimeStamp;
             Id = id;
             Name = name;

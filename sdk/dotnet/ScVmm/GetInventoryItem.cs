@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Shows an inventory item.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shows an inventory item.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shows an inventory item.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ScVmm
     public sealed class GetInventoryItemResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.ScVmm
 
         [OutputConstructor]
         private GetInventoryItemResult(
+            string azureApiVersion,
+
             string id,
 
             string inventoryItemName,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.ScVmm
 
             string uuid)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             InventoryItemName = inventoryItemName;
             InventoryType = inventoryType;

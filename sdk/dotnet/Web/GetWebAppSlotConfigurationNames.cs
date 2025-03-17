@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppSlotConfigurationNamesResult> InvokeAsync(GetWebAppSlotConfigurationNamesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotConfigurationNamesResult>("azure-native:web:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSlotConfigurationNamesResult> Invoke(GetWebAppSlotConfigurationNamesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotConfigurationNamesResult>("azure-native:web:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSlotConfigurationNamesResult> Invoke(GetWebAppSlotConfigurationNamesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotConfigurationNamesResult>("azure-native:web:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly ImmutableArray<string> AppSettingNames;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of external Azure storage account identifiers.
         /// </summary>
         public readonly ImmutableArray<string> AzureStorageConfigNames;
@@ -117,6 +115,8 @@ namespace Pulumi.AzureNative.Web
         private GetWebAppSlotConfigurationNamesResult(
             ImmutableArray<string> appSettingNames,
 
+            string azureApiVersion,
+
             ImmutableArray<string> azureStorageConfigNames,
 
             ImmutableArray<string> connectionStringNames,
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Web
             string type)
         {
             AppSettingNames = appSettingNames;
+            AzureApiVersion = azureApiVersion;
             AzureStorageConfigNames = azureStorageConfigNames;
             ConnectionStringNames = connectionStringNames;
             Id = id;

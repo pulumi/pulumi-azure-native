@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Configuration of App Service site logs.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDiagnosticLogsConfiguration")]
     public partial class WebAppDiagnosticLogsConfiguration : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("applicationLogs")]
         public Output<Outputs.ApplicationLogsConfigResponse?> ApplicationLogs { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Detailed error messages configuration.

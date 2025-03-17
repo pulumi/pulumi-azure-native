@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a Vcenter
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetVcenterControllerResult> InvokeAsync(GetVcenterControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVcenterControllerResult>("azure-native:offazure:getVcenterController", args ?? new GetVcenterControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Vcenter
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetVcenterControllerResult> Invoke(GetVcenterControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVcenterControllerResult>("azure-native:offazure:getVcenterController", args ?? new GetVcenterControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Vcenter
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetVcenterControllerResult> Invoke(GetVcenterControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVcenterControllerResult>("azure-native:offazure:getVcenterController", args ?? new GetVcenterControllerInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetVcenterControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the timestamp marking vCenter creation.
         /// </summary>
         public readonly string CreatedTimestamp;
@@ -159,6 +157,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetVcenterControllerResult(
+            string azureApiVersion,
+
             string createdTimestamp,
 
             ImmutableArray<Outputs.HealthErrorDetailsResponse> errors,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTimestamp = createdTimestamp;
             Errors = errors;
             Fqdn = fqdn;

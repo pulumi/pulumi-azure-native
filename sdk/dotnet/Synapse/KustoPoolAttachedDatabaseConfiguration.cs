@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing an attached database configuration.
-    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPoolAttachedDatabaseConfiguration")]
     public partial class KustoPoolAttachedDatabaseConfiguration : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("attachedDatabaseNames")]
         public Output<ImmutableArray<string>> AttachedDatabaseNames { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines the routing configuration
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkManagerRoutingConfiguration")]
     public partial class NetworkManagerRoutingConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// A description of the routing configuration.
         /// </summary>

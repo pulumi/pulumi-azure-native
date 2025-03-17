@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DomainRegistration
     {
         /// <summary>
         /// Description for Get ownership identifier for domain
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get ownership identifier for domain
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get ownership identifier for domain
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DomainRegistration
     public sealed class GetDomainOwnershipIdentifierResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.DomainRegistration
 
         [OutputConstructor]
         private GetDomainOwnershipIdentifierResult(
+            string azureApiVersion,
+
             string id,
 
             string? kind,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.DomainRegistration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Name = name;

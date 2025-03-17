@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 {
     /// <summary>
     /// The Azure AD for customers resource.
-    /// Azure REST API version: 2023-05-17-preview.
+    /// Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2023-05-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:CIAMTenant")]
     public partial class CIAMTenant : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The type of billing. Will be MAU for all new customers. Cannot be changed if value is 'MAU'. Learn more about Azure AD for customers billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
         /// </summary>

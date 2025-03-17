@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a privateLinkHub
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a privateLinkHub
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a privateLinkHub
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetPrivateLinkHubResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetPrivateLinkHubResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         public InputUnion<string, Pulumi.AzureNative.IoTOperations.OperationalMode>? Mode { get; set; }
 
         /// <summary>
-        /// The open telemetry export configuration.
-        /// </summary>
-        [Input("opentelemetryExportConfig")]
-        public Input<Inputs.OpenTelemetryExportConfigArgs>? OpentelemetryExportConfig { get; set; }
-
-        /// <summary>
         /// The self tracing properties.
         /// </summary>
         [Input("selfTracing")]

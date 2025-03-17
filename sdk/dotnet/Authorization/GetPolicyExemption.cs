@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? AssignmentScopeValidation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of the policy exemption.
         /// </summary>
         public readonly string? Description;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.Authorization
         private GetPolicyExemptionResult(
             string? assignmentScopeValidation,
 
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.Authorization
             string type)
         {
             AssignmentScopeValidation = assignmentScopeValidation;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             ExemptionCategory = exemptionCategory;

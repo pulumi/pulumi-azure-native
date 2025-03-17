@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the watcher type.
-    /// Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
-    /// 
-    /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+    /// Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2020-01-13-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the creation time.
         /// </summary>
@@ -91,13 +95,19 @@ namespace Pulumi.AzureNative.Automation
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

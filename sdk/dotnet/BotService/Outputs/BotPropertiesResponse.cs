@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string? MsaAppType;
         /// <summary>
+        /// List of Network Security Perimeter configurations for the bot
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkSecurityPerimeterConfigurationResponse> NetworkSecurityPerimeterConfigurations;
+        /// <summary>
         /// The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         /// </summary>
         public readonly string? OpenWithHint;
@@ -211,6 +215,8 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string? msaAppType,
 
+            ImmutableArray<Outputs.NetworkSecurityPerimeterConfigurationResponse> networkSecurityPerimeterConfigurations,
+
             string? openWithHint,
 
             ImmutableDictionary<string, string>? parameters,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
             MsaAppMSIResourceId = msaAppMSIResourceId;
             MsaAppTenantId = msaAppTenantId;
             MsaAppType = msaAppType;
+            NetworkSecurityPerimeterConfigurations = networkSecurityPerimeterConfigurations;
             OpenWithHint = openWithHint;
             Parameters = parameters;
             PrivateEndpointConnections = privateEndpointConnections;

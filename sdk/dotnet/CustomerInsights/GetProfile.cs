@@ -111,6 +111,10 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public readonly ImmutableDictionary<string, ImmutableArray<string>>? Attributes;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Localized descriptions for the property.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Description;
@@ -193,6 +197,8 @@ namespace Pulumi.AzureNative.CustomerInsights
 
             ImmutableDictionary<string, ImmutableArray<string>>? attributes,
 
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? description,
 
             ImmutableDictionary<string, string>? displayName,
@@ -233,6 +239,7 @@ namespace Pulumi.AzureNative.CustomerInsights
         {
             ApiEntitySetName = apiEntitySetName;
             Attributes = attributes;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             EntityType = entityType;

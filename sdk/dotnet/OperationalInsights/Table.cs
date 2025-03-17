@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// Workspace data table definition.
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-    /// 
-    /// Other available API versions: 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Table")]
     public partial class Table : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("archiveRetentionInDays")]
         public Output<int> ArchiveRetentionInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp that table plan was last modified (UTC).
@@ -136,6 +140,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Table" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Table" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

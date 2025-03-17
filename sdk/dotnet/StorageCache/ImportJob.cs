@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.StorageCache
     public partial class ImportJob : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// A recent and frequently updated rate of total files, directories, and symlinks imported per second.
         /// </summary>
         [Output("blobsImportedPerSecond")]
@@ -156,10 +162,7 @@ namespace Pulumi.AzureNative.StorageCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:ImportJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:importJob" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:ImportJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:importJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache:importJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

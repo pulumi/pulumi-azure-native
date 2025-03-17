@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetManagedClusterApplicationResult> InvokeAsync(GetManagedClusterApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterApplicationResult>("azure-native:servicefabric:getManagedClusterApplication", args ?? new GetManagedClusterApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetManagedClusterApplicationResult> Invoke(GetManagedClusterApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterApplicationResult>("azure-native:servicefabric:getManagedClusterApplication", args ?? new GetManagedClusterApplicationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetManagedClusterApplicationResult> Invoke(GetManagedClusterApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterApplicationResult>("azure-native:servicefabric:getManagedClusterApplication", args ?? new GetManagedClusterApplicationInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetManagedClusterApplicationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
@@ -148,6 +146,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetManagedClusterApplicationResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedIdentityResponse? identity,
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

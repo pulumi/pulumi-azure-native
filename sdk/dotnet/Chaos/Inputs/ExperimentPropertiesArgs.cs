@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.Chaos.Inputs
             set => _selectors = value;
         }
 
-        /// <summary>
-        /// A boolean value that indicates if experiment should be started on creation or not.
-        /// </summary>
-        [Input("startOnCreation")]
-        public Input<bool>? StartOnCreation { get; set; }
-
         [Input("steps", required: true)]
         private InputList<Inputs.StepArgs>? _steps;
 

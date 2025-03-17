@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetKafkaConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The client id prefix of the dynamically generated client ids.
         /// </summary>
         public readonly string? ClientIdPrefix;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetKafkaConnectorResult(
+            string azureApiVersion,
+
             string? clientIdPrefix,
 
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClientIdPrefix = clientIdPrefix;
             ExtendedLocation = extendedLocation;
             Id = id;

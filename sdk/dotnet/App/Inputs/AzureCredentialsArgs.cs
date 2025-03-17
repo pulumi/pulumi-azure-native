@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
+        /// Kind of auth github does for deploying the template
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        /// <summary>
         /// Subscription Id.
         /// </summary>
         [Input("subscriptionId")]

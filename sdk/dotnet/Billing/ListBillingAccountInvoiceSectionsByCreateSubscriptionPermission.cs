@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Billing
     {
         /// <summary>
         /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-        /// Azure REST API version: 2020-05-01.
-        /// 
-        /// Other available API versions: 2019-10-01-preview, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> InvokeAsync(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-        /// Azure REST API version: 2020-05-01.
-        /// 
-        /// Other available API versions: 2019-10-01-preview, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> Invoke(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-        /// Azure REST API version: 2020-05-01.
-        /// 
-        /// Other available API versions: 2019-10-01-preview, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> Invoke(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs(), options.WithDefaults());
@@ -48,6 +42,12 @@ namespace Pulumi.AzureNative.Billing
         [Input("billingAccountName", required: true)]
         public string BillingAccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The filter query option allows clients to filter a collection of resources that are addressed by a request URL.
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
+
         public ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs()
         {
         }
@@ -61,6 +61,12 @@ namespace Pulumi.AzureNative.Billing
         /// </summary>
         [Input("billingAccountName", required: true)]
         public Input<string> BillingAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The filter query option allows clients to filter a collection of resources that are addressed by a request URL.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
 
         public ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs()
         {
@@ -77,7 +83,7 @@ namespace Pulumi.AzureNative.Billing
         /// </summary>
         public readonly string NextLink;
         /// <summary>
-        /// The list of invoice section properties with create subscription permission.
+        /// The list of resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.InvoiceSectionWithCreateSubPermissionResponse> Value;
 

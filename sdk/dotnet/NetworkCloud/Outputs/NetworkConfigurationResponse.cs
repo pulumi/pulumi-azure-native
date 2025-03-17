@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly Outputs.AttachedNetworkConfigurationResponse? AttachedNetworkConfiguration;
         /// <summary>
-        /// The configuration of the BGP service load balancer for this Kubernetes cluster.
+        /// The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         /// </summary>
         public readonly Outputs.BgpServiceLoadBalancerConfigurationResponse? BgpServiceLoadBalancerConfiguration;
         /// <summary>
@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
         /// </summary>
         public readonly string? DnsServiceIp;
+        /// <summary>
+        /// The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
+        /// </summary>
+        public readonly Outputs.L2ServiceLoadBalancerConfigurationResponse? L2ServiceLoadBalancerConfiguration;
         /// <summary>
         /// The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         /// </summary>
@@ -54,6 +58,8 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
 
             string? dnsServiceIp,
 
+            Outputs.L2ServiceLoadBalancerConfigurationResponse? l2ServiceLoadBalancerConfiguration,
+
             ImmutableArray<string> podCidrs,
 
             ImmutableArray<string> serviceCidrs)
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
             CloudServicesNetworkId = cloudServicesNetworkId;
             CniNetworkId = cniNetworkId;
             DnsServiceIp = dnsServiceIp;
+            L2ServiceLoadBalancerConfiguration = l2ServiceLoadBalancerConfiguration;
             PodCidrs = podCidrs;
             ServiceCidrs = serviceCidrs;
         }

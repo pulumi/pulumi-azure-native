@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
+        /// SubResource as network identifier.
+        /// </summary>
+        [Input("networkIdentifier")]
+        public Input<Inputs.SubResourceArgs>? NetworkIdentifier { get; set; }
+
+        /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
         [Input("provisioningState")]

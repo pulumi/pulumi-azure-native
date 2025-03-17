@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A server security alert policy.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-    /// 
-    /// Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerSecurityAlertPolicy")]
     public partial class ServerSecurityAlertPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the UTC creation time of the policy.
         /// </summary>

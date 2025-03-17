@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.StorSimple
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
         /// </summary>
         public readonly string BackupPolicyCreationType;
@@ -149,6 +153,8 @@ namespace Pulumi.AzureNative.StorSimple
 
         [OutputConstructor]
         private GetBackupPolicyResult(
+            string azureApiVersion,
+
             string backupPolicyCreationType,
 
             string id,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.StorSimple
 
             ImmutableArray<string> volumeIds)
         {
+            AzureApiVersion = azureApiVersion;
             BackupPolicyCreationType = backupPolicyCreationType;
             Id = id;
             Kind = kind;

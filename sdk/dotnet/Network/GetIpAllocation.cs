@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified IpAllocation by resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified IpAllocation by resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified IpAllocation by resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AllocationTags;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -153,6 +151,8 @@ namespace Pulumi.AzureNative.Network
         private GetIpAllocationResult(
             ImmutableDictionary<string, string>? allocationTags,
 
+            string azureApiVersion,
+
             string etag,
 
             string? id,
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.Network
             Outputs.SubResourceResponse virtualNetwork)
         {
             AllocationTags = allocationTags;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             IpamAllocationId = ipamAllocationId;

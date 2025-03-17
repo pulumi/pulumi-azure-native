@@ -17,10 +17,18 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class CustomizedAcceleratorPropertiesResponse
     {
         public readonly ImmutableArray<string> AcceleratorTags;
+        /// <summary>
+        /// Type of the customized accelerator.
+        /// </summary>
+        public readonly string? AcceleratorType;
         public readonly string? Description;
         public readonly string? DisplayName;
         public readonly Outputs.AcceleratorGitRepositoryResponse GitRepository;
         public readonly string? IconUrl;
+        /// <summary>
+        /// Imports references all imports that this accelerator/fragment depends upon.
+        /// </summary>
+        public readonly ImmutableArray<string> Imports;
         /// <summary>
         /// State of the customized accelerator.
         /// </summary>
@@ -30,6 +38,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         private CustomizedAcceleratorPropertiesResponse(
             ImmutableArray<string> acceleratorTags,
 
+            string? acceleratorType,
+
             string? description,
 
             string? displayName,
@@ -38,13 +48,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string? iconUrl,
 
+            ImmutableArray<string> imports,
+
             string provisioningState)
         {
             AcceleratorTags = acceleratorTags;
+            AcceleratorType = acceleratorType;
             Description = description;
             DisplayName = displayName;
             GitRepository = gitRepository;
             IconUrl = iconUrl;
+            Imports = imports;
             ProvisioningState = provisioningState;
         }
     }

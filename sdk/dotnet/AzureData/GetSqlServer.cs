@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.AzureData
     public sealed class GetSqlServerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Cores of the Sql Server.
         /// </summary>
         public readonly int? Cores;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.AzureData
 
         [OutputConstructor]
         private GetSqlServerResult(
+            string azureApiVersion,
+
             int? cores,
 
             string? edition,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.AzureData
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Cores = cores;
             Edition = edition;
             Id = id;

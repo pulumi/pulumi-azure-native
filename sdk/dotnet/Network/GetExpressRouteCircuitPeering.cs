@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified peering for the express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitPeeringResult> InvokeAsync(GetExpressRouteCircuitPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified peering for the express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitPeeringResult> Invoke(GetExpressRouteCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified peering for the express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitPeeringResult> Invoke(GetExpressRouteCircuitPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringInvokeArgs(), options.WithDefaults());
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.Network
         /// The Azure ASN.
         /// </summary>
         public readonly int? AzureASN;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The list of circuit connections associated with Azure Private Peering for this circuit.
         /// </summary>
@@ -197,6 +195,8 @@ namespace Pulumi.AzureNative.Network
         private GetExpressRouteCircuitPeeringResult(
             int? azureASN,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponse> connections,
 
             string etag,
@@ -244,6 +244,7 @@ namespace Pulumi.AzureNative.Network
             int? vlanId)
         {
             AzureASN = azureASN;
+            AzureApiVersion = azureApiVersion;
             Connections = connections;
             Etag = etag;
             ExpressRouteConnection = expressRouteConnection;

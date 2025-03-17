@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the logging configuration of an app.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppDiagnosticLogsConfigurationResult> InvokeAsync(GetWebAppDiagnosticLogsConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the logging configuration of an app.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationResult> Invoke(GetWebAppDiagnosticLogsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the logging configuration of an app.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationResult> Invoke(GetWebAppDiagnosticLogsConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.ApplicationLogsConfigResponse? ApplicationLogs;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Detailed error messages configuration.
         /// </summary>
         public readonly Outputs.EnabledConfigResponse? DetailedErrorMessages;
@@ -121,6 +119,8 @@ namespace Pulumi.AzureNative.Web
         private GetWebAppDiagnosticLogsConfigurationResult(
             Outputs.ApplicationLogsConfigResponse? applicationLogs,
 
+            string azureApiVersion,
+
             Outputs.EnabledConfigResponse? detailedErrorMessages,
 
             Outputs.EnabledConfigResponse? failedRequestsTracing,
@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.Web
             string type)
         {
             ApplicationLogs = applicationLogs;
+            AzureApiVersion = azureApiVersion;
             DetailedErrorMessages = detailedErrorMessages;
             FailedRequestsTracing = failedRequestsTracing;
             HttpLogs = httpLogs;

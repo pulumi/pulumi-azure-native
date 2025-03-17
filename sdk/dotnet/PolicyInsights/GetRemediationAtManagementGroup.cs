@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets an existing remediation at management group scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetRemediationAtManagementGroupResult> InvokeAsync(GetRemediationAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing remediation at management group scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRemediationAtManagementGroupResult> Invoke(GetRemediationAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing remediation at management group scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRemediationAtManagementGroupResult> Invoke(GetRemediationAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.PolicyInsights
     [OutputType]
     public sealed class GetRemediationAtManagementGroupResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
         /// </summary>
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.PolicyInsights
 
         [OutputConstructor]
         private GetRemediationAtManagementGroupResult(
+            string azureApiVersion,
+
             string correlationId,
 
             string createdOn,
@@ -201,6 +201,7 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CorrelationId = correlationId;
             CreatedOn = createdOn;
             DeploymentStatus = deploymentStatus;

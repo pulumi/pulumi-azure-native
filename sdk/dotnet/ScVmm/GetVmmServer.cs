@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements VMMServer GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetVmmServerResult> InvokeAsync(GetVmmServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VMMServer GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetVmmServerResult> Invoke(GetVmmServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VMMServer GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetVmmServerResult> Invoke(GetVmmServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.ScVmm
     [OutputType]
     public sealed class GetVmmServerResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Gets or sets the connection status to the vmmServer.
         /// </summary>
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.ScVmm
 
         [OutputConstructor]
         private GetVmmServerResult(
+            string azureApiVersion,
+
             string connectionStatus,
 
             Outputs.VMMServerPropertiesResponseCredentials? credentials,
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.ScVmm
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionStatus = connectionStatus;
             Credentials = credentials;
             ErrorMessage = errorMessage;

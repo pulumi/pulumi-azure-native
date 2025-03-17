@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Blueprint
 {
     /// <summary>
     /// Represents a published blueprint.
-    /// Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+    /// Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 2.x: 2018-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:PublishedBlueprint")]
     public partial class PublishedBlueprint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Name of the published blueprint definition.
         /// </summary>

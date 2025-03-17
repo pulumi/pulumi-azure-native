@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Storage.Inputs
             set => _blobTypes = value;
         }
 
+        /// <summary>
+        /// This property is used to filter objects based on the object creation time
+        /// </summary>
+        [Input("creationTime")]
+        public Input<Inputs.BlobInventoryCreationTimeArgs>? CreationTime { get; set; }
+
         [Input("excludePrefix")]
         private InputList<string>? _excludePrefix;
 

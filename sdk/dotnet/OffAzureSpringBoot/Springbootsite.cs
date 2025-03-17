@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 {
     /// <summary>
     /// The springbootsites envelope resource definition.
-    /// Azure REST API version: 2023-01-01-preview.
+    /// Azure REST API version: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazurespringboot:Springbootsite")]
     public partial class Springbootsite : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The extended location definition.
         /// </summary>
@@ -84,10 +90,7 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:Springbootsite" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:springbootsite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:Springbootsite" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:springbootsite" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:springbootsite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

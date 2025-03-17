@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<bool>? EncryptDCConnections { get; set; }
 
         /// <summary>
-        /// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        /// kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
         /// </summary>
         [Input("kdcIP")]
         public Input<string>? KdcIP { get; set; }

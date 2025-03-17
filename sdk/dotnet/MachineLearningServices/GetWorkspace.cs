@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// ARM id of the application insights associated with this workspace.
         /// </summary>
         public readonly string? ApplicationInsights;
+        public readonly ImmutableArray<string> AssociatedWorkspaces;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// ARM id of the container registry associated with this workspace.
         /// </summary>
@@ -104,10 +103,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Url for the discovery service to identify regional endpoints for machine learning experimentation services
         /// </summary>
         public readonly string? DiscoveryUrl;
+        public readonly bool? EnableDataIsolation;
         /// <summary>
         /// The encryption settings of Azure ML workspace.
         /// </summary>
         public readonly Outputs.EncryptionPropertyResponse? Encryption;
+        /// <summary>
+        /// Settings for feature store type workspace.
+        /// </summary>
+        public readonly Outputs.FeatureStoreSettingsResponse? FeatureStoreSettings;
         /// <summary>
         /// The friendly name for this workspace. This name in mutable
         /// </summary>
@@ -116,6 +120,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         /// </summary>
         public readonly bool? HbiWorkspace;
+        public readonly string? HubResourceId;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -132,10 +137,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
         public readonly string? KeyVault;
+        public readonly string? Kind;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Managed Network settings for a machine learning workspace.
+        /// </summary>
+        public readonly Outputs.ManagedNetworkSettingsResponse? ManagedNetwork;
         /// <summary>
         /// The URI associated with this workspace that machine learning flow must point at to set up tracking.
         /// </summary>
@@ -168,6 +178,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Whether requests from Public Network are allowed.
         /// </summary>
         public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Settings for serverless compute created in the workspace
+        /// </summary>
+        public readonly Outputs.ServerlessComputeSettingsResponse? ServerlessComputeSettings;
         /// <summary>
         /// The service managed resource settings.
         /// </summary>
@@ -213,6 +227,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly bool? V1LegacyMode;
         /// <summary>
+        /// WorkspaceHub's configuration object.
+        /// </summary>
+        public readonly Outputs.WorkspaceHubConfigResponse? WorkspaceHubConfig;
+        /// <summary>
         /// The immutable id associated with this workspace.
         /// </summary>
         public readonly string WorkspaceId;
@@ -223,17 +241,27 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string? applicationInsights,
 
+            ImmutableArray<string> associatedWorkspaces,
+
+            string azureApiVersion,
+
             string? containerRegistry,
 
             string? description,
 
             string? discoveryUrl,
 
+            bool? enableDataIsolation,
+
             Outputs.EncryptionPropertyResponse? encryption,
+
+            Outputs.FeatureStoreSettingsResponse? featureStoreSettings,
 
             string? friendlyName,
 
             bool? hbiWorkspace,
+
+            string? hubResourceId,
 
             string id,
 
@@ -243,7 +271,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string? keyVault,
 
+            string? kind,
+
             string? location,
+
+            Outputs.ManagedNetworkSettingsResponse? managedNetwork,
 
             string mlFlowTrackingUri,
 
@@ -260,6 +292,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
             string provisioningState,
 
             string? publicNetworkAccess,
+
+            Outputs.ServerlessComputeSettingsResponse? serverlessComputeSettings,
 
             Outputs.ServiceManagedResourcesSettingsResponse? serviceManagedResourcesSettings,
 
@@ -283,21 +317,30 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             bool? v1LegacyMode,
 
+            Outputs.WorkspaceHubConfigResponse? workspaceHubConfig,
+
             string workspaceId)
         {
             AllowPublicAccessWhenBehindVnet = allowPublicAccessWhenBehindVnet;
             ApplicationInsights = applicationInsights;
+            AssociatedWorkspaces = associatedWorkspaces;
+            AzureApiVersion = azureApiVersion;
             ContainerRegistry = containerRegistry;
             Description = description;
             DiscoveryUrl = discoveryUrl;
+            EnableDataIsolation = enableDataIsolation;
             Encryption = encryption;
+            FeatureStoreSettings = featureStoreSettings;
             FriendlyName = friendlyName;
             HbiWorkspace = hbiWorkspace;
+            HubResourceId = hubResourceId;
             Id = id;
             Identity = identity;
             ImageBuildCompute = imageBuildCompute;
             KeyVault = keyVault;
+            Kind = kind;
             Location = location;
+            ManagedNetwork = managedNetwork;
             MlFlowTrackingUri = mlFlowTrackingUri;
             Name = name;
             NotebookInfo = notebookInfo;
@@ -306,6 +349,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             PrivateLinkCount = privateLinkCount;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            ServerlessComputeSettings = serverlessComputeSettings;
             ServiceManagedResourcesSettings = serviceManagedResourcesSettings;
             ServiceProvisionedResourceGroup = serviceProvisionedResourceGroup;
             SharedPrivateLinkResources = sharedPrivateLinkResources;
@@ -317,6 +361,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             TenantId = tenantId;
             Type = type;
             V1LegacyMode = v1LegacyMode;
+            WorkspaceHubConfig = workspaceHubConfig;
             WorkspaceId = workspaceId;
         }
     }

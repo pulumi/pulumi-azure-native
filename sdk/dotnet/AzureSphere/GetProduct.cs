@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:azuresphere:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azuresphere:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azuresphere:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
@@ -97,9 +91,13 @@ namespace Pulumi.AzureNative.AzureSphere
     public sealed class GetProductResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Description of the product
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -123,7 +121,9 @@ namespace Pulumi.AzureNative.AzureSphere
 
         [OutputConstructor]
         private GetProductResult(
-            string description,
+            string azureApiVersion,
+
+            string? description,
 
             string id,
 
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.AzureSphere
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Name = name;

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// Gets details about the specified output.
         /// Azure REST API version: 2020-03-01.
-        /// 
-        /// Other available API versions: 2021-10-01-preview.
         /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// Gets details about the specified output.
         /// Azure REST API version: 2020-03-01.
-        /// 
-        /// Other available API versions: 2021-10-01-preview.
         /// </summary>
         public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// Gets details about the specified output.
         /// Azure REST API version: 2020-03-01.
-        /// 
-        /// Other available API versions: 2021-10-01-preview.
         /// </summary>
         public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class GetOutputResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly object? Datasource;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         [OutputConstructor]
         private GetOutputResult(
+            string azureApiVersion,
+
             object? datasource,
 
             Outputs.DiagnosticsResponse diagnostics,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Datasource = datasource;
             Diagnostics = diagnostics;
             Etag = etag;

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a connected registry for a container registry.
-    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    /// Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ConnectedRegistry")]
     public partial class ConnectedRegistry : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("activation")]
         public Output<Outputs.ActivationPropertiesResponse> Activation { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
@@ -35,6 +39,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("connectionState")]
         public Output<string> ConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The garbage collection properties of the connected registry.
+        /// </summary>
+        [Output("garbageCollection")]
+        public Output<Outputs.GarbageCollectionPropertiesResponse?> GarbageCollection { get; private set; } = null!;
 
         /// <summary>
         /// The last activity time of the connected registry.
@@ -183,6 +193,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Input("connectedRegistryName")]
         public Input<string>? ConnectedRegistryName { get; set; }
+
+        /// <summary>
+        /// The garbage collection properties of the connected registry.
+        /// </summary>
+        [Input("garbageCollection")]
+        public Input<Inputs.GarbageCollectionPropertiesArgs>? GarbageCollection { get; set; }
 
         /// <summary>
         /// The logging properties of the connected registry.

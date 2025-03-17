@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the group specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the group specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the group specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         /// </summary>
         public readonly bool BuiltIn;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetGroupResult(
+            string azureApiVersion,
+
             bool builtIn,
 
             string? description,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BuiltIn = builtIn;
             Description = description;
             DisplayName = displayName;

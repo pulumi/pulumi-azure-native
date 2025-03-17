@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a database's long term retention policy.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetLongTermRetentionPolicyResult> InvokeAsync(GetLongTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a database's long term retention policy.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetLongTermRetentionPolicyResult> Invoke(GetLongTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a database's long term retention policy.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetLongTermRetentionPolicyResult> Invoke(GetLongTermRetentionPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetLongTermRetentionPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetLongTermRetentionPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string? monthlyRetention,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.Sql
 
             string? yearlyRetention)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             MonthlyRetention = monthlyRetention;
             Name = name;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a network connection resource
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Task<GetNetworkConnectionResult> InvokeAsync(GetNetworkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkConnectionResult>("azure-native:devcenter:getNetworkConnection", args ?? new GetNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network connection resource
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network connection resource
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetNetworkConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// AAD Join type.
         /// </summary>
         public readonly string DomainJoinType;
@@ -105,7 +103,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string HealthCheckStatus;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetNetworkConnectionResult(
+            string azureApiVersion,
+
             string domainJoinType,
 
             string? domainName,
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DomainJoinType = domainJoinType;
             DomainName = domainName;
             DomainPassword = domainPassword;

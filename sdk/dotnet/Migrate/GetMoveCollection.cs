@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Gets the move collection.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2023-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the move collection.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2023-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the move collection.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2023-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetMoveCollectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The etag of the resource.
         /// </summary>
         public readonly string Etag;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetMoveCollectionResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Identity = identity;

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
 {
     /// <summary>
     /// A Programmable Connectivity Gateway resource
-    /// Azure REST API version: 2024-01-15-preview.
+    /// Azure REST API version: 2024-01-15-preview. Prior API version in Azure Native 2.x: 2024-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:programmableconnectivity:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
         /// </summary>

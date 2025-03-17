@@ -14,7 +14,11 @@ namespace Pulumi.AzureNative.Batch.Outputs
     public sealed class ImageReferenceResponse
     {
         /// <summary>
-        /// This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+        /// This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
+        /// </summary>
+        public readonly string? CommunityGalleryImageId;
+        /// <summary>
+        /// This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -26,6 +30,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string? Publisher;
         /// <summary>
+        /// This property is mutually exclusive with other properties and can be fetched from shared gallery image GET call.
+        /// </summary>
+        public readonly string? SharedGalleryImageId;
+        /// <summary>
         /// For example, 18.04-LTS or 2022-datacenter.
         /// </summary>
         public readonly string? Sku;
@@ -36,19 +44,25 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
         [OutputConstructor]
         private ImageReferenceResponse(
+            string? communityGalleryImageId,
+
             string? id,
 
             string? offer,
 
             string? publisher,
 
+            string? sharedGalleryImageId,
+
             string? sku,
 
             string? version)
         {
+            CommunityGalleryImageId = communityGalleryImageId;
             Id = id;
             Offer = offer;
             Publisher = publisher;
+            SharedGalleryImageId = sharedGalleryImageId;
             Sku = sku;
             Version = version;
         }

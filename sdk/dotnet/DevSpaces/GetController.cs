@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.DevSpaces
     public sealed class GetControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// DNS name for accessing DataPlane services
         /// </summary>
         public readonly string DataPlaneFqdn;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.DevSpaces
 
         [OutputConstructor]
         private GetControllerResult(
+            string azureApiVersion,
+
             string dataPlaneFqdn,
 
             string hostSuffix,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.DevSpaces
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataPlaneFqdn = dataPlaneFqdn;
             HostSuffix = hostSuffix;
             Id = id;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the SAP Instance resource.
-    /// Azure REST API version: 2023-10-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapInstance")]
     public partial class SapInstance : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Environment; PRD, QA, DEV, etc to which SAP system belongs to. Select from the list of available dropdown values.

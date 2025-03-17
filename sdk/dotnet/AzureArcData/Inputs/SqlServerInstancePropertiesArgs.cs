@@ -16,40 +16,16 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     public sealed class SqlServerInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Status of Azure Defender.
+        /// The backup profile for the SQL server.
         /// </summary>
-        [Input("azureDefenderStatus")]
-        public InputUnion<string, Pulumi.AzureNative.AzureArcData.DefenderStatus>? AzureDefenderStatus { get; set; }
-
-        /// <summary>
-        /// Timestamp of last Azure Defender status update.
-        /// </summary>
-        [Input("azureDefenderStatusLastUpdated")]
-        public Input<string>? AzureDefenderStatusLastUpdated { get; set; }
-
-        /// <summary>
-        /// SQL Server collation.
-        /// </summary>
-        [Input("collation")]
-        public Input<string>? Collation { get; set; }
-
-        /// <summary>
-        /// ARM Resource id of the container resource (Azure Arc for Servers).
-        /// </summary>
-        [Input("containerResourceId", required: true)]
-        public Input<string> ContainerResourceId { get; set; } = null!;
+        [Input("backupPolicy")]
+        public Input<Inputs.BackupPolicyArgs>? BackupPolicy { get; set; }
 
         /// <summary>
         /// The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
         /// </summary>
         [Input("cores")]
         public Input<string>? Cores { get; set; }
-
-        /// <summary>
-        /// SQL Server current version.
-        /// </summary>
-        [Input("currentVersion")]
-        public Input<string>? CurrentVersion { get; set; }
 
         /// <summary>
         /// SQL Server edition.
@@ -70,46 +46,16 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<string>? InstanceName { get; set; }
 
         /// <summary>
-        /// SQL Server license type.
+        /// The monitoring configuration.
         /// </summary>
-        [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ArcSqlServerLicenseType>? LicenseType { get; set; }
+        [Input("monitoring")]
+        public Input<Inputs.MonitoringArgs>? Monitoring { get; set; }
 
         /// <summary>
-        /// SQL Server update level.
+        /// Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         /// </summary>
-        [Input("patchLevel")]
-        public Input<string>? PatchLevel { get; set; }
-
-        /// <summary>
-        /// SQL Server product ID.
-        /// </summary>
-        [Input("productId")]
-        public Input<string>? ProductId { get; set; }
-
-        /// <summary>
-        /// The cloud connectivity status.
-        /// </summary>
-        [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ConnectionStatus> Status { get; set; } = null!;
-
-        /// <summary>
-        /// Dynamic TCP ports used by SQL Server.
-        /// </summary>
-        [Input("tcpDynamicPorts")]
-        public Input<string>? TcpDynamicPorts { get; set; }
-
-        /// <summary>
-        /// Static TCP ports used by SQL Server.
-        /// </summary>
-        [Input("tcpStaticPorts")]
-        public Input<string>? TcpStaticPorts { get; set; }
-
-        /// <summary>
-        /// The number of logical processors used by the SQL Server instance.
-        /// </summary>
-        [Input("vCore")]
-        public Input<string>? VCore { get; set; }
+        [Input("upgradeLockedUntil")]
+        public Input<string>? UpgradeLockedUntil { get; set; }
 
         /// <summary>
         /// SQL Server version.

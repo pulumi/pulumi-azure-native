@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());
@@ -97,7 +91,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetHybridIdentityMetadatumResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -109,7 +107,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -117,7 +115,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string? PublicKey;
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetHybridIdentityMetadatumResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse identity,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vmId)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Name = name;

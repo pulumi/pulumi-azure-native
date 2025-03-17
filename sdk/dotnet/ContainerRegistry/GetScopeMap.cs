@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified scope map.
-        /// Azure REST API version: 2022-12-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified scope map.
-        /// Azure REST API version: 2022-12-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified scope map.
-        /// Azure REST API version: 2022-12-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());
@@ -103,6 +97,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of scope map.
         /// </summary>
         public readonly string CreationDate;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private GetScopeMapResult(
             ImmutableArray<string> actions,
 
+            string azureApiVersion,
+
             string creationDate,
 
             string? description,
@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string type)
         {
             Actions = actions;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             Description = description;
             Id = id;

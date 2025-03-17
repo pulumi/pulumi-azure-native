@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetMigrateProjectResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the eTag for concurrency control.
         /// </summary>
         public readonly string? ETag;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetMigrateProjectResult(
+            string azureApiVersion,
+
             string? eTag,
 
             string id,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Location = location;

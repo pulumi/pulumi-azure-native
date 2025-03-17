@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get an App and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an App and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an App and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.AppPlatform
     public sealed class GetAppResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.AppPlatform
 
         [OutputConstructor]
         private GetAppResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedIdentityPropertiesResponse? identity,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.AppPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

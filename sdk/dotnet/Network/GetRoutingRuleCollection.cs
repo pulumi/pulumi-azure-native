@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager routing configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetRoutingRuleCollectionResult> InvokeAsync(GetRoutingRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutingRuleCollectionResult>("azure-native:network:getRoutingRuleCollection", args ?? new GetRoutingRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager routing configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetRoutingRuleCollectionResult> Invoke(GetRoutingRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingRuleCollectionResult>("azure-native:network:getRoutingRuleCollection", args ?? new GetRoutingRuleCollectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager routing configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetRoutingRuleCollectionResult> Invoke(GetRoutingRuleCollectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingRuleCollectionResult>("azure-native:network:getRoutingRuleCollection", args ?? new GetRoutingRuleCollectionInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagerRoutingGroupItemResponse> AppliesTo;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description of the routing rule collection.
         /// </summary>
         public readonly string? Description;
@@ -153,6 +151,8 @@ namespace Pulumi.AzureNative.Network
         private GetRoutingRuleCollectionResult(
             ImmutableArray<Outputs.NetworkManagerRoutingGroupItemResponse> appliesTo,
 
+            string azureApiVersion,
+
             string? description,
 
             string? disableBgpRoutePropagation,
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AppliesTo = appliesTo;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisableBgpRoutePropagation = disableBgpRoutePropagation;
             Etag = etag;

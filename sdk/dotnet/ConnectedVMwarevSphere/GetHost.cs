@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements host GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements host GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements host GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
@@ -85,11 +79,19 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetHostResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Gets the max CPU usage across all cores in MHz.
+        /// </summary>
+        public readonly double CpuMhz;
+        /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
         public readonly string CustomResourceName;
         /// <summary>
-        /// Gets or sets the datastore ARM ids.
+        /// Gets the datastore ARM ids.
         /// </summary>
         public readonly ImmutableArray<string> DatastoreIds;
         /// <summary>
@@ -113,6 +115,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Gets the total amount of physical memory on the host in GB.
+        /// </summary>
+        public readonly double MemorySizeGB;
+        /// <summary>
         /// Gets or sets the vCenter Managed Object name for the host.
         /// </summary>
         public readonly string MoName;
@@ -125,11 +131,19 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the network ARM ids.
+        /// Gets the network ARM ids.
         /// </summary>
         public readonly ImmutableArray<string> NetworkIds;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the used CPU usage across all cores in MHz.
+        /// </summary>
+        public readonly double OverallCpuUsageMHz;
+        /// <summary>
+        /// Gets the used physical memory on the host in GB.
+        /// </summary>
+        public readonly double OverallMemoryUsageGB;
+        /// <summary>
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -159,6 +173,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetHostResult(
+            string azureApiVersion,
+
+            double cpuMhz,
+
             string customResourceName,
 
             ImmutableArray<string> datastoreIds,
@@ -173,6 +191,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string location,
 
+            double memorySizeGB,
+
             string moName,
 
             string? moRefId,
@@ -180,6 +200,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             string name,
 
             ImmutableArray<string> networkIds,
+
+            double overallCpuUsageMHz,
+
+            double overallMemoryUsageGB,
 
             string provisioningState,
 
@@ -195,6 +219,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vCenterId)
         {
+            AzureApiVersion = azureApiVersion;
+            CpuMhz = cpuMhz;
             CustomResourceName = customResourceName;
             DatastoreIds = datastoreIds;
             ExtendedLocation = extendedLocation;
@@ -202,10 +228,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
+            MemorySizeGB = memorySizeGB;
             MoName = moName;
             MoRefId = moRefId;
             Name = name;
             NetworkIds = networkIds;
+            OverallCpuUsageMHz = overallCpuUsageMHz;
+            OverallMemoryUsageGB = overallMemoryUsageGB;
             ProvisioningState = provisioningState;
             Statuses = statuses;
             SystemData = systemData;

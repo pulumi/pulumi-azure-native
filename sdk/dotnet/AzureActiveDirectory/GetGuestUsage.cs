@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// Azure REST API version: 2021-04-01.
-        /// 
-        /// Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+        /// Azure REST API version: 2023-05-17-preview.
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// Azure REST API version: 2021-04-01.
-        /// 
-        /// Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+        /// Azure REST API version: 2023-05-17-preview.
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// Azure REST API version: 2021-04-01.
-        /// 
-        /// Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+        /// Azure REST API version: 2023-05-17-preview.
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     public sealed class GetGuestUsageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An identifier that represents the Guest Usages resource.
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
         [OutputConstructor]
         private GetGuestUsageResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     public sealed class HierarchyInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Represents Model Display Name.
+        /// </summary>
+        [Input("configurationIdDisplayName")]
+        public Input<string>? ConfigurationIdDisplayName { get; set; }
+
+        /// <summary>
         /// Represents configuration name that uniquely identifies configuration.
         /// </summary>
         [Input("configurationName")]

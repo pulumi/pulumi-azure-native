@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A workspace key
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-    /// 
-    /// Other available API versions: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Used to activate the workspace after a customer managed key is provided.
         /// </summary>

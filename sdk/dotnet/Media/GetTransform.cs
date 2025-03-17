@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetTransformResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
         /// </summary>
         public readonly string Created;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetTransformResult(
+            string azureApiVersion,
+
             string created,
 
             string? description,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Created = created;
             Description = description;
             Id = id;

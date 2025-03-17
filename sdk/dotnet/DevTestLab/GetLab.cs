@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string ArtifactsStorageAccount;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the lab.
         /// </summary>
         public readonly string CreatedDate;
@@ -199,6 +203,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string artifactsStorageAccount,
 
+            string azureApiVersion,
+
             string createdDate,
 
             string defaultPremiumStorageAccount,
@@ -247,6 +253,7 @@ namespace Pulumi.AzureNative.DevTestLab
         {
             Announcement = announcement;
             ArtifactsStorageAccount = artifactsStorageAccount;
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             DefaultPremiumStorageAccount = defaultPremiumStorageAccount;
             DefaultStorageAccount = defaultStorageAccount;

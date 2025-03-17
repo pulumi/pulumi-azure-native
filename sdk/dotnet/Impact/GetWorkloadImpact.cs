@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Impact
     public sealed class GetWorkloadImpactResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureNative.Impact
 
         [OutputConstructor]
         private GetWorkloadImpactResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.Impact
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

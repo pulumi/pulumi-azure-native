@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server DNS alias.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetServerDnsAliasResult> InvokeAsync(GetServerDnsAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-native:sql:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server DNS alias.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerDnsAliasResult> Invoke(GetServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server DNS alias.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerDnsAliasResult> Invoke(GetServerDnsAliasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetServerDnsAliasResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The fully qualified DNS record for alias
         /// </summary>
         public readonly string AzureDnsRecord;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetServerDnsAliasResult(
+            string azureApiVersion,
+
             string azureDnsRecord,
 
             string id,
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureDnsRecord = azureDnsRecord;
             Id = id;
             Name = name;

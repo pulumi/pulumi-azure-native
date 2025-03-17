@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
     public sealed class JobStagesResponse
     {
         /// <summary>
+        /// Delay information for the job stages.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.JobDelayDetailsResponse> DelayInformation;
+        /// <summary>
         /// Display name of the job stage.
         /// </summary>
         public readonly string DisplayName;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
         [OutputConstructor]
         private JobStagesResponse(
+            ImmutableArray<Outputs.JobDelayDetailsResponse> delayInformation,
+
             string displayName,
 
             object jobStageDetails,
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             string stageTime)
         {
+            DelayInformation = delayInformation;
             DisplayName = displayName;
             JobStageDetails = jobStageDetails;
             StageName = stageName;

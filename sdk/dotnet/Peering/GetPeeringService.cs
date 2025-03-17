@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Peering
     public sealed class GetPeeringServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the resource.
         /// </summary>
         public readonly string Id;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.Peering
 
         [OutputConstructor]
         private GetPeeringServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Peering
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             LogAnalyticsWorkspaceProperties = logAnalyticsWorkspaceProperties;

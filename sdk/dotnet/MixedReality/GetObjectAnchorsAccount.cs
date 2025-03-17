@@ -12,21 +12,45 @@ namespace Pulumi.AzureNative.MixedReality
     public static class GetObjectAnchorsAccount
     {
         /// <summary>
-        /// Retrieve an Object Anchors Account.
+        /// 
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve an Object Anchors Account.
         /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetObjectAnchorsAccountResult> InvokeAsync(GetObjectAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve an Object Anchors Account.
+        /// 
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve an Object Anchors Account.
         /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetObjectAnchorsAccountResult> Invoke(GetObjectAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve an Object Anchors Account.
+        /// 
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve an Object Anchors Account.
         /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetObjectAnchorsAccountResult> Invoke(GetObjectAnchorsAccountInvokeArgs args, InvokeOutputOptions options)
@@ -87,6 +111,10 @@ namespace Pulumi.AzureNative.MixedReality
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -134,6 +162,8 @@ namespace Pulumi.AzureNative.MixedReality
 
             string accountId,
 
+            string azureApiVersion,
+
             string id,
 
             Outputs.ObjectAnchorsAccountResponseIdentity? identity,
@@ -158,6 +188,7 @@ namespace Pulumi.AzureNative.MixedReality
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Kind = kind;

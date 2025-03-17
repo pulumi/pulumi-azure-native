@@ -14,14 +14,22 @@ namespace Pulumi.AzureNative.Databricks.Outputs
     public sealed class AccessConnectorPropertiesResponse
     {
         /// <summary>
-        /// Provisioning status of the accessConnector.
+        /// Provisioning status of the Access Connector.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// List of workspaces referring this Access Connector.
+        /// </summary>
+        public readonly ImmutableArray<string> ReferedBy;
 
         [OutputConstructor]
-        private AccessConnectorPropertiesResponse(string provisioningState)
+        private AccessConnectorPropertiesResponse(
+            string provisioningState,
+
+            ImmutableArray<string> referedBy)
         {
             ProvisioningState = provisioningState;
+            ReferedBy = referedBy;
         }
     }
 }

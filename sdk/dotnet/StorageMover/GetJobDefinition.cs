@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.StorageMover
     {
         /// <summary>
         /// Gets a Job Definition resource.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Job Definition resource.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Job Definition resource.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:storagemover:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
@@ -117,6 +111,10 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         public readonly string AgentResourceId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Strategy to use for copy.
         /// </summary>
         public readonly string CopyMode;
@@ -161,7 +159,7 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         public readonly string? SourceSubpath;
         /// <summary>
-        /// Resource system metadata.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -186,6 +184,8 @@ namespace Pulumi.AzureNative.StorageMover
             string? agentName,
 
             string agentResourceId,
+
+            string azureApiVersion,
 
             string copyMode,
 
@@ -221,6 +221,7 @@ namespace Pulumi.AzureNative.StorageMover
         {
             AgentName = agentName;
             AgentResourceId = agentResourceId;
+            AzureApiVersion = azureApiVersion;
             CopyMode = copyMode;
             Description = description;
             Id = id;

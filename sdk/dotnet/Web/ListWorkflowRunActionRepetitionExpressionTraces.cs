@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Lists a workflow run expression trace.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<ListWorkflowRunActionRepetitionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionRepetitionExpressionTracesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists a workflow run expression trace.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListWorkflowRunActionRepetitionExpressionTracesResult> Invoke(ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists a workflow run expression trace.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListWorkflowRunActionRepetitionExpressionTracesResult> Invoke(ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:web:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithDefaults());

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// MEC role.
-    /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MECRole")]
     public partial class MECRole : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Activation key of the MEC.
         /// </summary>
@@ -111,9 +117,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:MECRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:IoTRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:MECRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:CloudEdgeManagementRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:IoTRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:MECRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:CloudEdgeManagementRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:IoTRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:MECRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:CloudEdgeManagementRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:KubernetesRole" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

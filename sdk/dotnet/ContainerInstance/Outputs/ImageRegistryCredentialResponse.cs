@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The reference for the private registry password.
-        /// </summary>
-        public readonly string? PasswordReference;
-        /// <summary>
         /// The Docker image registry server without a protocol such as "http" and "https".
         /// </summary>
         public readonly string Server;
@@ -49,8 +45,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             string? password,
 
-            string? passwordReference,
-
             string server,
 
             string? username)
@@ -58,7 +52,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
             Identity = identity;
             IdentityUrl = identityUrl;
             Password = password;
-            PasswordReference = passwordReference;
             Server = server;
             Username = username;
         }

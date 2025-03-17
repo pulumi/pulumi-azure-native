@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
         [Input("osType")]
         public InputUnion<string, Pulumi.AzureNative.ConnectedVMwarevSphere.OsType>? OsType { get; set; }
 
+        /// <summary>
+        /// Windows Configuration.
+        /// </summary>
+        [Input("windowsConfiguration")]
+        public Input<Inputs.WindowsConfigurationArgs>? WindowsConfiguration { get; set; }
+
         public OsProfileForVMInstanceArgs()
         {
         }

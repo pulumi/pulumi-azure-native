@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 {
     /// <summary>
     /// MQ kafkaConnector resource
-    /// Azure REST API version: 2023-10-04-preview.
+    /// Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:KafkaConnector")]
     public partial class KafkaConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The client id prefix of the dynamically generated client ids.
         /// </summary>

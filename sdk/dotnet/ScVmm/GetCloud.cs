@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements Cloud GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetCloudResult> InvokeAsync(GetCloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudResult>("azure-native:scvmm:getCloud", args ?? new GetCloudArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements Cloud GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetCloudResult> Invoke(GetCloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudResult>("azure-native:scvmm:getCloud", args ?? new GetCloudInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements Cloud GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetCloudResult> Invoke(GetCloudInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudResult>("azure-native:scvmm:getCloud", args ?? new GetCloudInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.ScVmm
     [OutputType]
     public sealed class GetCloudResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Capacity of the cloud.
         /// </summary>
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.ScVmm
 
         [OutputConstructor]
         private GetCloudResult(
+            string azureApiVersion,
+
             Outputs.CloudCapacityResponse cloudCapacity,
 
             string cloudName,
@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.ScVmm
 
             string? vmmServerId)
         {
+            AzureApiVersion = azureApiVersion;
             CloudCapacity = cloudCapacity;
             CloudName = cloudName;
             ExtendedLocation = extendedLocation;

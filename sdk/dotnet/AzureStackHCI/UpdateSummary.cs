@@ -11,13 +11,29 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Get the update summaries for the cluster
-    /// Azure REST API version: 2023-03-01.
-    /// 
-    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateSummary")]
     public partial class UpdateSummary : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Current OEM Version.
+        /// </summary>
+        [Output("currentOemVersion")]
+        public Output<string?> CurrentOemVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Current Sbe version of the stamp.
+        /// </summary>
+        [Output("currentSbeVersion")]
+        public Output<string?> CurrentSbeVersion { get; private set; } = null!;
+
         /// <summary>
         /// Current Solution Bundle version of the stamp.
         /// </summary>
@@ -156,6 +172,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Current OEM Version.
+        /// </summary>
+        [Input("currentOemVersion")]
+        public Input<string>? CurrentOemVersion { get; set; }
+
+        /// <summary>
+        /// Current Sbe version of the stamp.
+        /// </summary>
+        [Input("currentSbeVersion")]
+        public Input<string>? CurrentSbeVersion { get; set; }
 
         /// <summary>
         /// Current Solution Bundle version of the stamp.

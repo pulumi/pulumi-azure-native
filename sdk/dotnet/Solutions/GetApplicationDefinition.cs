@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application definition.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application definition.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application definition.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,10 @@ namespace Pulumi.AzureNative.Solutions
         /// The managed application provider authorizations.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
@@ -183,6 +181,8 @@ namespace Pulumi.AzureNative.Solutions
 
             ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
 
+            string azureApiVersion,
+
             object? createUiDefinition,
 
             Outputs.ApplicationDeploymentPolicyResponse? deploymentPolicy,
@@ -227,6 +227,7 @@ namespace Pulumi.AzureNative.Solutions
         {
             Artifacts = artifacts;
             Authorizations = authorizations;
+            AzureApiVersion = azureApiVersion;
             CreateUiDefinition = createUiDefinition;
             DeploymentPolicy = deploymentPolicy;
             Description = description;

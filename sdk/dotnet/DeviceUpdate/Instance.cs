@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Device Update instance details.
-    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
+    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Customer-initiated diagnostic log collection storage properties

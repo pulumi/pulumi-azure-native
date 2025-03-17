@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class GalleryDiskImageSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        /// The id of the gallery artifact version source.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetVariableResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Variable column definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyVariableColumnResponse> Columns;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetVariableResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.PolicyVariableColumnResponse> columns,
 
             string id,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Columns = columns;
             Id = id;
             Name = name;

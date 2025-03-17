@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.AzureArcData
     public sealed class GetSqlServerLicenseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         [OutputConstructor]
         private GetSqlServerLicenseResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.AzureArcData
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

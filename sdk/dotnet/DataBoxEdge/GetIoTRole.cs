@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Gets a specific role by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetIoTRoleResult> InvokeAsync(GetIoTRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoTRoleResult>("azure-native:databoxedge:getIoTRole", args ?? new GetIoTRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific role by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetIoTRoleResult> Invoke(GetIoTRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTRoleResult>("azure-native:databoxedge:getIoTRole", args ?? new GetIoTRoleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific role by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetIoTRoleResult> Invoke(GetIoTRoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTRoleResult>("azure-native:databoxedge:getIoTRole", args ?? new GetIoTRoleInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetIoTRoleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource allocation
         /// </summary>
         public readonly Outputs.ComputeResourceResponse? ComputeResource;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetIoTRoleResult(
+            string azureApiVersion,
+
             Outputs.ComputeResourceResponse? computeResource,
 
             string hostPlatform,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ComputeResource = computeResource;
             HostPlatform = hostPlatform;
             HostPlatformType = hostPlatformType;

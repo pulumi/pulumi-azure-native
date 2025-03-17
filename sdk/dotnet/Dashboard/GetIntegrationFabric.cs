@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Dashboard
     {
         /// <summary>
         /// The integration fabric resource type.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetIntegrationFabricResult> InvokeAsync(GetIntegrationFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration fabric resource type.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration fabric resource type.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Dashboard
     public sealed class GetIntegrationFabricResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -124,6 +122,8 @@ namespace Pulumi.AzureNative.Dashboard
 
         [OutputConstructor]
         private GetIntegrationFabricResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Dashboard
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         public InputUnion<string, Pulumi.AzureNative.DBforMySQL.EnableStatusEnum>? LogOnDisk { get; set; }
 
         /// <summary>
+        /// The redundant type of the server storage. The parameter is used for server creation.
+        /// </summary>
+        [Input("storageRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.StorageRedundancyEnum>? StorageRedundancy { get; set; }
+
+        /// <summary>
         /// Max storage size allowed for a server.
         /// </summary>
         [Input("storageSizeGB")]
@@ -48,8 +54,9 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         public StorageArgs()
         {
             AutoGrow = "Disabled";
-            AutoIoScaling = "Disabled";
+            AutoIoScaling = "Enabled";
             LogOnDisk = "Disabled";
+            StorageRedundancy = "LocalRedundancy";
         }
         public static new StorageArgs Empty => new StorageArgs();
     }

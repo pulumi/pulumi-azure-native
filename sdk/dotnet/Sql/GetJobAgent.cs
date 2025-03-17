@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job agent.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetJobAgentResult> InvokeAsync(GetJobAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-native:sql:getJobAgent", args ?? new GetJobAgentArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job agent.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobAgentResult> Invoke(GetJobAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job agent.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobAgentResult> Invoke(GetJobAgentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetJobAgentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID of the database to store job metadata in.
         /// </summary>
         public readonly string DatabaseId;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetJobAgentResult(
+            string azureApiVersion,
+
             string databaseId,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DatabaseId = databaseId;
             Id = id;
             Location = location;

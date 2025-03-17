@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk encryption set resource.
-    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    /// Azure REST API version: 2024-03-02. Prior API version in Azure Native 2.x: 2022-07-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("autoKeyRotationError")]
         public Output<Outputs.ApiErrorResponse> AutoKeyRotationError { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The type of key used to encrypt the data of the disk.

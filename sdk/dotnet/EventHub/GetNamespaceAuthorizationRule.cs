@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets an AuthorizationRule for a Namespace by rule name.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:eventhub:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an AuthorizationRule for a Namespace by rule name.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:eventhub:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an AuthorizationRule for a Namespace by rule name.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:eventhub:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class GetNamespaceAuthorizationRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.EventHub
 
         [OutputConstructor]
         private GetNamespaceAuthorizationRuleResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.EventHub
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

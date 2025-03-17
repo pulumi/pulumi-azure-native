@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// Settings defined at the Management Group scope.
-    /// Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01.
-    /// 
-    /// Other available API versions: 2023-04-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:management:HierarchySetting")]
     public partial class HierarchySetting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         /// </summary>

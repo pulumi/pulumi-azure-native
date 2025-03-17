@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class NetworkRuleSetResponse
     {
         /// <summary>
+        /// Setting for trusted services.
+        /// </summary>
+        public readonly string? Bypass;
+        /// <summary>
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         /// </summary>
         public readonly string? DefaultAction;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private NetworkRuleSetResponse(
+            string? bypass,
+
             string? defaultAction,
 
             ImmutableArray<Outputs.IpRuleResponse> ipRules,
 
             ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
         {
+            Bypass = bypass;
             DefaultAction = defaultAction;
             IpRules = ipRules;
             VirtualNetworkRules = virtualNetworkRules;

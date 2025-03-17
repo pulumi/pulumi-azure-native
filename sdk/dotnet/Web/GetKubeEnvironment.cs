@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get the properties of a Kubernetes Environment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetKubeEnvironmentResult> InvokeAsync(GetKubeEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get the properties of a Kubernetes Environment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get the properties of a Kubernetes Environment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentInvokeArgs(), options.WithDefaults());
@@ -98,6 +92,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.ArcConfigurationResponse? ArcConfiguration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
         /// </summary>
         public readonly Outputs.ContainerAppsConfigurationResponse? ContainerAppsConfiguration;
@@ -126,7 +124,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? InternalLoadBalancerEnabled;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -162,6 +160,8 @@ namespace Pulumi.AzureNative.Web
 
             Outputs.ArcConfigurationResponse? arcConfiguration,
 
+            string azureApiVersion,
+
             Outputs.ContainerAppsConfigurationResponse? containerAppsConfiguration,
 
             string defaultDomain,
@@ -193,6 +193,7 @@ namespace Pulumi.AzureNative.Web
             AksResourceID = aksResourceID;
             AppLogsConfiguration = appLogsConfiguration;
             ArcConfiguration = arcConfiguration;
+            AzureApiVersion = azureApiVersion;
             ContainerAppsConfiguration = containerAppsConfiguration;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;

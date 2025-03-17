@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// Get a valid sender username for a domains resource.
-        /// Azure REST API version: 2023-03-31.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetSenderUsernameResult> InvokeAsync(GetSenderUsernameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSenderUsernameResult>("azure-native:communication:getSenderUsername", args ?? new GetSenderUsernameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a valid sender username for a domains resource.
-        /// Azure REST API version: 2023-03-31.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetSenderUsernameResult> Invoke(GetSenderUsernameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSenderUsernameResult>("azure-native:communication:getSenderUsername", args ?? new GetSenderUsernameInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a valid sender username for a domains resource.
-        /// Azure REST API version: 2023-03-31.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetSenderUsernameResult> Invoke(GetSenderUsernameInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSenderUsernameResult>("azure-native:communication:getSenderUsername", args ?? new GetSenderUsernameInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Communication
     public sealed class GetSenderUsernameResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The location where the SenderUsername resource data is stored at rest.
         /// </summary>
         public readonly string DataLocation;
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.Communication
 
         [OutputConstructor]
         private GetSenderUsernameResult(
+            string azureApiVersion,
+
             string dataLocation,
 
             string? displayName,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.Communication
 
             string username)
         {
+            AzureApiVersion = azureApiVersion;
             DataLocation = dataLocation;
             DisplayName = displayName;
             Id = id;

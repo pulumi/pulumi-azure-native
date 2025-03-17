@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetGatewayResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// User readable description of the gateway.
         /// </summary>
         public readonly string? Description;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetGatewayResult(
+            string azureApiVersion,
+
             string? description,
 
             Outputs.NetworkRefResponse destinationNetwork,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DestinationNetwork = destinationNetwork;
             Http = http;

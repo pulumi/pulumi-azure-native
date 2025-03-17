@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetMarkupRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Customer information for the markup rule.
         /// </summary>
         public readonly Outputs.CustomerMetadataResponse CustomerDetails;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetMarkupRuleResult(
+            string azureApiVersion,
+
             Outputs.CustomerMetadataResponse customerDetails,
 
             string? description,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomerDetails = customerDetails;
             Description = description;
             ETag = eTag;

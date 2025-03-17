@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
     public sealed class ActionResponse
     {
         /// <summary>
-        /// The type of the action. The value should be compared case-insensitively.
+        /// The type of action.
         /// </summary>
         public readonly string? Type;
 

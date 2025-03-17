@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ResourceConnector
 {
     /// <summary>
     /// Appliances definition.
-    /// Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview.
-    /// 
-    /// Other available API versions: 2021-10-31-preview.
+    /// Azure REST API version: 2022-10-27. Prior API version in Azure Native 2.x: 2022-10-27.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Represents a supported Fabric/Infra. (AKSEdge etc...).
         /// </summary>

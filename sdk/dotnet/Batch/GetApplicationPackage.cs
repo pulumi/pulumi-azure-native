@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Gets information about the specified application package.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified application package.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified application package.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetApplicationPackageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ETag of the resource, used for concurrency statements.
         /// </summary>
         public readonly string Etag;
@@ -141,12 +139,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string StorageUrlExpiry;
         /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetApplicationPackageResult(
+            string azureApiVersion,
+
             string etag,
 
             string format,
@@ -163,8 +167,11 @@ namespace Pulumi.AzureNative.Batch
 
             string storageUrlExpiry,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Format = format;
             Id = id;
@@ -173,6 +180,7 @@ namespace Pulumi.AzureNative.Batch
             State = state;
             StorageUrl = storageUrl;
             StorageUrlExpiry = storageUrlExpiry;
+            Tags = tags;
             Type = type;
         }
     }

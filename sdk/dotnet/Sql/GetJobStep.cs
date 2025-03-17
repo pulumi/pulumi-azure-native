@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job step in a job's current version.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql:getJobStep", args ?? new GetJobStepArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job step in a job's current version.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job step in a job's current version.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithDefaults());
@@ -125,6 +119,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly Outputs.JobStepActionResponse Action;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the job credential that will be used to connect to the targets.
         /// </summary>
         public readonly string Credential;
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.Sql
         private GetJobStepResult(
             Outputs.JobStepActionResponse action,
 
+            string azureApiVersion,
+
             string credential,
 
             Outputs.JobStepExecutionOptionsResponse? executionOptions,
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.Sql
             string type)
         {
             Action = action;
+            AzureApiVersion = azureApiVersion;
             Credential = credential;
             ExecutionOptions = executionOptions;
             Id = id;

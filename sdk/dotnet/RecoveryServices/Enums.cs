@@ -274,6 +274,37 @@ namespace Pulumi.AzureNative.RecoveryServices
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Flag to show if Cross Region Restore is enabled on the Vault or not
+    /// </summary>
+    [EnumType]
+    public readonly struct CrossRegionRestore : IEquatable<CrossRegionRestore>
+    {
+        private readonly string _value;
+
+        private CrossRegionRestore(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CrossRegionRestore Enabled { get; } = new CrossRegionRestore("Enabled");
+        public static CrossRegionRestore Disabled { get; } = new CrossRegionRestore("Disabled");
+
+        public static bool operator ==(CrossRegionRestore left, CrossRegionRestore right) => left.Equals(right);
+        public static bool operator !=(CrossRegionRestore left, CrossRegionRestore right) => !left.Equals(right);
+
+        public static explicit operator string(CrossRegionRestore value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CrossRegionRestore other && Equals(other);
+        public bool Equals(CrossRegionRestore other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct CrossSubscriptionRestoreState : IEquatable<CrossSubscriptionRestoreState>
     {
@@ -352,6 +383,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public static DiskAccountType Standard_LRS { get; } = new DiskAccountType("Standard_LRS");
         public static DiskAccountType Premium_LRS { get; } = new DiskAccountType("Premium_LRS");
         public static DiskAccountType StandardSSD_LRS { get; } = new DiskAccountType("StandardSSD_LRS");
+        public static DiskAccountType PremiumV2_LRS { get; } = new DiskAccountType("PremiumV2_LRS");
+        public static DiskAccountType UltraSSD_LRS { get; } = new DiskAccountType("UltraSSD_LRS");
+        public static DiskAccountType StandardSSD_ZRS { get; } = new DiskAccountType("StandardSSD_ZRS");
+        public static DiskAccountType Premium_ZRS { get; } = new DiskAccountType("Premium_ZRS");
 
         public static bool operator ==(DiskAccountType left, DiskAccountType right) => left.Equals(right);
         public static bool operator !=(DiskAccountType left, DiskAccountType right) => !left.Equals(right);
@@ -361,6 +396,36 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskAccountType other && Equals(other);
         public bool Equals(DiskAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EnhancedSecurityState : IEquatable<EnhancedSecurityState>
+    {
+        private readonly string _value;
+
+        private EnhancedSecurityState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnhancedSecurityState Invalid { get; } = new EnhancedSecurityState("Invalid");
+        public static EnhancedSecurityState Enabled { get; } = new EnhancedSecurityState("Enabled");
+        public static EnhancedSecurityState Disabled { get; } = new EnhancedSecurityState("Disabled");
+        public static EnhancedSecurityState AlwaysON { get; } = new EnhancedSecurityState("AlwaysON");
+
+        public static bool operator ==(EnhancedSecurityState left, EnhancedSecurityState right) => left.Equals(right);
+        public static bool operator !=(EnhancedSecurityState left, EnhancedSecurityState right) => !left.Equals(right);
+
+        public static explicit operator string(EnhancedSecurityState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnhancedSecurityState other && Equals(other);
+        public bool Equals(EnhancedSecurityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -483,6 +548,33 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IAASVMPolicyType other && Equals(other);
         public bool Equals(IAASVMPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IaasVMSnapshotConsistencyType : IEquatable<IaasVMSnapshotConsistencyType>
+    {
+        private readonly string _value;
+
+        private IaasVMSnapshotConsistencyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IaasVMSnapshotConsistencyType OnlyCrashConsistent { get; } = new IaasVMSnapshotConsistencyType("OnlyCrashConsistent");
+
+        public static bool operator ==(IaasVMSnapshotConsistencyType left, IaasVMSnapshotConsistencyType right) => left.Equals(right);
+        public static bool operator !=(IaasVMSnapshotConsistencyType left, IaasVMSnapshotConsistencyType right) => !left.Equals(right);
+
+        public static explicit operator string(IaasVMSnapshotConsistencyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IaasVMSnapshotConsistencyType other && Equals(other);
+        public bool Equals(IaasVMSnapshotConsistencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -615,6 +707,38 @@ namespace Pulumi.AzureNative.RecoveryServices
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The license type for Linux VM's.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxLicenseType : IEquatable<LinuxLicenseType>
+    {
+        private readonly string _value;
+
+        private LinuxLicenseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxLicenseType NotSpecified { get; } = new LinuxLicenseType("NotSpecified");
+        public static LinuxLicenseType NoLicenseType { get; } = new LinuxLicenseType("NoLicenseType");
+        public static LinuxLicenseType LinuxServer { get; } = new LinuxLicenseType("LinuxServer");
+
+        public static bool operator ==(LinuxLicenseType left, LinuxLicenseType right) => left.Equals(right);
+        public static bool operator !=(LinuxLicenseType left, LinuxLicenseType right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxLicenseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxLicenseType other && Equals(other);
+        public bool Equals(LinuxLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct MonthOfYear : IEquatable<MonthOfYear>
     {
@@ -701,6 +825,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public static OperationType Invalid { get; } = new OperationType("Invalid");
         public static OperationType Register { get; } = new OperationType("Register");
         public static OperationType Reregister { get; } = new OperationType("Reregister");
+        public static OperationType Rehydrate { get; } = new OperationType("Rehydrate");
 
         public static bool operator ==(OperationType left, OperationType right) => left.Equals(right);
         public static bool operator !=(OperationType left, OperationType right) => !left.Equals(right);
@@ -1376,6 +1501,37 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
     /// <summary>
+    /// A value indicating whether trusted platform module to be enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityConfiguration : IEquatable<SecurityConfiguration>
+    {
+        private readonly string _value;
+
+        private SecurityConfiguration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityConfiguration Disabled { get; } = new SecurityConfiguration("Disabled");
+        public static SecurityConfiguration Enabled { get; } = new SecurityConfiguration("Enabled");
+
+        public static bool operator ==(SecurityConfiguration left, SecurityConfiguration right) => left.Equals(right);
+        public static bool operator !=(SecurityConfiguration left, SecurityConfiguration right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityConfiguration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityConfiguration other && Equals(other);
+        public bool Equals(SecurityConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The target VM security type.
     /// </summary>
     [EnumType]
@@ -1525,6 +1681,39 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlServerLicenseType other && Equals(other);
         public bool Equals(SqlServerLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The storage redundancy setting of a vault
+    /// </summary>
+    [EnumType]
+    public readonly struct StandardTierStorageRedundancy : IEquatable<StandardTierStorageRedundancy>
+    {
+        private readonly string _value;
+
+        private StandardTierStorageRedundancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StandardTierStorageRedundancy Invalid { get; } = new StandardTierStorageRedundancy("Invalid");
+        public static StandardTierStorageRedundancy LocallyRedundant { get; } = new StandardTierStorageRedundancy("LocallyRedundant");
+        public static StandardTierStorageRedundancy GeoRedundant { get; } = new StandardTierStorageRedundancy("GeoRedundant");
+        public static StandardTierStorageRedundancy ZoneRedundant { get; } = new StandardTierStorageRedundancy("ZoneRedundant");
+
+        public static bool operator ==(StandardTierStorageRedundancy left, StandardTierStorageRedundancy right) => left.Equals(right);
+        public static bool operator !=(StandardTierStorageRedundancy left, StandardTierStorageRedundancy right) => !left.Equals(right);
+
+        public static explicit operator string(StandardTierStorageRedundancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StandardTierStorageRedundancy other && Equals(other);
+        public bool Equals(StandardTierStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
 {
 
     /// <summary>
-    /// The name of the domain that should used for placement as per this policy.
+    /// The type of placement policy for a service fabric service. Following are the possible values.
     /// </summary>
     public sealed class ServicePlacementNonPartiallyPlaceServicePolicyArgs : global::Pulumi.ResourceArgs
     {

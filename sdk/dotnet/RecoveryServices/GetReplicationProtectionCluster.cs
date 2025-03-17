@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Gets the details of an ASR replication protection cluster.
-        /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetReplicationProtectionClusterResult> InvokeAsync(GetReplicationProtectionClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectionClusterResult>("azure-native:recoveryservices:getReplicationProtectionCluster", args ?? new GetReplicationProtectionClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an ASR replication protection cluster.
-        /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetReplicationProtectionClusterResult> Invoke(GetReplicationProtectionClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionClusterResult>("azure-native:recoveryservices:getReplicationProtectionCluster", args ?? new GetReplicationProtectionClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an ASR replication protection cluster.
-        /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetReplicationProtectionClusterResult> Invoke(GetReplicationProtectionClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionClusterResult>("azure-native:recoveryservices:getReplicationProtectionCluster", args ?? new GetReplicationProtectionClusterInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.RecoveryServices
     public sealed class GetReplicationProtectionClusterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The protection cluster Id.
         /// </summary>
         public readonly string Id;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.RecoveryServices
 
         [OutputConstructor]
         private GetReplicationProtectionClusterResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

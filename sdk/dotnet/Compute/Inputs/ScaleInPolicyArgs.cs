@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("forceDeletion")]
         public Input<bool>? ForceDeletion { get; set; }
 
+        /// <summary>
+        /// This property allows you to prioritize the deletion of unhealthy and inactive VMs when a virtual machine scale set is being scaled-in.(Feature in Preview)
+        /// </summary>
+        [Input("prioritizeUnhealthyVMs")]
+        public Input<bool>? PrioritizeUnhealthyVMs { get; set; }
+
         [Input("rules")]
         private InputList<Union<string, Pulumi.AzureNative.Compute.VirtualMachineScaleSetScaleInRules>>? _rules;
 

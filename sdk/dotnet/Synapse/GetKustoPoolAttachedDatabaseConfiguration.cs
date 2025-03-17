@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly ImmutableArray<string> AttachedDatabaseNames;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         /// </summary>
         public readonly string DatabaseName;
@@ -151,6 +155,8 @@ namespace Pulumi.AzureNative.Synapse
         private GetKustoPoolAttachedDatabaseConfigurationResult(
             ImmutableArray<string> attachedDatabaseNames,
 
+            string azureApiVersion,
+
             string databaseName,
 
             string defaultPrincipalsModificationKind,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.Synapse
             string type)
         {
             AttachedDatabaseNames = attachedDatabaseNames;
+            AzureApiVersion = azureApiVersion;
             DatabaseName = databaseName;
             DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind;
             Id = id;

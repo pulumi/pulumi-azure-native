@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a Run Command
-    /// Azure REST API version: 2023-10-03-preview.
-    /// 
-    /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    /// Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2023-10-03-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineRunCommand")]
     public partial class MachineRunCommand : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("asyncExecution")]
         public Output<bool?> AsyncExecution { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
@@ -157,6 +161,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:MachineRunCommand" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:MachineRunCommand" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

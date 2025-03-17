@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.HDInsight
 {
     /// <summary>
     /// The HDInsight cluster application
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
-    /// 
-    /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+    /// Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The ETag for the application
         /// </summary>
@@ -85,6 +89,7 @@ namespace Pulumi.AzureNative.HDInsight
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

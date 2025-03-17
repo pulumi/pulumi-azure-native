@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace key
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace key
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace key
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetKeyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetKeyResult(
+            string azureApiVersion,
+
             string id,
 
             bool? isActiveCMK,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IsActiveCMK = isActiveCMK;
             KeyVaultUrl = keyVaultUrl;

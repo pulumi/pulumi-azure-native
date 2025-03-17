@@ -17,11 +17,16 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class ClassicAlertSettingsResponse
     {
         public readonly string? AlertsForCriticalOperations;
+        public readonly string? EmailNotificationsForSiteRecovery;
 
         [OutputConstructor]
-        private ClassicAlertSettingsResponse(string? alertsForCriticalOperations)
+        private ClassicAlertSettingsResponse(
+            string? alertsForCriticalOperations,
+
+            string? emailNotificationsForSiteRecovery)
         {
             AlertsForCriticalOperations = alertsForCriticalOperations;
+            EmailNotificationsForSiteRecovery = emailNotificationsForSiteRecovery;
         }
     }
 }

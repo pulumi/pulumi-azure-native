@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Gets the primary and secondary connection strings for the namespace.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the primary and secondary connection strings for the namespace.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<ListDisasterRecoveryConfigKeysResult> Invoke(ListDisasterRecoveryConfigKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the primary and secondary connection strings for the namespace.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<ListDisasterRecoveryConfigKeysResult> Invoke(ListDisasterRecoveryConfigKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysInvokeArgs(), options.WithDefaults());
@@ -61,7 +55,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -93,7 +87,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

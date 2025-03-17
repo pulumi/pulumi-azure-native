@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCloud
 {
     /// <summary>
     /// Cloud Connector resource.
-    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcloud:CloudConnector")]
     public partial class CloudConnector : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.HybridCloud
         /// </summary>
         [Output("accountId")]
         public Output<string?> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The cloud connector type.

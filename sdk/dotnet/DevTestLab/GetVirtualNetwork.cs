@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly ImmutableArray<Outputs.SubnetResponse> AllowedSubnets;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the virtual network.
         /// </summary>
         public readonly string CreatedDate;
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNative.DevTestLab
         private GetVirtualNetworkResult(
             ImmutableArray<Outputs.SubnetResponse> allowedSubnets,
 
+            string azureApiVersion,
+
             string createdDate,
 
             string? description,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.DevTestLab
             string uniqueIdentifier)
         {
             AllowedSubnets = allowedSubnets;
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             Description = description;
             ExternalProviderResourceId = externalProviderResourceId;

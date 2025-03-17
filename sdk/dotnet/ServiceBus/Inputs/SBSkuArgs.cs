@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ServiceBus.Inputs
     public sealed class SBSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        /// Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.ServiceBus.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ServiceBus.SkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.ServiceBus.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The billing tier of this particular SKU.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceBus.SkuTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.SkuTier>? Tier { get; set; }
 
         public SBSkuArgs()
         {

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Push settings for the App.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSitePushSettingsSlot")]
     public partial class WebAppSitePushSettingsSlot : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         /// </summary>

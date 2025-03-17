@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a server.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
-    /// 
-    /// Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -35,6 +33,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Backup properties of a server.
@@ -97,6 +101,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<Outputs.NetworkResponse?> Network { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections associated with the specified resource.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+        /// </summary>
+        [Output("replica")]
+        public Output<Outputs.ReplicaResponse?> Replica { get; private set; } = null!;
+
+        /// <summary>
         /// Replicas allowed for a server.
         /// </summary>
         [Output("replicaCapacity")]
@@ -115,7 +131,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         /// </summary>
         [Output("sourceServerResourceId")]
         public Output<string?> SourceServerResourceId { get; private set; } = null!;
@@ -181,6 +197,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Server" },
@@ -292,10 +310,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<Inputs.NetworkArgs>? Network { get; set; }
 
         /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        /// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'ReviveDropped'.
         /// </summary>
         [Input("pointInTimeUTC")]
         public Input<string>? PointInTimeUTC { get; set; }
+
+        /// <summary>
+        /// Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+        /// </summary>
+        [Input("replica")]
+        public Input<Inputs.ReplicaArgs>? Replica { get; set; }
 
         /// <summary>
         /// Replication role of the server
@@ -322,7 +346,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         /// </summary>
         [Input("sourceServerResourceId")]
         public Input<string>? SourceServerResourceId { get; set; }

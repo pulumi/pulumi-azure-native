@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class GetEdgeModuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Internal ID generated for the instance of the Video Analyzer edge module.
         /// </summary>
         public readonly string EdgeModuleId;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetEdgeModuleResult(
+            string azureApiVersion,
+
             string edgeModuleId,
 
             string id,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EdgeModuleId = edgeModuleId;
             Id = id;
             Name = name;

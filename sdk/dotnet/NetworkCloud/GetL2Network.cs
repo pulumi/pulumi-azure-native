@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided layer 2 (L2) network.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Task<GetL2NetworkResult> InvokeAsync(GetL2NetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided layer 2 (L2) network.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided layer 2 (L2) network.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AssociatedResourceIds;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the Network Cloud cluster this L2 network is associated with.
         /// </summary>
         public readonly string ClusterId;
@@ -100,6 +98,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The descriptive message about the current detailed status.
         /// </summary>
         public readonly string DetailedStatusMessage;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -157,11 +159,15 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetL2NetworkResult(
             ImmutableArray<string> associatedResourceIds,
 
+            string azureApiVersion,
+
             string clusterId,
 
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -190,9 +196,11 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<string> virtualMachinesAssociatedIds)
         {
             AssociatedResourceIds = associatedResourceIds;
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
             HybridAksPluginType = hybridAksPluginType;

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.AwsConnector
 {
     /// <summary>
     /// A Microsoft.AwsConnector resource
-    /// Azure REST API version: 2024-12-01.
+    /// Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:RdsDbSnapshotAttributesResult")]
     public partial class RdsDbSnapshotAttributesResult : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

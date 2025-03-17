@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.ConnectedCache
     public sealed class GetCacheNodesOperationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.ConnectedCache
 
         [OutputConstructor]
         private GetCacheNodesOperationResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.ConnectedCache
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a resource.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a resource.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a resource.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
@@ -133,6 +127,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetResourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -183,6 +181,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetResourceResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
@@ -207,6 +207,7 @@ namespace Pulumi.AzureNative.Resources
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;

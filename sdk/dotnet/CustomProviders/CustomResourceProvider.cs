@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CustomProviders
 {
     /// <summary>
     /// A manifest file that defines the custom resource provider resources.
-    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:customproviders:CustomResourceProvider")]
     public partial class CustomResourceProvider : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.CustomProviders
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse>> Actions { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

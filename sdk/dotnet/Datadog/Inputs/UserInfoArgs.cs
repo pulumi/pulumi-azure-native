@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
 {
 
     /// <summary>
-    /// User info
+    /// Includes name, email and optionally, phone number. User Information can't be null.
     /// </summary>
     public sealed class UserInfoArgs : global::Pulumi.ResourceArgs
     {

@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetPricingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Optional. True if the plan is deprecated. If there are replacing plans they will appear in `replacedBy` property
         /// </summary>
         public readonly bool Deprecated;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetPricingResult(
+            string azureApiVersion,
+
             bool deprecated,
 
             string enablementTime,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Deprecated = deprecated;
             EnablementTime = enablementTime;
             Enforce = enforce;

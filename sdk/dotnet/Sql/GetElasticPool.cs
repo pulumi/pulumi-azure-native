@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an elastic pool.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an elastic pool.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an elastic pool.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.Sql
     [OutputType]
     public sealed class GetElasticPoolResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The creation date of the elastic pool (ISO8601 format).
         /// </summary>
@@ -169,6 +167,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetElasticPoolResult(
+            string azureApiVersion,
+
             string creationDate,
 
             int? highAvailabilityReplicaCount,
@@ -201,6 +201,7 @@ namespace Pulumi.AzureNative.Sql
 
             bool? zoneRedundant)
         {
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;

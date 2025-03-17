@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified edge site in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<GetEdgeSiteResult> InvokeAsync(GetEdgeSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEdgeSiteResult>("azure-native:orbital:getEdgeSite", args ?? new GetEdgeSiteArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified edge site in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetEdgeSiteResult> Invoke(GetEdgeSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeSiteResult>("azure-native:orbital:getEdgeSite", args ?? new GetEdgeSiteInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified edge site in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetEdgeSiteResult> Invoke(GetEdgeSiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeSiteResult>("azure-native:orbital:getEdgeSite", args ?? new GetEdgeSiteInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetEdgeSiteResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A reference to global communications site.
         /// </summary>
         public readonly Outputs.EdgeSitesPropertiesResponseGlobalCommunicationsSite GlobalCommunicationsSite;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetEdgeSiteResult(
+            string azureApiVersion,
+
             Outputs.EdgeSitesPropertiesResponseGlobalCommunicationsSite globalCommunicationsSite,
 
             string id,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Orbital
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GlobalCommunicationsSite = globalCommunicationsSite;
             Id = id;
             Location = location;

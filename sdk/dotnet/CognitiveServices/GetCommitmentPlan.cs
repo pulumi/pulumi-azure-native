@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified commitmentPlans associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified commitmentPlans associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified commitmentPlans associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.CognitiveServices
     public sealed class GetCommitmentPlanResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.CognitiveServices
 
         [OutputConstructor]
         private GetCommitmentPlanResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Kind = kind;

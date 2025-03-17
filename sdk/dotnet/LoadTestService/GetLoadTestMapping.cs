@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestMappingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Mapped Azure Load Test resource Id.
         /// </summary>
         public readonly string? AzureLoadTestingResourceId;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.LoadTestService
 
         [OutputConstructor]
         private GetLoadTestMappingResult(
+            string azureApiVersion,
+
             string? azureLoadTestingResourceId,
 
             string id,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.LoadTestService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureLoadTestingResourceId = azureLoadTestingResourceId;
             Id = id;
             Name = name;

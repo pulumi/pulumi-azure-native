@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Dto object representing specification
+    /// DTO object representing specification
     /// </summary>
     [OutputType]
     public sealed class FeaturesetSpecificationResponse

@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetOfficeDataConnectorResult> InvokeAsync(GetOfficeDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfficeDataConnectorResult>("azure-native:securityinsights:getOfficeDataConnector", args ?? new GetOfficeDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetOfficeDataConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The available data types for the connector.
         /// </summary>
         public readonly Outputs.OfficeDataConnectorDataTypesResponse? DataTypes;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetOfficeDataConnectorResult(
+            string azureApiVersion,
+
             Outputs.OfficeDataConnectorDataTypesResponse? dataTypes,
 
             string? etag,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataTypes = dataTypes;
             Etag = etag;
             Id = id;

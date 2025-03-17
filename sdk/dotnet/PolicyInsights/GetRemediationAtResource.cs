@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets an existing remediation at resource scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetRemediationAtResourceResult> InvokeAsync(GetRemediationAtResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-native:policyinsights:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing remediation at resource scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRemediationAtResourceResult> Invoke(GetRemediationAtResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceResult>("azure-native:policyinsights:getRemediationAtResource", args ?? new GetRemediationAtResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing remediation at resource scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRemediationAtResourceResult> Invoke(GetRemediationAtResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceResult>("azure-native:policyinsights:getRemediationAtResource", args ?? new GetRemediationAtResourceInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.PolicyInsights
     [OutputType]
     public sealed class GetRemediationAtResourceResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
         /// </summary>
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.PolicyInsights
 
         [OutputConstructor]
         private GetRemediationAtResourceResult(
+            string azureApiVersion,
+
             string correlationId,
 
             string createdOn,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CorrelationId = correlationId;
             CreatedOn = createdOn;
             DeploymentStatus = deploymentStatus;

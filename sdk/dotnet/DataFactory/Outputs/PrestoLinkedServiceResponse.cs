@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// Presto server linked service.
+    /// Presto server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     /// </summary>
     [OutputType]
     public sealed class PrestoLinkedServiceResponse
     {
         /// <summary>
-        /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false. Only used for Version 1.0.
         /// </summary>
         public readonly object? AllowHostNameCNMismatch;
         /// <summary>
-        /// Specifies whether to allow self-signed certificates from the server. The default value is false.
+        /// Specifies whether to allow self-signed certificates from the server. The default value is false. Only used for Version 1.0.
         /// </summary>
         public readonly object? AllowSelfSignedServerCert;
         /// <summary>
@@ -45,7 +45,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        /// Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        /// </summary>
+        public readonly object? EnableServerCertificateValidation;
+        /// <summary>
+        /// Specifies whether the connections to the server are encrypted using SSL. The default value for legacy version is False. The default value for version 2.0 is True.
         /// </summary>
         public readonly object? EnableSsl;
         /// <summary>
@@ -65,19 +69,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
-        /// The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
+        /// The TCP port that the Presto server uses to listen for client connections. The default value is 8080 when disable SSL, default value is 443 when enable SSL.
         /// </summary>
         public readonly object? Port;
         /// <summary>
-        /// The version of the Presto server. (i.e. 0.148-t)
+        /// The version of the Presto server. (i.e. 0.148-t) Only used for Version 1.0.
         /// </summary>
-        public readonly object ServerVersion;
+        public readonly object? ServerVersion;
         /// <summary>
-        /// The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
+        /// The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value for Version 1.0 is the client system time zone. The default value for Version 2.0 is server system timeZone
         /// </summary>
         public readonly object? TimeZoneID;
         /// <summary>
-        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Only used for Version 1.0.
         /// </summary>
         public readonly object? TrustedCertPath;
         /// <summary>
@@ -86,7 +90,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Only used for Version 1.0.
         /// </summary>
         public readonly object? UseSystemTrustStore;
         /// <summary>
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            object? enableServerCertificateValidation,
+
             object? enableSsl,
 
             string? encryptedCredential,
@@ -126,7 +132,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? port,
 
-            object serverVersion,
+            object? serverVersion,
 
             object? timeZoneID,
 
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Catalog = catalog;
             ConnectVia = connectVia;
             Description = description;
+            EnableServerCertificateValidation = enableServerCertificateValidation;
             EnableSsl = enableSsl;
             EncryptedCredential = encryptedCredential;
             Host = host;

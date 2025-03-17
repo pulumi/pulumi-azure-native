@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         public readonly ImmutableArray<Outputs.BrokerAuthenticatorMethodsResponse> AuthenticationMethods;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Extended Location
         /// </summary>
         public readonly Outputs.ExtendedLocationPropertyResponse ExtendedLocation;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         private GetBrokerAuthenticationResult(
             ImmutableArray<Outputs.BrokerAuthenticatorMethodsResponse> authenticationMethods,
 
+            string azureApiVersion,
+
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
 
             string id,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
             string type)
         {
             AuthenticationMethods = authenticationMethods;
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             ListenerRef = listenerRef;

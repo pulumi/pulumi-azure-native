@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a permission binding.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Task<GetPermissionBindingResult> InvokeAsync(GetPermissionBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionBindingResult>("azure-native:eventgrid:getPermissionBinding", args ?? new GetPermissionBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a permission binding.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetPermissionBindingResult> Invoke(GetPermissionBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionBindingResult>("azure-native:eventgrid:getPermissionBinding", args ?? new GetPermissionBindingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a permission binding.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetPermissionBindingResult> Invoke(GetPermissionBindingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionBindingResult>("azure-native:eventgrid:getPermissionBinding", args ?? new GetPermissionBindingInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPermissionBindingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name of the client group resource that the permission is bound to.
         /// The client group needs to be a resource under the same namespace the permission binding is a part of.
         /// </summary>
@@ -122,7 +120,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to the PermissionBinding resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetPermissionBindingResult(
+            string azureApiVersion,
+
             string? clientGroupName,
 
             string? description,
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClientGroupName = clientGroupName;
             Description = description;
             Id = id;

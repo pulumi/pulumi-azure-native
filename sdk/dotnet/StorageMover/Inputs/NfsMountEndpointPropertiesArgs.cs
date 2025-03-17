@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageMover.Inputs
 {
 
+    /// <summary>
+    /// The properties of NFS share endpoint.
+    /// </summary>
     public sealed class NfsMountEndpointPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

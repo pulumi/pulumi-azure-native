@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a devcenter plan resource.
-    /// Azure REST API version: 2024-05-01-preview.
-    /// 
-    /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Plan")]
     public partial class Plan : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

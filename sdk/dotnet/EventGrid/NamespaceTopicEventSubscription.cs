@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Subscription.
-    /// Azure REST API version: 2023-06-01-preview.
-    /// 
-    /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:NamespaceTopicEventSubscription")]
     public partial class NamespaceTopicEventSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Information about the delivery configuration of the event subscription.
         /// </summary>
@@ -29,6 +33,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("eventDeliverySchema")]
         public Output<string?> EventDeliverySchema { get; private set; } = null!;
+
+        /// <summary>
+        /// Expiration time of the event subscription.
+        /// </summary>
+        [Output("expirationTimeUtc")]
+        public Output<string?> ExpirationTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// Information about the filter for the event subscription.
@@ -49,7 +59,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Event Subscription resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -126,10 +136,16 @@ namespace Pulumi.AzureNative.EventGrid
         public InputUnion<string, Pulumi.AzureNative.EventGrid.DeliverySchema>? EventDeliverySchema { get; set; }
 
         /// <summary>
-        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
         /// </summary>
         [Input("eventSubscriptionName")]
         public Input<string>? EventSubscriptionName { get; set; }
+
+        /// <summary>
+        /// Expiration time of the event subscription.
+        /// </summary>
+        [Input("expirationTimeUtc")]
+        public Input<string>? ExpirationTimeUtc { get; set; }
 
         /// <summary>
         /// Information about the filter for the event subscription.

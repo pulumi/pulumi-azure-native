@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
         /// </summary>
         public readonly Outputs.ManagedClusterWorkloadAutoScalerProfileKedaResponse? Keda;
+        /// <summary>
+        /// VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        /// </summary>
+        public readonly Outputs.ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse? VerticalPodAutoscaler;
 
         [OutputConstructor]
-        private ManagedClusterWorkloadAutoScalerProfileResponse(Outputs.ManagedClusterWorkloadAutoScalerProfileKedaResponse? keda)
+        private ManagedClusterWorkloadAutoScalerProfileResponse(
+            Outputs.ManagedClusterWorkloadAutoScalerProfileKedaResponse? keda,
+
+            Outputs.ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse? verticalPodAutoscaler)
         {
             Keda = keda;
+            VerticalPodAutoscaler = verticalPodAutoscaler;
         }
     }
 }

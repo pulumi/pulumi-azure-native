@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<int>? FileUploadLimitInMb { get; set; }
 
         /// <summary>
+        /// Web Application Firewall JavaScript Challenge Cookie Expiration time in minutes.
+        /// </summary>
+        [Input("jsChallengeCookieExpirationInMins")]
+        public Input<int>? JsChallengeCookieExpirationInMins { get; set; }
+
+        /// <summary>
         /// To scrub sensitive log fields
         /// </summary>
         [Input("logScrubbing")]

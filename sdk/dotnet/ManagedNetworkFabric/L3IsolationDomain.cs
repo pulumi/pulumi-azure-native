@@ -10,22 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The L3IsolationDomain resource definition.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-15.
+    /// The L3 Isolation Domain resource definition.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:L3IsolationDomain")]
     public partial class L3IsolationDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Administrative state of the IsolationDomain. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         [Output("administrativeState")]
         public Output<string> AdministrativeState { get; private set; } = null!;
 
         /// <summary>
-        /// List of Ipv4 and Ipv6 route configurations.
+        /// Aggregate route configurations.
         /// </summary>
         [Output("aggregateRouteConfiguration")]
         public Output<Outputs.AggregateRouteConfigurationResponse?> AggregateRouteConfiguration { get; private set; } = null!;
@@ -37,22 +35,22 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
         /// Connected Subnet RoutePolicy
         /// </summary>
         [Output("connectedSubnetRoutePolicy")]
-        public Output<Outputs.L3IsolationDomainPatchPropertiesResponseConnectedSubnetRoutePolicy?> ConnectedSubnetRoutePolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// L3 Isolation Domain description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// List of resources the L3 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        /// </summary>
-        [Output("disabledOnResources")]
-        public Output<ImmutableArray<string>> DisabledOnResources { get; private set; } = null!;
+        public Output<Outputs.ConnectedSubnetRoutePolicyResponse?> ConnectedSubnetRoutePolicy { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -67,19 +65,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM Resource ID of the Network Fabric.
         /// </summary>
         [Output("networkFabricId")]
         public Output<string> NetworkFabricId { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources the OptionB is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        /// </summary>
-        [Output("optionBDisabledOnResources")]
-        public Output<ImmutableArray<string>> OptionBDisabledOnResources { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -165,7 +157,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class L3IsolationDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// List of Ipv4 and Ipv6 route configurations.
+        /// Aggregate route configurations.
         /// </summary>
         [Input("aggregateRouteConfiguration")]
         public Input<Inputs.AggregateRouteConfigurationArgs>? AggregateRouteConfiguration { get; set; }
@@ -180,16 +172,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Connected Subnet RoutePolicy
         /// </summary>
         [Input("connectedSubnetRoutePolicy")]
-        public Input<Inputs.L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs>? ConnectedSubnetRoutePolicy { get; set; }
+        public Input<Inputs.ConnectedSubnetRoutePolicyArgs>? ConnectedSubnetRoutePolicy { get; set; }
 
         /// <summary>
-        /// L3 Isolation Domain description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Name of the L3 Isolation Domain
+        /// Name of the L3 Isolation Domain.
         /// </summary>
         [Input("l3IsolationDomainName")]
         public Input<string>? L3IsolationDomainName { get; set; }
@@ -201,7 +187,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM Resource ID of the Network Fabric.
         /// </summary>
         [Input("networkFabricId", required: true)]
         public Input<string> NetworkFabricId { get; set; } = null!;

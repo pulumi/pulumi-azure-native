@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         /// </summary>
         public readonly Outputs.DFPInstanceAdministratorsResponse? Administration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -115,6 +119,8 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
         private GetInstanceDetailsResult(
             Outputs.DFPInstanceAdministratorsResponse? administration,
 
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
             string type)
         {
             Administration = administration;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ManagementPolicy")]
     public partial class ManagementPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Returns the date and time the ManagementPolicies was last modified.
         /// </summary>
@@ -31,7 +35,7 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         /// </summary>
         [Output("policy")]
         public Output<Outputs.ManagementPolicySchemaResponse> Policy { get; private set; } = null!;
@@ -120,7 +124,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string>? ManagementPolicyName { get; set; }
 
         /// <summary>
-        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.ManagementPolicySchemaArgs> Policy { get; set; } = null!;

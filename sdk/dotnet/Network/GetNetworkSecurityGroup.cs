@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network security group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkSecurityGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The default security rules of network security group.
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityRuleResponse> DefaultSecurityRules;
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkSecurityGroupResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.SecurityRuleResponse> defaultSecurityRules,
 
             string etag,
@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DefaultSecurityRules = defaultSecurityRules;
             Etag = etag;
             FlowLogs = flowLogs;

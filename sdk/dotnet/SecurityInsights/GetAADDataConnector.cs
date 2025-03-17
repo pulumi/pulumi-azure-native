@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetAADDataConnectorResult> InvokeAsync(GetAADDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetAADDataConnectorResult> Invoke(GetAADDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetAADDataConnectorResult> Invoke(GetAADDataConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetAADDataConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The available data types for the connector.
         /// </summary>
         public readonly Outputs.AlertsDataTypeOfDataConnectorResponse? DataTypes;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetAADDataConnectorResult(
+            string azureApiVersion,
+
             Outputs.AlertsDataTypeOfDataConnectorResponse? dataTypes,
 
             string? etag,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataTypes = dataTypes;
             Etag = etag;
             Id = id;

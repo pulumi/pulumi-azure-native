@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a firewall rule
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetIpFirewallRuleResult> InvokeAsync(GetIpFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-native:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a firewall rule
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetIpFirewallRuleResult> Invoke(GetIpFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpFirewallRuleResult>("azure-native:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a firewall rule
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetIpFirewallRuleResult> Invoke(GetIpFirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpFirewallRuleResult>("azure-native:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetIpFirewallRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
         /// </summary>
         public readonly string? EndIpAddress;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetIpFirewallRuleResult(
+            string azureApiVersion,
+
             string? endIpAddress,
 
             string id,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndIpAddress = endIpAddress;
             Id = id;
             Name = name;

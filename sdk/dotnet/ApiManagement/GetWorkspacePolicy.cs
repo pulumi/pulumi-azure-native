@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the policy configuration at the API level.
         /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetWorkspacePolicyResult> InvokeAsync(GetWorkspacePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacePolicyResult>("azure-native:apimanagement:getWorkspacePolicy", args ?? new GetWorkspacePolicyArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the policy configuration at the API level.
         /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspacePolicyResult> Invoke(GetWorkspacePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacePolicyResult>("azure-native:apimanagement:getWorkspacePolicy", args ?? new GetWorkspacePolicyInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Get the policy configuration at the API level.
         /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspacePolicyResult> Invoke(GetWorkspacePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacePolicyResult>("azure-native:apimanagement:getWorkspacePolicy", args ?? new GetWorkspacePolicyInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetWorkspacePolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Format of the policyContent.
         /// </summary>
         public readonly string? Format;
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetWorkspacePolicyResult(
+            string azureApiVersion,
+
             string? format,
 
             string id,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string value)
         {
+            AzureApiVersion = azureApiVersion;
             Format = format;
             Id = id;
             Name = name;

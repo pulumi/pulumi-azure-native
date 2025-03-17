@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a SyncIdentityProvider.
-        /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Azure REST API version: 2023-11-22.
         /// </summary>
         public static Task<GetSyncIdentityProviderResult> InvokeAsync(GetSyncIdentityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncIdentityProviderResult>("azure-native:redhatopenshift:getSyncIdentityProvider", args ?? new GetSyncIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncIdentityProvider.
-        /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Azure REST API version: 2023-11-22.
         /// </summary>
         public static Output<GetSyncIdentityProviderResult> Invoke(GetSyncIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncIdentityProviderResult>("azure-native:redhatopenshift:getSyncIdentityProvider", args ?? new GetSyncIdentityProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncIdentityProvider.
-        /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Azure REST API version: 2023-11-22.
         /// </summary>
         public static Output<GetSyncIdentityProviderResult> Invoke(GetSyncIdentityProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncIdentityProviderResult>("azure-native:redhatopenshift:getSyncIdentityProvider", args ?? new GetSyncIdentityProviderInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     public sealed class GetSyncIdentityProviderResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -116,6 +114,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
         [OutputConstructor]
         private GetSyncIdentityProviderResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Resources = resources;

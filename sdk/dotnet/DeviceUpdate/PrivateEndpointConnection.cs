@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
+    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Array of group IDs.
         /// </summary>

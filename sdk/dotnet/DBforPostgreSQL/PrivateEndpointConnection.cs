@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// The private endpoint connection resource.
-    /// Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01.
-    /// 
-    /// Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-11-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
@@ -85,8 +89,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,13 +121,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the cluster.
-        /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the private endpoint connection associated with the cluster.
+        /// The name of the private endpoint connection.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
@@ -133,6 +137,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         public PrivateEndpointConnectionArgs()
         {

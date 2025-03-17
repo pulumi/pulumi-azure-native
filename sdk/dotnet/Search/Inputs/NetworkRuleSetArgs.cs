@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// Network specific rules that determine how the Azure Cognitive Search service may be reached.
+    /// Network-specific rules that determine how the search service can be reached.
     /// </summary>
     public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Search.Inputs
         private InputList<Inputs.IpRuleArgs>? _ipRules;
 
         /// <summary>
-        /// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+        /// A list of IP restriction rules used for an IP firewall. Any IPs that do not match the rules are blocked by the firewall. These rules are only applied when the 'publicNetworkAccess' of the search service is 'enabled'.
         /// </summary>
         public InputList<Inputs.IpRuleArgs> IpRules
         {

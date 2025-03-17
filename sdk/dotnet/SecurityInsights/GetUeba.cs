@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a setting.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Task<GetUebaResult> InvokeAsync(GetUebaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetUebaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The relevant data sources that enriched by ueba
         /// </summary>
         public readonly ImmutableArray<string> DataSources;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetUebaResult(
+            string azureApiVersion,
+
             ImmutableArray<string> dataSources,
 
             string? etag,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataSources = dataSources;
             Etag = etag;
             Id = id;

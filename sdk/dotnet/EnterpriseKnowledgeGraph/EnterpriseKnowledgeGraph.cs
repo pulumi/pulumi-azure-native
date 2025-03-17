@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
-    /// Azure REST API version: 2018-12-03. Prior API version in Azure Native 1.x: 2018-12-03.
+    /// Azure REST API version: 2018-12-03. Prior API version in Azure Native 2.x: 2018-12-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>

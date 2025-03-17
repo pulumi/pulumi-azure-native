@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get the NetApp account
-        /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the NetApp account
-        /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the NetApp account
-        /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly ImmutableArray<Outputs.ActiveDirectoryResponse> ActiveDirectories;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Shows the status of disableShowmount for all volumes under the subscription, null equals false
         /// </summary>
         public readonly bool DisableShowmount;
@@ -101,7 +99,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.NetApp
         private GetAccountResult(
             ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
 
+            string azureApiVersion,
+
             bool disableShowmount,
 
             Outputs.AccountEncryptionResponse? encryption,
@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.NetApp
             string type)
         {
             ActiveDirectories = activeDirectories;
+            AzureApiVersion = azureApiVersion;
             DisableShowmount = disableShowmount;
             Encryption = encryption;
             Etag = etag;

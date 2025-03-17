@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a storage insight instance.
-        /// Azure REST API version: 2020-08-01.
-        /// 
-        /// Other available API versions: 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetStorageInsightConfigResult> InvokeAsync(GetStorageInsightConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a storage insight instance.
-        /// Azure REST API version: 2020-08-01.
-        /// 
-        /// Other available API versions: 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a storage insight instance.
-        /// Azure REST API version: 2020-08-01.
-        /// 
-        /// Other available API versions: 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetStorageInsightConfigResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The names of the blob containers that the workspace should read
         /// </summary>
         public readonly ImmutableArray<string> Containers;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         [OutputConstructor]
         private GetStorageInsightConfigResult(
+            string azureApiVersion,
+
             ImmutableArray<string> containers,
 
             string? eTag,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Containers = containers;
             ETag = eTag;
             Id = id;

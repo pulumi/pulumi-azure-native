@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.PowerPlatform
 {
     /// <summary>
     /// Definition of the EnterprisePolicy.
-    /// Azure REST API version: 2020-10-30-preview. Prior API version in Azure Native 1.x: 2020-10-30-preview.
+    /// Azure REST API version: 2020-10-30-preview. Prior API version in Azure Native 2.x: 2020-10-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:EnterprisePolicy")]
     public partial class EnterprisePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The encryption settings for a configuration store.
         /// </summary>

@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.EventHub.Inputs
         public Input<string>? DataLakeSubscriptionId { get; set; }
 
         /// <summary>
+        /// A value that indicates whether capture description is enabled.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CaptureIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Name for capture destination
         /// </summary>
         [Input("name")]

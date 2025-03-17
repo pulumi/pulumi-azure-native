@@ -22,10 +22,22 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         public Input<string> Container { get; set; } = null!;
 
         /// <summary>
-        /// Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        /// Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
         /// </summary>
         [Input("importPrefix")]
         public Input<string>? ImportPrefix { get; set; }
+
+        [Input("importPrefixesInitial")]
+        private InputList<string>? _importPrefixesInitial;
+
+        /// <summary>
+        /// Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
+        /// </summary>
+        public InputList<string> ImportPrefixesInitial
+        {
+            get => _importPrefixesInitial ?? (_importPrefixesInitial = new InputList<string>());
+            set => _importPrefixesInitial = value;
+        }
 
         /// <summary>
         /// Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.

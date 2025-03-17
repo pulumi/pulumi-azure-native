@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
     public sealed class MonitorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Datadog organization properties
+        /// Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         /// </summary>
         [Input("datadogOrganizationProperties")]
         public Input<Inputs.DatadogOrganizationPropertiesArgs>? DatadogOrganizationProperties { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public InputUnion<string, Pulumi.AzureNative.Datadog.MonitoringStatus>? MonitoringStatus { get; set; }
 
         /// <summary>
-        /// User info
+        /// Includes name, email and optionally, phone number. User Information can't be null.
         /// </summary>
         [Input("userInfo")]
         public Input<Inputs.UserInfoArgs>? UserInfo { get; set; }

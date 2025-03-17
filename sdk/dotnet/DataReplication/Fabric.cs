@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
     /// Fabric model.
-    /// Azure REST API version: 2021-02-16-preview.
+    /// Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 2.x: 2021-02-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Fabric")]
     public partial class Fabric : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the location of the fabric.
         /// </summary>
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.DataReplication
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20210216preview:Fabric" },
+                    new global::Pulumi.Alias { Type = "azure-native:datareplication/v20240901:Fabric" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

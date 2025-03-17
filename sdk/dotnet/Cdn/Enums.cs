@@ -405,33 +405,112 @@ namespace Pulumi.AzureNative.Cdn
     /// The name of the action for the delivery rule.
     /// </summary>
     [EnumType]
-    public readonly struct DeliveryRuleAction : IEquatable<DeliveryRuleAction>
+    public readonly struct DeliveryRuleActionName : IEquatable<DeliveryRuleActionName>
     {
         private readonly string _value;
 
-        private DeliveryRuleAction(string value)
+        private DeliveryRuleActionName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DeliveryRuleAction CacheExpiration { get; } = new DeliveryRuleAction("CacheExpiration");
-        public static DeliveryRuleAction CacheKeyQueryString { get; } = new DeliveryRuleAction("CacheKeyQueryString");
-        public static DeliveryRuleAction ModifyRequestHeader { get; } = new DeliveryRuleAction("ModifyRequestHeader");
-        public static DeliveryRuleAction ModifyResponseHeader { get; } = new DeliveryRuleAction("ModifyResponseHeader");
-        public static DeliveryRuleAction UrlRedirect { get; } = new DeliveryRuleAction("UrlRedirect");
-        public static DeliveryRuleAction UrlRewrite { get; } = new DeliveryRuleAction("UrlRewrite");
-        public static DeliveryRuleAction UrlSigning { get; } = new DeliveryRuleAction("UrlSigning");
-        public static DeliveryRuleAction OriginGroupOverride { get; } = new DeliveryRuleAction("OriginGroupOverride");
-        public static DeliveryRuleAction RouteConfigurationOverride { get; } = new DeliveryRuleAction("RouteConfigurationOverride");
+        public static DeliveryRuleActionName CacheExpiration { get; } = new DeliveryRuleActionName("CacheExpiration");
+        public static DeliveryRuleActionName CacheKeyQueryString { get; } = new DeliveryRuleActionName("CacheKeyQueryString");
+        public static DeliveryRuleActionName ModifyRequestHeader { get; } = new DeliveryRuleActionName("ModifyRequestHeader");
+        public static DeliveryRuleActionName ModifyResponseHeader { get; } = new DeliveryRuleActionName("ModifyResponseHeader");
+        public static DeliveryRuleActionName UrlRedirect { get; } = new DeliveryRuleActionName("UrlRedirect");
+        public static DeliveryRuleActionName UrlRewrite { get; } = new DeliveryRuleActionName("UrlRewrite");
+        public static DeliveryRuleActionName UrlSigning { get; } = new DeliveryRuleActionName("UrlSigning");
+        public static DeliveryRuleActionName OriginGroupOverride { get; } = new DeliveryRuleActionName("OriginGroupOverride");
+        public static DeliveryRuleActionName RouteConfigurationOverride { get; } = new DeliveryRuleActionName("RouteConfigurationOverride");
 
-        public static bool operator ==(DeliveryRuleAction left, DeliveryRuleAction right) => left.Equals(right);
-        public static bool operator !=(DeliveryRuleAction left, DeliveryRuleAction right) => !left.Equals(right);
+        public static bool operator ==(DeliveryRuleActionName left, DeliveryRuleActionName right) => left.Equals(right);
+        public static bool operator !=(DeliveryRuleActionName left, DeliveryRuleActionName right) => !left.Equals(right);
 
-        public static explicit operator string(DeliveryRuleAction value) => value._value;
+        public static explicit operator string(DeliveryRuleActionName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeliveryRuleAction other && Equals(other);
-        public bool Equals(DeliveryRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DeliveryRuleActionName other && Equals(other);
+        public bool Equals(DeliveryRuleActionName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryRuleActionParametersType : IEquatable<DeliveryRuleActionParametersType>
+    {
+        private readonly string _value;
+
+        private DeliveryRuleActionParametersType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryRuleActionParametersType DeliveryRuleUrlRedirectActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleUrlRedirectActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleUrlSigningActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleUrlSigningActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleOriginGroupOverrideActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleOriginGroupOverrideActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleUrlRewriteActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleUrlRewriteActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleHeaderActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleHeaderActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleCacheExpirationActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleCacheExpirationActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleCacheKeyQueryStringBehaviorActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleCacheKeyQueryStringBehaviorActionParameters");
+        public static DeliveryRuleActionParametersType DeliveryRuleRouteConfigurationOverrideActionParameters { get; } = new DeliveryRuleActionParametersType("DeliveryRuleRouteConfigurationOverrideActionParameters");
+
+        public static bool operator ==(DeliveryRuleActionParametersType left, DeliveryRuleActionParametersType right) => left.Equals(right);
+        public static bool operator !=(DeliveryRuleActionParametersType left, DeliveryRuleActionParametersType right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryRuleActionParametersType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryRuleActionParametersType other && Equals(other);
+        public bool Equals(DeliveryRuleActionParametersType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryRuleConditionParametersType : IEquatable<DeliveryRuleConditionParametersType>
+    {
+        private readonly string _value;
+
+        private DeliveryRuleConditionParametersType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryRuleConditionParametersType DeliveryRuleRemoteAddressConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleRemoteAddressConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleRequestMethodConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleRequestMethodConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleQueryStringConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleQueryStringConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRulePostArgsConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRulePostArgsConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleRequestUriConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleRequestUriConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleRequestHeaderConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleRequestHeaderConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleRequestBodyConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleRequestBodyConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleRequestSchemeConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleRequestSchemeConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleUrlPathMatchConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleUrlPathMatchConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleUrlFileExtensionMatchConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleUrlFileExtensionMatchConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleUrlFilenameConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleUrlFilenameConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleHttpVersionConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleHttpVersionConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleCookiesConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleCookiesConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleIsDeviceConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleIsDeviceConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleSocketAddrConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleSocketAddrConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleClientPortConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleClientPortConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleServerPortConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleServerPortConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleHostNameConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleHostNameConditionParameters");
+        public static DeliveryRuleConditionParametersType DeliveryRuleSslProtocolConditionParameters { get; } = new DeliveryRuleConditionParametersType("DeliveryRuleSslProtocolConditionParameters");
+
+        public static bool operator ==(DeliveryRuleConditionParametersType left, DeliveryRuleConditionParametersType right) => left.Equals(right);
+        public static bool operator !=(DeliveryRuleConditionParametersType left, DeliveryRuleConditionParametersType right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryRuleConditionParametersType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryRuleConditionParametersType other && Equals(other);
+        public bool Equals(DeliveryRuleConditionParametersType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -729,6 +808,34 @@ namespace Pulumi.AzureNative.Cdn
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct IsDeviceMatchValue : IEquatable<IsDeviceMatchValue>
+    {
+        private readonly string _value;
+
+        private IsDeviceMatchValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IsDeviceMatchValue Mobile { get; } = new IsDeviceMatchValue("Mobile");
+        public static IsDeviceMatchValue Desktop { get; } = new IsDeviceMatchValue("Desktop");
+
+        public static bool operator ==(IsDeviceMatchValue left, IsDeviceMatchValue right) => left.Equals(right);
+        public static bool operator !=(IsDeviceMatchValue left, IsDeviceMatchValue right) => !left.Equals(right);
+
+        public static explicit operator string(IsDeviceMatchValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsDeviceMatchValue other && Equals(other);
+        public bool Equals(IsDeviceMatchValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Describes operator to be matched
     /// </summary>
@@ -752,6 +859,33 @@ namespace Pulumi.AzureNative.Cdn
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IsDeviceOperator other && Equals(other);
         public bool Equals(IsDeviceOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KeyVaultSigningKeyParametersType : IEquatable<KeyVaultSigningKeyParametersType>
+    {
+        private readonly string _value;
+
+        private KeyVaultSigningKeyParametersType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyVaultSigningKeyParametersType KeyVaultSigningKeyParameters { get; } = new KeyVaultSigningKeyParametersType("KeyVaultSigningKeyParameters");
+
+        public static bool operator ==(KeyVaultSigningKeyParametersType left, KeyVaultSigningKeyParametersType right) => left.Equals(right);
+        public static bool operator !=(KeyVaultSigningKeyParametersType left, KeyVaultSigningKeyParametersType right) => !left.Equals(right);
+
+        public static explicit operator string(KeyVaultSigningKeyParametersType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyVaultSigningKeyParametersType other && Equals(other);
+        public bool Equals(KeyVaultSigningKeyParametersType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1174,6 +1308,37 @@ namespace Pulumi.AzureNative.Cdn
     }
 
     /// <summary>
+    /// State of the log scrubbing config. Default value is Enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProfileScrubbingState : IEquatable<ProfileScrubbingState>
+    {
+        private readonly string _value;
+
+        private ProfileScrubbingState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProfileScrubbingState Enabled { get; } = new ProfileScrubbingState("Enabled");
+        public static ProfileScrubbingState Disabled { get; } = new ProfileScrubbingState("Disabled");
+
+        public static bool operator ==(ProfileScrubbingState left, ProfileScrubbingState right) => left.Equals(right);
+        public static bool operator !=(ProfileScrubbingState left, ProfileScrubbingState right) => !left.Equals(right);
+
+        public static explicit operator string(ProfileScrubbingState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProfileScrubbingState other && Equals(other);
+        public bool Equals(ProfileScrubbingState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Caching behavior for the requests
     /// </summary>
     [EnumType]
@@ -1421,6 +1586,39 @@ namespace Pulumi.AzureNative.Cdn
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct RequestMethodMatchValue : IEquatable<RequestMethodMatchValue>
+    {
+        private readonly string _value;
+
+        private RequestMethodMatchValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RequestMethodMatchValue GET { get; } = new RequestMethodMatchValue("GET");
+        public static RequestMethodMatchValue HEAD { get; } = new RequestMethodMatchValue("HEAD");
+        public static RequestMethodMatchValue POST { get; } = new RequestMethodMatchValue("POST");
+        public static RequestMethodMatchValue PUT { get; } = new RequestMethodMatchValue("PUT");
+        public static RequestMethodMatchValue DELETE { get; } = new RequestMethodMatchValue("DELETE");
+        public static RequestMethodMatchValue OPTIONS { get; } = new RequestMethodMatchValue("OPTIONS");
+        public static RequestMethodMatchValue TRACE { get; } = new RequestMethodMatchValue("TRACE");
+
+        public static bool operator ==(RequestMethodMatchValue left, RequestMethodMatchValue right) => left.Equals(right);
+        public static bool operator !=(RequestMethodMatchValue left, RequestMethodMatchValue right) => !left.Equals(right);
+
+        public static explicit operator string(RequestMethodMatchValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RequestMethodMatchValue other && Equals(other);
+        public bool Equals(RequestMethodMatchValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Describes operator to be matched
     /// </summary>
@@ -1444,6 +1642,34 @@ namespace Pulumi.AzureNative.Cdn
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RequestMethodOperator other && Equals(other);
         public bool Equals(RequestMethodOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RequestSchemeMatchValue : IEquatable<RequestSchemeMatchValue>
+    {
+        private readonly string _value;
+
+        private RequestSchemeMatchValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RequestSchemeMatchValue HTTP { get; } = new RequestSchemeMatchValue("HTTP");
+        public static RequestSchemeMatchValue HTTPS { get; } = new RequestSchemeMatchValue("HTTPS");
+
+        public static bool operator ==(RequestSchemeMatchValue left, RequestSchemeMatchValue right) => left.Equals(right);
+        public static bool operator !=(RequestSchemeMatchValue left, RequestSchemeMatchValue right) => !left.Equals(right);
+
+        public static explicit operator string(RequestSchemeMatchValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RequestSchemeMatchValue other && Equals(other);
+        public bool Equals(RequestSchemeMatchValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1611,6 +1837,99 @@ namespace Pulumi.AzureNative.Cdn
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleQueryStringCachingBehavior other && Equals(other);
         public bool Equals(RuleQueryStringCachingBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScrubbingRuleEntryMatchOperator : IEquatable<ScrubbingRuleEntryMatchOperator>
+    {
+        private readonly string _value;
+
+        private ScrubbingRuleEntryMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScrubbingRuleEntryMatchOperator EqualsAny { get; } = new ScrubbingRuleEntryMatchOperator("EqualsAny");
+
+        public static bool operator ==(ScrubbingRuleEntryMatchOperator left, ScrubbingRuleEntryMatchOperator right) => left.Equals(right);
+        public static bool operator !=(ScrubbingRuleEntryMatchOperator left, ScrubbingRuleEntryMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ScrubbingRuleEntryMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScrubbingRuleEntryMatchOperator other && Equals(other);
+        public bool Equals(ScrubbingRuleEntryMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The variable to be scrubbed from the logs.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScrubbingRuleEntryMatchVariable : IEquatable<ScrubbingRuleEntryMatchVariable>
+    {
+        private readonly string _value;
+
+        private ScrubbingRuleEntryMatchVariable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScrubbingRuleEntryMatchVariable RequestIPAddress { get; } = new ScrubbingRuleEntryMatchVariable("RequestIPAddress");
+        public static ScrubbingRuleEntryMatchVariable RequestUri { get; } = new ScrubbingRuleEntryMatchVariable("RequestUri");
+        public static ScrubbingRuleEntryMatchVariable QueryStringArgNames { get; } = new ScrubbingRuleEntryMatchVariable("QueryStringArgNames");
+
+        public static bool operator ==(ScrubbingRuleEntryMatchVariable left, ScrubbingRuleEntryMatchVariable right) => left.Equals(right);
+        public static bool operator !=(ScrubbingRuleEntryMatchVariable left, ScrubbingRuleEntryMatchVariable right) => !left.Equals(right);
+
+        public static explicit operator string(ScrubbingRuleEntryMatchVariable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScrubbingRuleEntryMatchVariable other && Equals(other);
+        public bool Equals(ScrubbingRuleEntryMatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the state of a log scrubbing rule. Default value is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScrubbingRuleEntryState : IEquatable<ScrubbingRuleEntryState>
+    {
+        private readonly string _value;
+
+        private ScrubbingRuleEntryState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScrubbingRuleEntryState Enabled { get; } = new ScrubbingRuleEntryState("Enabled");
+        public static ScrubbingRuleEntryState Disabled { get; } = new ScrubbingRuleEntryState("Disabled");
+
+        public static bool operator ==(ScrubbingRuleEntryState left, ScrubbingRuleEntryState right) => left.Equals(right);
+        public static bool operator !=(ScrubbingRuleEntryState left, ScrubbingRuleEntryState right) => !left.Equals(right);
+
+        public static explicit operator string(ScrubbingRuleEntryState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScrubbingRuleEntryState other && Equals(other);
+        public bool Equals(ScrubbingRuleEntryState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

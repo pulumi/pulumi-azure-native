@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 {
     /// <summary>
     /// MQ broker resource
-    /// Azure REST API version: 2023-10-04-preview.
+    /// Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:Broker")]
     public partial class Broker : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         [Output("authImage")]
         public Output<Outputs.ContainerImageResponse> AuthImage { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The details of Broker Docker Image.

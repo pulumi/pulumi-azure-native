@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string ApprovalId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
         public readonly string? Condition;
@@ -163,6 +167,8 @@ namespace Pulumi.AzureNative.Authorization
         private GetPimRoleEligibilityScheduleResult(
             string approvalId,
 
+            string azureApiVersion,
+
             string? condition,
 
             string? conditionVersion,
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNative.Authorization
             string type)
         {
             ApprovalId = approvalId;
+            AzureApiVersion = azureApiVersion;
             Condition = condition;
             ConditionVersion = conditionVersion;
             CreatedOn = createdOn;

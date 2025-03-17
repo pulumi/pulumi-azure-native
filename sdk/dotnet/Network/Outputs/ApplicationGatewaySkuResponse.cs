@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
+        /// Family of an application gateway SKU.
+        /// </summary>
+        public readonly string? Family;
+        /// <summary>
         /// Name of an application gateway SKU.
         /// </summary>
         public readonly string? Name;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.Network.Outputs
         private ApplicationGatewaySkuResponse(
             int? capacity,
 
+            string? family,
+
             string? name,
 
             string? tier)
         {
             Capacity = capacity;
+            Family = family;
             Name = name;
             Tier = tier;
         }

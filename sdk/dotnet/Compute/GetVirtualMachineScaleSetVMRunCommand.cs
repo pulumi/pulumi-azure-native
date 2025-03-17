@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the VMSS VM run command.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMRunCommandResult> InvokeAsync(GetVirtualMachineScaleSetVMRunCommandArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the VMSS VM run command.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMRunCommandResult> Invoke(GetVirtualMachineScaleSetVMRunCommandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the VMSS VM run command.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMRunCommandResult> Invoke(GetVirtualMachineScaleSetVMRunCommandInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandInvokeArgs(), options.WithDefaults());
@@ -125,6 +119,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly bool? AsyncExecution;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
         /// </summary>
         public readonly Outputs.RunCommandManagedIdentityResponse? ErrorBlobManagedIdentity;
@@ -201,6 +199,8 @@ namespace Pulumi.AzureNative.Compute
         private GetVirtualMachineScaleSetVMRunCommandResult(
             bool? asyncExecution,
 
+            string azureApiVersion,
+
             Outputs.RunCommandManagedIdentityResponse? errorBlobManagedIdentity,
 
             string? errorBlobUri,
@@ -238,6 +238,7 @@ namespace Pulumi.AzureNative.Compute
             string type)
         {
             AsyncExecution = asyncExecution;
+            AzureApiVersion = azureApiVersion;
             ErrorBlobManagedIdentity = errorBlobManagedIdentity;
             ErrorBlobUri = errorBlobUri;
             Id = id;

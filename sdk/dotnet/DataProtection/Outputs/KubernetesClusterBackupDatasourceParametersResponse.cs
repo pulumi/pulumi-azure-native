@@ -17,27 +17,35 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     public sealed class KubernetesClusterBackupDatasourceParametersResponse
     {
         /// <summary>
-        /// Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore.
+        /// Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NamespacedNameResourceResponse> BackupHookReferences;
+        /// <summary>
+        /// Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedNamespaces;
         /// <summary>
-        /// Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore.
+        /// Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedResourceTypes;
         /// <summary>
-        /// Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore.
+        /// Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
         /// </summary>
         public readonly bool IncludeClusterScopeResources;
         /// <summary>
-        /// Gets or sets the include namespaces property. This property sets the namespaces to be included during restore.
+        /// Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
         /// </summary>
         public readonly ImmutableArray<string> IncludedNamespaces;
         /// <summary>
-        /// Gets or sets the include resource types property. This property sets the resource types to be included during restore.
+        /// Gets or sets the include resource types property. This property sets the resource types to be included during backup.
         /// </summary>
         public readonly ImmutableArray<string> IncludedResourceTypes;
         /// <summary>
-        /// Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore.
+        /// Gets or sets the include volume types property. This property sets the volume types to be included during backup.
+        /// </summary>
+        public readonly ImmutableArray<string> IncludedVolumeTypes;
+        /// <summary>
+        /// Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
         /// </summary>
         public readonly ImmutableArray<string> LabelSelectors;
         /// <summary>
@@ -46,12 +54,14 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string ObjectType;
         /// <summary>
-        /// Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during restore.
+        /// Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
         /// </summary>
         public readonly bool SnapshotVolumes;
 
         [OutputConstructor]
         private KubernetesClusterBackupDatasourceParametersResponse(
+            ImmutableArray<Outputs.NamespacedNameResourceResponse> backupHookReferences,
+
             ImmutableArray<string> excludedNamespaces,
 
             ImmutableArray<string> excludedResourceTypes,
@@ -62,17 +72,21 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             ImmutableArray<string> includedResourceTypes,
 
+            ImmutableArray<string> includedVolumeTypes,
+
             ImmutableArray<string> labelSelectors,
 
             string objectType,
 
             bool snapshotVolumes)
         {
+            BackupHookReferences = backupHookReferences;
             ExcludedNamespaces = excludedNamespaces;
             ExcludedResourceTypes = excludedResourceTypes;
             IncludeClusterScopeResources = includeClusterScopeResources;
             IncludedNamespaces = includedNamespaces;
             IncludedResourceTypes = includedResourceTypes;
+            IncludedVolumeTypes = includedVolumeTypes;
             LabelSelectors = labelSelectors;
             ObjectType = objectType;
             SnapshotVolumes = snapshotVolumes;

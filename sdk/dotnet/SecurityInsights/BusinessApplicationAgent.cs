@@ -11,15 +11,19 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Describes the configuration of a Business Application Agent.
-    /// Azure REST API version: 2024-04-01-preview.
-    /// 
-    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    /// Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:BusinessApplicationAgent")]
     public partial class BusinessApplicationAgent : global::Pulumi.CustomResource
     {
         [Output("agentSystems")]
         public Output<ImmutableArray<Outputs.AgentSystemResponse>> AgentSystems { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Describes the configuration of a Business Application Agent.

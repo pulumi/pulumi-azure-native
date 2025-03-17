@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.CodeSigning
     {
         /// <summary>
         /// Get a trusted Signing Account.
-        /// Azure REST API version: 2024-02-05-preview.
-        /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Azure REST API version: 2024-09-30-preview.
         /// </summary>
         public static Task<GetCodeSigningAccountResult> InvokeAsync(GetCodeSigningAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a trusted Signing Account.
-        /// Azure REST API version: 2024-02-05-preview.
-        /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Azure REST API version: 2024-09-30-preview.
         /// </summary>
         public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a trusted Signing Account.
-        /// Azure REST API version: 2024-02-05-preview.
-        /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Azure REST API version: 2024-09-30-preview.
         /// </summary>
         public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         public readonly string AccountUri;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -125,6 +123,8 @@ namespace Pulumi.AzureNative.CodeSigning
         private GetCodeSigningAccountResult(
             string accountUri,
 
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.CodeSigning
             string type)
         {
             AccountUri = accountUri;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

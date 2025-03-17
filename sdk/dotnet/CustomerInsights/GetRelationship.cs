@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.CustomerInsights
     public sealed class GetRelationshipResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Relationship Cardinality.
         /// </summary>
         public readonly string? Cardinality;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.CustomerInsights
 
         [OutputConstructor]
         private GetRelationshipResult(
+            string azureApiVersion,
+
             string? cardinality,
 
             ImmutableDictionary<string, string>? description,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Cardinality = cardinality;
             Description = description;
             DisplayName = displayName;

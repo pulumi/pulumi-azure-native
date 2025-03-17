@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network security perimeter by the name.
-        /// Azure REST API version: 2021-03-01-preview.
-        /// 
-        /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterResult> InvokeAsync(GetNetworkSecurityPerimeterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterResult>("azure-native:network:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security perimeter by the name.
-        /// Azure REST API version: 2021-03-01-preview.
-        /// 
-        /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterResult> Invoke(GetNetworkSecurityPerimeterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterResult>("azure-native:network:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security perimeter by the name.
-        /// Azure REST API version: 2021-03-01-preview.
-        /// 
-        /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterResult> Invoke(GetNetworkSecurityPerimeterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterResult>("azure-native:network:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterInvokeArgs(), options.WithDefaults());
@@ -85,17 +79,9 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkSecurityPerimeterResult
     {
         /// <summary>
-        /// A description of the network security perimeter.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// A friendly name for the network security perimeter.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        public readonly string Etag;
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -108,6 +94,10 @@ namespace Pulumi.AzureNative.Network
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// perimeter guid of the network security perimeter.
+        /// </summary>
+        public readonly string PerimeterGuid;
         /// <summary>
         /// The provisioning state of the scope assignment resource.
         /// </summary>
@@ -123,11 +113,7 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkSecurityPerimeterResult(
-            string? description,
-
-            string? displayName,
-
-            string etag,
+            string azureApiVersion,
 
             string id,
 
@@ -135,18 +121,19 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
+            string perimeterGuid,
+
             string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            Description = description;
-            DisplayName = displayName;
-            Etag = etag;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
+            PerimeterGuid = perimeterGuid;
             ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;

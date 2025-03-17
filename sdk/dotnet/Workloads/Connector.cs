@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the connector resource.
-    /// Azure REST API version: 2023-10-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Indicates any errors on the connector resource.
         /// </summary>

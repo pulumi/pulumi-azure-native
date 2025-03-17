@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// Azure REST API version: 2019-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Azure REST API version: 2023-12-01-preview.
         /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// Azure REST API version: 2019-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Azure REST API version: 2023-12-01-preview.
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// Azure REST API version: 2019-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Azure REST API version: 2023-12-01-preview.
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<object> Actions;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The security automation description.
         /// </summary>
         public readonly string? Description;
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.Security
         private GetAutomationResult(
             ImmutableArray<object> actions,
 
+            string azureApiVersion,
+
             string? description,
 
             string? etag,
@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             Actions = actions;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

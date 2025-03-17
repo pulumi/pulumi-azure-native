@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Container of a site
-    /// Azure REST API version: 2023-12-01.
-    /// 
-    /// Other available API versions: 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSiteContainer")]
     public partial class WebAppSiteContainer : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("authType")]
         public Output<string?> AuthType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Created Time

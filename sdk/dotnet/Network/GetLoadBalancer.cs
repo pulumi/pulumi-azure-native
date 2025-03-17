@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified load balancer.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified load balancer.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified load balancer.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.Network
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Collection of backend address pools used by a load balancer.
         /// </summary>
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetLoadBalancerResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.BackendAddressPoolResponse> backendAddressPools,
 
             string etag,
@@ -201,6 +201,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BackendAddressPools = backendAddressPools;
             Etag = etag;
             ExtendedLocation = extendedLocation;

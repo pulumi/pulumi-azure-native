@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetRegistryComponentContainerResult> InvokeAsync(GetRegistryComponentContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryComponentContainerResult>("azure-native:machinelearningservices:getRegistryComponentContainer", args ?? new GetRegistryComponentContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRegistryComponentContainerResult> Invoke(GetRegistryComponentContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryComponentContainerResult>("azure-native:machinelearningservices:getRegistryComponentContainer", args ?? new GetRegistryComponentContainerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRegistryComponentContainerResult> Invoke(GetRegistryComponentContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryComponentContainerResult>("azure-native:machinelearningservices:getRegistryComponentContainer", args ?? new GetRegistryComponentContainerInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetRegistryComponentContainerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Outputs.ComponentContainerResponse ComponentContainerProperties;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetRegistryComponentContainerResult(
+            string azureApiVersion,
+
             Outputs.ComponentContainerResponse componentContainerProperties,
 
             string id,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ComponentContainerProperties = componentContainerProperties;
             Id = id;
             Name = name;

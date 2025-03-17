@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetContentKeyPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the Policy
         /// </summary>
         public readonly string Created;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetContentKeyPolicyResult(
+            string azureApiVersion,
+
             string created,
 
             string? description,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Created = created;
             Description = description;
             Id = id;

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? FrontendPort;
         /// <summary>
+        /// List of Server Name Indications(SNI) for TLS Multi-site Listener that allows special wildcard characters as well.
+        /// </summary>
+        public readonly ImmutableArray<string> HostNames;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.SubResourceResponse? frontendPort,
 
+            ImmutableArray<string> hostNames,
+
             string? id,
 
             string? name,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Etag = etag;
             FrontendIPConfiguration = frontendIPConfiguration;
             FrontendPort = frontendPort;
+            HostNames = hostNames;
             Id = id;
             Name = name;
             Protocol = protocol;

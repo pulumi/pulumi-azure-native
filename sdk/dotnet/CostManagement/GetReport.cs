@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetReportResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Has definition for the report.
         /// </summary>
         public readonly Outputs.ReportDefinitionResponse Definition;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetReportResult(
+            string azureApiVersion,
+
             Outputs.ReportDefinitionResponse definition,
 
             Outputs.ReportDeliveryInfoResponse deliveryInfo,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Definition = definition;
             DeliveryInfo = deliveryInfo;
             Format = format;

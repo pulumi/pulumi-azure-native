@@ -40,10 +40,10 @@ namespace Pulumi.AzureNative.Databricks.Inputs
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? CustomVirtualNetworkId { get; set; }
 
         /// <summary>
-        /// Should the Public IP be Disabled?
+        /// Boolean indicating whether the public IP should be disabled. Default value is true
         /// </summary>
         [Input("enableNoPublicIp")]
-        public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? EnableNoPublicIp { get; set; }
+        public Input<Inputs.WorkspaceNoPublicIPBooleanParameterArgs>? EnableNoPublicIp { get; set; }
 
         /// <summary>
         /// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.

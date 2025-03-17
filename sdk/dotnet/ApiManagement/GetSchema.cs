@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetSchemaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Free-form schema entity description.
         /// </summary>
         public readonly string? Description;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetSchemaResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? value)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Name = name;

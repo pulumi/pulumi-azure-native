@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Easm
     public sealed class GetLabelByWorkspaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Label color.
         /// </summary>
         public readonly string? Color;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.Easm
 
         [OutputConstructor]
         private GetLabelByWorkspaceResult(
+            string azureApiVersion,
+
             string? color,
 
             string? displayName,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Easm
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Color = color;
             DisplayName = displayName;
             Id = id;

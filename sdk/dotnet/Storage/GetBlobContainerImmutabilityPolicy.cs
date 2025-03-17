@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetBlobContainerImmutabilityPolicyResult> InvokeAsync(GetBlobContainerImmutabilityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithDefaults());
@@ -117,6 +111,10 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly bool? AllowProtectedAppendWritesAll;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.Storage
 
             bool? allowProtectedAppendWritesAll,
 
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -161,6 +161,7 @@ namespace Pulumi.AzureNative.Storage
         {
             AllowProtectedAppendWrites = allowProtectedAppendWrites;
             AllowProtectedAppendWritesAll = allowProtectedAppendWritesAll;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;

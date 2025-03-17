@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// The operation to get the extension.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         /// </summary>
         public readonly bool? EnableAutomaticUpgrade;
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.ScVmm
         private GetMachineExtensionResult(
             bool? autoUpgradeMinorVersion,
 
+            string azureApiVersion,
+
             bool? enableAutomaticUpgrade,
 
             string? forceUpdateTag,
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.ScVmm
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            AzureApiVersion = azureApiVersion;
             EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             Id = id;

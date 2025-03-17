@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetDefaultUserRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description for this rule. Restricted to 140 chars.
         /// </summary>
         public readonly string Description;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetDefaultUserRuleResult(
+            string azureApiVersion,
+
             string description,
 
             ImmutableArray<string> destinationPortRanges,
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;

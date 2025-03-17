@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets information about a disk encryption set.
-        /// Azure REST API version: 2022-07-02.
-        /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Azure REST API version: 2024-03-02.
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a disk encryption set.
-        /// Azure REST API version: 2022-07-02.
-        /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Azure REST API version: 2024-03-02.
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a disk encryption set.
-        /// Azure REST API version: 2022-07-02.
-        /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Azure REST API version: 2024-03-02.
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.ApiErrorResponse AutoKeyRotationError;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
         public readonly string? EncryptionType;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.ApiErrorResponse autoKeyRotationError,
 
+            string azureApiVersion,
+
             string? encryptionType,
 
             string? federatedClientId,
@@ -173,6 +173,7 @@ namespace Pulumi.AzureNative.Compute
         {
             ActiveKey = activeKey;
             AutoKeyRotationError = autoKeyRotationError;
+            AzureApiVersion = azureApiVersion;
             EncryptionType = encryptionType;
             FederatedClientId = federatedClientId;
             Id = id;

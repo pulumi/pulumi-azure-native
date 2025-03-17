@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Method to get a Hyper-V cluster.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetHypervClusterControllerClusterResult> InvokeAsync(GetHypervClusterControllerClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHypervClusterControllerClusterResult>("azure-native:offazure:getHypervClusterControllerCluster", args ?? new GetHypervClusterControllerClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Method to get a Hyper-V cluster.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetHypervClusterControllerClusterResult> Invoke(GetHypervClusterControllerClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervClusterControllerClusterResult>("azure-native:offazure:getHypervClusterControllerCluster", args ?? new GetHypervClusterControllerClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Method to get a Hyper-V cluster.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetHypervClusterControllerClusterResult> Invoke(GetHypervClusterControllerClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervClusterControllerClusterResult>("azure-native:offazure:getHypervClusterControllerCluster", args ?? new GetHypervClusterControllerClusterInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetHypervClusterControllerClusterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the timestamp marking Hyper-V cluster creation.
         /// </summary>
         public readonly string CreatedTimestamp;
@@ -151,6 +149,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetHypervClusterControllerClusterResult(
+            string azureApiVersion,
+
             string createdTimestamp,
 
             ImmutableArray<Outputs.HealthErrorDetailsResponse> errors,
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string updatedTimestamp)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTimestamp = createdTimestamp;
             Errors = errors;
             Fqdn = fqdn;

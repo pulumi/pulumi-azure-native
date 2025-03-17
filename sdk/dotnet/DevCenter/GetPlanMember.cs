@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a devcenter plan member.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetPlanMemberResult> InvokeAsync(GetPlanMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanMemberResult>("azure-native:devcenter:getPlanMember", args ?? new GetPlanMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter plan member.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetPlanMemberResult> Invoke(GetPlanMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanMemberResult>("azure-native:devcenter:getPlanMember", args ?? new GetPlanMemberInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter plan member.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetPlanMemberResult> Invoke(GetPlanMemberInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanMemberResult>("azure-native:devcenter:getPlanMember", args ?? new GetPlanMemberInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetPlanMemberResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -117,6 +115,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The sync status of the member.
+        /// </summary>
+        public readonly Outputs.PlanMemberSyncStatusResponse SyncStatus;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -125,12 +127,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The tier of the member.
+        /// </summary>
+        public readonly string? Tier;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetPlanMemberResult(
+            string azureApiVersion,
+
             string id,
 
             string? memberId,
@@ -141,19 +149,26 @@ namespace Pulumi.AzureNative.DevCenter
 
             string provisioningState,
 
+            Outputs.PlanMemberSyncStatusResponse syncStatus,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? tier,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             MemberId = memberId;
             MemberType = memberType;
             Name = name;
             ProvisioningState = provisioningState;
+            SyncStatus = syncStatus;
             SystemData = systemData;
             Tags = tags;
+            Tier = tier;
             Type = type;
         }
     }

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get storage for a connectedEnvironment.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentsStorageResult> InvokeAsync(GetConnectedEnvironmentsStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get storage for a connectedEnvironment.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsStorageResult> Invoke(GetConnectedEnvironmentsStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get storage for a connectedEnvironment.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsStorageResult> Invoke(GetConnectedEnvironmentsStorageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetConnectedEnvironmentsStorageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetConnectedEnvironmentsStorageResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

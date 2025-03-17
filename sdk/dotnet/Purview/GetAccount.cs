@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// Get an account
-        /// Azure REST API version: 2021-12-01.
-        /// 
-        /// Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an account
-        /// Azure REST API version: 2021-12-01.
-        /// 
-        /// Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an account
-        /// Azure REST API version: 2021-12-01.
-        /// 
-        /// Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -89,8 +83,11 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly Outputs.AccountPropertiesResponseAccountStatus AccountStatus;
         /// <summary>
-        /// Cloud connectors.
-        /// External cloud identifier used as part of scanning configuration.
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// External Cloud Service connectors
         /// </summary>
         public readonly Outputs.CloudConnectorsResponse? CloudConnectors;
         /// <summary>
@@ -106,6 +103,10 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string CreatedByObjectId;
         /// <summary>
+        /// Gets the default domain in the account.
+        /// </summary>
+        public readonly string DefaultDomain;
+        /// <summary>
         /// The URIs that are the public endpoints of the account.
         /// </summary>
         public readonly Outputs.AccountPropertiesResponseEndpoints Endpoints;
@@ -118,15 +119,19 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Identity Info on the tracked resource
+        /// The Managed Identity of the resource
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
+        /// Ingestion Storage Account Info
+        /// </summary>
+        public readonly Outputs.IngestionStorageResponse? IngestionStorage;
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        /// Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         /// </summary>
         public readonly string? ManagedEventHubState;
         /// <summary>
@@ -141,6 +146,10 @@ namespace Pulumi.AzureNative.Purview
         /// Gets or sets the public network access for managed resources.
         /// </summary>
         public readonly string? ManagedResourcesPublicNetworkAccess;
+        /// <summary>
+        /// Gets or sets the Merge Info.
+        /// </summary>
+        public readonly Outputs.AccountMergeInfoResponse? MergeInfo;
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -160,7 +169,7 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Gets or sets the Sku.
         /// </summary>
-        public readonly Outputs.AccountResponseSku Sku;
+        public readonly Outputs.AccountResponseSku? Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -170,6 +179,10 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Gets or sets the state of tenant endpoint.
+        /// </summary>
+        public readonly string? TenantEndpointState;
+        /// <summary>
         /// Gets or sets the type.
         /// </summary>
         public readonly string Type;
@@ -177,6 +190,8 @@ namespace Pulumi.AzureNative.Purview
         [OutputConstructor]
         private GetAccountResult(
             Outputs.AccountPropertiesResponseAccountStatus accountStatus,
+
+            string azureApiVersion,
 
             Outputs.CloudConnectorsResponse? cloudConnectors,
 
@@ -186,6 +201,8 @@ namespace Pulumi.AzureNative.Purview
 
             string createdByObjectId,
 
+            string defaultDomain,
+
             Outputs.AccountPropertiesResponseEndpoints endpoints,
 
             string friendlyName,
@@ -193,6 +210,8 @@ namespace Pulumi.AzureNative.Purview
             string id,
 
             Outputs.IdentityResponse? identity,
+
+            Outputs.IngestionStorageResponse? ingestionStorage,
 
             string? location,
 
@@ -204,6 +223,8 @@ namespace Pulumi.AzureNative.Purview
 
             string? managedResourcesPublicNetworkAccess,
 
+            Outputs.AccountMergeInfoResponse? mergeInfo,
+
             string name,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
@@ -212,28 +233,34 @@ namespace Pulumi.AzureNative.Purview
 
             string? publicNetworkAccess,
 
-            Outputs.AccountResponseSku sku,
+            Outputs.AccountResponseSku? sku,
 
             Outputs.TrackedResourceResponseSystemData systemData,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? tenantEndpointState,
+
             string type)
         {
             AccountStatus = accountStatus;
+            AzureApiVersion = azureApiVersion;
             CloudConnectors = cloudConnectors;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByObjectId = createdByObjectId;
+            DefaultDomain = defaultDomain;
             Endpoints = endpoints;
             FriendlyName = friendlyName;
             Id = id;
             Identity = identity;
+            IngestionStorage = ingestionStorage;
             Location = location;
             ManagedEventHubState = managedEventHubState;
             ManagedResourceGroupName = managedResourceGroupName;
             ManagedResources = managedResources;
             ManagedResourcesPublicNetworkAccess = managedResourcesPublicNetworkAccess;
+            MergeInfo = mergeInfo;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
@@ -241,6 +268,7 @@ namespace Pulumi.AzureNative.Purview
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
+            TenantEndpointState = tenantEndpointState;
             Type = type;
         }
     }

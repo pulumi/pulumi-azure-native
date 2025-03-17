@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetBlobFolderDataSetMappingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Container that has the file path.
         /// </summary>
         public readonly string ContainerName;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetBlobFolderDataSetMappingResult(
+            string azureApiVersion,
+
             string containerName,
 
             string dataSetId,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ContainerName = containerName;
             DataSetId = dataSetId;
             DataSetMappingStatus = dataSetMappingStatus;
