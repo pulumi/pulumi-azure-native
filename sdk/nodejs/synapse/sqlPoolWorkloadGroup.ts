@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workload group operations for a sql pool
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlPoolWorkloadGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The workload group importance level.
      */
@@ -109,9 +111,11 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
             resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
             resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["importance"] = undefined /*out*/;
             resourceInputs["maxResourcePercent"] = undefined /*out*/;
             resourceInputs["maxResourcePercentPerRequest"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified diagnostics package.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getDiagnosticsPackage(args: GetDiagnosticsPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticsPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetDiagnosticsPackageArgs {
  * Diagnostics package resource.
  */
 export interface GetDiagnosticsPackageResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -72,9 +74,7 @@ export interface GetDiagnosticsPackageResult {
 }
 /**
  * Gets information about the specified diagnostics package.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getDiagnosticsPackageOutput(args: GetDiagnosticsPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticsPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

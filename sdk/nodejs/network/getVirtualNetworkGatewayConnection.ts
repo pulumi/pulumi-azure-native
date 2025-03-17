@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network gateway connection by resource group.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      * The authorizationKey.
      */
     readonly authorizationKey?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The connection mode for this connection.
      */
@@ -171,9 +173,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
 }
 /**
  * Gets the specified virtual network gateway connection by resource group.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

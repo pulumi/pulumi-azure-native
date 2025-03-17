@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linked storage accounts top level resource container.
- * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
  */
 export class LinkedStorageAccount extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === LinkedStorageAccount.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Linked storage accounts type.
      */
@@ -75,16 +77,18 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSourceType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["storageAccountIds"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20200801:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20230901:LinkedStorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20200801:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20230901:LinkedStorageAccount" }, { type: "azure-native:operationalinsights/v20250201:LinkedStorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts);
     }

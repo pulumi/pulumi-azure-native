@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  *
  * **Warning:** when `AzureADOnlyAuthentication` is enabled, the Azure SQL API rejects any `AdministratorLoginPassword`, even if it is the same as the current one.
  *
@@ -58,6 +56,10 @@ export class Server extends pulumi.CustomResource {
      * The Azure Active Directory administrator of the server.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The Client id used for cross tenant CMK scenario
      */
@@ -156,6 +158,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -166,6 +169,7 @@ export class Server extends pulumi.CustomResource {
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["administrators"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["federatedClientId"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

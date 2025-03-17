@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Service Fabric.
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
  */
 export class ServiceFabric extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ServiceFabric extends pulumi.CustomResource {
      * The applicable schedule for the virtual machine.
      */
     public /*out*/ readonly applicableSchedule!: pulumi.Output<outputs.devtestlab.ApplicableScheduleResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource id of the environment under which the service fabric resource is present
      */
@@ -104,11 +108,13 @@ export class ServiceFabric extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["applicableSchedule"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["applicableSchedule"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["externalServiceFabricId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App SourceControl.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
- *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class ContainerAppsSourceControl extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContainerAppsSourceControl.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The branch which will trigger the auto deployment
      */
@@ -94,11 +96,13 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
             resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["branch"] = undefined /*out*/;
             resourceInputs["githubActionConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

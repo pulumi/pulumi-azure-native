@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The springbootsites envelope resource definition.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export class Springbootsite extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Springbootsite extends pulumi.CustomResource {
         return obj['__pulumiType'] === Springbootsite.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The extended location definition.
      */
@@ -87,10 +91,12 @@ export class Springbootsite extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["springbootsitesName"] = args ? args.springbootsitesName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -100,7 +106,7 @@ export class Springbootsite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20230101preview:Springbootsite" }, { type: "azure-native:offazurespringboot/v20230101preview:springbootsite" }, { type: "azure-native:offazurespringboot/v20240401preview:Springbootsite" }, { type: "azure-native:offazurespringboot/v20240401preview:springbootsite" }, { type: "azure-native:offazurespringboot:springbootsite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20230101preview:Springbootsite" }, { type: "azure-native:offazurespringboot/v20240401preview:Springbootsite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Springbootsite.__pulumiType, name, resourceInputs, opts);
     }

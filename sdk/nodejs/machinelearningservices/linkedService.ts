@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linked service.
- * Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
+ * Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 2.x: 2020-09-01-preview.
  */
 export class LinkedService extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class LinkedService extends pulumi.CustomResource {
         return obj['__pulumiType'] === LinkedService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Identity for the resource.
      */
@@ -83,8 +87,10 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

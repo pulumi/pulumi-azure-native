@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Advertise Mode
      */
     public readonly advertiseMode!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.
      */
@@ -99,6 +101,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["serviceSelector"] = args ? args.serviceSelector : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -106,6 +109,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             resourceInputs["addresses"] = undefined /*out*/;
             resourceInputs["advertiseMode"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bgpPeers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

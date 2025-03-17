@@ -41,6 +41,10 @@ export interface GetRegisteredAsnResult {
      */
     readonly asn?: number;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ID of the resource.
      */
     readonly id: string;

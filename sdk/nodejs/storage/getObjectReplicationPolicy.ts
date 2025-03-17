@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the object replication policy of the storage account by policy ID.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetObjectReplicationPolicyArgs {
  */
 export interface GetObjectReplicationPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     readonly destinationAccount: string;
@@ -53,6 +55,10 @@ export interface GetObjectReplicationPolicyResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Optional. The object replication policy metrics feature options.
+     */
+    readonly metrics?: outputs.storage.ObjectReplicationPolicyPropertiesResponseMetrics;
     /**
      * The name of the resource
      */
@@ -76,9 +82,7 @@ export interface GetObjectReplicationPolicyResult {
 }
 /**
  * Get the object replication policy of the storage account by policy ID.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A paginated list of String entities.
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function listInferenceGroupDeltaModelsAsync(args: ListInferenceGroupDeltaModelsAsyncArgs, opts?: pulumi.InvokeOptions): Promise<ListInferenceGroupDeltaModelsAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +67,7 @@ export interface ListInferenceGroupDeltaModelsAsyncResult {
 }
 /**
  * A paginated list of String entities.
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function listInferenceGroupDeltaModelsAsyncOutput(args: ListInferenceGroupDeltaModelsAsyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListInferenceGroupDeltaModelsAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the list of advanced security objects
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function listLocalRulestackAdvancedSecurityObjects(args: ListLocalRulestackAdvancedSecurityObjectsArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackAdvancedSecurityObjectsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,9 +51,7 @@ export interface ListLocalRulestackAdvancedSecurityObjectsResult {
 }
 /**
  * Get the list of advanced security objects
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function listLocalRulestackAdvancedSecurityObjectsOutput(args: ListLocalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackAdvancedSecurityObjectsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

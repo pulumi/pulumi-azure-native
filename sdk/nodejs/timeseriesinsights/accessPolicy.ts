@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
- * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
- *
- * Other available API versions: 2021-06-30-preview.
+ * Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * An description of the access policy.
      */
@@ -84,9 +86,11 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["principalObjectId"] = args ? args.principalObjectId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalObjectId"] = undefined /*out*/;

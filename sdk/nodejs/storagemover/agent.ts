@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Agent resource.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class Agent extends pulumi.CustomResource {
     /**
@@ -57,6 +55,10 @@ export class Agent extends pulumi.CustomResource {
      */
     public readonly arcVmUuid!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A description for the Agent.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -86,13 +88,21 @@ export class Agent extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.storagemover.SystemDataResponse>;
+    /**
+     * The agent's local time zone represented in Windows format.
+     */
+    public /*out*/ readonly timeZone!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+     */
+    public readonly uploadLimitSchedule!: pulumi.Output<outputs.storagemover.UploadLimitScheduleResponse | undefined>;
     /**
      * Uptime of the Agent in seconds.
      */
@@ -127,8 +137,10 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageMoverName"] = args ? args.storageMoverName : undefined;
+            resourceInputs["uploadLimitSchedule"] = args ? args.uploadLimitSchedule : undefined;
             resourceInputs["agentStatus"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorDetails"] = undefined /*out*/;
             resourceInputs["lastStatusUpdate"] = undefined /*out*/;
             resourceInputs["localIPAddress"] = undefined /*out*/;
@@ -137,6 +149,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["numberOfCores"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uptimeInSeconds"] = undefined /*out*/;
         } else {
@@ -144,6 +157,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["arcResourceId"] = undefined /*out*/;
             resourceInputs["arcVmUuid"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["errorDetails"] = undefined /*out*/;
             resourceInputs["lastStatusUpdate"] = undefined /*out*/;
@@ -153,7 +167,9 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["numberOfCores"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uploadLimitSchedule"] = undefined /*out*/;
             resourceInputs["uptimeInSeconds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -191,4 +207,8 @@ export interface AgentArgs {
      * The name of the Storage Mover resource.
      */
     storageMoverName: pulumi.Input<string>;
+    /**
+     * The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+     */
+    uploadLimitSchedule?: pulumi.Input<inputs.storagemover.UploadLimitScheduleArgs>;
 }

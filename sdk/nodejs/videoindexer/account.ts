@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Video Indexer account.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
- *
- * Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -49,6 +47,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     public readonly identity!: pulumi.Output<outputs.videoindexer.ManagedServiceIdentityResponse | undefined>;
@@ -57,10 +59,6 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The media services details
-     */
-    public readonly mediaServices!: pulumi.Output<outputs.videoindexer.MediaServicesForPutRequestResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -68,6 +66,10 @@ export class Account extends pulumi.CustomResource {
      * Gets the status of the account at the time the operation was called.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The storage services details
+     */
+    public readonly storageServices!: pulumi.Output<outputs.videoindexer.StorageServicesForPutRequestResponse | undefined>;
     /**
      * The system meta data relating to this resource.
      */
@@ -107,9 +109,10 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mediaServices"] = args ? args.mediaServices : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageServices"] = args ? args.storageServices : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -119,11 +122,12 @@ export class Account extends pulumi.CustomResource {
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["accountName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mediaServices"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageServices"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
@@ -131,7 +135,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:videoindexer/v20211018preview:Account" }, { type: "azure-native:videoindexer/v20211027preview:Account" }, { type: "azure-native:videoindexer/v20211110preview:Account" }, { type: "azure-native:videoindexer/v20220413preview:Account" }, { type: "azure-native:videoindexer/v20220720preview:Account" }, { type: "azure-native:videoindexer/v20220801:Account" }, { type: "azure-native:videoindexer/v20240101:Account" }, { type: "azure-native:videoindexer/v20240401preview:Account" }, { type: "azure-native:videoindexer/v20240601preview:Account" }, { type: "azure-native:videoindexer/v20240923preview:Account" }, { type: "azure-native:videoindexer/v20250101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoindexer/v20211018preview:Account" }, { type: "azure-native:videoindexer/v20211027preview:Account" }, { type: "azure-native:videoindexer/v20211110preview:Account" }, { type: "azure-native:videoindexer/v20220413preview:Account" }, { type: "azure-native:videoindexer/v20220720preview:Account" }, { type: "azure-native:videoindexer/v20220801:Account" }, { type: "azure-native:videoindexer/v20240101:Account" }, { type: "azure-native:videoindexer/v20240401preview:Account" }, { type: "azure-native:videoindexer/v20240601preview:Account" }, { type: "azure-native:videoindexer/v20240923preview:Account" }, { type: "azure-native:videoindexer/v20250101:Account" }, { type: "azure-native:videoindexer/v20250301:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,13 +162,13 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The media services details
-     */
-    mediaServices?: pulumi.Input<inputs.videoindexer.MediaServicesForPutRequestArgs>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage services details
+     */
+    storageServices?: pulumi.Input<inputs.videoindexer.StorageServicesForPutRequestArgs>;
     /**
      * Resource tags.
      */

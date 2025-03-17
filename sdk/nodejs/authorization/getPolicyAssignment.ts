@@ -9,19 +9,22 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
- * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicyAssignment", {
+        "expand": args.expand,
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetPolicyAssignmentArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The name of the policy assignment to get.
      */
@@ -37,6 +40,18 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+     */
+    readonly assignmentType?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * The version of the policy definition to use.
+     */
+    readonly definitionVersion?: string;
+    /**
      * This message will be part of response in case of policy violation.
      */
     readonly description?: string;
@@ -45,7 +60,11 @@ export interface GetPolicyAssignmentResult {
      */
     readonly displayName?: string;
     /**
-     * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+     * The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+     */
+    readonly effectiveDefinitionVersion: string;
+    /**
+     * The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
      */
     readonly enforcementMode?: string;
     /**
@@ -56,6 +75,14 @@ export interface GetPolicyAssignmentResult {
      * The managed identity associated with the policy assignment.
      */
     readonly identity?: outputs.authorization.IdentityResponse;
+    /**
+     * The instance ID of the policy assignment. This ID only and always changes when the assignment is deleted and recreated.
+     */
+    readonly instanceId: string;
+    /**
+     * The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+     */
+    readonly latestDefinitionVersion: string;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -107,19 +134,22 @@ export interface GetPolicyAssignmentResult {
 }
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
- * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicyAssignment", {
+        "expand": args.expand,
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetPolicyAssignmentOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the policy assignment to get.
      */

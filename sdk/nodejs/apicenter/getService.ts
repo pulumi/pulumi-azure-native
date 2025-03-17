@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get service
- * Azure REST API version: 2023-07-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+ * Returns details of the service.
+ * Azure REST API version: 2024-03-15-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +25,7 @@ export interface GetServiceArgs {
      */
     resourceGroupName: string;
     /**
-     * Service name
+     * The name of Azure API Center service.
      */
     serviceName: string;
 }
@@ -37,11 +35,15 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The identity of the service.
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.apicenter.ManagedServiceIdentityResponse;
     /**
@@ -53,9 +55,13 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * The status of the last operation.
+     * Provisioning state of the service.
      */
     readonly provisioningState: string;
+    /**
+     * Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+     */
+    readonly restore?: boolean;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -70,10 +76,8 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * Get service
- * Azure REST API version: 2023-07-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+ * Returns details of the service.
+ * Azure REST API version: 2024-03-15-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +93,7 @@ export interface GetServiceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Service name
+     * The name of Azure API Center service.
      */
     serviceName: pulumi.Input<string>;
 }

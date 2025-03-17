@@ -39,6 +39,10 @@ export interface GetNeighborGroupResult {
      */
     readonly annotation?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * An array of destination IPv4 Addresses or IPv6 Addresses.
      */
     readonly destination: outputs.managednetworkfabric.NeighborGroupDestinationResponse;

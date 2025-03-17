@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get information about the Runtime Environment
  * Azure REST API version: 2023-05-15-preview.
- *
- * Other available API versions: 2024-10-23.
  */
 export function getRuntimeEnvironment(args: GetRuntimeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRuntimeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetRuntimeEnvironmentArgs {
  * Definition of the Runtime Environment type.
  */
 export interface GetRuntimeEnvironmentResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * List of Default packages for Environment
      */
@@ -85,8 +87,6 @@ export interface GetRuntimeEnvironmentResult {
 /**
  * Get information about the Runtime Environment
  * Azure REST API version: 2023-05-15-preview.
- *
- * Other available API versions: 2024-10-23.
  */
 export function getRuntimeEnvironmentOutput(args: GetRuntimeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuntimeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

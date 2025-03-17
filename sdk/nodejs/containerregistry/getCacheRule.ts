@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified cache rule resource.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview.
  */
 export function getCacheRule(args: GetCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetCacheRuleArgs {
  * An object that represents a cache rule for a container registry.
  */
 export interface GetCacheRuleResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The creation date of the cache rule.
      */
@@ -81,9 +83,7 @@ export interface GetCacheRuleResult {
 }
 /**
  * Gets the properties of the specified cache rule resource.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview.
  */
 export function getCacheRuleOutput(args: GetCacheRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

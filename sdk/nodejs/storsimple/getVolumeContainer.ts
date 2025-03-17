@@ -45,6 +45,10 @@ export interface GetVolumeContainerArgs {
  */
 export interface GetVolumeContainerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The bandwidth-rate set on the volume container.
      */
     readonly bandWidthRateInMbps?: number;

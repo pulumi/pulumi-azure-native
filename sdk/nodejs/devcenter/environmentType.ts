@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an environment type.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class EnvironmentType extends pulumi.CustomResource {
     /**
@@ -40,6 +38,14 @@ export class EnvironmentType extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnvironmentType.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The display name of the environment type.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -79,14 +85,18 @@ export class EnvironmentType extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environmentTypeName"] = args ? args.environmentTypeName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -94,7 +104,7 @@ export class EnvironmentType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230401:EnvironmentType" }, { type: "azure-native:devcenter/v20230801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20231001preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240201:EnvironmentType" }, { type: "azure-native:devcenter/v20240501preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240601preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240701preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20241001preview:EnvironmentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230401:EnvironmentType" }, { type: "azure-native:devcenter/v20230801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20231001preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240201:EnvironmentType" }, { type: "azure-native:devcenter/v20240501preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240601preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240701preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20241001preview:EnvironmentType" }, { type: "azure-native:devcenter/v20250201:EnvironmentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentType.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,6 +118,10 @@ export interface EnvironmentTypeArgs {
      * The name of the devcenter.
      */
     devCenterName: pulumi.Input<string>;
+    /**
+     * The display name of the environment type.
+     */
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the environment type.
      */

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for Volume Snapshot request.
- * Azure REST API version: 2023-01-01.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class VolumeSnapshot extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VolumeSnapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === VolumeSnapshot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Data used when creating a volume snapshot.
      */
@@ -97,6 +99,7 @@ export class VolumeSnapshot extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sourceVolumeSizeGiB"] = undefined /*out*/;
@@ -104,6 +107,7 @@ export class VolumeSnapshot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeName"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationData"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

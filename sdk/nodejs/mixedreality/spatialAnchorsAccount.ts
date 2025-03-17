@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SpatialAnchorsAccount Response.
- * Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 2.x: 2021-01-01.
  */
 export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      * unique id of certain account.
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity associated with this account
      */
@@ -114,12 +116,14 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountDomain"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountDomain"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

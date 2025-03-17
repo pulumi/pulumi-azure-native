@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Server backup properties
- * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-03-01-preview.
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Backup extends pulumi.CustomResource {
         return obj['__pulumiType'] === Backup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Backup type.
      */
@@ -85,6 +87,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["backupName"] = args ? args.backupName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupType"] = undefined /*out*/;
             resourceInputs["completedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -92,6 +95,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupType"] = undefined /*out*/;
             resourceInputs["completedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -40,6 +40,10 @@ export interface GetRelationshipArgs {
  */
 export interface GetRelationshipResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The Relationship Cardinality.
      */
     readonly cardinality?: string;

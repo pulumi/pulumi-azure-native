@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster application
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
- *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ETag for the application
      */
@@ -87,11 +89,13 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -100,7 +104,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }, { type: "azure-native:hdinsight/v20210601:Application" }, { type: "azure-native:hdinsight/v20230415preview:Application" }, { type: "azure-native:hdinsight/v20230815preview:Application" }, { type: "azure-native:hdinsight/v20240801preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }, { type: "azure-native:hdinsight/v20210601:Application" }, { type: "azure-native:hdinsight/v20230415preview:Application" }, { type: "azure-native:hdinsight/v20230815preview:Application" }, { type: "azure-native:hdinsight/v20240801preview:Application" }, { type: "azure-native:hdinsight/v20250115preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

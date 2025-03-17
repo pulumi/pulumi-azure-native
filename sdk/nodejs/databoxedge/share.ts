@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class Share extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Share extends pulumi.CustomResource {
      * Access protocol to be used by the share.
      */
     public readonly accessProtocol!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Azure container mapping for the share.
      */
@@ -131,11 +133,13 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareStatus"] = args ? args.shareStatus : undefined;
             resourceInputs["userAccessRights"] = args ? args.userAccessRights : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["shareMappings"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessProtocol"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureContainerInfo"] = undefined /*out*/;
             resourceInputs["clientAccessRights"] = undefined /*out*/;
             resourceInputs["dataPolicy"] = undefined /*out*/;

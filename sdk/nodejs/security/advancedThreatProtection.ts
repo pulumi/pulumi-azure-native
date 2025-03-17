@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Advanced Threat Protection resource.
- * Azure REST API version: 2019-01-01. Prior API version in Azure Native 1.x: 2019-01-01.
+ * Azure REST API version: 2019-01-01. Prior API version in Azure Native 2.x: 2019-01-01.
  */
 export class AdvancedThreatProtection extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdvancedThreatProtection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Indicates whether Advanced Threat Protection is enabled.
      */
@@ -65,9 +69,11 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["settingName"] = args ? args.settingName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

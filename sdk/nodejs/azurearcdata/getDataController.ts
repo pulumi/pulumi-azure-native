@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a dataController resource
- * Azure REST API version: 2023-01-15-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetDataControllerArgs {
  * Data controller resource
  */
 export interface GetDataControllerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The extendedLocation of the resource.
      */
@@ -71,9 +73,7 @@ export interface GetDataControllerResult {
 }
 /**
  * Retrieves a dataController resource
- * Azure REST API version: 2023-01-15-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

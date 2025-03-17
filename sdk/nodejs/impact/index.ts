@@ -39,13 +39,6 @@ utilities.lazyLoad(exports, ["WorkloadImpact"], () => require("./workloadImpact"
 // Export enums:
 export * from "../types/enums/impact";
 
-// Export sub-modules:
-import * as v20240501preview from "./v20240501preview";
-
-export {
-    v20240501preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

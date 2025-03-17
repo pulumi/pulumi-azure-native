@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration Assignment
- * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
- *
- * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
  */
 export class ConfigurationAssignment extends pulumi.CustomResource {
     /**
@@ -40,6 +38,14 @@ export class ConfigurationAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationAssignment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Properties of the configuration assignment
+     */
+    public readonly filter!: pulumi.Output<outputs.maintenance.ConfigurationAssignmentFilterPropertiesResponse | undefined>;
     /**
      * Location of the resource
      */
@@ -89,6 +95,7 @@ export class ConfigurationAssignment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceType'");
             }
             resourceInputs["configurationAssignmentName"] = args ? args.configurationAssignmentName : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
@@ -96,10 +103,13 @@ export class ConfigurationAssignment extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maintenanceConfigurationId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -122,6 +132,10 @@ export interface ConfigurationAssignmentArgs {
      * Configuration assignment name
      */
     configurationAssignmentName?: pulumi.Input<string>;
+    /**
+     * Properties of the configuration assignment
+     */
+    filter?: pulumi.Input<inputs.maintenance.ConfigurationAssignmentFilterPropertiesArgs>;
     /**
      * Location of the resource
      */

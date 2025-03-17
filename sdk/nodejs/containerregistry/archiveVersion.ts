@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents an export pipeline for a container registry.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class ArchiveVersion extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class ArchiveVersion extends pulumi.CustomResource {
      * The detailed error message for the archive version in the case of failure.
      */
     public /*out*/ readonly archiveVersionErrorMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
@@ -90,12 +92,14 @@ export class ArchiveVersion extends pulumi.CustomResource {
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["archiveVersionErrorMessage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archiveVersionErrorMessage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

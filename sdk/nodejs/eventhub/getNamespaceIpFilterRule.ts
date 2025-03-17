@@ -41,6 +41,10 @@ export interface GetNamespaceIpFilterRuleResult {
      */
     readonly action?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * IP Filter name
      */
     readonly filterName?: string;

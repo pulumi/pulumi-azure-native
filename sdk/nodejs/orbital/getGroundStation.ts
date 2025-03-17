@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified ground station in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function getGroundStation(args: GetGroundStationArgs, opts?: pulumi.InvokeOptions): Promise<GetGroundStationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetGroundStationResult {
      * Altitude of the ground station.
      */
     readonly altitudeMeters?: number;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Ground station capabilities.
      */
@@ -96,8 +98,6 @@ export interface GetGroundStationResult {
 /**
  * Gets the specified ground station in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroundStationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

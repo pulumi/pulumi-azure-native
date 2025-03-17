@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a domain.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -46,6 +44,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly autoRenew!: pulumi.Output<boolean | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Domain creation timestamp.
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
@@ -66,7 +68,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirationTime!: pulumi.Output<string>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -164,6 +166,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetDnsType"] = args ? args.targetDnsType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["domainNotRenewableReasons"] = undefined /*out*/;
             resourceInputs["expirationTime"] = undefined /*out*/;
@@ -178,6 +181,7 @@ export class Domain extends pulumi.CustomResource {
         } else {
             resourceInputs["authCode"] = undefined /*out*/;
             resourceInputs["autoRenew"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dnsType"] = undefined /*out*/;
             resourceInputs["dnsZoneId"] = undefined /*out*/;
@@ -246,7 +250,7 @@ export interface DomainArgs {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**

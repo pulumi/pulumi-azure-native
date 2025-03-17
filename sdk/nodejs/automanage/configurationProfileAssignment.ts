@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
- * Azure REST API version: 2022-05-04. Prior API version in Azure Native 1.x: 2020-06-30-preview.
+ * Azure REST API version: 2022-05-04. Prior API version in Azure Native 2.x: 2022-05-04.
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationProfileAssignment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Azure resource id. Indicates if this resource is managed by another Azure resource.
      */
@@ -80,11 +84,13 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

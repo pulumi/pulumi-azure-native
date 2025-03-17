@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * User details.
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class WorkspaceGroupUser extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceGroupUser.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Email address.
      */
@@ -109,6 +111,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;
@@ -120,6 +123,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;

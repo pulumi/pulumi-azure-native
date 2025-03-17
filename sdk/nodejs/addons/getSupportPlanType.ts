@@ -32,6 +32,10 @@ export interface GetSupportPlanTypeArgs {
  */
 export interface GetSupportPlanTypeResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
      */
     readonly id: string;

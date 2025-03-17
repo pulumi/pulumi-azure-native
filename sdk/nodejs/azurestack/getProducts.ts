@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Returns a list of products.
  * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2020-06-01-preview.
  */
 export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions): Promise<GetProductsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,8 +51,6 @@ export interface GetProductsResult {
 /**
  * Returns a list of products.
  * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2020-06-01-preview.
  */
 export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

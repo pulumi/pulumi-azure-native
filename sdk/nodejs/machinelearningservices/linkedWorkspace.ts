@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linked workspace.
- * Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 1.x: 2020-03-01.
+ * Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 2.x: 2020-05-15-preview.
  */
 export class LinkedWorkspace extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class LinkedWorkspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === LinkedWorkspace.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Friendly name of the linked workspace.
      */
@@ -73,8 +77,10 @@ export class LinkedWorkspace extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

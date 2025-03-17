@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The VirtualNetworks resource definition.
- * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualNetwork.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The extended location.
      */
@@ -110,12 +112,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["uuid"] = args ? args.uuid : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

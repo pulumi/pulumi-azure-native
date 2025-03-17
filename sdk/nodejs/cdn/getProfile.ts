@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Key-Value pair representing additional properties for profiles.
      */
     readonly extendedProperties: {[key: string]: string};
@@ -60,6 +62,10 @@ export interface GetProfileResult {
      * Resource location.
      */
     readonly location: string;
+    /**
+     * Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+     */
+    readonly logScrubbing?: outputs.cdn.ProfileLogScrubbingResponse;
     /**
      * Resource name.
      */
@@ -95,9 +101,7 @@ export interface GetProfileResult {
 }
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

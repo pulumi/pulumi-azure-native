@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Connection Setting registration for a Bot Service
- * Azure REST API version: 2022-09-15.
- *
- * Other available API versions: 2023-09-15-preview.
+ * Azure REST API version: 2023-09-15-preview.
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetBotConnectionArgs {
  * Bot channel resource definition
  */
 export interface GetBotConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Entity Tag.
      */
@@ -84,9 +86,7 @@ export interface GetBotConnectionResult {
 }
 /**
  * Get a Connection Setting registration for a Bot Service
- * Azure REST API version: 2022-09-15.
- *
- * Other available API versions: 2023-09-15-preview.
+ * Azure REST API version: 2023-09-15-preview.
  */
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
- * Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+ * Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 2.x: 2020-04-01-preview.
  */
 export class ConfigurationProfile extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationProfile.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity block returned by ARM resource that supports managed identity.
      */
@@ -78,10 +82,12 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class ApiManagementService extends pulumi.CustomResource {
      * Control Plane Apis version constraint for the API Management service.
      */
     public readonly apiVersionConstraint!: pulumi.Output<outputs.apimanagement.ApiVersionConstraintResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
@@ -244,6 +246,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             resourceInputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) ?? "None";
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["developerPortalUrl"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -264,6 +267,7 @@ export class ApiManagementService extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalLocations"] = undefined /*out*/;
             resourceInputs["apiVersionConstraint"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certificates"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["customProperties"] = undefined /*out*/;

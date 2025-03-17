@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Fetches the managed proxy details
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,7 +32,7 @@ export interface ListEndpointManagedProxyDetailsArgs {
      */
     hostname?: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
     /**
@@ -62,9 +60,7 @@ export interface ListEndpointManagedProxyDetailsResult {
 }
 /**
  * Fetches the managed proxy details
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +83,7 @@ export interface ListEndpointManagedProxyDetailsOutputArgs {
      */
     hostname?: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**

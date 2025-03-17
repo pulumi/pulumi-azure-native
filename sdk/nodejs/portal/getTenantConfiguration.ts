@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the tenant configuration.
- * Azure REST API version: 2020-09-01-preview.
- *
- * Other available API versions: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview.
  */
 export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +29,10 @@ export interface GetTenantConfigurationArgs {
  * The tenant configuration resource definition.
  */
 export interface GetTenantConfigurationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -54,9 +56,7 @@ export interface GetTenantConfigurationResult {
 }
 /**
  * Gets the tenant configuration.
- * Azure REST API version: 2020-09-01-preview.
- *
- * Other available API versions: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview.
  */
 export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

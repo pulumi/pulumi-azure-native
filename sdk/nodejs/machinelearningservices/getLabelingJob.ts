@@ -9,16 +9,12 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getLabelingJob(args: GetLabelingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getLabelingJob", {
         "id": args.id,
-        "includeJobInstructions": args.includeJobInstructions,
-        "includeLabelCategories": args.includeLabelCategories,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -29,14 +25,6 @@ export interface GetLabelingJobArgs {
      * The name and identifier for the LabelingJob.
      */
     id: string;
-    /**
-     * Boolean value to indicate whether to include JobInstructions in response.
-     */
-    includeJobInstructions?: boolean;
-    /**
-     * Boolean value to indicate Whether to include LabelCategories in response.
-     */
-    includeLabelCategories?: boolean;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -51,6 +39,10 @@ export interface GetLabelingJobArgs {
  * Azure Resource Manager resource envelope.
  */
 export interface GetLabelingJobResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -74,16 +66,12 @@ export interface GetLabelingJobResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getLabelingJob", {
         "id": args.id,
-        "includeJobInstructions": args.includeJobInstructions,
-        "includeLabelCategories": args.includeLabelCategories,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -94,14 +82,6 @@ export interface GetLabelingJobOutputArgs {
      * The name and identifier for the LabelingJob.
      */
     id: pulumi.Input<string>;
-    /**
-     * Boolean value to indicate whether to include JobInstructions in response.
-     */
-    includeJobInstructions?: pulumi.Input<boolean>;
-    /**
-     * Boolean value to indicate Whether to include LabelCategories in response.
-     */
-    includeLabelCategories?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

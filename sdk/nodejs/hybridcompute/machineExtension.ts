@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Machine Extension.
- * Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
- *
- * Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2022-12-27.
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class MachineExtension extends pulumi.CustomResource {
         return obj['__pulumiType'] === MachineExtension.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -88,10 +90,12 @@ export class MachineExtension extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -100,7 +104,7 @@ export class MachineExtension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20191212:MachineExtension" }, { type: "azure-native:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200802:MachineExtension" }, { type: "azure-native:hybridcompute/v20200815preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210128preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210325preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210422preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210517preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210520:MachineExtension" }, { type: "azure-native:hybridcompute/v20210610preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20211210preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20220310:MachineExtension" }, { type: "azure-native:hybridcompute/v20220510preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20220811preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20221110:MachineExtension" }, { type: "azure-native:hybridcompute/v20221227:MachineExtension" }, { type: "azure-native:hybridcompute/v20221227preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20230315preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20230620preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20231003preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240331preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240520preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240710:MachineExtension" }, { type: "azure-native:hybridcompute/v20240731preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240910preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20241110preview:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20191212:MachineExtension" }, { type: "azure-native:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200802:MachineExtension" }, { type: "azure-native:hybridcompute/v20200815preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210128preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210325preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210422preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210517preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210520:MachineExtension" }, { type: "azure-native:hybridcompute/v20210610preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20211210preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20220310:MachineExtension" }, { type: "azure-native:hybridcompute/v20220510preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20220811preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20221110:MachineExtension" }, { type: "azure-native:hybridcompute/v20221227:MachineExtension" }, { type: "azure-native:hybridcompute/v20221227preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20230315preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20230620preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20231003preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240331preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240520preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240710:MachineExtension" }, { type: "azure-native:hybridcompute/v20240731preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20240910preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20241110preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20250113:MachineExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineExtension.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The extended info of the manager.
- * Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+ * Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
  */
 export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
      * Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
      */
     public readonly algorithm!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Represents the CEK of the resource.
      */
@@ -111,11 +115,13 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             resourceInputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["algorithm"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryptionKey"] = undefined /*out*/;
             resourceInputs["encryptionKeyThumbprint"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

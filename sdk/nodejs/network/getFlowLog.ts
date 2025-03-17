@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a flow log resource by name.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,9 +40,17 @@ export interface GetFlowLogArgs {
  */
 export interface GetFlowLogResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Flag to enable/disable flow logging.
      */
     readonly enabled?: boolean;
+    /**
+     * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+     */
+    readonly enabledFilteringCriteria?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -61,6 +67,10 @@ export interface GetFlowLogResult {
      * Resource ID.
      */
     readonly id?: string;
+    /**
+     * FlowLog resource Managed Identity
+     */
+    readonly identity?: outputs.network.ManagedServiceIdentityResponse;
     /**
      * Resource location.
      */
@@ -100,9 +110,7 @@ export interface GetFlowLogResult {
 }
 /**
  * Gets a flow log resource by name.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowLogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

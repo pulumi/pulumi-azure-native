@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Landing zone registration resource type.
- * Azure REST API version: 2025-02-27-preview.
+ * Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
  */
 export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
         return obj['__pulumiType'] === LandingZoneRegistrationOperation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -76,10 +80,12 @@ export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
             resourceInputs["landingZoneRegistrationName"] = args ? args.landingZoneRegistrationName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

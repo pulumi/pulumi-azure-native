@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Managed Network Group resource
- * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
  */
 export class ManagedNetworkGroup extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedNetworkGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -105,11 +109,13 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
             resourceInputs["virtualNetworks"] = args ? args.virtualNetworks : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

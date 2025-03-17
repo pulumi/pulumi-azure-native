@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get bare metal machine key set of the provided cluster.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getBareMetalMachineKeySet(args: GetBareMetalMachineKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetBareMetalMachineKeySetArgs {
 
 export interface GetBareMetalMachineKeySetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
      */
     readonly azureGroupId: string;
@@ -50,6 +52,10 @@ export interface GetBareMetalMachineKeySetResult {
      * The descriptive message about the current detailed status.
      */
     readonly detailedStatusMessage: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The date and time after which the users in this key set will be removed from the bare metal machines.
      */
@@ -113,9 +119,7 @@ export interface GetBareMetalMachineKeySetResult {
 }
 /**
  * Get bare metal machine key set of the provided cluster.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

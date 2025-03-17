@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified shared private link resource
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +22,7 @@ export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivat
 
 export interface GetSignalRSharedPrivateLinkResourceArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -32,7 +30,7 @@ export interface GetSignalRSharedPrivateLinkResourceArgs {
      */
     resourceName: string;
     /**
-     * The name of the shared private link resource
+     * The name of the shared private link resource.
      */
     sharedPrivateLinkResourceName: string;
 }
@@ -42,15 +40,19 @@ export interface GetSignalRSharedPrivateLinkResourceArgs {
  */
 export interface GetSignalRSharedPrivateLinkResourceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The group id from the provider of resource the shared private link resource is for
      */
     readonly groupId: string;
     /**
-     * Fully qualified resource Id for the resource.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -70,19 +72,17 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
      */
     readonly status: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.signalrservice.SystemDataResponse;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get the specified shared private link resource
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +95,7 @@ export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRShared
 
 export interface GetSignalRSharedPrivateLinkResourceOutputArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -103,7 +103,7 @@ export interface GetSignalRSharedPrivateLinkResourceOutputArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * The name of the shared private link resource
+     * The name of the shared private link resource.
      */
     sharedPrivateLinkResourceName: pulumi.Input<string>;
 }

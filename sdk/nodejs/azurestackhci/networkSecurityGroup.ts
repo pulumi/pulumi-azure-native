@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkSecurityGroup resource.
- * Azure REST API version: 2024-02-01-preview.
- *
- * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+ * Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
@@ -64,6 +66,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      * The provisioning state of the network security group resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The observed state of Network Security Group
+     */
+    public /*out*/ readonly status!: pulumi.Output<outputs.azurestackhci.NetworkSecurityGroupStatusResponse>;
     /**
      * A collection of references to logical networks that are currently using this NSG
      */
@@ -100,20 +106,24 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

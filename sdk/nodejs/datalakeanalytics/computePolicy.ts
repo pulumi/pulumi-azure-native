@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data Lake Analytics compute policy information.
- * Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2016-11-01.
+ * Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 2.x: 2019-11-01-preview.
  */
 export class ComputePolicy extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ComputePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ComputePolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The maximum degree of parallelism per job this user can use to submit jobs.
      */
@@ -93,9 +97,11 @@ export class ComputePolicy extends pulumi.CustomResource {
             resourceInputs["objectId"] = args ? args.objectId : undefined;
             resourceInputs["objectType"] = args ? args.objectType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
             resourceInputs["minPriorityPerJob"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Migration Config operation
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class MigrationConfig extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class MigrationConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === MigrationConfig.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -105,6 +107,7 @@ export class MigrationConfig extends pulumi.CustomResource {
             resourceInputs["postMigrationName"] = args ? args.postMigrationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["migrationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -113,6 +116,7 @@ export class MigrationConfig extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["migrationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -147,7 +151,7 @@ export interface MigrationConfigArgs {
      */
     postMigrationName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

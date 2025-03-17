@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties for the specified encryption scope.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetEncryptionScopeArgs {
  * The Encryption Scope resource.
  */
 export interface GetEncryptionScopeResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the creation date and time of the encryption scope in UTC.
      */
@@ -80,9 +82,7 @@ export interface GetEncryptionScopeResult {
 }
 /**
  * Returns the properties for the specified encryption scope.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

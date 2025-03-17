@@ -35,6 +35,10 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Internal - used by Visual Studio to setup the debugging session on the local development environment.
      */
     readonly debugParams?: string;

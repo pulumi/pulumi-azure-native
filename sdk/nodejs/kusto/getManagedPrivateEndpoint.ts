@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a managed private endpoint.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +30,7 @@ export interface GetManagedPrivateEndpointArgs {
      */
     managedPrivateEndpointName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -41,6 +39,10 @@ export interface GetManagedPrivateEndpointArgs {
  * Class representing a managed private endpoint.
  */
 export interface GetManagedPrivateEndpointResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The groupId in which the managed private endpoint is created.
      */
@@ -80,9 +82,7 @@ export interface GetManagedPrivateEndpointResult {
 }
 /**
  * Gets a managed private endpoint.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +103,7 @@ export interface GetManagedPrivateEndpointOutputArgs {
      */
     managedPrivateEndpointName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

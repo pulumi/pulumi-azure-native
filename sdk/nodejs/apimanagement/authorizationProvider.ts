@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Authorization Provider contract.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class AuthorizationProvider extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AuthorizationProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthorizationProvider.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Authorization Provider name. Must be 1 to 300 characters long.
      */
@@ -84,9 +86,11 @@ export class AuthorizationProvider extends pulumi.CustomResource {
             resourceInputs["oauth2"] = args ? args.oauth2 : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["identityProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

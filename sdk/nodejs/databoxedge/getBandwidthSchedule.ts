@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified bandwidth schedule.
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetBandwidthScheduleArgs {
  * The bandwidth schedule details.
  */
 export interface GetBandwidthScheduleResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The days of the week when this schedule is applicable.
      */
@@ -76,9 +78,7 @@ export interface GetBandwidthScheduleResult {
 }
 /**
  * Gets the properties of the specified bandwidth schedule.
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBandwidthScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

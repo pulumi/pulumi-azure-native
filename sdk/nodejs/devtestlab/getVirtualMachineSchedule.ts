@@ -50,6 +50,10 @@ export interface GetVirtualMachineScheduleArgs {
  */
 export interface GetVirtualMachineScheduleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the schedule.
      */
     readonly createdDate: string;

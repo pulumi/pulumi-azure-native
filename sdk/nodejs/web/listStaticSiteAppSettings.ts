@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the application settings of a static site.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function listStaticSiteAppSettings(args: ListStaticSiteAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteAppSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,9 +54,7 @@ export interface ListStaticSiteAppSettingsResult {
 }
 /**
  * Description for Gets the application settings of a static site.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function listStaticSiteAppSettingsOutput(args: ListStaticSiteAppSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStaticSiteAppSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

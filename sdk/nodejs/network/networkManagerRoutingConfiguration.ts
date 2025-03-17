@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the routing configuration
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
  */
 export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkManagerRoutingConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A description of the routing configuration.
      */
@@ -90,6 +92,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -97,6 +100,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

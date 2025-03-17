@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tag-API link details.
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class TagApiLink extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class TagApiLink extends pulumi.CustomResource {
      * Full resource Id of an API.
      */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -78,10 +80,12 @@ export class TagApiLink extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["tagId"] = args ? args.tagId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

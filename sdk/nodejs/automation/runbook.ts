@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the runbook type.
- * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
  */
 export class Runbook extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Runbook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Runbook.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the creation time.
      */
@@ -101,10 +103,6 @@ export class Runbook extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets the published runbook content link.
-     */
-    public readonly publishContentLink!: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
-    /**
      * Gets or sets the type of the runbook.
      */
     public readonly runbookType!: pulumi.Output<string | undefined>;
@@ -154,6 +152,7 @@ export class Runbook extends pulumi.CustomResource {
             resourceInputs["runbookName"] = args ? args.runbookName : undefined;
             resourceInputs["runbookType"] = args ? args.runbookType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["jobCount"] = undefined /*out*/;
@@ -165,6 +164,7 @@ export class Runbook extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["draft"] = undefined /*out*/;
@@ -180,7 +180,6 @@ export class Runbook extends pulumi.CustomResource {
             resourceInputs["outputTypes"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publishContentLink"] = undefined /*out*/;
             resourceInputs["runbookType"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

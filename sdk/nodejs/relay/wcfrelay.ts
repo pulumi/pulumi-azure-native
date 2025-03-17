@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of the WCF relay resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WCFRelay extends pulumi.CustomResource {
         return obj['__pulumiType'] === WCFRelay.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the WCF relay was created.
      */
@@ -113,6 +115,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
@@ -122,6 +125,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
     public readonly addressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
@@ -97,6 +99,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Private Endpoint VNet Policies.
+     */
+    public readonly privateEndpointVNetPolicies!: pulumi.Output<string | undefined>;
+    /**
      * The provisioning state of the virtual network resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -147,11 +153,13 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privateEndpointVNetPolicies"] = args ? args.privateEndpointVNetPolicies : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowLogs"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -160,6 +168,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["addressSpace"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bgpCommunities"] = undefined /*out*/;
             resourceInputs["ddosProtectionPlan"] = undefined /*out*/;
             resourceInputs["dhcpOptions"] = undefined /*out*/;
@@ -173,6 +182,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["ipAllocations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointVNetPolicies"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
@@ -239,6 +249,10 @@ export interface VirtualNetworkArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Private Endpoint VNet Policies.
+     */
+    privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies>;
     /**
      * The name of the resource group.
      */

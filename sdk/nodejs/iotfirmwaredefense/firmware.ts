@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Firmware definition
- * Azure REST API version: 2023-02-08-preview.
- *
- * Other available API versions: 2024-01-10.
+ * Azure REST API version: 2024-01-10. Prior API version in Azure Native 2.x: 2023-02-08-preview.
  */
 export class Firmware extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Firmware extends pulumi.CustomResource {
         return obj['__pulumiType'] === Firmware.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User-specified description of the firmware.
      */
@@ -71,7 +73,7 @@ export class Firmware extends pulumi.CustomResource {
     /**
      * A list of errors or other messages generated during firmware analysis
      */
-    public readonly statusMessages!: pulumi.Output<any[] | undefined>;
+    public readonly statusMessages!: pulumi.Output<outputs.iotfirmwaredefense.StatusMessageResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -117,11 +119,13 @@ export class Firmware extends pulumi.CustomResource {
             resourceInputs["vendor"] = args ? args.vendor : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fileName"] = undefined /*out*/;
             resourceInputs["fileSize"] = undefined /*out*/;
@@ -177,7 +181,7 @@ export interface FirmwareArgs {
     /**
      * A list of errors or other messages generated during firmware analysis
      */
-    statusMessages?: pulumi.Input<any[]>;
+    statusMessages?: pulumi.Input<pulumi.Input<inputs.iotfirmwaredefense.StatusMessageArgs>[]>;
     /**
      * Firmware vendor.
      */

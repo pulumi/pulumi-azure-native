@@ -41,6 +41,10 @@ export interface GetAPICollectionResult {
      */
     readonly additionalData?: {[key: string]: string};
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The display name of the Azure API Management API.
      */
     readonly displayName?: string;

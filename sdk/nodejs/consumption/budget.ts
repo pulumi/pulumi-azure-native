@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
- *
- * Other available API versions: 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Budget extends pulumi.CustomResource {
      * The total amount of cost to track with the budget
      */
     public readonly amount!: pulumi.Output<number>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
@@ -120,12 +122,14 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
             resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["forecastSpend"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["amount"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

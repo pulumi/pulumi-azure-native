@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a gallery.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Gallery extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Gallery extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gallery.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource ID of the backing Azure Compute Gallery.
      */
@@ -85,11 +87,13 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
             resourceInputs["galleryResourceId"] = args ? args.galleryResourceId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["galleryResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -97,7 +101,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }, { type: "azure-native:devcenter/v20230101preview:Gallery" }, { type: "azure-native:devcenter/v20230401:Gallery" }, { type: "azure-native:devcenter/v20230801preview:Gallery" }, { type: "azure-native:devcenter/v20231001preview:Gallery" }, { type: "azure-native:devcenter/v20240201:Gallery" }, { type: "azure-native:devcenter/v20240501preview:Gallery" }, { type: "azure-native:devcenter/v20240601preview:Gallery" }, { type: "azure-native:devcenter/v20240701preview:Gallery" }, { type: "azure-native:devcenter/v20240801preview:Gallery" }, { type: "azure-native:devcenter/v20241001preview:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }, { type: "azure-native:devcenter/v20230101preview:Gallery" }, { type: "azure-native:devcenter/v20230401:Gallery" }, { type: "azure-native:devcenter/v20230801preview:Gallery" }, { type: "azure-native:devcenter/v20231001preview:Gallery" }, { type: "azure-native:devcenter/v20240201:Gallery" }, { type: "azure-native:devcenter/v20240501preview:Gallery" }, { type: "azure-native:devcenter/v20240601preview:Gallery" }, { type: "azure-native:devcenter/v20240701preview:Gallery" }, { type: "azure-native:devcenter/v20240801preview:Gallery" }, { type: "azure-native:devcenter/v20241001preview:Gallery" }, { type: "azure-native:devcenter/v20250201:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);
     }

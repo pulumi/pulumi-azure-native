@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the current version of the specified key from the specified key vault.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Azure REST API version: 2024-11-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +44,11 @@ export interface GetKeyResult {
      */
     readonly attributes?: outputs.keyvault.KeyAttributesResponse;
     /**
-     * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
      */
     readonly curveName?: string;
     /**
@@ -55,7 +57,7 @@ export interface GetKeyResult {
     readonly id: string;
     readonly keyOps?: string[];
     /**
-     * The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+     * The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
      */
     readonly keySize?: number;
     /**
@@ -97,9 +99,7 @@ export interface GetKeyResult {
 }
 /**
  * Gets the current version of the specified key from the specified key vault.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Azure REST API version: 2024-11-01.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

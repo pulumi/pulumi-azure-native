@@ -59,21 +59,6 @@ utilities.lazyLoad(exports, ["MonitoredSubscription"], () => require("./monitore
 // Export enums:
 export * from "../types/enums/datadog";
 
-// Export sub-modules:
-import * as v20220601 from "./v20220601";
-import * as v20220801 from "./v20220801";
-import * as v20230101 from "./v20230101";
-import * as v20230707 from "./v20230707";
-import * as v20231020 from "./v20231020";
-
-export {
-    v20220601,
-    v20220801,
-    v20230101,
-    v20230707,
-    v20231020,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

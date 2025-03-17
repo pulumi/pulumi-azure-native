@@ -35,6 +35,10 @@ export interface GetConnectorArgs {
  */
 export interface GetConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Indicates any errors on the connector resource.
      */
     readonly errors: outputs.workloads.ConnectorErrorDefinitionResponse;

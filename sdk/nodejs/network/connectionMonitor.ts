@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about the connection monitor.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-09-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ConnectionMonitor extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      * Determines if the connection monitor will start automatically once created.
      */
     public readonly autoStart!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Type of connection monitor.
      */
@@ -145,6 +147,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
             resourceInputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionMonitorType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["monitoringStatus"] = undefined /*out*/;
@@ -154,6 +157,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["autoStart"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionMonitorType"] = undefined /*out*/;
             resourceInputs["destination"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a BrokerAuthenticationResource
- * Azure REST API version: 2024-07-01-preview.
- *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getBrokerAuthentication(args: GetBrokerAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerAuthenticationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetBrokerAuthenticationArgs {
  */
 export interface GetBrokerAuthenticationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Edge location of the resource.
      */
     readonly extendedLocation: outputs.iotoperations.ExtendedLocationResponse;
@@ -73,9 +75,7 @@ export interface GetBrokerAuthenticationResult {
 }
 /**
  * Get a BrokerAuthenticationResource
- * Azure REST API version: 2024-07-01-preview.
- *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getBrokerAuthenticationOutput(args: GetBrokerAuthenticationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerAuthenticationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

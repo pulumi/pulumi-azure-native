@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the connection type identified by connection type name.
- * Azure REST API version: 2022-08-08.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01.
  */
 export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetConnectionTypeArgs {
  * Definition of the connection type.
  */
 export interface GetConnectionTypeResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the creation time.
      */
@@ -76,9 +78,7 @@ export interface GetConnectionTypeResult {
 }
 /**
  * Retrieve the connection type identified by connection type name.
- * Azure REST API version: 2022-08-08.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01.
  */
 export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

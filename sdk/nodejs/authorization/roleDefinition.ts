@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role definition.
- * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+ * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 2.x: 2022-05-01-preview.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class RoleDefinition extends pulumi.CustomResource {
      * Role definition assignable scopes.
      */
     public readonly assignableScopes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Id of the user who created the assignment
      */
@@ -104,6 +108,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["roleType"] = args ? args.roleType : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["updatedOn"] = undefined /*out*/;
         } else {
             resourceInputs["assignableScopes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

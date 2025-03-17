@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The EngagementFabric channel
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The functions to be enabled for the channel
      */
@@ -82,9 +86,11 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelType"] = args ? args.channelType : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["channelFunctions"] = undefined /*out*/;
             resourceInputs["channelType"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;

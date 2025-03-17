@@ -37,6 +37,10 @@ export interface GetAzureLargeStorageInstanceArgs {
  */
 export interface GetAzureLargeStorageInstanceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the AzureLargeStorageInstance unique ID.
      */
     readonly azureLargeStorageInstanceUniqueIdentifier?: string;

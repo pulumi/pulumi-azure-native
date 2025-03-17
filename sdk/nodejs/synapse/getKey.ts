@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a workspace key
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -62,8 +64,6 @@ export interface GetKeyResult {
 /**
  * Gets a workspace key
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

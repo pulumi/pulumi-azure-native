@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Appliances definition.
- * Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview.
- *
- * Other available API versions: 2021-10-31-preview.
+ * Azure REST API version: 2022-10-27. Prior API version in Azure Native 2.x: 2022-10-27.
  */
 export class Appliance extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Appliance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Appliance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Represents a supported Fabric/Infra. (AKSEdge etc...).
      */
@@ -112,12 +114,14 @@ export class Appliance extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["distro"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["infrastructureConfig"] = undefined /*out*/;

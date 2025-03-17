@@ -50,6 +50,10 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Config Specification of the topic
      */
     readonly configs?: outputs.confluent.TopicsRelatedLinkResponse;

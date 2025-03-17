@@ -84,13 +84,6 @@ utilities.lazyLoad(exports, ["IspCustomer"], () => require("./ispCustomer"));
 // Export enums:
 export * from "../types/enums/connectedcache";
 
-// Export sub-modules:
-import * as v20230501preview from "./v20230501preview";
-
-export {
-    v20230501preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

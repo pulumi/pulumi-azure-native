@@ -8,10 +8,14 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve a Remote Rendering Account.
- * Azure REST API version: 2021-01-01.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
  *
- * Other available API versions: 2021-03-01-preview.
+ *  Retrieve a Remote Rendering Account.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +48,10 @@ export interface GetRemoteRenderingAccountResult {
      * unique id of certain account.
      */
     readonly accountId: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -90,10 +98,14 @@ export interface GetRemoteRenderingAccountResult {
     readonly type: string;
 }
 /**
- * Retrieve a Remote Rendering Account.
- * Azure REST API version: 2021-01-01.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
  *
- * Other available API versions: 2021-03-01-preview.
+ *  Retrieve a Remote Rendering Account.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

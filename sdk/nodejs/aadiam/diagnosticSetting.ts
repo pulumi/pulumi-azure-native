@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The diagnostic setting resource.
- * Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2017-04-01-preview.
+ * Azure REST API version: 2017-04-01. Prior API version in Azure Native 2.x: 2017-04-01.
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiagnosticSetting.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource Id for the event hub authorization rule.
      */
@@ -91,8 +93,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eventHubAuthorizationRuleId"] = undefined /*out*/;
             resourceInputs["eventHubName"] = undefined /*out*/;
             resourceInputs["logs"] = undefined /*out*/;

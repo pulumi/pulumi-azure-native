@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSsoTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceSsoTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,9 +38,7 @@ export interface GetApiManagementServiceSsoTokenResult {
 }
 /**
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

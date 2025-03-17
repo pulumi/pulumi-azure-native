@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a StandbyContainerGroupPoolResource
- * Azure REST API version: 2023-12-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getStandbyContainerGroupPool(args: GetStandbyContainerGroupPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetStandbyContainerGroupPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetStandbyContainerGroupPoolArgs {
  * A StandbyContainerGroupPoolResource.
  */
 export interface GetStandbyContainerGroupPoolResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Specifies container group properties of standby container group pools.
      */
@@ -75,9 +77,7 @@ export interface GetStandbyContainerGroupPoolResult {
 }
 /**
  * Get a StandbyContainerGroupPoolResource
- * Azure REST API version: 2023-12-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getStandbyContainerGroupPoolOutput(args: GetStandbyContainerGroupPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandbyContainerGroupPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

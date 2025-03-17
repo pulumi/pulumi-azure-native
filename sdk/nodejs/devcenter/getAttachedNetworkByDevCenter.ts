@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an attached NetworkConnection.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01.
  */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetAttachedNetworkByDevCenterArgs {
  */
 export interface GetAttachedNetworkByDevCenterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * AAD Join type of the network. This is populated based on the referenced Network Connection.
      */
     readonly domainJoinType: string;
@@ -50,7 +52,7 @@ export interface GetAttachedNetworkByDevCenterResult {
      */
     readonly healthCheckStatus: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -80,9 +82,7 @@ export interface GetAttachedNetworkByDevCenterResult {
 }
 /**
  * Gets an attached NetworkConnection.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01.
  */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

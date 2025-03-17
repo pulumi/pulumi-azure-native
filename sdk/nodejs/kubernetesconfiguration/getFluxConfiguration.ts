@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets details of the Flux Configuration.
  * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +49,10 @@ export interface GetFluxConfigurationArgs {
  * The Flux Configuration object returned in Get & Put response.
  */
 export interface GetFluxConfigurationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Parameters to reconcile to the AzureBlob source kind type.
      */
@@ -147,8 +149,6 @@ export interface GetFluxConfigurationResult {
 /**
  * Gets details of the Flux Configuration.
  * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
  */
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFluxConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

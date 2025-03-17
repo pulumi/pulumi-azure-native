@@ -5,10 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Administrative credentials for accessing vCenter and NSX-T
- * Azure REST API version: 2022-05-01.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * List the admin credentials for the private cloud
+ * Azure REST API version: 2023-09-01.
  */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,10 +49,8 @@ export interface ListPrivateCloudAdminCredentialsResult {
     readonly vcenterUsername: string;
 }
 /**
- * Administrative credentials for accessing vCenter and NSX-T
- * Azure REST API version: 2022-05-01.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * List the admin credentials for the private cloud
+ * Azure REST API version: 2023-09-01.
  */
 export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

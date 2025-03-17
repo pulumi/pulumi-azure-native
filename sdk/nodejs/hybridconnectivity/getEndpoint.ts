@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the endpoint to the resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +25,7 @@ export interface GetEndpointArgs {
      */
     endpointName: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
 }
@@ -37,41 +35,25 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
-     * The timestamp of resource creation (UTC).
+     * The Azure API version of the resource.
      */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The endpoint properties.
+     * The resource provisioning state.
      */
-    readonly properties: outputs.hybridconnectivity.EndpointPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource Id of the connectivity endpoint (optional).
+     */
+    readonly resourceId?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -83,9 +65,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets the endpoint to the resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +81,7 @@ export interface GetEndpointOutputArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
 }

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The RoutePolicy resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  */
 export class RoutePolicy extends pulumi.CustomResource {
     /**
@@ -41,9 +39,29 @@ export class RoutePolicy extends pulumi.CustomResource {
     }
 
     /**
+     * AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+     */
+    public readonly addressFamilyType!: pulumi.Output<string | undefined>;
+    /**
+     * Administrative state of the resource.
+     */
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Configuration state of the resource.
+     */
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
+     * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+     */
+    public readonly defaultAction!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -53,7 +71,11 @@ export class RoutePolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Arm Resource ID of Network Fabric.
+     */
+    public readonly networkFabricId!: pulumi.Output<string>;
+    /**
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -84,26 +106,41 @@ export class RoutePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.networkFabricId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'networkFabricId'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.statements === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statements'");
             }
+            resourceInputs["addressFamilyType"] = (args ? args.addressFamilyType : undefined) ?? "IPv4";
             resourceInputs["annotation"] = args ? args.annotation : undefined;
+            resourceInputs["defaultAction"] = (args ? args.defaultAction : undefined) ?? "Deny";
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routePolicyName"] = args ? args.routePolicyName : undefined;
             resourceInputs["statements"] = args ? args.statements : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["addressFamilyType"] = undefined /*out*/;
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkFabricId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statements"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -122,19 +159,31 @@ export class RoutePolicy extends pulumi.CustomResource {
  */
 export interface RoutePolicyArgs {
     /**
+     * AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+     */
+    addressFamilyType?: pulumi.Input<string | enums.managednetworkfabric.AddressFamilyType>;
+    /**
      * Switch configuration description.
      */
     annotation?: pulumi.Input<string>;
+    /**
+     * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+     */
+    defaultAction?: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
+     * Arm Resource ID of Network Fabric.
+     */
+    networkFabricId: pulumi.Input<string>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the Route Policy
+     * Name of the Route Policy.
      */
     routePolicyName?: pulumi.Input<string>;
     /**

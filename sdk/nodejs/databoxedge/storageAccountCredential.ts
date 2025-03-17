@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The storage account credential.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**
@@ -52,6 +50,10 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * Alias for the storage account.
      */
     public readonly alias!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Blob end point for private clouds.
      */
@@ -122,12 +124,14 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountKey"] = undefined /*out*/;
             resourceInputs["accountType"] = undefined /*out*/;
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobDomainName"] = undefined /*out*/;
             resourceInputs["connectionString"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

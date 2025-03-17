@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified DDoS protection plan.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetDdosProtectionPlanArgs {
  * A DDoS protection plan in a resource group.
  */
 export interface GetDdosProtectionPlanResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -79,9 +81,7 @@ export interface GetDdosProtectionPlanResult {
 }
 /**
  * Gets information about the specified DDoS protection plan.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDdosProtectionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

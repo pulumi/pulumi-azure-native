@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A profile is a logical grouping of endpoints that share the same settings.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Key-Value pair representing additional properties for profiles.
      */
     public /*out*/ readonly extendedProperties!: pulumi.Output<{[key: string]: string}>;
@@ -60,6 +62,10 @@ export class Profile extends pulumi.CustomResource {
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+     */
+    public readonly logScrubbing!: pulumi.Output<outputs.cdn.ProfileLogScrubbingResponse | undefined>;
     /**
      * Resource name.
      */
@@ -112,11 +118,13 @@ export class Profile extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logScrubbing"] = args ? args.logScrubbing : undefined;
             resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontDoorId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -126,11 +134,13 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontDoorId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logScrubbing"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["originResponseTimeoutSeconds"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -159,6 +169,10 @@ export interface ProfileArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+     */
+    logScrubbing?: pulumi.Input<inputs.cdn.ProfileLogScrubbingArgs>;
     /**
      * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
      */

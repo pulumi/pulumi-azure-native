@@ -54,15 +54,6 @@ utilities.lazyLoad(exports, ["SpatialAnchorsAccount"], () => require("./spatialA
 // Export enums:
 export * from "../types/enums/mixedreality";
 
-// Export sub-modules:
-import * as v20210101 from "./v20210101";
-import * as v20210301preview from "./v20210301preview";
-
-export {
-    v20210101,
-    v20210301preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

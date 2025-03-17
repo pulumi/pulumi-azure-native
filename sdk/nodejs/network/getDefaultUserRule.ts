@@ -50,6 +50,10 @@ export interface GetDefaultUserRuleArgs {
  */
 export interface GetDefaultUserRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A description for this rule. Restricted to 140 chars.
      */
     readonly description: string;

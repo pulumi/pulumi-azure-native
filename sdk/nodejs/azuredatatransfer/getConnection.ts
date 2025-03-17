@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets connection resource.
- * Azure REST API version: 2023-10-11-preview.
- *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Azure REST API version: 2024-09-27.
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetConnectionArgs {
  * The connection resource definition.
  */
 export interface GetConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -67,9 +69,7 @@ export interface GetConnectionResult {
 }
 /**
  * Gets connection resource.
- * Azure REST API version: 2023-10-11-preview.
- *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Azure REST API version: 2024-09-27.
  */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

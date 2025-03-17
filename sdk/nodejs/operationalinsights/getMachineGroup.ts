@@ -50,6 +50,10 @@ export interface GetMachineGroupArgs {
  */
 export interface GetMachineGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
      */
     readonly count?: number;

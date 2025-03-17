@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,6 +64,10 @@ export interface GetArcSettingResult {
      */
     readonly arcServicePrincipalObjectId?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * contains connectivity related configuration for ARC resources
      */
     readonly connectivityProperties?: outputs.azurestackhci.ArcConnectivityPropertiesResponse[];
@@ -74,7 +76,7 @@ export interface GetArcSettingResult {
      */
     readonly defaultExtensions: outputs.azurestackhci.DefaultExtensionDetailsResponse[];
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -100,9 +102,7 @@ export interface GetArcSettingResult {
 }
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArcSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

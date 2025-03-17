@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * LoadTest mapping resource details
- * Azure REST API version: 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2023-12-01-preview.
  */
 export class LoadTestMapping extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class LoadTestMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadTestMapping.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Mapped Azure Load Test resource Id.
      */
@@ -82,10 +86,12 @@ export class LoadTestMapping extends pulumi.CustomResource {
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["testId"] = args ? args.testId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureLoadTestingResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sourceResourceId"] = undefined /*out*/;
@@ -94,7 +100,7 @@ export class LoadTestMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20231201preview:LoadTestMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20231201preview:LoadTestMapping" }, { type: "azure-native:loadtestservice/v20241201preview:LoadTestMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadTestMapping.__pulumiType, name, resourceInputs, opts);
     }

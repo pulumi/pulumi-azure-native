@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements virtual machine template GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetVirtualMachineTemplateArgs {
  * Define the virtualMachineTemplate.
  */
 export interface GetVirtualMachineTemplateResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
@@ -111,7 +113,7 @@ export interface GetVirtualMachineTemplateResult {
      */
     readonly osType: string;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -149,9 +151,7 @@ export interface GetVirtualMachineTemplateResult {
 }
 /**
  * Implements virtual machine template GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

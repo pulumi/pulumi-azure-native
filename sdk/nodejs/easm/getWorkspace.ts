@@ -35,6 +35,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Data plane endpoint.
      */
     readonly dataPlaneEndpoint: string;

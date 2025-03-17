@@ -16,23 +16,6 @@ export const GraphQuery: typeof import("./graphQuery").GraphQuery = null as any;
 utilities.lazyLoad(exports, ["GraphQuery"], () => require("./graphQuery"));
 
 
-// Export sub-modules:
-import * as v20180901preview from "./v20180901preview";
-import * as v20190401 from "./v20190401";
-import * as v20200401preview from "./v20200401preview";
-import * as v20210301 from "./v20210301";
-import * as v20221001 from "./v20221001";
-import * as v20240401 from "./v20240401";
-
-export {
-    v20180901preview,
-    v20190401,
-    v20200401preview,
-    v20210301,
-    v20221001,
-    v20240401,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

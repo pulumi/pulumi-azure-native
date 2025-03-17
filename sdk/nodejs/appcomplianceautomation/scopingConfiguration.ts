@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent an AppComplianceAutomation scoping configuration resource.
- * Azure REST API version: 2024-06-27.
+ * Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
  */
 export class ScopingConfiguration extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ScopingConfiguration extends pulumi.CustomResource {
      * List of scoping question answers.
      */
     public readonly answers!: pulumi.Output<outputs.appcomplianceautomation.ScopingAnswerResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -76,12 +80,14 @@ export class ScopingConfiguration extends pulumi.CustomResource {
             resourceInputs["answers"] = args ? args.answers : undefined;
             resourceInputs["reportName"] = args ? args.reportName : undefined;
             resourceInputs["scopingConfigurationName"] = args ? args.scopingConfigurationName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["answers"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

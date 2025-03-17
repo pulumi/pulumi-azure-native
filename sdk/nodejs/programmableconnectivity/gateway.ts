@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Programmable Connectivity Gateway resource
- * Azure REST API version: 2024-01-15-preview.
+ * Azure REST API version: 2024-01-15-preview. Prior API version in Azure Native 2.x: 2024-01-15-preview.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Gateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gateway.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
      */
@@ -89,6 +93,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["gatewayBaseUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatorApiConnections"] = undefined /*out*/;
@@ -96,6 +101,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["gatewayBaseUrl"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

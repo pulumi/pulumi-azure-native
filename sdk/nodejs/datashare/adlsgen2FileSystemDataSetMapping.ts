@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen2 file system data set mapping.
- * Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+ * Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
  */
 export class ADLSGen2FileSystemDataSetMapping extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ADLSGen2FileSystemDataSetMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === ADLSGen2FileSystemDataSetMapping.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The id of the source data set.
      */
@@ -132,12 +136,14 @@ export class ADLSGen2FileSystemDataSetMapping extends pulumi.CustomResource {
             resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["fileSystem"] = undefined /*out*/;
@@ -151,7 +157,7 @@ export class ADLSGen2FileSystemDataSetMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobContainerDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobFolderDataSetMapping" }, { type: "azure-native:datashare/v20210801:KustoClusterDataSetMapping" }, { type: "azure-native:datashare/v20210801:KustoDatabaseDataSetMapping" }, { type: "azure-native:datashare/v20210801:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20210801:SqlDBTableDataSetMapping" }, { type: "azure-native:datashare/v20210801:SqlDWTableDataSetMapping" }, { type: "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare:ADLSGen2FileDataSetMapping" }, { type: "azure-native:datashare:ADLSGen2FolderDataSetMapping" }, { type: "azure-native:datashare:BlobContainerDataSetMapping" }, { type: "azure-native:datashare:BlobDataSetMapping" }, { type: "azure-native:datashare:BlobFolderDataSetMapping" }, { type: "azure-native:datashare:KustoClusterDataSetMapping" }, { type: "azure-native:datashare:KustoDatabaseDataSetMapping" }, { type: "azure-native:datashare:KustoTableDataSetMapping" }, { type: "azure-native:datashare:SqlDBTableDataSetMapping" }, { type: "azure-native:datashare:SqlDWTableDataSetMapping" }, { type: "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2FileSystemDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }

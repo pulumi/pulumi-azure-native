@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a source control byt its identifier.
  * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2021-03-01-preview.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetSourceControlArgs {
  * Represents a SourceControl in Azure Security Insights.
  */
 export interface GetSourceControlResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Array of source control content types.
      */
@@ -97,8 +99,6 @@ export interface GetSourceControlResult {
 /**
  * Gets a source control byt its identifier.
  * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2021-03-01-preview.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified custom blocklist associated with the Azure OpenAI account.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getRaiBlocklist(args: GetRaiBlocklistArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetRaiBlocklistArgs {
  * Cognitive Services RaiBlocklist.
  */
 export interface GetRaiBlocklistResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Resource Etag.
      */
@@ -72,9 +74,7 @@ export interface GetRaiBlocklistResult {
 }
 /**
  * Gets the specified custom blocklist associated with the Azure OpenAI account.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getRaiBlocklistOutput(args: GetRaiBlocklistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

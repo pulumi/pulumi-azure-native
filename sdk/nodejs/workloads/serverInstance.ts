@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the Server Instance resource.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class ServerInstance extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ServerInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerInstance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Configuration data for this server instance.
      */
@@ -115,6 +119,7 @@ export class ServerInstance extends pulumi.CustomResource {
             resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
             resourceInputs["sapInstanceName"] = args ? args.sapInstanceName : undefined;
             resourceInputs["serverInstanceName"] = args ? args.serverInstanceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationData"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["instanceSid"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class ServerInstance extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationData"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["instanceSid"] = undefined /*out*/;

@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class Console extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Console extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The more detailed status of the console.
      */
     public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
@@ -51,6 +53,10 @@ export class Console extends pulumi.CustomResource {
      * The indicator of whether the console access is enabled.
      */
     public readonly enabled!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The date and time after which the key will be disallowed access.
      */
@@ -131,8 +137,10 @@ export class Console extends pulumi.CustomResource {
             resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkServiceId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -140,9 +148,11 @@ export class Console extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachineAccessId"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -156,7 +166,7 @@ export class Console extends pulumi.CustomResource {
             resourceInputs["virtualMachineAccessId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Console" }, { type: "azure-native:networkcloud/v20231001preview:Console" }, { type: "azure-native:networkcloud/v20240601preview:Console" }, { type: "azure-native:networkcloud/v20240701:Console" }, { type: "azure-native:networkcloud/v20241001preview:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Console" }, { type: "azure-native:networkcloud/v20231001preview:Console" }, { type: "azure-native:networkcloud/v20240601preview:Console" }, { type: "azure-native:networkcloud/v20240701:Console" }, { type: "azure-native:networkcloud/v20241001preview:Console" }, { type: "azure-native:networkcloud/v20250201:Console" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Console.__pulumiType, name, resourceInputs, opts);
     }

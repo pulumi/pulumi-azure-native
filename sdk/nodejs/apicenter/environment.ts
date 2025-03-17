@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Environment entity.
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Azure REST API version: 2024-03-15-preview. Prior API version in Azure Native 2.x: 2024-03-01.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The custom metadata defined for API catalog entities.
      */
@@ -113,10 +115,12 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customProperties"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

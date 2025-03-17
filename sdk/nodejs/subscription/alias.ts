@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subscription Information with the alias.
- * Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2020-09-01, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2021-10-01.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Alias extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alias.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Alias ID.
      */
@@ -70,10 +72,12 @@ export class Alias extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["aliasName"] = args ? args.aliasName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The workspace manager member
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class WorkspaceManagerMember extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WorkspaceManagerMember extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceManagerMember.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource Etag.
      */
@@ -93,11 +95,13 @@ export class WorkspaceManagerMember extends pulumi.CustomResource {
             resourceInputs["targetWorkspaceTenantId"] = args ? args.targetWorkspaceTenantId : undefined;
             resourceInputs["workspaceManagerMemberName"] = args ? args.workspaceManagerMemberName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

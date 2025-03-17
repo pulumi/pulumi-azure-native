@@ -54,27 +54,6 @@ utilities.lazyLoad(exports, ["Target"], () => require("./target"));
 // Export enums:
 export * from "../types/enums/chaos";
 
-// Export sub-modules:
-import * as v20230415preview from "./v20230415preview";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231027preview from "./v20231027preview";
-import * as v20231101 from "./v20231101";
-import * as v20240101 from "./v20240101";
-import * as v20240322preview from "./v20240322preview";
-import * as v20241101preview from "./v20241101preview";
-import * as v20250101 from "./v20250101";
-
-export {
-    v20230415preview,
-    v20230901preview,
-    v20231027preview,
-    v20231101,
-    v20240101,
-    v20240322preview,
-    v20241101preview,
-    v20250101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

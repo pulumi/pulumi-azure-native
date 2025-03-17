@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Migration item.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
- *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationMigrationItem.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource Location
      */
@@ -89,10 +91,12 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
             resourceInputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

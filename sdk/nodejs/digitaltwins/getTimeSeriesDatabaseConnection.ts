@@ -40,6 +40,10 @@ export interface GetTimeSeriesDatabaseConnectionArgs {
  */
 export interface GetTimeSeriesDatabaseConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource identifier.
      */
     readonly id: string;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Application Live View resource
- * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
  */
 export class ApplicationLiveView extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ApplicationLiveView extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationLiveView.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
@@ -77,11 +79,13 @@ export class ApplicationLiveView extends pulumi.CustomResource {
             resourceInputs["applicationLiveViewName"] = args ? args.applicationLiveViewName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The SourceControl Configuration object returned in Get & Put response.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SourceControlConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Compliance Status of the Configuration
      */
@@ -141,6 +145,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceControlConfigurationName"] = args ? args.sourceControlConfigurationName : undefined;
             resourceInputs["sshKnownHostsContents"] = args ? args.sshKnownHostsContents : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["complianceStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["complianceStatus"] = undefined /*out*/;
             resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
             resourceInputs["enableHelmOperator"] = undefined /*out*/;

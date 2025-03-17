@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancerBackendAddressPool.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * An array of references to IP addresses defined in network interfaces.
      */
@@ -85,6 +87,10 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Backend address synchronous mode for the backend pool
+     */
+    public readonly syncMode!: pulumi.Output<string | undefined>;
+    /**
      * An array of gateway load balancer tunnel interfaces.
      */
     public readonly tunnelInterfaces!: pulumi.Output<outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[] | undefined>;
@@ -122,8 +128,10 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["syncMode"] = args ? args.syncMode : undefined;
             resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
             resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inboundNatRules"] = undefined /*out*/;
@@ -133,6 +141,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
             resourceInputs["drainPeriodInSeconds"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -144,6 +153,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["outboundRule"] = undefined /*out*/;
             resourceInputs["outboundRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncMode"] = undefined /*out*/;
             resourceInputs["tunnelInterfaces"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetwork"] = undefined /*out*/;
@@ -191,6 +201,10 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Backend address synchronous mode for the backend pool
+     */
+    syncMode?: pulumi.Input<string | enums.network.SyncMode>;
     /**
      * An array of gateway load balancer tunnel interfaces.
      */

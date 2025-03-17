@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the description for the specified rule.
- * Azure REST API version: 2022-01-01-preview.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,7 +28,7 @@ export interface GetRuleArgs {
      */
     namespaceName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -55,6 +53,10 @@ export interface GetRuleResult {
      * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
      */
     readonly action?: outputs.servicebus.ActionResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Properties of correlationFilter
      */
@@ -90,9 +92,7 @@ export interface GetRuleResult {
 }
 /**
  * Retrieves the description for the specified rule.
- * Azure REST API version: 2022-01-01-preview.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +111,7 @@ export interface GetRuleOutputArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

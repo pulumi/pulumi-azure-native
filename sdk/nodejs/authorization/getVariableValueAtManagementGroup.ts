@@ -40,6 +40,10 @@ export interface GetVariableValueAtManagementGroupArgs {
  */
 export interface GetVariableValueAtManagementGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ID of the variable.
      */
     readonly id: string;

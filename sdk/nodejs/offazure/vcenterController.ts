@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A vcenter resource belonging to a site resource.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class VcenterController extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VcenterController extends pulumi.CustomResource {
         return obj['__pulumiType'] === VcenterController.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the timestamp marking vCenter creation.
      */
@@ -122,6 +124,7 @@ export class VcenterController extends pulumi.CustomResource {
             resourceInputs["runAsAccountId"] = args ? args.runAsAccountId : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["instanceUuid"] = undefined /*out*/;
@@ -132,6 +135,7 @@ export class VcenterController extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;

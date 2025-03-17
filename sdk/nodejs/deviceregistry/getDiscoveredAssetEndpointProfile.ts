@@ -39,6 +39,10 @@ export interface GetDiscoveredAssetEndpointProfileResult {
      */
     readonly additionalConfiguration?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Identifier used to detect changes in the asset endpoint profile.
      */
     readonly discoveryId: string;

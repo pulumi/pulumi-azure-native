@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Hunt in Azure Security Insights.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class Hunt extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class Hunt extends pulumi.CustomResource {
      * A list of a mitre attack techniques the hunt is associated with
      */
     public readonly attackTechniques!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The description of the hunt
      */
@@ -123,6 +125,7 @@ export class Hunt extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["status"] = (args ? args.status : undefined) ?? "New";
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -130,6 +133,7 @@ export class Hunt extends pulumi.CustomResource {
         } else {
             resourceInputs["attackTactics"] = undefined /*out*/;
             resourceInputs["attackTechniques"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

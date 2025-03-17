@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the replica and its properties.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalRReplica(args: GetSignalRReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetSignalRReplicaArgs {
  */
 export interface GetSignalRReplicaResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -57,6 +59,17 @@ export interface GetSignalRReplicaResult {
      * Provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     */
+    readonly regionEndpointEnabled?: string;
+    /**
+     * Stop or start the resource.  Default to "false".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    readonly resourceStopped?: string;
     /**
      * The billing information of the resource.
      */
@@ -76,9 +89,7 @@ export interface GetSignalRReplicaResult {
 }
 /**
  * Get the replica and its properties.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalRReplicaOutput(args: GetSignalRReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-05-01-preview.
- *
- * Other available API versions: 2023-09-15-preview.
+ * Azure REST API version: 2023-09-15-preview. Prior API version in Azure Native 2.x: 2022-09-15.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Group ids
      */
@@ -90,11 +92,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;

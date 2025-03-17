@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A hub setting
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-10-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class WebPubSubHub extends pulumi.CustomResource {
     /**
@@ -41,7 +39,11 @@ export class WebPubSubHub extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the resource.
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -49,11 +51,11 @@ export class WebPubSubHub extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.webpubsub.WebPubSubHubPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.webpubsub.SystemDataResponse>;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -81,10 +83,12 @@ export class WebPubSubHub extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.webpubsub.webPubSubHubPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -110,7 +114,7 @@ export interface WebPubSubHubArgs {
      */
     properties: pulumi.Input<inputs.webpubsub.WebPubSubHubPropertiesArgs>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

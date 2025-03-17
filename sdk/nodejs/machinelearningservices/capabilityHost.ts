@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-10-01-preview.
  */
 export class CapabilityHost extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class CapabilityHost extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapabilityHost.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -79,16 +83,18 @@ export class CapabilityHost extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capabilityHostProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20241001preview:CapabilityHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20241001preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250101preview:CapabilityHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapabilityHost.__pulumiType, name, resourceInputs, opts);
     }

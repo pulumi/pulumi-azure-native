@@ -48,6 +48,10 @@ export interface GetAssetResult {
      */
     readonly assetId: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The name of the asset blob container.
      */
     readonly container?: string;

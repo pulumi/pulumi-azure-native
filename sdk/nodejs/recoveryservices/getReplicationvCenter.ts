@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of a registered vCenter server(Add vCenter server).
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetReplicationvCenterArgs {
  */
 export interface GetReplicationvCenterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id
      */
     readonly id: string;
@@ -69,9 +71,7 @@ export interface GetReplicationvCenterResult {
 }
 /**
  * Gets the details of a registered vCenter server(Add vCenter server).
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationvCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

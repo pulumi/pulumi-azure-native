@@ -40,6 +40,10 @@ export interface GetEventHubEventSourceArgs {
  */
 export interface GetEventHubEventSourceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The name of the event hub's consumer group that holds the partitions from which events will be read.
      */
     readonly consumerGroupName: string;

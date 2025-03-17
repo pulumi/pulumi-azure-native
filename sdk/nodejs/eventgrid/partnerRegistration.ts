@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a partner registration.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
- *
- * Other available API versions: 2021-10-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class PartnerRegistration extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -58,7 +60,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to Partner Registration resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -89,11 +91,13 @@ export class PartnerRegistration extends pulumi.CustomResource {
             resourceInputs["partnerRegistrationName"] = args ? args.partnerRegistrationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnerRegistrationImmutableId"] = undefined /*out*/;

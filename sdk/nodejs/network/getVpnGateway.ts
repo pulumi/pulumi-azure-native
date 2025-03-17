@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a virtual wan vpn gateway.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetVpnGatewayArgs {
  * VpnGateway Resource.
  */
 export interface GetVpnGatewayResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Local network gateway's BGP speaker settings.
      */
@@ -99,9 +101,7 @@ export interface GetVpnGatewayResult {
 }
 /**
  * Retrieves the details of a virtual wan vpn gateway.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

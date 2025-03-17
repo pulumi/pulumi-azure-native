@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network information ARM resource.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppVnetConnectionSlot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
      * Point-To-Site VPN connection.
@@ -111,11 +113,13 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             resourceInputs["slot"] = args ? args.slot : undefined;
             resourceInputs["vnetName"] = args ? args.vnetName : undefined;
             resourceInputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certThumbprint"] = undefined /*out*/;
             resourceInputs["resyncRequired"] = undefined /*out*/;
             resourceInputs["routes"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certBlob"] = undefined /*out*/;
             resourceInputs["certThumbprint"] = undefined /*out*/;
             resourceInputs["dnsServers"] = undefined /*out*/;

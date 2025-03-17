@@ -35,6 +35,10 @@ export interface GetLinkedSubscriptionArgs {
  */
 export interface GetLinkedSubscriptionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The status of the remote management connection of the Azure Stack device.
      */
     readonly deviceConnectionStatus: string;

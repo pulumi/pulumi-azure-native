@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP logging configuration
- * Azure REST API version: 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomR
         return obj['__pulumiType'] === NetworkSecurityPerimeterLoggingConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -76,10 +80,12 @@ export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomR
             resourceInputs["networkSecurityPerimeterName"] = args ? args.networkSecurityPerimeterName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

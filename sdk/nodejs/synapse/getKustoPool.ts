@@ -40,6 +40,10 @@ export interface GetKustoPoolArgs {
  */
 export interface GetKustoPoolResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The Kusto Pool data ingestion URI.
      */
     readonly dataIngestionUri: string;

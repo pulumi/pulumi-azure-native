@@ -40,6 +40,10 @@ export interface GetLinkedWorkspaceArgs {
  */
 export interface GetLinkedWorkspaceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ResourceId of the link of the linked workspace.
      */
     readonly id: string;

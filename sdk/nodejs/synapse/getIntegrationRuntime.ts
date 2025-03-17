@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get an integration runtime
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetIntegrationRuntimeArgs {
  */
 export interface GetIntegrationRuntimeResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Etag.
      */
     readonly etag: string;
@@ -65,8 +67,6 @@ export interface GetIntegrationRuntimeResult {
 /**
  * Get an integration runtime
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

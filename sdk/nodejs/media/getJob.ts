@@ -45,6 +45,10 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
      */
     readonly correlationData?: {[key: string]: string};

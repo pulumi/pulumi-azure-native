@@ -24,17 +24,6 @@ utilities.lazyLoad(exports, ["listBotSecrets","listBotSecretsOutput"], () => req
 // Export enums:
 export * from "../types/enums/healthbot";
 
-// Export sub-modules:
-import * as v20201208preview from "./v20201208preview";
-import * as v20230501 from "./v20230501";
-import * as v20240201 from "./v20240201";
-
-export {
-    v20201208preview,
-    v20230501,
-    v20240201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

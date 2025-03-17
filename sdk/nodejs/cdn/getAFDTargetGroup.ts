@@ -39,6 +39,10 @@ export interface GetAFDTargetGroupArgs {
  * AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
  */
 export interface GetAFDTargetGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly deploymentStatus: string;
     /**
      * Resource ID.

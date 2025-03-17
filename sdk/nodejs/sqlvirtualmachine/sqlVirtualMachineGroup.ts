@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL virtual machine group.
- * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
  */
 export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlVirtualMachineGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Cluster type.
      */
@@ -110,6 +112,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["wsfcDomainProfile"] = args ? args.wsfcDomainProfile : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterConfiguration"] = undefined /*out*/;
             resourceInputs["clusterManagerType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -118,6 +121,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterConfiguration"] = undefined /*out*/;
             resourceInputs["clusterManagerType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

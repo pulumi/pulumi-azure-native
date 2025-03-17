@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Tap resource definition.
- * Azure REST API version: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
  */
 export class NetworkTap extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class NetworkTap extends pulumi.CustomResource {
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the configurations state of the resource.
      */
@@ -120,6 +124,7 @@ export class NetworkTap extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class NetworkTap extends pulumi.CustomResource {
         } else {
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

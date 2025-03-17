@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a database's short term retention policy.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getBackupShortTermRetentionPolicy(args: GetBackupShortTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupShortTermRetentionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetBackupShortTermRetentionPolicyArgs {
  */
 export interface GetBackupShortTermRetentionPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
      */
     readonly diffBackupIntervalInHours?: number;
@@ -67,8 +69,6 @@ export interface GetBackupShortTermRetentionPolicyResult {
 /**
  * Gets a database's short term retention policy.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

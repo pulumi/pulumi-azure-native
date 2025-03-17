@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Gateway specified by its identifier.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetGatewayArgs {
  */
 export interface GetGatewayResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gateway description
      */
     readonly description?: string;
@@ -64,9 +66,7 @@ export interface GetGatewayResult {
 }
 /**
  * Gets the details of the Gateway specified by its identifier.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

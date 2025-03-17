@@ -40,6 +40,10 @@ export interface GetShareArgs {
  */
 export interface GetShareResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Time at which the share was created.
      */
     readonly createdAt: string;

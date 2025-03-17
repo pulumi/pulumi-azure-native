@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetEndpointArgs {
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  */
 export interface GetEndpointResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * List of content types on which compression applies. The value should be a valid MIME type.
      */
@@ -148,9 +150,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The IpCommunity resource definition.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * The IP Community resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  */
 export class IpCommunity extends pulumi.CustomResource {
     /**
@@ -41,17 +39,25 @@ export class IpCommunity extends pulumi.CustomResource {
     }
 
     /**
-     * Action to be taken on the configuration. Example: Permit | Deny.
+     * Administrative state of the resource.
      */
-    public readonly action!: pulumi.Output<string>;
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * List the communityMembers of IP Community .
+     * The Azure API version of the resource.
      */
-    public readonly communityMembers!: pulumi.Output<string[]>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Configuration state of the resource.
+     */
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
+     * List of IP Community Rules.
+     */
+    public readonly ipCommunityRules!: pulumi.Output<outputs.managednetworkfabric.IpCommunityRuleResponse[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -61,7 +67,7 @@ export class IpCommunity extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -76,10 +82,6 @@ export class IpCommunity extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Supported well known Community List.
-     */
-    public readonly wellKnownCommunities!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a IpCommunity resource with the given unique name, arguments, and options.
@@ -92,38 +94,37 @@ export class IpCommunity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'action'");
-            }
-            if ((!args || args.communityMembers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'communityMembers'");
+            if ((!args || args.ipCommunityRules === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ipCommunityRules'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["communityMembers"] = args ? args.communityMembers : undefined;
             resourceInputs["ipCommunityName"] = args ? args.ipCommunityName : undefined;
+            resourceInputs["ipCommunityRules"] = args ? args.ipCommunityRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wellKnownCommunities"] = args ? args.wellKnownCommunities : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
-            resourceInputs["communityMembers"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["ipCommunityRules"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["wellKnownCommunities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:IpCommunity" }, { type: "azure-native:managednetworkfabric/v20230615:IpCommunity" }] };
@@ -137,21 +138,17 @@ export class IpCommunity extends pulumi.CustomResource {
  */
 export interface IpCommunityArgs {
     /**
-     * Action to be taken on the configuration. Example: Permit | Deny.
-     */
-    action: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes>;
-    /**
      * Switch configuration description.
      */
     annotation?: pulumi.Input<string>;
     /**
-     * List the communityMembers of IP Community .
-     */
-    communityMembers: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the IP Community
+     * Name of the IP Community.
      */
     ipCommunityName?: pulumi.Input<string>;
+    /**
+     * List of IP Community Rules.
+     */
+    ipCommunityRules: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.IpCommunityRuleArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -164,8 +161,4 @@ export interface IpCommunityArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Supported well known Community List.
-     */
-    wellKnownCommunities?: pulumi.Input<pulumi.Input<string | enums.managednetworkfabric.WellKnownCommunities>[]>;
 }

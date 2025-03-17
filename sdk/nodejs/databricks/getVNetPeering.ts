@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the workspace vNet Peering.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVNetPeering(args: GetVNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVNetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +51,10 @@ export interface GetVNetPeeringResult {
      * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
      */
     readonly allowVirtualNetworkAccess?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The reference to the databricks virtual network address space.
      */
@@ -94,7 +98,7 @@ export interface GetVNetPeeringResult {
 }
 /**
  * Gets the workspace vNet Peering.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVNetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

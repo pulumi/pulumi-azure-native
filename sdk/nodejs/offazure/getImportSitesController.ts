@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ImportSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getImportSitesController(args: GetImportSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetImportSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetImportSitesControllerArgs {
  * A ImportSite
  */
 export interface GetImportSitesControllerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets or sets the ARM ID of migration hub solution for SDS.
      */
@@ -79,9 +81,7 @@ export interface GetImportSitesControllerResult {
 }
 /**
  * Get a ImportSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getImportSitesControllerOutput(args: GetImportSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve the watcher identified by watcher name.
- * Azure REST API version: 2020-01-13-preview.
- *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +40,10 @@ export interface GetWatcherArgs {
  */
 export interface GetWatcherResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets or sets the creation time.
      */
     readonly creationTime: string;
@@ -55,7 +60,7 @@ export interface GetWatcherResult {
      */
     readonly executionFrequencyInSeconds?: number;
     /**
-     * Fully qualified resource Id for the resource
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -91,19 +96,21 @@ export interface GetWatcherResult {
      */
     readonly status: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.automation.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Retrieve the watcher identified by watcher name.
- * Azure REST API version: 2020-01-13-preview.
- *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview.
  */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

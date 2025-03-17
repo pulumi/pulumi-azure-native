@@ -50,6 +50,10 @@ export interface GetManagementAssociationArgs {
  */
 export interface GetManagementAssociationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ID.
      */
     readonly id: string;

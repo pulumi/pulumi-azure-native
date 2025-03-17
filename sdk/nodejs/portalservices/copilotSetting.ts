@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The copilot settings tenant resource definition.
- * Azure REST API version: 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  */
 export class CopilotSetting extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class CopilotSetting extends pulumi.CustomResource {
      */
     public readonly accessControlEnabled!: pulumi.Output<boolean>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -74,19 +78,21 @@ export class CopilotSetting extends pulumi.CustomResource {
                 throw new Error("Missing required property 'accessControlEnabled'");
             }
             resourceInputs["accessControlEnabled"] = args ? args.accessControlEnabled : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessControlEnabled"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:portalservices/v20240401preview:CopilotSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portalservices/v20240401:CopilotSetting" }, { type: "azure-native:portalservices/v20240401preview:CopilotSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CopilotSetting.__pulumiType, name, resourceInputs, opts);
     }

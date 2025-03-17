@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * a dryrun job resource
- * Azure REST API version: 2022-11-01-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-11-01-preview.
  */
 export class ConnectorDryrun extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ConnectorDryrun extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectorDryrun.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -91,6 +93,7 @@ export class ConnectorDryrun extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationPreviews"] = undefined /*out*/;
             resourceInputs["prerequisiteResults"] = undefined /*out*/;
@@ -98,6 +101,7 @@ export class ConnectorDryrun extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationPreviews"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

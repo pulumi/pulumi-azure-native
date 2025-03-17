@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Permission binding resource.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class PermissionBinding extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class PermissionBinding extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the client group resource that the permission is bound to.
      * The client group needs to be a resource under the same namespace the permission binding is a part of.
      */
@@ -62,7 +64,7 @@ export class PermissionBinding extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to the PermissionBinding resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -99,11 +101,13 @@ export class PermissionBinding extends pulumi.CustomResource {
             resourceInputs["permissionBindingName"] = args ? args.permissionBindingName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["topicSpaceName"] = args ? args.topicSpaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

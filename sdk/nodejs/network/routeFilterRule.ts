@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Route Filter Rule Resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class RouteFilterRule extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class RouteFilterRule extends pulumi.CustomResource {
      * The access type of the rule.
      */
     public readonly access!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
      */
@@ -104,10 +106,12 @@ export class RouteFilterRule extends pulumi.CustomResource {
             resourceInputs["routeFilterName"] = args ? args.routeFilterName : undefined;
             resourceInputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
             resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["communities"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

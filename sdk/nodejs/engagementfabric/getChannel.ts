@@ -37,6 +37,10 @@ export interface GetChannelArgs {
  */
 export interface GetChannelResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The functions to be enabled for the channel
      */
     readonly channelFunctions?: string[];

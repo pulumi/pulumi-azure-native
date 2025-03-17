@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Registration information.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
- *
- * Other available API versions: 2020-06-01-preview.
+ * Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
  */
 export class Registration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Registration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Registration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the billing mode for the Azure Stack registration.
      */
@@ -94,6 +96,7 @@ export class Registration extends pulumi.CustomResource {
             resourceInputs["registrationName"] = args ? args.registrationName : undefined;
             resourceInputs["registrationToken"] = args ? args.registrationToken : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -102,6 +105,7 @@ export class Registration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

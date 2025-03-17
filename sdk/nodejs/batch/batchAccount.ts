@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an Azure Batch account.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**
@@ -53,6 +51,10 @@ export class BatchAccount extends pulumi.CustomResource {
      * Contains information about the auto-storage account associated with a Batch account.
      */
     public readonly autoStorage!: pulumi.Output<outputs.batch.AutoStoragePropertiesResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
@@ -151,6 +153,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountEndpoint"] = undefined /*out*/;
             resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuota"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
@@ -166,6 +169,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
             resourceInputs["allowedAuthenticationModes"] = undefined /*out*/;
             resourceInputs["autoStorage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuota"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
@@ -229,7 +233,7 @@ export interface BatchAccountArgs {
      */
     networkProfile?: pulumi.Input<inputs.batch.NetworkProfileArgs>;
     /**
-     * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+     * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
      */
     poolAllocationMode?: pulumi.Input<enums.batch.PoolAllocationMode>;
     /**

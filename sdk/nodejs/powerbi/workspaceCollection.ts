@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2016-01-29. Prior API version in Azure Native 1.x: 2016-01-29.
+ * Azure REST API version: 2016-01-29. Prior API version in Azure Native 2.x: 2016-01-29.
  */
 export class WorkspaceCollection extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceCollection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Azure location
      */
@@ -75,10 +79,12 @@ export class WorkspaceCollection extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceCollectionName"] = args ? args.workspaceCollectionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

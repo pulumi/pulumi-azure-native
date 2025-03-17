@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the cluster.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -41,11 +39,15 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
     public /*out*/ readonly customResourceName!: pulumi.Output<string>;
     /**
-     * Gets or sets the datastore ARM ids.
+     * Gets the datastore ARM ids.
      */
     public /*out*/ readonly datastoreIds!: pulumi.Output<string[]>;
     /**
@@ -77,11 +79,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the network ARM ids.
+     * Gets the network ARM ids.
      */
     public /*out*/ readonly networkIds!: pulumi.Output<string[]>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -97,9 +99,25 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Gets the max CPU usage across all cores on the cluster in MHz.
+     */
+    public /*out*/ readonly totalCpuMHz!: pulumi.Output<number>;
+    /**
+     * Gets the total amount of physical memory on the cluster in GB.
+     */
+    public /*out*/ readonly totalMemoryGB!: pulumi.Output<number>;
+    /**
      * Gets or sets the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets the used CPU usage across all cores on the cluster in MHz.
+     */
+    public /*out*/ readonly usedCpuMHz!: pulumi.Output<number>;
+    /**
+     * Gets the used physical memory on the cluster in GB.
+     */
+    public /*out*/ readonly usedMemoryGB!: pulumi.Output<number>;
     /**
      * Gets or sets a unique identifier for this resource.
      */
@@ -132,6 +150,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["datastoreIds"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
@@ -140,9 +159,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalCpuMHz"] = undefined /*out*/;
+            resourceInputs["totalMemoryGB"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedCpuMHz"] = undefined /*out*/;
+            resourceInputs["usedMemoryGB"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["datastoreIds"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
@@ -157,7 +181,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["totalCpuMHz"] = undefined /*out*/;
+            resourceInputs["totalMemoryGB"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedCpuMHz"] = undefined /*out*/;
+            resourceInputs["usedMemoryGB"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["vCenterId"] = undefined /*out*/;
         }

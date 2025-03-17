@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource representation of a IacProfile.
- * Azure REST API version: 2024-05-01-preview.
- *
- * Other available API versions: 2024-08-01-preview.
+ * Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
  */
 export class IacProfile extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class IacProfile extends pulumi.CustomResource {
      * Determines the authorization status of requests.
      */
     public /*out*/ readonly authStatus!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Repository Branch Name
      */
@@ -140,6 +142,7 @@ export class IacProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templates"] = args ? args.templates : undefined;
             resourceInputs["authStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["prStatus"] = undefined /*out*/;
@@ -148,6 +151,7 @@ export class IacProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["branchName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -168,7 +172,7 @@ export class IacProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devhub/v20240501preview:IacProfile" }, { type: "azure-native:devhub/v20240801preview:IacProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devhub/v20240501preview:IacProfile" }, { type: "azure-native:devhub/v20240801preview:IacProfile" }, { type: "azure-native:devhub/v20250301preview:IacProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IacProfile.__pulumiType, name, resourceInputs, opts);
     }

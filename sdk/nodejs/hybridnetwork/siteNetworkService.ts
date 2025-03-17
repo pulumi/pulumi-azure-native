@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site network service resource.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class SiteNetworkService extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SiteNetworkService extends pulumi.CustomResource {
         return obj['__pulumiType'] === SiteNetworkService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The managed identity of the Site network service, if configured.
      */
@@ -94,10 +96,12 @@ export class SiteNetworkService extends pulumi.CustomResource {
             resourceInputs["siteNetworkServiceName"] = args ? args.siteNetworkServiceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

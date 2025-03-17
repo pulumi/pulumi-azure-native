@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trusted signing account resource.
- * Azure REST API version: 2024-02-05-preview.
- *
- * Other available API versions: 2024-09-30-preview.
+ * Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 2.x: 2024-02-05-preview.
  */
 export class CodeSigningAccount extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class CodeSigningAccount extends pulumi.CustomResource {
      * The URI of the trusted signing account which is used during signing files.
      */
     public /*out*/ readonly accountUri!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -93,12 +95,14 @@ export class CodeSigningAccount extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountUri"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountUri"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

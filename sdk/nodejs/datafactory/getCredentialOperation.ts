@@ -40,6 +40,10 @@ export interface GetCredentialOperationArgs {
  */
 export interface GetCredentialOperationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Etag identifies change in the resource.
      */
     readonly etag: string;

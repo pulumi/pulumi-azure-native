@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Dicom Service
- * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
- *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
  */
 export class DicomService extends pulumi.CustomResource {
     /**
@@ -45,9 +43,21 @@ export class DicomService extends pulumi.CustomResource {
      */
     public /*out*/ readonly authenticationConfiguration!: pulumi.Output<outputs.healthcareapis.DicomServiceAuthenticationConfigurationResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Dicom Service Cors configuration.
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.healthcareapis.CorsConfigurationResponse | undefined>;
+    /**
+     * If data partitions is enabled or not.
+     */
+    public readonly enableDataPartitions!: pulumi.Output<boolean | undefined>;
+    /**
+     * The encryption settings of the DICOM service
+     */
+    public readonly encryption!: pulumi.Output<outputs.healthcareapis.EncryptionResponse | undefined>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -85,6 +95,10 @@ export class DicomService extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
     /**
+     * The configuration of external storage account
+     */
+    public readonly storageConfiguration!: pulumi.Output<outputs.healthcareapis.StorageConfigurationResponse | undefined>;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
@@ -116,12 +130,16 @@ export class DicomService extends pulumi.CustomResource {
             }
             resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
             resourceInputs["dicomServiceName"] = args ? args.dicomServiceName : undefined;
+            resourceInputs["enableDataPartitions"] = args ? args.enableDataPartitions : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -133,7 +151,10 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["corsConfiguration"] = undefined /*out*/;
+            resourceInputs["enableDataPartitions"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -143,12 +164,13 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["storageConfiguration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }, { type: "azure-native:healthcareapis/v20220131preview:DicomService" }, { type: "azure-native:healthcareapis/v20220515:DicomService" }, { type: "azure-native:healthcareapis/v20220601:DicomService" }, { type: "azure-native:healthcareapis/v20221001preview:DicomService" }, { type: "azure-native:healthcareapis/v20221201:DicomService" }, { type: "azure-native:healthcareapis/v20230228:DicomService" }, { type: "azure-native:healthcareapis/v20230906:DicomService" }, { type: "azure-native:healthcareapis/v20231101:DicomService" }, { type: "azure-native:healthcareapis/v20231201:DicomService" }, { type: "azure-native:healthcareapis/v20240301:DicomService" }, { type: "azure-native:healthcareapis/v20240331:DicomService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }, { type: "azure-native:healthcareapis/v20220131preview:DicomService" }, { type: "azure-native:healthcareapis/v20220515:DicomService" }, { type: "azure-native:healthcareapis/v20220601:DicomService" }, { type: "azure-native:healthcareapis/v20221001preview:DicomService" }, { type: "azure-native:healthcareapis/v20221201:DicomService" }, { type: "azure-native:healthcareapis/v20230228:DicomService" }, { type: "azure-native:healthcareapis/v20230906:DicomService" }, { type: "azure-native:healthcareapis/v20231101:DicomService" }, { type: "azure-native:healthcareapis/v20231201:DicomService" }, { type: "azure-native:healthcareapis/v20240301:DicomService" }, { type: "azure-native:healthcareapis/v20240331:DicomService" }, { type: "azure-native:healthcareapis/v20250301preview:DicomService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DicomService.__pulumiType, name, resourceInputs, opts);
     }
@@ -167,6 +189,14 @@ export interface DicomServiceArgs {
      */
     dicomServiceName?: pulumi.Input<string>;
     /**
+     * If data partitions is enabled or not.
+     */
+    enableDataPartitions?: pulumi.Input<boolean>;
+    /**
+     * The encryption settings of the DICOM service
+     */
+    encryption?: pulumi.Input<inputs.healthcareapis.EncryptionArgs>;
+    /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
     identity?: pulumi.Input<inputs.healthcareapis.ServiceManagedIdentityIdentityArgs>;
@@ -178,6 +208,10 @@ export interface DicomServiceArgs {
      * The name of the resource group that contains the service instance.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The configuration of external storage account
+     */
+    storageConfiguration?: pulumi.Input<inputs.healthcareapis.StorageConfigurationArgs>;
     /**
      * Resource tags.
      */

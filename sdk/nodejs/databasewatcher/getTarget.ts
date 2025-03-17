@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Target
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,11 +40,15 @@ export interface GetTargetArgs {
  */
 export interface GetTargetResult {
     /**
-     * The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
      */
     readonly connectionServerName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -80,9 +82,7 @@ export interface GetTargetResult {
 }
 /**
  * Get a Target
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

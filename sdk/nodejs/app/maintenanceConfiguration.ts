@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about the Maintenance Configuration resource.
- * Azure REST API version: 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-10-02-preview.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -79,10 +83,12 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduledEntries"] = args ? args.scheduledEntries : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scheduledEntries"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

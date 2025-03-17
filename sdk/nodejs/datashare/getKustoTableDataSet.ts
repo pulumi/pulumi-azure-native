@@ -45,6 +45,10 @@ export interface GetKustoTableDataSetArgs {
  */
 export interface GetKustoTableDataSetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Unique id for identifying a data set resource
      */
     readonly dataSetId: string;

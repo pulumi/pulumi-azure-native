@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Machine Extension.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2022-01-10-preview, 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class MachineExtension extends pulumi.CustomResource {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
@@ -127,12 +129,14 @@ export class MachineExtension extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
         } else {
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

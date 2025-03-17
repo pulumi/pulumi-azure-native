@@ -61,6 +61,10 @@ export interface GetVirtualMachineResult {
      */
     readonly artifacts?: outputs.devtestlab.ArtifactInstallPropertiesResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
     readonly computeId: string;

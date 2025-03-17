@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents an export pipeline for a container registry.
- * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
  */
 export class ExportPipeline extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ExportPipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExportPipeline.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity of the export pipeline.
      */
@@ -100,11 +102,13 @@ export class ExportPipeline extends pulumi.CustomResource {
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

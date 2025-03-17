@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a hunt comment
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getHuntComment(args: GetHuntCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntCommentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetHuntCommentArgs {
  */
 export interface GetHuntCommentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Etag of the azure resource
      */
     readonly etag?: string;
@@ -73,9 +75,7 @@ export interface GetHuntCommentResult {
 }
 /**
  * Gets a hunt comment
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getHuntCommentOutput(args: GetHuntCommentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHuntCommentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Domains resource and its properties.
- * Azure REST API version: 2023-03-31.
- *
- * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetDomainArgs {
  * A class representing a Domains resource.
  */
 export interface GetDomainResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The location where the Domains resource data is stored at rest.
      */
@@ -100,9 +102,7 @@ export interface GetDomainResult {
 }
 /**
  * Get the Domains resource and its properties.
- * Azure REST API version: 2023-03-31.
- *
- * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

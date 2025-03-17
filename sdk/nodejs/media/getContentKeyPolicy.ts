@@ -40,6 +40,10 @@ export interface GetContentKeyPolicyArgs {
  */
 export interface GetContentKeyPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the Policy
      */
     readonly created: string;

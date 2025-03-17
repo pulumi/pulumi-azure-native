@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**
@@ -40,10 +38,14 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.AADAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.OAuth2AuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -77,17 +79,19 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210701:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220501:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220601preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230601preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230801preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20231001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240101preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240401preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240701preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20241001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20241001preview:WorkspaceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210701:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220501:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220601preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230601preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230801preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20231001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240101preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240401preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20240701preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20241001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20241001preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20250101preview:WorkspaceConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -101,7 +105,7 @@ export interface WorkspaceConnectionArgs {
      * Friendly name of the workspace connection
      */
     connectionName?: pulumi.Input<string>;
-    properties: pulumi.Input<inputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.AADAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.OAuth2AuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

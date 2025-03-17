@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a deployment.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Azure REST API version: 2024-03-01.
  */
 export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetDeploymentAtScopeArgs {
  * Deployment information.
  */
 export interface GetDeploymentAtScopeResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The ID of the deployment.
      */
@@ -63,9 +65,7 @@ export interface GetDeploymentAtScopeResult {
 }
 /**
  * Gets a deployment.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Azure REST API version: 2024-03-01.
  */
 export function getDeploymentAtScopeOutput(args: GetDeploymentAtScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

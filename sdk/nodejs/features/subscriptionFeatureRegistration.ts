@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subscription feature registration details
- * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2021-07-01.
+ * Azure REST API version: 2021-07-01. Prior API version in Azure Native 2.x: 2021-07-01.
  */
 export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Azure resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -65,9 +69,11 @@ export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
             resourceInputs["featureName"] = args ? args.featureName : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.features.subscriptionFeatureRegistrationPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -45,6 +45,10 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the user profile.
      */
     readonly createdDate: string;

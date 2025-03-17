@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Fabric Capacity resource
- * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2025-01-15-preview.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
  */
 export class FabricCapacity extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class FabricCapacity extends pulumi.CustomResource {
      * The capacity administration
      */
     public readonly administration!: pulumi.Output<outputs.fabric.CapacityAdministrationResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -103,6 +105,7 @@ export class FabricCapacity extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -110,6 +113,7 @@ export class FabricCapacity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["administration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

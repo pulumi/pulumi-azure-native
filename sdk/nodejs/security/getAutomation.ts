@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about the model of a security automation.
- * Azure REST API version: 2019-01-01-preview.
- *
- * Other available API versions: 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview.
  */
 export function getAutomation(args: GetAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetAutomationResult {
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
     readonly actions?: (outputs.security.AutomationActionEventHubResponse | outputs.security.AutomationActionLogicAppResponse | outputs.security.AutomationActionWorkspaceResponse)[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The security automation description.
      */
@@ -87,9 +89,7 @@ export interface GetAutomationResult {
 }
 /**
  * Retrieves information about the model of a security automation.
- * Azure REST API version: 2019-01-01-preview.
- *
- * Other available API versions: 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview.
  */
 export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

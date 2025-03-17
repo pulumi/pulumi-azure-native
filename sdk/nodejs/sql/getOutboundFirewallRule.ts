@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets an outbound firewall rule.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetOutboundFirewallRuleArgs {
  */
 export interface GetOutboundFirewallRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ID.
      */
     readonly id: string;
@@ -55,8 +57,6 @@ export interface GetOutboundFirewallRuleResult {
 /**
  * Gets an outbound firewall rule.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

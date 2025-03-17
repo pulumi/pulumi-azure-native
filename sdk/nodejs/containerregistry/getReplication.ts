@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified replication.
- * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetReplicationArgs {
  * An object that represents a replication for a container registry.
  */
 export interface GetReplicationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The resource ID.
      */
@@ -84,9 +86,7 @@ export interface GetReplicationResult {
 }
 /**
  * Gets the properties of the specified replication.
- * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview.
  */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

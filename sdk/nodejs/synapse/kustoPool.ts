@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto kusto pool.
- * Azure REST API version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
  */
 export class KustoPool extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class KustoPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === KustoPool.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The Kusto Pool data ingestion URI.
      */
@@ -137,6 +141,7 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["workspaceUID"] = args ? args.workspaceUID : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["languageExtensions"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["enablePurge"] = undefined /*out*/;
             resourceInputs["enableStreamingIngest"] = undefined /*out*/;

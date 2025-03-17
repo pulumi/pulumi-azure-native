@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Recipient Email details.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class NotificationRecipientEmail extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationRecipientEmail.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User Email subscribed to notification.
      */
@@ -74,9 +76,11 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
             resourceInputs["notificationName"] = args ? args.notificationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

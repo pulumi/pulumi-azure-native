@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site Linked Backend ARM resource.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getStaticSiteLinkedBackend(args: GetStaticSiteLinkedBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteLinkedBackendResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetStaticSiteLinkedBackendArgs {
  * Static Site Linked Backend ARM resource.
  */
 export interface GetStaticSiteLinkedBackendResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The resource id of the backend linked to the static site
      */
@@ -73,9 +75,7 @@ export interface GetStaticSiteLinkedBackendResult {
 }
 /**
  * Static Site Linked Backend ARM resource.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getStaticSiteLinkedBackendOutput(args: GetStaticSiteLinkedBackendOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteLinkedBackendResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

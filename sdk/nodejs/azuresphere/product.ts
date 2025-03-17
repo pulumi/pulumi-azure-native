@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An product resource belonging to a catalog resource.
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class Product extends pulumi.CustomResource {
     /**
@@ -41,9 +39,13 @@ export class Product extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Description of the product
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -75,9 +77,6 @@ export class Product extends pulumi.CustomResource {
             if ((!args || args.catalogName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'description'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -85,11 +84,13 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["productName"] = args ? args.productName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -114,7 +115,7 @@ export interface ProductArgs {
     /**
      * Description of the product
      */
-    description: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of product.
      */

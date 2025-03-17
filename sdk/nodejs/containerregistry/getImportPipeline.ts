@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the import pipeline.
  * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export function getImportPipeline(args: GetImportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImportPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetImportPipelineArgs {
  * An object that represents an import pipeline for a container registry.
  */
 export interface GetImportPipelineResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The resource ID.
      */
@@ -85,8 +87,6 @@ export interface GetImportPipelineResult {
 /**
  * Gets the properties of the import pipeline.
  * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export function getImportPipelineOutput(args: GetImportPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

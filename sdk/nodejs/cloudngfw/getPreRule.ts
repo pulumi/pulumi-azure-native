@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a PreRulesResource
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getPreRule(args: GetPreRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPreRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +46,10 @@ export interface GetPreRuleResult {
      * rule comment
      */
     readonly auditComment?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * rule category
      */
@@ -132,9 +134,7 @@ export interface GetPreRuleResult {
 }
 /**
  * Get a PreRulesResource
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

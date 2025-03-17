@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about the SourceToCloud builder resource.
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
  */
 export class Builder extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Builder extends pulumi.CustomResource {
         return obj['__pulumiType'] === Builder.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of mappings of container registries and the managed identity used to connect to it.
      */
@@ -101,11 +103,13 @@ export class Builder extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerRegistries"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

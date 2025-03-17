@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the system within the agent.
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  */
 export class System extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class System extends pulumi.CustomResource {
         return obj['__pulumiType'] === System.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The configuration of the system.
      */
@@ -100,12 +102,14 @@ export class System extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["systemResourceName"] = args ? args.systemResourceName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

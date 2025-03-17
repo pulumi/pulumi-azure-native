@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A billing profile.
- * Azure REST API version: 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2024-04-01.
  */
 export class BillingProfile extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class BillingProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === BillingProfile.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -77,10 +81,12 @@ export class BillingProfile extends pulumi.CustomResource {
             resourceInputs["billingProfileName"] = args ? args.billingProfileName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

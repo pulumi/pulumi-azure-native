@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster database principalAssignment.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,7 +32,7 @@ export interface GetDatabasePrincipalAssignmentArgs {
      */
     principalAssignmentName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -47,6 +45,10 @@ export interface GetDatabasePrincipalAssignmentResult {
      * The service principal object id in AAD (Azure active directory)
      */
     readonly aadObjectId: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -90,9 +92,7 @@ export interface GetDatabasePrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto cluster database principalAssignment.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -118,7 +118,7 @@ export interface GetDatabasePrincipalAssignmentOutputArgs {
      */
     principalAssignmentName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

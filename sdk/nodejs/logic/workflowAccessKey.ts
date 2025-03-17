@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2015-02-01-preview. Prior API version in Azure Native 1.x: 2015-02-01-preview.
+ * Azure REST API version: 2015-02-01-preview. Prior API version in Azure Native 2.x: 2015-02-01-preview.
  */
 export class WorkflowAccessKey extends pulumi.CustomResource {
     /**
@@ -34,6 +34,10 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkflowAccessKey.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the workflow access key name.
      */
@@ -74,9 +78,11 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
             resourceInputs["notBefore"] = args ? args.notBefore : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notAfter"] = undefined /*out*/;
             resourceInputs["notBefore"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Big Data pool
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-05-01, 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class BigDataPool extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class BigDataPool extends pulumi.CustomResource {
      * Auto-scaling properties
      */
     public readonly autoScale!: pulumi.Output<outputs.synapse.AutoScalePropertiesResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The cache size
      */
@@ -173,6 +175,7 @@ export class BigDataPool extends pulumi.CustomResource {
             resourceInputs["sparkVersion"] = args ? args.sparkVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastSucceededTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -180,6 +183,7 @@ export class BigDataPool extends pulumi.CustomResource {
         } else {
             resourceInputs["autoPause"] = undefined /*out*/;
             resourceInputs["autoScale"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cacheSize"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["customLibraries"] = undefined /*out*/;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ dataLakeConnector resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
  */
 export class DataLakeConnector extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DataLakeConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataLakeConnector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * DataLake database format to use.
      */
@@ -145,11 +149,13 @@ export class DataLakeConnector extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseFormat"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["image"] = undefined /*out*/;

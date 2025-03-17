@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A job step.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class JobStep extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class JobStep extends pulumi.CustomResource {
      * The action payload of the job step.
      */
     public readonly action!: pulumi.Output<outputs.sql.JobStepActionResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource ID of the job credential that will be used to connect to the targets.
      */
@@ -116,10 +118,12 @@ export class JobStep extends pulumi.CustomResource {
             resourceInputs["stepId"] = args ? args.stepId : undefined;
             resourceInputs["stepName"] = args ? args.stepName : undefined;
             resourceInputs["targetGroup"] = args ? args.targetGroup : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["credential"] = undefined /*out*/;
             resourceInputs["executionOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

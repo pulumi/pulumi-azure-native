@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the product link for the tag.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getTagProductLink(args: GetTagProductLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetTagProductLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetTagProductLinkArgs {
  */
 export interface GetTagProductLinkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -63,8 +65,6 @@ export interface GetTagProductLinkResult {
 /**
  * Gets the product link for the tag.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getTagProductLinkOutput(args: GetTagProductLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagProductLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Endpoint resource, which contains information about file sources and targets.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -41,15 +39,19 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource specific properties for the Storage Mover resource.
      */
-    public readonly properties!: pulumi.Output<outputs.storagemover.AzureStorageBlobContainerEndpointPropertiesResponse | outputs.storagemover.NfsMountEndpointPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.storagemover.AzureStorageBlobContainerEndpointPropertiesResponse | outputs.storagemover.AzureStorageSmbFileShareEndpointPropertiesResponse | outputs.storagemover.NfsMountEndpointPropertiesResponse | outputs.storagemover.SmbMountEndpointPropertiesResponse>;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.storagemover.SystemDataResponse>;
     /**
@@ -81,10 +83,12 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageMoverName"] = args ? args.storageMoverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -108,7 +112,7 @@ export interface EndpointArgs {
     /**
      * The resource specific properties for the Storage Mover resource.
      */
-    properties: pulumi.Input<inputs.storagemover.AzureStorageBlobContainerEndpointPropertiesArgs | inputs.storagemover.NfsMountEndpointPropertiesArgs>;
+    properties: pulumi.Input<inputs.storagemover.AzureStorageBlobContainerEndpointPropertiesArgs | inputs.storagemover.AzureStorageSmbFileShareEndpointPropertiesArgs | inputs.storagemover.NfsMountEndpointPropertiesArgs | inputs.storagemover.SmbMountEndpointPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

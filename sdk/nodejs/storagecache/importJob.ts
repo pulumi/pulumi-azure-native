@@ -39,6 +39,10 @@ export class ImportJob extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A recent and frequently updated rate of total files, directories, and symlinks imported per second.
      */
     public /*out*/ readonly blobsImportedPerSecond!: pulumi.Output<number>;
@@ -140,6 +144,7 @@ export class ImportJob extends pulumi.CustomResource {
             resourceInputs["maximumErrors"] = (args ? args.maximumErrors : undefined) ?? 0;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobsImportedPerSecond"] = undefined /*out*/;
             resourceInputs["blobsWalkedPerSecond"] = undefined /*out*/;
             resourceInputs["lastCompletionTime"] = undefined /*out*/;
@@ -155,6 +160,7 @@ export class ImportJob extends pulumi.CustomResource {
             resourceInputs["totalErrors"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobsImportedPerSecond"] = undefined /*out*/;
             resourceInputs["blobsWalkedPerSecond"] = undefined /*out*/;
             resourceInputs["conflictResolutionMode"] = undefined /*out*/;
@@ -176,7 +182,7 @@ export class ImportJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240301:ImportJob" }, { type: "azure-native:storagecache/v20240301:importJob" }, { type: "azure-native:storagecache/v20240701:ImportJob" }, { type: "azure-native:storagecache/v20240701:importJob" }, { type: "azure-native:storagecache:importJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240301:ImportJob" }, { type: "azure-native:storagecache/v20240701:ImportJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportJob.__pulumiType, name, resourceInputs, opts);
     }

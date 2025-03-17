@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy definition in the given management group with the given name.
- * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetPolicyDefinitionAtManagementGroupArgs {
  * The policy definition.
  */
 export interface GetPolicyDefinitionAtManagementGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The policy definition description.
      */
@@ -80,12 +82,18 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
     readonly type: string;
+    /**
+     * The policy definition version in #.#.# format.
+     */
+    readonly version?: string;
+    /**
+     * A list of available versions for this policy definition.
+     */
+    readonly versions?: string[];
 }
 /**
  * This operation retrieves the policy definition in the given management group with the given name.
- * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicyDefinitionAtManagementGroupOutput(args: GetPolicyDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

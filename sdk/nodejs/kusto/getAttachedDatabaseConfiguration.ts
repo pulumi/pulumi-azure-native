@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an attached database configuration.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +30,7 @@ export interface GetAttachedDatabaseConfigurationArgs {
      */
     clusterName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,6 +43,10 @@ export interface GetAttachedDatabaseConfigurationResult {
      * The list of databases from the clusterResourceId which are currently attached to the cluster.
      */
     readonly attachedDatabaseNames: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
@@ -92,9 +94,7 @@ export interface GetAttachedDatabaseConfigurationResult {
 }
 /**
  * Returns an attached database configuration.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +115,7 @@ export interface GetAttachedDatabaseConfigurationOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

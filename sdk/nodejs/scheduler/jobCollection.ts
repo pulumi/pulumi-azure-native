@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
+ * Azure REST API version: 2016-03-01. Prior API version in Azure Native 2.x: 2016-03-01.
  */
 export class JobCollection extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class JobCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobCollection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the storage account location.
      */
@@ -78,8 +82,10 @@ export class JobCollection extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

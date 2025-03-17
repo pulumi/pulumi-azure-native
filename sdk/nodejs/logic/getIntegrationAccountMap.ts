@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets an integration account map.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetIntegrationAccountMapArgs {
  * The integration account map.
  */
 export interface GetIntegrationAccountMapResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The changed time.
      */
@@ -97,8 +99,6 @@ export interface GetIntegrationAccountMapResult {
 /**
  * Gets an integration account map.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

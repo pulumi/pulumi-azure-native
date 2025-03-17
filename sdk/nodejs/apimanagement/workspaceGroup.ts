@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contract details.
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class WorkspaceGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WorkspaceGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
      */
@@ -96,9 +98,11 @@ export class WorkspaceGroup extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["builtIn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["builtIn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

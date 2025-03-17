@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the access policy with the specified name in the specified environment.
  * Azure REST API version: 2020-05-15.
- *
- * Other available API versions: 2021-06-30-preview.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetAccessPolicyArgs {
  */
 export interface GetAccessPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * An description of the access policy.
      */
     readonly description?: string;
@@ -66,8 +68,6 @@ export interface GetAccessPolicyResult {
 /**
  * Gets the access policy with the specified name in the specified environment.
  * Azure REST API version: 2020-05-15.
- *
- * Other available API versions: 2021-06-30-preview.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

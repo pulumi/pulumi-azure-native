@@ -45,6 +45,10 @@ export interface GetSchemaVersionArgs {
  */
 export interface GetSchemaVersionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Human-readable description of the schema.
      */
     readonly description?: string;

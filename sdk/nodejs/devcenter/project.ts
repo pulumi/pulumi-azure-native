@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a project resource.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -41,6 +39,14 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Settings to be used when associating a project with a catalog.
+     */
+    public readonly catalogSettings!: pulumi.Output<outputs.devcenter.ProjectCatalogSettingsResponse | undefined>;
+    /**
      * Description of the project.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -52,6 +58,14 @@ export class Project extends pulumi.CustomResource {
      * The URI of the Dev Center resource this project is associated with.
      */
     public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
+    /**
+     * The display name of the project.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Managed identity properties
+     */
+    public readonly identity!: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -95,22 +109,30 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["catalogSettings"] = args ? args.catalogSettings : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maxDevBoxesPerUser"] = args ? args.maxDevBoxesPerUser : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["catalogSettings"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["devCenterId"] = undefined /*out*/;
             resourceInputs["devCenterUri"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maxDevBoxesPerUser"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -120,7 +142,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230101preview:Project" }, { type: "azure-native:devcenter/v20230401:Project" }, { type: "azure-native:devcenter/v20230801preview:Project" }, { type: "azure-native:devcenter/v20231001preview:Project" }, { type: "azure-native:devcenter/v20240201:Project" }, { type: "azure-native:devcenter/v20240501preview:Project" }, { type: "azure-native:devcenter/v20240601preview:Project" }, { type: "azure-native:devcenter/v20240701preview:Project" }, { type: "azure-native:devcenter/v20240801preview:Project" }, { type: "azure-native:devcenter/v20241001preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230101preview:Project" }, { type: "azure-native:devcenter/v20230401:Project" }, { type: "azure-native:devcenter/v20230801preview:Project" }, { type: "azure-native:devcenter/v20231001preview:Project" }, { type: "azure-native:devcenter/v20240201:Project" }, { type: "azure-native:devcenter/v20240501preview:Project" }, { type: "azure-native:devcenter/v20240601preview:Project" }, { type: "azure-native:devcenter/v20240701preview:Project" }, { type: "azure-native:devcenter/v20240801preview:Project" }, { type: "azure-native:devcenter/v20241001preview:Project" }, { type: "azure-native:devcenter/v20250201:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
@@ -131,6 +153,10 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectArgs {
     /**
+     * Settings to be used when associating a project with a catalog.
+     */
+    catalogSettings?: pulumi.Input<inputs.devcenter.ProjectCatalogSettingsArgs>;
+    /**
      * Description of the project.
      */
     description?: pulumi.Input<string>;
@@ -138,6 +164,14 @@ export interface ProjectArgs {
      * Resource Id of an associated DevCenter
      */
     devCenterId?: pulumi.Input<string>;
+    /**
+     * The display name of the project.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * Managed identity properties
+     */
+    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

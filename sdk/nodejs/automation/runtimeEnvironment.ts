@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the Runtime Environment type.
- * Azure REST API version: 2023-05-15-preview.
- *
- * Other available API versions: 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2023-05-15-preview.
  */
 export class RuntimeEnvironment extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class RuntimeEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuntimeEnvironment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of Default packages for Environment
      */
@@ -103,10 +105,12 @@ export class RuntimeEnvironment extends pulumi.CustomResource {
             resourceInputs["runtimeEnvironmentName"] = args ? args.runtimeEnvironmentName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultPackages"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["language"] = undefined /*out*/;

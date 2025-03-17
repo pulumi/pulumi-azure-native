@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Collection data structure.
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-12-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class PrivateStoreCollection extends pulumi.CustomResource {
     /**
@@ -54,6 +54,10 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
      * Gets the modified date of all items approved.
      */
     public /*out*/ readonly approveAllItemsModifiedAt!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */
@@ -115,6 +119,7 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
             resourceInputs["appliedRules"] = undefined /*out*/;
             resourceInputs["approveAllItems"] = undefined /*out*/;
             resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfOffers"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
             resourceInputs["appliedRules"] = undefined /*out*/;
             resourceInputs["approveAllItems"] = undefined /*out*/;
             resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["claim"] = undefined /*out*/;
             resourceInputs["collectionId"] = undefined /*out*/;
             resourceInputs["collectionName"] = undefined /*out*/;

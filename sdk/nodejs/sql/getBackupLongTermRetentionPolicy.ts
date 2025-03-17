@@ -42,6 +42,10 @@ export interface GetBackupLongTermRetentionPolicyArgs {
  */
 export interface GetBackupLongTermRetentionPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ID.
      */
     readonly id: string;

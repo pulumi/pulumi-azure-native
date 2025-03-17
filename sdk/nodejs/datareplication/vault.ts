@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Vault model.
- * Azure REST API version: 2021-02-16-preview.
+ * Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 2.x: 2021-02-16-preview.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Vault extends pulumi.CustomResource {
         return obj['__pulumiType'] === Vault.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the location of the vault.
      */
@@ -79,10 +83,12 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -91,7 +97,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Vault" }, { type: "azure-native:datareplication/v20240901:Vault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }

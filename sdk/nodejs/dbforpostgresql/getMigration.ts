@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details of a migration.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetMigrationArgs {
  */
 export interface GetMigrationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * To trigger cancel for entire migration we need to send this flag as True
      */
     readonly cancel?: string;
@@ -67,7 +69,7 @@ export interface GetMigrationResult {
      */
     readonly dbsToTriggerCutoverOn?: string[];
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -75,13 +77,25 @@ export interface GetMigrationResult {
      */
     readonly location: string;
     /**
+     * To migrate roles and permissions we need to send this flag as True
+     */
+    readonly migrateRoles?: string;
+    /**
      * ID for migration, a GUID.
      */
     readonly migrationId: string;
     /**
+     * ResourceId of the private endpoint migration instance
+     */
+    readonly migrationInstanceResourceId?: string;
+    /**
      * There are two types of migration modes Online and Offline
      */
     readonly migrationMode?: string;
+    /**
+     * This indicates the supported Migration option for the migration
+     */
+    readonly migrationOption?: string;
     /**
      * End time in UTC for migration window
      */
@@ -103,7 +117,7 @@ export interface GetMigrationResult {
      */
     readonly setupLogicalReplicationOnSourceDbIfNeeded?: string;
     /**
-     * Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+     * Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
      */
     readonly sourceDbServerFullyQualifiedDomainName?: string;
     /**
@@ -111,9 +125,17 @@ export interface GetMigrationResult {
      */
     readonly sourceDbServerMetadata: outputs.dbforpostgresql.DbServerMetadataResponse;
     /**
-     * ResourceId of the source database server
+     * ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
      */
     readonly sourceDbServerResourceId?: string;
+    /**
+     * migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+     */
+    readonly sourceType?: string;
+    /**
+     * SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+     */
+    readonly sslMode?: string;
     /**
      * Indicates whether the data migration should start right away
      */
@@ -127,7 +149,7 @@ export interface GetMigrationResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+     * Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
      */
     readonly targetDbServerFullyQualifiedDomainName?: string;
     /**
@@ -149,9 +171,7 @@ export interface GetMigrationResult {
 }
 /**
  * Gets details of a migration.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01.
  */
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

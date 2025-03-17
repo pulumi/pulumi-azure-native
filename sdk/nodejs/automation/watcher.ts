@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Definition of the watcher type.
- * Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
- *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2020-01-13-preview.
  */
 export class Watcher extends pulumi.CustomResource {
     /**
@@ -37,6 +38,10 @@ export class Watcher extends pulumi.CustomResource {
         return obj['__pulumiType'] === Watcher.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the creation time.
      */
@@ -86,11 +91,15 @@ export class Watcher extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -121,14 +130,17 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -141,6 +153,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["scriptParameters"] = undefined /*out*/;
             resourceInputs["scriptRunOn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data Lake Store firewall rule information.
- * Azure REST API version: 2016-11-01. Prior API version in Azure Native 1.x: 2016-11-01.
+ * Azure REST API version: 2016-11-01. Prior API version in Azure Native 2.x: 2016-11-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class FirewallRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
@@ -80,9 +84,11 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["firewallRuleName"] = args ? args.firewallRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endIpAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["startIpAddress"] = undefined /*out*/;
