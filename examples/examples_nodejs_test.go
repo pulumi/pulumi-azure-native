@@ -7,11 +7,17 @@ import (
 	"context"
 	"encoding/json"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/debug"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optrefresh"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -412,13 +418,103 @@ func TestAccPIMRoleManagementPolicies(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+// This test uses pulumitest instead of integration.ProgramTest because it needs to parameterize the provider in between
+// steps. The high-level test sequence is:
+// 1. Run `pulumi up` on the program with the default provider and default API version.
+// 2. Parameterize with a different API version to generate the new SDK and install it in package.json.
+// 3. The program using the new parameterized provider already exist in folder "2-...", update the test source with it.
+// 4. Run `pulumi refresh` and `pulumi up` on the program with the new provider and new API version.
+// 5. Copy the default version of the program back and run refresh+up again.
+// There should be no changes at any point if the default and the parameterized resources are aliased correctly.
+func TestParameterizeApiVersion(t *testing.T) {
+	cwd := getCwd(t)
+	location := getLocation(t)
+
+	pt := pulumitest.NewPulumiTest(t,
+		filepath.Join(cwd, "parameterize"),
+		opttest.YarnLink("@pulumi/azure-native"),
+	)
+	pt.SetConfig(t, "azure-native:location", location)
+
+	pt.Up(t)
+
+	// generate the new SDK and install it in package.json
+	pulumiPackageAdd(t, pt, "storage", "v20240101")
+
+	pt.UpdateSource(t, cwd, "parameterize", "2-explicit-version")
+	pt.Refresh(t, optrefresh.ExpectNoChanges())
+	pt.Up(t, optup.ExpectNoChanges())
+
+	// Pending #4019
+	// pt.UpdateSource(t, cwd, "parameterize", "3-back-to-default")
+	// pt.Refresh(t, optrefresh.ExpectNoChanges())
+	// pt.Up(t, optup.ExpectNoChanges())
+
+	pt.Destroy(t)
+}
+
+// A helper to use with optup.DebugLogging() and friends to get verbose logging.
+func debugLogging() debug.LoggingOptions {
+	var level uint = 9
+	return debug.LoggingOptions{
+		LogLevel:      &level,
+		Debug:         true,
+		FlowToPlugins: true,
+		LogToStdErr:   true,
+	}
+}
+
+func pulumiPackageAdd(t *testing.T, pt *pulumitest.PulumiTest, args ...string) {
+	var provider string
+	if _, debugMode := os.LookupEnv("PULUMI_DEBUG_PROVIDERS"); debugMode {
+		provider = "azure-native"
+	} else {
+		providerBinaryPath, err := exec.LookPath("pulumi-resource-azure-native")
+		require.NoError(t, err)
+		provider, err = filepath.Abs(providerBinaryPath)
+		require.NoError(t, err)
+	}
+
+	runPulumiPackageAdd(t, pt, provider, args...)
+}
+
+// runPulumiPackageAdd runs `pulumi package add` with the given args. `provider` can be the name of a provider for the
+// engine to resolve, or a path to a provider binary.
+func runPulumiPackageAdd(
+	t *testing.T,
+	pt *pulumitest.PulumiTest,
+	provider string,
+	args ...string,
+) {
+	ctx := context.Background()
+	allArgs := append([]string{"package", "add", provider}, args...)
+	stdout, stderr, exitCode, err := pt.CurrentStack().Workspace().PulumiCommand().Run(
+		ctx,
+		pt.WorkingDir(),
+		nil, /* reader */
+		nil, /* additionalOutput */
+		nil, /* additionalErrorOutput */
+		nil, /* additionalEnv */
+		allArgs...,
+	)
+	if err != nil || exitCode != 0 {
+		t.Fatalf("Failed to run pulumi package add\nExit code: %d\nError: %v\n%s\n%s",
+			exitCode, err, stdout, stderr)
+	}
+
+	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native_storage_v20240101")
+	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
+		t.Fatalf("generated SDK directory not found at path: %s", sdkPath)
+	}
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/azure-native",
 		},
-		// Show the diff instead of just the non-actionable error: no changes were expected but changes were proposed"
+		// Show the diff instead of just the non-actionable error "no changes were expected but changes were proposed"
 		PreviewCommandlineFlags: []string{"--diff"},
 	})
 
