@@ -414,7 +414,9 @@ func sdkBlobToPulumiProperties(name, rg, account, container, blobUrl string, pro
 	return result
 }
 
-var blobIDPattern = regexp.MustCompile(`(?i)^/subscriptions/(.+)/resourceGroups/(.+)/providers/Microsoft.Storage/storageAccounts/(.+)/blobServices/default/containers/(.+)/blobs/(.+)$`)
+var storageAccountPathRegexStr = `(?i)^/subscriptions/(.+)/resourceGroups/(.+)/providers/Microsoft.Storage/storageAccounts/(.+?)/`
+var storageAccountPathRegex = regexp.MustCompile(storageAccountPathRegexStr)
+var blobIDPattern = regexp.MustCompile(storageAccountPathRegexStr + `blobServices/default/containers/(.+)/blobs/(.+)$`)
 
 // parseBlobIdProperties parses an ID of a Blob resource to its identified properties.
 // For instance, it will convert

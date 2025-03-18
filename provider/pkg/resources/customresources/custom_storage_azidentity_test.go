@@ -340,4 +340,34 @@ func TestAzblobToPulumiProperties(t *testing.T) {
 	})
 }
 
+func TestGetStorageAccountName(t *testing.T) {
+	validID := "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/acc/staticWebsite"
+
+	t.Run("from properties", func(t *testing.T) {
+		properties := resource.NewPropertyMapFromMap(map[string]any{
+			accountName: "myaccount",
+		})
+		name, err := getStorageAccountName(validID, properties)
+		require.NoError(t, err)
+		assert.Equal(t, "myaccount", name)
+	})
+
+	t.Run("from ID", func(t *testing.T) {
+		name, err := getStorageAccountName(validID, resource.PropertyMap{})
+		require.NoError(t, err)
+		assert.Equal(t, "acc", name)
+	})
+
+	t.Run("invalid ID", func(t *testing.T) {
+		_, err := getStorageAccountName("invalid", resource.PropertyMap{})
+		require.Error(t, err)
+	})
+
+	t.Run("falls back to ID", func(t *testing.T) {
+		name, err := getStorageAccountName(validID, resource.PropertyMap{})
+		require.NoError(t, err)
+		assert.Equal(t, "acc", name)
+	})
+}
+
 func ref[T any](t T) *T { return &t }
