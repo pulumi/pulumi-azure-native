@@ -59,6 +59,8 @@ func main() {
 		}
 	}
 
+	fmt.Printf("Generating with version %s and schema path %s\n", version, schemaPath)
+
 	// Use DEBUG_CODEGEN_NAMESPACES to just generate a single namespace (e.g. "Compute") for quick testing
 	namespaces := os.Getenv("DEBUG_CODEGEN_NAMESPACES")
 	if namespaces == "" {
