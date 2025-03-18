@@ -259,10 +259,13 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
-	k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
-	if err != nil {
-		return nil, fmt.Errorf("initializing custom resources: %w", err)
+	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
+	if !k.isParameterized() {
+		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
+			resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
+		if err != nil {
+			return nil, fmt.Errorf("initializing custom resources: %w", err)
+		}
 	}
 
 	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
@@ -271,6 +274,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		SupportsPreview:                 true,
 		SupportsAutonamingConfiguration: true,
 	}, nil
+}
+
+func (k *azureNativeProvider) isParameterized() bool {
+	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
 }
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
