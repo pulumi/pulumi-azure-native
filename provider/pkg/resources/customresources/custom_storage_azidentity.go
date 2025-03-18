@@ -130,13 +130,20 @@ func (r *staticWebsite_azidentity) newStorageAccountClient(properties resource.P
 	return newStorageAccountClient(properties, r.env, r.creds)
 }
 
+func (r *staticWebsite_azidentity) newStorageAccountClientForAccount(accName string) (*azblob.Client, error) {
+	return newStorageAccountClientForAccount(accName, r.env, r.creds)
+}
+
 func newStorageAccountClient(properties resource.PropertyMap, env cloud.Configuration, creds azcore.TokenCredential) (*azblob.Client, error) {
 	acc := properties[accountName]
 	if !acc.HasValue() || !acc.IsString() {
 		return nil, errors.Errorf("%q not found in resource state", accountName)
 	}
 	accName := acc.StringValue()
+	return newStorageAccountClientForAccount(accName, env, creds)
+}
 
+func newStorageAccountClientForAccount(accName string, env cloud.Configuration, creds azcore.TokenCredential) (*azblob.Client, error) {
 	saUrl, err := getStorageAccountURL(accName, env)
 	if err != nil {
 		return nil, err
@@ -190,8 +197,26 @@ func is404StorageError(err error) bool {
 	return false
 }
 
+// getStorageAccountName returns the storage account name from the resource ID or the properties. It tries properties
+// first. When importing, there is no state yet and `properties` is empty.
+func getStorageAccountName(resourceId string, properties resource.PropertyMap) (string, error) {
+	if p := properties[accountName]; p.HasValue() && p.IsString() {
+		return p.StringValue(), nil
+	}
+	match := storageAccountPathRegex.FindStringSubmatch(resourceId)
+	if len(match) != 4 {
+		return "", errors.Errorf("could not parse storage account name from resource ID %q", resourceId)
+	}
+	return match[3], nil
+}
+
 func (r *staticWebsite_azidentity) read(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
-	dataClient, err := r.newStorageAccountClient(properties)
+	saName, err := getStorageAccountName(id, properties)
+	if err != nil {
+		return nil, false, err
+	}
+
+	dataClient, err := r.newStorageAccountClientForAccount(saName)
 	if err != nil {
 		return nil, false, err
 	}
@@ -207,7 +232,7 @@ func (r *staticWebsite_azidentity) read(ctx context.Context, id string, properti
 
 	accountProps, err := dataClient.ServiceClient().GetProperties(ctx, nil)
 	if err != nil {
-		return nil, false, errors.Wrapf(err, "error reading storage account %q service properties", properties[accountName].StringValue())
+		return nil, false, errors.Wrapf(err, "error reading storage account %q service properties", saName)
 	}
 
 	if accountProps.StaticWebsite == nil || (accountProps.StaticWebsite.Enabled == nil || !*accountProps.StaticWebsite.Enabled) {
