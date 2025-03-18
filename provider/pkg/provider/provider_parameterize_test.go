@@ -239,6 +239,96 @@ func TestParseApiVersion(t *testing.T) {
 	})
 }
 
+func TestUpdateMetadataRefs(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Empty metadata", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{}
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		require.NoError(t, err)
+		require.Empty(t, updated.Resources)
+		require.Empty(t, updated.Types)
+		require.Empty(t, updated.Invokes)
+	})
+
+	t.Run("Updates refs in types", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{
+			Types: resources.GoMap[resources.AzureAPIType]{
+				"type1": {
+					Properties: map[string]resources.AzureAPIProperty{
+						"prop1": {
+							Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
+						},
+					},
+				},
+			},
+		}
+
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		require.NoError(t, err)
+
+		prop, ok, err := updated.Types.Get("type1")
+		require.NoError(t, err)
+		require.True(t, ok)
+		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage/v20240101:StorageAccount", prop.Properties["prop1"].Ref)
+	})
+
+	t.Run("Updates refs in resources", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{
+			Resources: resources.GoMap[resources.AzureAPIResource]{
+				"resource1": {
+					PutParameters: []resources.AzureAPIParameter{
+						{
+							Body: &resources.AzureAPIType{
+								Properties: map[string]resources.AzureAPIProperty{
+									"prop1": {
+										Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		}
+
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		require.NoError(t, err)
+
+		resource, ok, err := updated.Resources.Get("resource1")
+		require.NoError(t, err)
+		require.True(t, ok)
+		require.Len(t, resource.PutParameters, 1)
+		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage/v20240101:StorageAccount", resource.PutParameters[0].Body.Properties["prop1"].Ref)
+	})
+
+	t.Run("Updates refs in invokes", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{
+			Invokes: resources.GoMap[resources.AzureAPIInvoke]{
+				"invoke1": {
+					Response: map[string]resources.AzureAPIProperty{
+						"prop1": {
+							Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
+						},
+					},
+				},
+			},
+		}
+
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		require.NoError(t, err)
+
+		invoke, ok, err := updated.Invokes.Get("invoke1")
+		require.NoError(t, err)
+		require.True(t, ok)
+		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage/v20240101:StorageAccount", invoke.Response["prop1"].Ref)
+	})
+}
+
 // Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.
 func TestParameterizePackageAdd(t *testing.T) {
 	t.Parallel()
