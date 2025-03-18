@@ -4,6 +4,14 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "Advisor",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "AgriculturePlatform",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "ApiCenter",
     "Detail": "expected tracking stable but found preview"
   },
@@ -72,6 +80,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "BillingBenefits",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "Cdn",
     "Detail": "expected no additions but found some"
   },
@@ -132,6 +144,14 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "DataReplication",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "DatabaseFleetManager",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "DatabaseWatcher",
     "Detail": "expected tracking stable but found preview"
   },
@@ -142,6 +162,10 @@
   {
     "ModuleName": "Datadog",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "DependencyMap",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "DevCenter",
@@ -326,6 +350,10 @@
   {
     "ModuleName": "Monitor",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "MySQLDiscovery",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "NetApp",

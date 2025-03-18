@@ -16,8 +16,12 @@ Addons:
     tracking: "2018-03-01"
 Advisor:
     tracking: "2023-01-01"
+    additions:
+        Assessment: 2023-09-01-preview
 AgFoodPlatform:
     tracking: 2023-06-01-preview
+AgriculturePlatform:
+    tracking: 2024-06-01-preview
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
@@ -252,7 +256,8 @@ Billing:
         BillingRoleAssignmentByDepartment: 2019-10-01-preview
         BillingRoleAssignmentByEnrollmentAccount: 2019-10-01-preview
         InvoiceSection: "2024-04-01"
-BillingBenefits: {}
+BillingBenefits:
+    tracking: 2024-11-01-preview
 Blueprint:
     tracking: 2018-11-01-preview
 BotService:
@@ -301,6 +306,7 @@ Commerce: {}
 Communication:
     tracking: "2023-03-31"
     additions:
+        SmtpUsername: 2024-09-01-preview
         SuppressionList: 2023-06-01-preview
         SuppressionListAddress: 2023-06-01-preview
 Community:
@@ -804,8 +810,14 @@ DataProtection:
     tracking: "2023-01-01"
 DataReplication:
     tracking: 2021-02-16-preview
+    additions:
+        FabricAgent: "2024-09-01"
+        PrivateEndpointConnection: "2024-09-01"
+        PrivateEndpointConnectionProxy: "2024-09-01"
 DataShare:
     tracking: "2021-08-01"
+DatabaseFleetManager:
+    tracking: 2025-02-01-preview
 DatabaseWatcher:
     tracking: 2023-09-01-preview
     additions:
@@ -823,12 +835,15 @@ Datadog:
         getBillingInfo: "2023-10-20"
 DelegatedNetwork:
     tracking: "2021-03-15"
+DependencyMap:
+    tracking: 2025-01-31-preview
 DesktopVirtualization:
     tracking: "2022-09-09"
     additions:
         AppAttachPackage: 2023-10-04-preview
         PrivateEndpointConnectionByHostPool: 2022-10-14-preview
         PrivateEndpointConnectionByWorkspace: 2022-10-14-preview
+        ScalingPlanPersonalSchedule: 2024-11-01-preview
         listHostPoolRegistrationTokens: 2024-04-08-preview
 DevCenter:
     tracking: "2023-04-01"
@@ -845,6 +860,7 @@ DevCenter:
         getEnvironmentDefinitionErrorDetails: 2023-08-01-preview
         getProjectCatalogEnvironmentDefinitionErrorDetails: "2024-02-01"
         getProjectCatalogImageDefinitionBuildDetails: 2024-07-01-preview
+        getProjectCatalogImageDefinitionErrorDetails: "2025-02-01"
         getProjectCatalogSyncErrorDetails: "2024-02-01"
         getProjectInheritedSettings: 2024-05-01-preview
         listSkusByProject: 2024-06-01-preview
@@ -1080,6 +1096,16 @@ IoTFirmwareDefense:
     tracking: 2023-02-08-preview
 IoTOperations:
     tracking: 2024-07-01-preview
+    exclusionErrors:
+        - modulename: IoTOperations
+          resourcename: Dataflow
+          detail: version 2025-04-01 is greater than 2024-11-01
+        - modulename: IoTOperations
+          resourcename: DataflowEndpoint
+          detail: version 2025-04-01 is greater than 2024-11-01
+        - modulename: IoTOperations
+          resourcename: DataflowProfile
+          detail: version 2025-04-01 is greater than 2024-11-01
 IoTOperationsDataProcessor:
     tracking: 2023-10-04-preview
 IoTOperationsMQ:
@@ -1150,8 +1176,6 @@ Logic:
         WorkflowAccessKey: 2015-02-01-preview
         listWorkflowAccessKeySecretKeys: 2015-02-01-preview
         listWorkflowVersionCallbackUrl: "2016-06-01"
-Logz:
-    tracking: 2022-01-01-preview
 M365SecurityAndCompliance:
     tracking: 2021-03-25-preview
 MachineLearning:
@@ -1235,6 +1259,8 @@ Management:
     tracking: "2021-04-01"
 ManagementPartner:
     tracking: "2018-02-01"
+ManufacturingPlatform:
+    tracking: "2025-03-01"
 Maps:
     tracking: "2021-02-01"
     additions:
@@ -1342,6 +1368,8 @@ Monitor:
     tracking: "2023-04-03"
     additions:
         PipelineGroup: 2023-10-01-preview
+MySQLDiscovery:
+    tracking: 2024-09-30-preview
 NetApp:
     tracking: "2022-11-01"
     additions:
@@ -1813,11 +1841,28 @@ ServiceBus:
 ServiceFabric:
     tracking: 2023-03-01-preview
     additions:
+        Application: 2024-11-01-preview
+        ApplicationType: 2024-11-01-preview
+        ApplicationTypeVersion: 2024-11-01-preview
+        Service: 2024-11-01-preview
         getManagedClusterFaultSimulation: 2024-11-01-preview
         getNodeTypeFaultSimulation: 2024-11-01-preview
         getmanagedMaintenanceWindowStatus: 2023-07-01-preview
         listManagedClusterFaultSimulation: 2024-11-01-preview
         listNodeTypeFaultSimulation: 2024-11-01-preview
+    exclusionErrors:
+        - modulename: ServiceFabric
+          resourcename: Application
+          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationType
+          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: ApplicationTypeVersion
+          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Service
+          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
@@ -1920,8 +1965,6 @@ VideoIndexer:
         PrivateEndpointConnection: 2024-06-01-preview
 VirtualMachineImages:
     tracking: "2022-07-01"
-VisualStudio:
-    tracking: 2017-11-01-preview
 VoiceServices:
     tracking: "2023-04-03"
     additions:
