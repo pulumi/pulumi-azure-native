@@ -367,6 +367,7 @@ export FAKE_MODULE
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
 	bin/$(CODEGEN) go
+	echo "Go version.txt: $$(cat sdk/pulumi-azure-native-sdk/version.txt)"
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@

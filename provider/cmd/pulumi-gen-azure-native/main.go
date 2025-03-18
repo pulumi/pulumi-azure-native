@@ -241,6 +241,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 	}
 
 	version := gen.GoModVersion(ppkg.Version)
+	fmt.Printf("Go version %s calculated from %s\n", version, ppkg.Version)
 	files, err := gogen.GeneratePackage("the Pulumi SDK Generator", ppkg, nil)
 	if err != nil {
 		return errors.Wrapf(err, "generating %s package", language)
