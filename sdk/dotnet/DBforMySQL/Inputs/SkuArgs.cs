@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         /// The tier of the particular SKU, e.g. Basic.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SingleServerSkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

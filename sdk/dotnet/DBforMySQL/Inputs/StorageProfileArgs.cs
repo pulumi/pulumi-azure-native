@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         /// Enable Geo-redundant or not for server backup.
         /// </summary>
         [Input("geoRedundantBackup")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SingleServerGeoRedundantBackup>? GeoRedundantBackup { get; set; }
 
         /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         [Input("storageAutogrow")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.StorageAutogrow>? StorageAutogrow { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SingleServerStorageAutogrow>? StorageAutogrow { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server.

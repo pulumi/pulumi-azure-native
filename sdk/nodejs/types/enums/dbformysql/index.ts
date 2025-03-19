@@ -24,12 +24,12 @@ export type ConfigurationSource = (typeof ConfigurationSource)[keyof typeof Conf
 export const CreateMode = {
     Default: "Default",
     PointInTimeRestore: "PointInTimeRestore",
-    GeoRestore: "GeoRestore",
     Replica: "Replica",
+    GeoRestore: "GeoRestore",
 } as const;
 
 /**
- * The mode to create a new server.
+ * The mode to create a new MySQL server.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
@@ -53,16 +53,6 @@ export const EnableStatusEnum = {
  */
 export type EnableStatusEnum = (typeof EnableStatusEnum)[keyof typeof EnableStatusEnum];
 
-export const GeoRedundantBackup = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Enable Geo-redundant or not for server backup.
- */
-export type GeoRedundantBackup = (typeof GeoRedundantBackup)[keyof typeof GeoRedundantBackup];
-
 export const HighAvailabilityMode = {
     Disabled: "Disabled",
     ZoneRedundant: "ZoneRedundant",
@@ -74,15 +64,6 @@ export const HighAvailabilityMode = {
  */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
-export const IdentityType = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
 export const ImportSourceStorageType = {
     AzureBlob: "AzureBlob",
 } as const;
@@ -92,22 +73,6 @@ export const ImportSourceStorageType = {
  */
 export type ImportSourceStorageType = (typeof ImportSourceStorageType)[keyof typeof ImportSourceStorageType];
 
-export const InfrastructureEncryption = {
-    /**
-     * Default value for single layer of encryption for data at rest.
-     */
-    Enabled: "Enabled",
-    /**
-     * Additional (2nd) layer of encryption for data at rest
-     */
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Status showing whether the server enabled infrastructure encryption.
- */
-export type InfrastructureEncryption = (typeof InfrastructureEncryption)[keyof typeof InfrastructureEncryption];
-
 export const ManagedServiceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
@@ -116,18 +81,6 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity.
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
-export const MinimalTlsVersionEnum = {
-    TLS1_0: "TLS1_0",
-    TLS1_1: "TLS1_1",
-    TLS1_2: "TLS1_2",
-    TLSEnforcementDisabled: "TLSEnforcementDisabled",
-} as const;
-
-/**
- * Enforce a minimal Tls version for the server.
- */
-export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
 
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
@@ -139,16 +92,6 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
-
-export const PublicNetworkAccessEnum = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
- */
-export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
 
 export const ReplicationRole = {
     None: "None",
@@ -173,9 +116,8 @@ export const ServerSkuTier = {
 export type ServerSkuTier = (typeof ServerSkuTier)[keyof typeof ServerSkuTier];
 
 export const ServerVersion = {
-    ServerVersion_5_6: "5.6",
     ServerVersion_5_7: "5.7",
-    ServerVersion_8_0: "8.0",
+    ServerVersion_8_0_21: "8.0.21",
 } as const;
 
 /**
@@ -183,7 +125,87 @@ export const ServerVersion = {
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
-export const SkuTier = {
+export const SingleServerCreateMode = {
+    Default: "Default",
+    PointInTimeRestore: "PointInTimeRestore",
+    GeoRestore: "GeoRestore",
+    Replica: "Replica",
+} as const;
+
+/**
+ * The mode to create a new server.
+ */
+export type SingleServerCreateMode = (typeof SingleServerCreateMode)[keyof typeof SingleServerCreateMode];
+
+export const SingleServerGeoRedundantBackup = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable Geo-redundant or not for server backup.
+ */
+export type SingleServerGeoRedundantBackup = (typeof SingleServerGeoRedundantBackup)[keyof typeof SingleServerGeoRedundantBackup];
+
+export const SingleServerIdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+ */
+export type SingleServerIdentityType = (typeof SingleServerIdentityType)[keyof typeof SingleServerIdentityType];
+
+export const SingleServerInfrastructureEncryption = {
+    /**
+     * Default value for single layer of encryption for data at rest.
+     */
+    Enabled: "Enabled",
+    /**
+     * Additional (2nd) layer of encryption for data at rest
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Status showing whether the server enabled infrastructure encryption.
+ */
+export type SingleServerInfrastructureEncryption = (typeof SingleServerInfrastructureEncryption)[keyof typeof SingleServerInfrastructureEncryption];
+
+export const SingleServerMinimalTlsVersionEnum = {
+    TLS1_0: "TLS1_0",
+    TLS1_1: "TLS1_1",
+    TLS1_2: "TLS1_2",
+    TLSEnforcementDisabled: "TLSEnforcementDisabled",
+} as const;
+
+/**
+ * Enforce a minimal Tls version for the server.
+ */
+export type SingleServerMinimalTlsVersionEnum = (typeof SingleServerMinimalTlsVersionEnum)[keyof typeof SingleServerMinimalTlsVersionEnum];
+
+export const SingleServerPublicNetworkAccessEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
+export type SingleServerPublicNetworkAccessEnum = (typeof SingleServerPublicNetworkAccessEnum)[keyof typeof SingleServerPublicNetworkAccessEnum];
+
+export const SingleServerServerVersion = {
+    SingleServerServerVersion_5_6: "5.6",
+    SingleServerServerVersion_5_7: "5.7",
+    SingleServerServerVersion_8_0: "8.0",
+} as const;
+
+/**
+ * Server version.
+ */
+export type SingleServerServerVersion = (typeof SingleServerServerVersion)[keyof typeof SingleServerServerVersion];
+
+export const SingleServerSkuTier = {
     Basic: "Basic",
     GeneralPurpose: "GeneralPurpose",
     MemoryOptimized: "MemoryOptimized",
@@ -192,9 +214,9 @@ export const SkuTier = {
 /**
  * The tier of the particular SKU, e.g. Basic.
  */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+export type SingleServerSkuTier = (typeof SingleServerSkuTier)[keyof typeof SingleServerSkuTier];
 
-export const SslEnforcementEnum = {
+export const SingleServerSslEnforcementEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
@@ -202,9 +224,9 @@ export const SslEnforcementEnum = {
 /**
  * Enable ssl enforcement or not when connect to server.
  */
-export type SslEnforcementEnum = (typeof SslEnforcementEnum)[keyof typeof SslEnforcementEnum];
+export type SingleServerSslEnforcementEnum = (typeof SingleServerSslEnforcementEnum)[keyof typeof SingleServerSslEnforcementEnum];
 
-export const StorageAutogrow = {
+export const SingleServerStorageAutogrow = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
@@ -212,7 +234,7 @@ export const StorageAutogrow = {
 /**
  * Enable Storage Auto Grow.
  */
-export type StorageAutogrow = (typeof StorageAutogrow)[keyof typeof StorageAutogrow];
+export type SingleServerStorageAutogrow = (typeof SingleServerStorageAutogrow)[keyof typeof SingleServerStorageAutogrow];
 
 export const StorageRedundancyEnum = {
     LocalRedundancy: "LocalRedundancy",

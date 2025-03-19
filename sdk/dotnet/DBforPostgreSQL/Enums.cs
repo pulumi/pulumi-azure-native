@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The mode to create a new server.
+    /// The mode to create a new PostgreSQL server.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -215,9 +215,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         public static CreateMode Default { get; } = new CreateMode("Default");
+        public static CreateMode Create { get; } = new CreateMode("Create");
+        public static CreateMode Update { get; } = new CreateMode("Update");
         public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
         public static CreateMode GeoRestore { get; } = new CreateMode("GeoRestore");
         public static CreateMode Replica { get; } = new CreateMode("Replica");
+        public static CreateMode ReviveDropped { get; } = new CreateMode("ReviveDropped");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
         public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
@@ -255,37 +258,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataEncryptionType other && Equals(other);
         public bool Equals(DataEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Enable Geo-redundant or not for server backup.
-    /// </summary>
-    [EnumType]
-    public readonly struct GeoRedundantBackup : IEquatable<GeoRedundantBackup>
-    {
-        private readonly string _value;
-
-        private GeoRedundantBackup(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GeoRedundantBackup Enabled { get; } = new GeoRedundantBackup("Enabled");
-        public static GeoRedundantBackup Disabled { get; } = new GeoRedundantBackup("Disabled");
-
-        public static bool operator ==(GeoRedundantBackup left, GeoRedundantBackup right) => left.Equals(right);
-        public static bool operator !=(GeoRedundantBackup left, GeoRedundantBackup right) => !left.Equals(right);
-
-        public static explicit operator string(GeoRedundantBackup value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GeoRedundantBackup other && Equals(other);
-        public bool Equals(GeoRedundantBackup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -356,9 +328,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-    /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>
     {
@@ -369,6 +338,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -379,43 +349,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
         public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Status showing whether the server enabled infrastructure encryption.
-    /// </summary>
-    [EnumType]
-    public readonly struct InfrastructureEncryption : IEquatable<InfrastructureEncryption>
-    {
-        private readonly string _value;
-
-        private InfrastructureEncryption(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Default value for single layer of encryption for data at rest.
-        /// </summary>
-        public static InfrastructureEncryption Enabled { get; } = new InfrastructureEncryption("Enabled");
-        /// <summary>
-        /// Additional (2nd) layer of encryption for data at rest
-        /// </summary>
-        public static InfrastructureEncryption Disabled { get; } = new InfrastructureEncryption("Disabled");
-
-        public static bool operator ==(InfrastructureEncryption left, InfrastructureEncryption right) => left.Equals(right);
-        public static bool operator !=(InfrastructureEncryption left, InfrastructureEncryption right) => !left.Equals(right);
-
-        public static explicit operator string(InfrastructureEncryption value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is InfrastructureEncryption other && Equals(other);
-        public bool Equals(InfrastructureEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -580,39 +513,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Enforce a minimal Tls version for the server.
-    /// </summary>
-    [EnumType]
-    public readonly struct MinimalTlsVersionEnum : IEquatable<MinimalTlsVersionEnum>
-    {
-        private readonly string _value;
-
-        private MinimalTlsVersionEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MinimalTlsVersionEnum TLS1_0 { get; } = new MinimalTlsVersionEnum("TLS1_0");
-        public static MinimalTlsVersionEnum TLS1_1 { get; } = new MinimalTlsVersionEnum("TLS1_1");
-        public static MinimalTlsVersionEnum TLS1_2 { get; } = new MinimalTlsVersionEnum("TLS1_2");
-        public static MinimalTlsVersionEnum TLSEnforcementDisabled { get; } = new MinimalTlsVersionEnum("TLSEnforcementDisabled");
-
-        public static bool operator ==(MinimalTlsVersionEnum left, MinimalTlsVersionEnum right) => left.Equals(right);
-        public static bool operator !=(MinimalTlsVersionEnum left, MinimalTlsVersionEnum right) => !left.Equals(right);
-
-        public static explicit operator string(MinimalTlsVersionEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MinimalTlsVersionEnum other && Equals(other);
-        public bool Equals(MinimalTlsVersionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
     /// </summary>
     [EnumType]
@@ -756,37 +656,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccessEnum : IEquatable<PublicNetworkAccessEnum>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccessEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicNetworkAccessEnum Enabled { get; } = new PublicNetworkAccessEnum("Enabled");
-        public static PublicNetworkAccessEnum Disabled { get; } = new PublicNetworkAccessEnum("Disabled");
-
-        public static bool operator ==(PublicNetworkAccessEnum left, PublicNetworkAccessEnum right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccessEnum left, PublicNetworkAccessEnum right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccessEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccessEnum other && Equals(other);
-        public bool Equals(PublicNetworkAccessEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -980,7 +849,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Server version.
+    /// PostgreSQL Server version.
     /// </summary>
     [EnumType]
     public readonly struct ServerVersion : IEquatable<ServerVersion>
@@ -992,11 +861,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion ServerVersion_9_5 { get; } = new ServerVersion("9.5");
-        public static ServerVersion ServerVersion_9_6 { get; } = new ServerVersion("9.6");
-        public static ServerVersion ServerVersion_10 { get; } = new ServerVersion("10");
-        public static ServerVersion ServerVersion_10_0 { get; } = new ServerVersion("10.0");
-        public static ServerVersion ServerVersion_10_2 { get; } = new ServerVersion("10.2");
+        public static ServerVersion ServerVersion_16 { get; } = new ServerVersion("16");
+        public static ServerVersion ServerVersion_15 { get; } = new ServerVersion("15");
+        public static ServerVersion ServerVersion_14 { get; } = new ServerVersion("14");
+        public static ServerVersion ServerVersion_13 { get; } = new ServerVersion("13");
+        public static ServerVersion ServerVersion_12 { get; } = new ServerVersion("12");
         public static ServerVersion ServerVersion_11 { get; } = new ServerVersion("11");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
@@ -1015,7 +884,331 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// The mode to create a new server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerCreateMode : IEquatable<SingleServerCreateMode>
+    {
+        private readonly string _value;
+
+        private SingleServerCreateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerCreateMode Default { get; } = new SingleServerCreateMode("Default");
+        public static SingleServerCreateMode PointInTimeRestore { get; } = new SingleServerCreateMode("PointInTimeRestore");
+        public static SingleServerCreateMode GeoRestore { get; } = new SingleServerCreateMode("GeoRestore");
+        public static SingleServerCreateMode Replica { get; } = new SingleServerCreateMode("Replica");
+
+        public static bool operator ==(SingleServerCreateMode left, SingleServerCreateMode right) => left.Equals(right);
+        public static bool operator !=(SingleServerCreateMode left, SingleServerCreateMode right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerCreateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerCreateMode other && Equals(other);
+        public bool Equals(SingleServerCreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable Geo-redundant or not for server backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerGeoRedundantBackup : IEquatable<SingleServerGeoRedundantBackup>
+    {
+        private readonly string _value;
+
+        private SingleServerGeoRedundantBackup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerGeoRedundantBackup Enabled { get; } = new SingleServerGeoRedundantBackup("Enabled");
+        public static SingleServerGeoRedundantBackup Disabled { get; } = new SingleServerGeoRedundantBackup("Disabled");
+
+        public static bool operator ==(SingleServerGeoRedundantBackup left, SingleServerGeoRedundantBackup right) => left.Equals(right);
+        public static bool operator !=(SingleServerGeoRedundantBackup left, SingleServerGeoRedundantBackup right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerGeoRedundantBackup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerGeoRedundantBackup other && Equals(other);
+        public bool Equals(SingleServerGeoRedundantBackup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerIdentityType : IEquatable<SingleServerIdentityType>
+    {
+        private readonly string _value;
+
+        private SingleServerIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerIdentityType SystemAssigned { get; } = new SingleServerIdentityType("SystemAssigned");
+
+        public static bool operator ==(SingleServerIdentityType left, SingleServerIdentityType right) => left.Equals(right);
+        public static bool operator !=(SingleServerIdentityType left, SingleServerIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerIdentityType other && Equals(other);
+        public bool Equals(SingleServerIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status showing whether the server enabled infrastructure encryption.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerInfrastructureEncryption : IEquatable<SingleServerInfrastructureEncryption>
+    {
+        private readonly string _value;
+
+        private SingleServerInfrastructureEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default value for single layer of encryption for data at rest.
+        /// </summary>
+        public static SingleServerInfrastructureEncryption Enabled { get; } = new SingleServerInfrastructureEncryption("Enabled");
+        /// <summary>
+        /// Additional (2nd) layer of encryption for data at rest
+        /// </summary>
+        public static SingleServerInfrastructureEncryption Disabled { get; } = new SingleServerInfrastructureEncryption("Disabled");
+
+        public static bool operator ==(SingleServerInfrastructureEncryption left, SingleServerInfrastructureEncryption right) => left.Equals(right);
+        public static bool operator !=(SingleServerInfrastructureEncryption left, SingleServerInfrastructureEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerInfrastructureEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerInfrastructureEncryption other && Equals(other);
+        public bool Equals(SingleServerInfrastructureEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enforce a minimal Tls version for the server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerMinimalTlsVersionEnum : IEquatable<SingleServerMinimalTlsVersionEnum>
+    {
+        private readonly string _value;
+
+        private SingleServerMinimalTlsVersionEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerMinimalTlsVersionEnum TLS1_0 { get; } = new SingleServerMinimalTlsVersionEnum("TLS1_0");
+        public static SingleServerMinimalTlsVersionEnum TLS1_1 { get; } = new SingleServerMinimalTlsVersionEnum("TLS1_1");
+        public static SingleServerMinimalTlsVersionEnum TLS1_2 { get; } = new SingleServerMinimalTlsVersionEnum("TLS1_2");
+        public static SingleServerMinimalTlsVersionEnum TLSEnforcementDisabled { get; } = new SingleServerMinimalTlsVersionEnum("TLSEnforcementDisabled");
+
+        public static bool operator ==(SingleServerMinimalTlsVersionEnum left, SingleServerMinimalTlsVersionEnum right) => left.Equals(right);
+        public static bool operator !=(SingleServerMinimalTlsVersionEnum left, SingleServerMinimalTlsVersionEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerMinimalTlsVersionEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerMinimalTlsVersionEnum other && Equals(other);
+        public bool Equals(SingleServerMinimalTlsVersionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerPublicNetworkAccessEnum : IEquatable<SingleServerPublicNetworkAccessEnum>
+    {
+        private readonly string _value;
+
+        private SingleServerPublicNetworkAccessEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerPublicNetworkAccessEnum Enabled { get; } = new SingleServerPublicNetworkAccessEnum("Enabled");
+        public static SingleServerPublicNetworkAccessEnum Disabled { get; } = new SingleServerPublicNetworkAccessEnum("Disabled");
+
+        public static bool operator ==(SingleServerPublicNetworkAccessEnum left, SingleServerPublicNetworkAccessEnum right) => left.Equals(right);
+        public static bool operator !=(SingleServerPublicNetworkAccessEnum left, SingleServerPublicNetworkAccessEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerPublicNetworkAccessEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerPublicNetworkAccessEnum other && Equals(other);
+        public bool Equals(SingleServerPublicNetworkAccessEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Server version.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerServerVersion : IEquatable<SingleServerServerVersion>
+    {
+        private readonly string _value;
+
+        private SingleServerServerVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerServerVersion SingleServerServerVersion_9_5 { get; } = new SingleServerServerVersion("9.5");
+        public static SingleServerServerVersion SingleServerServerVersion_9_6 { get; } = new SingleServerServerVersion("9.6");
+        public static SingleServerServerVersion SingleServerServerVersion_10 { get; } = new SingleServerServerVersion("10");
+        public static SingleServerServerVersion SingleServerServerVersion_10_0 { get; } = new SingleServerServerVersion("10.0");
+        public static SingleServerServerVersion SingleServerServerVersion_10_2 { get; } = new SingleServerServerVersion("10.2");
+        public static SingleServerServerVersion SingleServerServerVersion_11 { get; } = new SingleServerServerVersion("11");
+
+        public static bool operator ==(SingleServerServerVersion left, SingleServerServerVersion right) => left.Equals(right);
+        public static bool operator !=(SingleServerServerVersion left, SingleServerServerVersion right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerServerVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerServerVersion other && Equals(other);
+        public bool Equals(SingleServerServerVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The tier of the particular SKU, e.g. Basic.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerSkuTier : IEquatable<SingleServerSkuTier>
+    {
+        private readonly string _value;
+
+        private SingleServerSkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerSkuTier Basic { get; } = new SingleServerSkuTier("Basic");
+        public static SingleServerSkuTier GeneralPurpose { get; } = new SingleServerSkuTier("GeneralPurpose");
+        public static SingleServerSkuTier MemoryOptimized { get; } = new SingleServerSkuTier("MemoryOptimized");
+
+        public static bool operator ==(SingleServerSkuTier left, SingleServerSkuTier right) => left.Equals(right);
+        public static bool operator !=(SingleServerSkuTier left, SingleServerSkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerSkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerSkuTier other && Equals(other);
+        public bool Equals(SingleServerSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable ssl enforcement or not when connect to server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerSslEnforcementEnum : IEquatable<SingleServerSslEnforcementEnum>
+    {
+        private readonly string _value;
+
+        private SingleServerSslEnforcementEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerSslEnforcementEnum Enabled { get; } = new SingleServerSslEnforcementEnum("Enabled");
+        public static SingleServerSslEnforcementEnum Disabled { get; } = new SingleServerSslEnforcementEnum("Disabled");
+
+        public static bool operator ==(SingleServerSslEnforcementEnum left, SingleServerSslEnforcementEnum right) => left.Equals(right);
+        public static bool operator !=(SingleServerSslEnforcementEnum left, SingleServerSslEnforcementEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerSslEnforcementEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerSslEnforcementEnum other && Equals(other);
+        public bool Equals(SingleServerSslEnforcementEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable Storage Auto Grow.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerStorageAutogrow : IEquatable<SingleServerStorageAutogrow>
+    {
+        private readonly string _value;
+
+        private SingleServerStorageAutogrow(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerStorageAutogrow Enabled { get; } = new SingleServerStorageAutogrow("Enabled");
+        public static SingleServerStorageAutogrow Disabled { get; } = new SingleServerStorageAutogrow("Disabled");
+
+        public static bool operator ==(SingleServerStorageAutogrow left, SingleServerStorageAutogrow right) => left.Equals(right);
+        public static bool operator !=(SingleServerStorageAutogrow left, SingleServerStorageAutogrow right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerStorageAutogrow value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerStorageAutogrow other && Equals(other);
+        public bool Equals(SingleServerStorageAutogrow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The tier of the particular SKU, e.g. Burstable.
     /// </summary>
     [EnumType]
     public readonly struct SkuTier : IEquatable<SkuTier>
@@ -1027,7 +1220,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
+        public static SkuTier Burstable { get; } = new SkuTier("Burstable");
         public static SkuTier GeneralPurpose { get; } = new SkuTier("GeneralPurpose");
         public static SkuTier MemoryOptimized { get; } = new SkuTier("MemoryOptimized");
 
@@ -1080,37 +1273,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
         public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Enable ssl enforcement or not when connect to server.
-    /// </summary>
-    [EnumType]
-    public readonly struct SslEnforcementEnum : IEquatable<SslEnforcementEnum>
-    {
-        private readonly string _value;
-
-        private SslEnforcementEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SslEnforcementEnum Enabled { get; } = new SslEnforcementEnum("Enabled");
-        public static SslEnforcementEnum Disabled { get; } = new SslEnforcementEnum("Disabled");
-
-        public static bool operator ==(SslEnforcementEnum left, SslEnforcementEnum right) => left.Equals(right);
-        public static bool operator !=(SslEnforcementEnum left, SslEnforcementEnum right) => !left.Equals(right);
-
-        public static explicit operator string(SslEnforcementEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SslEnforcementEnum other && Equals(other);
-        public bool Equals(SslEnforcementEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1206,37 +1368,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAutoGrow other && Equals(other);
         public bool Equals(StorageAutoGrow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Enable Storage Auto Grow.
-    /// </summary>
-    [EnumType]
-    public readonly struct StorageAutogrow : IEquatable<StorageAutogrow>
-    {
-        private readonly string _value;
-
-        private StorageAutogrow(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StorageAutogrow Enabled { get; } = new StorageAutogrow("Enabled");
-        public static StorageAutogrow Disabled { get; } = new StorageAutogrow("Disabled");
-
-        public static bool operator ==(StorageAutogrow left, StorageAutogrow right) => left.Equals(right);
-        public static bool operator !=(StorageAutogrow left, StorageAutogrow right) => !left.Equals(right);
-
-        public static explicit operator string(StorageAutogrow value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageAutogrow other && Equals(other);
-        public bool Equals(StorageAutogrow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

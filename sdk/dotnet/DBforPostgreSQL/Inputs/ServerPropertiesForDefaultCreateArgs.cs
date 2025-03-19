@@ -38,25 +38,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// Status showing whether the server enabled infrastructure encryption.
         /// </summary>
         [Input("infrastructureEncryption")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.InfrastructureEncryption>? InfrastructureEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerInfrastructureEncryption>? InfrastructureEncryption { get; set; }
 
         /// <summary>
         /// Enforce a minimal Tls version for the server.
         /// </summary>
         [Input("minimalTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerMinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
 
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerPublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<Pulumi.AzureNative.DBforPostgreSQL.SslEnforcementEnum>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNative.DBforPostgreSQL.SingleServerSslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerServerVersion>? Version { get; set; }
 
         public ServerPropertiesForDefaultCreateArgs()
         {
