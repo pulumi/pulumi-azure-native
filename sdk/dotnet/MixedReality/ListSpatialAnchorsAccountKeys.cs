@@ -12,28 +12,46 @@ namespace Pulumi.AzureNative.MixedReality
     public static class ListSpatialAnchorsAccountKeys
     {
         /// <summary>
-        /// List Both of the 2 Keys of a Spatial Anchors Account
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of a Spatial Anchors Account
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Task<ListSpatialAnchorsAccountKeysResult> InvokeAsync(ListSpatialAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Both of the 2 Keys of a Spatial Anchors Account
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of a Spatial Anchors Account
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListSpatialAnchorsAccountKeysResult> Invoke(ListSpatialAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Both of the 2 Keys of a Spatial Anchors Account
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of a Spatial Anchors Account
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListSpatialAnchorsAccountKeysResult> Invoke(ListSpatialAnchorsAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysInvokeArgs(), options.WithDefaults());

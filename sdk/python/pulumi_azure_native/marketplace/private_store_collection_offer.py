@@ -169,7 +169,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
                  __props__=None):
         """
         The privateStore offer data structure.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-12-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The privateStore offer data structure.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-12-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionOfferArgs args: The arguments to use to populate this resource's properties.
@@ -236,6 +236,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
             __props__.__dict__["private_store_id"] = private_store_id
             __props__.__dict__["specific_plan_ids_limitation"] = specific_plan_ids_limitation
             __props__.__dict__["update_suppressed_due_idempotence"] = update_suppressed_due_idempotence
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["name"] = None
@@ -268,6 +269,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
 
         __props__ = PrivateStoreCollectionOfferArgs.__new__(PrivateStoreCollectionOfferArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["icon_file_uris"] = None
@@ -283,6 +285,14 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
         __props__.__dict__["unique_offer_id"] = None
         __props__.__dict__["update_suppressed_due_idempotence"] = None
         return PrivateStoreCollectionOffer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")

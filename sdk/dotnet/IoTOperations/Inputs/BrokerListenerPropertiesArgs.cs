@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// </summary>
     public sealed class BrokerListenerPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Broker associated with this listener.
-        /// </summary>
-        [Input("brokerRef", required: true)]
-        public Input<string> BrokerRef { get; set; } = null!;
-
         [Input("ports", required: true)]
         private InputList<Inputs.ListenerPortArgs>? _ports;
 
@@ -47,7 +41,6 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 
         public BrokerListenerPropertiesArgs()
         {
-            ServiceName = "aio-mq-dmqtt-frontend";
             ServiceType = "ClusterIp";
         }
         public static new BrokerListenerPropertiesArgs Empty => new BrokerListenerPropertiesArgs();

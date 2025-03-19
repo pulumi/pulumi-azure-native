@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the JIT request.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the JIT request.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the JIT request.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.Solutions
         /// The parent application id.
         /// </summary>
         public readonly string ApplicationResourceId;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The client entity that created the JIT request.
         /// </summary>
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.Solutions
         private GetJitRequestResult(
             string applicationResourceId,
 
+            string azureApiVersion,
+
             Outputs.ApplicationClientDetailsResponse createdBy,
 
             string id,
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Solutions
             Outputs.ApplicationClientDetailsResponse updatedBy)
         {
             ApplicationResourceId = applicationResourceId;
+            AzureApiVersion = azureApiVersion;
             CreatedBy = createdBy;
             Id = id;
             JitAuthorizationPolicies = jitAuthorizationPolicies;

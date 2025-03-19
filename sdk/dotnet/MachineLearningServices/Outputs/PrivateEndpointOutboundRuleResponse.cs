@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointDestinationResponse? Destination;
         /// <summary>
-        /// Status of a managed network Outbound Rule of a machine learning workspace.
+        /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
         public readonly string? Status;
         /// <summary>

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The password details.
      */
@@ -90,10 +92,12 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["shareAccessRights"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryptedPassword"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["shareAccessRights"] = undefined /*out*/;

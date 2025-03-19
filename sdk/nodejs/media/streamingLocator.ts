@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Streaming Locator resource
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
- *
- * Other available API versions: 2018-03-30-preview.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class StreamingLocator extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class StreamingLocator extends pulumi.CustomResource {
      * Asset Name
      */
     public readonly assetName!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ContentKeys used by this Streaming Locator.
      */
@@ -128,6 +130,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             resourceInputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
             resourceInputs["streamingLocatorName"] = args ? args.streamingLocatorName : undefined;
             resourceInputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -135,6 +138,7 @@ export class StreamingLocator extends pulumi.CustomResource {
         } else {
             resourceInputs["alternativeMediaId"] = undefined /*out*/;
             resourceInputs["assetName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentKeys"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["defaultContentKeyPolicyName"] = undefined /*out*/;

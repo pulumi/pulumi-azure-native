@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
  */
 export class FeaturesetContainerEntity extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class FeaturesetContainerEntity extends pulumi.CustomResource {
         return obj['__pulumiType'] === FeaturesetContainerEntity.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -81,16 +83,18 @@ export class FeaturesetContainerEntity extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["featuresetContainerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240101preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240401:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240401preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240701preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20241001:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20241001preview:FeaturesetContainerEntity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240101preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240401:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240401preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240701preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20241001:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20241001preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20250101preview:FeaturesetContainerEntity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturesetContainerEntity.__pulumiType, name, resourceInputs, opts);
     }

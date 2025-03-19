@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the description of the specified namespace.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the description of the specified namespace.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the description of the specified namespace.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.EventHub
         /// Alternate name specified when alias and namespace names are same.
         /// </summary>
         public readonly string? AlternateName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Cluster ARM ID of the Namespace.
         /// </summary>
@@ -189,6 +187,8 @@ namespace Pulumi.AzureNative.EventHub
         private GetNamespaceResult(
             string? alternateName,
 
+            string azureApiVersion,
+
             string? clusterArmId,
 
             string createdAt,
@@ -238,6 +238,7 @@ namespace Pulumi.AzureNative.EventHub
             bool? zoneRedundant)
         {
             AlternateName = alternateName;
+            AzureApiVersion = azureApiVersion;
             ClusterArmId = clusterArmId;
             CreatedAt = createdAt;
             DisableLocalAuth = disableLocalAuth;

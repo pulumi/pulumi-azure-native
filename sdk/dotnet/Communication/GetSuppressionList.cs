@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get a SuppressionList resource.
         /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Task<GetSuppressionListResult> InvokeAsync(GetSuppressionListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionListResult>("azure-native:communication:getSuppressionList", args ?? new GetSuppressionListArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get a SuppressionList resource.
         /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Output<GetSuppressionListResult> Invoke(GetSuppressionListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListResult>("azure-native:communication:getSuppressionList", args ?? new GetSuppressionListInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get a SuppressionList resource.
         /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Output<GetSuppressionListResult> Invoke(GetSuppressionListInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListResult>("azure-native:communication:getSuppressionList", args ?? new GetSuppressionListInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Communication
     public sealed class GetSuppressionListResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The date the resource was created.
         /// </summary>
         public readonly string CreatedTimeStamp;
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.Communication
 
         [OutputConstructor]
         private GetSuppressionListResult(
+            string azureApiVersion,
+
             string createdTimeStamp,
 
             string dataLocation,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.Communication
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTimeStamp = createdTimeStamp;
             DataLocation = dataLocation;
             Id = id;

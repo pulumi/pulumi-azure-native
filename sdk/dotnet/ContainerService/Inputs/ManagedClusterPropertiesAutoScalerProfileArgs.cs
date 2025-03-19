@@ -22,10 +22,28 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<string>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
+        /// If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        /// </summary>
+        [Input("daemonsetEvictionForEmptyNodes")]
+        public Input<bool>? DaemonsetEvictionForEmptyNodes { get; set; }
+
+        /// <summary>
+        /// If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        /// </summary>
+        [Input("daemonsetEvictionForOccupiedNodes")]
+        public Input<bool>? DaemonsetEvictionForOccupiedNodes { get; set; }
+
+        /// <summary>
         /// If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
         /// </summary>
         [Input("expander")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.Expander>? Expander { get; set; }
+
+        /// <summary>
+        /// If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
+        /// </summary>
+        [Input("ignoreDaemonsetsUtilization")]
+        public Input<bool>? IgnoreDaemonsetsUtilization { get; set; }
 
         /// <summary>
         /// The default is 10.

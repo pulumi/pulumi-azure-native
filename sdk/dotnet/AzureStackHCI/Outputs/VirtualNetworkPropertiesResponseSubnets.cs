@@ -33,10 +33,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkPropertiesResponseIpConfigurationReferences> IpConfigurationReferences;
         /// <summary>
-        /// network associated pool of IP Addresses
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IPPoolResponse> IpPools;
-        /// <summary>
         /// Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -59,8 +55,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             ImmutableArray<Outputs.VirtualNetworkPropertiesResponseIpConfigurationReferences> ipConfigurationReferences,
 
-            ImmutableArray<Outputs.IPPoolResponse> ipPools,
-
             string? name,
 
             Outputs.VirtualNetworkPropertiesResponseRouteTable? routeTable,
@@ -71,7 +65,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             AddressPrefixes = addressPrefixes;
             IpAllocationMethod = ipAllocationMethod;
             IpConfigurationReferences = ipConfigurationReferences;
-            IpPools = ipPools;
             Name = name;
             RouteTable = routeTable;
             Vlan = vlan;

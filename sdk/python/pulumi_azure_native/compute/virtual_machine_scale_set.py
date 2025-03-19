@@ -37,14 +37,18 @@ class VirtualMachineScaleSetArgs:
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority_mix_policy: Optional[pulumi.Input['PriorityMixPolicyArgs']] = None,
                  proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 resiliency_policy: Optional[pulumi.Input['ResiliencyPolicyArgs']] = None,
                  scale_in_policy: Optional[pulumi.Input['ScaleInPolicyArgs']] = None,
+                 scheduled_events_policy: Optional[pulumi.Input['ScheduledEventsPolicyArgs']] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku_profile: Optional[pulumi.Input['SkuProfileArgs']] = None,
                  spot_restore_policy: Optional[pulumi.Input['SpotRestorePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['UpgradePolicyArgs']] = None,
                  virtual_machine_profile: Optional[pulumi.Input['VirtualMachineScaleSetVMProfileArgs']] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                 zonal_platform_fault_domain_align_mode: Optional[pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -64,16 +68,20 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.
         :param pulumi.Input['PriorityMixPolicyArgs'] priority_mix_policy: Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
         :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
+        :param pulumi.Input['ResiliencyPolicyArgs'] resiliency_policy: Policy for Resiliency
         :param pulumi.Input['ScaleInPolicyArgs'] scale_in_policy: Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
+        :param pulumi.Input['ScheduledEventsPolicyArgs'] scheduled_events_policy: The ScheduledEventsPolicy.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         :param pulumi.Input['SkuArgs'] sku: The virtual machine scale set sku.
+        :param pulumi.Input['SkuProfileArgs'] sku_profile: Specifies the sku profile for the virtual machine scale set.
         :param pulumi.Input['SpotRestorePolicyArgs'] spot_restore_policy: Specifies the Spot Restore properties for the virtual machine scale set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: The upgrade policy.
         :param pulumi.Input['VirtualMachineScaleSetVMProfileArgs'] virtual_machine_profile: The virtual machine profile.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set to create or update.
+        :param pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']] zonal_platform_fault_domain_align_mode: Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
         :param pulumi.Input[bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_capabilities is not None:
@@ -104,12 +112,18 @@ class VirtualMachineScaleSetArgs:
             pulumi.set(__self__, "priority_mix_policy", priority_mix_policy)
         if proximity_placement_group is not None:
             pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if resiliency_policy is not None:
+            pulumi.set(__self__, "resiliency_policy", resiliency_policy)
         if scale_in_policy is not None:
             pulumi.set(__self__, "scale_in_policy", scale_in_policy)
+        if scheduled_events_policy is not None:
+            pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if single_placement_group is not None:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_profile is not None:
+            pulumi.set(__self__, "sku_profile", sku_profile)
         if spot_restore_policy is not None:
             pulumi.set(__self__, "spot_restore_policy", spot_restore_policy)
         if tags is not None:
@@ -120,6 +134,8 @@ class VirtualMachineScaleSetArgs:
             pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
         if vm_scale_set_name is not None:
             pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
+        if zonal_platform_fault_domain_align_mode is not None:
+            pulumi.set(__self__, "zonal_platform_fault_domain_align_mode", zonal_platform_fault_domain_align_mode)
         if zone_balance is not None:
             pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
@@ -306,6 +322,18 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "proximity_placement_group", value)
 
     @property
+    @pulumi.getter(name="resiliencyPolicy")
+    def resiliency_policy(self) -> Optional[pulumi.Input['ResiliencyPolicyArgs']]:
+        """
+        Policy for Resiliency
+        """
+        return pulumi.get(self, "resiliency_policy")
+
+    @resiliency_policy.setter
+    def resiliency_policy(self, value: Optional[pulumi.Input['ResiliencyPolicyArgs']]):
+        pulumi.set(self, "resiliency_policy", value)
+
+    @property
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> Optional[pulumi.Input['ScaleInPolicyArgs']]:
         """
@@ -316,6 +344,18 @@ class VirtualMachineScaleSetArgs:
     @scale_in_policy.setter
     def scale_in_policy(self, value: Optional[pulumi.Input['ScaleInPolicyArgs']]):
         pulumi.set(self, "scale_in_policy", value)
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional[pulumi.Input['ScheduledEventsPolicyArgs']]:
+        """
+        The ScheduledEventsPolicy.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
+
+    @scheduled_events_policy.setter
+    def scheduled_events_policy(self, value: Optional[pulumi.Input['ScheduledEventsPolicyArgs']]):
+        pulumi.set(self, "scheduled_events_policy", value)
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
@@ -340,6 +380,18 @@ class VirtualMachineScaleSetArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="skuProfile")
+    def sku_profile(self) -> Optional[pulumi.Input['SkuProfileArgs']]:
+        """
+        Specifies the sku profile for the virtual machine scale set.
+        """
+        return pulumi.get(self, "sku_profile")
+
+    @sku_profile.setter
+    def sku_profile(self, value: Optional[pulumi.Input['SkuProfileArgs']]):
+        pulumi.set(self, "sku_profile", value)
 
     @property
     @pulumi.getter(name="spotRestorePolicy")
@@ -402,6 +454,18 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "vm_scale_set_name", value)
 
     @property
+    @pulumi.getter(name="zonalPlatformFaultDomainAlignMode")
+    def zonal_platform_fault_domain_align_mode(self) -> Optional[pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']]]:
+        """
+        Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+        """
+        return pulumi.get(self, "zonal_platform_fault_domain_align_mode")
+
+    @zonal_platform_fault_domain_align_mode.setter
+    def zonal_platform_fault_domain_align_mode(self, value: Optional[pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']]]):
+        pulumi.set(self, "zonal_platform_fault_domain_align_mode", value)
+
+    @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -417,7 +481,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        The virtual machine scale set zones.
         """
         return pulumi.get(self, "zones")
 
@@ -445,23 +509,25 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority_mix_policy: Optional[pulumi.Input[Union['PriorityMixPolicyArgs', 'PriorityMixPolicyArgsDict']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resiliency_policy: Optional[pulumi.Input[Union['ResiliencyPolicyArgs', 'ResiliencyPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_in_policy: Optional[pulumi.Input[Union['ScaleInPolicyArgs', 'ScaleInPolicyArgsDict']]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku_profile: Optional[pulumi.Input[Union['SkuProfileArgs', 'SkuProfileArgsDict']]] = None,
                  spot_restore_policy: Optional[pulumi.Input[Union['SpotRestorePolicyArgs', 'SpotRestorePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']]] = None,
                  virtual_machine_profile: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMProfileArgs', 'VirtualMachineScaleSetVMProfileArgsDict']]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                 zonal_platform_fault_domain_align_mode: Optional[pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Describes a Virtual Machine Scale Set.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -479,17 +545,21 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.
         :param pulumi.Input[Union['PriorityMixPolicyArgs', 'PriorityMixPolicyArgsDict']] priority_mix_policy: Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
+        :param pulumi.Input[Union['ResiliencyPolicyArgs', 'ResiliencyPolicyArgsDict']] resiliency_policy: Policy for Resiliency
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union['ScaleInPolicyArgs', 'ScaleInPolicyArgsDict']] scale_in_policy: Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
+        :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: The ScheduledEventsPolicy.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The virtual machine scale set sku.
+        :param pulumi.Input[Union['SkuProfileArgs', 'SkuProfileArgsDict']] sku_profile: Specifies the sku profile for the virtual machine scale set.
         :param pulumi.Input[Union['SpotRestorePolicyArgs', 'SpotRestorePolicyArgsDict']] spot_restore_policy: Specifies the Spot Restore properties for the virtual machine scale set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']] upgrade_policy: The upgrade policy.
         :param pulumi.Input[Union['VirtualMachineScaleSetVMProfileArgs', 'VirtualMachineScaleSetVMProfileArgsDict']] virtual_machine_profile: The virtual machine profile.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set to create or update.
+        :param pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']] zonal_platform_fault_domain_align_mode: Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
         :param pulumi.Input[bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones.
         """
         ...
     @overload
@@ -499,9 +569,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetArgs args: The arguments to use to populate this resource's properties.
@@ -532,15 +600,19 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority_mix_policy: Optional[pulumi.Input[Union['PriorityMixPolicyArgs', 'PriorityMixPolicyArgsDict']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resiliency_policy: Optional[pulumi.Input[Union['ResiliencyPolicyArgs', 'ResiliencyPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_in_policy: Optional[pulumi.Input[Union['ScaleInPolicyArgs', 'ScaleInPolicyArgsDict']]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku_profile: Optional[pulumi.Input[Union['SkuProfileArgs', 'SkuProfileArgsDict']]] = None,
                  spot_restore_policy: Optional[pulumi.Input[Union['SpotRestorePolicyArgs', 'SpotRestorePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']]] = None,
                  virtual_machine_profile: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMProfileArgs', 'VirtualMachineScaleSetVMProfileArgsDict']]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                 zonal_platform_fault_domain_align_mode: Optional[pulumi.Input[Union[str, 'ZonalPlatformFaultDomainAlignMode']]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -566,25 +638,31 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
             __props__.__dict__["priority_mix_policy"] = priority_mix_policy
             __props__.__dict__["proximity_placement_group"] = proximity_placement_group
+            __props__.__dict__["resiliency_policy"] = resiliency_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scale_in_policy"] = scale_in_policy
+            __props__.__dict__["scheduled_events_policy"] = scheduled_events_policy
             __props__.__dict__["single_placement_group"] = single_placement_group
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["sku_profile"] = sku_profile
             __props__.__dict__["spot_restore_policy"] = spot_restore_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
+            __props__.__dict__["zonal_platform_fault_domain_align_mode"] = zonal_platform_fault_domain_align_mode
             __props__.__dict__["zone_balance"] = zone_balance
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachineScaleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20241101:VirtualMachineScaleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSet, __self__).__init__(
             'azure-native:compute:VirtualMachineScaleSet',
@@ -610,8 +688,10 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
         __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["automatic_repairs_policy"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["constrained_maximum_capacity"] = None
         __props__.__dict__["do_not_run_extensions_on_overprovisioned_vms"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["host_group"] = None
         __props__.__dict__["identity"] = None
@@ -624,9 +704,12 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["priority_mix_policy"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["proximity_placement_group"] = None
+        __props__.__dict__["resiliency_policy"] = None
         __props__.__dict__["scale_in_policy"] = None
+        __props__.__dict__["scheduled_events_policy"] = None
         __props__.__dict__["single_placement_group"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["sku_profile"] = None
         __props__.__dict__["spot_restore_policy"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
@@ -634,6 +717,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["unique_id"] = None
         __props__.__dict__["upgrade_policy"] = None
         __props__.__dict__["virtual_machine_profile"] = None
+        __props__.__dict__["zonal_platform_fault_domain_align_mode"] = None
         __props__.__dict__["zone_balance"] = None
         __props__.__dict__["zones"] = None
         return VirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
@@ -655,6 +739,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "automatic_repairs_policy")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="constrainedMaximumCapacity")
     def constrained_maximum_capacity(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -669,6 +761,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_vms")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Etag is property returned in Create/Update/Get response of the VMSS, so that customer can supply it in the header to ensure optimistic updates
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -767,12 +867,28 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "proximity_placement_group")
 
     @property
+    @pulumi.getter(name="resiliencyPolicy")
+    def resiliency_policy(self) -> pulumi.Output[Optional['outputs.ResiliencyPolicyResponse']]:
+        """
+        Policy for Resiliency
+        """
+        return pulumi.get(self, "resiliency_policy")
+
+    @property
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> pulumi.Output[Optional['outputs.ScaleInPolicyResponse']]:
         """
         Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         """
         return pulumi.get(self, "scale_in_policy")
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> pulumi.Output[Optional['outputs.ScheduledEventsPolicyResponse']]:
+        """
+        The ScheduledEventsPolicy.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
@@ -789,6 +905,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         The virtual machine scale set sku.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="skuProfile")
+    def sku_profile(self) -> pulumi.Output[Optional['outputs.SkuProfileResponse']]:
+        """
+        Specifies the sku profile for the virtual machine scale set.
+        """
+        return pulumi.get(self, "sku_profile")
 
     @property
     @pulumi.getter(name="spotRestorePolicy")
@@ -847,6 +971,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "virtual_machine_profile")
 
     @property
+    @pulumi.getter(name="zonalPlatformFaultDomainAlignMode")
+    def zonal_platform_fault_domain_align_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+        """
+        return pulumi.get(self, "zonal_platform_fault_domain_align_mode")
+
+    @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -858,7 +990,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        The virtual machine scale set zones.
         """
         return pulumi.get(self, "zones")
 

@@ -154,9 +154,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Push settings for the App.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,9 +177,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Push settings for the App.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSitePushSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -227,6 +223,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tag_whitelist_json"] = tag_whitelist_json
             __props__.__dict__["tags_requiring_auth"] = tags_requiring_auth
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSitePushSettings"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppSitePushSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -252,6 +249,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
 
         __props__ = WebAppSitePushSettingsArgs.__new__(WebAppSitePushSettingsArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dynamic_tags_json"] = None
         __props__.__dict__["is_push_enabled"] = None
         __props__.__dict__["kind"] = None
@@ -260,6 +258,14 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         __props__.__dict__["tags_requiring_auth"] = None
         __props__.__dict__["type"] = None
         return WebAppSitePushSettings(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dynamicTagsJson")

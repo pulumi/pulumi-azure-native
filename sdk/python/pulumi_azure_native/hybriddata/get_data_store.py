@@ -27,7 +27,10 @@ class GetDataStoreResult:
     """
     Data store.
     """
-    def __init__(__self__, customer_secrets=None, data_store_type_id=None, extended_properties=None, id=None, name=None, repository_id=None, state=None, type=None):
+    def __init__(__self__, azure_api_version=None, customer_secrets=None, data_store_type_id=None, extended_properties=None, id=None, name=None, repository_id=None, state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if customer_secrets and not isinstance(customer_secrets, list):
             raise TypeError("Expected argument 'customer_secrets' to be a list")
         pulumi.set(__self__, "customer_secrets", customer_secrets)
@@ -52,6 +55,14 @@ class GetDataStoreResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerSecrets")
@@ -124,6 +135,7 @@ class AwaitableGetDataStoreResult(GetDataStoreResult):
         if False:
             yield self
         return GetDataStoreResult(
+            azure_api_version=self.azure_api_version,
             customer_secrets=self.customer_secrets,
             data_store_type_id=self.data_store_type_id,
             extended_properties=self.extended_properties,
@@ -155,6 +167,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybriddata:getDataStore', __args__, opts=opts, typ=GetDataStoreResult).value
 
     return AwaitableGetDataStoreResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         customer_secrets=pulumi.get(__ret__, 'customer_secrets'),
         data_store_type_id=pulumi.get(__ret__, 'data_store_type_id'),
         extended_properties=pulumi.get(__ret__, 'extended_properties'),
@@ -183,6 +196,7 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybriddata:getDataStore', __args__, opts=opts, typ=GetDataStoreResult)
     return __ret__.apply(lambda __response__: GetDataStoreResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         customer_secrets=pulumi.get(__response__, 'customer_secrets'),
         data_store_type_id=pulumi.get(__response__, 'data_store_type_id'),
         extended_properties=pulumi.get(__response__, 'extended_properties'),

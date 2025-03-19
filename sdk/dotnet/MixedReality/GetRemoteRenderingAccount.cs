@@ -12,28 +12,46 @@ namespace Pulumi.AzureNative.MixedReality
     public static class GetRemoteRenderingAccount
     {
         /// <summary>
-        /// Retrieve a Remote Rendering Account.
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve a Remote Rendering Account.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve a Remote Rendering Account.
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve a Remote Rendering Account.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetRemoteRenderingAccountResult> Invoke(GetRemoteRenderingAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteRenderingAccountResult>("azure-native:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve a Remote Rendering Account.
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve a Remote Rendering Account.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetRemoteRenderingAccountResult> Invoke(GetRemoteRenderingAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteRenderingAccountResult>("azure-native:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountInvokeArgs(), options.WithDefaults());
@@ -93,6 +111,10 @@ namespace Pulumi.AzureNative.MixedReality
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -143,6 +165,8 @@ namespace Pulumi.AzureNative.MixedReality
 
             string accountId,
 
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -167,6 +191,7 @@ namespace Pulumi.AzureNative.MixedReality
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Kind = kind;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowProfile Diagnostics properties
+    /// DataflowProfile Diagnostics properties
     /// </summary>
     public sealed class ProfileDiagnosticsArgs : global::Pulumi.ResourceArgs
     {

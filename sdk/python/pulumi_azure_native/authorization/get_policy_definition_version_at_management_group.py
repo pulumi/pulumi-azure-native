@@ -27,7 +27,10 @@ class GetPolicyDefinitionVersionAtManagementGroupResult:
     """
     The ID of the policy definition version.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, system_data=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,6 +67,14 @@ class GetPolicyDefinitionVersionAtManagementGroupResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetPolicyDefinitionVersionAtManagementGroupResult(GetPolicyDefini
         if False:
             yield self
         return GetPolicyDefinitionVersionAtManagementGroupResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -188,9 +200,7 @@ def get_policy_definition_version_at_management_group(management_group_name: Opt
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionVersionAtManagementGroupResult:
     """
     This operation retrieves the policy definition version in the given management group with the given name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str management_group_name: The name of the management group. The name is case insensitive.
@@ -205,6 +215,7 @@ def get_policy_definition_version_at_management_group(management_group_name: Opt
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup', __args__, opts=opts, typ=GetPolicyDefinitionVersionAtManagementGroupResult).value
 
     return AwaitableGetPolicyDefinitionVersionAtManagementGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -223,9 +234,7 @@ def get_policy_definition_version_at_management_group_output(management_group_na
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionVersionAtManagementGroupResult]:
     """
     This operation retrieves the policy definition version in the given management group with the given name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str management_group_name: The name of the management group. The name is case insensitive.
@@ -239,6 +248,7 @@ def get_policy_definition_version_at_management_group_output(management_group_na
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup', __args__, opts=opts, typ=GetPolicyDefinitionVersionAtManagementGroupResult)
     return __ret__.apply(lambda __response__: GetPolicyDefinitionVersionAtManagementGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

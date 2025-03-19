@@ -105,29 +105,10 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				}
 			}
 
-			// https://github.com/Azure/azure-rest-api-specs/issues/21431
-			// - incompatible type "azure-native:network:SubResource" for resource "DnsForwardingRuleset" ("azure-native:network:DnsForwardingRuleset"): required properties do not match: only required in A: id
-			// - incompatible type "azure-native:network/v20230701preview:SubResource" for resource "NspAssociation" ("azure-native:network/v20230701preview:NspAssociation"): required properties do not match: only required in B: id
-			if tok == "azure-native:network/v20220701:SubResource" || tok == "azure-native:network/v20230701preview:SubResource" || tok == "azure-native:network:SubResource" {
-				props.requiredProperties.Delete("id")
-				props.requiredSpecs.Delete("id")
-			}
 			// incompatible type "azure-native:network:SecurityRule" for resource "LoadBalancer" ("azure-native:network:LoadBalancer"): required properties do not match: only required in A: priority
 			if tok == "azure-native:network:SecurityRule" {
 				props.requiredProperties.Delete("priority")
 				props.requiredSpecs.Delete("priority")
-			}
-			// incompatible type "azure-native:scvmm:GuestCredential" for resource "VMInstanceGuestAgent" ("azure-native:scvmm:VMInstanceGuestAgent"): required properties do not match: only required in A: password,username
-			if tok == "azure-native:scvmm:GuestCredential" {
-				props.requiredProperties.Delete("password")
-				props.requiredSpecs.Delete("password")
-				props.requiredProperties.Delete("username")
-				props.requiredSpecs.Delete("username")
-			}
-			// incompatible type "azure-native:testbase:TargetOSInfo" for resource "Package" ("azure-native:testbase:Package"): required properties do not match: only required in A: targetOSs
-			if tok == "azure-native:testbase:TargetOSInfo" {
-				props.requiredProperties.Delete("targetOSs")
-				props.requiredSpecs.Delete("targetOSs")
 			}
 			// incompatible type "azure-native:containerinstance:Container" for resource "ContainerGroupProfile"
 			// ("azure-native:containerinstance:ContainerGroupProfile"): required properties do not match: only
@@ -149,14 +130,6 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			}
 
 			if existing, has := m.pkg.Types[tok]; has {
-				// Work around error
-				//     incompatible type "azure-native:netapp:ReplicationObject" for resource "VolumeGroup"
-				//     ("azure-native:netapp:VolumeGroup"): required properties do not match: only required in B:
-				//     replicationSchedule"
-				// Originally tracked by https://github.com/pulumi/pulumi-azure-native/issues/1606 but still happening.
-				if tok == "azure-native:netapp:ReplicationObject" && len(existing.Properties) == 5 {
-					existing = spec
-				}
 				merged, err := mergeTypes(spec, existing, isOutput)
 				if err != nil {
 					return nil, errors.Wrapf(err, "incompatible type %q for resource %q (%q)", tok, m.resourceName,

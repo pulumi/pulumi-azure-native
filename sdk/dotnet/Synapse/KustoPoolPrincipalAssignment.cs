@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
-    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPoolPrincipalAssignment")]
     public partial class KustoPoolPrincipalAssignment : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("aadObjectId")]
         public Output<string> AadObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

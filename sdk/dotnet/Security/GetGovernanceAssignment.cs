@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.GovernanceAssignmentAdditionalDataResponse? AdditionalData;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         /// </summary>
         public readonly Outputs.GovernanceEmailNotificationResponse? GovernanceEmailNotification;
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNative.Security
         private GetGovernanceAssignmentResult(
             Outputs.GovernanceAssignmentAdditionalDataResponse? additionalData,
 
+            string azureApiVersion,
+
             Outputs.GovernanceEmailNotificationResponse? governanceEmailNotification,
 
             string id,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AdditionalData = additionalData;
+            AzureApiVersion = azureApiVersion;
             GovernanceEmailNotification = governanceEmailNotification;
             Id = id;
             IsGracePeriod = isGracePeriod;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-09-01, 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -78,10 +80,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

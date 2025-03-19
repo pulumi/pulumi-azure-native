@@ -34,11 +34,3 @@ from .role_assignment import *
 from .view import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.customerinsights.v20170426 as __v20170426
-    v20170426 = __v20170426
-else:
-    v20170426 = _utilities.lazy_import('pulumi_azure_native.customerinsights.v20170426')
-

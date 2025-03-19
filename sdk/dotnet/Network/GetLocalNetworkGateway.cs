@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified local network gateway in a resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified local network gateway in a resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetLocalNetworkGatewayResult> Invoke(GetLocalNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified local network gateway in a resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetLocalNetworkGatewayResult> Invoke(GetLocalNetworkGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetLocalNetworkGatewayResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Local network gateway's BGP speaker settings.
         /// </summary>
         public readonly Outputs.BgpSettingsResponse? BgpSettings;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetLocalNetworkGatewayResult(
+            string azureApiVersion,
+
             Outputs.BgpSettingsResponse? bgpSettings,
 
             string etag,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BgpSettings = bgpSettings;
             Etag = etag;
             Fqdn = fqdn;

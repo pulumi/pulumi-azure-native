@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
+    /// Describes the properties of an existing Shared Private Link Resource managed by the search service.
     /// </summary>
     [OutputType]
     public sealed class SharedPrivateLinkResourcePropertiesResponse
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string? PrivateLinkResourceId;
         /// <summary>
-        /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        /// The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string? ResourceRegion;
         /// <summary>
-        /// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+        /// Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
         /// </summary>
         public readonly string? Status;
 

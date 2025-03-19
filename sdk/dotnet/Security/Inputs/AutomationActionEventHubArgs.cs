@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Security.Inputs
         [Input("eventHubResourceId")]
         public Input<string>? EventHubResourceId { get; set; }
 
+        /// <summary>
+        /// Indicates whether the trusted service is enabled or not.
+        /// </summary>
+        [Input("isTrustedServiceEnabled")]
+        public Input<bool>? IsTrustedServiceEnabled { get; set; }
+
         public AutomationActionEventHubArgs()
         {
         }

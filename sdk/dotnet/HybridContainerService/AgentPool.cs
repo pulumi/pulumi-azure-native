@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// The agentPool resource definition
-    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+    /// Azure REST API version: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The underlying cloud infra provider properties.
@@ -156,10 +162,9 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:AgentPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:agentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:AgentPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:agentPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:agentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:AgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

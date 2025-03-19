@@ -147,9 +147,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Active Directory administrator.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,9 +167,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Active Directory administrator.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param ServerAzureADAdministratorArgs args: The arguments to use to populate this resource's properties.
@@ -222,6 +218,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             __props__.__dict__["sid"] = sid
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["azure_ad_only_authentication"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20190601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230201preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ServerAzureADAdministrator")])
@@ -250,6 +247,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
         __props__.__dict__["administrator_type"] = None
         __props__.__dict__["azure_ad_only_authentication"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sid"] = None
@@ -272,6 +270,14 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

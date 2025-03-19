@@ -27,10 +27,13 @@ class GetOuContainerResult:
     """
     Resource for OuContainer.
     """
-    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, id=None, location=None, name=None, provisioning_state=None, service_status=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, accounts=None, azure_api_version=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, id=None, location=None, name=None, provisioning_state=None, service_status=None, system_data=None, tags=None, tenant_id=None, type=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container_id and not isinstance(container_id, str):
             raise TypeError("Expected argument 'container_id' to be a str")
         pulumi.set(__self__, "container_id", container_id)
@@ -81,6 +84,14 @@ class GetOuContainerResult:
         The list of container accounts
         """
         return pulumi.get(self, "accounts")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="containerId")
@@ -202,6 +213,7 @@ class AwaitableGetOuContainerResult(GetOuContainerResult):
             yield self
         return GetOuContainerResult(
             accounts=self.accounts,
+            azure_api_version=self.azure_api_version,
             container_id=self.container_id,
             deployment_id=self.deployment_id,
             distinguished_name=self.distinguished_name,
@@ -240,6 +252,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
 
     return AwaitableGetOuContainerResult(
         accounts=pulumi.get(__ret__, 'accounts'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container_id=pulumi.get(__ret__, 'container_id'),
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         distinguished_name=pulumi.get(__ret__, 'distinguished_name'),
@@ -275,6 +288,7 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:aad:getOuContainer', __args__, opts=opts, typ=GetOuContainerResult)
     return __ret__.apply(lambda __response__: GetOuContainerResult(
         accounts=pulumi.get(__response__, 'accounts'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container_id=pulumi.get(__response__, 'container_id'),
         deployment_id=pulumi.get(__response__, 'deployment_id'),
         distinguished_name=pulumi.get(__response__, 'distinguished_name'),

@@ -165,9 +165,7 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Policy Contract details.
-        Azure REST API version: 2022-09-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,9 +186,7 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Contract details.
-        Azure REST API version: 2022-09-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApiOperationPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -246,6 +242,7 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceApiOperationPolicy")])
@@ -272,11 +269,20 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
 
         __props__ = WorkspaceApiOperationPolicyArgs.__new__(WorkspaceApiOperationPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["format"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["value"] = None
         return WorkspaceApiOperationPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

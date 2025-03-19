@@ -10,14 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
-    /// Information about azure databricks accessConnector.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-    /// 
-    /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+    /// Information about Azure Databricks Access Connector.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
@@ -37,7 +41,7 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Databricks accessConnector properties
+        /// Azure Databricks Access Connector properties
         /// </summary>
         [Output("properties")]
         public Output<Outputs.AccessConnectorPropertiesResponse> Properties { get; private set; } = null!;
@@ -114,7 +118,7 @@ namespace Pulumi.AzureNative.Databricks
     public sealed class AccessConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the azure databricks accessConnector.
+        /// The name of the Azure Databricks Access Connector.
         /// </summary>
         [Input("connectorName")]
         public Input<string>? ConnectorName { get; set; }

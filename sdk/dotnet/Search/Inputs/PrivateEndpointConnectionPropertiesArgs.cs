@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+    /// Describes the properties of an existing Private Endpoint connection to the search service.
     /// </summary>
     public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Search.Inputs
         public Input<Inputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
-        /// The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        /// The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
         /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.Search.PrivateLinkServiceConnectionProvisioningState>? ProvisioningState { get; set; }

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List product families for the given subscription.
- * Azure REST API version: 2022-05-01-preview.
- *
- * Other available API versions: 2024-02-01.
+ * Azure REST API version: 2024-02-01.
  */
 export function listProductsAndConfigurationProductFamilies(args: ListProductsAndConfigurationProductFamiliesArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsAndConfigurationProductFamiliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,9 +55,7 @@ export interface ListProductsAndConfigurationProductFamiliesResult {
 }
 /**
  * List product families for the given subscription.
- * Azure REST API version: 2022-05-01-preview.
- *
- * Other available API versions: 2024-02-01.
+ * Azure REST API version: 2024-02-01.
  */
 export function listProductsAndConfigurationProductFamiliesOutput(args: ListProductsAndConfigurationProductFamiliesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductsAndConfigurationProductFamiliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

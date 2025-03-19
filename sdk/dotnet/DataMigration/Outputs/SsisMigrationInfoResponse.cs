@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string? ProjectOverwriteOption;
         /// <summary>
-        /// The SSIS store type of source, only SSIS catalog is supported now in DMS
+        /// The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         /// </summary>
         public readonly string? SsisStoreType;
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Change data capture resource type.
-    /// Azure REST API version: 2018-06-01.
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:ChangeDataCapture")]
     public partial class ChangeDataCapture : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         [Output("allowVNetOverride")]
         public Output<bool?> AllowVNetOverride { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The description of the change data capture.

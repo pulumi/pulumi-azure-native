@@ -182,7 +182,7 @@ class MarkupRule(pulumi.CustomResource):
                  __props__=None):
         """
         Markup rule
-        Azure REST API version: 2022-10-05-preview.
+        Azure REST API version: 2022-10-05-preview. Prior API version in Azure Native 2.x: 2022-10-05-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class MarkupRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Markup rule
-        Azure REST API version: 2022-10-05-preview.
+        Azure REST API version: 2022-10-05-preview. Prior API version in Azure Native 2.x: 2022-10-05-preview.
 
         :param str resource_name: The name of the resource.
         :param MarkupRuleArgs args: The arguments to use to populate this resource's properties.
@@ -258,6 +258,7 @@ class MarkupRule(pulumi.CustomResource):
             if start_date is None and not opts.urn:
                 raise TypeError("Missing required property 'start_date'")
             __props__.__dict__["start_date"] = start_date
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:MarkupRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -283,6 +284,7 @@ class MarkupRule(pulumi.CustomResource):
 
         __props__ = MarkupRuleArgs.__new__(MarkupRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["customer_details"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["e_tag"] = None
@@ -292,6 +294,14 @@ class MarkupRule(pulumi.CustomResource):
         __props__.__dict__["start_date"] = None
         __props__.__dict__["type"] = None
         return MarkupRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerDetails")

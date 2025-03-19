@@ -27,7 +27,10 @@ class GetCIAMTenantResult:
     """
     The Azure AD for customers resource.
     """
-    def __init__(__self__, billing_type=None, create_tenant_properties=None, domain_name=None, effective_start_date_utc=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, billing_type=None, create_tenant_properties=None, domain_name=None, effective_start_date_utc=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if billing_type and not isinstance(billing_type, str):
             raise TypeError("Expected argument 'billing_type' to be a str")
         pulumi.set(__self__, "billing_type", billing_type)
@@ -67,6 +70,14 @@ class GetCIAMTenantResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingType")
@@ -176,6 +187,7 @@ class AwaitableGetCIAMTenantResult(GetCIAMTenantResult):
         if False:
             yield self
         return GetCIAMTenantResult(
+            azure_api_version=self.azure_api_version,
             billing_type=self.billing_type,
             create_tenant_properties=self.create_tenant_properties,
             domain_name=self.domain_name,
@@ -209,6 +221,7 @@ def get_ciam_tenant(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azureactivedirectory:getCIAMTenant', __args__, opts=opts, typ=GetCIAMTenantResult).value
 
     return AwaitableGetCIAMTenantResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         billing_type=pulumi.get(__ret__, 'billing_type'),
         create_tenant_properties=pulumi.get(__ret__, 'create_tenant_properties'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
@@ -239,6 +252,7 @@ def get_ciam_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azureactivedirectory:getCIAMTenant', __args__, opts=opts, typ=GetCIAMTenantResult)
     return __ret__.apply(lambda __response__: GetCIAMTenantResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         billing_type=pulumi.get(__response__, 'billing_type'),
         create_tenant_properties=pulumi.get(__response__, 'create_tenant_properties'),
         domain_name=pulumi.get(__response__, 'domain_name'),

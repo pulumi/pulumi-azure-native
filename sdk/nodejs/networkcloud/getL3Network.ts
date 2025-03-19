@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided layer 3 (L3) network.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getL3Network(args: GetL3NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL3NetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetL3NetworkResult {
      */
     readonly associatedResourceIds: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID of the Network Cloud cluster this L3 network is associated with.
      */
     readonly clusterId: string;
@@ -49,6 +51,10 @@ export interface GetL3NetworkResult {
      * The descriptive message about the current detailed status.
      */
     readonly detailedStatusMessage: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -126,9 +132,7 @@ export interface GetL3NetworkResult {
 }
 /**
  * Get properties of the provided layer 3 (L3) network.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL3NetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

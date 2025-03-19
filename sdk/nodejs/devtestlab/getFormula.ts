@@ -49,6 +49,10 @@ export interface GetFormulaResult {
      */
     readonly author: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the formula.
      */
     readonly creationDate: string;

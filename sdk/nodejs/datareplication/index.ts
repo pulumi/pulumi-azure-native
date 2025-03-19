@@ -69,13 +69,6 @@ utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 // Export enums:
 export * from "../types/enums/datareplication";
 
-// Export sub-modules:
-import * as v20210216preview from "./v20210216preview";
-
-export {
-    v20210216preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

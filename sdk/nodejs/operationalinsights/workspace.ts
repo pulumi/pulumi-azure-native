@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Workspace resource container.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
- *
- * Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Workspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workspace.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Workspace creation date.
      */
@@ -148,6 +150,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -158,6 +161,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;
             resourceInputs["defaultDataCollectionRuleResourceId"] = undefined /*out*/;
@@ -180,7 +184,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceCapping"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20210601:Workspace" }, { type: "azure-native:operationalinsights/v20211201preview:Workspace" }, { type: "azure-native:operationalinsights/v20221001:Workspace" }, { type: "azure-native:operationalinsights/v20230901:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20210601:Workspace" }, { type: "azure-native:operationalinsights/v20211201preview:Workspace" }, { type: "azure-native:operationalinsights/v20221001:Workspace" }, { type: "azure-native:operationalinsights/v20230901:Workspace" }, { type: "azure-native:operationalinsights/v20250201:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

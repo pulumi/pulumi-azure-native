@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Database extends pulumi.CustomResource {
      * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
      */
     public readonly autoPauseDelay!: pulumi.Output<number | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Collation of the metadata catalog.
      */
@@ -248,6 +250,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["currentServiceObjectiveName"] = undefined /*out*/;
@@ -268,6 +271,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["autoPauseDelay"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["catalogCollation"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

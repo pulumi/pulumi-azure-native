@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForServersGcpOfferingVmScannersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// configuration for Microsoft Defender for Server VM scanning
+        /// Configuration for VM scanning
         /// </summary>
         [Input("configuration")]
-        public Input<Inputs.DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgs>? Configuration { get; set; }
+        public Input<Inputs.VmScannersBaseConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Is Microsoft Defender for Server VM scanning enabled
+        /// Is VM scanning enabled
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

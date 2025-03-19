@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class HyperVReplicaAzureReplicationDetailsResponse
     {
         /// <summary>
+        /// A value indicating all available inplace OS Upgrade configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OSUpgradeSupportedVersionsResponse> AllAvailableOSUpgradeConfigurations;
+        /// <summary>
         /// Azure VM Disk details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureVmDiskDetailsResponse> AzureVmDiskDetails;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// License Type of the VM to be used.
         /// </summary>
         public readonly string? LicenseType;
+        /// <summary>
+        /// The license type for Linux VM's.
+        /// </summary>
+        public readonly string? LinuxLicenseType;
         /// <summary>
         /// The operating system info.
         /// </summary>
@@ -130,6 +138,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TargetProximityPlacementGroupId;
         /// <summary>
+        /// The target VM security profile.
+        /// </summary>
+        public readonly Outputs.SecurityProfilePropertiesResponse? TargetVmSecurityProfile;
+        /// <summary>
         /// The target VM tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TargetVmTags;
@@ -156,6 +168,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private HyperVReplicaAzureReplicationDetailsResponse(
+            ImmutableArray<Outputs.OSUpgradeSupportedVersionsResponse> allAvailableOSUpgradeConfigurations,
+
             ImmutableArray<Outputs.AzureVmDiskDetailsResponse> azureVmDiskDetails,
 
             string? enableRdpOnTargetOption,
@@ -173,6 +187,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string? lastRpoCalculatedTime,
 
             string? licenseType,
+
+            string? linuxLicenseType,
 
             Outputs.OSDetailsResponse? oSDetails,
 
@@ -212,6 +228,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? targetProximityPlacementGroupId,
 
+            Outputs.SecurityProfilePropertiesResponse? targetVmSecurityProfile,
+
             ImmutableDictionary<string, string>? targetVmTags,
 
             string? useManagedDisks,
@@ -224,6 +242,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? vmProtectionStateDescription)
         {
+            AllAvailableOSUpgradeConfigurations = allAvailableOSUpgradeConfigurations;
             AzureVmDiskDetails = azureVmDiskDetails;
             EnableRdpOnTargetOption = enableRdpOnTargetOption;
             Encryption = encryption;
@@ -233,6 +252,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             LastReplicatedTime = lastReplicatedTime;
             LastRpoCalculatedTime = lastRpoCalculatedTime;
             LicenseType = licenseType;
+            LinuxLicenseType = linuxLicenseType;
             OSDetails = oSDetails;
             ProtectedManagedDisks = protectedManagedDisks;
             RecoveryAvailabilitySetId = recoveryAvailabilitySetId;
@@ -252,6 +272,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             TargetManagedDiskTags = targetManagedDiskTags;
             TargetNicTags = targetNicTags;
             TargetProximityPlacementGroupId = targetProximityPlacementGroupId;
+            TargetVmSecurityProfile = targetVmSecurityProfile;
             TargetVmTags = targetVmTags;
             UseManagedDisks = useManagedDisks;
             VmId = vmId;

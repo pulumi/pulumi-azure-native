@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A schedule.
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Schedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schedule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of the schedule.
      */
@@ -129,11 +133,13 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["taskType"] = args ? args.taskType : undefined;
             resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
             resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["dailyRecurrence"] = undefined /*out*/;
             resourceInputs["hourlyRecurrence"] = undefined /*out*/;

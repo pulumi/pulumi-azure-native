@@ -27,10 +27,13 @@ class GetLoadBalancerResult:
     """
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
     """
-    def __init__(__self__, allow_service_placement=None, id=None, name=None, node_selector=None, primary_agent_pool_name=None, provisioning_state=None, service_label_selector=None, service_namespace_selector=None, system_data=None, type=None):
+    def __init__(__self__, allow_service_placement=None, azure_api_version=None, id=None, name=None, node_selector=None, primary_agent_pool_name=None, provisioning_state=None, service_label_selector=None, service_namespace_selector=None, system_data=None, type=None):
         if allow_service_placement and not isinstance(allow_service_placement, bool):
             raise TypeError("Expected argument 'allow_service_placement' to be a bool")
         pulumi.set(__self__, "allow_service_placement", allow_service_placement)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -66,6 +69,14 @@ class GetLoadBalancerResult:
         Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
         """
         return pulumi.get(self, "allow_service_placement")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             yield self
         return GetLoadBalancerResult(
             allow_service_placement=self.allow_service_placement,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             node_selector=self.node_selector,
@@ -164,9 +176,7 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-    Azure REST API version: 2024-03-02-preview.
-
-    Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str load_balancer_name: The name of the load balancer.
@@ -182,6 +192,7 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
 
     return AwaitableGetLoadBalancerResult(
         allow_service_placement=pulumi.get(__ret__, 'allow_service_placement'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         node_selector=pulumi.get(__ret__, 'node_selector'),
@@ -197,9 +208,7 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-    Azure REST API version: 2024-03-02-preview.
-
-    Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str load_balancer_name: The name of the load balancer.
@@ -214,6 +223,7 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         allow_service_placement=pulumi.get(__response__, 'allow_service_placement'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         node_selector=pulumi.get(__response__, 'node_selector'),

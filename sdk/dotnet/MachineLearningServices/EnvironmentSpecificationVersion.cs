@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 2.x: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:EnvironmentSpecificationVersion")]
     public partial class EnvironmentSpecificationVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:EnvironmentSpecificationVersion" },
@@ -74,16 +81,29 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:EnvironmentSpecificationVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:EnvironmentVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:EnvironmentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:EnvironmentSpecificationVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:EnvironmentVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a workload classifier of Sql pool's workload group.
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetSqlPoolWorkloadClassifierResult> InvokeAsync(GetSqlPoolWorkloadClassifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a workload classifier of Sql pool's workload group.
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlPoolWorkloadClassifierResult> Invoke(GetSqlPoolWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a workload classifier of Sql pool's workload group.
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlPoolWorkloadClassifierResult> Invoke(GetSqlPoolWorkloadClassifierInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetSqlPoolWorkloadClassifierResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The workload classifier context.
         /// </summary>
         public readonly string? Context;
@@ -159,6 +157,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetSqlPoolWorkloadClassifierResult(
+            string azureApiVersion,
+
             string? context,
 
             string? endTime,
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Context = context;
             EndTime = endTime;
             Id = id;

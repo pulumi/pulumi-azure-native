@@ -25,7 +25,7 @@ class ClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  billing_type: Optional[pulumi.Input[Union[str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  is_double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
@@ -37,7 +37,7 @@ class ClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'BillingType']] billing_type: The cluster's billing type.
         :param pulumi.Input[str] cluster_name: The name of the Log Analytics cluster.
-        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Resource's identity.
         :param pulumi.Input[bool] is_availability_zones_enabled: Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         :param pulumi.Input[bool] is_double_encryption_enabled: Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: The associated key properties.
@@ -103,14 +103,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        The identity of the resource.
+        Resource's identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -193,7 +193,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_type: Optional[pulumi.Input[Union[str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  is_double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
@@ -204,15 +204,13 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         The top level Log Analytics cluster resource container.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
-
-        Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'BillingType']] billing_type: The cluster's billing type.
         :param pulumi.Input[str] cluster_name: The name of the Log Analytics cluster.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Resource's identity.
         :param pulumi.Input[bool] is_availability_zones_enabled: Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         :param pulumi.Input[bool] is_double_encryption_enabled: Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
         :param pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']] key_vault_properties: The associated key properties.
@@ -229,9 +227,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level Log Analytics cluster resource container.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
-
-        Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -250,7 +246,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_type: Optional[pulumi.Input[Union[str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  is_double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
@@ -280,6 +276,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_workspaces"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["capacity_reservation_properties"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["created_date"] = None
@@ -287,7 +284,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:operationalinsights:Cluster',
@@ -312,6 +309,7 @@ class Cluster(pulumi.CustomResource):
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
         __props__.__dict__["associated_workspaces"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["billing_type"] = None
         __props__.__dict__["capacity_reservation_properties"] = None
         __props__.__dict__["cluster_id"] = None
@@ -336,6 +334,14 @@ class Cluster(pulumi.CustomResource):
         The list of Log Analytics workspaces associated with the cluster
         """
         return pulumi.get(self, "associated_workspaces")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingType")
@@ -371,9 +377,9 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        The identity of the resource.
+        Resource's identity.
         """
         return pulumi.get(self, "identity")
 

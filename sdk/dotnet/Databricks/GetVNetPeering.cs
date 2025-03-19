@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Databricks
     {
         /// <summary>
         /// Gets the workspace vNet Peering.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetVNetPeeringResult> InvokeAsync(GetVNetPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the workspace vNet Peering.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the workspace vNet Peering.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly bool? AllowVirtualNetworkAccess;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The reference to the databricks virtual network address space.
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? DatabricksAddressSpace;
@@ -151,6 +155,8 @@ namespace Pulumi.AzureNative.Databricks
 
             bool? allowVirtualNetworkAccess,
 
+            string azureApiVersion,
+
             Outputs.AddressSpaceResponse? databricksAddressSpace,
 
             Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? databricksVirtualNetwork,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.Databricks
             AllowForwardedTraffic = allowForwardedTraffic;
             AllowGatewayTransit = allowGatewayTransit;
             AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
+            AzureApiVersion = azureApiVersion;
             DatabricksAddressSpace = databricksAddressSpace;
             DatabricksVirtualNetwork = databricksVirtualNetwork;
             Id = id;

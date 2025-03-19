@@ -96,9 +96,7 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
                  __props__=None):
         """
         Database Migration Resource for SQL Database.
-        Azure REST API version: 2022-03-30-preview. Prior API version in Azure Native 1.x: 2022-03-30-preview.
-
-        Other available API versions: 2023-07-15-preview.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2022-03-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,9 +112,7 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Database Migration Resource for SQL Database.
-        Azure REST API version: 2022-03-30-preview. Prior API version in Azure Native 1.x: 2022-03-30-preview.
-
-        Other available API versions: 2023-07-15-preview.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2022-03-30-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsSqlDbArgs args: The arguments to use to populate this resource's properties.
@@ -154,6 +150,7 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_db_instance_name'")
             __props__.__dict__["sql_db_instance_name"] = sql_db_instance_name
             __props__.__dict__["target_db_name"] = target_db_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -181,11 +178,20 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
 
         __props__ = DatabaseMigrationsSqlDbArgs.__new__(DatabaseMigrationsSqlDbArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DatabaseMigrationsSqlDb(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -12,17 +12,3 @@ from .trigger import *
 from .virtual_machine_image_template import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.virtualmachineimages.v20220701 as __v20220701
-    v20220701 = __v20220701
-    import pulumi_azure_native.virtualmachineimages.v20230701 as __v20230701
-    v20230701 = __v20230701
-    import pulumi_azure_native.virtualmachineimages.v20240201 as __v20240201
-    v20240201 = __v20240201
-else:
-    v20220701 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20220701')
-    v20230701 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20230701')
-    v20240201 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20240201')
-

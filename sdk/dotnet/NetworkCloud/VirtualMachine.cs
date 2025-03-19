@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-    /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -28,6 +26,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the bare metal machine that hosts the virtual machine.
@@ -54,6 +58,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> ClusterId { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location to use for creation of a VM console resource.
+        /// </summary>
+        [Output("consoleExtendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ConsoleExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The number of CPU cores in the virtual machine.
         /// </summary>
         [Output("cpuCores")]
@@ -70,6 +80,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("detailedStatusMessage")]
         public Output<string> DetailedStatusMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The extended location of the cluster associated with the resource.
@@ -90,7 +106,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The memory size of the virtual machine in GB.
+        /// The memory size of the virtual machine. Allocations are measured in gibibytes.
         /// </summary>
         [Output("memorySizeGB")]
         public Output<double> MemorySizeGB { get; private set; } = null!;
@@ -227,6 +243,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -269,6 +286,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<Inputs.NetworkAttachmentArgs> CloudServicesNetworkAttachment { get; set; } = null!;
 
         /// <summary>
+        /// The extended location to use for creation of a VM console resource.
+        /// </summary>
+        [Input("consoleExtendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ConsoleExtendedLocation { get; set; }
+
+        /// <summary>
         /// The number of CPU cores in the virtual machine.
         /// </summary>
         [Input("cpuCores", required: true)]
@@ -293,7 +316,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The memory size of the virtual machine in GB.
+        /// The memory size of the virtual machine. Allocations are measured in gibibytes.
         /// </summary>
         [Input("memorySizeGB", required: true)]
         public Input<double> MemorySizeGB { get; set; } = null!;

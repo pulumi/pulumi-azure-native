@@ -27,7 +27,10 @@ class GetSliceResult:
     """
     Network slice resource. Must be created in the same location as its parent mobile network.
     """
-    def __init__(__self__, description=None, id=None, location=None, name=None, provisioning_state=None, snssai=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, location=None, name=None, provisioning_state=None, snssai=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -55,6 +58,14 @@ class GetSliceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetSliceResult(GetSliceResult):
         if False:
             yield self
         return GetSliceResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             location=self.location,
@@ -152,9 +164,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSliceResult:
     """
     Gets information about the specified network slice.
-    Azure REST API version: 2023-06-01.
-
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -169,6 +179,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSlice', __args__, opts=opts, typ=GetSliceResult).value
 
     return AwaitableGetSliceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -184,9 +195,7 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSliceResult]:
     """
     Gets information about the specified network slice.
-    Azure REST API version: 2023-06-01.
-
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -200,6 +209,7 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getSlice', __args__, opts=opts, typ=GetSliceResult)
     return __ret__.apply(lambda __response__: GetSliceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

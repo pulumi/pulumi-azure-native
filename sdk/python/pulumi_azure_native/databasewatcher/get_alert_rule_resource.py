@@ -27,7 +27,7 @@ class GetAlertRuleResourceResult:
     """
     Concrete proxy resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, alert_rule_resource_id=None, alert_rule_template_id=None, alert_rule_template_version=None, created_with_properties=None, creation_time=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, alert_rule_resource_id=None, alert_rule_template_id=None, alert_rule_template_version=None, azure_api_version=None, created_with_properties=None, creation_time=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if alert_rule_resource_id and not isinstance(alert_rule_resource_id, str):
             raise TypeError("Expected argument 'alert_rule_resource_id' to be a str")
         pulumi.set(__self__, "alert_rule_resource_id", alert_rule_resource_id)
@@ -37,6 +37,9 @@ class GetAlertRuleResourceResult:
         if alert_rule_template_version and not isinstance(alert_rule_template_version, str):
             raise TypeError("Expected argument 'alert_rule_template_version' to be a str")
         pulumi.set(__self__, "alert_rule_template_version", alert_rule_template_version)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_with_properties and not isinstance(created_with_properties, str):
             raise TypeError("Expected argument 'created_with_properties' to be a str")
         pulumi.set(__self__, "created_with_properties", created_with_properties)
@@ -82,6 +85,14 @@ class GetAlertRuleResourceResult:
         The alert rule template version.
         """
         return pulumi.get(self, "alert_rule_template_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdWithProperties")
@@ -149,6 +160,7 @@ class AwaitableGetAlertRuleResourceResult(GetAlertRuleResourceResult):
             alert_rule_resource_id=self.alert_rule_resource_id,
             alert_rule_template_id=self.alert_rule_template_id,
             alert_rule_template_version=self.alert_rule_template_version,
+            azure_api_version=self.azure_api_version,
             created_with_properties=self.created_with_properties,
             creation_time=self.creation_time,
             id=self.id,
@@ -164,9 +176,7 @@ def get_alert_rule_resource(alert_rule_resource_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResourceResult:
     """
     Get a AlertRuleResource
-    Azure REST API version: 2024-07-19-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str alert_rule_resource_name: The alert rule proxy resource name.
@@ -184,6 +194,7 @@ def get_alert_rule_resource(alert_rule_resource_name: Optional[str] = None,
         alert_rule_resource_id=pulumi.get(__ret__, 'alert_rule_resource_id'),
         alert_rule_template_id=pulumi.get(__ret__, 'alert_rule_template_id'),
         alert_rule_template_version=pulumi.get(__ret__, 'alert_rule_template_version'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_with_properties=pulumi.get(__ret__, 'created_with_properties'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         id=pulumi.get(__ret__, 'id'),
@@ -197,9 +208,7 @@ def get_alert_rule_resource_output(alert_rule_resource_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleResourceResult]:
     """
     Get a AlertRuleResource
-    Azure REST API version: 2024-07-19-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str alert_rule_resource_name: The alert rule proxy resource name.
@@ -216,6 +225,7 @@ def get_alert_rule_resource_output(alert_rule_resource_name: Optional[pulumi.Inp
         alert_rule_resource_id=pulumi.get(__response__, 'alert_rule_resource_id'),
         alert_rule_template_id=pulumi.get(__response__, 'alert_rule_template_id'),
         alert_rule_template_version=pulumi.get(__response__, 'alert_rule_template_version'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_with_properties=pulumi.get(__response__, 'created_with_properties'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         id=pulumi.get(__response__, 'id'),

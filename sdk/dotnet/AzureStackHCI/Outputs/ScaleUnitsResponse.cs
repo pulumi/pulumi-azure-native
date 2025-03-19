@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Deployment Data to deploy AzureStackHCI Cluster.
         /// </summary>
         public readonly Outputs.DeploymentDataResponse DeploymentData;
+        /// <summary>
+        /// Solution builder extension (SBE) partner properties
+        /// </summary>
+        public readonly Outputs.SbePartnerInfoResponse? SbePartnerInfo;
 
         [OutputConstructor]
-        private ScaleUnitsResponse(Outputs.DeploymentDataResponse deploymentData)
+        private ScaleUnitsResponse(
+            Outputs.DeploymentDataResponse deploymentData,
+
+            Outputs.SbePartnerInfoResponse? sbePartnerInfo)
         {
             DeploymentData = deploymentData;
+            SbePartnerInfo = sbePartnerInfo;
         }
     }
 }

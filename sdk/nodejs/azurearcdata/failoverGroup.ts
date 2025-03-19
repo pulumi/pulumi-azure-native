@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A failover group resource.
- * Azure REST API version: 2023-01-15-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2023-01-15-preview.
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class FailoverGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === FailoverGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -81,17 +83,19 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.failoverGroupPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlManagedInstanceName"] = args ? args.sqlManagedInstanceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20230115preview:FailoverGroup" }, { type: "azure-native:azurearcdata/v20240101:FailoverGroup" }, { type: "azure-native:azurearcdata/v20240501preview:FailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20230115preview:FailoverGroup" }, { type: "azure-native:azurearcdata/v20240101:FailoverGroup" }, { type: "azure-native:azurearcdata/v20240501preview:FailoverGroup" }, { type: "azure-native:azurearcdata/v20250301preview:FailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,11 +15,23 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     /// </summary>
     public sealed class KubernetesClusterBackupDatasourceParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("backupHookReferences")]
+        private InputList<Inputs.NamespacedNameResourceArgs>? _backupHookReferences;
+
+        /// <summary>
+        /// Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
+        /// </summary>
+        public InputList<Inputs.NamespacedNameResourceArgs> BackupHookReferences
+        {
+            get => _backupHookReferences ?? (_backupHookReferences = new InputList<Inputs.NamespacedNameResourceArgs>());
+            set => _backupHookReferences = value;
+        }
+
         [Input("excludedNamespaces")]
         private InputList<string>? _excludedNamespaces;
 
         /// <summary>
-        /// Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore.
+        /// Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
         /// </summary>
         public InputList<string> ExcludedNamespaces
         {
@@ -31,7 +43,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         private InputList<string>? _excludedResourceTypes;
 
         /// <summary>
-        /// Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore.
+        /// Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
         /// </summary>
         public InputList<string> ExcludedResourceTypes
         {
@@ -40,7 +52,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         }
 
         /// <summary>
-        /// Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore.
+        /// Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
         /// </summary>
         [Input("includeClusterScopeResources", required: true)]
         public Input<bool> IncludeClusterScopeResources { get; set; } = null!;
@@ -49,7 +61,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         private InputList<string>? _includedNamespaces;
 
         /// <summary>
-        /// Gets or sets the include namespaces property. This property sets the namespaces to be included during restore.
+        /// Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
         /// </summary>
         public InputList<string> IncludedNamespaces
         {
@@ -61,7 +73,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         private InputList<string>? _includedResourceTypes;
 
         /// <summary>
-        /// Gets or sets the include resource types property. This property sets the resource types to be included during restore.
+        /// Gets or sets the include resource types property. This property sets the resource types to be included during backup.
         /// </summary>
         public InputList<string> IncludedResourceTypes
         {
@@ -69,11 +81,23 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
             set => _includedResourceTypes = value;
         }
 
+        [Input("includedVolumeTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.DataProtection.AKSVolumeTypes>>? _includedVolumeTypes;
+
+        /// <summary>
+        /// Gets or sets the include volume types property. This property sets the volume types to be included during backup.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.DataProtection.AKSVolumeTypes>> IncludedVolumeTypes
+        {
+            get => _includedVolumeTypes ?? (_includedVolumeTypes = new InputList<Union<string, Pulumi.AzureNative.DataProtection.AKSVolumeTypes>>());
+            set => _includedVolumeTypes = value;
+        }
+
         [Input("labelSelectors")]
         private InputList<string>? _labelSelectors;
 
         /// <summary>
-        /// Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore.
+        /// Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
         /// </summary>
         public InputList<string> LabelSelectors
         {
@@ -89,7 +113,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during restore.
+        /// Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
         /// </summary>
         [Input("snapshotVolumes", required: true)]
         public Input<bool> SnapshotVolumes { get; set; } = null!;

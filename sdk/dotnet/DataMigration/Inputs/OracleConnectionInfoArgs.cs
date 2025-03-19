@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class OracleConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        [Input("authentication")]
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.AuthenticationType>? Authentication { get; set; }
+
+        /// <summary>
         /// EZConnect or TNSName connection string.
         /// </summary>
         [Input("dataSource", required: true)]
@@ -26,6 +32,24 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// port for server
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// name of the server
+        /// </summary>
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
+
+        /// <summary>
+        /// server version
+        /// </summary>
+        [Input("serverVersion")]
+        public Input<string>? ServerVersion { get; set; }
 
         /// <summary>
         /// Type of connection info

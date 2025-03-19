@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The DiskType.
+        /// The disk type.
         /// </summary>
         [Input("diskType")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType>? DiskType { get; set; }
@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("licenseType")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LicenseType>? LicenseType { get; set; }
+
+        /// <summary>
+        /// The license type for Linux VM's.
+        /// </summary>
+        [Input("linuxLicenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LinuxLicenseType>? LinuxLicenseType { get; set; }
 
         /// <summary>
         /// The storage account to be used for logging during replication.
@@ -185,6 +191,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TargetStorageAccountId { get; set; }
 
         /// <summary>
+        /// The target VM security profile.
+        /// </summary>
+        [Input("targetVmSecurityProfile")]
+        public Input<Inputs.SecurityProfilePropertiesArgs>? TargetVmSecurityProfile { get; set; }
+
+        /// <summary>
         /// The target VM size.
         /// </summary>
         [Input("targetVmSize")]
@@ -213,6 +225,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("useManagedDisksForReplication")]
         public Input<string>? UseManagedDisksForReplication { get; set; }
+
+        /// <summary>
+        /// The OS name selected by user.
+        /// </summary>
+        [Input("userSelectedOSName")]
+        public Input<string>? UserSelectedOSName { get; set; }
 
         /// <summary>
         /// The OS disk VHD id associated with VM.

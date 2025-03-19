@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetModernizeProjectResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the Id of the resource.
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetModernizeProjectResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

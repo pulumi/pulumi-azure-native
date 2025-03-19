@@ -203,9 +203,7 @@ class Policy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines web application firewall policy for Azure CDN.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,9 +226,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy for Azure CDN.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
@@ -280,6 +276,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["endpoint_links"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -311,6 +308,7 @@ class Policy(pulumi.CustomResource):
 
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_rules"] = None
         __props__.__dict__["endpoint_links"] = None
         __props__.__dict__["etag"] = None
@@ -327,6 +325,14 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customRules")

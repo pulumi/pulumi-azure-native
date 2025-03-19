@@ -272,9 +272,7 @@ class Cache(pulumi.CustomResource):
                  __props__=None):
         """
         A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,9 +299,7 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.
@@ -359,6 +355,7 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["health"] = None
             __props__.__dict__["mount_addresses"] = None
             __props__.__dict__["name"] = None
@@ -392,6 +389,7 @@ class Cache(pulumi.CustomResource):
 
         __props__ = CacheArgs.__new__(CacheArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cache_size_gb"] = None
         __props__.__dict__["directory_services_settings"] = None
         __props__.__dict__["encryption_settings"] = None
@@ -414,6 +412,14 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["upgrade_status"] = None
         __props__.__dict__["zones"] = None
         return Cache(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cacheSizeGB")

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());
@@ -73,6 +67,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetTagAtScopeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the tags wrapper resource.
         /// </summary>
         public readonly string Id;
@@ -91,6 +89,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetTagAtScopeResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Resources
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

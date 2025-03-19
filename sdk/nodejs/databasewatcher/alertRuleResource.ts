@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
- * Azure REST API version: 2024-07-19-preview.
- *
- * Other available API versions: 2024-10-01-preview, 2025-01-02.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-07-19-preview.
  */
 export class AlertRuleResource extends pulumi.CustomResource {
     /**
@@ -52,6 +50,10 @@ export class AlertRuleResource extends pulumi.CustomResource {
      * The alert rule template version.
      */
     public readonly alertRuleTemplateVersion!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The properties with which the alert rule resource was created.
      */
@@ -117,6 +119,7 @@ export class AlertRuleResource extends pulumi.CustomResource {
             resourceInputs["creationTime"] = args ? args.creationTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -125,6 +128,7 @@ export class AlertRuleResource extends pulumi.CustomResource {
             resourceInputs["alertRuleResourceId"] = undefined /*out*/;
             resourceInputs["alertRuleTemplateId"] = undefined /*out*/;
             resourceInputs["alertRuleTemplateVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdWithProperties"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

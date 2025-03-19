@@ -20,14 +20,3 @@ from .scoping_configuration import *
 from .webhook import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.appcomplianceautomation.v20221116preview as __v20221116preview
-    v20221116preview = __v20221116preview
-    import pulumi_azure_native.appcomplianceautomation.v20240627 as __v20240627
-    v20240627 = __v20240627
-else:
-    v20221116preview = _utilities.lazy_import('pulumi_azure_native.appcomplianceautomation.v20221116preview')
-    v20240627 = _utilities.lazy_import('pulumi_azure_native.appcomplianceautomation.v20240627')
-

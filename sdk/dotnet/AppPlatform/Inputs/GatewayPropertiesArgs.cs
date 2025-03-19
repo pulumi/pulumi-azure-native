@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
             set => _apmTypes = value;
         }
 
+        [Input("apms")]
+        private InputList<Inputs.ApmReferenceArgs>? _apms;
+
+        /// <summary>
+        /// Collection of ApmReferences in service level
+        /// </summary>
+        public InputList<Inputs.ApmReferenceArgs> Apms
+        {
+            get => _apms ?? (_apms = new InputList<Inputs.ApmReferenceArgs>());
+            set => _apms = value;
+        }
+
         /// <summary>
         /// Client-Certification Authentication.
         /// </summary>
@@ -80,6 +92,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         /// </summary>
         [Input("resourceRequests")]
         public Input<Inputs.GatewayResourceRequestsArgs>? ResourceRequests { get; set; }
+
+        /// <summary>
+        /// The properties to configure different types of response cache for Spring Cloud Gateway.
+        /// </summary>
+        [Input("responseCacheProperties")]
+        public InputUnion<Inputs.GatewayLocalResponseCachePerInstancePropertiesArgs, Inputs.GatewayLocalResponseCachePerRoutePropertiesArgs>? ResponseCacheProperties { get; set; }
 
         /// <summary>
         /// Single sign-on related configuration

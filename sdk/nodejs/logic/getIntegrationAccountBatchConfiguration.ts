@@ -40,6 +40,10 @@ export interface GetIntegrationAccountBatchConfigurationArgs {
  */
 export interface GetIntegrationAccountBatchConfigurationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource id.
      */
     readonly id: string;

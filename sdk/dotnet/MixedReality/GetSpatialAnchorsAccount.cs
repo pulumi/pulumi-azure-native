@@ -12,28 +12,46 @@ namespace Pulumi.AzureNative.MixedReality
     public static class GetSpatialAnchorsAccount
     {
         /// <summary>
-        /// Retrieve a Spatial Anchors Account.
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve a Spatial Anchors Account.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve a Spatial Anchors Account.
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve a Spatial Anchors Account.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve a Spatial Anchors Account.
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  Retrieve a Spatial Anchors Account.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());
@@ -93,6 +111,10 @@ namespace Pulumi.AzureNative.MixedReality
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -143,6 +165,8 @@ namespace Pulumi.AzureNative.MixedReality
 
             string accountId,
 
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -167,6 +191,7 @@ namespace Pulumi.AzureNative.MixedReality
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Kind = kind;

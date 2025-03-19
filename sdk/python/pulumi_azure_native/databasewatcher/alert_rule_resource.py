@@ -163,9 +163,7 @@ class AlertRuleResource(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2024-07-19-preview.
-
-        Other available API versions: 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-07-19-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,9 +184,7 @@ class AlertRuleResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2024-07-19-preview.
-
-        Other available API versions: 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-07-19-preview.
 
         :param str resource_name: The name of the resource.
         :param AlertRuleResourceArgs args: The arguments to use to populate this resource's properties.
@@ -244,6 +240,7 @@ class AlertRuleResource(pulumi.CustomResource):
             if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")
             __props__.__dict__["watcher_name"] = watcher_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -275,6 +272,7 @@ class AlertRuleResource(pulumi.CustomResource):
         __props__.__dict__["alert_rule_resource_id"] = None
         __props__.__dict__["alert_rule_template_id"] = None
         __props__.__dict__["alert_rule_template_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_with_properties"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["name"] = None
@@ -306,6 +304,14 @@ class AlertRuleResource(pulumi.CustomResource):
         The alert rule template version.
         """
         return pulumi.get(self, "alert_rule_template_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdWithProperties")

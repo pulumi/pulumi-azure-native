@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent an AppComplianceAutomation report resource.
- * Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview.
- *
- * Other available API versions: 2024-06-27.
+ * Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2022-11-16-preview.
  */
 export class Report extends pulumi.CustomResource {
     /**
@@ -41,17 +39,74 @@ export class Report extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * List of synchronized certification records.
+     */
+    public /*out*/ readonly certRecords!: pulumi.Output<outputs.appcomplianceautomation.CertSyncRecordResponse[]>;
+    /**
+     * Report compliance status.
+     */
+    public /*out*/ readonly complianceStatus!: pulumi.Output<outputs.appcomplianceautomation.ReportComplianceStatusResponse>;
+    /**
+     * List of report error codes.
+     */
+    public /*out*/ readonly errors!: pulumi.Output<string[]>;
+    /**
+     * Report last collection trigger time.
+     */
+    public /*out*/ readonly lastTriggerTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Report property.
+     * Report next collection trigger time.
      */
-    public readonly properties!: pulumi.Output<outputs.appcomplianceautomation.ReportPropertiesResponse>;
+    public /*out*/ readonly nextTriggerTime!: pulumi.Output<string>;
+    /**
+     * A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
+     */
+    public readonly offerGuid!: pulumi.Output<string | undefined>;
+    /**
+     * Azure lifecycle management
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * List of resource data.
+     */
+    public readonly resources!: pulumi.Output<outputs.appcomplianceautomation.ResourceMetadataResponse[]>;
+    /**
+     * Report status.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * The information of 'bring your own storage' binding to the report
+     */
+    public readonly storageInfo!: pulumi.Output<outputs.appcomplianceautomation.StorageInfoResponse | undefined>;
+    /**
+     * List of subscription Ids.
+     */
+    public /*out*/ readonly subscriptions!: pulumi.Output<string[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
+    /**
+     * Report's tenant id.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
+     * Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+     * An example of valid timezone id is "Pacific Standard Time".
+     */
+    public readonly timeZone!: pulumi.Output<string>;
+    /**
+     * Report collection trigger time.
+     */
+    public readonly triggerTime!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -68,18 +123,52 @@ export class Report extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.resources === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resources'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            if ((!args || args.timeZone === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'timeZone'");
+            }
+            if ((!args || args.triggerTime === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'triggerTime'");
+            }
+            resourceInputs["offerGuid"] = args ? args.offerGuid : undefined;
             resourceInputs["reportName"] = args ? args.reportName : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["storageInfo"] = args ? args.storageInfo : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["triggerTime"] = args ? args.triggerTime : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["certRecords"] = undefined /*out*/;
+            resourceInputs["complianceStatus"] = undefined /*out*/;
+            resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["lastTriggerTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextTriggerTime"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptions"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["certRecords"] = undefined /*out*/;
+            resourceInputs["complianceStatus"] = undefined /*out*/;
+            resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["lastTriggerTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["nextTriggerTime"] = undefined /*out*/;
+            resourceInputs["offerGuid"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageInfo"] = undefined /*out*/;
+            resourceInputs["subscriptions"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
+            resourceInputs["triggerTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -94,11 +183,28 @@ export class Report extends pulumi.CustomResource {
  */
 export interface ReportArgs {
     /**
-     * Report property.
+     * A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
      */
-    properties: pulumi.Input<inputs.appcomplianceautomation.ReportPropertiesArgs>;
+    offerGuid?: pulumi.Input<string>;
     /**
      * Report Name.
      */
     reportName?: pulumi.Input<string>;
+    /**
+     * List of resource data.
+     */
+    resources: pulumi.Input<pulumi.Input<inputs.appcomplianceautomation.ResourceMetadataArgs>[]>;
+    /**
+     * The information of 'bring your own storage' binding to the report
+     */
+    storageInfo?: pulumi.Input<inputs.appcomplianceautomation.StorageInfoArgs>;
+    /**
+     * Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+     * An example of valid timezone id is "Pacific Standard Time".
+     */
+    timeZone: pulumi.Input<string>;
+    /**
+     * Report collection trigger time.
+     */
+    triggerTime: pulumi.Input<string>;
 }

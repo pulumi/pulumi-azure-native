@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Employee resource
- * Azure REST API version: 2021-10-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-10-01-preview.
  */
 export class Employee extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Employee extends pulumi.CustomResource {
         return obj['__pulumiType'] === Employee.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -82,10 +86,12 @@ export class Employee extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -94,7 +100,7 @@ export class Employee extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:contoso/v20211001preview:Employee" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:contoso/v20211001preview:Employee" }, { type: "azure-native:contoso/v20211101:Employee" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Employee.__pulumiType, name, resourceInputs, opts);
     }

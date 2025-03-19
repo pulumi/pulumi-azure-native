@@ -27,7 +27,10 @@ class GetGuestConfigurationConnectedVMwarevSphereAssignmentResult:
     """
     Guest configuration assignment is an association between a machine and guest configuration.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetGuestConfigurationConnectedVMwarevSphereAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetGuestConfigurationConnectedVMwarevSphereAssignmentResult(GetGu
         if False:
             yield self
         return GetGuestConfigurationConnectedVMwarevSphereAssignmentResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -116,9 +128,7 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment(guest_configura
                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationConnectedVMwarevSphereAssignmentResult:
     """
     Get information about a guest configuration assignment
-    Azure REST API version: 2022-01-25.
-
-    Other available API versions: 2024-04-05.
+    Azure REST API version: 2024-04-05.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
@@ -133,6 +143,7 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment(guest_configura
     __ret__ = pulumi.runtime.invoke('azure-native:guestconfiguration:getGuestConfigurationConnectedVMwarevSphereAssignment', __args__, opts=opts, typ=GetGuestConfigurationConnectedVMwarevSphereAssignmentResult).value
 
     return AwaitableGetGuestConfigurationConnectedVMwarevSphereAssignmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -145,9 +156,7 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_co
                                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestConfigurationConnectedVMwarevSphereAssignmentResult]:
     """
     Get information about a guest configuration assignment
-    Azure REST API version: 2022-01-25.
-
-    Other available API versions: 2024-04-05.
+    Azure REST API version: 2024-04-05.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
@@ -161,6 +170,7 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_co
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:guestconfiguration:getGuestConfigurationConnectedVMwarevSphereAssignment', __args__, opts=opts, typ=GetGuestConfigurationConnectedVMwarevSphereAssignmentResult)
     return __ret__.apply(lambda __response__: GetGuestConfigurationConnectedVMwarevSphereAssignmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

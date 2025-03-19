@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Microsoft.AwsConnector resource
- * Azure REST API version: 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
  */
 export class IamVirtualMfaDevice extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class IamVirtualMfaDevice extends pulumi.CustomResource {
         return obj['__pulumiType'] === IamVirtualMfaDevice.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -82,9 +86,11 @@ export class IamVirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

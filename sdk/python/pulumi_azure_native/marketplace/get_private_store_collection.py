@@ -27,7 +27,7 @@ class GetPrivateStoreCollectionResult:
     """
     The Collection data structure.
     """
-    def __init__(__self__, all_subscriptions=None, applied_rules=None, approve_all_items=None, approve_all_items_modified_at=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
+    def __init__(__self__, all_subscriptions=None, applied_rules=None, approve_all_items=None, approve_all_items_modified_at=None, azure_api_version=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
         if all_subscriptions and not isinstance(all_subscriptions, bool):
             raise TypeError("Expected argument 'all_subscriptions' to be a bool")
         pulumi.set(__self__, "all_subscriptions", all_subscriptions)
@@ -40,6 +40,9 @@ class GetPrivateStoreCollectionResult:
         if approve_all_items_modified_at and not isinstance(approve_all_items_modified_at, str):
             raise TypeError("Expected argument 'approve_all_items_modified_at' to be a str")
         pulumi.set(__self__, "approve_all_items_modified_at", approve_all_items_modified_at)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if claim and not isinstance(claim, str):
             raise TypeError("Expected argument 'claim' to be a str")
         pulumi.set(__self__, "claim", claim)
@@ -102,6 +105,14 @@ class GetPrivateStoreCollectionResult:
         Gets the modified date of all items approved.
         """
         return pulumi.get(self, "approve_all_items_modified_at")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -194,6 +205,7 @@ class AwaitableGetPrivateStoreCollectionResult(GetPrivateStoreCollectionResult):
             applied_rules=self.applied_rules,
             approve_all_items=self.approve_all_items,
             approve_all_items_modified_at=self.approve_all_items_modified_at,
+            azure_api_version=self.azure_api_version,
             claim=self.claim,
             collection_id=self.collection_id,
             collection_name=self.collection_name,
@@ -228,6 +240,7 @@ def get_private_store_collection(collection_id: Optional[str] = None,
         applied_rules=pulumi.get(__ret__, 'applied_rules'),
         approve_all_items=pulumi.get(__ret__, 'approve_all_items'),
         approve_all_items_modified_at=pulumi.get(__ret__, 'approve_all_items_modified_at'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         claim=pulumi.get(__ret__, 'claim'),
         collection_id=pulumi.get(__ret__, 'collection_id'),
         collection_name=pulumi.get(__ret__, 'collection_name'),
@@ -259,6 +272,7 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
         applied_rules=pulumi.get(__response__, 'applied_rules'),
         approve_all_items=pulumi.get(__response__, 'approve_all_items'),
         approve_all_items_modified_at=pulumi.get(__response__, 'approve_all_items_modified_at'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         claim=pulumi.get(__response__, 'claim'),
         collection_id=pulumi.get(__response__, 'collection_id'),
         collection_name=pulumi.get(__response__, 'collection_name'),

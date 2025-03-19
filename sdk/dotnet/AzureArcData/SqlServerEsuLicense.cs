@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// Describe SQL Server ESU license resource.
-    /// Azure REST API version: 2024-05-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerEsuLicense")]
     public partial class SqlServerEsuLicense : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.AzureArcData
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:SqlServerEsuLicense" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerEsuLicense" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

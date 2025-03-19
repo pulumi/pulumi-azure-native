@@ -34,6 +34,10 @@ export interface GetVirtualNetworkRetrieveArgs {
  * The virtualNetworks resource definition.
  */
 export interface GetVirtualNetworkRetrieveResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly extendedLocation?: outputs.hybridcontainerservice.VirtualNetworksResponseExtendedLocation;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

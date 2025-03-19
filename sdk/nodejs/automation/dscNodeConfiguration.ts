@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the dsc node configuration.
- * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
  */
 export class DscNodeConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === DscNodeConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the configuration of the node.
      */
@@ -104,11 +106,13 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["incrementNodeConfigurationBuild"] = undefined /*out*/;

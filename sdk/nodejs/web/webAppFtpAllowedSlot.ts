@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Publishing Credentials Policies parameters.
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-12-01.
  */
 export class WebAppFtpAllowedSlot extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class WebAppFtpAllowedSlot extends pulumi.CustomResource {
      * <code>true</code> to allow access to a publishing method; otherwise, <code>false</code>.
      */
     public readonly allow!: pulumi.Output<boolean>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Kind of resource.
      */
@@ -82,9 +84,11 @@ export class WebAppFtpAllowedSlot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allow"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

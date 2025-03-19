@@ -28,7 +28,7 @@ class CloudHsmClusterPrivateEndpointConnectionArgs:
                  pe_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CloudHsmClusterPrivateEndpointConnection resource.
-        :param pulumi.Input[str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+        :param pulumi.Input[str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
@@ -43,7 +43,7 @@ class CloudHsmClusterPrivateEndpointConnectionArgs:
     @pulumi.getter(name="cloudHsmClusterName")
     def cloud_hsm_cluster_name(self) -> pulumi.Input[str]:
         """
-        The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+        The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         """
         return pulumi.get(self, "cloud_hsm_cluster_name")
 
@@ -100,13 +100,11 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The private endpoint connection resource.
-        Azure REST API version: 2022-08-31-preview.
-
-        Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+        Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 2.x: 2022-08-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+        :param pulumi.Input[str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         :param pulumi.Input[str] pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -119,9 +117,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection resource.
-        Azure REST API version: 2022-08-31-preview.
-
-        Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+        Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 2.x: 2022-08-31-preview.
 
         :param str resource_name: The name of the resource.
         :param CloudHsmClusterPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +157,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
@@ -192,6 +189,7 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = CloudHsmClusterPrivateEndpointConnectionArgs.__new__(CloudHsmClusterPrivateEndpointConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
@@ -201,6 +199,14 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CloudHsmClusterPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

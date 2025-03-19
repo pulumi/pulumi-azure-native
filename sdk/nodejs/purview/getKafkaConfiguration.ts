@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the kafka configuration for the account
- * Azure REST API version: 2021-12-01.
- *
- * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function getKafkaConfiguration(args: GetKafkaConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,11 +40,15 @@ export interface GetKafkaConfigurationArgs {
  */
 export interface GetKafkaConfigurationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Consumer group for hook event hub.
      */
     readonly consumerGroup?: string;
     /**
-     * Credentials to access event hub.
+     * Credentials to access the event streaming service attached to the purview account.
      */
     readonly credentials?: outputs.purview.CredentialsResponse;
     /**
@@ -85,9 +87,7 @@ export interface GetKafkaConfigurationResult {
 }
 /**
  * Gets the kafka configuration for the account
- * Azure REST API version: 2021-12-01.
- *
- * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

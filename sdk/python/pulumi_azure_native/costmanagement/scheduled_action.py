@@ -200,9 +200,7 @@ class ScheduledAction(pulumi.CustomResource):
                  __props__=None):
         """
         Scheduled action definition.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,9 +223,7 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Scheduled action definition.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.
@@ -283,10 +279,11 @@ class ScheduledAction(pulumi.CustomResource):
             if view_id is None and not opts.urn:
                 raise TypeError("Missing required property 'view_id'")
             __props__.__dict__["view_id"] = view_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20220401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20220601preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230701preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:ScheduledAction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20220401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20220601preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230701preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20241001preview:ScheduledAction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledAction, __self__).__init__(
             'azure-native:costmanagement:ScheduledAction',
@@ -310,6 +307,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         __props__ = ScheduledActionArgs.__new__(ScheduledActionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["file_destination"] = None
@@ -324,6 +322,14 @@ class ScheduledAction(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["view_id"] = None
         return ScheduledAction(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")

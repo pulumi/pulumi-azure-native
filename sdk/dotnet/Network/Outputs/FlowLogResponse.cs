@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+        /// </summary>
+        public readonly string? EnabledFilteringCriteria;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -36,6 +40,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// FlowLog resource Managed Identity
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -77,6 +85,8 @@ namespace Pulumi.AzureNative.Network.Outputs
         private FlowLogResponse(
             bool? enabled,
 
+            string? enabledFilteringCriteria,
+
             string etag,
 
             Outputs.TrafficAnalyticsPropertiesResponse? flowAnalyticsConfiguration,
@@ -84,6 +94,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             Outputs.FlowLogFormatParametersResponse? format,
 
             string? id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 
@@ -104,10 +116,12 @@ namespace Pulumi.AzureNative.Network.Outputs
             string type)
         {
             Enabled = enabled;
+            EnabledFilteringCriteria = enabledFilteringCriteria;
             Etag = etag;
             FlowAnalyticsConfiguration = flowAnalyticsConfiguration;
             Format = format;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

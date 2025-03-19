@@ -26,7 +26,10 @@ class GetPrivateLinkScopedResourceResult:
     """
     A private link scoped resource
     """
-    def __init__(__self__, id=None, linked_resource_id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, linked_resource_id=None, name=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +45,14 @@ class GetPrivateLinkScopedResourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetPrivateLinkScopedResourceResult(GetPrivateLinkScopedResourceRe
         if False:
             yield self
         return GetPrivateLinkScopedResourceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             linked_resource_id=self.linked_resource_id,
             name=self.name,
@@ -118,6 +130,7 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcompute:getPrivateLinkScopedResource', __args__, opts=opts, typ=GetPrivateLinkScopedResourceResult).value
 
     return AwaitableGetPrivateLinkScopedResourceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         linked_resource_id=pulumi.get(__ret__, 'linked_resource_id'),
         name=pulumi.get(__ret__, 'name'),
@@ -143,6 +156,7 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute:getPrivateLinkScopedResource', __args__, opts=opts, typ=GetPrivateLinkScopedResourceResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkScopedResourceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         linked_resource_id=pulumi.get(__response__, 'linked_resource_id'),
         name=pulumi.get(__response__, 'name'),

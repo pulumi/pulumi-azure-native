@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Azure REST API version: 2023-08-01-preview.
-    /// 
-    /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+    /// Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CapacityReservationGroup")]
     public partial class CapacityReservationGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
@@ -128,6 +132,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("capacityReservationGroupProperties", required: true)]
         public Input<Inputs.CapacityReservationGroupArgs> CapacityReservationGroupProperties { get; set; } = null!;
 
+        /// <summary>
+        /// Group ID
+        /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 

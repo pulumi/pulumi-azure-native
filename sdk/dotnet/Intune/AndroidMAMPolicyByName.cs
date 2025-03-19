@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Intune
 {
     /// <summary>
     /// Android Policy entity for Intune MAM.
-    /// Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 1.x: 2015-01-14-preview.
-    /// 
-    /// Other available API versions: 2015-01-14-privatepreview.
+    /// Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 2.x: 2015-01-14-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:intune:AndroidMAMPolicyByName")]
     public partial class AndroidMAMPolicyByName : global::Pulumi.CustomResource
@@ -32,6 +30,12 @@ namespace Pulumi.AzureNative.Intune
 
         [Output("authentication")]
         public Output<string?> Authentication { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         [Output("clipboardSharingLevel")]
         public Output<string?> ClipboardSharingLevel { get; private set; } = null!;

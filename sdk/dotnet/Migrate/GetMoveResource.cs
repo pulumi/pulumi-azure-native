@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Gets the Move Resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2023-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Move Resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2023-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetMoveResourceResult> Invoke(GetMoveResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Move Resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2023-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetMoveResourceResult> Invoke(GetMoveResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetMoveResourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetMoveResourceResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

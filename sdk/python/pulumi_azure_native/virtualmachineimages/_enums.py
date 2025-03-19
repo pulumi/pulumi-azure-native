@@ -5,10 +5,34 @@
 from enum import Enum
 
 __all__ = [
+    'AutoRunState',
+    'OnBuildError',
     'ResourceIdentityType',
     'SharedImageStorageAccountType',
     'VMBootOptimizationState',
 ]
+
+
+class AutoRunState(str, Enum):
+    """
+    Enabling this field will trigger an automatic build on image template creation or update.
+    """
+    AUTO_RUN_ENABLED = "Enabled"
+    """
+    Autorun is enabled
+    """
+    AUTO_RUN_DISABLED = "Disabled"
+    """
+    Autorun is disabled
+    """
+
+
+class OnBuildError(str, Enum):
+    """
+    If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
+    """
+    CLEANUP = "cleanup"
+    ABORT = "abort"
 
 
 class ResourceIdentityType(str, Enum):

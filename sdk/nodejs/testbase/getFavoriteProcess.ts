@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a favorite process for a Test Base Package.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  */
 export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +31,7 @@ export interface GetFavoriteProcessArgs {
      */
     packageName: string;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -51,27 +49,29 @@ export interface GetFavoriteProcessResult {
      */
     readonly actualProcessName: string;
     /**
-     * Resource ID.
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.testbase.SystemDataResponse;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a favorite process for a Test Base Package.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  */
 export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFavoriteProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetFavoriteProcessOutputArgs {
      */
     packageName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

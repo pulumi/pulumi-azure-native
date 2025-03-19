@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a description for the specified consumer group.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetConsumerGroupArgs {
  */
 export interface GetConsumerGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Exact time the message was created.
      */
     readonly createdAt: string;
@@ -81,9 +83,7 @@ export interface GetConsumerGroupResult {
 }
 /**
  * Gets a description for the specified consumer group.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsumerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

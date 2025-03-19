@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Whether the shard key is unique
         /// </summary>
-        public readonly bool IsUnique;
+        public readonly bool? IsUnique;
 
         [OutputConstructor]
         private MongoDbShardKeySettingResponse(
             ImmutableArray<Outputs.MongoDbShardKeyFieldResponse> fields,
 
-            bool isUnique)
+            bool? isUnique)
         {
             Fields = fields;
             IsUnique = isUnique;

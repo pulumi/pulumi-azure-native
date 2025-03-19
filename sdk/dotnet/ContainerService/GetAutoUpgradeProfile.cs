@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetAutoUpgradeProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configures how auto-upgrade will be run.
         /// </summary>
         public readonly string Channel;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.ContainerService
 
         [OutputConstructor]
         private GetAutoUpgradeProfileResult(
+            string azureApiVersion,
+
             string channel,
 
             bool? disabled,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string? updateStrategyId)
         {
+            AzureApiVersion = azureApiVersion;
             Channel = channel;
             Disabled = disabled;
             ETag = eTag;

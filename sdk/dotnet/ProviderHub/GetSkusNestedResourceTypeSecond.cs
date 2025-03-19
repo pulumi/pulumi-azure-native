@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.ProviderHub
     public sealed class GetSkusNestedResourceTypeSecondResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.ProviderHub
 
         [OutputConstructor]
         private GetSkusNestedResourceTypeSecondResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.ProviderHub
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

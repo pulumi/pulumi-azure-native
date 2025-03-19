@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace authorization rule.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueueAuthorizationRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -89,11 +91,13 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["queueName"] = args ? args.queueName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["rights"] = undefined /*out*/;
@@ -124,11 +128,11 @@ export interface QueueAuthorizationRuleArgs {
      */
     queueName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The rights associated with the rule.
      */
-    rights: pulumi.Input<pulumi.Input<string | enums.servicebus.AccessRights>[]>;
+    rights: pulumi.Input<pulumi.Input<enums.servicebus.AccessRights>[]>;
 }

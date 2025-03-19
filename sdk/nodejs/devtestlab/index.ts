@@ -214,13 +214,6 @@ utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"
 // Export enums:
 export * from "../types/enums/devtestlab";
 
-// Export sub-modules:
-import * as v20180915 from "./v20180915";
-
-export {
-    v20180915,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = ['AzureMonitorWorkspaceArgs', 'AzureMonitorWorkspace']
 
@@ -24,14 +23,12 @@ class AzureMonitorWorkspaceArgs:
                  resource_group_name: pulumi.Input[str],
                  azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AzureMonitorWorkspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
+        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets allow or disallow public network access to Azure Monitor Workspace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -39,8 +36,6 @@ class AzureMonitorWorkspaceArgs:
             pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,7 +55,7 @@ class AzureMonitorWorkspaceArgs:
     @pulumi.getter(name="azureMonitorWorkspaceName")
     def azure_monitor_workspace_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Azure Monitor Workspace. The name is case insensitive
+        The name of the Azure Monitor workspace. The name is case insensitive.
         """
         return pulumi.get(self, "azure_monitor_workspace_name")
 
@@ -79,18 +74,6 @@ class AzureMonitorWorkspaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
-        """
-        Gets or sets allow or disallow public network access to Azure Monitor Workspace
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
-        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter
@@ -112,21 +95,17 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        An Azure Monitor Workspace definition
-        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
-
-        Other available API versions: 2023-10-01-preview.
+        An Azure Monitor Workspace definition.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-04-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
+        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets allow or disallow public network access to Azure Monitor Workspace
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -137,10 +116,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  args: AzureMonitorWorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An Azure Monitor Workspace definition
-        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
-
-        Other available API versions: 2023-10-01-preview.
+        An Azure Monitor Workspace definition.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-04-03.
 
         :param str resource_name: The name of the resource.
         :param AzureMonitorWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +136,6 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -173,18 +149,19 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
             __props__.__dict__["azure_monitor_workspace_name"] = azure_monitor_workspace_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["default_ingestion_settings"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["metrics"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20230403:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20231001preview:AzureMonitorWorkspace")])
@@ -212,6 +189,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         __props__ = AzureMonitorWorkspaceArgs.__new__(AzureMonitorWorkspaceArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_ingestion_settings"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
@@ -229,13 +207,21 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        The immutable Id of the Azure Monitor Workspace. This property is read-only.
+        The immutable ID of the Azure Monitor workspace. This property is read-only.
         """
         return pulumi.get(self, "account_id")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="defaultIngestionSettings")
-    def default_ingestion_settings(self) -> pulumi.Output['outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings']:
+    def default_ingestion_settings(self) -> pulumi.Output['outputs.IngestionSettingsResponse']:
         """
         The Data Collection Rule and Endpoint used for ingestion by default.
         """
@@ -259,9 +245,9 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> pulumi.Output['outputs.AzureMonitorWorkspaceResponseMetrics']:
+    def metrics(self) -> pulumi.Output[Optional['outputs.MetricsResponse']]:
         """
-        Properties related to the metrics container in the Azure Monitor Workspace
+        Information about metrics for the Azure Monitor workspace
         """
         return pulumi.get(self, "metrics")
 
@@ -277,7 +263,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        List of private endpoint connections
+        List of private endpoint connections.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -285,15 +271,15 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
+        The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         """
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+    def public_network_access(self) -> pulumi.Output[str]:
         """
-        Gets or sets allow or disallow public network access to Azure Monitor Workspace
+        Gets or sets allow or disallow public network access to workspace
         """
         return pulumi.get(self, "public_network_access")
 

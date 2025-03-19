@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level data export resource container.
- * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
  */
 export class DataExport extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class DataExport extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataExport.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The latest data export rule modification time.
      */
@@ -107,9 +109,11 @@ export class DataExport extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["tableNames"] = args ? args.tableNames : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["dataExportId"] = undefined /*out*/;
             resourceInputs["enable"] = undefined /*out*/;
@@ -121,7 +125,7 @@ export class DataExport extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-native:operationalinsights/v20200801:DataExport" }, { type: "azure-native:operationalinsights/v20230901:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-native:operationalinsights/v20200801:DataExport" }, { type: "azure-native:operationalinsights/v20230901:DataExport" }, { type: "azure-native:operationalinsights/v20250201:DataExport" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataExport.__pulumiType, name, resourceInputs, opts);
     }

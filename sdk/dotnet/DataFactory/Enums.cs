@@ -138,6 +138,38 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// The write behavior for the operation. Default is Bulk Insert.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzurePostgreSqlWriteMethodEnum : IEquatable<AzurePostgreSqlWriteMethodEnum>
+    {
+        private readonly string _value;
+
+        private AzurePostgreSqlWriteMethodEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzurePostgreSqlWriteMethodEnum BulkInsert { get; } = new AzurePostgreSqlWriteMethodEnum("BulkInsert");
+        public static AzurePostgreSqlWriteMethodEnum CopyCommand { get; } = new AzurePostgreSqlWriteMethodEnum("CopyCommand");
+        public static AzurePostgreSqlWriteMethodEnum Upsert { get; } = new AzurePostgreSqlWriteMethodEnum("Upsert");
+
+        public static bool operator ==(AzurePostgreSqlWriteMethodEnum left, AzurePostgreSqlWriteMethodEnum right) => left.Equals(right);
+        public static bool operator !=(AzurePostgreSqlWriteMethodEnum left, AzurePostgreSqlWriteMethodEnum right) => !left.Equals(right);
+
+        public static explicit operator string(AzurePostgreSqlWriteMethodEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzurePostgreSqlWriteMethodEnum other && Equals(other);
+        public bool Equals(AzurePostgreSqlWriteMethodEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify the write behavior when upserting documents into Azure Search Index.
     /// </summary>
     [EnumType]
@@ -2710,6 +2742,37 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Type other && Equals(other);
         public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of value copied from source.
+    /// </summary>
+    [EnumType]
+    public readonly struct ValueType : IEquatable<ValueType>
+    {
+        private readonly string _value;
+
+        private ValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ValueType Actual { get; } = new ValueType("actual");
+        public static ValueType Display { get; } = new ValueType("display");
+
+        public static bool operator ==(ValueType left, ValueType right) => left.Equals(right);
+        public static bool operator !=(ValueType left, ValueType right) => !left.Equals(right);
+
+        public static explicit operator string(ValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ValueType other && Equals(other);
+        public bool Equals(ValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

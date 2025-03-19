@@ -27,7 +27,7 @@ class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource.
     """
-    def __init__(__self__, allow_classic_operations=None, authorization_key=None, authorization_status=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
+    def __init__(__self__, allow_classic_operations=None, authorization_key=None, authorization_status=None, authorizations=None, azure_api_version=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, enable_direct_port_rate_limit=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
         if allow_classic_operations and not isinstance(allow_classic_operations, bool):
             raise TypeError("Expected argument 'allow_classic_operations' to be a bool")
         pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
@@ -40,12 +40,18 @@ class GetExpressRouteCircuitResult:
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
             raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
         pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
         if circuit_provisioning_state and not isinstance(circuit_provisioning_state, str):
             raise TypeError("Expected argument 'circuit_provisioning_state' to be a str")
         pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
+        if enable_direct_port_rate_limit and not isinstance(enable_direct_port_rate_limit, bool):
+            raise TypeError("Expected argument 'enable_direct_port_rate_limit' to be a bool")
+        pulumi.set(__self__, "enable_direct_port_rate_limit", enable_direct_port_rate_limit)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -131,6 +137,14 @@ class GetExpressRouteCircuitResult:
         return pulumi.get(self, "authorizations")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bandwidthInGbps")
     def bandwidth_in_gbps(self) -> Optional[float]:
         """
@@ -145,6 +159,14 @@ class GetExpressRouteCircuitResult:
         The CircuitProvisioningState state of the resource.
         """
         return pulumi.get(self, "circuit_provisioning_state")
+
+    @property
+    @pulumi.getter(name="enableDirectPortRateLimit")
+    def enable_direct_port_rate_limit(self) -> Optional[bool]:
+        """
+        Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
+        """
+        return pulumi.get(self, "enable_direct_port_rate_limit")
 
     @property
     @pulumi.getter
@@ -293,8 +315,10 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             authorization_key=self.authorization_key,
             authorization_status=self.authorization_status,
             authorizations=self.authorizations,
+            azure_api_version=self.azure_api_version,
             bandwidth_in_gbps=self.bandwidth_in_gbps,
             circuit_provisioning_state=self.circuit_provisioning_state,
+            enable_direct_port_rate_limit=self.enable_direct_port_rate_limit,
             etag=self.etag,
             express_route_port=self.express_route_port,
             gateway_manager_etag=self.gateway_manager_etag,
@@ -319,9 +343,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitResult:
     """
     Gets information about the specified express route circuit.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str circuit_name: The name of express route circuit.
@@ -338,8 +360,10 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
         authorization_key=pulumi.get(__ret__, 'authorization_key'),
         authorization_status=pulumi.get(__ret__, 'authorization_status'),
         authorizations=pulumi.get(__ret__, 'authorizations'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bandwidth_in_gbps=pulumi.get(__ret__, 'bandwidth_in_gbps'),
         circuit_provisioning_state=pulumi.get(__ret__, 'circuit_provisioning_state'),
+        enable_direct_port_rate_limit=pulumi.get(__ret__, 'enable_direct_port_rate_limit'),
         etag=pulumi.get(__ret__, 'etag'),
         express_route_port=pulumi.get(__ret__, 'express_route_port'),
         gateway_manager_etag=pulumi.get(__ret__, 'gateway_manager_etag'),
@@ -362,9 +386,7 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
     Gets information about the specified express route circuit.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str circuit_name: The name of express route circuit.
@@ -380,8 +402,10 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
         authorization_key=pulumi.get(__response__, 'authorization_key'),
         authorization_status=pulumi.get(__response__, 'authorization_status'),
         authorizations=pulumi.get(__response__, 'authorizations'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bandwidth_in_gbps=pulumi.get(__response__, 'bandwidth_in_gbps'),
         circuit_provisioning_state=pulumi.get(__response__, 'circuit_provisioning_state'),
+        enable_direct_port_rate_limit=pulumi.get(__response__, 'enable_direct_port_rate_limit'),
         etag=pulumi.get(__response__, 'etag'),
         express_route_port=pulumi.get(__response__, 'express_route_port'),
         gateway_manager_etag=pulumi.get(__response__, 'gateway_manager_etag'),

@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CorrelationData;
@@ -161,6 +165,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetJobResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? correlationData,
 
             string created,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CorrelationData = correlationData;
             Created = created;
             Description = description;

@@ -689,6 +689,8 @@ class GuestConfigurationNavigationResponse(dict):
             suggest = "configuration_protected_parameter"
         elif key == "contentHash":
             suggest = "content_hash"
+        elif key == "contentManagedIdentity":
+            suggest = "content_managed_identity"
         elif key == "contentUri":
             suggest = "content_uri"
 
@@ -711,6 +713,7 @@ class GuestConfigurationNavigationResponse(dict):
                  configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_protected_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  content_hash: Optional[str] = None,
+                 content_managed_identity: Optional[str] = None,
                  content_uri: Optional[str] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
@@ -724,6 +727,7 @@ class GuestConfigurationNavigationResponse(dict):
         :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
         :param Sequence['ConfigurationParameterResponse'] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
+        :param str content_managed_identity: Managed identity with storage access of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
@@ -740,6 +744,8 @@ class GuestConfigurationNavigationResponse(dict):
             pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
+        if content_managed_identity is not None:
+            pulumi.set(__self__, "content_managed_identity", content_managed_identity)
         if content_uri is not None:
             pulumi.set(__self__, "content_uri", content_uri)
         if kind is not None:
@@ -804,6 +810,14 @@ class GuestConfigurationNavigationResponse(dict):
         Combined hash of the guest configuration package and configuration parameters.
         """
         return pulumi.get(self, "content_hash")
+
+    @property
+    @pulumi.getter(name="contentManagedIdentity")
+    def content_managed_identity(self) -> Optional[str]:
+        """
+        Managed identity with storage access of the guest configuration package and configuration parameters.
+        """
+        return pulumi.get(self, "content_managed_identity")
 
     @property
     @pulumi.getter(name="contentUri")

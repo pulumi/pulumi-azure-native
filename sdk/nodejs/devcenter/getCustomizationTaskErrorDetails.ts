@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets Customization Task error details
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getCustomizationTaskErrorDetails(args: GetCustomizationTaskErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizationTaskErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,9 +51,7 @@ export interface GetCustomizationTaskErrorDetailsResult {
 }
 /**
  * Gets Customization Task error details
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

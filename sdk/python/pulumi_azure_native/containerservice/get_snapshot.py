@@ -27,7 +27,10 @@ class GetSnapshotResult:
     """
     A node pool snapshot resource.
     """
-    def __init__(__self__, creation_data=None, enable_fips=None, id=None, kubernetes_version=None, location=None, name=None, node_image_version=None, os_sku=None, os_type=None, snapshot_type=None, system_data=None, tags=None, type=None, vm_size=None):
+    def __init__(__self__, azure_api_version=None, creation_data=None, enable_fips=None, id=None, kubernetes_version=None, location=None, name=None, node_image_version=None, os_sku=None, os_type=None, snapshot_type=None, system_data=None, tags=None, type=None, vm_size=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -72,6 +75,14 @@ class GetSnapshotResult:
         pulumi.set(__self__, "vm_size", vm_size)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> Optional['outputs.CreationDataResponse']:
         """
@@ -91,7 +102,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -190,6 +201,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
         if False:
             yield self
         return GetSnapshotResult(
+            azure_api_version=self.azure_api_version,
             creation_data=self.creation_data,
             enable_fips=self.enable_fips,
             id=self.id,
@@ -211,9 +223,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     A node pool snapshot resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -226,6 +236,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_data=pulumi.get(__ret__, 'creation_data'),
         enable_fips=pulumi.get(__ret__, 'enable_fips'),
         id=pulumi.get(__ret__, 'id'),
@@ -245,9 +256,7 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     A node pool snapshot resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -259,6 +268,7 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
     return __ret__.apply(lambda __response__: GetSnapshotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_data=pulumi.get(__response__, 'creation_data'),
         enable_fips=pulumi.get(__response__, 'enable_fips'),
         id=pulumi.get(__response__, 'id'),

@@ -28,7 +28,10 @@ class GetAzureLargeStorageInstanceResult:
     AzureLargeStorageInstance info on Azure (ARM properties and
     AzureLargeStorageInstance properties)
     """
-    def __init__(__self__, azure_large_storage_instance_unique_identifier=None, id=None, identity=None, location=None, name=None, storage_properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_large_storage_instance_unique_identifier=None, id=None, identity=None, location=None, name=None, storage_properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_large_storage_instance_unique_identifier and not isinstance(azure_large_storage_instance_unique_identifier, str):
             raise TypeError("Expected argument 'azure_large_storage_instance_unique_identifier' to be a str")
         pulumi.set(__self__, "azure_large_storage_instance_unique_identifier", azure_large_storage_instance_unique_identifier)
@@ -56,6 +59,14 @@ class GetAzureLargeStorageInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureLargeStorageInstanceUniqueIdentifier")
@@ -136,6 +147,7 @@ class AwaitableGetAzureLargeStorageInstanceResult(GetAzureLargeStorageInstanceRe
         if False:
             yield self
         return GetAzureLargeStorageInstanceResult(
+            azure_api_version=self.azure_api_version,
             azure_large_storage_instance_unique_identifier=self.azure_large_storage_instance_unique_identifier,
             id=self.id,
             identity=self.identity,
@@ -166,6 +178,7 @@ def get_azure_large_storage_instance(azure_large_storage_instance_name: Optional
     __ret__ = pulumi.runtime.invoke('azure-native:azurelargeinstance:getAzureLargeStorageInstance', __args__, opts=opts, typ=GetAzureLargeStorageInstanceResult).value
 
     return AwaitableGetAzureLargeStorageInstanceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_large_storage_instance_unique_identifier=pulumi.get(__ret__, 'azure_large_storage_instance_unique_identifier'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -193,6 +206,7 @@ def get_azure_large_storage_instance_output(azure_large_storage_instance_name: O
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurelargeinstance:getAzureLargeStorageInstance', __args__, opts=opts, typ=GetAzureLargeStorageInstanceResult)
     return __ret__.apply(lambda __response__: GetAzureLargeStorageInstanceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_large_storage_instance_unique_identifier=pulumi.get(__response__, 'azure_large_storage_instance_unique_identifier'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

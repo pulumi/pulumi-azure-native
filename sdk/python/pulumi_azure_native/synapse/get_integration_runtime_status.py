@@ -70,8 +70,6 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
     Get the integration runtime status
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
-
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -94,8 +92,6 @@ def get_integration_runtime_status_output(integration_runtime_name: Optional[pul
     """
     Get the integration runtime status
     Azure REST API version: 2021-06-01.
-
-    Other available API versions: 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name

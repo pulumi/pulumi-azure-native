@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class DaprComponentResiliencyPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The optional circuit breaker policy configuration
+        /// </summary>
+        [Input("circuitBreakerPolicy")]
+        public Input<Inputs.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs>? CircuitBreakerPolicy { get; set; }
+
+        /// <summary>
         /// The optional HTTP retry policy configuration
         /// </summary>
         [Input("httpRetryPolicy")]

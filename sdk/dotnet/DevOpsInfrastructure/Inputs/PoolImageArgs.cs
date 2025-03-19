@@ -34,10 +34,22 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         public Input<string>? Buffer { get; set; }
 
         /// <summary>
+        /// The ephemeral type of the image.
+        /// </summary>
+        [Input("ephemeralType")]
+        public InputUnion<string, Pulumi.AzureNative.DevOpsInfrastructure.EphemeralType>? EphemeralType { get; set; }
+
+        /// <summary>
         /// The resource id of the image.
         /// </summary>
-        [Input("resourceId", required: true)]
-        public Input<string> ResourceId { get; set; } = null!;
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// The image to use from a well-known set of images made available to customers.
+        /// </summary>
+        [Input("wellKnownImageName")]
+        public Input<string>? WellKnownImageName { get; set; }
 
         public PoolImageArgs()
         {

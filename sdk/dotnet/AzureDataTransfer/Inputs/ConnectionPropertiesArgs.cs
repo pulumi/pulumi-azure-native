@@ -81,6 +81,18 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         [Input("requirementId")]
         public Input<string>? RequirementId { get; set; }
 
+        [Input("schemaUris")]
+        private InputList<string>? _schemaUris;
+
+        /// <summary>
+        /// The schema URIs for this connection
+        /// </summary>
+        public InputList<string> SchemaUris
+        {
+            get => _schemaUris ?? (_schemaUris = new InputList<string>());
+            set => _schemaUris = value;
+        }
+
         [Input("schemas")]
         private InputList<Inputs.SchemaArgs>? _schemas;
 

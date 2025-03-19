@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A StandbyVirtualMachinePoolResource.
- * Azure REST API version: 2023-12-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-12-01-preview.
  */
 export class StandbyVirtualMachinePool extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
      * Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
      */
     public readonly attachedVirtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the elasticity profile of the standby virtual machine pools.
      */
@@ -101,12 +103,14 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
             resourceInputs["standbyVirtualMachinePoolName"] = args ? args.standbyVirtualMachinePoolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachineState"] = args ? args.virtualMachineState : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attachedVirtualMachineScaleSetId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["elasticityProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -117,7 +121,7 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
             resourceInputs["virtualMachineState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20250301:StandbyVirtualMachinePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StandbyVirtualMachinePool.__pulumiType, name, resourceInputs, opts);
     }

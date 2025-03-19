@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Scheduler
     public sealed class GetJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the job resource identifier.
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.Scheduler
 
         [OutputConstructor]
         private GetJobResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.Scheduler
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

@@ -27,13 +27,16 @@ class GetRemoteRenderingAccountResult:
     """
     RemoteRenderingAccount Response.
     """
-    def __init__(__self__, account_domain=None, account_id=None, id=None, identity=None, kind=None, location=None, name=None, plan=None, sku=None, storage_account_name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_domain=None, account_id=None, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, plan=None, sku=None, storage_account_name=None, system_data=None, tags=None, type=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
         pulumi.set(__self__, "account_domain", account_domain)
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -83,6 +86,14 @@ class GetRemoteRenderingAccountResult:
         unique id of certain account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -181,6 +192,7 @@ class AwaitableGetRemoteRenderingAccountResult(GetRemoteRenderingAccountResult):
         return GetRemoteRenderingAccountResult(
             account_domain=self.account_domain,
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -198,10 +210,14 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteRenderingAccountResult:
     """
-    Retrieve a Remote Rendering Account.
-    Azure REST API version: 2021-01-01.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
 
-    Other available API versions: 2021-03-01-preview.
+     Retrieve a Remote Rendering Account.
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -216,6 +232,7 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
     return AwaitableGetRemoteRenderingAccountResult(
         account_domain=pulumi.get(__ret__, 'account_domain'),
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -231,10 +248,14 @@ def get_remote_rendering_account_output(account_name: Optional[pulumi.Input[str]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteRenderingAccountResult]:
     """
-    Retrieve a Remote Rendering Account.
-    Azure REST API version: 2021-01-01.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
 
-    Other available API versions: 2021-03-01-preview.
+     Retrieve a Remote Rendering Account.
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -248,6 +269,7 @@ def get_remote_rendering_account_output(account_name: Optional[pulumi.Input[str]
     return __ret__.apply(lambda __response__: GetRemoteRenderingAccountResult(
         account_domain=pulumi.get(__response__, 'account_domain'),
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         kind=pulumi.get(__response__, 'kind'),

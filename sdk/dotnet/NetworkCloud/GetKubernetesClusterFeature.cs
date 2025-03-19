@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster feature.
-        /// Azure REST API version: 2024-06-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Task<GetKubernetesClusterFeatureResult> InvokeAsync(GetKubernetesClusterFeatureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterFeatureResult>("azure-native:networkcloud:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster feature.
-        /// Azure REST API version: 2024-06-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Output<GetKubernetesClusterFeatureResult> Invoke(GetKubernetesClusterFeatureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterFeatureResult>("azure-native:networkcloud:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster feature.
-        /// Azure REST API version: 2024-06-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Output<GetKubernetesClusterFeatureResult> Invoke(GetKubernetesClusterFeatureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterFeatureResult>("azure-native:networkcloud:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string AvailabilityLifecycle;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The detailed status of the feature.
         /// </summary>
         public readonly string DetailedStatus;
@@ -108,6 +106,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The descriptive message for the detailed status of the feature.
         /// </summary>
         public readonly string DetailedStatusMessage;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -153,9 +155,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetKubernetesClusterFeatureResult(
             string availabilityLifecycle,
 
+            string azureApiVersion,
+
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             string id,
 
@@ -178,8 +184,10 @@ namespace Pulumi.AzureNative.NetworkCloud
             string version)
         {
             AvailabilityLifecycle = availabilityLifecycle;
+            AzureApiVersion = azureApiVersion;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

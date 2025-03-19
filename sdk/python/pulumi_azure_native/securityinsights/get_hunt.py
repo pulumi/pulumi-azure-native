@@ -27,13 +27,16 @@ class GetHuntResult:
     """
     Represents a Hunt in Azure Security Insights.
     """
-    def __init__(__self__, attack_tactics=None, attack_techniques=None, description=None, display_name=None, etag=None, hypothesis_status=None, id=None, labels=None, name=None, owner=None, status=None, system_data=None, type=None):
+    def __init__(__self__, attack_tactics=None, attack_techniques=None, azure_api_version=None, description=None, display_name=None, etag=None, hypothesis_status=None, id=None, labels=None, name=None, owner=None, status=None, system_data=None, type=None):
         if attack_tactics and not isinstance(attack_tactics, list):
             raise TypeError("Expected argument 'attack_tactics' to be a list")
         pulumi.set(__self__, "attack_tactics", attack_tactics)
         if attack_techniques and not isinstance(attack_techniques, list):
             raise TypeError("Expected argument 'attack_techniques' to be a list")
         pulumi.set(__self__, "attack_techniques", attack_techniques)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -83,6 +86,14 @@ class GetHuntResult:
         A list of a mitre attack techniques the hunt is associated with
         """
         return pulumi.get(self, "attack_techniques")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -181,6 +192,7 @@ class AwaitableGetHuntResult(GetHuntResult):
         return GetHuntResult(
             attack_tactics=self.attack_tactics,
             attack_techniques=self.attack_techniques,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
@@ -200,9 +212,7 @@ def get_hunt(hunt_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHuntResult:
     """
     Gets a hunt, without relations and comments.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)
@@ -219,6 +229,7 @@ def get_hunt(hunt_id: Optional[str] = None,
     return AwaitableGetHuntResult(
         attack_tactics=pulumi.get(__ret__, 'attack_tactics'),
         attack_techniques=pulumi.get(__ret__, 'attack_techniques'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -236,9 +247,7 @@ def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHuntResult]:
     """
     Gets a hunt, without relations and comments.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)
@@ -254,6 +263,7 @@ def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetHuntResult(
         attack_tactics=pulumi.get(__response__, 'attack_tactics'),
         attack_techniques=pulumi.get(__response__, 'attack_techniques'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         etag=pulumi.get(__response__, 'etag'),

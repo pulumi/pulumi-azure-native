@@ -83,7 +83,7 @@ class HybridUseBenefit(pulumi.CustomResource):
                  __props__=None):
         """
         Response on GET of a hybrid use benefit
-        Azure REST API version: 2019-12-01. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+        Azure REST API version: 2019-12-01. Prior API version in Azure Native 2.x: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class HybridUseBenefit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response on GET of a hybrid use benefit
-        Azure REST API version: 2019-12-01. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+        Azure REST API version: 2019-12-01. Prior API version in Azure Native 2.x: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param HybridUseBenefitArgs args: The arguments to use to populate this resource's properties.
@@ -135,6 +135,7 @@ class HybridUseBenefit(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_updated_date"] = None
@@ -165,6 +166,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
         __props__ = HybridUseBenefitArgs.__new__(HybridUseBenefitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["last_updated_date"] = None
@@ -173,6 +175,14 @@ class HybridUseBenefit(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["type"] = None
         return HybridUseBenefit(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")

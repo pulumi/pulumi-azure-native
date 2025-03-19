@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident comment
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
- *
- * Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class IncidentComment extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class IncidentComment extends pulumi.CustomResource {
      * Describes the client that created the comment
      */
     public /*out*/ readonly author!: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the comment was created
      */
@@ -102,6 +104,7 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
@@ -110,6 +113,7 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
@@ -119,7 +123,7 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-native:securityinsights/v20210901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20211001:IncidentComment" }, { type: "azure-native:securityinsights/v20211001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220601preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220701preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220801:IncidentComment" }, { type: "azure-native:securityinsights/v20220801preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221101:IncidentComment" }, { type: "azure-native:securityinsights/v20221101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230201:IncidentComment" }, { type: "azure-native:securityinsights/v20230201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230601preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230701preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230801preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20231001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20231101:IncidentComment" }, { type: "azure-native:securityinsights/v20231201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20240101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20240301:IncidentComment" }, { type: "azure-native:securityinsights/v20240401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20240901:IncidentComment" }, { type: "azure-native:securityinsights/v20241001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20250101preview:IncidentComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-native:securityinsights/v20210901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20211001:IncidentComment" }, { type: "azure-native:securityinsights/v20211001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220601preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220701preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220801:IncidentComment" }, { type: "azure-native:securityinsights/v20220801preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221101:IncidentComment" }, { type: "azure-native:securityinsights/v20221101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230201:IncidentComment" }, { type: "azure-native:securityinsights/v20230201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230601preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230701preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230801preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20231001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20231101:IncidentComment" }, { type: "azure-native:securityinsights/v20231201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20240101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20240301:IncidentComment" }, { type: "azure-native:securityinsights/v20240401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20240901:IncidentComment" }, { type: "azure-native:securityinsights/v20241001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20250101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20250301:IncidentComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentComment.__pulumiType, name, resourceInputs, opts);
     }

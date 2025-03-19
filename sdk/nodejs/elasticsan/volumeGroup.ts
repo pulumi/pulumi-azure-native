@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for Volume Group request.
- * Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
- *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-11-20-preview.
  */
 export class VolumeGroup extends pulumi.CustomResource {
     /**
@@ -41,17 +39,37 @@ export class VolumeGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Type of encryption
      */
     public readonly encryption!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name.
+     * Encryption Properties describing Key Vault and Identity information
+     */
+    public readonly encryptionProperties!: pulumi.Output<outputs.elasticsan.EncryptionPropertiesResponse | undefined>;
+    /**
+     * A boolean indicating whether or not Data Integrity Check is enabled
+     */
+    public readonly enforceDataIntegrityCheckForIscsi!: pulumi.Output<boolean | undefined>;
+    /**
+     * The identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.elasticsan.IdentityResponse | undefined>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */
     public readonly networkAcls!: pulumi.Output<outputs.elasticsan.NetworkRuleSetResponse | undefined>;
+    /**
+     * The list of Private Endpoint Connections.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.elasticsan.PrivateEndpointConnectionResponse[]>;
     /**
      * Type of storage target
      */
@@ -61,15 +79,11 @@ export class VolumeGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource metadata required by ARM RPC
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
-     * Azure resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,23 +106,31 @@ export class VolumeGroup extends pulumi.CustomResource {
             }
             resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
+            resourceInputs["enforceDataIntegrityCheckForIscsi"] = args ? args.enforceDataIntegrityCheckForIscsi : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["encryptionProperties"] = undefined /*out*/;
+            resourceInputs["enforceDataIntegrityCheckForIscsi"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkAcls"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +153,18 @@ export interface VolumeGroupArgs {
      */
     encryption?: pulumi.Input<string | enums.elasticsan.EncryptionType>;
     /**
+     * Encryption Properties describing Key Vault and Identity information
+     */
+    encryptionProperties?: pulumi.Input<inputs.elasticsan.EncryptionPropertiesArgs>;
+    /**
+     * A boolean indicating whether or not Data Integrity Check is enabled
+     */
+    enforceDataIntegrityCheckForIscsi?: pulumi.Input<boolean>;
+    /**
+     * The identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.elasticsan.IdentityArgs>;
+    /**
      * A collection of rules governing the accessibility from specific network locations.
      */
     networkAcls?: pulumi.Input<inputs.elasticsan.NetworkRuleSetArgs>;
@@ -142,10 +176,6 @@ export interface VolumeGroupArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Azure resource tags.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VolumeGroup.
      */

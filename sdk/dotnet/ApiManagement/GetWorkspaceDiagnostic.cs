@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Task<GetWorkspaceDiagnosticResult> InvokeAsync(GetWorkspaceDiagnosticArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceDiagnosticResult>("azure-native:apimanagement:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceDiagnosticResult> Invoke(GetWorkspaceDiagnosticInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceDiagnosticResult>("azure-native:apimanagement:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceDiagnosticResult> Invoke(GetWorkspaceDiagnosticInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceDiagnosticResult>("azure-native:apimanagement:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? AlwaysLog;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         /// </summary>
         public readonly Outputs.PipelineDiagnosticSettingsResponse? Backend;
@@ -128,6 +126,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Large Language Models diagnostic settings
+        /// </summary>
+        public readonly Outputs.LLMDiagnosticSettingsResponse? LargeLanguageModel;
         /// <summary>
         /// Log the ClientIP. Default is false.
         /// </summary>
@@ -165,6 +167,8 @@ namespace Pulumi.AzureNative.ApiManagement
         private GetWorkspaceDiagnosticResult(
             string? alwaysLog,
 
+            string azureApiVersion,
+
             Outputs.PipelineDiagnosticSettingsResponse? backend,
 
             Outputs.PipelineDiagnosticSettingsResponse? frontend,
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNative.ApiManagement
             string? httpCorrelationProtocol,
 
             string id,
+
+            Outputs.LLMDiagnosticSettingsResponse? largeLanguageModel,
 
             bool? logClientIp,
 
@@ -190,10 +196,12 @@ namespace Pulumi.AzureNative.ApiManagement
             string? verbosity)
         {
             AlwaysLog = alwaysLog;
+            AzureApiVersion = azureApiVersion;
             Backend = backend;
             Frontend = frontend;
             HttpCorrelationProtocol = httpCorrelationProtocol;
             Id = id;
+            LargeLanguageModel = largeLanguageModel;
             LogClientIp = logClientIp;
             LoggerId = loggerId;
             Metrics = metrics;

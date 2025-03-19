@@ -184,19 +184,6 @@ utilities.lazyLoad(exports, ["WebAppSitesController"], () => require("./webAppSi
 // Export enums:
 export * from "../types/enums/offazure";
 
-// Export sub-modules:
-import * as v20200707 from "./v20200707";
-import * as v20230606 from "./v20230606";
-import * as v20231001preview from "./v20231001preview";
-import * as v20240501preview from "./v20240501preview";
-
-export {
-    v20200707,
-    v20230606,
-    v20231001preview,
-    v20240501preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

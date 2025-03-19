@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a schedule resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devcenter:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a schedule resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devcenter:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a schedule resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devcenter:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
@@ -121,13 +115,21 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The frequency of this scheduled task.
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string? Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -145,6 +147,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The target time to trigger the action. The format is HH:MM.
         /// </summary>
         public readonly string Time;
@@ -159,9 +165,13 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetScheduleResult(
+            string azureApiVersion,
+
             string frequency,
 
             string id,
+
+            string? location,
 
             string name,
 
@@ -171,18 +181,23 @@ namespace Pulumi.AzureNative.DevCenter
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableDictionary<string, string>? tags,
+
             string time,
 
             string timeZone,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Frequency = frequency;
             Id = id;
+            Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             State = state;
             SystemData = systemData;
+            Tags = tags;
             Time = time;
             TimeZone = timeZone;
             Type = type;

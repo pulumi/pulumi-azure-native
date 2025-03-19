@@ -19,7 +19,7 @@ class MyStack : Stack
             Sku = new SkuArgs
             {
                 Name = "Standard_B1ms",
-                Tier = SkuTier.Burstable
+                Tier = SkuTier.Basic
             },
             Storage = new StorageArgs
             {

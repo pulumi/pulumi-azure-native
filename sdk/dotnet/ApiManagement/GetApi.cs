@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apimanagement:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
@@ -129,6 +123,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly Outputs.AuthenticationSettingsContractResponse? AuthenticationSettings;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Contact information for the API.
         /// </summary>
         public readonly Outputs.ApiContactInformationResponse? Contact;
@@ -211,6 +209,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             Outputs.AuthenticationSettingsContractResponse? authenticationSettings,
 
+            string azureApiVersion,
+
             Outputs.ApiContactInformationResponse? contact,
 
             string? description,
@@ -251,6 +251,7 @@ namespace Pulumi.AzureNative.ApiManagement
             ApiVersionSet = apiVersionSet;
             ApiVersionSetId = apiVersionSetId;
             AuthenticationSettings = authenticationSettings;
+            AzureApiVersion = azureApiVersion;
             Contact = contact;
             Description = description;
             DisplayName = displayName;

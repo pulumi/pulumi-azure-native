@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The bandwidth schedule details.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === BandwidthSchedule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The days of the week when this schedule is applicable.
      */
@@ -105,9 +107,11 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["start"] = args ? args.start : undefined;
             resourceInputs["stop"] = args ? args.stop : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["days"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["rateInMbps"] = undefined /*out*/;

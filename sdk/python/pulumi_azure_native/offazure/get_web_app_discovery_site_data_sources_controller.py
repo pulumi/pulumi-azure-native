@@ -27,7 +27,10 @@ class GetWebAppDiscoverySiteDataSourcesControllerResult:
     """
     Web app data source web model.
     """
-    def __init__(__self__, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if discovery_site_id and not isinstance(discovery_site_id, str):
             raise TypeError("Expected argument 'discovery_site_id' to be a str")
         pulumi.set(__self__, "discovery_site_id", discovery_site_id)
@@ -46,6 +49,14 @@ class GetWebAppDiscoverySiteDataSourcesControllerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoverySiteId")
@@ -102,6 +113,7 @@ class AwaitableGetWebAppDiscoverySiteDataSourcesControllerResult(GetWebAppDiscov
         if False:
             yield self
         return GetWebAppDiscoverySiteDataSourcesControllerResult(
+            azure_api_version=self.azure_api_version,
             discovery_site_id=self.discovery_site_id,
             id=self.id,
             name=self.name,
@@ -117,9 +129,7 @@ def get_web_app_discovery_site_data_sources_controller(discovery_site_data_sourc
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDiscoverySiteDataSourcesControllerResult:
     """
     Method to get a Web app data source in site.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: Data Source ARM name.
@@ -136,6 +146,7 @@ def get_web_app_discovery_site_data_sources_controller(discovery_site_data_sourc
     __ret__ = pulumi.runtime.invoke('azure-native:offazure:getWebAppDiscoverySiteDataSourcesController', __args__, opts=opts, typ=GetWebAppDiscoverySiteDataSourcesControllerResult).value
 
     return AwaitableGetWebAppDiscoverySiteDataSourcesControllerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         discovery_site_id=pulumi.get(__ret__, 'discovery_site_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -149,9 +160,7 @@ def get_web_app_discovery_site_data_sources_controller_output(discovery_site_dat
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDiscoverySiteDataSourcesControllerResult]:
     """
     Method to get a Web app data source in site.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: Data Source ARM name.
@@ -167,6 +176,7 @@ def get_web_app_discovery_site_data_sources_controller_output(discovery_site_dat
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getWebAppDiscoverySiteDataSourcesController', __args__, opts=opts, typ=GetWebAppDiscoverySiteDataSourcesControllerResult)
     return __ret__.apply(lambda __response__: GetWebAppDiscoverySiteDataSourcesControllerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

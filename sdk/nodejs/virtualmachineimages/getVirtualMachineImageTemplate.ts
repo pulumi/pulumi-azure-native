@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a virtual machine image template
- * Azure REST API version: 2022-07-01.
- *
- * Other available API versions: 2023-07-01, 2024-02-01.
+ * Azure REST API version: 2024-02-01.
  */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,14 @@ export interface GetVirtualMachineImageTemplateArgs {
  */
 export interface GetVirtualMachineImageTemplateResult {
     /**
+     * Indicates whether or not to automatically run the image template build on template creation or update.
+     */
+    readonly autoRun?: outputs.virtualmachineimages.ImageTemplateAutoRunResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
      */
     readonly buildTimeoutInMinutes?: number;
@@ -48,6 +54,10 @@ export interface GetVirtualMachineImageTemplateResult {
      * The distribution targets where the image output needs to go to.
      */
     readonly distribute: (outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse)[];
+    /**
+     * Error handling options upon a build failure
+     */
+    readonly errorHandling?: outputs.virtualmachineimages.ImageTemplatePropertiesResponseErrorHandling;
     /**
      * The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
      */
@@ -68,6 +78,10 @@ export interface GetVirtualMachineImageTemplateResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Tags that will be applied to the resource group and/or resources created by the service.
+     */
+    readonly managedResourceTags?: {[key: string]: string};
     /**
      * The name of the resource
      */
@@ -115,9 +129,7 @@ export interface GetVirtualMachineImageTemplateResult {
 }
 /**
  * Get information about a virtual machine image template
- * Azure REST API version: 2022-07-01.
- *
- * Other available API versions: 2023-07-01, 2024-02-01.
+ * Azure REST API version: 2024-02-01.
  */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

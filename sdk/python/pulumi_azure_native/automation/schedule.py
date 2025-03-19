@@ -217,9 +217,7 @@ class Schedule(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the schedule.
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
-
-        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,9 +241,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the schedule.
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
-
-        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -303,6 +299,7 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'start_time'")
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["time_zone"] = time_zone
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["expiry_time_offset_minutes"] = None
             __props__.__dict__["is_enabled"] = None
@@ -336,6 +333,7 @@ class Schedule(pulumi.CustomResource):
         __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
         __props__.__dict__["advanced_schedule"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["expiry_time"] = None
@@ -360,6 +358,14 @@ class Schedule(pulumi.CustomResource):
         Gets or sets the advanced schedule.
         """
         return pulumi.get(self, "advanced_schedule")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")

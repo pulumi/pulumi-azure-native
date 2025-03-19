@@ -152,9 +152,7 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the service.
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
-
-        Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +172,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the service.
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
-
-        Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -220,11 +216,12 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20200330:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210111:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20231101:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20231201:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20240301:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20240331:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20200330:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210111:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20231101:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20231201:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20240301:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20240331:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20250301preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:healthcareapis:Service',
@@ -248,6 +245,7 @@ class Service(pulumi.CustomResource):
 
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
@@ -258,6 +256,14 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

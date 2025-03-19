@@ -27,7 +27,10 @@ class GetManagerResult:
     """
     The StorSimple Manager.
     """
-    def __init__(__self__, cis_intrinsic_settings=None, etag=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, cis_intrinsic_settings=None, etag=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cis_intrinsic_settings and not isinstance(cis_intrinsic_settings, dict):
             raise TypeError("Expected argument 'cis_intrinsic_settings' to be a dict")
         pulumi.set(__self__, "cis_intrinsic_settings", cis_intrinsic_settings)
@@ -55,6 +58,14 @@ class GetManagerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cisIntrinsicSettings")
@@ -135,6 +146,7 @@ class AwaitableGetManagerResult(GetManagerResult):
         if False:
             yield self
         return GetManagerResult(
+            azure_api_version=self.azure_api_version,
             cis_intrinsic_settings=self.cis_intrinsic_settings,
             etag=self.etag,
             id=self.id,
@@ -164,6 +176,7 @@ def get_manager(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getManager', __args__, opts=opts, typ=GetManagerResult).value
 
     return AwaitableGetManagerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cis_intrinsic_settings=pulumi.get(__ret__, 'cis_intrinsic_settings'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -190,6 +203,7 @@ def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getManager', __args__, opts=opts, typ=GetManagerResult)
     return __ret__.apply(lambda __response__: GetManagerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cis_intrinsic_settings=pulumi.get(__response__, 'cis_intrinsic_settings'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

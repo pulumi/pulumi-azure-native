@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
     /// Dra model.
-    /// Azure REST API version: 2021-02-16-preview.
+    /// Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 2.x: 2021-02-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Dra")]
     public partial class Dra : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the name of the resource.
         /// </summary>
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.DataReplication
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20210216preview:Dra" },
+                    new global::Pulumi.Alias { Type = "azure-native:datareplication/v20240901:Dra" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

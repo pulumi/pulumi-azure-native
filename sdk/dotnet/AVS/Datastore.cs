@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A datastore resource
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-    /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// An iSCSI volume
         /// </summary>
@@ -25,7 +29,13 @@ namespace Pulumi.AzureNative.AVS
         public Output<Outputs.DiskPoolVolumeResponse?> DiskPoolVolume { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// An Elastic SAN volume
+        /// </summary>
+        [Output("elasticSanVolume")]
+        public Output<Outputs.ElasticSanVolumeResponse?> ElasticSanVolume { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -49,7 +59,13 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -109,13 +125,13 @@ namespace Pulumi.AzureNative.AVS
     public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the datastore in the private cloud cluster
+        /// Name of the datastore
         /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
@@ -125,6 +141,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Input("diskPoolVolume")]
         public Input<Inputs.DiskPoolVolumeArgs>? DiskPoolVolume { get; set; }
+
+        /// <summary>
+        /// An Elastic SAN volume
+        /// </summary>
+        [Input("elasticSanVolume")]
+        public Input<Inputs.ElasticSanVolumeArgs>? ElasticSanVolume { get; set; }
 
         /// <summary>
         /// An Azure NetApp Files volume

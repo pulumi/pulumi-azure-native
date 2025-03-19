@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
             set => _luns = value;
         }
 
+        /// <summary>
+        /// Use storage pool to build a drive if true or not provided
+        /// </summary>
+        [Input("useStoragePool")]
+        public Input<bool>? UseStoragePool { get; set; }
+
         public SQLStorageSettingsArgs()
         {
         }

@@ -19,9 +19,11 @@ __all__ = [
     'NsgProtocol',
     'PartitionScheme',
     'PrivateEndpointNetworkPolicies',
+    'PrivateIPAddressVersion',
     'PrivateLinkServiceNetworkPolicies',
     'ProbeProtocol',
     'Protocol',
+    'PublicIPAddressVersion',
     'RollingUpgradeMode',
     'SecurityType',
     'ServiceCorrelationScheme',
@@ -33,6 +35,7 @@ __all__ = [
     'ServiceScalingTriggerKind',
     'SkuName',
     'VmSetupAction',
+    'VmssExtensionSetupOrder',
     'ZonalUpdateMode',
 ]
 
@@ -222,7 +225,7 @@ class NsgProtocol(str, Enum):
 
 class PartitionScheme(str, Enum):
     """
-    Specifies how the service is partitioned.
+    Enumerates the ways that a service can be partitioned.
     """
     SINGLETON = "Singleton"
     """
@@ -244,6 +247,14 @@ class PrivateEndpointNetworkPolicies(str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class PrivateIPAddressVersion(str, Enum):
+    """
+    Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
 
 
 class PrivateLinkServiceNetworkPolicies(str, Enum):
@@ -271,6 +282,14 @@ class Protocol(str, Enum):
     UDP = "udp"
 
 
+class PublicIPAddressVersion(str, Enum):
+    """
+    Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
+
+
 class RollingUpgradeMode(str, Enum):
     """
     The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
@@ -287,11 +306,15 @@ class RollingUpgradeMode(str, Enum):
 
 class SecurityType(str, Enum):
     """
-    Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+    Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
     """
     TRUSTED_LAUNCH = "TrustedLaunch"
     """
     Trusted Launch is a security type that secures generation 2 virtual machines.
+    """
+    STANDARD = "Standard"
+    """
+    Standard is the default security type for all machines.
     """
 
 
@@ -387,7 +410,7 @@ class ServicePlacementPolicyType(str, Enum):
 
 class ServiceScalingMechanismKind(str, Enum):
     """
-    Specifies the mechanism associated with this scaling policy.
+    Enumerates the ways that a service can be partitioned.
     """
     SCALE_PARTITION_INSTANCE_COUNT = "ScalePartitionInstanceCount"
     """
@@ -401,7 +424,7 @@ class ServiceScalingMechanismKind(str, Enum):
 
 class ServiceScalingTriggerKind(str, Enum):
     """
-    Specifies the trigger associated with this scaling policy.
+    Enumerates the ways that a service can be partitioned.
     """
     AVERAGE_PARTITION_LOAD_TRIGGER = "AveragePartitionLoadTrigger"
     """
@@ -438,6 +461,16 @@ class VmSetupAction(str, Enum):
     ENABLE_HYPER_V = "EnableHyperV"
     """
     Enables windows HyperV feature.
+    """
+
+
+class VmssExtensionSetupOrder(str, Enum):
+    """
+    Vm extension setup order.
+    """
+    BEFORE_SF_RUNTIME = "BeforeSFRuntime"
+    """
+    Indicates that the vm extension should run before the service fabric runtime starts.
     """
 
 

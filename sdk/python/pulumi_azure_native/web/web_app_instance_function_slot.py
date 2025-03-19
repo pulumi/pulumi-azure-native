@@ -335,9 +335,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Function information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -368,9 +366,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Function information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppInstanceFunctionSlotArgs args: The arguments to use to populate this resource's properties.
@@ -438,6 +434,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["test_data"] = test_data
             __props__.__dict__["test_data_href"] = test_data_href
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppInstanceFunctionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -463,6 +460,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
 
         __props__ = WebAppInstanceFunctionSlotArgs.__new__(WebAppInstanceFunctionSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["config"] = None
         __props__.__dict__["config_href"] = None
         __props__.__dict__["files"] = None
@@ -480,6 +478,14 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
         __props__.__dict__["test_data_href"] = None
         __props__.__dict__["type"] = None
         return WebAppInstanceFunctionSlot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

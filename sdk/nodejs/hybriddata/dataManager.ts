@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The DataManager resource.
- * Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
+ * Azure REST API version: 2019-06-01. Prior API version in Azure Native 2.x: 2019-06-01.
  */
 export class DataManager extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DataManager extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataManager.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Etag of the Resource.
      */
@@ -85,10 +89,12 @@ export class DataManager extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

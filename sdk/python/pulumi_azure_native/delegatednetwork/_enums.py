@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'ControllerPurpose',
     'OrchestratorKind',
     'ResourceIdentityType',
 ]
+
+
+class ControllerPurpose(str, Enum):
+    """
+    The purpose of the dnc controller resource.
+    """
+    TEST = "test"
+    PROD = "prod"
 
 
 class OrchestratorKind(str, Enum):

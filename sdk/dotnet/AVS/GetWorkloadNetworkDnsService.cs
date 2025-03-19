@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.AVS
     public static class GetWorkloadNetworkDnsService
     {
         /// <summary>
-        /// NSX DNS Service
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a WorkloadNetworkDnsService
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsServiceResult> InvokeAsync(GetWorkloadNetworkDnsServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX DNS Service
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a WorkloadNetworkDnsService
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX DNS Service
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a WorkloadNetworkDnsService
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDnsServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        /// ID of the DNS service.
         /// </summary>
         [Input("dnsServiceId", required: true)]
         public string DnsServiceId { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDnsServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        /// ID of the DNS service.
         /// </summary>
         [Input("dnsServiceId", required: true)]
         public Input<string> DnsServiceId { get; set; } = null!;
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDnsServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Default DNS zone of the DNS Service.
         /// </summary>
         public readonly string? DefaultDnsZone;
@@ -113,7 +111,7 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly ImmutableArray<string> FqdnZones;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -121,7 +119,7 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? LogLevel;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -137,12 +135,18 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWorkloadNetworkDnsServiceResult(
+            string azureApiVersion,
+
             string? defaultDnsZone,
 
             string? displayName,
@@ -163,8 +167,11 @@ namespace Pulumi.AzureNative.AVS
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DefaultDnsZone = defaultDnsZone;
             DisplayName = displayName;
             DnsServiceIp = dnsServiceIp;
@@ -175,6 +182,7 @@ namespace Pulumi.AzureNative.AVS
             ProvisioningState = provisioningState;
             Revision = revision;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

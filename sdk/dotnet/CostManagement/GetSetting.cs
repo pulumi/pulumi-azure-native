@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetSettingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Array of scopes with additional details used by Cost Management in the Azure portal.
         /// </summary>
         public readonly ImmutableArray<Outputs.SettingsPropertiesResponseCache> Cache;
@@ -97,6 +101,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetSettingResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.SettingsPropertiesResponseCache> cache,
 
             string id,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Cache = cache;
             Id = id;
             Kind = kind;

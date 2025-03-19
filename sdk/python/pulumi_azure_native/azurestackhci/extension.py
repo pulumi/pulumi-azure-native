@@ -234,9 +234,7 @@ class Extension(pulumi.CustomResource):
                  __props__=None):
         """
         Details of a particular extension in HCI Cluster.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,9 +259,7 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of a particular extension in HCI Cluster.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -320,6 +316,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["type_handler_version"] = type_handler_version
             __props__.__dict__["aggregate_state"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["per_node_extension_details"] = None
@@ -351,6 +348,7 @@ class Extension(pulumi.CustomResource):
 
         __props__.__dict__["aggregate_state"] = None
         __props__.__dict__["auto_upgrade_minor_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["enable_automatic_upgrade"] = None
         __props__.__dict__["force_update_tag"] = None
         __props__.__dict__["managed_by"] = None
@@ -380,6 +378,14 @@ class Extension(pulumi.CustomResource):
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableAutomaticUpgrade")

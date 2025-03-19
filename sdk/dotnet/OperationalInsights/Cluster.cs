@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
-    /// 
-    /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("associatedWorkspaces")]
         public Output<ImmutableArray<Outputs.AssociatedWorkspaceResponse>> AssociatedWorkspaces { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The cluster's billing type.
@@ -49,10 +53,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the resource.
+        /// Resource's identity.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -146,6 +150,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -182,10 +187,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The identity of the resource.
+        /// Resource's identity.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.

@@ -17,14 +17,50 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
     public sealed class StorageResponse
     {
         /// <summary>
+        /// Flag to enable / disable Storage Auto grow for flexible server.
+        /// </summary>
+        public readonly string? AutoGrow;
+        /// <summary>
+        /// Storage tier IOPS quantity. This property is required to be set for storage Type PremiumV2_LRS
+        /// </summary>
+        public readonly int? Iops;
+        /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
         public readonly int? StorageSizeGB;
+        /// <summary>
+        /// Storage throughput for the server. This is required to be set for storage Type PremiumV2_LRS
+        /// </summary>
+        public readonly int? Throughput;
+        /// <summary>
+        /// Name of storage tier for IOPS.
+        /// </summary>
+        public readonly string? Tier;
+        /// <summary>
+        /// Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
-        private StorageResponse(int? storageSizeGB)
+        private StorageResponse(
+            string? autoGrow,
+
+            int? iops,
+
+            int? storageSizeGB,
+
+            int? throughput,
+
+            string? tier,
+
+            string? type)
         {
+            AutoGrow = autoGrow;
+            Iops = iops;
             StorageSizeGB = storageSizeGB;
+            Throughput = throughput;
+            Tier = tier;
+            Type = type;
         }
     }
 }

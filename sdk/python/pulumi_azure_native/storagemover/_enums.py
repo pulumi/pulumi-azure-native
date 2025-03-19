@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'CopyMode',
+    'CredentialType',
+    'DayOfWeek',
     'EndpointType',
     'NfsVersion',
 ]
@@ -19,12 +21,34 @@ class CopyMode(str, Enum):
     MIRROR = "Mirror"
 
 
+class CredentialType(str, Enum):
+    """
+    The Credentials type.
+    """
+    AZURE_KEY_VAULT_SMB = "AzureKeyVaultSmb"
+
+
+class DayOfWeek(str, Enum):
+    """
+    The day of week.
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+
+
 class EndpointType(str, Enum):
     """
     The Endpoint resource type.
     """
     AZURE_STORAGE_BLOB_CONTAINER = "AzureStorageBlobContainer"
     NFS_MOUNT = "NfsMount"
+    AZURE_STORAGE_SMB_FILE_SHARE = "AzureStorageSmbFileShare"
+    SMB_MOUNT = "SmbMount"
 
 
 class NfsVersion(str, Enum):

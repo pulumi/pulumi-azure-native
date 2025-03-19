@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified mobile network site.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetSiteArgs {
  * Site resource. Must be created in the same location as its parent mobile network.
  */
 export interface GetSiteResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -76,9 +78,7 @@ export interface GetSiteResult {
 }
 /**
  * Gets information about the specified mobile network site.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

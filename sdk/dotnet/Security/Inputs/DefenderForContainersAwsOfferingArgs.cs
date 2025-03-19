@@ -16,34 +16,34 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForContainersAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is audit logs pipeline auto provisioning enabled
-        /// </summary>
-        [Input("autoProvisioning")]
-        public Input<bool>? AutoProvisioning { get; set; }
-
-        /// <summary>
         /// The cloudwatch to kinesis connection configuration
         /// </summary>
         [Input("cloudWatchToKinesis")]
         public Input<Inputs.DefenderForContainersAwsOfferingCloudWatchToKinesisArgs>? CloudWatchToKinesis { get; set; }
 
         /// <summary>
-        /// The container vulnerability assessment configuration
+        /// The externalId used by the data reader to prevent the confused deputy attack
         /// </summary>
-        [Input("containerVulnerabilityAssessment")]
-        public Input<Inputs.DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgs>? ContainerVulnerabilityAssessment { get; set; }
+        [Input("dataCollectionExternalId")]
+        public Input<string>? DataCollectionExternalId { get; set; }
 
         /// <summary>
-        /// The container vulnerability assessment task configuration
+        /// Is audit logs data collection enabled
         /// </summary>
-        [Input("containerVulnerabilityAssessmentTask")]
-        public Input<Inputs.DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgs>? ContainerVulnerabilityAssessmentTask { get; set; }
+        [Input("enableAuditLogsAutoProvisioning")]
+        public Input<bool>? EnableAuditLogsAutoProvisioning { get; set; }
 
         /// <summary>
-        /// Enable container vulnerability assessment feature
+        /// Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
         /// </summary>
-        [Input("enableContainerVulnerabilityAssessment")]
-        public Input<bool>? EnableContainerVulnerabilityAssessment { get; set; }
+        [Input("enableDefenderAgentAutoProvisioning")]
+        public Input<bool>? EnableDefenderAgentAutoProvisioning { get; set; }
+
+        /// <summary>
+        /// Is Policy Kubernetes agent auto provisioning enabled
+        /// </summary>
+        [Input("enablePolicyAgentAutoProvisioning")]
+        public Input<bool>? EnablePolicyAgentAutoProvisioning { get; set; }
 
         /// <summary>
         /// The kinesis to s3 connection configuration
@@ -58,16 +58,28 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<double>? KubeAuditRetentionTime { get; set; }
 
         /// <summary>
-        /// The kubernetes to scuba connection configuration
+        /// The kubernetes data collection connection configuration
         /// </summary>
-        [Input("kubernetesScubaReader")]
-        public Input<Inputs.DefenderForContainersAwsOfferingKubernetesScubaReaderArgs>? KubernetesScubaReader { get; set; }
+        [Input("kubernetesDataCollection")]
+        public Input<Inputs.DefenderForContainersAwsOfferingKubernetesDataCollectionArgs>? KubernetesDataCollection { get; set; }
 
         /// <summary>
         /// The kubernetes service connection configuration
         /// </summary>
         [Input("kubernetesService")]
         public Input<Inputs.DefenderForContainersAwsOfferingKubernetesServiceArgs>? KubernetesService { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender container agentless discovery K8s configuration
+        /// </summary>
+        [Input("mdcContainersAgentlessDiscoveryK8s")]
+        public Input<Inputs.DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs>? MdcContainersAgentlessDiscoveryK8s { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender container image assessment configuration
+        /// </summary>
+        [Input("mdcContainersImageAssessment")]
+        public Input<Inputs.DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs>? MdcContainersImageAssessment { get; set; }
 
         /// <summary>
         /// The type of the security offering.
@@ -77,10 +89,10 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<string> OfferingType { get; set; } = null!;
 
         /// <summary>
-        /// The externalId used by the data reader to prevent the confused deputy attack
+        /// The Microsoft Defender for Container K8s VM host scanning configuration
         /// </summary>
-        [Input("scubaExternalId")]
-        public Input<string>? ScubaExternalId { get; set; }
+        [Input("vmScanners")]
+        public Input<Inputs.DefenderForContainersAwsOfferingVmScannersArgs>? VmScanners { get; set; }
 
         public DefenderForContainersAwsOfferingArgs()
         {

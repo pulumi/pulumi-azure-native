@@ -27,7 +27,10 @@ class GetVolumeGroupResult:
     """
     Volume group resource for create
     """
-    def __init__(__self__, group_meta_data=None, id=None, location=None, name=None, provisioning_state=None, type=None, volumes=None):
+    def __init__(__self__, azure_api_version=None, group_meta_data=None, id=None, location=None, name=None, provisioning_state=None, type=None, volumes=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_meta_data and not isinstance(group_meta_data, dict):
             raise TypeError("Expected argument 'group_meta_data' to be a dict")
         pulumi.set(__self__, "group_meta_data", group_meta_data)
@@ -49,6 +52,14 @@ class GetVolumeGroupResult:
         if volumes and not isinstance(volumes, list):
             raise TypeError("Expected argument 'volumes' to be a list")
         pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupMetaData")
@@ -113,6 +124,7 @@ class AwaitableGetVolumeGroupResult(GetVolumeGroupResult):
         if False:
             yield self
         return GetVolumeGroupResult(
+            azure_api_version=self.azure_api_version,
             group_meta_data=self.group_meta_data,
             id=self.id,
             location=self.location,
@@ -128,9 +140,7 @@ def get_volume_group(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Get details of the specified volume group
-    Azure REST API version: 2022-11-01.
-
-    Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -145,6 +155,7 @@ def get_volume_group(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult).value
 
     return AwaitableGetVolumeGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_meta_data=pulumi.get(__ret__, 'group_meta_data'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -158,9 +169,7 @@ def get_volume_group_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get details of the specified volume group
-    Azure REST API version: 2022-11-01.
-
-    Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -174,6 +183,7 @@ def get_volume_group_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult)
     return __ret__.apply(lambda __response__: GetVolumeGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_meta_data=pulumi.get(__response__, 'group_meta_data'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

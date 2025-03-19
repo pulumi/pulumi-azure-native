@@ -84,7 +84,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                  args: PrivateLinkAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -133,6 +133,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["pla_id"] = pla_id
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20200501:PrivateLinkAssociation")])
@@ -159,10 +160,19 @@ class PrivateLinkAssociation(pulumi.CustomResource):
 
         __props__ = PrivateLinkAssociationArgs.__new__(PrivateLinkAssociationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return PrivateLinkAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

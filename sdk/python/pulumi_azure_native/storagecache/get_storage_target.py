@@ -27,10 +27,13 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, allocation_percentage=None, blob_nfs=None, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, state=None, system_data=None, target_type=None, type=None, unknown=None):
+    def __init__(__self__, allocation_percentage=None, azure_api_version=None, blob_nfs=None, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, state=None, system_data=None, target_type=None, type=None, unknown=None):
         if allocation_percentage and not isinstance(allocation_percentage, int):
             raise TypeError("Expected argument 'allocation_percentage' to be a int")
         pulumi.set(__self__, "allocation_percentage", allocation_percentage)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blob_nfs and not isinstance(blob_nfs, dict):
             raise TypeError("Expected argument 'blob_nfs' to be a dict")
         pulumi.set(__self__, "blob_nfs", blob_nfs)
@@ -78,6 +81,14 @@ class GetStorageTargetResult:
         The percentage of cache space allocated for this storage target
         """
         return pulumi.get(self, "allocation_percentage")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobNfs")
@@ -191,6 +202,7 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
             yield self
         return GetStorageTargetResult(
             allocation_percentage=self.allocation_percentage,
+            azure_api_version=self.azure_api_version,
             blob_nfs=self.blob_nfs,
             clfs=self.clfs,
             id=self.id,
@@ -212,9 +224,7 @@ def get_storage_target(cache_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
     Returns a Storage Target from a cache.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -230,6 +240,7 @@ def get_storage_target(cache_name: Optional[str] = None,
 
     return AwaitableGetStorageTargetResult(
         allocation_percentage=pulumi.get(__ret__, 'allocation_percentage'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blob_nfs=pulumi.get(__ret__, 'blob_nfs'),
         clfs=pulumi.get(__ret__, 'clfs'),
         id=pulumi.get(__ret__, 'id'),
@@ -249,9 +260,7 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
     Returns a Storage Target from a cache.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -266,6 +275,7 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache:getStorageTarget', __args__, opts=opts, typ=GetStorageTargetResult)
     return __ret__.apply(lambda __response__: GetStorageTargetResult(
         allocation_percentage=pulumi.get(__response__, 'allocation_percentage'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blob_nfs=pulumi.get(__response__, 'blob_nfs'),
         clfs=pulumi.get(__response__, 'clfs'),
         id=pulumi.get(__response__, 'id'),

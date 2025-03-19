@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Management resource preference to link device
+    /// Management resource preference to link device.
     /// </summary>
     public sealed class ManagementResourcePreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customer preferred Management resource ARM ID
+        /// Customer preferred Management resource ARM ID.
         /// </summary>
         [Input("preferredManagementResourceId")]
         public Input<string>? PreferredManagementResourceId { get; set; }

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Channel info.
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
-    /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The type of the event channel which represents the direction flow of events.
         /// </summary>
@@ -62,7 +66,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> ReadinessState { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Channel resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

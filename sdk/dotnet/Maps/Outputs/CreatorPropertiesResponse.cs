@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Maps.Outputs
     public sealed class CreatorPropertiesResponse
     {
         /// <summary>
+        /// The consumed storage unit size in bytes for the creator resource.
+        /// </summary>
+        public readonly int? ConsumedStorageUnitSizeInBytes;
+        /// <summary>
         /// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         /// </summary>
         public readonly string ProvisioningState;
@@ -24,15 +28,25 @@ namespace Pulumi.AzureNative.Maps.Outputs
         /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
         /// </summary>
         public readonly int StorageUnits;
+        /// <summary>
+        /// The total allocated storage unit size in bytes for the creator resource.
+        /// </summary>
+        public readonly int? TotalStorageUnitSizeInBytes;
 
         [OutputConstructor]
         private CreatorPropertiesResponse(
+            int? consumedStorageUnitSizeInBytes,
+
             string provisioningState,
 
-            int storageUnits)
+            int storageUnits,
+
+            int? totalStorageUnitSizeInBytes)
         {
+            ConsumedStorageUnitSizeInBytes = consumedStorageUnitSizeInBytes;
             ProvisioningState = provisioningState;
             StorageUnits = storageUnits;
+            TotalStorageUnitSizeInBytes = totalStorageUnitSizeInBytes;
         }
     }
 }

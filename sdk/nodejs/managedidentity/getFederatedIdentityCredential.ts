@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the federated identity credential.
  * Azure REST API version: 2023-01-31.
- *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetFederatedIdentityCredentialResult {
      */
     readonly audiences: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -73,8 +75,6 @@ export interface GetFederatedIdentityCredentialResult {
 /**
  * Gets the federated identity credential.
  * Azure REST API version: 2023-01-31.
- *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
  */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

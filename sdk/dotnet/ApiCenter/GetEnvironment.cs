@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiCenter
     {
         /// <summary>
         /// Returns details of the environment.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:apicenter:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns details of the environment.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:apicenter:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns details of the environment.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:apicenter:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class GetEnvironmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The custom metadata defined for API catalog entities.
         /// </summary>
         public readonly object? CustomProperties;
@@ -151,6 +149,8 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [OutputConstructor]
         private GetEnvironmentResult(
+            string azureApiVersion,
+
             object? customProperties,
 
             string? description,
@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomProperties = customProperties;
             Description = description;
             Id = id;

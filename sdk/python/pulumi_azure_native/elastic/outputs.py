@@ -37,6 +37,7 @@ __all__ = [
     'OpenAIIntegrationPropertiesResponse',
     'OpenAIIntegrationStatusResponsePropertiesResponse',
     'PartnerBillingEntityResponse',
+    'PlanDetailsResponse',
     'ResourceSkuResponse',
     'SubscriptionListResponse',
     'SystemDataResponse',
@@ -899,8 +900,18 @@ class MonitorPropertiesResponse(dict):
             suggest = "generate_api_key"
         elif key == "monitoringStatus":
             suggest = "monitoring_status"
+        elif key == "planDetails":
+            suggest = "plan_details"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "saaSAzureSubscriptionStatus":
+            suggest = "saa_s_azure_subscription_status"
+        elif key == "sourceCampaignId":
+            suggest = "source_campaign_id"
+        elif key == "sourceCampaignName":
+            suggest = "source_campaign_name"
+        elif key == "subscriptionState":
+            suggest = "subscription_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MonitorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -919,7 +930,12 @@ class MonitorPropertiesResponse(dict):
                  elastic_properties: Optional['outputs.ElasticPropertiesResponse'] = None,
                  generate_api_key: Optional[bool] = None,
                  monitoring_status: Optional[str] = None,
+                 plan_details: Optional['outputs.PlanDetailsResponse'] = None,
                  provisioning_state: Optional[str] = None,
+                 saa_s_azure_subscription_status: Optional[str] = None,
+                 source_campaign_id: Optional[str] = None,
+                 source_campaign_name: Optional[str] = None,
+                 subscription_state: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Properties specific to the monitor resource.
@@ -927,7 +943,12 @@ class MonitorPropertiesResponse(dict):
         :param 'ElasticPropertiesResponse' elastic_properties: Elastic cloud properties.
         :param bool generate_api_key: Flag to determine if User API Key has to be generated and shared.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param 'PlanDetailsResponse' plan_details: Plan details of the monitor resource.
         :param str provisioning_state: Provisioning state of the monitor resource.
+        :param str saa_s_azure_subscription_status: Status of Azure Subscription where Marketplace SaaS is located.
+        :param str source_campaign_id: A unique identifier associated with the campaign.
+        :param str source_campaign_name: Name of the marketing campaign.
+        :param str subscription_state: State of the Azure Subscription containing the monitor resource
         :param str version: Version of elastic of the monitor resource
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
@@ -938,8 +959,18 @@ class MonitorPropertiesResponse(dict):
             pulumi.set(__self__, "generate_api_key", generate_api_key)
         if monitoring_status is not None:
             pulumi.set(__self__, "monitoring_status", monitoring_status)
+        if plan_details is not None:
+            pulumi.set(__self__, "plan_details", plan_details)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if saa_s_azure_subscription_status is not None:
+            pulumi.set(__self__, "saa_s_azure_subscription_status", saa_s_azure_subscription_status)
+        if source_campaign_id is not None:
+            pulumi.set(__self__, "source_campaign_id", source_campaign_id)
+        if source_campaign_name is not None:
+            pulumi.set(__self__, "source_campaign_name", source_campaign_name)
+        if subscription_state is not None:
+            pulumi.set(__self__, "subscription_state", subscription_state)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -981,12 +1012,52 @@ class MonitorPropertiesResponse(dict):
         return pulumi.get(self, "monitoring_status")
 
     @property
+    @pulumi.getter(name="planDetails")
+    def plan_details(self) -> Optional['outputs.PlanDetailsResponse']:
+        """
+        Plan details of the monitor resource.
+        """
+        return pulumi.get(self, "plan_details")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
         Provisioning state of the monitor resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="saaSAzureSubscriptionStatus")
+    def saa_s_azure_subscription_status(self) -> Optional[str]:
+        """
+        Status of Azure Subscription where Marketplace SaaS is located.
+        """
+        return pulumi.get(self, "saa_s_azure_subscription_status")
+
+    @property
+    @pulumi.getter(name="sourceCampaignId")
+    def source_campaign_id(self) -> Optional[str]:
+        """
+        A unique identifier associated with the campaign.
+        """
+        return pulumi.get(self, "source_campaign_id")
+
+    @property
+    @pulumi.getter(name="sourceCampaignName")
+    def source_campaign_name(self) -> Optional[str]:
+        """
+        Name of the marketing campaign.
+        """
+        return pulumi.get(self, "source_campaign_name")
+
+    @property
+    @pulumi.getter(name="subscriptionState")
+    def subscription_state(self) -> Optional[str]:
+        """
+        State of the Azure Subscription containing the monitor resource
+        """
+        return pulumi.get(self, "subscription_state")
 
     @property
     @pulumi.getter
@@ -1323,6 +1394,102 @@ class PartnerBillingEntityResponse(dict):
         Link to the elastic organization page
         """
         return pulumi.get(self, "partner_entity_uri")
+
+
+@pulumi.output_type
+class PlanDetailsResponse(dict):
+    """
+    Plan details of the monitor resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerID":
+            suggest = "offer_id"
+        elif key == "planID":
+            suggest = "plan_id"
+        elif key == "planName":
+            suggest = "plan_name"
+        elif key == "publisherID":
+            suggest = "publisher_id"
+        elif key == "termID":
+            suggest = "term_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offer_id: Optional[str] = None,
+                 plan_id: Optional[str] = None,
+                 plan_name: Optional[str] = None,
+                 publisher_id: Optional[str] = None,
+                 term_id: Optional[str] = None):
+        """
+        Plan details of the monitor resource.
+        :param str offer_id: Offer ID of the plan
+        :param str plan_id: Plan ID
+        :param str plan_name: Plan Name
+        :param str publisher_id: Publisher ID of the plan
+        :param str term_id: Term ID of the plan
+        """
+        if offer_id is not None:
+            pulumi.set(__self__, "offer_id", offer_id)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
+        if plan_name is not None:
+            pulumi.set(__self__, "plan_name", plan_name)
+        if publisher_id is not None:
+            pulumi.set(__self__, "publisher_id", publisher_id)
+        if term_id is not None:
+            pulumi.set(__self__, "term_id", term_id)
+
+    @property
+    @pulumi.getter(name="offerID")
+    def offer_id(self) -> Optional[str]:
+        """
+        Offer ID of the plan
+        """
+        return pulumi.get(self, "offer_id")
+
+    @property
+    @pulumi.getter(name="planID")
+    def plan_id(self) -> Optional[str]:
+        """
+        Plan ID
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="planName")
+    def plan_name(self) -> Optional[str]:
+        """
+        Plan Name
+        """
+        return pulumi.get(self, "plan_name")
+
+    @property
+    @pulumi.getter(name="publisherID")
+    def publisher_id(self) -> Optional[str]:
+        """
+        Publisher ID of the plan
+        """
+        return pulumi.get(self, "publisher_id")
+
+    @property
+    @pulumi.getter(name="termID")
+    def term_id(self) -> Optional[str]:
+        """
+        Term ID of the plan
+        """
+        return pulumi.get(self, "term_id")
 
 
 @pulumi.output_type

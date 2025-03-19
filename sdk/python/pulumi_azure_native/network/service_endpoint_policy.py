@@ -171,9 +171,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Service End point policy resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,9 +193,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Service End point policy resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointPolicyInitArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +237,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_policy_definitions"] = service_endpoint_policy_definitions
             __props__.__dict__["service_endpoint_policy_name"] = service_endpoint_policy_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
@@ -272,6 +269,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
 
         __props__ = ServiceEndpointPolicyInitArgs.__new__(ServiceEndpointPolicyInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["contextual_service_endpoint_policies"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
@@ -285,6 +283,14 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ServiceEndpointPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contextualServiceEndpointPolicies")

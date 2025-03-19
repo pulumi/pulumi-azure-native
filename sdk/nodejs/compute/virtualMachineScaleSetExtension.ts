@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set Extension.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
      */
@@ -125,9 +127,11 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
             resourceInputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -142,7 +146,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20230701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20230901:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20240301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20240701:VirtualMachineScaleSetExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20230701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20230901:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20240301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20240701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20241101:VirtualMachineScaleSetExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetExtension.__pulumiType, name, resourceInputs, opts);
     }

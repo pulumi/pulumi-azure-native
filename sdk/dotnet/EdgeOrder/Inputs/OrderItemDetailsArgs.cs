@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Order item details
+    /// Order item details.
     /// </summary>
     public sealed class OrderItemDetailsArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         private InputList<string>? _notificationEmailList;
 
         /// <summary>
-        /// Additional notification email list
+        /// Additional notification email list.
         /// </summary>
         public InputList<string> NotificationEmailList
         {
@@ -40,16 +40,22 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         public InputUnion<string, Pulumi.AzureNative.EdgeOrder.OrderItemType> OrderItemType { get; set; } = null!;
 
         /// <summary>
-        /// Customer notification Preferences
+        /// Customer notification Preferences.
         /// </summary>
         [Input("preferences")]
         public Input<Inputs.PreferencesArgs>? Preferences { get; set; }
 
         /// <summary>
-        /// Unique identifier for configuration.
+        /// Represents product details.
         /// </summary>
         [Input("productDetails", required: true)]
         public Input<Inputs.ProductDetailsArgs> ProductDetails { get; set; } = null!;
+
+        /// <summary>
+        /// Site Related Details.
+        /// </summary>
+        [Input("siteDetails")]
+        public Input<Inputs.SiteDetailsArgs>? SiteDetails { get; set; }
 
         public OrderItemDetailsArgs()
         {

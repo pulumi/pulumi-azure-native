@@ -236,9 +236,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of a orchestrator.
-        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
-
-        Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 2.x: 2021-03-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,9 +261,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a orchestrator.
-        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
-
-        Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 2.x: 2021-03-15.
 
         :param str resource_name: The name of the resource.
         :param OrchestratorInstanceServiceDetailsArgs args: The arguments to use to populate this resource's properties.
@@ -321,6 +317,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
@@ -350,6 +347,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         __props__ = OrchestratorInstanceServiceDetailsArgs.__new__(OrchestratorInstanceServiceDetailsArgs)
 
         __props__.__dict__["api_server_endpoint"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_root_ca"] = None
         __props__.__dict__["controller_details"] = None
         __props__.__dict__["identity"] = None
@@ -372,6 +370,14 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         """
         return pulumi.get(self, "api_server_endpoint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterRootCA")

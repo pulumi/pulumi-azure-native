@@ -34,6 +34,7 @@ class ServiceArgs:
                  public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
+                 semantic_search: Optional[pulumi.Input[Union[str, 'SearchSemanticSearch']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -45,12 +46,13 @@ class ServiceArgs:
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network-specific rules that determine how the search service may be reached.
         :param pulumi.Input[int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input['PublicNetworkAccess'] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-        :param pulumi.Input['SkuArgs'] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        :param pulumi.Input[str] search_service_name: The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input[Union[str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        :param pulumi.Input['SkuArgs'] sku: The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -84,6 +86,8 @@ class ServiceArgs:
             pulumi.set(__self__, "replica_count", replica_count)
         if search_service_name is not None:
             pulumi.set(__self__, "search_service_name", search_service_name)
+        if semantic_search is not None:
+            pulumi.set(__self__, "semantic_search", semantic_search)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -177,7 +181,7 @@ class ServiceArgs:
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
         """
-        Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        Network-specific rules that determine how the search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -225,7 +229,7 @@ class ServiceArgs:
     @pulumi.getter(name="searchServiceName")
     def search_service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
         """
         return pulumi.get(self, "search_service_name")
 
@@ -234,10 +238,22 @@ class ServiceArgs:
         pulumi.set(self, "search_service_name", value)
 
     @property
+    @pulumi.getter(name="semanticSearch")
+    def semantic_search(self) -> Optional[pulumi.Input[Union[str, 'SearchSemanticSearch']]]:
+        """
+        Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        """
+        return pulumi.get(self, "semantic_search")
+
+    @semantic_search.setter
+    def semantic_search(self, value: Optional[pulumi.Input[Union[str, 'SearchSemanticSearch']]]):
+        pulumi.set(self, "semantic_search", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
@@ -275,14 +291,13 @@ class Service(pulumi.CustomResource):
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
+                 semantic_search: Optional[pulumi.Input[Union[str, 'SearchSemanticSearch']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Describes an Azure Cognitive Search service and its current state.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
-
-        Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        Describes a search service and its current state.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,13 +307,14 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network-specific rules that determine how the search service may be reached.
         :param pulumi.Input[int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input['PublicNetworkAccess'] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        :param pulumi.Input[str] search_service_name: The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input[Union[str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -308,10 +324,8 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes an Azure Cognitive Search service and its current state.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
-
-        Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        Describes a search service and its current state.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -340,6 +354,7 @@ class Service(pulumi.CustomResource):
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
+                 semantic_search: Optional[pulumi.Input[Union[str, 'SearchSemanticSearch']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -373,8 +388,10 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["search_service_name"] = search_service_name
+            __props__.__dict__["semantic_search"] = semantic_search
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -407,6 +424,7 @@ class Service(pulumi.CustomResource):
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
         __props__.__dict__["auth_options"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["encryption_with_cmk"] = None
         __props__.__dict__["hosting_mode"] = None
@@ -419,6 +437,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["replica_count"] = None
+        __props__.__dict__["semantic_search"] = None
         __props__.__dict__["shared_private_link_resources"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
@@ -434,6 +453,14 @@ class Service(pulumi.CustomResource):
         Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
         """
         return pulumi.get(self, "auth_options")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disableLocalAuth")
@@ -487,7 +514,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> pulumi.Output[Optional['outputs.NetworkRuleSetResponse']]:
         """
-        Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        Network-specific rules that determine how the search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -503,7 +530,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        The list of private endpoint connections to the Azure Cognitive Search service.
+        The list of private endpoint connections to the search service.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -532,10 +559,18 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "replica_count")
 
     @property
+    @pulumi.getter(name="semanticSearch")
+    def semantic_search(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        """
+        return pulumi.get(self, "semantic_search")
+
+    @property
     @pulumi.getter(name="sharedPrivateLinkResources")
     def shared_private_link_resources(self) -> pulumi.Output[Sequence['outputs.SharedPrivateLinkResourceResponse']]:
         """
-        The list of shared private link resources managed by the Azure Cognitive Search service.
+        The list of shared private link resources managed by the search service.
         """
         return pulumi.get(self, "shared_private_link_resources")
 
@@ -543,7 +578,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
@@ -551,7 +586,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         """
         return pulumi.get(self, "status")
 

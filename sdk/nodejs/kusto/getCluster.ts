@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +25,7 @@ export interface GetClusterArgs {
      */
     clusterName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -48,6 +46,14 @@ export interface GetClusterResult {
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
     readonly allowedIpRangeList?: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * List of callout policies for egress from Cluster.
+     */
+    readonly calloutPolicies?: outputs.kusto.CalloutPolicyResponse[];
     /**
      * The cluster data ingestion URI.
      */
@@ -100,6 +106,10 @@ export interface GetClusterResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Properties of the peer cluster involved in a migration to/from this cluster.
+     */
+    readonly migrationCluster: outputs.kusto.MigrationClusterPropertiesResponse;
     /**
      * The name of the resource
      */
@@ -165,15 +175,17 @@ export interface GetClusterResult {
      */
     readonly virtualNetworkConfiguration?: outputs.kusto.VirtualNetworkConfigurationResponse;
     /**
+     * Indicates whether the cluster is zonal or non-zonal.
+     */
+    readonly zoneStatus: string;
+    /**
      * The availability zones of the cluster.
      */
     readonly zones?: string[];
 }
 /**
  * Gets a Kusto cluster.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -189,7 +201,7 @@ export interface GetClusterOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

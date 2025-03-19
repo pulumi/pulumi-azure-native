@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a orchestrator.
- * Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
- *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 2.x: 2021-03-15.
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
     public readonly apiServerEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * RootCA certificate of kubernetes cluster base64 encoded
      */
@@ -129,12 +131,14 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["apiServerEndpoint"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterRootCA"] = undefined /*out*/;
             resourceInputs["controllerDetails"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

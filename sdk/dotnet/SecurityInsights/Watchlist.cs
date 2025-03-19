@@ -11,15 +11,19 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-    /// 
-    /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Watchlist")]
     public partial class Watchlist : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The content type of the raw content. For now, only text/csv is valid
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The content type of the raw content. Example : text/csv or text/tsv
         /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
@@ -85,7 +89,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of lines in a csv content to skip before the header
+        /// The number of lines in a csv/tsv content to skip before the header
         /// </summary>
         [Output("numberOfLinesToSkip")]
         public Output<int?> NumberOfLinesToSkip { get; private set; } = null!;
@@ -97,18 +101,28 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Provider { get; private set; } = null!;
 
         /// <summary>
-        /// The raw content that represents to watchlist items to create. Example : This line will be skipped
-        /// header1,header2
-        /// value1,value2
+        /// Describes provisioning state
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
         /// </summary>
         [Output("rawContent")]
         public Output<string?> RawContent { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the watchlist
+        /// The filename of the watchlist, called 'source'
         /// </summary>
         [Output("source")]
-        public Output<string> Source { get; private set; } = null!;
+        public Output<string?> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The sourceType of the watchlist
+        /// </summary>
+        [Output("sourceType")]
+        public Output<string?> SourceType { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -225,6 +239,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:Watchlist" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Watchlist" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:Watchlist" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:Watchlist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -249,7 +264,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class WatchlistArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type of the raw content. For now, only text/csv is valid
+        /// The content type of the raw content. Example : text/csv or text/tsv
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -309,7 +324,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
 
         /// <summary>
-        /// The number of lines in a csv content to skip before the header
+        /// The number of lines in a csv/tsv content to skip before the header
         /// </summary>
         [Input("numberOfLinesToSkip")]
         public Input<int>? NumberOfLinesToSkip { get; set; }
@@ -321,9 +336,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> Provider { get; set; } = null!;
 
         /// <summary>
-        /// The raw content that represents to watchlist items to create. Example : This line will be skipped
-        /// header1,header2
-        /// value1,value2
+        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
         /// </summary>
         [Input("rawContent")]
         public Input<string>? RawContent { get; set; }
@@ -335,10 +348,16 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The source of the watchlist
+        /// The filename of the watchlist, called 'source'
         /// </summary>
-        [Input("source", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Source> Source { get; set; } = null!;
+        [Input("source")]
+        public Input<string>? Source { get; set; }
+
+        /// <summary>
+        /// The sourceType of the watchlist
+        /// </summary>
+        [Input("sourceType")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.SourceType>? SourceType { get; set; }
 
         /// <summary>
         /// The tenantId where the watchlist belongs to

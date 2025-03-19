@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a given SyncGroup.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:storagesync:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given SyncGroup.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:storagesync:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given SyncGroup.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:storagesync:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
@@ -97,7 +91,11 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class GetSyncGroupResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.StorageSync
 
         [OutputConstructor]
         private GetSyncGroupResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.StorageSync
 
             string uniqueId)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             SyncGroupStatus = syncGroupStatus;

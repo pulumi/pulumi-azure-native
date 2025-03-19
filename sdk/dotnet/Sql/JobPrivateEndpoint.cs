@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A job agent private endpoint.
-    /// Azure REST API version: 2023-05-01-preview.
-    /// 
-    /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobPrivateEndpoint")]
     public partial class JobPrivateEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Resource name.
         /// </summary>

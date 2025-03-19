@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the namespace was created.
      */
@@ -118,6 +120,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -128,6 +131,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;

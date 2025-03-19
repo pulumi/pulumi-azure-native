@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Preferences related to the order
+    /// Preferences related to the order.
     /// </summary>
     public sealed class PreferencesArgs : global::Pulumi.ResourceArgs
     {
@@ -38,6 +38,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
             get => _notificationPreferences ?? (_notificationPreferences = new InputList<Inputs.NotificationPreferenceArgs>());
             set => _notificationPreferences = value;
         }
+
+        /// <summary>
+        /// Preferences related to the Term commitment.
+        /// </summary>
+        [Input("termCommitmentPreferences")]
+        public Input<Inputs.TermCommitmentPreferencesArgs>? TermCommitmentPreferences { get; set; }
 
         /// <summary>
         /// Preferences related to the shipment logistics of the order.

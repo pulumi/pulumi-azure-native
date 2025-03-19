@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetCustomApiResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ETag
         /// </summary>
         public readonly string? Etag;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetCustomApiResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Location = location;

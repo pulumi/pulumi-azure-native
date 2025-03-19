@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
 {
     /// <summary>
     /// Custom Locations definition.
-    /// Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview.
-    /// 
-    /// Other available API versions: 2021-08-31-preview.
+    /// Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 2.x: 2021-08-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation:CustomLocation")]
     public partial class CustomLocation : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.CustomLocationPropertiesResponseAuthentication?> Authentication { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Contains the reference to the add-on that contains charts to deploy CRDs and operators.

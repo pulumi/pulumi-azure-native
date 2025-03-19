@@ -152,7 +152,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Rule Group resource.
-        Azure REST API version: 2020-04-01. Prior API version in Azure Native 1.x: 2020-04-01.
+        Azure REST API version: 2020-04-01. Prior API version in Azure Native 2.x: 2020-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +172,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Rule Group resource.
-        Azure REST API version: 2020-04-01. Prior API version in Azure Native 1.x: 2020-04-01.
+        Azure REST API version: 2020-04-01. Prior API version in Azure Native 2.x: 2020-04-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleGroupArgs args: The arguments to use to populate this resource's properties.
@@ -216,6 +216,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_group_name"] = rule_group_name
             __props__.__dict__["rules"] = rules
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -243,6 +244,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
 
         __props__ = FirewallPolicyRuleGroupArgs.__new__(FirewallPolicyRuleGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["priority"] = None
@@ -250,6 +252,14 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         __props__.__dict__["rules"] = None
         __props__.__dict__["type"] = None
         return FirewallPolicyRuleGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

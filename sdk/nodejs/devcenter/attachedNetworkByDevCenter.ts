@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an attached NetworkConnection.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
         return obj['__pulumiType'] === AttachedNetworkByDevCenter.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * AAD Join type of the network. This is populated based on the referenced Network Connection.
      */
@@ -97,6 +99,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
             resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
             resourceInputs["networkConnectionId"] = args ? args.networkConnectionId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["domainJoinType"] = undefined /*out*/;
             resourceInputs["healthCheckStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -105,6 +108,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["domainJoinType"] = undefined /*out*/;
             resourceInputs["healthCheckStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -115,7 +119,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230101preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230401:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20231001preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240201:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240501preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240601preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240701preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20241001preview:AttachedNetworkByDevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230101preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230401:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20231001preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240201:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240501preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240601preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240701preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20240801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20241001preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20250201:AttachedNetworkByDevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedNetworkByDevCenter.__pulumiType, name, resourceInputs, opts);
     }

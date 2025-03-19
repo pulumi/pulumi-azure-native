@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderCspmAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defenders CSPM Permissions Management offering configurations
+        /// </summary>
+        [Input("ciem")]
+        public Input<Inputs.DefenderCspmAwsOfferingCiemArgs>? Ciem { get; set; }
+
+        /// <summary>
         /// The Microsoft Defender Data Sensitivity discovery configuration
         /// </summary>
         [Input("dataSensitivityDiscovery")]
@@ -28,6 +34,18 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<Inputs.DefenderCspmAwsOfferingDatabasesDspmArgs>? DatabasesDspm { get; set; }
 
         /// <summary>
+        /// The Microsoft Defender container agentless discovery K8s configuration
+        /// </summary>
+        [Input("mdcContainersAgentlessDiscoveryK8s")]
+        public Input<Inputs.DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs>? MdcContainersAgentlessDiscoveryK8s { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender container image assessment configuration
+        /// </summary>
+        [Input("mdcContainersImageAssessment")]
+        public Input<Inputs.DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs>? MdcContainersImageAssessment { get; set; }
+
+        /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmAws'.
         /// </summary>
@@ -35,7 +53,7 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<string> OfferingType { get; set; } = null!;
 
         /// <summary>
-        /// The Microsoft Defender for Server VM scanning configuration
+        /// The Microsoft Defender for CSPM offering VM scanning configuration
         /// </summary>
         [Input("vmScanners")]
         public Input<Inputs.DefenderCspmAwsOfferingVmScannersArgs>? VmScanners { get; set; }

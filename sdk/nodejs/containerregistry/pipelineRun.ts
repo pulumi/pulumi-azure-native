@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a pipeline run for a container registry.
- * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
  */
 export class PipelineRun extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class PipelineRun extends pulumi.CustomResource {
         return obj['__pulumiType'] === PipelineRun.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
      */
@@ -91,12 +93,14 @@ export class PipelineRun extends pulumi.CustomResource {
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["request"] = args ? (args.request ? pulumi.output(args.request).apply(inputs.containerregistry.pipelineRunRequestArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["response"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

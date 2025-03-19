@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Information about the connection monitor.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-    /// 
-    /// Other available API versions: 2019-09-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConnectionMonitor")]
     public partial class ConnectionMonitor : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("autoStart")]
         public Output<bool?> AutoStart { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Type of connection monitor.

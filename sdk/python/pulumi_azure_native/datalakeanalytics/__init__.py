@@ -15,11 +15,3 @@ from .get_firewall_rule import *
 from .list_storage_account_sas_tokens import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datalakeanalytics.v20191101preview as __v20191101preview
-    v20191101preview = __v20191101preview
-else:
-    v20191101preview = _utilities.lazy_import('pulumi_azure_native.datalakeanalytics.v20191101preview')
-

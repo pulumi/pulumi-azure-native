@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
-    /// Azure REST API version: 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:TunnelPolicy")]
     public partial class TunnelPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
 

@@ -26,7 +26,10 @@ class GetDistributedAvailabilityGroupResult:
     """
     Distributed availability group between box and Sql Managed Instance.
     """
-    def __init__(__self__, distributed_availability_group_id=None, id=None, last_hardened_lsn=None, link_state=None, name=None, primary_availability_group_name=None, replication_mode=None, secondary_availability_group_name=None, source_endpoint=None, source_replica_id=None, target_database=None, target_replica_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, distributed_availability_group_id=None, id=None, last_hardened_lsn=None, link_state=None, name=None, primary_availability_group_name=None, replication_mode=None, secondary_availability_group_name=None, source_endpoint=None, source_replica_id=None, target_database=None, target_replica_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if distributed_availability_group_id and not isinstance(distributed_availability_group_id, str):
             raise TypeError("Expected argument 'distributed_availability_group_id' to be a str")
         pulumi.set(__self__, "distributed_availability_group_id", distributed_availability_group_id)
@@ -66,6 +69,14 @@ class GetDistributedAvailabilityGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="distributedAvailabilityGroupId")
@@ -178,6 +189,7 @@ class AwaitableGetDistributedAvailabilityGroupResult(GetDistributedAvailabilityG
         if False:
             yield self
         return GetDistributedAvailabilityGroupResult(
+            azure_api_version=self.azure_api_version,
             distributed_availability_group_id=self.distributed_availability_group_id,
             id=self.id,
             last_hardened_lsn=self.last_hardened_lsn,
@@ -201,8 +213,6 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     Gets a distributed availability group info.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str distributed_availability_group_name: The distributed availability group name.
     :param str managed_instance_name: The name of the managed instance.
@@ -216,6 +226,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult).value
 
     return AwaitableGetDistributedAvailabilityGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         distributed_availability_group_id=pulumi.get(__ret__, 'distributed_availability_group_id'),
         id=pulumi.get(__ret__, 'id'),
         last_hardened_lsn=pulumi.get(__ret__, 'last_hardened_lsn'),
@@ -237,8 +248,6 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     Gets a distributed availability group info.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str distributed_availability_group_name: The distributed availability group name.
     :param str managed_instance_name: The name of the managed instance.
@@ -251,6 +260,7 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult)
     return __ret__.apply(lambda __response__: GetDistributedAvailabilityGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         distributed_availability_group_id=pulumi.get(__response__, 'distributed_availability_group_id'),
         id=pulumi.get(__response__, 'id'),
         last_hardened_lsn=pulumi.get(__response__, 'last_hardened_lsn'),

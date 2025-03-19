@@ -18,6 +18,12 @@ from ._enums import *
 __all__ = [
     'AddressSpaceArgs',
     'AddressSpaceArgsDict',
+    'AutomaticClusterUpdateDefinitionArgs',
+    'AutomaticClusterUpdateDefinitionArgsDict',
+    'ComplianceSecurityProfileDefinitionArgs',
+    'ComplianceSecurityProfileDefinitionArgsDict',
+    'DefaultCatalogPropertiesArgs',
+    'DefaultCatalogPropertiesArgsDict',
     'EncryptionEntitiesDefinitionArgs',
     'EncryptionEntitiesDefinitionArgsDict',
     'EncryptionV2KeyVaultPropertiesArgs',
@@ -26,6 +32,10 @@ __all__ = [
     'EncryptionV2ArgsDict',
     'EncryptionArgs',
     'EncryptionArgsDict',
+    'EnhancedSecurityComplianceDefinitionArgs',
+    'EnhancedSecurityComplianceDefinitionArgsDict',
+    'EnhancedSecurityMonitoringDefinitionArgs',
+    'EnhancedSecurityMonitoringDefinitionArgsDict',
     'ManagedDiskEncryptionKeyVaultPropertiesArgs',
     'ManagedDiskEncryptionKeyVaultPropertiesArgsDict',
     'ManagedDiskEncryptionArgs',
@@ -50,6 +60,10 @@ __all__ = [
     'WorkspaceCustomStringParameterArgsDict',
     'WorkspaceEncryptionParameterArgs',
     'WorkspaceEncryptionParameterArgsDict',
+    'WorkspaceNoPublicIPBooleanParameterArgs',
+    'WorkspaceNoPublicIPBooleanParameterArgsDict',
+    'WorkspacePropertiesAccessConnectorArgs',
+    'WorkspacePropertiesAccessConnectorArgsDict',
     'WorkspacePropertiesEncryptionArgs',
     'WorkspacePropertiesEncryptionArgsDict',
     'WorkspaceProviderAuthorizationArgs',
@@ -92,6 +106,142 @@ class AddressSpaceArgs:
     @address_prefixes.setter
     def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_prefixes", value)
+
+
+if not MYPY:
+    class AutomaticClusterUpdateDefinitionArgsDict(TypedDict):
+        """
+        Status of automated cluster updates feature.
+        """
+        value: NotRequired[pulumi.Input[Union[str, 'AutomaticClusterUpdateValue']]]
+elif False:
+    AutomaticClusterUpdateDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomaticClusterUpdateDefinitionArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[Union[str, 'AutomaticClusterUpdateValue']]] = None):
+        """
+        Status of automated cluster updates feature.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Union[str, 'AutomaticClusterUpdateValue']]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Union[str, 'AutomaticClusterUpdateValue']]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ComplianceSecurityProfileDefinitionArgsDict(TypedDict):
+        """
+        Status of Compliance Security Profile feature.
+        """
+        compliance_standards: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ComplianceStandard']]]]]
+        """
+        Compliance standards associated with the workspace.
+        """
+        value: NotRequired[pulumi.Input[Union[str, 'ComplianceSecurityProfileValue']]]
+elif False:
+    ComplianceSecurityProfileDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComplianceSecurityProfileDefinitionArgs:
+    def __init__(__self__, *,
+                 compliance_standards: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ComplianceStandard']]]]] = None,
+                 value: Optional[pulumi.Input[Union[str, 'ComplianceSecurityProfileValue']]] = None):
+        """
+        Status of Compliance Security Profile feature.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ComplianceStandard']]]] compliance_standards: Compliance standards associated with the workspace.
+        """
+        if compliance_standards is not None:
+            pulumi.set(__self__, "compliance_standards", compliance_standards)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="complianceStandards")
+    def compliance_standards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ComplianceStandard']]]]]:
+        """
+        Compliance standards associated with the workspace.
+        """
+        return pulumi.get(self, "compliance_standards")
+
+    @compliance_standards.setter
+    def compliance_standards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ComplianceStandard']]]]]):
+        pulumi.set(self, "compliance_standards", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Union[str, 'ComplianceSecurityProfileValue']]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Union[str, 'ComplianceSecurityProfileValue']]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DefaultCatalogPropertiesArgsDict(TypedDict):
+        """
+        These properties lets user specify default catalog properties during workspace creation.
+        """
+        initial_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
+        """
+        initial_type: NotRequired[pulumi.Input[Union[str, 'InitialType']]]
+        """
+        Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+        """
+elif False:
+    DefaultCatalogPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DefaultCatalogPropertiesArgs:
+    def __init__(__self__, *,
+                 initial_name: Optional[pulumi.Input[str]] = None,
+                 initial_type: Optional[pulumi.Input[Union[str, 'InitialType']]] = None):
+        """
+        These properties lets user specify default catalog properties during workspace creation.
+        :param pulumi.Input[str] initial_name: Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
+        :param pulumi.Input[Union[str, 'InitialType']] initial_type: Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+        """
+        if initial_name is not None:
+            pulumi.set(__self__, "initial_name", initial_name)
+        if initial_type is None:
+            initial_type = 'HiveMetastore'
+        if initial_type is not None:
+            pulumi.set(__self__, "initial_type", initial_type)
+
+    @property
+    @pulumi.getter(name="initialName")
+    def initial_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
+        """
+        return pulumi.get(self, "initial_name")
+
+    @initial_name.setter
+    def initial_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_name", value)
+
+    @property
+    @pulumi.getter(name="initialType")
+    def initial_type(self) -> Optional[pulumi.Input[Union[str, 'InitialType']]]:
+        """
+        Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+        """
+        return pulumi.get(self, "initial_type")
+
+    @initial_type.setter
+    def initial_type(self, value: Optional[pulumi.Input[Union[str, 'InitialType']]]):
+        pulumi.set(self, "initial_type", value)
 
 
 if not MYPY:
@@ -374,6 +524,111 @@ class EncryptionArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+if not MYPY:
+    class EnhancedSecurityComplianceDefinitionArgsDict(TypedDict):
+        """
+        Status of settings related to the Enhanced Security and Compliance Add-On.
+        """
+        automatic_cluster_update: NotRequired[pulumi.Input['AutomaticClusterUpdateDefinitionArgsDict']]
+        """
+        Status of automated cluster updates feature.
+        """
+        compliance_security_profile: NotRequired[pulumi.Input['ComplianceSecurityProfileDefinitionArgsDict']]
+        """
+        Status of Compliance Security Profile feature.
+        """
+        enhanced_security_monitoring: NotRequired[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgsDict']]
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+elif False:
+    EnhancedSecurityComplianceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnhancedSecurityComplianceDefinitionArgs:
+    def __init__(__self__, *,
+                 automatic_cluster_update: Optional[pulumi.Input['AutomaticClusterUpdateDefinitionArgs']] = None,
+                 compliance_security_profile: Optional[pulumi.Input['ComplianceSecurityProfileDefinitionArgs']] = None,
+                 enhanced_security_monitoring: Optional[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs']] = None):
+        """
+        Status of settings related to the Enhanced Security and Compliance Add-On.
+        :param pulumi.Input['AutomaticClusterUpdateDefinitionArgs'] automatic_cluster_update: Status of automated cluster updates feature.
+        :param pulumi.Input['ComplianceSecurityProfileDefinitionArgs'] compliance_security_profile: Status of Compliance Security Profile feature.
+        :param pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs'] enhanced_security_monitoring: Status of Enhanced Security Monitoring feature.
+        """
+        if automatic_cluster_update is not None:
+            pulumi.set(__self__, "automatic_cluster_update", automatic_cluster_update)
+        if compliance_security_profile is not None:
+            pulumi.set(__self__, "compliance_security_profile", compliance_security_profile)
+        if enhanced_security_monitoring is not None:
+            pulumi.set(__self__, "enhanced_security_monitoring", enhanced_security_monitoring)
+
+    @property
+    @pulumi.getter(name="automaticClusterUpdate")
+    def automatic_cluster_update(self) -> Optional[pulumi.Input['AutomaticClusterUpdateDefinitionArgs']]:
+        """
+        Status of automated cluster updates feature.
+        """
+        return pulumi.get(self, "automatic_cluster_update")
+
+    @automatic_cluster_update.setter
+    def automatic_cluster_update(self, value: Optional[pulumi.Input['AutomaticClusterUpdateDefinitionArgs']]):
+        pulumi.set(self, "automatic_cluster_update", value)
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfile")
+    def compliance_security_profile(self) -> Optional[pulumi.Input['ComplianceSecurityProfileDefinitionArgs']]:
+        """
+        Status of Compliance Security Profile feature.
+        """
+        return pulumi.get(self, "compliance_security_profile")
+
+    @compliance_security_profile.setter
+    def compliance_security_profile(self, value: Optional[pulumi.Input['ComplianceSecurityProfileDefinitionArgs']]):
+        pulumi.set(self, "compliance_security_profile", value)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityMonitoring")
+    def enhanced_security_monitoring(self) -> Optional[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs']]:
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+        return pulumi.get(self, "enhanced_security_monitoring")
+
+    @enhanced_security_monitoring.setter
+    def enhanced_security_monitoring(self, value: Optional[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs']]):
+        pulumi.set(self, "enhanced_security_monitoring", value)
+
+
+if not MYPY:
+    class EnhancedSecurityMonitoringDefinitionArgsDict(TypedDict):
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+        value: NotRequired[pulumi.Input[Union[str, 'EnhancedSecurityMonitoringValue']]]
+elif False:
+    EnhancedSecurityMonitoringDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnhancedSecurityMonitoringDefinitionArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[Union[str, 'EnhancedSecurityMonitoringValue']]] = None):
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Union[str, 'EnhancedSecurityMonitoringValue']]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Union[str, 'EnhancedSecurityMonitoringValue']]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -891,9 +1146,9 @@ if not MYPY:
         """
         The ID of a Virtual Network where this Databricks Cluster should be created
         """
-        enable_no_public_ip: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
+        enable_no_public_ip: NotRequired[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgsDict']]
         """
-        Should the Public IP be Disabled?
+        Boolean indicating whether the public IP should be disabled. Default value is true
         """
         encryption: NotRequired[pulumi.Input['WorkspaceEncryptionParameterArgsDict']]
         """
@@ -945,7 +1200,7 @@ class WorkspaceCustomParametersArgs:
                  custom_private_subnet_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
                  custom_public_subnet_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
                  custom_virtual_network_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
-                 enable_no_public_ip: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None,
+                 enable_no_public_ip: Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']] = None,
                  encryption: Optional[pulumi.Input['WorkspaceEncryptionParameterArgs']] = None,
                  load_balancer_backend_pool_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
                  load_balancer_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
@@ -962,7 +1217,7 @@ class WorkspaceCustomParametersArgs:
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
-        :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] enable_no_public_ip: Should the Public IP be Disabled?
+        :param pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs'] enable_no_public_ip: Boolean indicating whether the public IP should be disabled. Default value is true
         :param pulumi.Input['WorkspaceEncryptionParameterArgs'] encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
         :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
@@ -1055,14 +1310,14 @@ class WorkspaceCustomParametersArgs:
 
     @property
     @pulumi.getter(name="enableNoPublicIp")
-    def enable_no_public_ip(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
+    def enable_no_public_ip(self) -> Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']]:
         """
-        Should the Public IP be Disabled?
+        Boolean indicating whether the public IP should be disabled. Default value is true
         """
         return pulumi.get(self, "enable_no_public_ip")
 
     @enable_no_public_ip.setter
-    def enable_no_public_ip(self, value: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]):
+    def enable_no_public_ip(self, value: Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']]):
         pulumi.set(self, "enable_no_public_ip", value)
 
     @property
@@ -1255,6 +1510,115 @@ class WorkspaceEncryptionParameterArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input['EncryptionArgs']]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WorkspaceNoPublicIPBooleanParameterArgsDict(TypedDict):
+        """
+        The value which should be used for this field.
+        """
+        value: pulumi.Input[bool]
+        """
+        The value which should be used for this field.
+        """
+elif False:
+    WorkspaceNoPublicIPBooleanParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceNoPublicIPBooleanParameterArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[bool]):
+        """
+        The value which should be used for this field.
+        :param pulumi.Input[bool] value: The value which should be used for this field.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[bool]:
+        """
+        The value which should be used for this field.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WorkspacePropertiesAccessConnectorArgsDict(TypedDict):
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        """
+        id: pulumi.Input[str]
+        """
+        The resource ID of Azure Databricks Access Connector Resource.
+        """
+        identity_type: pulumi.Input[Union[str, 'IdentityType']]
+        """
+        The identity type of the Access Connector Resource.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
+        """
+elif False:
+    WorkspacePropertiesAccessConnectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspacePropertiesAccessConnectorArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 identity_type: pulumi.Input[Union[str, 'IdentityType']],
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        :param pulumi.Input[str] id: The resource ID of Azure Databricks Access Connector Resource.
+        :param pulumi.Input[Union[str, 'IdentityType']] identity_type: The identity type of the Access Connector Resource.
+        :param pulumi.Input[str] user_assigned_identity_id: The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of Azure Databricks Access Connector Resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
+        """
+        The identity type of the Access Connector Resource.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 if not MYPY:

@@ -6,11 +6,12 @@ from enum import Enum
 
 __all__ = [
     'AdvancedFilterOperatorType',
-    'AlternativeAuthenticationNameSource',
     'ChannelProvisioningState',
     'ChannelType',
     'ClientCertificateValidationScheme',
     'ClientState',
+    'CustomDomainIdentityType',
+    'CustomDomainValidationState',
     'DataResidencyBoundary',
     'DeadLetterEndPointType',
     'DeliveryAttributeMappingType',
@@ -26,6 +27,7 @@ __all__ = [
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
+    'MonitorAlertSeverity',
     'PartnerConfigurationProvisioningState',
     'PartnerDestinationActivationState',
     'PartnerTopicActivationState',
@@ -69,14 +71,6 @@ class AdvancedFilterOperatorType(str, Enum):
     IS_NOT_NULL = "IsNotNull"
 
 
-class AlternativeAuthenticationNameSource(str, Enum):
-    CLIENT_CERTIFICATE_SUBJECT = "ClientCertificateSubject"
-    CLIENT_CERTIFICATE_DNS = "ClientCertificateDns"
-    CLIENT_CERTIFICATE_URI = "ClientCertificateUri"
-    CLIENT_CERTIFICATE_IP = "ClientCertificateIp"
-    CLIENT_CERTIFICATE_EMAIL = "ClientCertificateEmail"
-
-
 class ChannelProvisioningState(str, Enum):
     """
     Provisioning state of the channel.
@@ -117,6 +111,23 @@ class ClientState(str, Enum):
     DISABLED = "Disabled"
 
 
+class CustomDomainIdentityType(str, Enum):
+    """
+    The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class CustomDomainValidationState(str, Enum):
+    """
+    Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    ERROR_RETRIEVING_DNS_RECORD = "ErrorRetrievingDnsRecord"
+
+
 class DataResidencyBoundary(str, Enum):
     """
     Data Residency Boundary of the resource.
@@ -145,6 +156,7 @@ class DeliveryMode(str, Enum):
     Delivery mode of the event subscription.
     """
     QUEUE = "Queue"
+    PUSH = "Push"
 
 
 class DeliverySchema(str, Enum):
@@ -165,6 +177,8 @@ class EndpointType(str, Enum):
     SERVICE_BUS_QUEUE = "ServiceBusQueue"
     SERVICE_BUS_TOPIC = "ServiceBusTopic"
     AZURE_FUNCTION = "AzureFunction"
+    MONITOR_ALERT = "MonitorAlert"
+    NAMESPACE_TOPIC = "NamespaceTopic"
 
 
 class EventDefinitionKind(str, Enum):
@@ -192,7 +206,7 @@ class EventInputSchema(str, Enum):
 
 class EventSubscriptionIdentityType(str, Enum):
     """
-    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -254,6 +268,18 @@ class IpActionType(str, Enum):
     Action to perform based on the match or no match of the IpMask.
     """
     ALLOW = "Allow"
+
+
+class MonitorAlertSeverity(str, Enum):
+    """
+    The severity that will be attached to every Alert fired through this event subscription.
+    This field must be provided.
+    """
+    SEV0 = "Sev0"
+    SEV1 = "Sev1"
+    SEV2 = "Sev2"
+    SEV3 = "Sev3"
+    SEV4 = "Sev4"
 
 
 class PartnerConfigurationProvisioningState(str, Enum):
@@ -349,6 +375,9 @@ class ResourceProvisioningState(str, Enum):
 
 
 class RoutingIdentityType(str, Enum):
+    """
+    Routing identity type for topic spaces configuration.
+    """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -370,7 +399,7 @@ class StaticRoutingEnrichmentType(str, Enum):
 
 class TlsVersion(str, Enum):
     """
-    Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+    Minimum TLS version that should be supported by webhook endpoint
     """
     TLS_VERSION_1_0 = "1.0"
     TLS_VERSION_1_1 = "1.1"

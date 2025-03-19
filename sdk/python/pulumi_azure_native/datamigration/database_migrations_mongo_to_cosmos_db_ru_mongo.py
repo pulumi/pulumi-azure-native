@@ -220,7 +220,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
                  __props__=None):
         """
         Database Migration Resource for Mongo to CosmosDb.
-        Azure REST API version: 2023-07-15-preview.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +245,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Database Migration Resource for Mongo to CosmosDb.
-        Azure REST API version: 2023-07-15-preview.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsMongoToCosmosDbRUMongoArgs args: The arguments to use to populate this resource's properties.
@@ -299,6 +299,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
             if target_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_name'")
             __props__.__dict__["target_resource_name"] = target_resource_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["ended_on"] = None
             __props__.__dict__["migration_failure_error"] = None
             __props__.__dict__["migration_status"] = None
@@ -331,6 +332,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
 
         __props__ = DatabaseMigrationsMongoToCosmosDbRUMongoArgs.__new__(DatabaseMigrationsMongoToCosmosDbRUMongoArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["collection_list"] = None
         __props__.__dict__["ended_on"] = None
         __props__.__dict__["kind"] = None
@@ -348,6 +350,14 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
         __props__.__dict__["target_mongo_connection"] = None
         __props__.__dict__["type"] = None
         return DatabaseMigrationsMongoToCosmosDbRUMongo(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="collectionList")

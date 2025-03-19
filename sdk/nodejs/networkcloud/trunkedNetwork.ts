@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class TrunkedNetwork extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class TrunkedNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource ID of the Network Cloud cluster this trunked network is associated with.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -55,6 +57,10 @@ export class TrunkedNetwork extends pulumi.CustomResource {
      * The descriptive message about the current detailed status.
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -141,9 +147,11 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             resourceInputs["trunkedNetworkName"] = args ? args.trunkedNetworkName : undefined;
             resourceInputs["vlans"] = args ? args.vlans : undefined;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -152,9 +160,11 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
             resourceInputs["hybridAksPluginType"] = undefined /*out*/;
@@ -170,7 +180,7 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             resourceInputs["vlans"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240601preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20241001preview:TrunkedNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240601preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20241001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20250201:TrunkedNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrunkedNetwork.__pulumiType, name, resourceInputs, opts);
     }

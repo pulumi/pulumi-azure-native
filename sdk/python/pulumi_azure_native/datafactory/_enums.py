@@ -9,6 +9,7 @@ __all__ = [
     'ActivityState',
     'AmazonRdsForSqlAuthenticationType',
     'AzureFunctionActivityMethod',
+    'AzurePostgreSqlWriteMethodEnum',
     'AzureSearchIndexWriteBehaviorType',
     'AzureSqlDWAuthenticationType',
     'AzureSqlDatabaseAuthenticationType',
@@ -90,6 +91,7 @@ __all__ = [
     'TriggerReferenceType',
     'TumblingWindowFrequency',
     'Type',
+    'ValueType',
     'VariableType',
     'WebActivityMethod',
     'WebAuthenticationType',
@@ -134,6 +136,15 @@ class AzureFunctionActivityMethod(str, Enum):
     OPTIONS = "OPTIONS"
     HEAD = "HEAD"
     TRACE = "TRACE"
+
+
+class AzurePostgreSqlWriteMethodEnum(str, Enum):
+    """
+    The write behavior for the operation. Default is Bulk Insert.
+    """
+    BULK_INSERT = "BulkInsert"
+    COPY_COMMAND = "CopyCommand"
+    UPSERT = "Upsert"
 
 
 class AzureSearchIndexWriteBehaviorType(str, Enum):
@@ -851,6 +862,14 @@ class Type(str, Enum):
     Linked service reference type.
     """
     LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
+
+
+class ValueType(str, Enum):
+    """
+    Type of value copied from source.
+    """
+    ACTUAL = "actual"
+    DISPLAY = "display"
 
 
 class VariableType(str, Enum):

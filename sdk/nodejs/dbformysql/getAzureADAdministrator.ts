@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about an azure ad administrator.
- * Azure REST API version: 2022-01-01.
- *
- * Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Azure REST API version: 2023-12-30.
  */
 export function getAzureADAdministrator(args: GetAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +44,11 @@ export interface GetAzureADAdministratorResult {
      */
     readonly administratorType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -66,7 +68,7 @@ export interface GetAzureADAdministratorResult {
      */
     readonly sid?: string;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
@@ -80,9 +82,7 @@ export interface GetAzureADAdministratorResult {
 }
 /**
  * Gets information about an azure ad administrator.
- * Azure REST API version: 2022-01-01.
- *
- * Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Azure REST API version: 2023-12-30.
  */
 export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureADAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

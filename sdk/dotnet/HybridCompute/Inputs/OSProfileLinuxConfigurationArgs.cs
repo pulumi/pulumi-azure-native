@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
         public InputUnion<string, Pulumi.AzureNative.HybridCompute.AssessmentModeTypes>? AssessmentMode { get; set; }
 
         /// <summary>
+        /// Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        /// </summary>
+        [Input("enableHotpatching")]
+        public Input<bool>? EnableHotpatching { get; set; }
+
+        /// <summary>
         /// Specifies the patch mode.
         /// </summary>
         [Input("patchMode")]

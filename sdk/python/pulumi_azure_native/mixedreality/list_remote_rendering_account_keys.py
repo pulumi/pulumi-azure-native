@@ -65,10 +65,14 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemoteRenderingAccountKeysResult:
     """
-    List Both of the 2 Keys of a Remote Rendering Account
-    Azure REST API version: 2021-01-01.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
 
-    Other available API versions: 2021-03-01-preview.
+     List Both of the 2 Keys of a Remote Rendering Account
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -87,10 +91,14 @@ def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Inpu
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemoteRenderingAccountKeysResult]:
     """
-    List Both of the 2 Keys of a Remote Rendering Account
-    Azure REST API version: 2021-01-01.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
 
-    Other available API versions: 2021-03-01-preview.
+     List Both of the 2 Keys of a Remote Rendering Account
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

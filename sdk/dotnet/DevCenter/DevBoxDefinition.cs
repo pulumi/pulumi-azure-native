@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a definition for a Developer Machine.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("activeImageReference")]
         public Output<Outputs.ImageReferenceResponse> ActiveImageReference { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
@@ -96,6 +100,12 @@ namespace Pulumi.AzureNative.DevCenter
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Validation status for the Dev Box Definition.
+        /// </summary>
+        [Output("validationStatus")]
+        public Output<string> ValidationStatus { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DevBoxDefinition resource with the given unique name, arguments, and options.
@@ -135,6 +145,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:DevBoxDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

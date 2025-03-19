@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Azure REST API version: 2024-04-01-preview.
-    /// 
-    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionRaiBlocklistItem")]
     public partial class ConnectionRaiBlocklistItem : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -24,10 +28,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// RAI Custom Blocklist properties.
+        /// RAI Custom Blocklist Item properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RaiBlocklistPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RaiBlocklistItemPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -66,9 +70,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklistItem" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklistItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ConnectionRaiBlocklistItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionRaiBlocklist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,16 +106,28 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// RAI Custom Blocklist properties.
+        /// RAI Custom Blocklist Item properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.RaiBlocklistPropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.RaiBlocklistItemPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// Api version used by proxy call
+        /// </summary>
+        [Input("proxyApiVersion")]
+        public Input<string>? ProxyApiVersion { get; set; }
+
+        /// <summary>
+        /// Name of the RaiBlocklist Item
+        /// </summary>
+        [Input("raiBlocklistItemName")]
+        public Input<string>? RaiBlocklistItemName { get; set; }
 
         /// <summary>
         /// The name of the RaiBlocklist.
         /// </summary>
-        [Input("raiBlocklistName")]
-        public Input<string>? RaiBlocklistName { get; set; }
+        [Input("raiBlocklistName", required: true)]
+        public Input<string> RaiBlocklistName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'ApiKeyResponse',
+    'DataPlaneProxyPropertiesResponse',
     'EncryptionPropertiesResponse',
     'KeyVaultPropertiesResponse',
     'PrivateEndpointConnectionReferenceResponse',
@@ -104,6 +105,60 @@ class ApiKeyResponse(dict):
         The value of the key that is used for authentication purposes.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataPlaneProxyPropertiesResponse(dict):
+    """
+    The data plane proxy settings for a configuration store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "privateLinkDelegation":
+            suggest = "private_link_delegation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataPlaneProxyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataPlaneProxyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataPlaneProxyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_mode: Optional[str] = None,
+                 private_link_delegation: Optional[str] = None):
+        """
+        The data plane proxy settings for a configuration store.
+        :param str authentication_mode: The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
+        :param str private_link_delegation: The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
+        """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if private_link_delegation is not None:
+            pulumi.set(__self__, "private_link_delegation", private_link_delegation)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[str]:
+        """
+        The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter(name="privateLinkDelegation")
+    def private_link_delegation(self) -> Optional[str]:
+        """
+        The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
+        """
+        return pulumi.get(self, "private_link_delegation")
 
 
 @pulumi.output_type

@@ -27,7 +27,10 @@ class GetMCASDataConnectorResult:
     """
     Represents MCAS (Microsoft Cloud App Security) data connector.
     """
-    def __init__(__self__, data_types=None, etag=None, id=None, kind=None, name=None, system_data=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_types=None, etag=None, id=None, kind=None, name=None, system_data=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_types and not isinstance(data_types, dict):
             raise TypeError("Expected argument 'data_types' to be a dict")
         pulumi.set(__self__, "data_types", data_types)
@@ -52,6 +55,14 @@ class GetMCASDataConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -125,6 +136,7 @@ class AwaitableGetMCASDataConnectorResult(GetMCASDataConnectorResult):
         if False:
             yield self
         return GetMCASDataConnectorResult(
+            azure_api_version=self.azure_api_version,
             data_types=self.data_types,
             etag=self.etag,
             id=self.id,
@@ -141,7 +153,7 @@ def get_mcas_data_connector(data_connector_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMCASDataConnectorResult:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_id: Connector ID
@@ -156,6 +168,7 @@ def get_mcas_data_connector(data_connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getMCASDataConnector', __args__, opts=opts, typ=GetMCASDataConnectorResult).value
 
     return AwaitableGetMCASDataConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_types=pulumi.get(__ret__, 'data_types'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -170,7 +183,7 @@ def get_mcas_data_connector_output(data_connector_id: Optional[pulumi.Input[str]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMCASDataConnectorResult]:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_id: Connector ID
@@ -184,6 +197,7 @@ def get_mcas_data_connector_output(data_connector_id: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getMCASDataConnector', __args__, opts=opts, typ=GetMCASDataConnectorResult)
     return __ret__.apply(lambda __response__: GetMCASDataConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_types=pulumi.get(__response__, 'data_types'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

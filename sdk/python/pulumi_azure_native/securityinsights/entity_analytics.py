@@ -118,7 +118,7 @@ class EntityAnalytics(pulumi.CustomResource):
                  __props__=None):
         """
         Settings with single toggle.
-        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class EntityAnalytics(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
-        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EntityAnalyticsArgs args: The arguments to use to populate this resource's properties.
@@ -179,11 +179,12 @@ class EntityAnalytics(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:EntityAnalytics")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IPSyncer"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights:Ueba")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EntityAnalytics, __self__).__init__(
             'azure-native:securityinsights:EntityAnalytics',
@@ -207,6 +208,7 @@ class EntityAnalytics(pulumi.CustomResource):
 
         __props__ = EntityAnalyticsArgs.__new__(EntityAnalyticsArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["entity_providers"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
@@ -214,6 +216,14 @@ class EntityAnalytics(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return EntityAnalytics(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="entityProviders")

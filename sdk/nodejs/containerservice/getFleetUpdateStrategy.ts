@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a FleetUpdateStrategy
- * Azure REST API version: 2023-08-15-preview.
- *
- * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview.
  */
 export function getFleetUpdateStrategy(args: GetFleetUpdateStrategyArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetUpdateStrategyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetFleetUpdateStrategyArgs {
  * Defines a multi-stage process to perform update operations across members of a Fleet.
  */
 export interface GetFleetUpdateStrategyResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
@@ -72,9 +74,7 @@ export interface GetFleetUpdateStrategyResult {
 }
 /**
  * Get a FleetUpdateStrategy
- * Azure REST API version: 2023-08-15-preview.
- *
- * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview.
  */
 export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

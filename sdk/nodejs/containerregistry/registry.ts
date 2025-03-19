@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a container registry.
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
- *
- * Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -44,6 +42,14 @@ export class Registry extends pulumi.CustomResource {
      * The value that indicates whether the admin user is enabled.
      */
     public readonly adminUserEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables registry-wide pull from unauthenticated clients.
+     */
+    public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of the container registry in ISO8601 format.
      */
@@ -143,6 +149,7 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) ?? false;
+            resourceInputs["anonymousPullEnabled"] = (args ? args.anonymousPullEnabled : undefined) ?? false;
             resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -156,6 +163,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
             resourceInputs["loginServer"] = undefined /*out*/;
@@ -167,6 +175,8 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["adminUserEnabled"] = undefined /*out*/;
+            resourceInputs["anonymousPullEnabled"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dataEndpointEnabled"] = undefined /*out*/;
             resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
@@ -203,6 +213,10 @@ export interface RegistryArgs {
      * The value that indicates whether the admin user is enabled.
      */
     adminUserEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enables registry-wide pull from unauthenticated clients.
+     */
+    anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
      * Enable a single data endpoint per region for serving data.
      */

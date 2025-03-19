@@ -184,9 +184,7 @@ class DeviceGroup(pulumi.CustomResource):
                  __props__=None):
         """
         An device group resource belonging to a product resource.
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,9 +206,7 @@ class DeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An device group resource belonging to a product resource.
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.
@@ -260,6 +256,7 @@ class DeviceGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["update_policy"] = update_policy
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["has_deployment"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -290,6 +287,7 @@ class DeviceGroup(pulumi.CustomResource):
         __props__ = DeviceGroupArgs.__new__(DeviceGroupArgs)
 
         __props__.__dict__["allow_crash_dumps_collection"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["has_deployment"] = None
         __props__.__dict__["name"] = None
@@ -308,6 +306,14 @@ class DeviceGroup(pulumi.CustomResource):
         Flag to define if the user allows for crash dump collection.
         """
         return pulumi.get(self, "allow_crash_dumps_collection")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

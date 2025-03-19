@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get the properties of an App Service Environment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get the properties of an App Service Environment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentResult> Invoke(GetAppServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get the properties of an App Service Environment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentResult> Invoke(GetAppServiceEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetAppServiceEnvironmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Custom settings for changing the behavior of the App Service Environment.
         /// </summary>
         public readonly ImmutableArray<Outputs.NameValuePairResponse> ClusterSettings;
@@ -121,7 +119,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly int? IpsslAddressCount;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -192,6 +190,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetAppServiceEnvironmentResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.NameValuePairResponse> clusterSettings,
 
             Outputs.CustomDnsSuffixConfigurationResponse? customDnsSuffixConfiguration,
@@ -244,6 +244,7 @@ namespace Pulumi.AzureNative.Web
 
             bool? zoneRedundant)
         {
+            AzureApiVersion = azureApiVersion;
             ClusterSettings = clusterSettings;
             CustomDnsSuffixConfiguration = customDnsSuffixConfiguration;
             DedicatedHostCount = dedicatedHostCount;

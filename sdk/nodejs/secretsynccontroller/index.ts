@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["SecretSync"], () => require("./secretSync"));
 // Export enums:
 export * from "../types/enums/secretsynccontroller";
 
-// Export sub-modules:
-import * as v20240821preview from "./v20240821preview";
-
-export {
-    v20240821preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

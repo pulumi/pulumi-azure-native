@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class Rack extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Rack extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -55,6 +57,10 @@ export class Rack extends pulumi.CustomResource {
      * The descriptive message about the current detailed status.
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -134,18 +140,22 @@ export class Rack extends pulumi.CustomResource {
             resourceInputs["rackSkuId"] = args ? args.rackSkuId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -158,7 +168,7 @@ export class Rack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20231001preview:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }, { type: "azure-native:networkcloud/v20240701:Rack" }, { type: "azure-native:networkcloud/v20241001preview:Rack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20231001preview:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }, { type: "azure-native:networkcloud/v20240701:Rack" }, { type: "azure-native:networkcloud/v20241001preview:Rack" }, { type: "azure-native:networkcloud/v20250201:Rack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rack.__pulumiType, name, resourceInputs, opts);
     }

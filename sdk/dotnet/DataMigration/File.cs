@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A file resource
-    /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview.
-    /// 
-    /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    /// Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:File")]
     public partial class File : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// HTTP strong entity tag value. This is ignored if submitted.
         /// </summary>

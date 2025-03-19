@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a lab resource.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetLabResult {
      * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
      */
     readonly autoShutdownProfile: outputs.labservices.AutoShutdownProfileResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
      */
@@ -72,6 +74,10 @@ export interface GetLabResult {
      * Current provisioning state of the lab.
      */
     readonly provisioningState: string;
+    /**
+     * Error details of last operation done on lab.
+     */
+    readonly resourceOperationError: outputs.labservices.ResourceOperationErrorResponse;
     /**
      * The lab user list management profile.
      */
@@ -107,9 +113,7 @@ export interface GetLabResult {
 }
 /**
  * Returns the properties of a lab resource.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

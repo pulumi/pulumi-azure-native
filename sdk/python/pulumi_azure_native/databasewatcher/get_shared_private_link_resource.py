@@ -27,7 +27,10 @@ class GetSharedPrivateLinkResourceResult:
     """
     Concrete proxy resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, dns_zone=None, group_id=None, id=None, name=None, private_link_resource_id=None, provisioning_state=None, request_message=None, status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, dns_zone=None, group_id=None, id=None, name=None, private_link_resource_id=None, provisioning_state=None, request_message=None, status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dns_zone and not isinstance(dns_zone, str):
             raise TypeError("Expected argument 'dns_zone' to be a str")
         pulumi.set(__self__, "dns_zone", dns_zone)
@@ -60,10 +63,18 @@ class GetSharedPrivateLinkResourceResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="dnsZone")
     def dns_zone(self) -> Optional[str]:
         """
-        The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         """
         return pulumi.get(self, "dns_zone")
 
@@ -79,7 +90,7 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -146,6 +157,7 @@ class AwaitableGetSharedPrivateLinkResourceResult(GetSharedPrivateLinkResourceRe
         if False:
             yield self
         return GetSharedPrivateLinkResourceResult(
+            azure_api_version=self.azure_api_version,
             dns_zone=self.dns_zone,
             group_id=self.group_id,
             id=self.id,
@@ -164,9 +176,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
     Get a SharedPrivateLinkResource
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -181,6 +191,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databasewatcher:getSharedPrivateLinkResource', __args__, opts=opts, typ=GetSharedPrivateLinkResourceResult).value
 
     return AwaitableGetSharedPrivateLinkResourceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dns_zone=pulumi.get(__ret__, 'dns_zone'),
         group_id=pulumi.get(__ret__, 'group_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -197,9 +208,7 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
     """
     Get a SharedPrivateLinkResource
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -213,6 +222,7 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databasewatcher:getSharedPrivateLinkResource', __args__, opts=opts, typ=GetSharedPrivateLinkResourceResult)
     return __ret__.apply(lambda __response__: GetSharedPrivateLinkResourceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dns_zone=pulumi.get(__response__, 'dns_zone'),
         group_id=pulumi.get(__response__, 'group_id'),
         id=pulumi.get(__response__, 'id'),

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// The request to update subscriptions needed to be monitored by the Elastic monitor resource.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-15-preview.
         /// </summary>
         public static Task<GetMonitoredSubscriptionResult> InvokeAsync(GetMonitoredSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoredSubscriptionResult>("azure-native:elastic:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The request to update subscriptions needed to be monitored by the Elastic monitor resource.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-15-preview.
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:elastic:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The request to update subscriptions needed to be monitored by the Elastic monitor resource.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-15-preview.
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:elastic:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Elastic
     public sealed class GetMonitoredSubscriptionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The id of the monitored subscription resource.
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Elastic
 
         [OutputConstructor]
         private GetMonitoredSubscriptionResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Elastic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

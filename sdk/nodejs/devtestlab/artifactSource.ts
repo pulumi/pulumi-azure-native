@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of an artifact source.
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
  */
 export class ArtifactSource extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ArtifactSource extends pulumi.CustomResource {
      * The folder containing Azure Resource Manager templates.
      */
     public readonly armTemplateFolderPath!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The artifact source's branch reference.
      */
@@ -129,12 +133,14 @@ export class ArtifactSource extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["armTemplateFolderPath"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["branchRef"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

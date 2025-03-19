@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes an Arc Gateway.
-    /// Azure REST API version: 2024-03-31-preview.
-    /// 
-    /// Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    /// Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2024-03-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("allowedFeatures")]
         public Output<ImmutableArray<string>> AllowedFeatures { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint fqdn for the Gateway.
@@ -108,6 +112,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:Gateway" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:Gateway" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:Gateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

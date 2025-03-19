@@ -11,28 +11,35 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// Option B configuration.
+    /// Option B configuration to be used for Management VPN.
     /// </summary>
     [OutputType]
     public sealed class FabricOptionBPropertiesResponse
     {
         /// <summary>
-        /// Route Targets to be applied for outgoing routes from CE.
+        /// Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
         /// </summary>
         public readonly ImmutableArray<string> ExportRouteTargets;
         /// <summary>
-        /// Route Targets to be applied for incoming routes into CE.
+        /// Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
         /// </summary>
         public readonly ImmutableArray<string> ImportRouteTargets;
+        /// <summary>
+        /// Route Targets to be applied.
+        /// </summary>
+        public readonly Outputs.RouteTargetInformationResponse? RouteTargets;
 
         [OutputConstructor]
         private FabricOptionBPropertiesResponse(
             ImmutableArray<string> exportRouteTargets,
 
-            ImmutableArray<string> importRouteTargets)
+            ImmutableArray<string> importRouteTargets,
+
+            Outputs.RouteTargetInformationResponse? routeTargets)
         {
             ExportRouteTargets = exportRouteTargets;
             ImportRouteTargets = importRouteTargets;
+            RouteTargets = routeTargets;
         }
     }
 }

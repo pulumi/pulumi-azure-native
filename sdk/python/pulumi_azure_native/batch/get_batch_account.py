@@ -27,7 +27,7 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, allowed_authentication_modes=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, network_profile=None, node_management_endpoint=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, allowed_authentication_modes=None, auto_storage=None, azure_api_version=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, network_profile=None, node_management_endpoint=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -40,6 +40,9 @@ class GetBatchAccountResult:
         if auto_storage and not isinstance(auto_storage, dict):
             raise TypeError("Expected argument 'auto_storage' to be a dict")
         pulumi.set(__self__, "auto_storage", auto_storage)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dedicated_core_quota and not isinstance(dedicated_core_quota, int):
             raise TypeError("Expected argument 'dedicated_core_quota' to be a int")
         pulumi.set(__self__, "dedicated_core_quota", dedicated_core_quota)
@@ -126,6 +129,14 @@ class GetBatchAccountResult:
         Contains information about the auto-storage account associated with a Batch account.
         """
         return pulumi.get(self, "auto_storage")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dedicatedCoreQuota")
@@ -287,6 +298,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             active_job_and_job_schedule_quota=self.active_job_and_job_schedule_quota,
             allowed_authentication_modes=self.allowed_authentication_modes,
             auto_storage=self.auto_storage,
+            azure_api_version=self.azure_api_version,
             dedicated_core_quota=self.dedicated_core_quota,
             dedicated_core_quota_per_vm_family=self.dedicated_core_quota_per_vm_family,
             dedicated_core_quota_per_vm_family_enforced=self.dedicated_core_quota_per_vm_family_enforced,
@@ -313,9 +325,7 @@ def get_batch_account(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
     Gets information about the specified Batch account.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    Azure REST API version: 2024-07-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -332,6 +342,7 @@ def get_batch_account(account_name: Optional[str] = None,
         active_job_and_job_schedule_quota=pulumi.get(__ret__, 'active_job_and_job_schedule_quota'),
         allowed_authentication_modes=pulumi.get(__ret__, 'allowed_authentication_modes'),
         auto_storage=pulumi.get(__ret__, 'auto_storage'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dedicated_core_quota=pulumi.get(__ret__, 'dedicated_core_quota'),
         dedicated_core_quota_per_vm_family=pulumi.get(__ret__, 'dedicated_core_quota_per_vm_family'),
         dedicated_core_quota_per_vm_family_enforced=pulumi.get(__ret__, 'dedicated_core_quota_per_vm_family_enforced'),
@@ -356,9 +367,7 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchAccountResult]:
     """
     Gets information about the specified Batch account.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    Azure REST API version: 2024-07-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -374,6 +383,7 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
         active_job_and_job_schedule_quota=pulumi.get(__response__, 'active_job_and_job_schedule_quota'),
         allowed_authentication_modes=pulumi.get(__response__, 'allowed_authentication_modes'),
         auto_storage=pulumi.get(__response__, 'auto_storage'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dedicated_core_quota=pulumi.get(__response__, 'dedicated_core_quota'),
         dedicated_core_quota_per_vm_family=pulumi.get(__response__, 'dedicated_core_quota_per_vm_family'),
         dedicated_core_quota_per_vm_family_enforced=pulumi.get(__response__, 'dedicated_core_quota_per_vm_family_enforced'),

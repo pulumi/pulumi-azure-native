@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
- * Azure REST API version: 2022-01-01-preview.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +30,7 @@ export interface GetDisasterRecoveryConfigArgs {
      */
     namespaceName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,6 +43,10 @@ export interface GetDisasterRecoveryConfigResult {
      * Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
     readonly alternateName?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -84,9 +86,7 @@ export interface GetDisasterRecoveryConfigResult {
 }
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
- * Azure REST API version: 2022-01-01-preview.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,7 +107,7 @@ export interface GetDisasterRecoveryConfigOutputArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

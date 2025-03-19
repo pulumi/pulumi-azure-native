@@ -27,13 +27,16 @@ class GetBrokerListenerResult:
     """
     MQ broker/listener resource
     """
-    def __init__(__self__, authentication_enabled=None, authorization_enabled=None, broker_ref=None, extended_location=None, id=None, location=None, name=None, node_port=None, port=None, provisioning_state=None, service_name=None, service_type=None, system_data=None, tags=None, tls=None, type=None):
+    def __init__(__self__, authentication_enabled=None, authorization_enabled=None, azure_api_version=None, broker_ref=None, extended_location=None, id=None, location=None, name=None, node_port=None, port=None, provisioning_state=None, service_name=None, service_type=None, system_data=None, tags=None, tls=None, type=None):
         if authentication_enabled and not isinstance(authentication_enabled, bool):
             raise TypeError("Expected argument 'authentication_enabled' to be a bool")
         pulumi.set(__self__, "authentication_enabled", authentication_enabled)
         if authorization_enabled and not isinstance(authorization_enabled, bool):
             raise TypeError("Expected argument 'authorization_enabled' to be a bool")
         pulumi.set(__self__, "authorization_enabled", authorization_enabled)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if broker_ref and not isinstance(broker_ref, str):
             raise TypeError("Expected argument 'broker_ref' to be a str")
         pulumi.set(__self__, "broker_ref", broker_ref)
@@ -92,6 +95,14 @@ class GetBrokerListenerResult:
         The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
         """
         return pulumi.get(self, "authorization_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="brokerRef")
@@ -214,6 +225,7 @@ class AwaitableGetBrokerListenerResult(GetBrokerListenerResult):
         return GetBrokerListenerResult(
             authentication_enabled=self.authentication_enabled,
             authorization_enabled=self.authorization_enabled,
+            azure_api_version=self.azure_api_version,
             broker_ref=self.broker_ref,
             extended_location=self.extended_location,
             id=self.id,
@@ -256,6 +268,7 @@ def get_broker_listener(broker_name: Optional[str] = None,
     return AwaitableGetBrokerListenerResult(
         authentication_enabled=pulumi.get(__ret__, 'authentication_enabled'),
         authorization_enabled=pulumi.get(__ret__, 'authorization_enabled'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         broker_ref=pulumi.get(__ret__, 'broker_ref'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -295,6 +308,7 @@ def get_broker_listener_output(broker_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetBrokerListenerResult(
         authentication_enabled=pulumi.get(__response__, 'authentication_enabled'),
         authorization_enabled=pulumi.get(__response__, 'authorization_enabled'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         broker_ref=pulumi.get(__response__, 'broker_ref'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

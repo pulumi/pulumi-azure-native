@@ -249,11 +249,11 @@ if not MYPY:
         """
         Username / Password Credentials to connect to guest.
         """
-        password: NotRequired[pulumi.Input[str]]
+        password: pulumi.Input[str]
         """
         Gets or sets the password to connect with the guest.
         """
-        username: NotRequired[pulumi.Input[str]]
+        username: pulumi.Input[str]
         """
         Gets or sets username to connect with the guest.
         """
@@ -263,40 +263,38 @@ elif False:
 @pulumi.input_type
 class GuestCredentialArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
         """
         Username / Password Credentials to connect to guest.
         :param pulumi.Input[str] password: Gets or sets the password to connect with the guest.
         :param pulumi.Input[str] username: Gets or sets username to connect with the guest.
         """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
+    def password(self) -> pulumi.Input[str]:
         """
         Gets or sets the password to connect with the guest.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
+    def password(self, value: pulumi.Input[str]):
         pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
+    def username(self) -> pulumi.Input[str]:
         """
         Gets or sets username to connect with the guest.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
+    def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
 

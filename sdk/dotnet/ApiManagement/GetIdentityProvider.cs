@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the configuration details of the identity Provider configured in specified service instance.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the configuration details of the identity Provider configured in specified service instance.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the configuration details of the identity Provider configured in specified service instance.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
@@ -105,6 +99,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? Authority;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         /// </summary>
         public readonly string ClientId;
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? authority,
 
+            string azureApiVersion,
+
             string clientId,
 
             string? clientLibrary,
@@ -179,6 +179,7 @@ namespace Pulumi.AzureNative.ApiManagement
         {
             AllowedTenants = allowedTenants;
             Authority = authority;
+            AzureApiVersion = azureApiVersion;
             ClientId = clientId;
             ClientLibrary = clientLibrary;
             ClientSecret = clientSecret;

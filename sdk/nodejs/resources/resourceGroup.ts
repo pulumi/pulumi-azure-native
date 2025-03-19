@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource group information.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01.
- *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ResourceGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
      */
@@ -80,10 +82,12 @@ export class ResourceGroup extends pulumi.CustomResource {
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

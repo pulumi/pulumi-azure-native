@@ -12,28 +12,46 @@ namespace Pulumi.AzureNative.MixedReality
     public static class ListRemoteRenderingAccountKeys
     {
         /// <summary>
-        /// List Both of the 2 Keys of a Remote Rendering Account
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of a Remote Rendering Account
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Task<ListRemoteRenderingAccountKeysResult> InvokeAsync(ListRemoteRenderingAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Both of the 2 Keys of a Remote Rendering Account
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of a Remote Rendering Account
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Both of the 2 Keys of a Remote Rendering Account
-        /// Azure REST API version: 2021-01-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of a Remote Rendering Account
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithDefaults());

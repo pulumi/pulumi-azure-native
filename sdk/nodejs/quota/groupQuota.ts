@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+ * Azure REST API version: 2025-03-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class GroupQuota extends pulumi.CustomResource {
     /**
@@ -41,13 +39,14 @@ export class GroupQuota extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-     */
-    public readonly properties!: pulumi.Output<outputs.quota.GroupQuotasEntityBaseResponse>;
+    public readonly properties!: pulumi.Output<outputs.quota.GroupQuotasEntityResponseProperties>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -74,10 +73,12 @@ export class GroupQuota extends pulumi.CustomResource {
             resourceInputs["groupQuotaName"] = args ? args.groupQuotaName : undefined;
             resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -102,8 +103,5 @@ export interface GroupQuotaArgs {
      * Management Group Id.
      */
     managementGroupId: pulumi.Input<string>;
-    /**
-     * Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-     */
-    properties?: pulumi.Input<inputs.quota.GroupQuotasEntityBaseArgs>;
+    properties?: pulumi.Input<inputs.quota.GroupQuotasEntityPropertiesArgs>;
 }

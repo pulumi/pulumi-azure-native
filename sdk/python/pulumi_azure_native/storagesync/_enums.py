@@ -10,6 +10,7 @@ __all__ = [
     'InitialDownloadPolicy',
     'InitialUploadPolicy',
     'LocalCacheMode',
+    'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
 ]
 
@@ -53,6 +54,16 @@ class LocalCacheMode(str, Enum):
     """
     DOWNLOAD_NEW_AND_MODIFIED_FILES = "DownloadNewAndModifiedFiles"
     UPDATE_LOCALLY_CACHED_FILES = "UpdateLocallyCachedFiles"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

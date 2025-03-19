@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.StorageCache
     public sealed class GetImportJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A recent and frequently updated rate of total files, directories, and symlinks imported per second.
         /// </summary>
         public readonly double BlobsImportedPerSecond;
@@ -173,6 +177,8 @@ namespace Pulumi.AzureNative.StorageCache
 
         [OutputConstructor]
         private GetImportJobResult(
+            string azureApiVersion,
+
             double blobsImportedPerSecond,
 
             double blobsWalkedPerSecond,
@@ -213,6 +219,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlobsImportedPerSecond = blobsImportedPerSecond;
             BlobsWalkedPerSecond = blobsWalkedPerSecond;
             ConflictResolutionMode = conflictResolutionMode;

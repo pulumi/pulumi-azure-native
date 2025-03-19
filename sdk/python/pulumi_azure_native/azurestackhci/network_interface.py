@@ -23,25 +23,33 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  dns_settings: Optional[pulumi.Input['InterfaceDNSSettingsArgs']] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
+                 network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] create_from_local: Boolean indicating whether this is a existing local network interface or if one should be created.
         :param pulumi.Input['InterfaceDNSSettingsArgs'] dns_settings: DNS Settings for the interface
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]] ip_configurations: IPConfigurations - A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mac_address: MacAddress - The MAC address of the network interface.
         :param pulumi.Input[str] network_interface_name: Name of the network interface
+        :param pulumi.Input['NetworkSecurityGroupArmReferenceArgs'] network_security_group: NetworkSecurityGroup - Network Security Group attached to the network interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if create_from_local is None:
+            create_from_local = False
+        if create_from_local is not None:
+            pulumi.set(__self__, "create_from_local", create_from_local)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if extended_location is not None:
@@ -54,6 +62,8 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "mac_address", mac_address)
         if network_interface_name is not None:
             pulumi.set(__self__, "network_interface_name", network_interface_name)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -68,6 +78,18 @@ class NetworkInterfaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating whether this is a existing local network interface or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
+
+    @create_from_local.setter
+    def create_from_local(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_from_local", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -142,6 +164,18 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "network_interface_name", value)
 
     @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]:
+        """
+        NetworkSecurityGroup - Network Security Group attached to the network interface.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]):
+        pulumi.set(self, "network_security_group", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -159,29 +193,31 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  dns_settings: Optional[pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The network interface resource definition.
-        Azure REST API version: 2022-12-15-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] create_from_local: Boolean indicating whether this is a existing local network interface or if one should be created.
         :param pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']] dns_settings: DNS Settings for the interface
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]] ip_configurations: IPConfigurations - A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mac_address: MacAddress - The MAC address of the network interface.
         :param pulumi.Input[str] network_interface_name: Name of the network interface
+        :param pulumi.Input[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']] network_security_group: NetworkSecurityGroup - Network Security Group attached to the network interface.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -193,9 +229,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network interface resource definition.
-        Azure REST API version: 2022-12-15-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -212,12 +246,14 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_from_local: Optional[pulumi.Input[bool]] = None,
                  dns_settings: Optional[pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -229,22 +265,27 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+            if create_from_local is None:
+                create_from_local = False
+            __props__.__dict__["create_from_local"] = create_from_local
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["mac_address"] = mac_address
             __props__.__dict__["network_interface_name"] = network_interface_name
+            __props__.__dict__["network_security_group"] = network_security_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:NetworkInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:NetworkInterface"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:NetworkInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkInterface, __self__).__init__(
             'azure-native:azurestackhci:NetworkInterface',
@@ -268,18 +309,37 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["create_from_local"] = None
         __props__.__dict__["dns_settings"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["mac_address"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_security_group"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean indicating whether this is a existing local network interface or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -328,6 +388,14 @@ class NetworkInterface(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> pulumi.Output[Optional['outputs.NetworkSecurityGroupArmReferenceResponse']]:
+        """
+        NetworkSecurityGroup - Network Security Group attached to the network interface.
+        """
+        return pulumi.get(self, "network_security_group")
 
     @property
     @pulumi.getter(name="provisioningState")

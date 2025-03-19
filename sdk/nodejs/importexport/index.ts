@@ -24,13 +24,6 @@ utilities.lazyLoad(exports, ["listBitLockerKey","listBitLockerKeyOutput"], () =>
 // Export enums:
 export * from "../types/enums/importexport";
 
-// Export sub-modules:
-import * as v20210101 from "./v20210101";
-
-export {
-    v20210101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

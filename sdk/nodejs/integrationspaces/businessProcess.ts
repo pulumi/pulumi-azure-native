@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A business process under application.
- * Azure REST API version: 2023-11-14-preview.
+ * Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
  */
 export class BusinessProcess extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class BusinessProcess extends pulumi.CustomResource {
         return obj['__pulumiType'] === BusinessProcess.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The business process mapping.
      */
@@ -113,12 +117,14 @@ export class BusinessProcess extends pulumi.CustomResource {
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["trackingDataStoreReferenceName"] = args ? args.trackingDataStoreReferenceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["businessProcessMapping"] = undefined /*out*/;
             resourceInputs["businessProcessStages"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSiteContainerSlot(args: GetWebAppSiteContainerSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteContainerSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,6 +48,10 @@ export interface GetWebAppSiteContainerSlotResult {
      * Auth Type
      */
     readonly authType?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Created Time
      */
@@ -113,9 +115,7 @@ export interface GetWebAppSiteContainerSlotResult {
 }
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

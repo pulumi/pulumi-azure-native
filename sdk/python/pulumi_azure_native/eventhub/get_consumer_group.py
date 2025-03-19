@@ -27,7 +27,10 @@ class GetConsumerGroupResult:
     """
     Single item in List or Get Consumer group operation
     """
-    def __init__(__self__, created_at=None, id=None, location=None, name=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, id=None, location=None, name=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -52,6 +55,14 @@ class GetConsumerGroupResult:
         if user_metadata and not isinstance(user_metadata, str):
             raise TypeError("Expected argument 'user_metadata' to be a str")
         pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -124,6 +135,7 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
         if False:
             yield self
         return GetConsumerGroupResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             id=self.id,
             location=self.location,
@@ -141,9 +153,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
     Gets a description for the specified consumer group.
-    Azure REST API version: 2022-10-01-preview.
-
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str consumer_group_name: The consumer group name
@@ -160,6 +170,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getConsumerGroup', __args__, opts=opts, typ=GetConsumerGroupResult).value
 
     return AwaitableGetConsumerGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -175,9 +186,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumerGroupResult]:
     """
     Gets a description for the specified consumer group.
-    Azure REST API version: 2022-10-01-preview.
-
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str consumer_group_name: The consumer group name
@@ -193,6 +202,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getConsumerGroup', __args__, opts=opts, typ=GetConsumerGroupResult)
     return __ret__.apply(lambda __response__: GetConsumerGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

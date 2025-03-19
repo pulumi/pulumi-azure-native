@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Active directory connector resource
- * Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2022-03-01-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2023-01-15-preview.
  */
 export class ActiveDirectoryConnector extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActiveDirectoryConnector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -81,17 +83,19 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
             resourceInputs["dataControllerName"] = args ? args.dataControllerName : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.activeDirectoryConnectorPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20250301preview:ActiveDirectoryConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActiveDirectoryConnector.__pulumiType, name, resourceInputs, opts);
     }

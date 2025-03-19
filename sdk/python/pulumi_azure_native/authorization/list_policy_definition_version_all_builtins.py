@@ -65,9 +65,7 @@ class AwaitableListPolicyDefinitionVersionAllBuiltinsResult(ListPolicyDefinition
 def list_policy_definition_version_all_builtins(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPolicyDefinitionVersionAllBuiltinsResult:
     """
     This operation lists all the built-in policy definition versions for all built-in policy definitions.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -79,9 +77,7 @@ def list_policy_definition_version_all_builtins(opts: Optional[pulumi.InvokeOpti
 def list_policy_definition_version_all_builtins_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicyDefinitionVersionAllBuiltinsResult]:
     """
     This operation lists all the built-in policy definition versions for all built-in policy definitions.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

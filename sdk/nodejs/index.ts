@@ -17,6 +17,7 @@ import * as aadiam from "./aadiam";
 import * as addons from "./addons";
 import * as advisor from "./advisor";
 import * as agfoodplatform from "./agfoodplatform";
+import * as agricultureplatform from "./agricultureplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apicenter from "./apicenter";
@@ -24,6 +25,7 @@ import * as apimanagement from "./apimanagement";
 import * as app from "./app";
 import * as appcomplianceautomation from "./appcomplianceautomation";
 import * as appconfiguration from "./appconfiguration";
+import * as applicationinsights from "./applicationinsights";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
@@ -44,9 +46,9 @@ import * as azurestackhci from "./azurestackhci";
 import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as billing from "./billing";
+import * as billingbenefits from "./billingbenefits";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
-import * as cache from "./cache";
 import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
@@ -68,10 +70,12 @@ import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
 import * as containerstorage from "./containerstorage";
 import * as contoso from "./contoso";
+import * as cosmosdb from "./cosmosdb";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
 import * as dashboard from "./dashboard";
+import * as databasefleetmanager from "./databasefleetmanager";
 import * as databasewatcher from "./databasewatcher";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
@@ -89,17 +93,19 @@ import * as dbformariadb from "./dbformariadb";
 import * as dbformysql from "./dbformysql";
 import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
+import * as dependencymap from "./dependencymap";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
+import * as deviceprovisioningservices from "./deviceprovisioningservices";
 import * as deviceregistry from "./deviceregistry";
-import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
 import * as devopsinfrastructure from "./devopsinfrastructure";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
-import * as documentdb from "./documentdb";
+import * as dns from "./dns";
+import * as dnsresolver from "./dnsresolver";
 import * as domainregistration from "./domainregistration";
 import * as durabletask from "./durabletask";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
@@ -118,6 +124,7 @@ import * as extendedlocation from "./extendedlocation";
 import * as fabric from "./fabric";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
+import * as frontdoor from "./frontdoor";
 import * as graphservices from "./graphservices";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
@@ -133,11 +140,11 @@ import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as impact from "./impact";
 import * as importexport from "./importexport";
-import * as insights from "./insights";
 import * as integrationspaces from "./integrationspaces";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
+import * as iothub from "./iothub";
 import * as iotoperations from "./iotoperations";
 import * as iotoperationsdataprocessor from "./iotoperationsdataprocessor";
 import * as iotoperationsmq from "./iotoperationsmq";
@@ -150,7 +157,6 @@ import * as kusto from "./kusto";
 import * as labservices from "./labservices";
 import * as loadtestservice from "./loadtestservice";
 import * as logic from "./logic";
-import * as logz from "./logz";
 import * as m365securityandcompliance from "./m365securityandcompliance";
 import * as machinelearning from "./machinelearning";
 import * as machinelearningservices from "./machinelearningservices";
@@ -161,13 +167,16 @@ import * as managednetworkfabric from "./managednetworkfabric";
 import * as managedservices from "./managedservices";
 import * as management from "./management";
 import * as managementpartner from "./managementpartner";
+import * as manufacturingplatform from "./manufacturingplatform";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
 import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
+import * as mongocluster from "./mongocluster";
 import * as monitor from "./monitor";
+import * as mysqldiscovery from "./mysqldiscovery";
 import * as netapp from "./netapp";
 import * as network from "./network";
 import * as networkcloud from "./networkcloud";
@@ -186,6 +195,7 @@ import * as portalservices from "./portalservices";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as privatedns from "./privatedns";
 import * as professionalservice from "./professionalservice";
 import * as programmableconnectivity from "./programmableconnectivity";
 import * as providerhub from "./providerhub";
@@ -195,6 +205,8 @@ import * as quota from "./quota";
 import * as recommendationsservice from "./recommendationsservice";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
+import * as redis from "./redis";
+import * as redisenterprise from "./redisenterprise";
 import * as relay from "./relay";
 import * as resourceconnector from "./resourceconnector";
 import * as resourcegraph from "./resourcegraph";
@@ -235,12 +247,12 @@ import * as synapse from "./synapse";
 import * as syntex from "./syntex";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
+import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as verifiedid from "./verifiedid";
 import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
-import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
 import * as voiceservices from "./voiceservices";
 import * as web from "./web";
@@ -256,6 +268,7 @@ export {
     addons,
     advisor,
     agfoodplatform,
+    agricultureplatform,
     alertsmanagement,
     analysisservices,
     apicenter,
@@ -263,6 +276,7 @@ export {
     app,
     appcomplianceautomation,
     appconfiguration,
+    applicationinsights,
     appplatform,
     attestation,
     authorization,
@@ -283,9 +297,9 @@ export {
     baremetalinfrastructure,
     batch,
     billing,
+    billingbenefits,
     blueprint,
     botservice,
-    cache,
     cdn,
     certificateregistration,
     changeanalysis,
@@ -307,10 +321,12 @@ export {
     containerservice,
     containerstorage,
     contoso,
+    cosmosdb,
     costmanagement,
     customerinsights,
     customproviders,
     dashboard,
+    databasefleetmanager,
     databasewatcher,
     databox,
     databoxedge,
@@ -328,17 +344,19 @@ export {
     dbformysql,
     dbforpostgresql,
     delegatednetwork,
+    dependencymap,
     desktopvirtualization,
     devcenter,
     devhub,
+    deviceprovisioningservices,
     deviceregistry,
-    devices,
     deviceupdate,
     devopsinfrastructure,
     devspaces,
     devtestlab,
     digitaltwins,
-    documentdb,
+    dns,
+    dnsresolver,
     domainregistration,
     durabletask,
     dynamics365fraudprotection,
@@ -357,6 +375,7 @@ export {
     fabric,
     features,
     fluidrelay,
+    frontdoor,
     graphservices,
     guestconfiguration,
     hardwaresecuritymodules,
@@ -372,11 +391,11 @@ export {
     hybridnetwork,
     impact,
     importexport,
-    insights,
     integrationspaces,
     intune,
     iotcentral,
     iotfirmwaredefense,
+    iothub,
     iotoperations,
     iotoperationsdataprocessor,
     iotoperationsmq,
@@ -389,7 +408,6 @@ export {
     labservices,
     loadtestservice,
     logic,
-    logz,
     m365securityandcompliance,
     machinelearning,
     machinelearningservices,
@@ -400,13 +418,16 @@ export {
     managedservices,
     management,
     managementpartner,
+    manufacturingplatform,
     maps,
     marketplace,
     media,
     migrate,
     mixedreality,
     mobilenetwork,
+    mongocluster,
     monitor,
+    mysqldiscovery,
     netapp,
     network,
     networkcloud,
@@ -425,6 +446,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    privatedns,
     professionalservice,
     programmableconnectivity,
     providerhub,
@@ -434,6 +456,8 @@ export {
     recommendationsservice,
     recoveryservices,
     redhatopenshift,
+    redis,
+    redisenterprise,
     relay,
     resourceconnector,
     resourcegraph,
@@ -474,12 +498,12 @@ export {
     syntex,
     testbase,
     timeseriesinsights,
+    trafficmanager,
     types,
     verifiedid,
     videoanalyzer,
     videoindexer,
     virtualmachineimages,
-    visualstudio,
     vmwarecloudsimple,
     voiceservices,
     web,

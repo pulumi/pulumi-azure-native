@@ -27,10 +27,13 @@ class GetDedicatedHostGroupResult:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     """
-    def __init__(__self__, additional_capabilities=None, hosts=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, azure_api_version=None, hosts=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hosts and not isinstance(hosts, list):
             raise TypeError("Expected argument 'hosts' to be a list")
         pulumi.set(__self__, "hosts", hosts)
@@ -69,6 +72,14 @@ class GetDedicatedHostGroupResult:
         Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         """
         return pulumi.get(self, "additional_capabilities")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -158,6 +169,7 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
             yield self
         return GetDedicatedHostGroupResult(
             additional_capabilities=self.additional_capabilities,
+            azure_api_version=self.azure_api_version,
             hosts=self.hosts,
             id=self.id,
             instance_view=self.instance_view,
@@ -176,9 +188,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
     Retrieves information about a dedicated host group.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
@@ -194,6 +204,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
 
     return AwaitableGetDedicatedHostGroupResult(
         additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hosts=pulumi.get(__ret__, 'hosts'),
         id=pulumi.get(__ret__, 'id'),
         instance_view=pulumi.get(__ret__, 'instance_view'),
@@ -210,9 +221,7 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
     """
     Retrieves information about a dedicated host group.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
@@ -227,6 +236,7 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostGroupResult(
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hosts=pulumi.get(__response__, 'hosts'),
         id=pulumi.get(__response__, 'id'),
         instance_view=pulumi.get(__response__, 'instance_view'),

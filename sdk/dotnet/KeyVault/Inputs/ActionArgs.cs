@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
     public sealed class ActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the action. The value should be compared case-insensitively.
+        /// The type of action.
         /// </summary>
         [Input("type")]
         public Input<Pulumi.AzureNative.KeyVault.KeyRotationPolicyActionType>? Type { get; set; }

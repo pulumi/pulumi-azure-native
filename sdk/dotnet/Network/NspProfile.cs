@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network security perimeter profile resource
-    /// Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    /// Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspProfile")]
     public partial class NspProfile : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("accessRulesVersion")]
         public Output<string> AccessRulesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Version number that increases with every update to diagnostic settings within the profile.

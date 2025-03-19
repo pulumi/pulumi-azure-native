@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Express Route Circuit Connection from the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitConnectionResult> InvokeAsync(GetExpressRouteCircuitConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitConnectionResult>("azure-native:network:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Express Route Circuit Connection from the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitConnectionResult> Invoke(GetExpressRouteCircuitConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitConnectionResult>("azure-native:network:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Express Route Circuit Connection from the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitConnectionResult> Invoke(GetExpressRouteCircuitConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitConnectionResult>("azure-native:network:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionInvokeArgs(), options.WithDefaults());
@@ -117,6 +111,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? AuthorizationKey;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Express Route Circuit connection state.
         /// </summary>
         public readonly string CircuitConnectionStatus;
@@ -159,6 +157,8 @@ namespace Pulumi.AzureNative.Network
 
             string? authorizationKey,
 
+            string azureApiVersion,
+
             string circuitConnectionStatus,
 
             string etag,
@@ -179,6 +179,7 @@ namespace Pulumi.AzureNative.Network
         {
             AddressPrefix = addressPrefix;
             AuthorizationKey = authorizationKey;
+            AzureApiVersion = azureApiVersion;
             CircuitConnectionStatus = circuitConnectionStatus;
             Etag = etag;
             ExpressRouteCircuitPeering = expressRouteCircuitPeering;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
@@ -49,6 +47,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly automaticRepairsPolicy!: pulumi.Output<outputs.compute.AutomaticRepairsPolicyResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Optional property which must either be set to True or omitted.
      */
     public readonly constrainedMaximumCapacity!: pulumi.Output<boolean | undefined>;
@@ -56,6 +58,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
     public readonly doNotRunExtensionsOnOverprovisionedVMs!: pulumi.Output<boolean | undefined>;
+    /**
+     * Etag is property returned in Create/Update/Get response of the VMSS, so that customer can supply it in the header to ensure optimistic updates
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the Virtual Machine Scale Set.
      */
@@ -105,9 +111,17 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
+     * Policy for Resiliency
+     */
+    public readonly resiliencyPolicy!: pulumi.Output<outputs.compute.ResiliencyPolicyResponse | undefined>;
+    /**
      * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     public readonly scaleInPolicy!: pulumi.Output<outputs.compute.ScaleInPolicyResponse | undefined>;
+    /**
+     * The ScheduledEventsPolicy.
+     */
+    public readonly scheduledEventsPolicy!: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
      */
@@ -116,6 +130,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * The virtual machine scale set sku.
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
+    /**
+     * Specifies the sku profile for the virtual machine scale set.
+     */
+    public readonly skuProfile!: pulumi.Output<outputs.compute.SkuProfileResponse | undefined>;
     /**
      * Specifies the Spot Restore properties for the virtual machine scale set.
      */
@@ -145,11 +163,15 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProfileResponse | undefined>;
     /**
+     * Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+     */
+    public readonly zonalPlatformFaultDomainAlignMode!: pulumi.Output<string | undefined>;
+    /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
-     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+     * The virtual machine scale set zones.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -181,17 +203,23 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             resourceInputs["priorityMixPolicy"] = args ? args.priorityMixPolicy : undefined;
             resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
+            resourceInputs["resiliencyPolicy"] = args ? args.resiliencyPolicy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
+            resourceInputs["scheduledEventsPolicy"] = args ? args.scheduledEventsPolicy : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["skuProfile"] = args ? args.skuProfile : undefined;
             resourceInputs["spotRestorePolicy"] = args ? args.spotRestorePolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
             resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["zonalPlatformFaultDomainAlignMode"] = args ? args.zonalPlatformFaultDomainAlignMode : undefined;
             resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
@@ -200,8 +228,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["automaticRepairsPolicy"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["constrainedMaximumCapacity"] = undefined /*out*/;
             resourceInputs["doNotRunExtensionsOnOverprovisionedVMs"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hostGroup"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -214,9 +244,12 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priorityMixPolicy"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
+            resourceInputs["resiliencyPolicy"] = undefined /*out*/;
             resourceInputs["scaleInPolicy"] = undefined /*out*/;
+            resourceInputs["scheduledEventsPolicy"] = undefined /*out*/;
             resourceInputs["singlePlacementGroup"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["skuProfile"] = undefined /*out*/;
             resourceInputs["spotRestorePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
@@ -224,11 +257,12 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
             resourceInputs["virtualMachineProfile"] = undefined /*out*/;
+            resourceInputs["zonalPlatformFaultDomainAlignMode"] = undefined /*out*/;
             resourceInputs["zoneBalance"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230901:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20240301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20240701:VirtualMachineScaleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230901:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20240301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20240701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20241101:VirtualMachineScaleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
     }
@@ -295,6 +329,10 @@ export interface VirtualMachineScaleSetArgs {
      */
     proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
+     * Policy for Resiliency
+     */
+    resiliencyPolicy?: pulumi.Input<inputs.compute.ResiliencyPolicyArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -303,6 +341,10 @@ export interface VirtualMachineScaleSetArgs {
      */
     scaleInPolicy?: pulumi.Input<inputs.compute.ScaleInPolicyArgs>;
     /**
+     * The ScheduledEventsPolicy.
+     */
+    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs>;
+    /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
@@ -310,6 +352,10 @@ export interface VirtualMachineScaleSetArgs {
      * The virtual machine scale set sku.
      */
     sku?: pulumi.Input<inputs.compute.SkuArgs>;
+    /**
+     * Specifies the sku profile for the virtual machine scale set.
+     */
+    skuProfile?: pulumi.Input<inputs.compute.SkuProfileArgs>;
     /**
      * Specifies the Spot Restore properties for the virtual machine scale set.
      */
@@ -331,11 +377,15 @@ export interface VirtualMachineScaleSetArgs {
      */
     vmScaleSetName?: pulumi.Input<string>;
     /**
+     * Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+     */
+    zonalPlatformFaultDomainAlignMode?: pulumi.Input<string | enums.compute.ZonalPlatformFaultDomainAlignMode>;
+    /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+     * The virtual machine scale set zones.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

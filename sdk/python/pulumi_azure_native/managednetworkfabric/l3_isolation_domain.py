@@ -26,8 +26,7 @@ class L3IsolationDomainArgs:
                  resource_group_name: pulumi.Input[str],
                  aggregate_route_configuration: Optional[pulumi.Input['AggregateRouteConfigurationArgs']] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 connected_subnet_route_policy: Optional[pulumi.Input['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
+                 connected_subnet_route_policy: Optional[pulumi.Input['ConnectedSubnetRoutePolicyArgs']] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  redistribute_connected_subnets: Optional[pulumi.Input[Union[str, 'RedistributeConnectedSubnets']]] = None,
@@ -35,13 +34,12 @@ class L3IsolationDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a L3IsolationDomain resource.
-        :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
+        :param pulumi.Input[str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['AggregateRouteConfigurationArgs'] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
+        :param pulumi.Input['AggregateRouteConfigurationArgs'] aggregate_route_configuration: Aggregate route configurations.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs'] connected_subnet_route_policy: Connected Subnet RoutePolicy
-        :param pulumi.Input[str] description: L3 Isolation Domain description.
-        :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain
+        :param pulumi.Input['ConnectedSubnetRoutePolicyArgs'] connected_subnet_route_policy: Connected Subnet RoutePolicy
+        :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'RedistributeConnectedSubnets']] redistribute_connected_subnets: Advertise Connected Subnets. Ex: "True" | "False".
         :param pulumi.Input[Union[str, 'RedistributeStaticRoutes']] redistribute_static_routes: Advertise Static Routes. Ex: "True" | "False".
@@ -55,8 +53,6 @@ class L3IsolationDomainArgs:
             pulumi.set(__self__, "annotation", annotation)
         if connected_subnet_route_policy is not None:
             pulumi.set(__self__, "connected_subnet_route_policy", connected_subnet_route_policy)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if l3_isolation_domain_name is not None:
             pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
         if location is not None:
@@ -76,7 +72,7 @@ class L3IsolationDomainArgs:
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> pulumi.Input[str]:
         """
-        Network Fabric ARM resource id.
+        ARM Resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
@@ -100,7 +96,7 @@ class L3IsolationDomainArgs:
     @pulumi.getter(name="aggregateRouteConfiguration")
     def aggregate_route_configuration(self) -> Optional[pulumi.Input['AggregateRouteConfigurationArgs']]:
         """
-        List of Ipv4 and Ipv6 route configurations.
+        Aggregate route configurations.
         """
         return pulumi.get(self, "aggregate_route_configuration")
 
@@ -122,33 +118,21 @@ class L3IsolationDomainArgs:
 
     @property
     @pulumi.getter(name="connectedSubnetRoutePolicy")
-    def connected_subnet_route_policy(self) -> Optional[pulumi.Input['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']]:
+    def connected_subnet_route_policy(self) -> Optional[pulumi.Input['ConnectedSubnetRoutePolicyArgs']]:
         """
         Connected Subnet RoutePolicy
         """
         return pulumi.get(self, "connected_subnet_route_policy")
 
     @connected_subnet_route_policy.setter
-    def connected_subnet_route_policy(self, value: Optional[pulumi.Input['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']]):
+    def connected_subnet_route_policy(self, value: Optional[pulumi.Input['ConnectedSubnetRoutePolicyArgs']]):
         pulumi.set(self, "connected_subnet_route_policy", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        L3 Isolation Domain description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="l3IsolationDomainName")
     def l3_isolation_domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the L3 Isolation Domain
+        Name of the L3 Isolation Domain.
         """
         return pulumi.get(self, "l3_isolation_domain_name")
 
@@ -212,8 +196,7 @@ class L3IsolationDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregate_route_configuration: Optional[pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 connected_subnet_route_policy: Optional[pulumi.Input[Union['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs', 'L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgsDict']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
+                 connected_subnet_route_policy: Optional[pulumi.Input[Union['ConnectedSubnetRoutePolicyArgs', 'ConnectedSubnetRoutePolicyArgsDict']]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
@@ -223,20 +206,17 @@ class L3IsolationDomain(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The L3IsolationDomain resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        The L3 Isolation Domain resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
+        :param pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']] aggregate_route_configuration: Aggregate route configurations.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Union['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs', 'L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgsDict']] connected_subnet_route_policy: Connected Subnet RoutePolicy
-        :param pulumi.Input[str] description: L3 Isolation Domain description.
-        :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain
+        :param pulumi.Input[Union['ConnectedSubnetRoutePolicyArgs', 'ConnectedSubnetRoutePolicyArgsDict']] connected_subnet_route_policy: Connected Subnet RoutePolicy
+        :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
+        :param pulumi.Input[str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[Union[str, 'RedistributeConnectedSubnets']] redistribute_connected_subnets: Advertise Connected Subnets. Ex: "True" | "False".
         :param pulumi.Input[Union[str, 'RedistributeStaticRoutes']] redistribute_static_routes: Advertise Static Routes. Ex: "True" | "False".
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -249,10 +229,8 @@ class L3IsolationDomain(pulumi.CustomResource):
                  args: L3IsolationDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The L3IsolationDomain resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        The L3 Isolation Domain resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param L3IsolationDomainArgs args: The arguments to use to populate this resource's properties.
@@ -271,8 +249,7 @@ class L3IsolationDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregate_route_configuration: Optional[pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 connected_subnet_route_policy: Optional[pulumi.Input[Union['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs', 'L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgsDict']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
+                 connected_subnet_route_policy: Optional[pulumi.Input[Union['ConnectedSubnetRoutePolicyArgs', 'ConnectedSubnetRoutePolicyArgsDict']]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
@@ -292,7 +269,6 @@ class L3IsolationDomain(pulumi.CustomResource):
             __props__.__dict__["aggregate_route_configuration"] = aggregate_route_configuration
             __props__.__dict__["annotation"] = annotation
             __props__.__dict__["connected_subnet_route_policy"] = connected_subnet_route_policy
-            __props__.__dict__["description"] = description
             __props__.__dict__["l3_isolation_domain_name"] = l3_isolation_domain_name
             __props__.__dict__["location"] = location
             if network_fabric_id is None and not opts.urn:
@@ -309,9 +285,9 @@ class L3IsolationDomain(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["administrative_state"] = None
-            __props__.__dict__["disabled_on_resources"] = None
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["option_b_disabled_on_resources"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -342,13 +318,12 @@ class L3IsolationDomain(pulumi.CustomResource):
         __props__.__dict__["administrative_state"] = None
         __props__.__dict__["aggregate_route_configuration"] = None
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["configuration_state"] = None
         __props__.__dict__["connected_subnet_route_policy"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["disabled_on_resources"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_fabric_id"] = None
-        __props__.__dict__["option_b_disabled_on_resources"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["redistribute_connected_subnets"] = None
         __props__.__dict__["redistribute_static_routes"] = None
@@ -361,7 +336,7 @@ class L3IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> pulumi.Output[str]:
         """
-        Administrative state of the IsolationDomain. Example: Enabled | Disabled.
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -369,7 +344,7 @@ class L3IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="aggregateRouteConfiguration")
     def aggregate_route_configuration(self) -> pulumi.Output[Optional['outputs.AggregateRouteConfigurationResponse']]:
         """
-        List of Ipv4 and Ipv6 route configurations.
+        Aggregate route configurations.
         """
         return pulumi.get(self, "aggregate_route_configuration")
 
@@ -382,28 +357,28 @@ class L3IsolationDomain(pulumi.CustomResource):
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[str]:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter(name="connectedSubnetRoutePolicy")
-    def connected_subnet_route_policy(self) -> pulumi.Output[Optional['outputs.L3IsolationDomainPatchPropertiesResponseConnectedSubnetRoutePolicy']]:
+    def connected_subnet_route_policy(self) -> pulumi.Output[Optional['outputs.ConnectedSubnetRoutePolicyResponse']]:
         """
         Connected Subnet RoutePolicy
         """
         return pulumi.get(self, "connected_subnet_route_policy")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        L3 Isolation Domain description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="disabledOnResources")
-    def disabled_on_resources(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of resources the L3 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        """
-        return pulumi.get(self, "disabled_on_resources")
 
     @property
     @pulumi.getter
@@ -425,23 +400,15 @@ class L3IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> pulumi.Output[str]:
         """
-        Network Fabric ARM resource id.
+        ARM Resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
-
-    @property
-    @pulumi.getter(name="optionBDisabledOnResources")
-    def option_b_disabled_on_resources(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of resources the OptionB is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        """
-        return pulumi.get(self, "option_b_disabled_on_resources")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

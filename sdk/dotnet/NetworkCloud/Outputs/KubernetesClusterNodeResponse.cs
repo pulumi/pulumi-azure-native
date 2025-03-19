@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly string DetailedStatusMessage;
         /// <summary>
-        /// The size of the disk configured for this node.
+        /// The size of the disk configured for this node. Allocations are measured in gibibytes.
         /// </summary>
         public readonly double DiskSizeGB;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesLabelResponse> Labels;
         /// <summary>
-        /// The amount of memory configured for this node, derived from the vm SKU specified.
+        /// The amount of memory configured for this node, derived from the vm SKU specified. Allocations are measured in gibibytes.
         /// </summary>
         public readonly double MemorySizeGB;
         /// <summary>

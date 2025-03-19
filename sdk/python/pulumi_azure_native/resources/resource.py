@@ -285,9 +285,7 @@ class Resource(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,9 +313,7 @@ class Resource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
@@ -383,6 +379,7 @@ class Resource(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20151101:Resource"), pulumi.Alias(type_="azure-native:resources/v20160201:Resource"), pulumi.Alias(type_="azure-native:resources/v20160701:Resource"), pulumi.Alias(type_="azure-native:resources/v20160901:Resource"), pulumi.Alias(type_="azure-native:resources/v20170510:Resource"), pulumi.Alias(type_="azure-native:resources/v20180201:Resource"), pulumi.Alias(type_="azure-native:resources/v20180501:Resource"), pulumi.Alias(type_="azure-native:resources/v20190301:Resource"), pulumi.Alias(type_="azure-native:resources/v20190501:Resource"), pulumi.Alias(type_="azure-native:resources/v20190510:Resource"), pulumi.Alias(type_="azure-native:resources/v20190701:Resource"), pulumi.Alias(type_="azure-native:resources/v20190801:Resource"), pulumi.Alias(type_="azure-native:resources/v20191001:Resource"), pulumi.Alias(type_="azure-native:resources/v20200601:Resource"), pulumi.Alias(type_="azure-native:resources/v20200801:Resource"), pulumi.Alias(type_="azure-native:resources/v20201001:Resource"), pulumi.Alias(type_="azure-native:resources/v20210101:Resource"), pulumi.Alias(type_="azure-native:resources/v20210401:Resource"), pulumi.Alias(type_="azure-native:resources/v20220901:Resource"), pulumi.Alias(type_="azure-native:resources/v20230701:Resource"), pulumi.Alias(type_="azure-native:resources/v20240301:Resource"), pulumi.Alias(type_="azure-native:resources/v20240701:Resource"), pulumi.Alias(type_="azure-native:resources/v20241101:Resource")])
@@ -409,6 +406,7 @@ class Resource(pulumi.CustomResource):
 
         __props__ = ResourceArgs.__new__(ResourceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
@@ -421,6 +419,14 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")

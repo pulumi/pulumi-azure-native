@@ -25,6 +25,14 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalConfigurations;
         /// <summary>
+        /// A dictionary of additional properties to be added in the end of connection string.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AdditionalConnectionStringProperties;
+        /// <summary>
+        /// An option to store configuration into different place
+        /// </summary>
+        public readonly Outputs.ConfigurationStoreResponse? ConfigurationStore;
+        /// <summary>
         /// Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomizedKeys;
@@ -43,6 +51,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
             ImmutableDictionary<string, string>? additionalConfigurations,
 
+            ImmutableDictionary<string, string>? additionalConnectionStringProperties,
+
+            Outputs.ConfigurationStoreResponse? configurationStore,
+
             ImmutableDictionary<string, string>? customizedKeys,
 
             Outputs.DaprPropertiesResponse? daprProperties,
@@ -51,6 +63,8 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         {
             Action = action;
             AdditionalConfigurations = additionalConfigurations;
+            AdditionalConnectionStringProperties = additionalConnectionStringProperties;
+            ConfigurationStore = configurationStore;
             CustomizedKeys = customizedKeys;
             DaprProperties = daprProperties;
             DeleteOrUpdateBehavior = deleteOrUpdateBehavior;

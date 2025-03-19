@@ -182,7 +182,7 @@ class BrokerAuthentication(pulumi.CustomResource):
                  __props__=None):
         """
         MQ broker/authentication resource
-        Azure REST API version: 2023-10-04-preview.
+        Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class BrokerAuthentication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MQ broker/authentication resource
-        Azure REST API version: 2023-10-04-preview.
+        Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param BrokerAuthenticationArgs args: The arguments to use to populate this resource's properties.
@@ -260,6 +260,7 @@ class BrokerAuthentication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -289,6 +290,7 @@ class BrokerAuthentication(pulumi.CustomResource):
         __props__ = BrokerAuthenticationArgs.__new__(BrokerAuthenticationArgs)
 
         __props__.__dict__["authentication_methods"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["listener_ref"] = None
         __props__.__dict__["location"] = None
@@ -306,6 +308,14 @@ class BrokerAuthentication(pulumi.CustomResource):
         The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
         """
         return pulumi.get(self, "authentication_methods")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")

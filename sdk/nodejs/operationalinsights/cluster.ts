@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Log Analytics cluster resource container.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
- *
- * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedWorkspaces!: pulumi.Output<outputs.operationalinsights.AssociatedWorkspaceResponse[] | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The cluster's billing type.
      */
     public readonly billingType!: pulumi.Output<string | undefined>;
@@ -61,9 +63,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * The identity of the resource.
+     * Resource's identity.
      */
-    public readonly identity!: pulumi.Output<outputs.operationalinsights.IdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.operationalinsights.ManagedServiceIdentityResponse | undefined>;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
@@ -130,6 +132,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associatedWorkspaces"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityReservationProperties"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
@@ -139,6 +142,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["associatedWorkspaces"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingType"] = undefined /*out*/;
             resourceInputs["capacityReservationProperties"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
@@ -156,7 +160,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-native:operationalinsights/v20210601:Cluster" }, { type: "azure-native:operationalinsights/v20221001:Cluster" }, { type: "azure-native:operationalinsights/v20230901:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-native:operationalinsights/v20210601:Cluster" }, { type: "azure-native:operationalinsights/v20221001:Cluster" }, { type: "azure-native:operationalinsights/v20230901:Cluster" }, { type: "azure-native:operationalinsights/v20250201:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -175,9 +179,9 @@ export interface ClusterArgs {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * The identity of the resource.
+     * Resource's identity.
      */
-    identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs>;
+    identity?: pulumi.Input<inputs.operationalinsights.ManagedServiceIdentityArgs>;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */

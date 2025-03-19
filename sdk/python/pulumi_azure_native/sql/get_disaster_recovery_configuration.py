@@ -26,10 +26,13 @@ class GetDisasterRecoveryConfigurationResult:
     """
     Represents a disaster recovery configuration.
     """
-    def __init__(__self__, auto_failover=None, failover_policy=None, id=None, location=None, logical_server_name=None, name=None, partner_logical_server_name=None, partner_server_id=None, role=None, status=None, type=None):
+    def __init__(__self__, auto_failover=None, azure_api_version=None, failover_policy=None, id=None, location=None, logical_server_name=None, name=None, partner_logical_server_name=None, partner_server_id=None, role=None, status=None, type=None):
         if auto_failover and not isinstance(auto_failover, str):
             raise TypeError("Expected argument 'auto_failover' to be a str")
         pulumi.set(__self__, "auto_failover", auto_failover)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if failover_policy and not isinstance(failover_policy, str):
             raise TypeError("Expected argument 'failover_policy' to be a str")
         pulumi.set(__self__, "failover_policy", failover_policy)
@@ -68,6 +71,14 @@ class GetDisasterRecoveryConfigurationResult:
         Whether or not failover can be done automatically.
         """
         return pulumi.get(self, "auto_failover")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -157,6 +168,7 @@ class AwaitableGetDisasterRecoveryConfigurationResult(GetDisasterRecoveryConfigu
             yield self
         return GetDisasterRecoveryConfigurationResult(
             auto_failover=self.auto_failover,
+            azure_api_version=self.azure_api_version,
             failover_policy=self.failover_policy,
             id=self.id,
             location=self.location,
@@ -191,6 +203,7 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
 
     return AwaitableGetDisasterRecoveryConfigurationResult(
         auto_failover=pulumi.get(__ret__, 'auto_failover'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         failover_policy=pulumi.get(__ret__, 'failover_policy'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -222,6 +235,7 @@ def get_disaster_recovery_configuration_output(disaster_recovery_configuration_n
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDisasterRecoveryConfiguration', __args__, opts=opts, typ=GetDisasterRecoveryConfigurationResult)
     return __ret__.apply(lambda __response__: GetDisasterRecoveryConfigurationResult(
         auto_failover=pulumi.get(__response__, 'auto_failover'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         failover_policy=pulumi.get(__response__, 'failover_policy'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

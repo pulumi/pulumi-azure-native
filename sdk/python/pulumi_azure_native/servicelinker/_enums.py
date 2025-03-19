@@ -8,9 +8,11 @@ __all__ = [
     'AccessKeyPermissions',
     'ActionType',
     'AllowType',
+    'AuthMode',
     'AuthType',
     'AzureResourceType',
     'ClientType',
+    'DaprMetadataRequired',
     'DeleteOrUpdateBehavior',
     'DryrunActionName',
     'SecretType',
@@ -43,6 +45,20 @@ class AllowType(str, Enum):
     FALSE = "false"
 
 
+class AuthMode(str, Enum):
+    """
+    Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    """
+    OPT_IN_ALL_AUTH = "optInAllAuth"
+    """
+    Default authentication configuration according to the authentication type.
+    """
+    OPT_OUT_ALL_AUTH = "optOutAllAuth"
+    """
+    Skip all authentication configuration such as enabling managed identity and granting RBAC roles
+    """
+
+
 class AuthType(str, Enum):
     """
     The authentication type.
@@ -54,6 +70,7 @@ class AuthType(str, Enum):
     SECRET = "secret"
     ACCESS_KEY = "accessKey"
     USER_ACCOUNT = "userAccount"
+    EASY_AUTH_MICROSOFT_ENTRA_ID = "easyAuthMicrosoftEntraID"
 
 
 class AzureResourceType(str, Enum):
@@ -78,7 +95,16 @@ class ClientType(str, Enum):
     NODEJS = "nodejs"
     SPRING_BOOT = "springBoot"
     KAFKA_SPRING_BOOT = "kafka-springBoot"
+    JMS_SPRING_BOOT = "jms-springBoot"
     DAPR = "dapr"
+
+
+class DaprMetadataRequired(str, Enum):
+    """
+    The value indicating whether the metadata is required or not
+    """
+    TRUE = "true"
+    FALSE = "false"
 
 
 class DeleteOrUpdateBehavior(str, Enum):

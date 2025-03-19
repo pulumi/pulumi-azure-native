@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// The request to update subscriptions needed to be monitored by the Datadog monitor resource.
-        /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2023-07-07, 2023-10-20.
+        /// Azure REST API version: 2023-10-20.
         /// </summary>
         public static Task<GetMonitoredSubscriptionResult> InvokeAsync(GetMonitoredSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoredSubscriptionResult>("azure-native:datadog:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The request to update subscriptions needed to be monitored by the Datadog monitor resource.
-        /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2023-07-07, 2023-10-20.
+        /// Azure REST API version: 2023-10-20.
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:datadog:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The request to update subscriptions needed to be monitored by the Datadog monitor resource.
-        /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2023-07-07, 2023-10-20.
+        /// Azure REST API version: 2023-10-20.
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:datadog:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Datadog
     public sealed class GetMonitoredSubscriptionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The id of the monitored subscription resource.
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Datadog
 
         [OutputConstructor]
         private GetMonitoredSubscriptionResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Datadog
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

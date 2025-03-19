@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a partner topic.
-        /// Azure REST API version: 2022-06-15.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Task<GetPartnerTopicResult> InvokeAsync(GetPartnerTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner topic.
-        /// Azure REST API version: 2022-06-15.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner topic.
-        /// Azure REST API version: 2022-06-15.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? ActivationState;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Event Type information from the corresponding event channel.
         /// </summary>
         public readonly Outputs.EventTypeInfoResponse? EventTypeInfo;
@@ -135,7 +133,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// The system metadata relating to Partner Topic resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -150,6 +148,8 @@ namespace Pulumi.AzureNative.EventGrid
         [OutputConstructor]
         private GetPartnerTopicResult(
             string? activationState,
+
+            string azureApiVersion,
 
             Outputs.EventTypeInfoResponse? eventTypeInfo,
 
@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.EventGrid
             string type)
         {
             ActivationState = activationState;
+            AzureApiVersion = azureApiVersion;
             EventTypeInfo = eventTypeInfo;
             ExpirationTimeIfNotActivatedUtc = expirationTimeIfNotActivatedUtc;
             Id = id;

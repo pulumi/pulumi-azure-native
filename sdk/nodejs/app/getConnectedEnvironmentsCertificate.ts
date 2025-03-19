@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getConnectedEnvironmentsCertificate(args: GetConnectedEnvironmentsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetConnectedEnvironmentsCertificateArgs {
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  */
 export interface GetConnectedEnvironmentsCertificateResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -72,9 +74,7 @@ export interface GetConnectedEnvironmentsCertificateResult {
 }
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getConnectedEnvironmentsCertificateOutput(args: GetConnectedEnvironmentsCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedEnvironmentsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the configuration profile.
- * Azure REST API version: 2022-05-04.
+ * Azure REST API version: 2022-05-04. Prior API version in Azure Native 2.x: 2022-05-04.
  */
 export class ConfigurationProfilesVersion extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ConfigurationProfilesVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationProfilesVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -86,10 +90,12 @@ export class ConfigurationProfilesVersion extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

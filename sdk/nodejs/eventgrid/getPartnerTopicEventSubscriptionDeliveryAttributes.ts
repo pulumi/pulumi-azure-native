@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get all delivery attributes for an event subscription of a partner topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getPartnerTopicEventSubscriptionDeliveryAttributes(args: GetPartnerTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +22,7 @@ export function getPartnerTopicEventSubscriptionDeliveryAttributes(args: GetPart
 
 export interface GetPartnerTopicEventSubscriptionDeliveryAttributesArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: string;
     /**
@@ -48,9 +46,7 @@ export interface GetPartnerTopicEventSubscriptionDeliveryAttributesResult {
 }
 /**
  * Get all delivery attributes for an event subscription of a partner topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getPartnerTopicEventSubscriptionDeliveryAttributesOutput(args: GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +59,7 @@ export function getPartnerTopicEventSubscriptionDeliveryAttributesOutput(args: G
 
 export interface GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

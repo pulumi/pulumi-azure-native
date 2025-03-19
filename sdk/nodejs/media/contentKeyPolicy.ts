@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Content Key Policy resource.
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class ContentKeyPolicy extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContentKeyPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of the Policy
      */
@@ -96,6 +100,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;

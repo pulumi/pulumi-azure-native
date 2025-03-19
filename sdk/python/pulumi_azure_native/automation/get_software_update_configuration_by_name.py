@@ -27,7 +27,10 @@ class GetSoftwareUpdateConfigurationByNameResult:
     """
     Software update configuration properties.
     """
-    def __init__(__self__, created_by=None, creation_time=None, error=None, id=None, last_modified_by=None, last_modified_time=None, name=None, provisioning_state=None, schedule_info=None, tasks=None, type=None, update_configuration=None):
+    def __init__(__self__, azure_api_version=None, created_by=None, creation_time=None, error=None, id=None, last_modified_by=None, last_modified_time=None, name=None, provisioning_state=None, schedule_info=None, tasks=None, type=None, update_configuration=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_by and not isinstance(created_by, str):
             raise TypeError("Expected argument 'created_by' to be a str")
         pulumi.set(__self__, "created_by", created_by)
@@ -64,6 +67,14 @@ class GetSoftwareUpdateConfigurationByNameResult:
         if update_configuration and not isinstance(update_configuration, dict):
             raise TypeError("Expected argument 'update_configuration' to be a dict")
         pulumi.set(__self__, "update_configuration", update_configuration)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -168,6 +179,7 @@ class AwaitableGetSoftwareUpdateConfigurationByNameResult(GetSoftwareUpdateConfi
         if False:
             yield self
         return GetSoftwareUpdateConfigurationByNameResult(
+            azure_api_version=self.azure_api_version,
             created_by=self.created_by,
             creation_time=self.creation_time,
             error=self.error,
@@ -188,9 +200,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoftwareUpdateConfigurationByNameResult:
     """
     Get a single software update configuration by name.
-    Azure REST API version: 2019-06-01.
-
-    Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+    Azure REST API version: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -205,6 +215,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getSoftwareUpdateConfigurationByName', __args__, opts=opts, typ=GetSoftwareUpdateConfigurationByNameResult).value
 
     return AwaitableGetSoftwareUpdateConfigurationByNameResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_by=pulumi.get(__ret__, 'created_by'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         error=pulumi.get(__ret__, 'error'),
@@ -223,9 +234,7 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
     """
     Get a single software update configuration by name.
-    Azure REST API version: 2019-06-01.
-
-    Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+    Azure REST API version: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -239,6 +248,7 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getSoftwareUpdateConfigurationByName', __args__, opts=opts, typ=GetSoftwareUpdateConfigurationByNameResult)
     return __ret__.apply(lambda __response__: GetSoftwareUpdateConfigurationByNameResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_by=pulumi.get(__response__, 'created_by'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         error=pulumi.get(__response__, 'error'),

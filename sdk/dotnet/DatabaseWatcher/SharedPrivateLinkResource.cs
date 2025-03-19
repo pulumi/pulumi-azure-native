@@ -11,15 +11,19 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 {
     /// <summary>
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2023-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         /// </summary>
         [Output("dnsZone")]
         public Output<string?> DnsZone { get; private set; } = null!;
@@ -125,7 +129,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     public sealed class SharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        /// The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         /// </summary>
         [Input("dnsZone")]
         public Input<string>? DnsZone { get; set; }

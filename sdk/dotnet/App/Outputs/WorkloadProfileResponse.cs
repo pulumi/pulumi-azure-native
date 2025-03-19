@@ -19,11 +19,15 @@ namespace Pulumi.AzureNative.App.Outputs
         /// <summary>
         /// The maximum capacity.
         /// </summary>
-        public readonly int MaximumCount;
+        public readonly int? MaximumCount;
         /// <summary>
         /// The minimum capacity.
         /// </summary>
-        public readonly int MinimumCount;
+        public readonly int? MinimumCount;
+        /// <summary>
+        /// Workload profile type for the workloads to run on.
+        /// </summary>
+        public readonly string Name;
         /// <summary>
         /// Workload profile type for the workloads to run on.
         /// </summary>
@@ -31,14 +35,17 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private WorkloadProfileResponse(
-            int maximumCount,
+            int? maximumCount,
 
-            int minimumCount,
+            int? minimumCount,
+
+            string name,
 
             string workloadProfileType)
         {
             MaximumCount = maximumCount;
             MinimumCount = minimumCount;
+            Name = name;
             WorkloadProfileType = workloadProfileType;
         }
     }

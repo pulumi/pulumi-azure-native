@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:azuresphere:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:azuresphere:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:azuresphere:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.AzureSphere
     public sealed class GetDeviceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// SKU of the chip
         /// </summary>
         public readonly string ChipSku;
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.AzureSphere
 
         [OutputConstructor]
         private GetDeviceResult(
+            string azureApiVersion,
+
             string chipSku,
 
             string? deviceId,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.AzureSphere
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ChipSku = chipSku;
             DeviceId = deviceId;
             Id = id;

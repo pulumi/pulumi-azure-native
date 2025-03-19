@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a vpn connection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a vpn connection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a vpn connection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.Network
     [OutputType]
     public sealed class GetVpnConnectionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Expected bandwidth in MBPS.
         /// </summary>
@@ -187,6 +185,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetVpnConnectionResult(
+            string azureApiVersion,
+
             int? connectionBandwidth,
 
             string connectionStatus,
@@ -231,6 +231,7 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.VpnSiteLinkConnectionResponse> vpnLinkConnections)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionBandwidth = connectionBandwidth;
             ConnectionStatus = connectionStatus;
             DpdTimeoutSeconds = dpdTimeoutSeconds;

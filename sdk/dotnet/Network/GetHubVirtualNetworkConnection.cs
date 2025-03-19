@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a HubVirtualNetworkConnection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetHubVirtualNetworkConnectionResult> InvokeAsync(GetHubVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a HubVirtualNetworkConnection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetHubVirtualNetworkConnectionResult> Invoke(GetHubVirtualNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a HubVirtualNetworkConnection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetHubVirtualNetworkConnectionResult> Invoke(GetHubVirtualNetworkConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionInvokeArgs(), options.WithDefaults());
@@ -105,6 +99,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? AllowRemoteVnetToUseHubVnetGateways;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Enable internet security.
         /// </summary>
         public readonly bool? EnableInternetSecurity;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.Network
 
             bool? allowRemoteVnetToUseHubVnetGateways,
 
+            string azureApiVersion,
+
             bool? enableInternetSecurity,
 
             string etag,
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.Network
         {
             AllowHubToRemoteVnetTransit = allowHubToRemoteVnetTransit;
             AllowRemoteVnetToUseHubVnetGateways = allowRemoteVnetToUseHubVnetGateways;
+            AzureApiVersion = azureApiVersion;
             EnableInternetSecurity = enableInternetSecurity;
             Etag = etag;
             Id = id;

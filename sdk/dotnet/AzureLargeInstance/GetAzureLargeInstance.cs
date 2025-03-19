@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AzureLargeInstance
     public sealed class GetAzureLargeInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the Azure Large Instance unique ID.
         /// </summary>
         public readonly string? AzureLargeInstanceId;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
 
         [OutputConstructor]
         private GetAzureLargeInstanceResult(
+            string azureApiVersion,
+
             string? azureLargeInstanceId,
 
             Outputs.HardwareProfileResponse? hardwareProfile,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.AzureLargeInstance
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureLargeInstanceId = azureLargeInstanceId;
             HardwareProfile = hardwareProfile;
             HwRevision = hwRevision;

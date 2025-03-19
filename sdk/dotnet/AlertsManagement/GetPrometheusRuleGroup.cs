@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.AlertsManagement
     public sealed class GetPrometheusRuleGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Apply rule to data from a specific cluster.
         /// </summary>
         public readonly string? ClusterName;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.AlertsManagement
 
         [OutputConstructor]
         private GetPrometheusRuleGroupResult(
+            string azureApiVersion,
+
             string? clusterName,
 
             string? description,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClusterName = clusterName;
             Description = description;
             Enabled = enabled;

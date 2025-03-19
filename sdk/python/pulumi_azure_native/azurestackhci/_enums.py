@@ -9,10 +9,13 @@ __all__ = [
     'CloudInitDataSource',
     'ComplianceAssignmentType',
     'DeploymentMode',
+    'DeviceKind',
     'DiagnosticLevel',
     'DiskFileFormat',
+    'EceSecrets',
     'EdgeDeviceKind',
     'ExtendedLocationTypes',
+    'GpuAssignmentTypeEnum',
     'HciEdgeDeviceJobType',
     'HyperVGeneration',
     'IPPoolTypeEnum',
@@ -20,18 +23,19 @@ __all__ = [
     'ManagedServiceIdentityType',
     'NetworkTypeEnum',
     'OperatingSystemTypes',
+    'OperationType',
     'OsTypeEnum',
-    'PrivateIPAllocationMethodEnum',
     'ProvisioningAction',
     'RemoteSupportAccessLevel',
     'RemoteSupportType',
     'ResourceIdentityType',
+    'SecurityEncryptionType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
     'SecurityTypes',
+    'ServiceName',
     'SoftwareAssuranceIntent',
-    'SoftwareAssuranceStatus',
     'State',
     'UpdateRunPropertiesState',
     'UpdateSummariesPropertiesState',
@@ -54,12 +58,18 @@ class CloudInitDataSource(str, Enum):
     Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
     """
     NO_CLOUD = "NoCloud"
+    """
+    NoCloud is used as the datasource
+    """
     AZURE = "Azure"
+    """
+    Azure is used as the datasource
+    """
 
 
 class ComplianceAssignmentType(str, Enum):
     """
-    Secured Core Compliance Assignment
+    WDAC Compliance Assignment
     """
     AUDIT = "Audit"
     """
@@ -85,6 +95,16 @@ class DeploymentMode(str, Enum):
     """
 
 
+class DeviceKind(str, Enum):
+    """
+    Device kind to support polymorphic resource.
+    """
+    HCI = "HCI"
+    """
+    Arc-enabled edge device with HCI OS.
+    """
+
+
 class DiagnosticLevel(str, Enum):
     """
     Desired level of diagnostic data emitted by the cluster.
@@ -99,7 +119,35 @@ class DiskFileFormat(str, Enum):
     The format of the actual VHD file [vhd, vhdx]
     """
     VHDX = "vhdx"
+    """
+    VHDX file format
+    """
     VHD = "vhd"
+    """
+    VHD file format
+    """
+
+
+class EceSecrets(str, Enum):
+    """
+    Secret name expected for Enterprise Cloud Engine (ECE) deployment.
+    """
+    AZURE_STACK_LCMUSER_CREDENTIAL = "AzureStackLCMUserCredential"
+    """
+    AzureStackLCMUserCredential used for LCM operations for AzureStackHCI cluster.
+    """
+    DEFAULT_ARB_APPLICATION = "DefaultARBApplication"
+    """
+    DefaultARBApplication used to manage Azure Arc resource bridge (ARB) for AzureStackHCI cluster.
+    """
+    LOCAL_ADMIN_CREDENTIAL = "LocalAdminCredential"
+    """
+    LocalAdminCredential used for admin operations for AzureStackHCI cluster.
+    """
+    WITNESS_STORAGE_KEY = "WitnessStorageKey"
+    """
+    WitnessStorageKey used for setting up a cloud witness for AzureStackHCI cluster.
+    """
 
 
 class EdgeDeviceKind(str, Enum):
@@ -117,6 +165,20 @@ class ExtendedLocationTypes(str, Enum):
     The type of the extended location.
     """
     CUSTOM_LOCATION = "CustomLocation"
+
+
+class GpuAssignmentTypeEnum(str, Enum):
+    """
+    GPU assignment type
+    """
+    GPU_DDA = "GpuDDA"
+    """
+    Attach Graphics Processing Unit (GPU) using Discrete Device Assignment (DDA)
+    """
+    GPU_P = "GpuP"
+    """
+    Attach Graphics Processing Unit (GPU) using GPU Partitioning
+    """
 
 
 class HciEdgeDeviceJobType(str, Enum):
@@ -138,15 +200,27 @@ class HyperVGeneration(str, Enum):
     The hypervisor generation of the Virtual Machine [V1, V2]
     """
     V1 = "V1"
+    """
+    Generation 1 (V1) hypervisor
+    """
     V2 = "V2"
+    """
+    Generation 2 (V2) hypervisor
+    """
 
 
 class IPPoolTypeEnum(str, Enum):
     """
-    ip pool type
+    Type of the IP Pool [vm, vippool]
     """
     VM = "vm"
+    """
+    Virtual Machine IP Pool
+    """
     VIPPOOL = "vippool"
+    """
+    VIP Pool
+    """
 
 
 class IpAllocationMethodEnum(str, Enum):
@@ -164,7 +238,7 @@ class ManagedServiceIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class NetworkTypeEnum(str, Enum):
@@ -184,10 +258,30 @@ class NetworkTypeEnum(str, Enum):
 
 class OperatingSystemTypes(str, Enum):
     """
-    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
+    """
+    WINDOWS = "Windows"
+    """
+    Windows operating system
     """
     LINUX = "Linux"
-    WINDOWS = "Windows"
+    """
+    Linux operating system
+    """
+
+
+class OperationType(str, Enum):
+    """
+    The intended operation for a cluster.
+    """
+    CLUSTER_PROVISIONING = "ClusterProvisioning"
+    """
+    Cluster provisioning operation.
+    """
+    CLUSTER_UPGRADE = "ClusterUpgrade"
+    """
+    Cluster upgrade operation.
+    """
 
 
 class OsTypeEnum(str, Enum):
@@ -198,21 +292,22 @@ class OsTypeEnum(str, Enum):
     WINDOWS = "Windows"
 
 
-class PrivateIPAllocationMethodEnum(str, Enum):
-    """
-    PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
-    """
-    DYNAMIC = "Dynamic"
-    STATIC = "Static"
-
-
 class ProvisioningAction(str, Enum):
     """
     The guest agent provisioning action.
     """
     INSTALL = "install"
+    """
+    Install guest agent
+    """
     UNINSTALL = "uninstall"
+    """
+    Uninstall guest agent
+    """
     REPAIR = "repair"
+    """
+    Repair guest agent
+    """
 
 
 class RemoteSupportAccessLevel(str, Enum):
@@ -252,6 +347,16 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SecurityEncryptionType(str, Enum):
+    """
+    Specifies the EncryptionType of the managed disk. It is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob. NOTE: It can be set for only Confidential VMs.
+    """
+    NON_PERSISTED_TPM = "NonPersistedTPM"
+    """
+    Non-persisted TPM encryption type
+    """
 
 
 class SecurityRuleAccess(str, Enum):
@@ -309,7 +414,20 @@ class SecurityTypes(str, Enum):
     Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
     """
     TRUSTED_LAUNCH = "TrustedLaunch"
+    """
+    Trusted Launch security type
+    """
     CONFIDENTIAL_VM = "ConfidentialVM"
+    """
+    Confidential VM security type
+    """
+
+
+class ServiceName(str, Enum):
+    """
+    Name of the service.
+    """
+    WAC = "WAC"
 
 
 class SoftwareAssuranceIntent(str, Enum):
@@ -318,14 +436,6 @@ class SoftwareAssuranceIntent(str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
-
-
-class SoftwareAssuranceStatus(str, Enum):
-    """
-    Status of the Software Assurance for the cluster.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class State(str, Enum):
@@ -350,6 +460,7 @@ class State(str, Enum):
     READY_TO_INSTALL = "ReadyToInstall"
     SCAN_IN_PROGRESS = "ScanInProgress"
     SCAN_FAILED = "ScanFailed"
+    ADDITIONAL_CONTENT_REQUIRED = "AdditionalContentRequired"
 
 
 class UpdateRunPropertiesState(str, Enum):
@@ -377,29 +488,101 @@ class UpdateSummariesPropertiesState(str, Enum):
 
 
 class VmSizeEnum(str, Enum):
+    """
+    Enum of VM Sizes
+    """
     DEFAULT = "Default"
+    """
+    Default virtual machine size
+    """
     STANDARD_A2_V2 = "Standard_A2_v2"
+    """
+    Standard A2 v2 virtual machine size
+    """
     STANDARD_A4_V2 = "Standard_A4_v2"
+    """
+    Standard A4 v2 virtual machine size
+    """
     STANDARD_D2S_V3 = "Standard_D2s_v3"
+    """
+    Standard D2s v3 virtual machine size
+    """
     STANDARD_D4S_V3 = "Standard_D4s_v3"
+    """
+    Standard D4s v3 virtual machine size
+    """
     STANDARD_D8S_V3 = "Standard_D8s_v3"
+    """
+    Standard D8s v3 virtual machine size
+    """
     STANDARD_D16S_V3 = "Standard_D16s_v3"
+    """
+    Standard D16s v3 virtual machine size
+    """
     STANDARD_D32S_V3 = "Standard_D32s_v3"
+    """
+    Standard D32s v3 virtual machine size
+    """
     STANDARD_DS2_V2 = "Standard_DS2_v2"
+    """
+    Standard DS2 v2 virtual machine size
+    """
     STANDARD_DS3_V2 = "Standard_DS3_v2"
+    """
+    Standard DS3 v2 virtual machine size
+    """
     STANDARD_DS4_V2 = "Standard_DS4_v2"
+    """
+    Standard DS4 v2 virtual machine size
+    """
     STANDARD_DS5_V2 = "Standard_DS5_v2"
+    """
+    Standard DS5 v2 virtual machine size
+    """
     STANDARD_DS13_V2 = "Standard_DS13_v2"
+    """
+    Standard DS13 v2 virtual machine size
+    """
     STANDARD_K8_S_V1 = "Standard_K8S_v1"
+    """
+    Standard K8S v1 virtual machine size
+    """
     STANDARD_K8_S2_V1 = "Standard_K8S2_v1"
+    """
+    Standard K8S2 v1 virtual machine size
+    """
     STANDARD_K8_S3_V1 = "Standard_K8S3_v1"
+    """
+    Standard K8S3 v1 virtual machine size
+    """
     STANDARD_K8_S4_V1 = "Standard_K8S4_v1"
+    """
+    Standard K8S4 v1 virtual machine size
+    """
     STANDARD_NK6 = "Standard_NK6"
+    """
+    Standard NK6 virtual machine size
+    """
     STANDARD_NK12 = "Standard_NK12"
+    """
+    Standard NK12 virtual machine size
+    """
     STANDARD_NV6 = "Standard_NV6"
+    """
+    Standard NV6 virtual machine size
+    """
     STANDARD_NV12 = "Standard_NV12"
+    """
+    Standard NV12 virtual machine size
+    """
     STANDARD_K8_S5_V1 = "Standard_K8S5_v1"
+    """
+    Standard K8S5 v1 virtual machine size
+    """
     CUSTOM = "Custom"
+    """
+    Custom virtual machine size
+    """
 
 
 class WindowsServerSubscription(str, Enum):

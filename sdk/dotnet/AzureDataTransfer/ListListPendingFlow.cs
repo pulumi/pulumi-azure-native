@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     {
         /// <summary>
         /// Lists all pending flows for a connection.
-        /// Azure REST API version: 2023-10-11-preview.
-        /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        /// Azure REST API version: 2024-09-27.
         /// </summary>
         public static Task<ListListPendingFlowResult> InvokeAsync(ListListPendingFlowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListPendingFlowResult>("azure-native:azuredatatransfer:listListPendingFlow", args ?? new ListListPendingFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists all pending flows for a connection.
-        /// Azure REST API version: 2023-10-11-preview.
-        /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        /// Azure REST API version: 2024-09-27.
         /// </summary>
         public static Output<ListListPendingFlowResult> Invoke(ListListPendingFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListPendingFlowResult>("azure-native:azuredatatransfer:listListPendingFlow", args ?? new ListListPendingFlowInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists all pending flows for a connection.
-        /// Azure REST API version: 2023-10-11-preview.
-        /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        /// Azure REST API version: 2024-09-27.
         /// </summary>
         public static Output<ListListPendingFlowResult> Invoke(ListListPendingFlowInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListListPendingFlowResult>("azure-native:azuredatatransfer:listListPendingFlow", args ?? new ListListPendingFlowInvokeArgs(), options.WithDefaults());

@@ -214,7 +214,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  __props__=None):
         """
         Dedicated cloud node model
-        Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+        Azure REST API version: 2019-04-01. Prior API version in Azure Native 2.x: 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +238,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Dedicated cloud node model
-        Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+        Azure REST API version: 2019-04-01. Prior API version in Azure Native 2.x: 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param DedicatedCloudNodeArgs args: The arguments to use to populate this resource's properties.
@@ -300,16 +300,9 @@ class DedicatedCloudNode(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["availability_zone_name"] = None
-            __props__.__dict__["cloud_rack_name"] = None
-            __props__.__dict__["created"] = None
-            __props__.__dict__["placement_group_name"] = None
-            __props__.__dict__["private_cloud_id"] = None
-            __props__.__dict__["private_cloud_name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["status"] = None
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["vmware_cluster_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedCloudNode, __self__).__init__(
@@ -334,57 +327,22 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
         __props__ = DedicatedCloudNodeArgs.__new__(DedicatedCloudNodeArgs)
 
-        __props__.__dict__["availability_zone_id"] = None
-        __props__.__dict__["availability_zone_name"] = None
-        __props__.__dict__["cloud_rack_name"] = None
-        __props__.__dict__["created"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["nodes_count"] = None
-        __props__.__dict__["placement_group_id"] = None
-        __props__.__dict__["placement_group_name"] = None
-        __props__.__dict__["private_cloud_id"] = None
-        __props__.__dict__["private_cloud_name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["purchase_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["vmware_cluster_name"] = None
         return DedicatedCloudNode(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        Availability Zone id, e.g. "az1"
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "availability_zone_id")
-
-    @property
-    @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> pulumi.Output[str]:
-        """
-        Availability Zone name, e.g. "Availability Zone 1"
-        """
-        return pulumi.get(self, "availability_zone_name")
-
-    @property
-    @pulumi.getter(name="cloudRackName")
-    def cloud_rack_name(self) -> pulumi.Output[str]:
-        """
-        VMWare Cloud Rack Name
-        """
-        return pulumi.get(self, "cloud_rack_name")
-
-    @property
-    @pulumi.getter
-    def created(self) -> pulumi.Output[str]:
-        """
-        date time the resource was created
-        """
-        return pulumi.get(self, "created")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -398,65 +356,17 @@ class DedicatedCloudNode(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        SKU's name
+        {dedicatedCloudNodeName}
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="nodesCount")
-    def nodes_count(self) -> pulumi.Output[int]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.DedicatedCloudNodePropertiesResponse']:
         """
-        count of nodes to create
+        Dedicated Cloud Nodes properties
         """
-        return pulumi.get(self, "nodes_count")
-
-    @property
-    @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> pulumi.Output[str]:
-        """
-        Placement Group id, e.g. "n1"
-        """
-        return pulumi.get(self, "placement_group_id")
-
-    @property
-    @pulumi.getter(name="placementGroupName")
-    def placement_group_name(self) -> pulumi.Output[str]:
-        """
-        Placement Name, e.g. "Placement Group 1"
-        """
-        return pulumi.get(self, "placement_group_name")
-
-    @property
-    @pulumi.getter(name="privateCloudId")
-    def private_cloud_id(self) -> pulumi.Output[str]:
-        """
-        Private Cloud Id
-        """
-        return pulumi.get(self, "private_cloud_id")
-
-    @property
-    @pulumi.getter(name="privateCloudName")
-    def private_cloud_name(self) -> pulumi.Output[str]:
-        """
-        Resource Pool Name
-        """
-        return pulumi.get(self, "private_cloud_name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning status of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="purchaseId")
-    def purchase_id(self) -> pulumi.Output[str]:
-        """
-        purchase id
-        """
-        return pulumi.get(self, "purchase_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -465,14 +375,6 @@ class DedicatedCloudNode(pulumi.CustomResource):
         Dedicated Cloud Nodes SKU
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        Node status, indicates is private cloud set up on this node or not
-        """
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -489,12 +391,4 @@ class DedicatedCloudNode(pulumi.CustomResource):
         {resourceProviderNamespace}/{resourceType}
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmwareClusterName")
-    def vmware_cluster_name(self) -> pulumi.Output[str]:
-        """
-        VMWare Cluster Name
-        """
-        return pulumi.get(self, "vmware_cluster_name")
 

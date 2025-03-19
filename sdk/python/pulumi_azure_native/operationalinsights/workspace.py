@@ -255,9 +255,7 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         The top level Workspace resource container.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
-
-        Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,9 +281,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level Workspace resource container.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
-
-        Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -339,6 +335,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_capping"] = workspace_capping
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["customer_id"] = None
             __props__.__dict__["etag"] = None
@@ -348,7 +345,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:operationalinsights:Workspace',
@@ -372,6 +369,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["customer_id"] = None
         __props__.__dict__["default_data_collection_rule_resource_id"] = None
@@ -393,6 +391,14 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["workspace_capping"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")

@@ -15,10 +15,10 @@ else:
 from .. import _utilities
 from . import outputs
 
-__all__ = ['SAPApplicationServerInstanceArgs', 'SAPApplicationServerInstance']
+__all__ = ['SapApplicationServerInstanceArgs', 'SapApplicationServerInstance']
 
 @pulumi.input_type
-class SAPApplicationServerInstanceArgs:
+class SapApplicationServerInstanceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sap_virtual_instance_name: pulumi.Input[str],
@@ -26,7 +26,7 @@ class SAPApplicationServerInstanceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a SAPApplicationServerInstance resource.
+        The set of arguments for constructing a SapApplicationServerInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[str] application_instance_name: The name of SAP Application Server instance resource.
@@ -103,7 +103,7 @@ class SAPApplicationServerInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
-class SAPApplicationServerInstance(pulumi.CustomResource):
+class SapApplicationServerInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -116,9 +116,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Define the SAP Application Server Instance resource.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+        Azure REST API version: 2024-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,21 +130,19 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SAPApplicationServerInstanceArgs,
+                 args: SapApplicationServerInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the SAP Application Server Instance resource.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+        Azure REST API version: 2024-09-01.
 
         :param str resource_name: The name of the resource.
-        :param SAPApplicationServerInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param SapApplicationServerInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SAPApplicationServerInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SapApplicationServerInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -167,7 +163,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SAPApplicationServerInstanceArgs.__new__(SAPApplicationServerInstanceArgs)
+            __props__ = SapApplicationServerInstanceArgs.__new__(SapApplicationServerInstanceArgs)
 
             __props__.__dict__["application_instance_name"] = application_instance_name
             __props__.__dict__["location"] = location
@@ -178,6 +174,8 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sap_virtual_instance_name'")
             __props__.__dict__["sap_virtual_instance_name"] = sap_virtual_instance_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["dispatcher_status"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["gateway_port"] = None
             __props__.__dict__["health"] = None
@@ -196,10 +194,10 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_details"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20240901:SAPApplicationServerInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20240901:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads:SAPApplicationServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(SAPApplicationServerInstance, __self__).__init__(
-            'azure-native:workloads:SAPApplicationServerInstance',
+        super(SapApplicationServerInstance, __self__).__init__(
+            'azure-native:workloads:SapApplicationServerInstance',
             resource_name,
             __props__,
             opts)
@@ -207,9 +205,9 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SAPApplicationServerInstance':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SapApplicationServerInstance':
         """
-        Get an existing SAPApplicationServerInstance resource's state with the given name, id, and optional extra
+        Get an existing SapApplicationServerInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -218,8 +216,10 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SAPApplicationServerInstanceArgs.__new__(SAPApplicationServerInstanceArgs)
+        __props__ = SapApplicationServerInstanceArgs.__new__(SapApplicationServerInstanceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["dispatcher_status"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["gateway_port"] = None
         __props__.__dict__["health"] = None
@@ -240,7 +240,23 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vm_details"] = None
-        return SAPApplicationServerInstance(resource_name, opts=opts, __props__=__props__)
+        return SapApplicationServerInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="dispatcherStatus")
+    def dispatcher_status(self) -> pulumi.Output[str]:
+        """
+        Application server instance dispatcher status.
+        """
+        return pulumi.get(self, "dispatcher_status")
 
     @property
     @pulumi.getter
@@ -302,7 +318,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-         Application server instance SAP IP Address.
+        Application server instance SAP IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -318,7 +334,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="kernelVersion")
     def kernel_version(self) -> pulumi.Output[str]:
         """
-         Application server instance SAP Kernel Version.
+        Application server instance SAP Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
 

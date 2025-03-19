@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single API Management gateway resource in List or Get response.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class ApiGateway extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ApiGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiGateway.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Information regarding how the gateway should integrate with backend systems.
      */
@@ -121,6 +123,7 @@ export class ApiGateway extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationApi"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -131,6 +134,7 @@ export class ApiGateway extends pulumi.CustomResource {
             resourceInputs["targetProvisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backend"] = undefined /*out*/;
             resourceInputs["configurationApi"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;

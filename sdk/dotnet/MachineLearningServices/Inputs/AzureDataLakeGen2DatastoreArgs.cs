@@ -71,10 +71,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
+        /// Azure Resource Group name
+        /// </summary>
+        [Input("resourceGroup")]
+        public Input<string>? ResourceGroup { get; set; }
+
+        /// <summary>
         /// Indicates which identity to use to authenticate service data access to customer's storage.
         /// </summary>
         [Input("serviceDataAccessAuthIdentity")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ServiceDataAccessAuthIdentity>? ServiceDataAccessAuthIdentity { get; set; }
+
+        /// <summary>
+        /// Azure Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Returns a description for the specified topic.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a description for the specified topic.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a description for the specified topic.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -75,7 +69,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -104,6 +98,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         /// </summary>
         public readonly string? AutoDeleteOnIdle;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Message count details
         /// </summary>
@@ -191,6 +189,8 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string? autoDeleteOnIdle,
 
+            string azureApiVersion,
+
             Outputs.MessageCountDetailsResponse countDetails,
 
             string createdAt,
@@ -233,6 +233,7 @@ namespace Pulumi.AzureNative.ServiceBus
         {
             AccessedAt = accessedAt;
             AutoDeleteOnIdle = autoDeleteOnIdle;
+            AzureApiVersion = azureApiVersion;
             CountDetails = countDetails;
             CreatedAt = createdAt;
             DefaultMessageTimeToLive = defaultMessageTimeToLive;

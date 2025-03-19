@@ -16,12 +16,22 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs',
+    'CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict',
+    'CustomerManagedKeyEncryptionArgs',
+    'CustomerManagedKeyEncryptionArgsDict',
+    'DevCenterProjectCatalogSettingsArgs',
+    'DevCenterProjectCatalogSettingsArgsDict',
+    'EncryptionArgs',
+    'EncryptionArgsDict',
     'GitCatalogArgs',
     'GitCatalogArgsDict',
     'ImageReferenceArgs',
     'ImageReferenceArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'ProjectCatalogSettingsArgs',
+    'ProjectCatalogSettingsArgsDict',
     'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs',
     'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict',
     'ResourcePolicyArgs',
@@ -35,6 +45,206 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict(TypedDict):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        delegated_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+        """
+        identity_type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        Values can be systemAssignedIdentity or userAssignedIdentity
+        """
+        user_assigned_identity_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+        """
+elif False:
+    CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
+    def __init__(__self__, *,
+                 delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 identity_type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[str] delegated_identity_client_id: delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+        :param pulumi.Input[Union[str, 'IdentityType']] identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
+        :param pulumi.Input[str] user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+        """
+        if delegated_identity_client_id is not None:
+            pulumi.set(__self__, "delegated_identity_client_id", delegated_identity_client_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="delegatedIdentityClientId")
+    def delegated_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        delegated identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and userAssignedIdentity - internal use only.
+        """
+        return pulumi.get(self, "delegated_identity_client_id")
+
+    @delegated_identity_client_id.setter
+    def delegated_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegated_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
+        """
+        Values can be systemAssignedIdentity or userAssignedIdentity
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
+
+
+if not MYPY:
+    class CustomerManagedKeyEncryptionArgsDict(TypedDict):
+        """
+        All Customer-managed key encryption properties for the resource.
+        """
+        key_encryption_key_identity: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgsDict']]
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        key_encryption_key_url: NotRequired[pulumi.Input[str]]
+        """
+        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+elif False:
+    CustomerManagedKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomerManagedKeyEncryptionArgs:
+    def __init__(__self__, *,
+                 key_encryption_key_identity: Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: Optional[pulumi.Input[str]] = None):
+        """
+        All Customer-managed key encryption properties for the resource.
+        :param pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']]:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @key_encryption_key_identity.setter
+    def key_encryption_key_identity(self, value: Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']]):
+        pulumi.set(self, "key_encryption_key_identity", value)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+    @key_encryption_key_url.setter
+    def key_encryption_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_encryption_key_url", value)
+
+
+if not MYPY:
+    class DevCenterProjectCatalogSettingsArgsDict(TypedDict):
+        """
+        Project catalog settings for project catalogs under a project associated to this dev center.
+        """
+        catalog_item_sync_enable_status: NotRequired[pulumi.Input[Union[str, 'CatalogItemSyncEnableStatus']]]
+        """
+        Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+        """
+elif False:
+    DevCenterProjectCatalogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DevCenterProjectCatalogSettingsArgs:
+    def __init__(__self__, *,
+                 catalog_item_sync_enable_status: Optional[pulumi.Input[Union[str, 'CatalogItemSyncEnableStatus']]] = None):
+        """
+        Project catalog settings for project catalogs under a project associated to this dev center.
+        :param pulumi.Input[Union[str, 'CatalogItemSyncEnableStatus']] catalog_item_sync_enable_status: Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+        """
+        if catalog_item_sync_enable_status is not None:
+            pulumi.set(__self__, "catalog_item_sync_enable_status", catalog_item_sync_enable_status)
+
+    @property
+    @pulumi.getter(name="catalogItemSyncEnableStatus")
+    def catalog_item_sync_enable_status(self) -> Optional[pulumi.Input[Union[str, 'CatalogItemSyncEnableStatus']]]:
+        """
+        Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+        """
+        return pulumi.get(self, "catalog_item_sync_enable_status")
+
+    @catalog_item_sync_enable_status.setter
+    def catalog_item_sync_enable_status(self, value: Optional[pulumi.Input[Union[str, 'CatalogItemSyncEnableStatus']]]):
+        pulumi.set(self, "catalog_item_sync_enable_status", value)
+
+
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
+        """
+        All Customer-managed key encryption properties for the resource.
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None):
+        """
+        :param pulumi.Input['CustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']]:
+        """
+        All Customer-managed key encryption properties for the resource.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+    @customer_managed_key_encryption.setter
+    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']]):
+        pulumi.set(self, "customer_managed_key_encryption", value)
+
 
 if not MYPY:
     class GitCatalogArgsDict(TypedDict):
@@ -221,6 +431,42 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class ProjectCatalogSettingsArgsDict(TypedDict):
+        """
+        Settings to be used when associating a project with a catalog.
+        """
+        catalog_item_sync_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CatalogItemType']]]]]
+        """
+        Indicates catalog item types that can be synced.
+        """
+elif False:
+    ProjectCatalogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectCatalogSettingsArgs:
+    def __init__(__self__, *,
+                 catalog_item_sync_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CatalogItemType']]]]] = None):
+        """
+        Settings to be used when associating a project with a catalog.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'CatalogItemType']]]] catalog_item_sync_types: Indicates catalog item types that can be synced.
+        """
+        if catalog_item_sync_types is not None:
+            pulumi.set(__self__, "catalog_item_sync_types", catalog_item_sync_types)
+
+    @property
+    @pulumi.getter(name="catalogItemSyncTypes")
+    def catalog_item_sync_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CatalogItemType']]]]]:
+        """
+        Indicates catalog item types that can be synced.
+        """
+        return pulumi.get(self, "catalog_item_sync_types")
+
+    @catalog_item_sync_types.setter
+    def catalog_item_sync_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CatalogItemType']]]]]):
+        pulumi.set(self, "catalog_item_sync_types", value)
 
 
 if not MYPY:

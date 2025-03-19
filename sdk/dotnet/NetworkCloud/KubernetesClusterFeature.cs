@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2024-06-01-preview.
-    /// 
-    /// Other available API versions: 2024-07-01, 2024-10-01-preview.
+    /// Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:KubernetesClusterFeature")]
     public partial class KubernetesClusterFeature : global::Pulumi.CustomResource
@@ -22,6 +20,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("availabilityLifecycle")]
         public Output<string> AvailabilityLifecycle { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The detailed status of the feature.
@@ -34,6 +38,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("detailedStatusMessage")]
         public Output<string> DetailedStatusMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -117,6 +127,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:KubernetesClusterFeature" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:KubernetesClusterFeature" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:KubernetesClusterFeature" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:KubernetesClusterFeature" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

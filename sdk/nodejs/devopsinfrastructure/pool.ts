@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
- * Azure REST API version: 2023-10-30-preview.
- *
- * Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+ * Azure REST API version: 2025-01-21. Prior API version in Azure Native 2.x: 2023-10-30-preview.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly agentProfile!: pulumi.Output<outputs.devopsinfrastructure.StatefulResponse | outputs.devopsinfrastructure.StatelessAgentProfileResponse>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource id of the DevCenter Project the pool belongs to.
      */
     public readonly devCenterProjectResourceId!: pulumi.Output<string>;
@@ -71,7 +73,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Defines the organization in which the pool will be used.
      */
-    public readonly organizationProfile!: pulumi.Output<outputs.devopsinfrastructure.AzureDevOpsOrganizationProfileResponse>;
+    public readonly organizationProfile!: pulumi.Output<outputs.devopsinfrastructure.AzureDevOpsOrganizationProfileResponse | outputs.devopsinfrastructure.GitHubOrganizationProfileResponse>;
     /**
      * The status of the current operation.
      */
@@ -120,7 +122,7 @@ export class Pool extends pulumi.CustomResource {
             }
             resourceInputs["agentProfile"] = args ? args.agentProfile : undefined;
             resourceInputs["devCenterProjectResourceId"] = args ? args.devCenterProjectResourceId : undefined;
-            resourceInputs["fabricProfile"] = args ? (args.fabricProfile ? pulumi.output(args.fabricProfile).apply(inputs.devopsinfrastructure.vmssFabricProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["fabricProfile"] = args ? args.fabricProfile : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maximumConcurrency"] = args ? args.maximumConcurrency : undefined;
@@ -129,11 +131,13 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["agentProfile"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["devCenterProjectResourceId"] = undefined /*out*/;
             resourceInputs["fabricProfile"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -184,7 +188,7 @@ export interface PoolArgs {
     /**
      * Defines the organization in which the pool will be used.
      */
-    organizationProfile: pulumi.Input<inputs.devopsinfrastructure.AzureDevOpsOrganizationProfileArgs>;
+    organizationProfile: pulumi.Input<inputs.devopsinfrastructure.AzureDevOpsOrganizationProfileArgs | inputs.devopsinfrastructure.GitHubOrganizationProfileArgs>;
     /**
      * Name of the pool. It needs to be globally unique.
      */

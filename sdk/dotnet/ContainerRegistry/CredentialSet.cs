@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a credential set resource for a container registry.
-    /// Azure REST API version: 2023-01-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:CredentialSet")]
     public partial class CredentialSet : global::Pulumi.CustomResource
@@ -24,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("authCredentials")]
         public Output<ImmutableArray<Outputs.AuthCredentialResponse>> AuthCredentials { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of credential store resource.

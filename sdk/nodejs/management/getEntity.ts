@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
  *
- * Azure REST API version: 2021-04-01.
- *
- * Other available API versions: 2020-05-01, 2020-10-01, 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     args = args || {};
@@ -90,9 +88,7 @@ export interface GetEntityResult {
 /**
  * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
  *
- * Azure REST API version: 2021-04-01.
- *
- * Other available API versions: 2020-05-01, 2020-10-01, 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityResult> {
     args = args || {};

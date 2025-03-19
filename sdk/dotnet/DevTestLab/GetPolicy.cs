@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the policy.
         /// </summary>
         public readonly string CreatedDate;
@@ -173,6 +177,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetPolicyResult(
+            string azureApiVersion,
+
             string createdDate,
 
             string? description,
@@ -201,6 +207,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string uniqueIdentifier)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             Description = description;
             EvaluatorType = evaluatorType;

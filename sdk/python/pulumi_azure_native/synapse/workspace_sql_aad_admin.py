@@ -132,9 +132,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace active directory administrator
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 
@@ -155,9 +153,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 
@@ -201,6 +197,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin")])
@@ -228,6 +225,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         __props__ = WorkspaceSqlAadAdminArgs.__new__(WorkspaceSqlAadAdminArgs)
 
         __props__.__dict__["administrator_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sid"] = None
@@ -242,6 +240,14 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         Workspace active directory administrator type
         """
         return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

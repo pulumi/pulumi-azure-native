@@ -27,7 +27,7 @@ class PartnerTopicEventSubscriptionArgs:
                  dead_letter_destination: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']] = None,
                  dead_letter_with_resource_identity: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']] = None,
                  delivery_with_resource_identity: Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']] = None,
-                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
@@ -44,10 +44,10 @@ class PartnerTopicEventSubscriptionArgs:
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input['DeliveryWithResourceIdentityArgs'] delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[Union[str, 'EventDeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
-        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input['EventSubscriptionFilterArgs'] filter: Information about the filter for the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
@@ -143,7 +143,7 @@ class PartnerTopicEventSubscriptionArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
+    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -151,7 +151,7 @@ class PartnerTopicEventSubscriptionArgs:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
+    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
         pulumi.set(self, "destination", value)
 
     @property
@@ -170,7 +170,7 @@ class PartnerTopicEventSubscriptionArgs:
     @pulumi.getter(name="eventSubscriptionName")
     def event_subscription_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         """
         return pulumi.get(self, "event_subscription_name")
 
@@ -235,7 +235,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  dead_letter_destination: Optional[pulumi.Input[Union['StorageBlobDeadLetterDestinationArgs', 'StorageBlobDeadLetterDestinationArgsDict']]] = None,
                  dead_letter_with_resource_identity: Optional[pulumi.Input[Union['DeadLetterWithResourceIdentityArgs', 'DeadLetterWithResourceIdentityArgsDict']]] = None,
                  delivery_with_resource_identity: Optional[pulumi.Input[Union['DeliveryWithResourceIdentityArgs', 'DeliveryWithResourceIdentityArgsDict']]] = None,
-                 destination: Optional[pulumi.Input[Union[Union['AzureFunctionEventSubscriptionDestinationArgs', 'AzureFunctionEventSubscriptionDestinationArgsDict'], Union['EventHubEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgsDict'], Union['HybridConnectionEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgsDict'], Union['ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgsDict'], Union['ServiceBusTopicEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgsDict'], Union['StorageQueueEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgsDict'], Union['WebHookEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgsDict']]]] = None,
+                 destination: Optional[pulumi.Input[Union[Union['AzureFunctionEventSubscriptionDestinationArgs', 'AzureFunctionEventSubscriptionDestinationArgsDict'], Union['EventHubEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgsDict'], Union['HybridConnectionEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgsDict'], Union['MonitorAlertEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgsDict'], Union['NamespaceTopicEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgsDict'], Union['ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgsDict'], Union['ServiceBusTopicEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgsDict'], Union['StorageQueueEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgsDict'], Union['WebHookEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgsDict']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
@@ -246,10 +246,8 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  retry_policy: Optional[pulumi.Input[Union['RetryPolicyArgs', 'RetryPolicyArgsDict']]] = None,
                  __props__=None):
         """
-        Event Subscription
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview.
-
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Event Subscription.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,10 +257,10 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[Union['DeliveryWithResourceIdentityArgs', 'DeliveryWithResourceIdentityArgsDict']] delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-        :param pulumi.Input[Union[Union['AzureFunctionEventSubscriptionDestinationArgs', 'AzureFunctionEventSubscriptionDestinationArgsDict'], Union['EventHubEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgsDict'], Union['HybridConnectionEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgsDict'], Union['ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgsDict'], Union['ServiceBusTopicEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgsDict'], Union['StorageQueueEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgsDict'], Union['WebHookEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgsDict']]] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[Union[Union['AzureFunctionEventSubscriptionDestinationArgs', 'AzureFunctionEventSubscriptionDestinationArgsDict'], Union['EventHubEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgsDict'], Union['HybridConnectionEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgsDict'], Union['MonitorAlertEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgsDict'], Union['NamespaceTopicEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgsDict'], Union['ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgsDict'], Union['ServiceBusTopicEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgsDict'], Union['StorageQueueEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgsDict'], Union['WebHookEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgsDict']]] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[Union[str, 'EventDeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
-        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input[Union['EventSubscriptionFilterArgs', 'EventSubscriptionFilterArgsDict']] filter: Information about the filter for the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
@@ -277,10 +275,8 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  args: PartnerTopicEventSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Event Subscription
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview.
-
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Event Subscription.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -300,7 +296,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  dead_letter_destination: Optional[pulumi.Input[Union['StorageBlobDeadLetterDestinationArgs', 'StorageBlobDeadLetterDestinationArgsDict']]] = None,
                  dead_letter_with_resource_identity: Optional[pulumi.Input[Union['DeadLetterWithResourceIdentityArgs', 'DeadLetterWithResourceIdentityArgsDict']]] = None,
                  delivery_with_resource_identity: Optional[pulumi.Input[Union['DeliveryWithResourceIdentityArgs', 'DeliveryWithResourceIdentityArgsDict']]] = None,
-                 destination: Optional[pulumi.Input[Union[Union['AzureFunctionEventSubscriptionDestinationArgs', 'AzureFunctionEventSubscriptionDestinationArgsDict'], Union['EventHubEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgsDict'], Union['HybridConnectionEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgsDict'], Union['ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgsDict'], Union['ServiceBusTopicEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgsDict'], Union['StorageQueueEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgsDict'], Union['WebHookEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgsDict']]]] = None,
+                 destination: Optional[pulumi.Input[Union[Union['AzureFunctionEventSubscriptionDestinationArgs', 'AzureFunctionEventSubscriptionDestinationArgsDict'], Union['EventHubEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgsDict'], Union['HybridConnectionEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgsDict'], Union['MonitorAlertEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgsDict'], Union['NamespaceTopicEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgsDict'], Union['ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgsDict'], Union['ServiceBusTopicEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgsDict'], Union['StorageQueueEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgsDict'], Union['WebHookEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgsDict']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
@@ -336,6 +332,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retry_policy"] = retry_policy
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -365,6 +362,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
 
         __props__ = PartnerTopicEventSubscriptionArgs.__new__(PartnerTopicEventSubscriptionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dead_letter_destination"] = None
         __props__.__dict__["dead_letter_with_resource_identity"] = None
         __props__.__dict__["delivery_with_resource_identity"] = None
@@ -380,6 +378,14 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
         __props__.__dict__["topic"] = None
         __props__.__dict__["type"] = None
         return PartnerTopicEventSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deadLetterDestination")
@@ -477,7 +483,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Event Subscription resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

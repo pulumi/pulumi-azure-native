@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler
 {
     /// <summary>
-    /// Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
+    /// Azure REST API version: 2016-03-01. Prior API version in Azure Native 2.x: 2016-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:scheduler:JobCollection")]
     public partial class JobCollection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the storage account location.
         /// </summary>

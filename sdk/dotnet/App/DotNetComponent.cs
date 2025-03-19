@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// .NET Component.
-    /// Azure REST API version: 2023-11-02-preview.
-    /// 
-    /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    /// Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2023-11-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DotNetComponent")]
     public partial class DotNetComponent : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Type of the .NET Component.
         /// </summary>

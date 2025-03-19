@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
      * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
      */
     public readonly allowProtectedAppendWritesAll!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource Etag.
      */
@@ -93,6 +95,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             resourceInputs["immutabilityPeriodSinceCreationInDays"] = args ? args.immutabilityPeriodSinceCreationInDays : undefined;
             resourceInputs["immutabilityPolicyName"] = args ? args.immutabilityPolicyName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         } else {
             resourceInputs["allowProtectedAppendWrites"] = undefined /*out*/;
             resourceInputs["allowProtectedAppendWritesAll"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["immutabilityPeriodSinceCreationInDays"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

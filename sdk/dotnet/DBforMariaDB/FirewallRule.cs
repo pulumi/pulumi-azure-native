@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DBforMariaDB
 {
     /// <summary>
     /// Represents a server firewall rule.
-    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-    /// 
-    /// Other available API versions: 2018-06-01-preview.
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
         /// </summary>

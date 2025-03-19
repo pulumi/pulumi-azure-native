@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets project catalog synchronization error details
         /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetProjectCatalogSyncErrorDetailsResult> InvokeAsync(GetProjectCatalogSyncErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectCatalogSyncErrorDetailsResult>("azure-native:devcenter:getProjectCatalogSyncErrorDetails", args ?? new GetProjectCatalogSyncErrorDetailsArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets project catalog synchronization error details
         /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetProjectCatalogSyncErrorDetailsResult> Invoke(GetProjectCatalogSyncErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogSyncErrorDetailsResult>("azure-native:devcenter:getProjectCatalogSyncErrorDetails", args ?? new GetProjectCatalogSyncErrorDetailsInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets project catalog synchronization error details
         /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetProjectCatalogSyncErrorDetailsResult> Invoke(GetProjectCatalogSyncErrorDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogSyncErrorDetailsResult>("azure-native:devcenter:getProjectCatalogSyncErrorDetails", args ?? new GetProjectCatalogSyncErrorDetailsInvokeArgs(), options.WithDefaults());

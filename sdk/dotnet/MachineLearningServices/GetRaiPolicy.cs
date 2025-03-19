@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure OpenAI Content Filters resource.
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Task<GetRaiPolicyResult> InvokeAsync(GetRaiPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRaiPolicyResult>("azure-native:machinelearningservices:getRaiPolicy", args ?? new GetRaiPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure OpenAI Content Filters resource.
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:machinelearningservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure OpenAI Content Filters resource.
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:machinelearningservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetRaiPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetRaiPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

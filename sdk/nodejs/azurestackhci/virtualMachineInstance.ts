@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual machine instance resource definition.
- * Azure REST API version: 2023-07-01-preview.
- *
- * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+ * Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
  */
 export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
@@ -41,6 +39,14 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Boolean indicating whether this is an existing local virtual machine or if one should be created.
+     */
+    public readonly createFromLocal!: pulumi.Output<boolean | undefined>;
+    /**
      * The extendedLocation of the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
@@ -51,11 +57,15 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * HardwareProfile - Specifies the hardware settings for the virtual machine instance.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesResponseHardwareProfile | undefined>;
+    public readonly hardwareProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileResponse | undefined>;
     /**
-     * Identity for the resource.
+     * HTTP Proxy configuration for the VM.
      */
-    public readonly identity!: pulumi.Output<outputs.azurestackhci.IdentityResponse | undefined>;
+    public readonly httpProxyConfig!: pulumi.Output<outputs.azurestackhci.HttpProxyConfigurationResponse | undefined>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.azurestackhci.ManagedServiceIdentityResponse | undefined>;
     /**
      * The virtual machine instance view.
      */
@@ -67,11 +77,11 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * NetworkProfile - describes the network configuration the virtual machine instance
      */
-    public readonly networkProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesResponseNetworkProfile | undefined>;
+    public readonly networkProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileResponse | undefined>;
     /**
      * OsProfile - describes the configuration of the operating system and sets login data
      */
-    public readonly osProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesResponseOsProfile | undefined>;
+    public readonly osProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesOsProfileResponse | undefined>;
     /**
      * Provisioning state of the virtual machine instance.
      */
@@ -83,7 +93,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine instance.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesResponseSecurityProfile | undefined>;
+    public readonly securityProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileResponse | undefined>;
     /**
      * The observed state of virtual machine instances
      */
@@ -91,7 +101,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * StorageProfile - contains information about the disks and storage information for the virtual machine instance
      */
-    public readonly storageProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesResponseStorageProfile | undefined>;
+    public readonly storageProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesStorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -119,8 +129,10 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
+            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["osProfile"] = args ? (args.osProfile ? pulumi.output(args.osProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesOsProfileArgsProvideDefaults) : undefined) : undefined;
@@ -128,6 +140,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["guestAgentInstallStatus"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -137,9 +150,12 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["createFromLocal"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["guestAgentInstallStatus"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["httpProxyConfig"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -166,6 +182,10 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
  */
 export interface VirtualMachineInstanceArgs {
     /**
+     * Boolean indicating whether this is an existing local virtual machine or if one should be created.
+     */
+    createFromLocal?: pulumi.Input<boolean>;
+    /**
      * The extendedLocation of the resource.
      */
     extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
@@ -174,9 +194,13 @@ export interface VirtualMachineInstanceArgs {
      */
     hardwareProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileArgs>;
     /**
-     * Identity for the resource.
+     * HTTP Proxy configuration for the VM.
      */
-    identity?: pulumi.Input<inputs.azurestackhci.IdentityArgs>;
+    httpProxyConfig?: pulumi.Input<inputs.azurestackhci.HttpProxyConfigurationArgs>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    identity?: pulumi.Input<inputs.azurestackhci.ManagedServiceIdentityArgs>;
     /**
      * NetworkProfile - describes the network configuration the virtual machine instance
      */
@@ -190,7 +214,7 @@ export interface VirtualMachineInstanceArgs {
      */
     resourceUid?: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**

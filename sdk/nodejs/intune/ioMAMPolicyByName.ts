@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * iOS Policy entity for Intune MAM.
- * Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 1.x: 2015-01-14-preview.
- *
- * Other available API versions: 2015-01-14-privatepreview.
+ * Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 2.x: 2015-01-14-preview.
  */
 export class IoMAMPolicyByName extends pulumi.CustomResource {
     /**
@@ -42,6 +40,10 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
     public readonly appSharingFromLevel!: pulumi.Output<string | undefined>;
     public readonly appSharingToLevel!: pulumi.Output<string | undefined>;
     public readonly authentication!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly clipboardSharingLevel!: pulumi.Output<string | undefined>;
     public readonly dataBackup!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -112,6 +114,7 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["touchId"] = (args ? args.touchId : undefined) ?? "enable";
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupStatus"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
             resourceInputs["appSharingFromLevel"] = undefined /*out*/;
             resourceInputs["appSharingToLevel"] = undefined /*out*/;
             resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clipboardSharingLevel"] = undefined /*out*/;
             resourceInputs["dataBackup"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

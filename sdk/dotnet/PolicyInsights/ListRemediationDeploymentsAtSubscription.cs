@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets all deployments for a remediation at subscription scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtSubscriptionResult> InvokeAsync(ListRemediationDeploymentsAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all deployments for a remediation at subscription scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all deployments for a remediation at subscription scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());

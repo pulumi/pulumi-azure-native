@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
+        /// The license type for Linux VM's.
+        /// </summary>
+        [Input("linuxLicenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LinuxLicenseType>? LinuxLicenseType { get; set; }
+
+        /// <summary>
         /// A value indicating whether auto resync is to be done.
         /// </summary>
         [Input("performAutoResync")]
@@ -195,6 +201,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("testSubnetName")]
         public Input<string>? TestSubnetName { get; set; }
+
+        /// <summary>
+        /// The OS name selected by user.
+        /// </summary>
+        [Input("userSelectedOSName")]
+        public Input<string>? UserSelectedOSName { get; set; }
 
         /// <summary>
         /// The ARM Id of the VM discovered in VMware.

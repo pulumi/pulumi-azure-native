@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetIotHubDataConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The iot hub consumer group.
         /// </summary>
         public readonly string ConsumerGroup;
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetIotHubDataConnectionResult(
+            string azureApiVersion,
+
             string consumerGroup,
 
             string? dataFormat,
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
             EventSystemProperties = eventSystemProperties;

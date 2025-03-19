@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Compute extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Compute extends pulumi.CustomResource {
         return obj['__pulumiType'] === Compute.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity of the resource.
      */
@@ -98,10 +100,12 @@ export class Compute extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -112,7 +116,7 @@ export class Compute extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20180301preview:Compute" }, { type: "azure-native:machinelearningservices/v20181119:Compute" }, { type: "azure-native:machinelearningservices/v20190501:Compute" }, { type: "azure-native:machinelearningservices/v20190601:Compute" }, { type: "azure-native:machinelearningservices/v20191101:Compute" }, { type: "azure-native:machinelearningservices/v20200101:Compute" }, { type: "azure-native:machinelearningservices/v20200218preview:Compute" }, { type: "azure-native:machinelearningservices/v20200301:Compute" }, { type: "azure-native:machinelearningservices/v20200401:Compute" }, { type: "azure-native:machinelearningservices/v20200501preview:Compute" }, { type: "azure-native:machinelearningservices/v20200515preview:Compute" }, { type: "azure-native:machinelearningservices/v20200601:Compute" }, { type: "azure-native:machinelearningservices/v20200801:Compute" }, { type: "azure-native:machinelearningservices/v20200901preview:Compute" }, { type: "azure-native:machinelearningservices/v20210101:Compute" }, { type: "azure-native:machinelearningservices/v20210301preview:Compute" }, { type: "azure-native:machinelearningservices/v20210401:Compute" }, { type: "azure-native:machinelearningservices/v20210701:Compute" }, { type: "azure-native:machinelearningservices/v20220101preview:Compute" }, { type: "azure-native:machinelearningservices/v20220201preview:Compute" }, { type: "azure-native:machinelearningservices/v20220501:Compute" }, { type: "azure-native:machinelearningservices/v20220601preview:Compute" }, { type: "azure-native:machinelearningservices/v20221001:Compute" }, { type: "azure-native:machinelearningservices/v20221001preview:Compute" }, { type: "azure-native:machinelearningservices/v20221201preview:Compute" }, { type: "azure-native:machinelearningservices/v20230201preview:Compute" }, { type: "azure-native:machinelearningservices/v20230401:Compute" }, { type: "azure-native:machinelearningservices/v20230401preview:Compute" }, { type: "azure-native:machinelearningservices/v20230601preview:Compute" }, { type: "azure-native:machinelearningservices/v20230801preview:Compute" }, { type: "azure-native:machinelearningservices/v20231001:Compute" }, { type: "azure-native:machinelearningservices/v20240101preview:Compute" }, { type: "azure-native:machinelearningservices/v20240401:Compute" }, { type: "azure-native:machinelearningservices/v20240401preview:Compute" }, { type: "azure-native:machinelearningservices/v20240701preview:Compute" }, { type: "azure-native:machinelearningservices/v20241001:Compute" }, { type: "azure-native:machinelearningservices/v20241001preview:Compute" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20180301preview:Compute" }, { type: "azure-native:machinelearningservices/v20181119:Compute" }, { type: "azure-native:machinelearningservices/v20190501:Compute" }, { type: "azure-native:machinelearningservices/v20190601:Compute" }, { type: "azure-native:machinelearningservices/v20191101:Compute" }, { type: "azure-native:machinelearningservices/v20200101:Compute" }, { type: "azure-native:machinelearningservices/v20200218preview:Compute" }, { type: "azure-native:machinelearningservices/v20200301:Compute" }, { type: "azure-native:machinelearningservices/v20200401:Compute" }, { type: "azure-native:machinelearningservices/v20200501preview:Compute" }, { type: "azure-native:machinelearningservices/v20200515preview:Compute" }, { type: "azure-native:machinelearningservices/v20200601:Compute" }, { type: "azure-native:machinelearningservices/v20200801:Compute" }, { type: "azure-native:machinelearningservices/v20200901preview:Compute" }, { type: "azure-native:machinelearningservices/v20210101:Compute" }, { type: "azure-native:machinelearningservices/v20210301preview:Compute" }, { type: "azure-native:machinelearningservices/v20210401:Compute" }, { type: "azure-native:machinelearningservices/v20210401:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20210701:Compute" }, { type: "azure-native:machinelearningservices/v20220101preview:Compute" }, { type: "azure-native:machinelearningservices/v20220201preview:Compute" }, { type: "azure-native:machinelearningservices/v20220501:Compute" }, { type: "azure-native:machinelearningservices/v20220601preview:Compute" }, { type: "azure-native:machinelearningservices/v20221001:Compute" }, { type: "azure-native:machinelearningservices/v20221001preview:Compute" }, { type: "azure-native:machinelearningservices/v20221201preview:Compute" }, { type: "azure-native:machinelearningservices/v20230201preview:Compute" }, { type: "azure-native:machinelearningservices/v20230401:Compute" }, { type: "azure-native:machinelearningservices/v20230401preview:Compute" }, { type: "azure-native:machinelearningservices/v20230601preview:Compute" }, { type: "azure-native:machinelearningservices/v20230801preview:Compute" }, { type: "azure-native:machinelearningservices/v20231001:Compute" }, { type: "azure-native:machinelearningservices/v20240101preview:Compute" }, { type: "azure-native:machinelearningservices/v20240401:Compute" }, { type: "azure-native:machinelearningservices/v20240401preview:Compute" }, { type: "azure-native:machinelearningservices/v20240701preview:Compute" }, { type: "azure-native:machinelearningservices/v20241001:Compute" }, { type: "azure-native:machinelearningservices/v20241001preview:Compute" }, { type: "azure-native:machinelearningservices/v20250101preview:Compute" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Compute.__pulumiType, name, resourceInputs, opts);
     }

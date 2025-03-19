@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP access rule by name.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspAccessRule(args: GetNspAccessRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAccessRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +49,10 @@ export interface GetNspAccessRuleResult {
      */
     readonly addressPrefixes?: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Direction that specifies whether the access rules is inbound/outbound.
      */
     readonly direction?: string;
@@ -87,6 +89,10 @@ export interface GetNspAccessRuleResult {
      */
     readonly provisioningState: string;
     /**
+     * Inbound rules service tag names.
+     */
+    readonly serviceTags?: string[];
+    /**
      * List of subscription ids
      */
     readonly subscriptions?: outputs.network.SubscriptionIdResponse[];
@@ -101,9 +107,7 @@ export interface GetNspAccessRuleResult {
 }
 /**
  * Gets the specified NSP access rule by name.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspAccessRuleOutput(args: GetNspAccessRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspAccessRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

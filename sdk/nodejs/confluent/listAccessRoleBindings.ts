@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List cluster success response
- * Azure REST API version: 2023-08-22.
- *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Details of the role bindings returned on successful response
+ * Azure REST API version: 2024-07-01.
  */
 export function listAccessRoleBindings(args: ListAccessRoleBindingsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessRoleBindingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,11 +36,11 @@ export interface ListAccessRoleBindingsArgs {
 }
 
 /**
- * List cluster success response
+ * Details of the role bindings returned on successful response
  */
 export interface ListAccessRoleBindingsResult {
     /**
-     * Data of the environments list
+     * List of role binding
      */
     readonly data?: outputs.confluent.RoleBindingRecordResponse[];
     /**
@@ -55,10 +53,8 @@ export interface ListAccessRoleBindingsResult {
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * List cluster success response
- * Azure REST API version: 2023-08-22.
- *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Details of the role bindings returned on successful response
+ * Azure REST API version: 2024-07-01.
  */
 export function listAccessRoleBindingsOutput(args: ListAccessRoleBindingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessRoleBindingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

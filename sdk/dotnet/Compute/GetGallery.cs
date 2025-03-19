@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a Shared Image Gallery.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a Shared Image Gallery.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a Shared Image Gallery.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of this Shared Image Gallery resource. This property is updatable.
         /// </summary>
         public readonly string? Description;
@@ -120,6 +118,10 @@ namespace Pulumi.AzureNative.Compute
         /// Describes the gallery unique name.
         /// </summary>
         public readonly Outputs.GalleryIdentifierResponse? Identifier;
+        /// <summary>
+        /// The identity of the gallery, if configured.
+        /// </summary>
+        public readonly Outputs.GalleryIdentityResponse? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -155,11 +157,15 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
 
             Outputs.GalleryIdentifierResponse? identifier,
+
+            Outputs.GalleryIdentityResponse? identity,
 
             string location,
 
@@ -177,9 +183,11 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Identifier = identifier;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

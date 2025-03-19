@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiCenter
     {
         /// <summary>
         /// Returns details of the API deployment.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:apicenter:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns details of the API deployment.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:apicenter:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns details of the API deployment.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:apicenter:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class GetDeploymentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The custom metadata defined for API catalog entities.
         /// </summary>
         public readonly object? CustomProperties;
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [OutputConstructor]
         private GetDeploymentResult(
+            string azureApiVersion,
+
             object? customProperties,
 
             string? definitionId,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomProperties = customProperties;
             DefinitionId = definitionId;
             Description = description;

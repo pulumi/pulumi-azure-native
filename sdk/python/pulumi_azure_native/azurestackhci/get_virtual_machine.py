@@ -27,7 +27,10 @@ class GetVirtualMachineResult:
     """
     The virtual machine resource definition.
     """
-    def __init__(__self__, extended_location=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, location=None, name=None, network_profile=None, os_profile=None, provisioning_state=None, security_profile=None, status=None, storage_profile=None, system_data=None, tags=None, type=None, vm_id=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, location=None, name=None, network_profile=None, os_profile=None, provisioning_state=None, security_profile=None, status=None, storage_profile=None, system_data=None, tags=None, type=None, vm_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -79,6 +82,14 @@ class GetVirtualMachineResult:
         if vm_id and not isinstance(vm_id, str):
             raise TypeError("Expected argument 'vm_id' to be a str")
         pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -223,6 +234,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         if False:
             yield self
         return GetVirtualMachineResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             guest_agent_profile=self.guest_agent_profile,
             hardware_profile=self.hardware_profile,
@@ -260,6 +272,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult).value
 
     return AwaitableGetVirtualMachineResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         guest_agent_profile=pulumi.get(__ret__, 'guest_agent_profile'),
         hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
@@ -294,6 +307,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         guest_agent_profile=pulumi.get(__response__, 'guest_agent_profile'),
         hardware_profile=pulumi.get(__response__, 'hardware_profile'),

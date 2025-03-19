@@ -27,7 +27,10 @@ class GetGuestUsageResult:
     """
     Guest Usages Resource
     """
-    def __init__(__self__, id=None, location=None, name=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, system_data=None, tags=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetGuestUsageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetGuestUsageResult(GetGuestUsageResult):
         if False:
             yield self
         return GetGuestUsageResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -127,9 +139,7 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestUsageResult:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-    Azure REST API version: 2021-04-01.
-
-    Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+    Azure REST API version: 2023-05-17-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -142,6 +152,7 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azureactivedirectory:getGuestUsage', __args__, opts=opts, typ=GetGuestUsageResult).value
 
     return AwaitableGetGuestUsageResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -154,9 +165,7 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestUsageResult]:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-    Azure REST API version: 2021-04-01.
-
-    Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+    Azure REST API version: 2023-05-17-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -168,6 +177,7 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azureactivedirectory:getGuestUsage', __args__, opts=opts, typ=GetGuestUsageResult)
     return __ret__.apply(lambda __response__: GetGuestUsageResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

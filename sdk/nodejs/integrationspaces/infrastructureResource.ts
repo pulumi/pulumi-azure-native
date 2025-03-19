@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An infrastructure resource under Space.
- * Azure REST API version: 2023-11-14-preview.
+ * Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
  */
 export class InfrastructureResource extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class InfrastructureResource extends pulumi.CustomResource {
         return obj['__pulumiType'] === InfrastructureResource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -91,11 +95,13 @@ export class InfrastructureResource extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;

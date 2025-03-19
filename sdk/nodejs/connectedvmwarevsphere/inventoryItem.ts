@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the inventory item.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class InventoryItem extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class InventoryItem extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * They inventory type.
      */
     public readonly inventoryType!: pulumi.Output<string>;
@@ -65,11 +67,11 @@ export class InventoryItem extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
@@ -105,11 +107,13 @@ export class InventoryItem extends pulumi.CustomResource {
             resourceInputs["moRefId"] = args ? args.moRefId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["inventoryType"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["managedResourceId"] = undefined /*out*/;

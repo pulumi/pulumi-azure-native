@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the restore point.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetRestorePointArgs {
  * Restore Point details.
  */
 export interface GetRestorePointResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
      */
@@ -89,9 +91,7 @@ export interface GetRestorePointResult {
 }
 /**
  * The operation to get the restore point.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestorePointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

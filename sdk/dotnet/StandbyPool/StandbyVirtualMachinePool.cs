@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.StandbyPool
 {
     /// <summary>
     /// A StandbyVirtualMachinePoolResource.
-    /// Azure REST API version: 2023-12-01-preview.
-    /// 
-    /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyVirtualMachinePool")]
     public partial class StandbyVirtualMachinePool : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.StandbyPool
         /// </summary>
         [Output("attachedVirtualMachineScaleSetId")]
         public Output<string?> AttachedVirtualMachineScaleSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the elasticity profile of the standby virtual machine pools.
@@ -100,6 +104,7 @@ namespace Pulumi.AzureNative.StandbyPool
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:standbypool/v20250301:StandbyVirtualMachinePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

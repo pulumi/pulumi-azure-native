@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
-        public readonly string TargetResourceName;
+        public readonly string? TargetResourceName;
         /// <summary>
         /// Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
         ///  precedence only if frontend IP configurations settings are not present.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? targetResourceGroupName,
 
-            string targetResourceName,
+            string? targetResourceName,
 
             string? zones)
         {

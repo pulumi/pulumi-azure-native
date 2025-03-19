@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine run command.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      * Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
      */
     public readonly asyncExecution!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
      */
@@ -147,12 +149,14 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             resourceInputs["treatFailureAsDeploymentFailure"] = (args ? args.treatFailureAsDeploymentFailure : undefined) ?? false;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["asyncExecution"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorBlobManagedIdentity"] = undefined /*out*/;
             resourceInputs["errorBlobUri"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
@@ -172,7 +176,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230901:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20240301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20240701:VirtualMachineRunCommandByVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230901:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20240301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20240701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20241101:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

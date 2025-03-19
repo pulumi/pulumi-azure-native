@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A object that represents a SuppressionList record.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class SuppressionListAddress extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SuppressionListAddress extends pulumi.CustomResource {
         return obj['__pulumiType'] === SuppressionListAddress.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The location where the SuppressionListAddress data is stored at rest. This value is inherited from the parent Domains resource.
      */
@@ -112,12 +114,14 @@ export class SuppressionListAddress extends pulumi.CustomResource {
             resourceInputs["notes"] = args ? args.notes : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["suppressionListName"] = args ? args.suppressionListName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;

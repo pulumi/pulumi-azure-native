@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Rules name mapping to the any Rules or secret related information.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Rule extends pulumi.CustomResource {
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
     public readonly actions!: pulumi.Output<(outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
@@ -112,6 +114,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -119,6 +122,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["conditions"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["matchProcessingBehavior"] = undefined /*out*/;

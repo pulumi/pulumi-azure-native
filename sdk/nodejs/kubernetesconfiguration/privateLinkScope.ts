@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Arc PrivateLinkScope definition.
- * Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview.
+ * Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 2.x: 2022-04-02-preview.
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class PrivateLinkScope extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateLinkScope.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -82,10 +86,12 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -94,7 +100,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope" }, { type: "azure-native:kubernetesconfiguration/v20241101preview:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);
     }

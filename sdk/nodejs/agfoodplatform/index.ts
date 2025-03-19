@@ -59,17 +59,6 @@ utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
 // Export enums:
 export * from "../types/enums/agfoodplatform";
 
-// Export sub-modules:
-import * as v20200512preview from "./v20200512preview";
-import * as v20210901preview from "./v20210901preview";
-import * as v20230601preview from "./v20230601preview";
-
-export {
-    v20200512preview,
-    v20210901preview,
-    v20230601preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

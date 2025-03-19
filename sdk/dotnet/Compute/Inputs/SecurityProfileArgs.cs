@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<bool>? EncryptionAtHost { get; set; }
 
         /// <summary>
+        /// Specifies the Managed Identity used by ADE to get access token for keyvault operations.
+        /// </summary>
+        [Input("encryptionIdentity")]
+        public Input<Inputs.EncryptionIdentityArgs>? EncryptionIdentity { get; set; }
+
+        /// <summary>
+        /// Specifies ProxyAgent settings while creating the virtual machine. Minimum api-version: 2023-09-01.
+        /// </summary>
+        [Input("proxyAgentSettings")]
+        public Input<Inputs.ProxyAgentSettingsArgs>? ProxyAgentSettings { get; set; }
+
+        /// <summary>
         /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
         /// </summary>
         [Input("securityType")]

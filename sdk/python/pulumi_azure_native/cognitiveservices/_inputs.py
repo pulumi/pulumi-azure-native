@@ -24,6 +24,10 @@ __all__ = [
     'CommitmentPeriodArgsDict',
     'CommitmentPlanPropertiesArgs',
     'CommitmentPlanPropertiesArgsDict',
+    'CustomBlocklistConfigArgs',
+    'CustomBlocklistConfigArgsDict',
+    'DeploymentCapacitySettingsArgs',
+    'DeploymentCapacitySettingsArgsDict',
     'DeploymentModelArgs',
     'DeploymentModelArgsDict',
     'DeploymentPropertiesArgs',
@@ -48,12 +52,12 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
-    'RaiBlocklistConfigArgs',
-    'RaiBlocklistConfigArgsDict',
     'RaiBlocklistItemPropertiesArgs',
     'RaiBlocklistItemPropertiesArgsDict',
     'RaiBlocklistPropertiesArgs',
     'RaiBlocklistPropertiesArgsDict',
+    'RaiMonitorConfigArgs',
+    'RaiMonitorConfigArgsDict',
     'RaiPolicyContentFilterArgs',
     'RaiPolicyContentFilterArgsDict',
     'RaiPolicyPropertiesArgs',
@@ -62,6 +66,8 @@ __all__ = [
     'RegionSettingArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'UserOwnedAmlWorkspaceArgs',
+    'UserOwnedAmlWorkspaceArgsDict',
     'UserOwnedStorageArgs',
     'UserOwnedStorageArgsDict',
     'VirtualNetworkRuleArgs',
@@ -76,6 +82,10 @@ if not MYPY:
         Properties of Cognitive Services account.
         """
         allowed_fqdn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        aml_workspace: NotRequired[pulumi.Input['UserOwnedAmlWorkspaceArgsDict']]
+        """
+        The user owned AML workspace properties.
+        """
         api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
         """
         The api properties for special APIs.
@@ -109,6 +119,10 @@ if not MYPY:
         """
         Whether or not public endpoint access is allowed for this account.
         """
+        rai_monitor_config: NotRequired[pulumi.Input['RaiMonitorConfigArgsDict']]
+        """
+        Cognitive Services Rai Monitor Config.
+        """
         restore: NotRequired[pulumi.Input[bool]]
         restrict_outbound_network_access: NotRequired[pulumi.Input[bool]]
         user_owned_storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgsDict']]]]
@@ -122,6 +136,7 @@ elif False:
 class AccountPropertiesArgs:
     def __init__(__self__, *,
                  allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 aml_workspace: Optional[pulumi.Input['UserOwnedAmlWorkspaceArgs']] = None,
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
                  custom_sub_domain_name: Optional[pulumi.Input[str]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
@@ -131,11 +146,13 @@ class AccountPropertiesArgs:
                  migration_token: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 rai_monitor_config: Optional[pulumi.Input['RaiMonitorConfigArgs']] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
                  restrict_outbound_network_access: Optional[pulumi.Input[bool]] = None,
                  user_owned_storage: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]] = None):
         """
         Properties of Cognitive Services account.
+        :param pulumi.Input['UserOwnedAmlWorkspaceArgs'] aml_workspace: The user owned AML workspace properties.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: The api properties for special APIs.
         :param pulumi.Input[str] custom_sub_domain_name: Optional subdomain name used for token-based authentication.
         :param pulumi.Input[bool] dynamic_throttling_enabled: The flag to enable dynamic throttling.
@@ -144,10 +161,13 @@ class AccountPropertiesArgs:
         :param pulumi.Input[str] migration_token: Resource migration token.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this account.
+        :param pulumi.Input['RaiMonitorConfigArgs'] rai_monitor_config: Cognitive Services Rai Monitor Config.
         :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
         """
         if allowed_fqdn_list is not None:
             pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
+        if aml_workspace is not None:
+            pulumi.set(__self__, "aml_workspace", aml_workspace)
         if api_properties is not None:
             pulumi.set(__self__, "api_properties", api_properties)
         if custom_sub_domain_name is not None:
@@ -166,6 +186,8 @@ class AccountPropertiesArgs:
             pulumi.set(__self__, "network_acls", network_acls)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if rai_monitor_config is not None:
+            pulumi.set(__self__, "rai_monitor_config", rai_monitor_config)
         if restore is not None:
             pulumi.set(__self__, "restore", restore)
         if restrict_outbound_network_access is not None:
@@ -181,6 +203,18 @@ class AccountPropertiesArgs:
     @allowed_fqdn_list.setter
     def allowed_fqdn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_fqdn_list", value)
+
+    @property
+    @pulumi.getter(name="amlWorkspace")
+    def aml_workspace(self) -> Optional[pulumi.Input['UserOwnedAmlWorkspaceArgs']]:
+        """
+        The user owned AML workspace properties.
+        """
+        return pulumi.get(self, "aml_workspace")
+
+    @aml_workspace.setter
+    def aml_workspace(self, value: Optional[pulumi.Input['UserOwnedAmlWorkspaceArgs']]):
+        pulumi.set(self, "aml_workspace", value)
 
     @property
     @pulumi.getter(name="apiProperties")
@@ -286,6 +320,18 @@ class AccountPropertiesArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="raiMonitorConfig")
+    def rai_monitor_config(self) -> Optional[pulumi.Input['RaiMonitorConfigArgs']]:
+        """
+        Cognitive Services Rai Monitor Config.
+        """
+        return pulumi.get(self, "rai_monitor_config")
+
+    @rai_monitor_config.setter
+    def rai_monitor_config(self, value: Optional[pulumi.Input['RaiMonitorConfigArgs']]):
+        pulumi.set(self, "rai_monitor_config", value)
 
     @property
     @pulumi.getter
@@ -727,6 +773,138 @@ class CommitmentPlanPropertiesArgs:
 
 
 if not MYPY:
+    class CustomBlocklistConfigArgsDict(TypedDict):
+        """
+        Gets or sets the source to which filter applies.
+        """
+        blocking: NotRequired[pulumi.Input[bool]]
+        """
+        If blocking would occur.
+        """
+        blocklist_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of ContentFilter.
+        """
+        source: NotRequired[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]
+        """
+        Content source to apply the Content Filters.
+        """
+elif False:
+    CustomBlocklistConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomBlocklistConfigArgs:
+    def __init__(__self__, *,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 blocklist_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]] = None):
+        """
+        Gets or sets the source to which filter applies.
+        :param pulumi.Input[bool] blocking: If blocking would occur.
+        :param pulumi.Input[str] blocklist_name: Name of ContentFilter.
+        :param pulumi.Input[Union[str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if blocklist_name is not None:
+            pulumi.set(__self__, "blocklist_name", blocklist_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter(name="blocklistName")
+    def blocklist_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "blocklist_name")
+
+    @blocklist_name.setter
+    def blocklist_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blocklist_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class DeploymentCapacitySettingsArgsDict(TypedDict):
+        """
+        Internal use only.
+        """
+        designated_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The designated capacity.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority of this capacity setting.
+        """
+elif False:
+    DeploymentCapacitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentCapacitySettingsArgs:
+    def __init__(__self__, *,
+                 designated_capacity: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[int]] = None):
+        """
+        Internal use only.
+        :param pulumi.Input[int] designated_capacity: The designated capacity.
+        :param pulumi.Input[int] priority: The priority of this capacity setting.
+        """
+        if designated_capacity is not None:
+            pulumi.set(__self__, "designated_capacity", designated_capacity)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter(name="designatedCapacity")
+    def designated_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The designated capacity.
+        """
+        return pulumi.get(self, "designated_capacity")
+
+    @designated_capacity.setter
+    def designated_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "designated_capacity", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority of this capacity setting.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+
+if not MYPY:
     class DeploymentModelArgsDict(TypedDict):
         """
         Properties of Cognitive Services account deployment model.
@@ -739,9 +917,17 @@ if not MYPY:
         """
         Deployment model name.
         """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        Deployment model publisher.
+        """
         source: NotRequired[pulumi.Input[str]]
         """
         Optional. Deployment model source ARM resource ID.
+        """
+        source_account: NotRequired[pulumi.Input[str]]
+        """
+        Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
         """
         version: NotRequired[pulumi.Input[str]]
         """
@@ -755,21 +941,29 @@ class DeploymentModelArgs:
     def __init__(__self__, *,
                  format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
+                 source_account: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Properties of Cognitive Services account deployment model.
         :param pulumi.Input[str] format: Deployment model format.
         :param pulumi.Input[str] name: Deployment model name.
+        :param pulumi.Input[str] publisher: Deployment model publisher.
         :param pulumi.Input[str] source: Optional. Deployment model source ARM resource ID.
+        :param pulumi.Input[str] source_account: Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
         :param pulumi.Input[str] version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         if format is not None:
             pulumi.set(__self__, "format", format)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
         if source is not None:
             pulumi.set(__self__, "source", source)
+        if source_account is not None:
+            pulumi.set(__self__, "source_account", source_account)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -799,6 +993,18 @@ class DeploymentModelArgs:
 
     @property
     @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        Deployment model publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
         Optional. Deployment model source ARM resource ID.
@@ -808,6 +1014,18 @@ class DeploymentModelArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceAccount")
+    def source_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
+        """
+        return pulumi.get(self, "source_account")
+
+    @source_account.setter
+    def source_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_account", value)
 
     @property
     @pulumi.getter
@@ -827,9 +1045,21 @@ if not MYPY:
         """
         Properties of Cognitive Services account deployment.
         """
+        capacity_settings: NotRequired[pulumi.Input['DeploymentCapacitySettingsArgsDict']]
+        """
+        Internal use only.
+        """
+        current_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The current capacity.
+        """
         model: NotRequired[pulumi.Input['DeploymentModelArgsDict']]
         """
         Properties of Cognitive Services account deployment model.
+        """
+        parent_deployment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of parent deployment.
         """
         rai_policy_name: NotRequired[pulumi.Input[str]]
         """
@@ -837,7 +1067,7 @@ if not MYPY:
         """
         scale_settings: NotRequired[pulumi.Input['DeploymentScaleSettingsArgsDict']]
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         """
         version_upgrade_option: NotRequired[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]
         """
@@ -849,25 +1079,61 @@ elif False:
 @pulumi.input_type
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
+                 capacity_settings: Optional[pulumi.Input['DeploymentCapacitySettingsArgs']] = None,
+                 current_capacity: Optional[pulumi.Input[int]] = None,
                  model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
+                 parent_deployment_name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input['DeploymentScaleSettingsArgs']] = None,
                  version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
         """
         Properties of Cognitive Services account deployment.
+        :param pulumi.Input['DeploymentCapacitySettingsArgs'] capacity_settings: Internal use only.
+        :param pulumi.Input[int] current_capacity: The current capacity.
         :param pulumi.Input['DeploymentModelArgs'] model: Properties of Cognitive Services account deployment model.
+        :param pulumi.Input[str] parent_deployment_name: The name of parent deployment.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model.
+        :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
         """
+        if capacity_settings is not None:
+            pulumi.set(__self__, "capacity_settings", capacity_settings)
+        if current_capacity is not None:
+            pulumi.set(__self__, "current_capacity", current_capacity)
         if model is not None:
             pulumi.set(__self__, "model", model)
+        if parent_deployment_name is not None:
+            pulumi.set(__self__, "parent_deployment_name", parent_deployment_name)
         if rai_policy_name is not None:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
         if version_upgrade_option is not None:
             pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter(name="capacitySettings")
+    def capacity_settings(self) -> Optional[pulumi.Input['DeploymentCapacitySettingsArgs']]:
+        """
+        Internal use only.
+        """
+        return pulumi.get(self, "capacity_settings")
+
+    @capacity_settings.setter
+    def capacity_settings(self, value: Optional[pulumi.Input['DeploymentCapacitySettingsArgs']]):
+        pulumi.set(self, "capacity_settings", value)
+
+    @property
+    @pulumi.getter(name="currentCapacity")
+    def current_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current capacity.
+        """
+        return pulumi.get(self, "current_capacity")
+
+    @current_capacity.setter
+    def current_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "current_capacity", value)
 
     @property
     @pulumi.getter
@@ -880,6 +1146,18 @@ class DeploymentPropertiesArgs:
     @model.setter
     def model(self, value: Optional[pulumi.Input['DeploymentModelArgs']]):
         pulumi.set(self, "model", value)
+
+    @property
+    @pulumi.getter(name="parentDeploymentName")
+    def parent_deployment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of parent deployment.
+        """
+        return pulumi.get(self, "parent_deployment_name")
+
+    @parent_deployment_name.setter
+    def parent_deployment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_deployment_name", value)
 
     @property
     @pulumi.getter(name="raiPolicyName")
@@ -897,7 +1175,7 @@ class DeploymentPropertiesArgs:
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[pulumi.Input['DeploymentScaleSettingsArgs']]:
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         """
         return pulumi.get(self, "scale_settings")
 
@@ -921,7 +1199,7 @@ class DeploymentPropertiesArgs:
 if not MYPY:
     class DeploymentScaleSettingsArgsDict(TypedDict):
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         """
         capacity: NotRequired[pulumi.Input[int]]
         """
@@ -940,7 +1218,7 @@ class DeploymentScaleSettingsArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  scale_type: Optional[pulumi.Input[Union[str, 'DeploymentScaleType']]] = None):
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param pulumi.Input[int] capacity: Deployment capacity.
         :param pulumi.Input[Union[str, 'DeploymentScaleType']] scale_type: Deployment scale type.
         """
@@ -1344,6 +1622,10 @@ if not MYPY:
         """
         A set of rules governing the network accessibility.
         """
+        bypass: NotRequired[pulumi.Input[Union[str, 'ByPassSelection']]]
+        """
+        Setting for trusted services.
+        """
         default_action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleAction']]]
         """
         The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -1362,21 +1644,37 @@ elif False:
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
+                 bypass: Optional[pulumi.Input[Union[str, 'ByPassSelection']]] = None,
                  default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         A set of rules governing the network accessibility.
+        :param pulumi.Input[Union[str, 'ByPassSelection']] bypass: Setting for trusted services.
         :param pulumi.Input[Union[str, 'NetworkRuleAction']] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[pulumi.Input[Union[str, 'ByPassSelection']]]:
+        """
+        Setting for trusted services.
+        """
+        return pulumi.get(self, "bypass")
+
+    @bypass.setter
+    def bypass(self, value: Optional[pulumi.Input[Union[str, 'ByPassSelection']]]):
+        pulumi.set(self, "bypass", value)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -1547,62 +1845,6 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 if not MYPY:
-    class RaiBlocklistConfigArgsDict(TypedDict):
-        """
-        Azure OpenAI blocklist config.
-        """
-        blocking: NotRequired[pulumi.Input[bool]]
-        """
-        If blocking would occur.
-        """
-        blocklist_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of ContentFilter.
-        """
-elif False:
-    RaiBlocklistConfigArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RaiBlocklistConfigArgs:
-    def __init__(__self__, *,
-                 blocking: Optional[pulumi.Input[bool]] = None,
-                 blocklist_name: Optional[pulumi.Input[str]] = None):
-        """
-        Azure OpenAI blocklist config.
-        :param pulumi.Input[bool] blocking: If blocking would occur.
-        :param pulumi.Input[str] blocklist_name: Name of ContentFilter.
-        """
-        if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
-        if blocklist_name is not None:
-            pulumi.set(__self__, "blocklist_name", blocklist_name)
-
-    @property
-    @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If blocking would occur.
-        """
-        return pulumi.get(self, "blocking")
-
-    @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "blocking", value)
-
-    @property
-    @pulumi.getter(name="blocklistName")
-    def blocklist_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of ContentFilter.
-        """
-        return pulumi.get(self, "blocklist_name")
-
-    @blocklist_name.setter
-    def blocklist_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "blocklist_name", value)
-
-
-if not MYPY:
     class RaiBlocklistItemPropertiesArgsDict(TypedDict):
         """
         RAI Custom Blocklist Item properties.
@@ -1695,13 +1937,65 @@ class RaiBlocklistPropertiesArgs:
 
 
 if not MYPY:
+    class RaiMonitorConfigArgsDict(TypedDict):
+        """
+        Cognitive Services Rai Monitor Config.
+        """
+        adx_storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The storage resource Id.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The identity client Id to access the storage.
+        """
+elif False:
+    RaiMonitorConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RaiMonitorConfigArgs:
+    def __init__(__self__, *,
+                 adx_storage_resource_id: Optional[pulumi.Input[str]] = None,
+                 identity_client_id: Optional[pulumi.Input[str]] = None):
+        """
+        Cognitive Services Rai Monitor Config.
+        :param pulumi.Input[str] adx_storage_resource_id: The storage resource Id.
+        :param pulumi.Input[str] identity_client_id: The identity client Id to access the storage.
+        """
+        if adx_storage_resource_id is not None:
+            pulumi.set(__self__, "adx_storage_resource_id", adx_storage_resource_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @property
+    @pulumi.getter(name="adxStorageResourceId")
+    def adx_storage_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage resource Id.
+        """
+        return pulumi.get(self, "adx_storage_resource_id")
+
+    @adx_storage_resource_id.setter
+    def adx_storage_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "adx_storage_resource_id", value)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity client Id to access the storage.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+
+if not MYPY:
     class RaiPolicyContentFilterArgsDict(TypedDict):
         """
         Azure OpenAI Content Filter.
-        """
-        allowed_content_level: NotRequired[pulumi.Input[Union[str, 'AllowedContentLevel']]]
-        """
-        Level at which content is filtered.
         """
         blocking: NotRequired[pulumi.Input[bool]]
         """
@@ -1715,6 +2009,10 @@ if not MYPY:
         """
         Name of ContentFilter.
         """
+        severity_threshold: NotRequired[pulumi.Input[Union[str, 'ContentLevel']]]
+        """
+        Level at which content is filtered.
+        """
         source: NotRequired[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]
         """
         Content source to apply the Content Filters.
@@ -1725,41 +2023,29 @@ elif False:
 @pulumi.input_type
 class RaiPolicyContentFilterArgs:
     def __init__(__self__, *,
-                 allowed_content_level: Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 severity_threshold: Optional[pulumi.Input[Union[str, 'ContentLevel']]] = None,
                  source: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]] = None):
         """
         Azure OpenAI Content Filter.
-        :param pulumi.Input[Union[str, 'AllowedContentLevel']] allowed_content_level: Level at which content is filtered.
         :param pulumi.Input[bool] blocking: If blocking would occur.
         :param pulumi.Input[bool] enabled: If the ContentFilter is enabled.
         :param pulumi.Input[str] name: Name of ContentFilter.
+        :param pulumi.Input[Union[str, 'ContentLevel']] severity_threshold: Level at which content is filtered.
         :param pulumi.Input[Union[str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
         """
-        if allowed_content_level is not None:
-            pulumi.set(__self__, "allowed_content_level", allowed_content_level)
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if severity_threshold is not None:
+            pulumi.set(__self__, "severity_threshold", severity_threshold)
         if source is not None:
             pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter(name="allowedContentLevel")
-    def allowed_content_level(self) -> Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]]:
-        """
-        Level at which content is filtered.
-        """
-        return pulumi.get(self, "allowed_content_level")
-
-    @allowed_content_level.setter
-    def allowed_content_level(self, value: Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]]):
-        pulumi.set(self, "allowed_content_level", value)
 
     @property
     @pulumi.getter
@@ -1798,6 +2084,18 @@ class RaiPolicyContentFilterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="severityThreshold")
+    def severity_threshold(self) -> Optional[pulumi.Input[Union[str, 'ContentLevel']]]:
+        """
+        Level at which content is filtered.
+        """
+        return pulumi.get(self, "severity_threshold")
+
+    @severity_threshold.setter
+    def severity_threshold(self, value: Optional[pulumi.Input[Union[str, 'ContentLevel']]]):
+        pulumi.set(self, "severity_threshold", value)
+
+    @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]:
         """
@@ -1817,23 +2115,19 @@ if not MYPY:
         """
         base_policy_name: NotRequired[pulumi.Input[str]]
         """
-        Name of the base Content Filters.
-        """
-        completion_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgsDict']]]]
-        """
-        The list of blocklists for completion.
+        Name of Rai policy.
         """
         content_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgsDict']]]]
         """
         The list of Content Filters.
         """
+        custom_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgsDict']]]]
+        """
+        The list of custom Blocklist.
+        """
         mode: NotRequired[pulumi.Input[Union[str, 'RaiPolicyMode']]]
         """
-        Content Filters mode.
-        """
-        prompt_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgsDict']]]]
-        """
-        The list of blocklists for prompt.
+        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         """
 elif False:
     RaiPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1842,52 +2136,36 @@ elif False:
 class RaiPolicyPropertiesArgs:
     def __init__(__self__, *,
                  base_policy_name: Optional[pulumi.Input[str]] = None,
-                 completion_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]] = None,
                  content_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]]] = None,
-                 mode: Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]] = None,
-                 prompt_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]] = None):
+                 custom_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]] = None):
         """
         Azure OpenAI Content Filters properties.
-        :param pulumi.Input[str] base_policy_name: Name of the base Content Filters.
-        :param pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]] completion_blocklists: The list of blocklists for completion.
+        :param pulumi.Input[str] base_policy_name: Name of Rai policy.
         :param pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]] content_filters: The list of Content Filters.
-        :param pulumi.Input[Union[str, 'RaiPolicyMode']] mode: Content Filters mode.
-        :param pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]] prompt_blocklists: The list of blocklists for prompt.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]] custom_blocklists: The list of custom Blocklist.
+        :param pulumi.Input[Union[str, 'RaiPolicyMode']] mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         """
         if base_policy_name is not None:
             pulumi.set(__self__, "base_policy_name", base_policy_name)
-        if completion_blocklists is not None:
-            pulumi.set(__self__, "completion_blocklists", completion_blocklists)
         if content_filters is not None:
             pulumi.set(__self__, "content_filters", content_filters)
+        if custom_blocklists is not None:
+            pulumi.set(__self__, "custom_blocklists", custom_blocklists)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
-        if prompt_blocklists is not None:
-            pulumi.set(__self__, "prompt_blocklists", prompt_blocklists)
 
     @property
     @pulumi.getter(name="basePolicyName")
     def base_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the base Content Filters.
+        Name of Rai policy.
         """
         return pulumi.get(self, "base_policy_name")
 
     @base_policy_name.setter
     def base_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "base_policy_name", value)
-
-    @property
-    @pulumi.getter(name="completionBlocklists")
-    def completion_blocklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]:
-        """
-        The list of blocklists for completion.
-        """
-        return pulumi.get(self, "completion_blocklists")
-
-    @completion_blocklists.setter
-    def completion_blocklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]):
-        pulumi.set(self, "completion_blocklists", value)
 
     @property
     @pulumi.getter(name="contentFilters")
@@ -1902,28 +2180,28 @@ class RaiPolicyPropertiesArgs:
         pulumi.set(self, "content_filters", value)
 
     @property
+    @pulumi.getter(name="customBlocklists")
+    def custom_blocklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]]]:
+        """
+        The list of custom Blocklist.
+        """
+        return pulumi.get(self, "custom_blocklists")
+
+    @custom_blocklists.setter
+    def custom_blocklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]]]):
+        pulumi.set(self, "custom_blocklists", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]]:
         """
-        Content Filters mode.
+        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]]):
         pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter(name="promptBlocklists")
-    def prompt_blocklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]:
-        """
-        The list of blocklists for prompt.
-        """
-        return pulumi.get(self, "prompt_blocklists")
-
-    @prompt_blocklists.setter
-    def prompt_blocklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]):
-        pulumi.set(self, "prompt_blocklists", value)
 
 
 if not MYPY:
@@ -2115,6 +2393,62 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
+
+
+if not MYPY:
+    class UserOwnedAmlWorkspaceArgsDict(TypedDict):
+        """
+        The user owned AML workspace for Cognitive Services account.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Identity Client id of a AML workspace resource.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Full resource id of a AML workspace resource.
+        """
+elif False:
+    UserOwnedAmlWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserOwnedAmlWorkspaceArgs:
+    def __init__(__self__, *,
+                 identity_client_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The user owned AML workspace for Cognitive Services account.
+        :param pulumi.Input[str] identity_client_id: Identity Client id of a AML workspace resource.
+        :param pulumi.Input[str] resource_id: Full resource id of a AML workspace resource.
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity Client id of a AML workspace resource.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full resource id of a AML workspace resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:

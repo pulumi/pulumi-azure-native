@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get container app resiliency policy.
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  */
 export function getAppResiliency(args: GetAppResiliencyArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResiliencyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetAppResiliencyArgs {
  */
 export interface GetAppResiliencyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Policy that defines circuit breaker conditions
      */
     readonly circuitBreakerPolicy?: outputs.app.CircuitBreakerPolicyResponse;
@@ -54,7 +56,7 @@ export interface GetAppResiliencyResult {
      */
     readonly httpRetryPolicy?: outputs.app.HttpRetryPolicyResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -84,9 +86,7 @@ export interface GetAppResiliencyResult {
 }
 /**
  * Get container app resiliency policy.
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  */
 export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppResiliencyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

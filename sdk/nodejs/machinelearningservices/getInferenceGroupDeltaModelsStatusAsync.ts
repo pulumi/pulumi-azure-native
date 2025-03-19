@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contract returning to user the delta models.
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getInferenceGroupDeltaModelsStatusAsync(args: GetInferenceGroupDeltaModelsStatusAsyncArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceGroupDeltaModelsStatusAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +77,7 @@ export interface GetInferenceGroupDeltaModelsStatusAsyncResult {
 }
 /**
  * Contract returning to user the delta models.
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getInferenceGroupDeltaModelsStatusAsyncOutput(args: GetInferenceGroupDeltaModelsStatusAsyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupDeltaModelsStatusAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

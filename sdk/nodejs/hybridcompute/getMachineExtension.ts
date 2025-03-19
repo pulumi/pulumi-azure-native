@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * Azure REST API version: 2022-12-27.
- *
- * Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Azure REST API version: 2024-07-10.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetMachineExtensionArgs {
  * Describes a Machine Extension.
  */
 export interface GetMachineExtensionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -72,9 +74,7 @@ export interface GetMachineExtensionResult {
 }
 /**
  * The operation to get the extension.
- * Azure REST API version: 2022-12-27.
- *
- * Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Azure REST API version: 2024-07-10.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

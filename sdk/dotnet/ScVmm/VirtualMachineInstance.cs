@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// Define the virtualMachineInstance.
-    /// Azure REST API version: 2023-04-01-preview.
-    /// 
-    /// Other available API versions: 2023-10-07, 2024-06-01.
+    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualMachineInstance")]
     public partial class VirtualMachineInstance : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         [Output("availabilitySets")]
         public Output<ImmutableArray<Outputs.VirtualMachineInstancePropertiesResponseAvailabilitySets>> AvailabilitySets { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the extended location.

@@ -26,7 +26,10 @@ class GetSqlServerResult:
     """
     A SQL server.
     """
-    def __init__(__self__, cores=None, edition=None, id=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, cores=None, edition=None, id=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cores and not isinstance(cores, int):
             raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
@@ -51,6 +54,14 @@ class GetSqlServerResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -123,6 +134,7 @@ class AwaitableGetSqlServerResult(GetSqlServerResult):
         if False:
             yield self
         return GetSqlServerResult(
+            azure_api_version=self.azure_api_version,
             cores=self.cores,
             edition=self.edition,
             id=self.id,
@@ -157,6 +169,7 @@ def get_sql_server(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuredata:getSqlServer', __args__, opts=opts, typ=GetSqlServerResult).value
 
     return AwaitableGetSqlServerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cores=pulumi.get(__ret__, 'cores'),
         edition=pulumi.get(__ret__, 'edition'),
         id=pulumi.get(__ret__, 'id'),
@@ -188,6 +201,7 @@ def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredata:getSqlServer', __args__, opts=opts, typ=GetSqlServerResult)
     return __ret__.apply(lambda __response__: GetSqlServerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cores=pulumi.get(__response__, 'cores'),
         edition=pulumi.get(__response__, 'edition'),
         id=pulumi.get(__response__, 'id'),

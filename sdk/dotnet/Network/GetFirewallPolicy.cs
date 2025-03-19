@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Firewall Policy.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Firewall Policy.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Firewall Policy.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetFirewallPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The parent firewall policy from which rules are inherited.
         /// </summary>
         public readonly Outputs.SubResourceResponse? BasePolicy;
@@ -153,6 +151,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> RuleCollectionGroups;
         /// <summary>
+        /// A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)
+        /// </summary>
+        public readonly string Size;
+        /// <summary>
         /// The Firewall Policy SKU.
         /// </summary>
         public readonly Outputs.FirewallPolicySkuResponse? Sku;
@@ -187,6 +189,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
+            string azureApiVersion,
+
             Outputs.SubResourceResponse? basePolicy,
 
             ImmutableArray<Outputs.SubResourceResponse> childPolicies,
@@ -215,6 +219,8 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.SubResourceResponse> ruleCollectionGroups,
 
+            string size,
+
             Outputs.FirewallPolicySkuResponse? sku,
 
             Outputs.FirewallPolicySNATResponse? snat,
@@ -231,6 +237,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BasePolicy = basePolicy;
             ChildPolicies = childPolicies;
             DnsSettings = dnsSettings;
@@ -245,6 +252,7 @@ namespace Pulumi.AzureNative.Network
             Name = name;
             ProvisioningState = provisioningState;
             RuleCollectionGroups = ruleCollectionGroups;
+            Size = size;
             Sku = sku;
             Snat = snat;
             Sql = sql;

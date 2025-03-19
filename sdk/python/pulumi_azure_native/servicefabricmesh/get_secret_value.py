@@ -26,7 +26,10 @@ class GetSecretValueResult:
     """
     This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,6 +51,14 @@ class GetSecretValueResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -112,6 +123,7 @@ class AwaitableGetSecretValueResult(GetSecretValueResult):
         if False:
             yield self
         return GetSecretValueResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -142,6 +154,7 @@ def get_secret_value(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getSecretValue', __args__, opts=opts, typ=GetSecretValueResult).value
 
     return AwaitableGetSecretValueResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -169,6 +182,7 @@ def get_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getSecretValue', __args__, opts=opts, typ=GetSecretValueResult)
     return __ret__.apply(lambda __response__: GetSecretValueResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

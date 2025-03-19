@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure OpenAI Content Filters resource.
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getRaiPolicy(args: GetRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetRaiPolicyArgs {
  */
 export interface GetRaiPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -69,9 +71,7 @@ export interface GetRaiPolicyResult {
 }
 /**
  * Azure OpenAI Content Filters resource.
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

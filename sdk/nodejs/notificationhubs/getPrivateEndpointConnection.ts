@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-09-01, 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -64,9 +66,7 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-09-01, 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

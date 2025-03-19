@@ -5,15 +5,32 @@
 from enum import Enum
 
 __all__ = [
+    'AddressClassification',
     'AddressType',
+    'AutoProvisioningStatus',
     'ChildConfigurationType',
     'DoubleEncryptionStatus',
     'NotificationStageName',
     'OrderItemType',
     'OrderMode',
     'SupportedFilterTypes',
+    'TermCommitmentType',
     'TransportShipmentTypes',
 ]
+
+
+class AddressClassification(str, Enum):
+    """
+    Type of address based on its usage context.
+    """
+    SHIPPING = "Shipping"
+    """
+    Shipping address for the order.
+    """
+    SITE = "Site"
+    """
+    Site Address.
+    """
 
 
 class AddressType(str, Enum):
@@ -34,6 +51,20 @@ class AddressType(str, Enum):
     """
 
 
+class AutoProvisioningStatus(str, Enum):
+    """
+    Auto Provisioning Details.
+    """
+    ENABLED = "Enabled"
+    """
+    Provisioning Enabled. Will act as pre-approved, and arc extension will be enabled as soon as the device is verified to be at the right edge location.
+    """
+    DISABLED = "Disabled"
+    """
+    Provisioning Disabled.
+    """
+
+
 class ChildConfigurationType(str, Enum):
     DEVICE_CONFIGURATION = "DeviceConfiguration"
     """
@@ -51,11 +82,11 @@ class DoubleEncryptionStatus(str, Enum):
     """
     DISABLED = "Disabled"
     """
-    Double encryption is disabled
+    Double encryption is disabled.
     """
     ENABLED = "Enabled"
     """
-    Double encryption is enabled
+    Double encryption is enabled.
     """
 
 
@@ -85,6 +116,10 @@ class OrderItemType(str, Enum):
     """
     Rental OrderItem.
     """
+    EXTERNAL = "External"
+    """
+    Orders placed outside of azure.
+    """
 
 
 class OrderMode(str, Enum):
@@ -112,6 +147,24 @@ class SupportedFilterTypes(str, Enum):
     DOUBLE_ENCRYPTION_STATUS = "DoubleEncryptionStatus"
     """
     Double encryption status.
+    """
+
+
+class TermCommitmentType(str, Enum):
+    """
+    Term Commitment Type
+    """
+    NONE = "None"
+    """
+    Pay as you go Term Commitment Model.
+    """
+    TRIAL = "Trial"
+    """
+    Trial Term Commitment Model.
+    """
+    TIMED = "Timed"
+    """
+    Time based Term Commitment Model.
     """
 
 

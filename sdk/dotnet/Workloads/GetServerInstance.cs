@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetServerInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration data for this server instance.
         /// </summary>
         public readonly Outputs.ConfigurationDataResponse ConfigurationData;
@@ -161,6 +165,8 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetServerInstanceResult(
+            string azureApiVersion,
+
             Outputs.ConfigurationDataResponse configurationData,
 
             Outputs.SAPMigrateErrorResponse errors,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConfigurationData = configurationData;
             Errors = errors;
             Id = id;

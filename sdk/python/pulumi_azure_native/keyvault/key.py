@@ -117,9 +117,7 @@ class Key(pulumi.CustomResource):
                  __props__=None):
         """
         The key resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
-
-        Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +135,7 @@ class Key(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The key resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
-
-        Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.
@@ -182,6 +178,7 @@ class Key(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["attributes"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["curve_name"] = None
             __props__.__dict__["key_ops"] = None
             __props__.__dict__["key_size"] = None
@@ -218,6 +215,7 @@ class Key(pulumi.CustomResource):
         __props__ = KeyArgs.__new__(KeyArgs)
 
         __props__.__dict__["attributes"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["curve_name"] = None
         __props__.__dict__["key_ops"] = None
         __props__.__dict__["key_size"] = None
@@ -241,10 +239,18 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "attributes")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="curveName")
     def curve_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         """
         return pulumi.get(self, "curve_name")
 
@@ -257,7 +263,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keySize")
     def key_size(self) -> pulumi.Output[Optional[int]]:
         """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         """
         return pulumi.get(self, "key_size")
 

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of queue Resource.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class Queue extends pulumi.CustomResource {
      * ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Message Count Details.
      */
@@ -182,6 +184,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -194,6 +197,7 @@ export class Queue extends pulumi.CustomResource {
         } else {
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["autoDeleteOnIdle"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deadLetteringOnMessageExpiration"] = undefined /*out*/;
@@ -299,7 +303,7 @@ export interface QueueArgs {
      */
     requiresSession?: pulumi.Input<boolean>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

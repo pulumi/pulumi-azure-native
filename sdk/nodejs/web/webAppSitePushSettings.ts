@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Push settings for the App.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppSitePushSettings extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppSitePushSettings.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
      */
@@ -96,8 +98,10 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tagWhitelistJson"] = args ? args.tagWhitelistJson : undefined;
             resourceInputs["tagsRequiringAuth"] = args ? args.tagsRequiringAuth : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dynamicTagsJson"] = undefined /*out*/;
             resourceInputs["isPushEnabled"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

@@ -26,13 +26,16 @@ class GetIdentityProviderResult:
     """
     Identity Provider details.
     """
-    def __init__(__self__, allowed_tenants=None, authority=None, client_id=None, client_library=None, client_secret=None, id=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
+    def __init__(__self__, allowed_tenants=None, authority=None, azure_api_version=None, client_id=None, client_library=None, client_secret=None, id=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
         if allowed_tenants and not isinstance(allowed_tenants, list):
             raise TypeError("Expected argument 'allowed_tenants' to be a list")
         pulumi.set(__self__, "allowed_tenants", allowed_tenants)
         if authority and not isinstance(authority, str):
             raise TypeError("Expected argument 'authority' to be a str")
         pulumi.set(__self__, "authority", authority)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -82,6 +85,14 @@ class GetIdentityProviderResult:
         OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
         """
         return pulumi.get(self, "authority")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientId")
@@ -180,6 +191,7 @@ class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
         return GetIdentityProviderResult(
             allowed_tenants=self.allowed_tenants,
             authority=self.authority,
+            azure_api_version=self.azure_api_version,
             client_id=self.client_id,
             client_library=self.client_library,
             client_secret=self.client_secret,
@@ -199,9 +211,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -218,6 +228,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
     return AwaitableGetIdentityProviderResult(
         allowed_tenants=pulumi.get(__ret__, 'allowed_tenants'),
         authority=pulumi.get(__ret__, 'authority'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_id=pulumi.get(__ret__, 'client_id'),
         client_library=pulumi.get(__ret__, 'client_library'),
         client_secret=pulumi.get(__ret__, 'client_secret'),
@@ -235,9 +246,7 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -253,6 +262,7 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
     return __ret__.apply(lambda __response__: GetIdentityProviderResult(
         allowed_tenants=pulumi.get(__response__, 'allowed_tenants'),
         authority=pulumi.get(__response__, 'authority'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_id=pulumi.get(__response__, 'client_id'),
         client_library=pulumi.get(__response__, 'client_library'),
         client_secret=pulumi.get(__response__, 'client_secret'),

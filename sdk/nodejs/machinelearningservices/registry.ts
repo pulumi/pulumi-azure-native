@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -39,6 +37,10 @@ export class Registry extends pulumi.CustomResource {
         return obj['__pulumiType'] === Registry.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
@@ -101,10 +103,12 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -116,7 +120,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20221201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230401:Registry" }, { type: "azure-native:machinelearningservices/v20230401preview:Registry" }, { type: "azure-native:machinelearningservices/v20230601preview:Registry" }, { type: "azure-native:machinelearningservices/v20230801preview:Registry" }, { type: "azure-native:machinelearningservices/v20231001:Registry" }, { type: "azure-native:machinelearningservices/v20240101preview:Registry" }, { type: "azure-native:machinelearningservices/v20240401:Registry" }, { type: "azure-native:machinelearningservices/v20240401preview:Registry" }, { type: "azure-native:machinelearningservices/v20240701preview:Registry" }, { type: "azure-native:machinelearningservices/v20241001:Registry" }, { type: "azure-native:machinelearningservices/v20241001preview:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20221201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230401:Registry" }, { type: "azure-native:machinelearningservices/v20230401preview:Registry" }, { type: "azure-native:machinelearningservices/v20230601preview:Registry" }, { type: "azure-native:machinelearningservices/v20230801preview:Registry" }, { type: "azure-native:machinelearningservices/v20231001:Registry" }, { type: "azure-native:machinelearningservices/v20240101preview:Registry" }, { type: "azure-native:machinelearningservices/v20240401:Registry" }, { type: "azure-native:machinelearningservices/v20240401preview:Registry" }, { type: "azure-native:machinelearningservices/v20240701preview:Registry" }, { type: "azure-native:machinelearningservices/v20241001:Registry" }, { type: "azure-native:machinelearningservices/v20241001preview:Registry" }, { type: "azure-native:machinelearningservices/v20250101preview:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }

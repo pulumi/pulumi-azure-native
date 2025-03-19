@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.Cdn.Inputs
             set => _transforms = value;
         }
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleRequestHeaderConditionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

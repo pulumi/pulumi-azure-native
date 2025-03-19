@@ -27,7 +27,10 @@ class GetSqlVirtualMachineGroupResult:
     """
     A SQL virtual machine group.
     """
-    def __init__(__self__, cluster_configuration=None, cluster_manager_type=None, id=None, location=None, name=None, provisioning_state=None, scale_type=None, sql_image_offer=None, sql_image_sku=None, system_data=None, tags=None, type=None, wsfc_domain_profile=None):
+    def __init__(__self__, azure_api_version=None, cluster_configuration=None, cluster_manager_type=None, id=None, location=None, name=None, provisioning_state=None, scale_type=None, sql_image_offer=None, sql_image_sku=None, system_data=None, tags=None, type=None, wsfc_domain_profile=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_configuration and not isinstance(cluster_configuration, str):
             raise TypeError("Expected argument 'cluster_configuration' to be a str")
         pulumi.set(__self__, "cluster_configuration", cluster_configuration)
@@ -67,6 +70,14 @@ class GetSqlVirtualMachineGroupResult:
         if wsfc_domain_profile and not isinstance(wsfc_domain_profile, dict):
             raise TypeError("Expected argument 'wsfc_domain_profile' to be a dict")
         pulumi.set(__self__, "wsfc_domain_profile", wsfc_domain_profile)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterConfiguration")
@@ -179,6 +190,7 @@ class AwaitableGetSqlVirtualMachineGroupResult(GetSqlVirtualMachineGroupResult):
         if False:
             yield self
         return GetSqlVirtualMachineGroupResult(
+            azure_api_version=self.azure_api_version,
             cluster_configuration=self.cluster_configuration,
             cluster_manager_type=self.cluster_manager_type,
             id=self.id,
@@ -199,9 +211,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineGroupResult:
     """
     Gets a SQL virtual machine group.
-    Azure REST API version: 2022-02-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-10-01.
+    Azure REST API version: 2023-10-01.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -214,6 +224,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup', __args__, opts=opts, typ=GetSqlVirtualMachineGroupResult).value
 
     return AwaitableGetSqlVirtualMachineGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_configuration=pulumi.get(__ret__, 'cluster_configuration'),
         cluster_manager_type=pulumi.get(__ret__, 'cluster_manager_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -232,9 +243,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
     Gets a SQL virtual machine group.
-    Azure REST API version: 2022-02-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-10-01.
+    Azure REST API version: 2023-10-01.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -246,6 +255,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup', __args__, opts=opts, typ=GetSqlVirtualMachineGroupResult)
     return __ret__.apply(lambda __response__: GetSqlVirtualMachineGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_configuration=pulumi.get(__response__, 'cluster_configuration'),
         cluster_manager_type=pulumi.get(__response__, 'cluster_manager_type'),
         id=pulumi.get(__response__, 'id'),

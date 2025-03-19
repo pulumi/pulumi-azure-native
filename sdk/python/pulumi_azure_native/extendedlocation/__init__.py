@@ -12,14 +12,3 @@ from .get_resource_sync_rule import *
 from .resource_sync_rule import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.extendedlocation.v20210815 as __v20210815
-    v20210815 = __v20210815
-    import pulumi_azure_native.extendedlocation.v20210831preview as __v20210831preview
-    v20210831preview = __v20210831preview
-else:
-    v20210815 = _utilities.lazy_import('pulumi_azure_native.extendedlocation.v20210815')
-    v20210831preview = _utilities.lazy_import('pulumi_azure_native.extendedlocation.v20210831preview')
-

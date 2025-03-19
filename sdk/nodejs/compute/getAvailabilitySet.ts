@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about an availability set.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetAvailabilitySetArgs {
  */
 export interface GetAvailabilitySetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id
      */
     readonly id: string;
@@ -61,6 +63,10 @@ export interface GetAvailabilitySetResult {
      */
     readonly proximityPlacementGroup?: outputs.compute.SubResourceResponse;
     /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+     */
+    readonly scheduledEventsPolicy?: outputs.compute.ScheduledEventsPolicyResponse;
+    /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
     readonly sku?: outputs.compute.SkuResponse;
@@ -77,15 +83,17 @@ export interface GetAvailabilitySetResult {
      */
     readonly type: string;
     /**
+     * Describes the migration properties on the Availability Set.
+     */
+    readonly virtualMachineScaleSetMigrationInfo: outputs.compute.VirtualMachineScaleSetMigrationInfoResponse;
+    /**
      * A list of references to all virtual machines in the availability set.
      */
     readonly virtualMachines?: outputs.compute.SubResourceResponse[];
 }
 /**
  * Retrieves information about an availability set.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilitySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

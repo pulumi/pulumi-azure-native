@@ -39,6 +39,10 @@ export interface GetCustomResourceProviderResult {
      */
     readonly actions?: outputs.customproviders.CustomRPActionRouteDefinitionResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id
      */
     readonly id: string;

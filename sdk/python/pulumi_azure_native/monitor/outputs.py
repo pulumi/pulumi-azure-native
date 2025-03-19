@@ -17,19 +17,41 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessModeSettingsExclusionResponse',
+    'AccessModeSettingsResponse',
+    'ActionsResponse',
+    'ArmRoleReceiverResponse',
+    'AutomationRunbookReceiverResponse',
+    'AzureAppPushReceiverResponse',
+    'AzureFunctionReceiverResponse',
     'AzureMonitorWorkspaceLogsApiConfigResponse',
     'AzureMonitorWorkspaceLogsExporterResponse',
-    'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
-    'AzureMonitorWorkspaceResponseMetrics',
     'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'BatchProcessorResponse',
     'CacheConfigurationResponse',
     'ConcurrencyConfigurationResponse',
+    'ConditionResponse',
+    'ConditionResponseFailingPeriods',
+    'DimensionResponse',
+    'EmailReceiverResponse',
+    'EventHubReceiverResponse',
     'ExporterResponse',
+    'IdentityResponse',
+    'IncidentReceiverResponse',
+    'IncidentServiceConnectionResponse',
+    'IngestionSettingsResponse',
+    'ItsmReceiverResponse',
+    'JsonArrayMapperResponse',
+    'JsonMapperDestinationFieldResponse',
+    'JsonMapperSourceFieldResponse',
+    'LogicAppReceiverResponse',
+    'ManagedServiceIdentityResponse',
+    'MetricsResponse',
     'NetworkingConfigurationResponse',
     'NetworkingRouteResponse',
     'OtlpReceiverResponse',
     'PersistenceConfigurationsResponse',
+    'PipelineGroupPropertiesResponse',
     'PipelineResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -38,14 +60,577 @@ __all__ = [
     'ReceiverResponse',
     'RecordMapResponse',
     'ResourceMapResponse',
+    'RuleResolveConfigurationResponse',
+    'ScheduledQueryRuleCriteriaResponse',
     'SchemaMapResponse',
     'ScopeMapResponse',
     'ServiceResponse',
+    'SmsReceiverResponse',
     'SyslogReceiverResponse',
     'SystemDataResponse',
     'TcpExporterResponse',
     'UdpReceiverResponse',
+    'UserAssignedIdentityResponse',
+    'UserIdentityPropertiesResponse',
+    'VoiceReceiverResponse',
+    'WebhookReceiverResponse',
 ]
+
+@pulumi.output_type
+class AccessModeSettingsExclusionResponse(dict):
+    """
+    Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestionAccessMode":
+            suggest = "ingestion_access_mode"
+        elif key == "privateEndpointConnectionName":
+            suggest = "private_endpoint_connection_name"
+        elif key == "queryAccessMode":
+            suggest = "query_access_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessModeSettingsExclusionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessModeSettingsExclusionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessModeSettingsExclusionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ingestion_access_mode: Optional[str] = None,
+                 private_endpoint_connection_name: Optional[str] = None,
+                 query_access_mode: Optional[str] = None):
+        """
+        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+        :param str ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        :param str private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        :param str query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        if ingestion_access_mode is not None:
+            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if query_access_mode is not None:
+            pulumi.set(__self__, "query_access_mode", query_access_mode)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> Optional[str]:
+        """
+        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> Optional[str]:
+        """
+        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> Optional[str]:
+        """
+        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+
+@pulumi.output_type
+class AccessModeSettingsResponse(dict):
+    """
+    Properties that define the scope private link mode settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestionAccessMode":
+            suggest = "ingestion_access_mode"
+        elif key == "queryAccessMode":
+            suggest = "query_access_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessModeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessModeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessModeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ingestion_access_mode: str,
+                 query_access_mode: str,
+                 exclusions: Optional[Sequence['outputs.AccessModeSettingsExclusionResponse']] = None):
+        """
+        Properties that define the scope private link mode settings.
+        :param str ingestion_access_mode: Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        :param str query_access_mode: Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        :param Sequence['AccessModeSettingsExclusionResponse'] exclusions: List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+        pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        pulumi.set(__self__, "query_access_mode", query_access_mode)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> str:
+        """
+        Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> str:
+        """
+        Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.AccessModeSettingsExclusionResponse']]:
+        """
+        List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+        return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class ActionsResponse(dict):
+    """
+    Actions to invoke when the alert fires.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroups":
+            suggest = "action_groups"
+        elif key == "actionProperties":
+            suggest = "action_properties"
+        elif key == "customProperties":
+            suggest = "custom_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_groups: Optional[Sequence[str]] = None,
+                 action_properties: Optional[Mapping[str, str]] = None,
+                 custom_properties: Optional[Mapping[str, str]] = None):
+        """
+        Actions to invoke when the alert fires.
+        :param Sequence[str] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param Mapping[str, str] action_properties: The properties of an action properties.
+        :param Mapping[str, str] custom_properties: The properties of an alert payload.
+        """
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[Sequence[str]]:
+        """
+        Action Group resource Ids to invoke when the alert fires.
+        """
+        return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of an action properties.
+        """
+        return pulumi.get(self, "action_properties")
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of an alert payload.
+        """
+        return pulumi.get(self, "custom_properties")
+
+
+@pulumi.output_type
+class ArmRoleReceiverResponse(dict):
+    """
+    An arm role receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleId":
+            suggest = "role_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmRoleReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmRoleReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmRoleReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 role_id: str,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        An arm role receiver.
+        :param str name: The name of the arm role receiver. Names must be unique across all receivers within an action group.
+        :param str role_id: The arm role id.
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_id", role_id)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the arm role receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> str:
+        """
+        The arm role id.
+        """
+        return pulumi.get(self, "role_id")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class AutomationRunbookReceiverResponse(dict):
+    """
+    The Azure Automation Runbook notification receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automationAccountId":
+            suggest = "automation_account_id"
+        elif key == "isGlobalRunbook":
+            suggest = "is_global_runbook"
+        elif key == "runbookName":
+            suggest = "runbook_name"
+        elif key == "webhookResourceId":
+            suggest = "webhook_resource_id"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "serviceUri":
+            suggest = "service_uri"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRunbookReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRunbookReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRunbookReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automation_account_id: str,
+                 is_global_runbook: bool,
+                 runbook_name: str,
+                 webhook_resource_id: str,
+                 managed_identity: Optional[str] = None,
+                 name: Optional[str] = None,
+                 service_uri: Optional[str] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        The Azure Automation Runbook notification receiver.
+        :param str automation_account_id: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        :param bool is_global_runbook: Indicates whether this instance is global runbook.
+        :param str runbook_name: The name for this runbook.
+        :param str webhook_resource_id: The resource id for webhook linked to this runbook.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param str name: Indicates name of the webhook.
+        :param str service_uri: The URI where webhooks should be sent.
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
+        pulumi.set(__self__, "is_global_runbook", is_global_runbook)
+        pulumi.set(__self__, "runbook_name", runbook_name)
+        pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_uri is not None:
+            pulumi.set(__self__, "service_uri", service_uri)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="automationAccountId")
+    def automation_account_id(self) -> str:
+        """
+        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        """
+        return pulumi.get(self, "automation_account_id")
+
+    @property
+    @pulumi.getter(name="isGlobalRunbook")
+    def is_global_runbook(self) -> bool:
+        """
+        Indicates whether this instance is global runbook.
+        """
+        return pulumi.get(self, "is_global_runbook")
+
+    @property
+    @pulumi.getter(name="runbookName")
+    def runbook_name(self) -> str:
+        """
+        The name for this runbook.
+        """
+        return pulumi.get(self, "runbook_name")
+
+    @property
+    @pulumi.getter(name="webhookResourceId")
+    def webhook_resource_id(self) -> str:
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        return pulumi.get(self, "webhook_resource_id")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Indicates name of the webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> Optional[str]:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class AzureAppPushReceiverResponse(dict):
+    """
+    The Azure mobile App push notification receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureAppPushReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureAppPushReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureAppPushReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address: str,
+                 name: str):
+        """
+        The Azure mobile App push notification receiver.
+        :param str email_address: The email address registered for the Azure mobile app.
+        :param str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> str:
+        """
+        The email address registered for the Azure mobile app.
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AzureFunctionReceiverResponse(dict):
+    """
+    An azure function receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionAppResourceId":
+            suggest = "function_app_resource_id"
+        elif key == "functionName":
+            suggest = "function_name"
+        elif key == "httpTriggerUrl":
+            suggest = "http_trigger_url"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFunctionReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFunctionReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFunctionReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_app_resource_id: str,
+                 function_name: str,
+                 http_trigger_url: str,
+                 name: str,
+                 managed_identity: Optional[str] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        An azure function receiver.
+        :param str function_app_resource_id: The azure resource id of the function app.
+        :param str function_name: The function name in the function app.
+        :param str http_trigger_url: The http trigger url where http request sent to.
+        :param str name: The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
+        pulumi.set(__self__, "function_name", function_name)
+        pulumi.set(__self__, "http_trigger_url", http_trigger_url)
+        pulumi.set(__self__, "name", name)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="functionAppResourceId")
+    def function_app_resource_id(self) -> str:
+        """
+        The azure resource id of the function app.
+        """
+        return pulumi.get(self, "function_app_resource_id")
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> str:
+        """
+        The function name in the function app.
+        """
+        return pulumi.get(self, "function_name")
+
+    @property
+    @pulumi.getter(name="httpTriggerUrl")
+    def http_trigger_url(self) -> str:
+        """
+        The http trigger url where http request sent to.
+        """
+        return pulumi.get(self, "http_trigger_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
 
 @pulumi.output_type
 class AzureMonitorWorkspaceLogsApiConfigResponse(dict):
@@ -165,110 +750,6 @@ class AzureMonitorWorkspaceLogsExporterResponse(dict):
         Concurrency configuration for the exporter.
         """
         return pulumi.get(self, "concurrency")
-
-
-@pulumi.output_type
-class AzureMonitorWorkspaceResponseDefaultIngestionSettings(dict):
-    """
-    The Data Collection Rule and Endpoint used for ingestion by default.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataCollectionEndpointResourceId":
-            suggest = "data_collection_endpoint_resource_id"
-        elif key == "dataCollectionRuleResourceId":
-            suggest = "data_collection_rule_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseDefaultIngestionSettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 data_collection_endpoint_resource_id: str,
-                 data_collection_rule_resource_id: str):
-        """
-        The Data Collection Rule and Endpoint used for ingestion by default.
-        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
-        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
-        """
-        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
-        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
-
-    @property
-    @pulumi.getter(name="dataCollectionEndpointResourceId")
-    def data_collection_endpoint_resource_id(self) -> str:
-        """
-        The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
-        """
-        return pulumi.get(self, "data_collection_endpoint_resource_id")
-
-    @property
-    @pulumi.getter(name="dataCollectionRuleResourceId")
-    def data_collection_rule_resource_id(self) -> str:
-        """
-        The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
-        """
-        return pulumi.get(self, "data_collection_rule_resource_id")
-
-
-@pulumi.output_type
-class AzureMonitorWorkspaceResponseMetrics(dict):
-    """
-    Properties related to the metrics container in the Azure Monitor Workspace
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "internalId":
-            suggest = "internal_id"
-        elif key == "prometheusQueryEndpoint":
-            suggest = "prometheus_query_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseMetrics. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 internal_id: str,
-                 prometheus_query_endpoint: str):
-        """
-        Properties related to the metrics container in the Azure Monitor Workspace
-        :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
-        :param str prometheus_query_endpoint: The Prometheus query endpoint for the Azure Monitor Workspace
-        """
-        pulumi.set(__self__, "internal_id", internal_id)
-        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
-
-    @property
-    @pulumi.getter(name="internalId")
-    def internal_id(self) -> str:
-        """
-        An internal identifier for the metrics container. Only to be used by the system
-        """
-        return pulumi.get(self, "internal_id")
-
-    @property
-    @pulumi.getter(name="prometheusQueryEndpoint")
-    def prometheus_query_endpoint(self) -> str:
-        """
-        The Prometheus query endpoint for the Azure Monitor Workspace
-        """
-        return pulumi.get(self, "prometheus_query_endpoint")
 
 
 @pulumi.output_type
@@ -473,6 +954,491 @@ class ConcurrencyConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ConditionResponse(dict):
+    """
+    A condition of the scheduled query rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertSensitivity":
+            suggest = "alert_sensitivity"
+        elif key == "criterionType":
+            suggest = "criterion_type"
+        elif key == "failingPeriods":
+            suggest = "failing_periods"
+        elif key == "ignoreDataBefore":
+            suggest = "ignore_data_before"
+        elif key == "metricMeasureColumn":
+            suggest = "metric_measure_column"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "resourceIdColumn":
+            suggest = "resource_id_column"
+        elif key == "timeAggregation":
+            suggest = "time_aggregation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alert_sensitivity: Optional[str] = None,
+                 criterion_type: Optional[str] = None,
+                 dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
+                 failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+                 ignore_data_before: Optional[str] = None,
+                 metric_measure_column: Optional[str] = None,
+                 metric_name: Optional[str] = None,
+                 operator: Optional[str] = None,
+                 query: Optional[str] = None,
+                 resource_id_column: Optional[str] = None,
+                 threshold: Optional[float] = None,
+                 time_aggregation: Optional[str] = None):
+        """
+        A condition of the scheduled query rule.
+        :param str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        :param str criterion_type: Specifies the type of threshold criteria
+        :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
+        :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        :param str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        :param str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        :param str operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        :param str query: Log query alert
+        :param str resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        :param float threshold: the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
+        :param str time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+        if alert_sensitivity is not None:
+            pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
+        if criterion_type is not None:
+            pulumi.set(__self__, "criterion_type", criterion_type)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if failing_periods is not None:
+            pulumi.set(__self__, "failing_periods", failing_periods)
+        if ignore_data_before is not None:
+            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+        if metric_measure_column is not None:
+            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if resource_id_column is not None:
+            pulumi.set(__self__, "resource_id_column", resource_id_column)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if time_aggregation is not None:
+            pulumi.set(__self__, "time_aggregation", time_aggregation)
+
+    @property
+    @pulumi.getter(name="alertSensitivity")
+    def alert_sensitivity(self) -> Optional[str]:
+        """
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "alert_sensitivity")
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> Optional[str]:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
+        """
+        List of Dimensions conditions
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> Optional['outputs.ConditionResponseFailingPeriods']:
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @property
+    @pulumi.getter(name="ignoreDataBefore")
+    def ignore_data_before(self) -> Optional[str]:
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "ignore_data_before")
+
+    @property
+    @pulumi.getter(name="metricMeasureColumn")
+    def metric_measure_column(self) -> Optional[str]:
+        """
+        The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "metric_measure_column")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        """
+        The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        Log query alert
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="resourceIdColumn")
+    def resource_id_column(self) -> Optional[str]:
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "resource_id_column")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[float]:
+        """
+        the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Optional[str]:
+        """
+        Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+
+@pulumi.output_type
+class ConditionResponseFailingPeriods(dict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minFailingPeriodsToAlert":
+            suggest = "min_failing_periods_to_alert"
+        elif key == "numberOfEvaluationPeriods":
+            suggest = "number_of_evaluation_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionResponseFailingPeriods. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionResponseFailingPeriods.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionResponseFailingPeriods.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[float] = None,
+                 number_of_evaluation_periods: Optional[float] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[float]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[float]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+
+@pulumi.output_type
+class DimensionResponse(dict):
+    """
+    Dimension splitting and filtering definition
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        Dimension splitting and filtering definition
+        :param str name: Name of the dimension
+        :param str operator: Operator for dimension values
+        :param Sequence[str] values: List of dimension values
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the dimension
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Operator for dimension values
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of dimension values
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class EmailReceiverResponse(dict):
+    """
+    An email receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address: str,
+                 name: str,
+                 status: str,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        An email receiver.
+        :param str email_address: The email address of this receiver.
+        :param str name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        :param str status: The receiver status of the e-mail.
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> str:
+        """
+        The email address of this receiver.
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The receiver status of the e-mail.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class EventHubReceiverResponse(dict):
+    """
+    An Event hub receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "eventHubNameSpace":
+            suggest = "event_hub_name_space"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_name: str,
+                 event_hub_name_space: str,
+                 name: str,
+                 subscription_id: str,
+                 managed_identity: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        An Event hub receiver.
+        :param str event_hub_name: The name of the specific Event Hub queue
+        :param str event_hub_name_space: The Event Hub namespace
+        :param str name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        :param str subscription_id: The Id for the subscription containing this event hub
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param str tenant_id: The tenant Id for the subscription containing this event hub
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_hub_name_space", event_hub_name_space)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> str:
+        """
+        The name of the specific Event Hub queue
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="eventHubNameSpace")
+    def event_hub_name_space(self) -> str:
+        """
+        The Event Hub namespace
+        """
+        return pulumi.get(self, "event_hub_name_space")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        The Id for the subscription containing this event hub
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant Id for the subscription containing this event hub
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
 class ExporterResponse(dict):
     """
     Exporter Info.
@@ -544,6 +1510,708 @@ class ExporterResponse(dict):
         TCP based exporter. Used for pipelineGroup exporter.
         """
         return pulumi.get(self, "tcp")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: Type of managed service identity.
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class IncidentReceiverResponse(dict):
+    """
+    An Incident receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentManagementService":
+            suggest = "incident_management_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection: 'outputs.IncidentServiceConnectionResponse',
+                 incident_management_service: str,
+                 mappings: Mapping[str, str],
+                 name: str):
+        """
+        An Incident receiver.
+        :param 'IncidentServiceConnectionResponse' connection: The incident service connection
+        :param str incident_management_service: The incident management service type
+        :param Mapping[str, str] mappings: Field mappings for the incident service
+        :param str name: The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "incident_management_service", incident_management_service)
+        pulumi.set(__self__, "mappings", mappings)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> 'outputs.IncidentServiceConnectionResponse':
+        """
+        The incident service connection
+        """
+        return pulumi.get(self, "connection")
+
+    @property
+    @pulumi.getter(name="incidentManagementService")
+    def incident_management_service(self) -> str:
+        """
+        The incident management service type
+        """
+        return pulumi.get(self, "incident_management_service")
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Mapping[str, str]:
+        """
+        Field mappings for the incident service
+        """
+        return pulumi.get(self, "mappings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IncidentServiceConnectionResponse(dict):
+    """
+    The connection info for Incident Receiver.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        The connection info for Incident Receiver.
+        :param str id: GUID value representing the connection ID for the incident management service.
+        :param str name: The name of the connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        GUID value representing the connection ID for the incident management service.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IngestionSettingsResponse(dict):
+    """
+    Settings for data ingestion
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCollectionEndpointResourceId":
+            suggest = "data_collection_endpoint_resource_id"
+        elif key == "dataCollectionRuleResourceId":
+            suggest = "data_collection_rule_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_collection_endpoint_resource_id: str,
+                 data_collection_rule_resource_id: str):
+        """
+        Settings for data ingestion
+        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this workspace.
+        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this workspace.
+        """
+        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
+        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointResourceId")
+    def data_collection_endpoint_resource_id(self) -> str:
+        """
+        The Azure resource Id of the default data collection endpoint for this workspace.
+        """
+        return pulumi.get(self, "data_collection_endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="dataCollectionRuleResourceId")
+    def data_collection_rule_resource_id(self) -> str:
+        """
+        The Azure resource Id of the default data collection rule for this workspace.
+        """
+        return pulumi.get(self, "data_collection_rule_resource_id")
+
+
+@pulumi.output_type
+class ItsmReceiverResponse(dict):
+    """
+    An Itsm receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionId":
+            suggest = "connection_id"
+        elif key == "ticketConfiguration":
+            suggest = "ticket_configuration"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ItsmReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ItsmReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ItsmReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_id: str,
+                 name: str,
+                 region: str,
+                 ticket_configuration: str,
+                 workspace_id: str):
+        """
+        An Itsm receiver.
+        :param str connection_id: Unique identification of ITSM connection among multiple defined in above workspace.
+        :param str name: The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        :param str region: Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        :param str ticket_configuration: JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        :param str workspace_id: OMS LA instance identifier.
+        """
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "ticket_configuration", ticket_configuration)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> str:
+        """
+        Unique identification of ITSM connection among multiple defined in above workspace.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="ticketConfiguration")
+    def ticket_configuration(self) -> str:
+        """
+        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        return pulumi.get(self, "ticket_configuration")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        OMS LA instance identifier.
+        """
+        return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class JsonArrayMapperResponse(dict):
+    """
+    A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationField":
+            suggest = "destination_field"
+        elif key == "sourceField":
+            suggest = "source_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonArrayMapperResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonArrayMapperResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonArrayMapperResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 keys: Sequence[str],
+                 destination_field: Optional['outputs.JsonMapperDestinationFieldResponse'] = None,
+                 source_field: Optional['outputs.JsonMapperSourceFieldResponse'] = None):
+        """
+        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+        :param Sequence[str] keys: Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        :param 'JsonMapperDestinationFieldResponse' destination_field: Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        :param 'JsonMapperSourceFieldResponse' source_field: Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        pulumi.set(__self__, "keys", keys)
+        if destination_field is not None:
+            pulumi.set(__self__, "destination_field", destination_field)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Sequence[str]:
+        """
+        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        """
+        return pulumi.get(self, "keys")
+
+    @property
+    @pulumi.getter(name="destinationField")
+    def destination_field(self) -> Optional['outputs.JsonMapperDestinationFieldResponse']:
+        """
+        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        """
+        return pulumi.get(self, "destination_field")
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional['outputs.JsonMapperSourceFieldResponse']:
+        """
+        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        return pulumi.get(self, "source_field")
+
+
+@pulumi.output_type
+class JsonMapperDestinationFieldResponse(dict):
+    """
+    JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonMapperDestinationFieldResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonMapperDestinationFieldResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonMapperDestinationFieldResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional[str] = None,
+                 field_name: Optional[str] = None):
+        """
+        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+        :param str destination: Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        :param str field_name: Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        if destination is None:
+            destination = 'attributes'
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        """
+        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[str]:
+        """
+        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        return pulumi.get(self, "field_name")
+
+
+@pulumi.output_type
+class JsonMapperSourceFieldResponse(dict):
+    """
+    JsonArrayMapper source field used to describe the field from which the json array will be read.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonMapperSourceFieldResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonMapperSourceFieldResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonMapperSourceFieldResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: Optional[str] = None):
+        """
+        JsonArrayMapper source field used to describe the field from which the json array will be read.
+        :param str field_name: Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[str]:
+        """
+        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        return pulumi.get(self, "field_name")
+
+
+@pulumi.output_type
+class LogicAppReceiverResponse(dict):
+    """
+    A logic app receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "callbackUrl":
+            suggest = "callback_url"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogicAppReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogicAppReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogicAppReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 callback_url: str,
+                 name: str,
+                 resource_id: str,
+                 managed_identity: Optional[str] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        A logic app receiver.
+        :param str callback_url: The callback url where http request sent to.
+        :param str name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
+        :param str resource_id: The azure resource id of the logic app receiver.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "callback_url", callback_url)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> str:
+        """
+        The callback url where http request sent to.
+        """
+        return pulumi.get(self, "callback_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the logic app receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The azure resource id of the logic app receiver.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class MetricsResponse(dict):
+    """
+    Information about metrics for the workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "internalId":
+            suggest = "internal_id"
+        elif key == "prometheusQueryEndpoint":
+            suggest = "prometheus_query_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 internal_id: str,
+                 prometheus_query_endpoint: str):
+        """
+        Information about metrics for the workspace
+        :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
+        :param str prometheus_query_endpoint: The Prometheus query endpoint for the workspace
+        """
+        pulumi.set(__self__, "internal_id", internal_id)
+        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
+
+    @property
+    @pulumi.getter(name="internalId")
+    def internal_id(self) -> str:
+        """
+        An internal identifier for the metrics container. Only to be used by the system
+        """
+        return pulumi.get(self, "internal_id")
+
+    @property
+    @pulumi.getter(name="prometheusQueryEndpoint")
+    def prometheus_query_endpoint(self) -> str:
+        """
+        The Prometheus query endpoint for the workspace
+        """
+        return pulumi.get(self, "prometheus_query_endpoint")
 
 
 @pulumi.output_type
@@ -728,6 +2396,115 @@ class PersistenceConfigurationsResponse(dict):
 
 
 @pulumi.output_type
+class PipelineGroupPropertiesResponse(dict):
+    """
+    Properties that need to be specified to create a new pipeline group instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "networkingConfigurations":
+            suggest = "networking_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exporters: Sequence['outputs.ExporterResponse'],
+                 processors: Sequence['outputs.ProcessorResponse'],
+                 provisioning_state: str,
+                 receivers: Sequence['outputs.ReceiverResponse'],
+                 service: 'outputs.ServiceResponse',
+                 networking_configurations: Optional[Sequence['outputs.NetworkingConfigurationResponse']] = None,
+                 replicas: Optional[int] = None):
+        """
+        Properties that need to be specified to create a new pipeline group instance.
+        :param Sequence['ExporterResponse'] exporters: The exporters specified for a pipeline group instance.
+        :param Sequence['ProcessorResponse'] processors: The processors specified for a pipeline group instance.
+        :param str provisioning_state: The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
+        :param Sequence['ReceiverResponse'] receivers: The receivers specified for a pipeline group instance.
+        :param 'ServiceResponse' service: The service section for a given pipeline group instance.
+        :param Sequence['NetworkingConfigurationResponse'] networking_configurations: Networking configurations for the pipeline group instance.
+        :param int replicas: Defines the amount of replicas of the pipeline group instance.
+        """
+        pulumi.set(__self__, "exporters", exporters)
+        pulumi.set(__self__, "processors", processors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "receivers", receivers)
+        pulumi.set(__self__, "service", service)
+        if networking_configurations is not None:
+            pulumi.set(__self__, "networking_configurations", networking_configurations)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def exporters(self) -> Sequence['outputs.ExporterResponse']:
+        """
+        The exporters specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "exporters")
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Sequence['outputs.ProcessorResponse']:
+        """
+        The processors specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "processors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def receivers(self) -> Sequence['outputs.ReceiverResponse']:
+        """
+        The receivers specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "receivers")
+
+    @property
+    @pulumi.getter
+    def service(self) -> 'outputs.ServiceResponse':
+        """
+        The service section for a given pipeline group instance.
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="networkingConfigurations")
+    def networking_configurations(self) -> Optional[Sequence['outputs.NetworkingConfigurationResponse']]:
+        """
+        Networking configurations for the pipeline group instance.
+        """
+        return pulumi.get(self, "networking_configurations")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[int]:
+        """
+        Defines the amount of replicas of the pipeline group instance.
+        """
+        return pulumi.get(self, "replicas")
+
+
+@pulumi.output_type
 class PipelineResponse(dict):
     """
     Pipeline Info.
@@ -797,21 +2574,21 @@ class PipelineResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    The private endpoint connection resource.
+    The Private Endpoint Connection resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "groupIds":
-            suggest = "group_ids"
-        elif key == "privateLinkServiceConnectionState":
+        if key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
+        elif key == "groupIds":
+            suggest = "group_ids"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
+        elif key == "systemData":
+            suggest = "system_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -825,48 +2602,42 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 group_ids: Sequence[str],
                  id: str,
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+                 group_ids: Optional[Sequence[str]] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 system_data: Optional['outputs.SystemDataResponse'] = None):
         """
-        The private endpoint connection resource.
-        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
-        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        The Private Endpoint Connection resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Sequence[str]:
-        """
-        The group ids for the private endpoint resource.
-        """
-        return pulumi.get(self, "group_ids")
+        if system_data is not None:
+            pulumi.set(__self__, "system_data", system_data)
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -895,14 +2666,6 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -911,24 +2674,40 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        The private endpoint resource.
+        The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    The private endpoint resource.
+    The Private Endpoint resource.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        The private endpoint resource.
-        :param str id: The ARM identifier for private endpoint.
+        The Private Endpoint resource.
+        :param str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
 
@@ -936,7 +2715,7 @@ class PrivateEndpointResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ARM identifier for private endpoint.
+        The ARM identifier for Private Endpoint
         """
         return pulumi.get(self, "id")
 
@@ -1220,6 +2999,100 @@ class ResourceMapResponse(dict):
 
 
 @pulumi.output_type
+class RuleResolveConfigurationResponse(dict):
+    """
+    TBD. Relevant only for rules of the kind LogAlert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResolved":
+            suggest = "auto_resolved"
+        elif key == "timeToResolve":
+            suggest = "time_to_resolve"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleResolveConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleResolveConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleResolveConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resolved: Optional[bool] = None,
+                 time_to_resolve: Optional[str] = None):
+        """
+        TBD. Relevant only for rules of the kind LogAlert.
+        :param bool auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
+        :param str time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[bool]:
+        """
+        The flag that indicates whether or not to auto resolve a fired alert.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[str]:
+        """
+        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+
+@pulumi.output_type
+class ScheduledQueryRuleCriteriaResponse(dict):
+    """
+    The rule criteria that defines the conditions of the scheduled query rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allOf":
+            suggest = "all_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRuleCriteriaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryRuleCriteriaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryRuleCriteriaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_of: Optional[Sequence['outputs.ConditionResponse']] = None):
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        :param Sequence['ConditionResponse'] all_of: A list of conditions to evaluate against the specified scopes
+        """
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[Sequence['outputs.ConditionResponse']]:
+        """
+        A list of conditions to evaluate against the specified scopes
+        """
+        return pulumi.get(self, "all_of")
+
+
+@pulumi.output_type
 class SchemaMapResponse(dict):
     """
     Schema map for azure monitor for logs.
@@ -1368,6 +3241,80 @@ class ServiceResponse(dict):
         Persistence options to all pipelines in the instance.
         """
         return pulumi.get(self, "persistence")
+
+
+@pulumi.output_type
+class SmsReceiverResponse(dict):
+    """
+    An SMS receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmsReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmsReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmsReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 country_code: str,
+                 name: str,
+                 phone_number: str,
+                 status: str):
+        """
+        An SMS receiver.
+        :param str country_code: The country code of the SMS receiver.
+        :param str name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        :param str phone_number: The phone number of the SMS receiver.
+        :param str status: The status of the receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
+        """
+        The country code of the SMS receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> str:
+        """
+        The phone number of the SMS receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the receiver.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -1546,7 +3493,9 @@ class UdpReceiverResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "readQueueLength":
+        if key == "jsonArrayMapper":
+            suggest = "json_array_mapper"
+        elif key == "readQueueLength":
             suggest = "read_queue_length"
 
         if suggest:
@@ -1563,11 +3512,13 @@ class UdpReceiverResponse(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  encoding: Optional[str] = None,
+                 json_array_mapper: Optional['outputs.JsonArrayMapperResponse'] = None,
                  read_queue_length: Optional[int] = None):
         """
         Receiver using UDP as transport protocol.
         :param str endpoint: TCP endpoint definition. Example: 0.0.0.0:<port>.
         :param str encoding: The encoding of the stream being received.
+        :param 'JsonArrayMapperResponse' json_array_mapper: Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
         :param int read_queue_length: Max read queue length.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -1575,6 +3526,8 @@ class UdpReceiverResponse(dict):
             encoding = 'nop'
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
+        if json_array_mapper is not None:
+            pulumi.set(__self__, "json_array_mapper", json_array_mapper)
         if read_queue_length is None:
             read_queue_length = 1000
         if read_queue_length is not None:
@@ -1597,11 +3550,324 @@ class UdpReceiverResponse(dict):
         return pulumi.get(self, "encoding")
 
     @property
+    @pulumi.getter(name="jsonArrayMapper")
+    def json_array_mapper(self) -> Optional['outputs.JsonArrayMapperResponse']:
+        """
+        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        """
+        return pulumi.get(self, "json_array_mapper")
+
+    @property
     @pulumi.getter(name="readQueueLength")
     def read_queue_length(self) -> Optional[int]:
         """
         Max read queue length.
         """
         return pulumi.get(self, "read_queue_length")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UserIdentityPropertiesResponse(dict):
+    """
+    User assigned identity properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VoiceReceiverResponse(dict):
+    """
+    A voice receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VoiceReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VoiceReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VoiceReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 country_code: str,
+                 name: str,
+                 phone_number: str):
+        """
+        A voice receiver.
+        :param str country_code: The country code of the voice receiver.
+        :param str name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        :param str phone_number: The phone number of the voice receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
+        """
+        The country code of the voice receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> str:
+        """
+        The phone number of the voice receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class WebhookReceiverResponse(dict):
+    """
+    A webhook receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+        elif key == "identifierUri":
+            suggest = "identifier_uri"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "useAadAuth":
+            suggest = "use_aad_auth"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 service_uri: str,
+                 identifier_uri: Optional[str] = None,
+                 managed_identity: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 use_aad_auth: Optional[bool] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        A webhook receiver.
+        :param str name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        :param str service_uri: The URI where webhooks should be sent.
+        :param str identifier_uri: Indicates the identifier uri for aad auth.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param str object_id: Indicates the webhook app object Id for aad auth.
+        :param str tenant_id: Indicates the tenant id for aad auth.
+        :param bool use_aad_auth: Indicates whether or not use AAD authentication.
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_uri", service_uri)
+        if identifier_uri is not None:
+            pulumi.set(__self__, "identifier_uri", identifier_uri)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_aad_auth is None:
+            use_aad_auth = False
+        if use_aad_auth is not None:
+            pulumi.set(__self__, "use_aad_auth", use_aad_auth)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> str:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @property
+    @pulumi.getter(name="identifierUri")
+    def identifier_uri(self) -> Optional[str]:
+        """
+        Indicates the identifier uri for aad auth.
+        """
+        return pulumi.get(self, "identifier_uri")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        Indicates the webhook app object Id for aad auth.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Indicates the tenant id for aad auth.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useAadAuth")
+    def use_aad_auth(self) -> Optional[bool]:
+        """
+        Indicates whether or not use AAD authentication.
+        """
+        return pulumi.get(self, "use_aad_auth")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
 
 

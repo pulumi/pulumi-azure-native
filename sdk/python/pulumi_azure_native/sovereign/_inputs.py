@@ -784,7 +784,7 @@ if not MYPY:
         """
         The resource id of the top level management group
         """
-        managed_identity: pulumi.Input['ManagedIdentityPropertiesArgsDict']
+        managed_identity: NotRequired[pulumi.Input['ManagedIdentityPropertiesArgsDict']]
         """
         The managed identity to be assigned to this landing zone registration.
         """
@@ -796,7 +796,7 @@ class LandingZoneRegistrationResourcePropertiesArgs:
     def __init__(__self__, *,
                  existing_landing_zone_configuration_id: pulumi.Input[str],
                  existing_top_level_mg_id: pulumi.Input[str],
-                 managed_identity: pulumi.Input['ManagedIdentityPropertiesArgs']):
+                 managed_identity: Optional[pulumi.Input['ManagedIdentityPropertiesArgs']] = None):
         """
         The properties of landing zone registration resource type.
         :param pulumi.Input[str] existing_landing_zone_configuration_id: The resource id of the associated landing zone configuration.
@@ -805,7 +805,8 @@ class LandingZoneRegistrationResourcePropertiesArgs:
         """
         pulumi.set(__self__, "existing_landing_zone_configuration_id", existing_landing_zone_configuration_id)
         pulumi.set(__self__, "existing_top_level_mg_id", existing_top_level_mg_id)
-        pulumi.set(__self__, "managed_identity", managed_identity)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
 
     @property
     @pulumi.getter(name="existingLandingZoneConfigurationId")
@@ -833,14 +834,14 @@ class LandingZoneRegistrationResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> pulumi.Input['ManagedIdentityPropertiesArgs']:
+    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityPropertiesArgs']]:
         """
         The managed identity to be assigned to this landing zone registration.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: pulumi.Input['ManagedIdentityPropertiesArgs']):
+    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityPropertiesArgs']]):
         pulumi.set(self, "managed_identity", value)
 
 

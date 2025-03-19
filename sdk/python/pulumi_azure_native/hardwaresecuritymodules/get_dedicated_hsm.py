@@ -27,7 +27,10 @@ class GetDedicatedHsmResult:
     """
     Resource information with extended details.
     """
-    def __init__(__self__, id=None, location=None, management_network_profile=None, name=None, network_profile=None, provisioning_state=None, sku=None, stamp_id=None, status_message=None, system_data=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, management_network_profile=None, name=None, network_profile=None, provisioning_state=None, sku=None, stamp_id=None, status_message=None, system_data=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -69,10 +72,18 @@ class GetDedicatedHsmResult:
         pulumi.set(__self__, "zones", zones)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        The Azure Resource Manager resource ID for the dedicated HSM.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -80,7 +91,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The supported Azure location where the dedicated HSM should be created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -96,7 +107,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the dedicated HSM.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -144,7 +155,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -152,7 +163,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -160,7 +171,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type of the dedicated HSM.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -179,6 +190,7 @@ class AwaitableGetDedicatedHsmResult(GetDedicatedHsmResult):
         if False:
             yield self
         return GetDedicatedHsmResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             management_network_profile=self.management_network_profile,
@@ -199,13 +211,11 @@ def get_dedicated_hsm(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHsmResult:
     """
     Gets the specified Azure dedicated HSM.
-    Azure REST API version: 2021-11-30.
-
-    Other available API versions: 2024-06-30-preview.
+    Azure REST API version: 2024-06-30-preview.
 
 
-    :param str name: The name of the dedicated HSM.
-    :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
+    :param str name: Name of the dedicated Hsm
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -214,6 +224,7 @@ def get_dedicated_hsm(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hardwaresecuritymodules:getDedicatedHsm', __args__, opts=opts, typ=GetDedicatedHsmResult).value
 
     return AwaitableGetDedicatedHsmResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         management_network_profile=pulumi.get(__ret__, 'management_network_profile'),
@@ -232,13 +243,11 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
     Gets the specified Azure dedicated HSM.
-    Azure REST API version: 2021-11-30.
-
-    Other available API versions: 2024-06-30-preview.
+    Azure REST API version: 2024-06-30-preview.
 
 
-    :param str name: The name of the dedicated HSM.
-    :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
+    :param str name: Name of the dedicated Hsm
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -246,6 +255,7 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules:getDedicatedHsm', __args__, opts=opts, typ=GetDedicatedHsmResult)
     return __ret__.apply(lambda __response__: GetDedicatedHsmResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         management_network_profile=pulumi.get(__response__, 'management_network_profile'),

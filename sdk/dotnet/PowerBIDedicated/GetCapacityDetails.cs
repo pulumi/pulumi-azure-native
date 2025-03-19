@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly Outputs.DedicatedCapacityAdministratorsResponse? Administration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Capacity name
         /// </summary>
         public readonly string FriendlyName;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         private GetCapacityDetailsResult(
             Outputs.DedicatedCapacityAdministratorsResponse? administration,
 
+            string azureApiVersion,
+
             string friendlyName,
 
             string id,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
             string type)
         {
             Administration = administration;
+            AzureApiVersion = azureApiVersion;
             FriendlyName = friendlyName;
             Id = id;
             Location = location;

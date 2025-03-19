@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Support information for the service
-        /// Azure REST API version: 2024-02-07-preview.
-        /// 
-        /// Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<ListPaloAltoNetworksCloudngfwSupportInfoResult> InvokeAsync(ListPaloAltoNetworksCloudngfwSupportInfoArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", args ?? new ListPaloAltoNetworksCloudngfwSupportInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Support information for the service
-        /// Azure REST API version: 2024-02-07-preview.
-        /// 
-        /// Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Support information for the service
-        /// Azure REST API version: 2024-02-07-preview.
-        /// 
-        /// Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", InvokeArgs.Empty, options.WithDefaults());
@@ -53,13 +47,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     public sealed class ListPaloAltoNetworksCloudngfwSupportInfoResult
     {
         /// <summary>
-        /// Support account associated with given resource
+        /// Support account associated with given resource when association type is tenant
         /// </summary>
         public readonly string? AccountId;
+        /// <summary>
+        /// Support account associated with given resource when association type is billing
+        /// </summary>
+        public readonly string? AccountIdForBilling;
         /// <summary>
         /// account registered in Customer Support Portal
         /// </summary>
         public readonly string? AccountRegistrationStatus;
+        /// <summary>
+        /// Association Type
+        /// </summary>
+        public readonly string? AssociationType;
         /// <summary>
         /// credits purchased, unit per hour
         /// </summary>
@@ -117,7 +119,11 @@ namespace Pulumi.AzureNative.Cloudngfw
         private ListPaloAltoNetworksCloudngfwSupportInfoResult(
             string? accountId,
 
+            string? accountIdForBilling,
+
             string? accountRegistrationStatus,
+
+            string? associationType,
 
             int? credits,
 
@@ -146,7 +152,9 @@ namespace Pulumi.AzureNative.Cloudngfw
             string? supportURL)
         {
             AccountId = accountId;
+            AccountIdForBilling = accountIdForBilling;
             AccountRegistrationStatus = accountRegistrationStatus;
+            AssociationType = associationType;
             Credits = credits;
             EndDateForCredits = endDateForCredits;
             FreeTrial = freeTrial;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided volume.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetVolumeResult {
      */
     readonly attachedTo: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The more detailed status of the volume.
      */
     readonly detailedStatus: string;
@@ -45,6 +47,10 @@ export interface GetVolumeResult {
      * The descriptive message about the current detailed status.
      */
     readonly detailedStatusMessage: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -88,9 +94,7 @@ export interface GetVolumeResult {
 }
 /**
  * Get properties of the provided volume.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

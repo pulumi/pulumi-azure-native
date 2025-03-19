@@ -40,6 +40,10 @@ export interface GetDataStoreArgs {
  */
 export interface GetDataStoreResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
      */
     readonly customerSecrets?: outputs.hybriddata.CustomerSecretResponse[];

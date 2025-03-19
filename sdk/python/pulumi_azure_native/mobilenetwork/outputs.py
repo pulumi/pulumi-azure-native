@@ -28,6 +28,9 @@ __all__ = [
     'DataNetworkConfigurationResponse',
     'DataNetworkResourceIdResponse',
     'DiagnosticsUploadConfigurationResponse',
+    'EventHubConfigurationResponse',
+    'HomeNetworkPrivateKeysProvisioningResponse',
+    'HomeNetworkPublicKeyResponse',
     'HttpsServerCertificateResponse',
     'InstallationResponse',
     'InterfacePropertiesResponse',
@@ -35,6 +38,7 @@ __all__ = [
     'LocalDiagnosticsAccessConfigurationResponse',
     'ManagedServiceIdentityResponse',
     'MobileNetworkResourceIdResponse',
+    'NASRerouteConfigurationResponse',
     'NaptConfigurationResponse',
     'PccRuleConfigurationResponse',
     'PccRuleQosPolicyResponse',
@@ -43,9 +47,12 @@ __all__ = [
     'PlmnIdResponse',
     'PortRangeResponse',
     'PortReuseHoldTimesResponse',
+    'PublicLandMobileNetworkResponse',
+    'PublicLandMobileNetworkResponseHomeNetworkPublicKeys',
     'QosPolicyResponse',
     'ServiceDataFlowTemplateResponse',
     'ServiceResourceIdResponse',
+    'SignalingConfigurationResponse',
     'SimGroupResponse',
     'SimPolicyResourceIdResponse',
     'SimStaticIpPropertiesResponse',
@@ -57,6 +64,7 @@ __all__ = [
     'SubResourceResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
+    'UserConsentConfigurationResponse',
 ]
 
 @pulumi.output_type
@@ -494,6 +502,111 @@ class DiagnosticsUploadConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class EventHubConfigurationResponse(dict):
+    """
+    Configuration for sending packet core events to Azure Event Hub.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportingInterval":
+            suggest = "reporting_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 reporting_interval: Optional[int] = None):
+        """
+        Configuration for sending packet core events to Azure Event Hub.
+        :param str id: Resource ID  of Azure Event Hub to send packet core events to.
+        :param int reporting_interval: The duration (in seconds) between UE usage reports.
+        """
+        pulumi.set(__self__, "id", id)
+        if reporting_interval is None:
+            reporting_interval = 1800
+        if reporting_interval is not None:
+            pulumi.set(__self__, "reporting_interval", reporting_interval)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID  of Azure Event Hub to send packet core events to.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="reportingInterval")
+    def reporting_interval(self) -> Optional[int]:
+        """
+        The duration (in seconds) between UE usage reports.
+        """
+        return pulumi.get(self, "reporting_interval")
+
+
+@pulumi.output_type
+class HomeNetworkPrivateKeysProvisioningResponse(dict):
+    def __init__(__self__, *,
+                 state: str):
+        """
+        :param str state: The provisioning state of the private keys for SUPI concealment.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The provisioning state of the private keys for SUPI concealment.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class HomeNetworkPublicKeyResponse(dict):
+    """
+    A key used for SUPI concealment.
+    """
+    def __init__(__self__, *,
+                 id: int,
+                 url: Optional[str] = None):
+        """
+        A key used for SUPI concealment.
+        :param int id: The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
+        :param str url: The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
+        """
+        pulumi.set(__self__, "id", id)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        """
+        The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class HttpsServerCertificateResponse(dict):
     """
     HTTPS server certificate configuration.
@@ -639,12 +752,18 @@ class InterfacePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ipv4Address":
+        if key == "bfdIpv4Endpoints":
+            suggest = "bfd_ipv4_endpoints"
+        elif key == "ipv4Address":
             suggest = "ipv4_address"
+        elif key == "ipv4AddressList":
+            suggest = "ipv4_address_list"
         elif key == "ipv4Gateway":
             suggest = "ipv4_gateway"
         elif key == "ipv4Subnet":
             suggest = "ipv4_subnet"
+        elif key == "vlanId":
+            suggest = "vlan_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InterfacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -658,25 +777,45 @@ class InterfacePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bfd_ipv4_endpoints: Optional[Sequence[str]] = None,
                  ipv4_address: Optional[str] = None,
+                 ipv4_address_list: Optional[Sequence[str]] = None,
                  ipv4_gateway: Optional[str] = None,
                  ipv4_subnet: Optional[str] = None,
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 vlan_id: Optional[int] = None):
         """
         Interface properties
+        :param Sequence[str] bfd_ipv4_endpoints: The IPv4 addresses of the endpoints to send BFD probes to.
         :param str ipv4_address: The IPv4 address.
+        :param Sequence[str] ipv4_address_list: The list of IPv4 addresses, for a multi-node system.
         :param str ipv4_gateway: The default IPv4 gateway (router).
         :param str ipv4_subnet: The IPv4 subnet.
         :param str name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
+        :param int vlan_id: VLAN identifier of the network interface. Example: 501.
         """
+        if bfd_ipv4_endpoints is not None:
+            pulumi.set(__self__, "bfd_ipv4_endpoints", bfd_ipv4_endpoints)
         if ipv4_address is not None:
             pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if ipv4_address_list is not None:
+            pulumi.set(__self__, "ipv4_address_list", ipv4_address_list)
         if ipv4_gateway is not None:
             pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
         if ipv4_subnet is not None:
             pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if vlan_id is not None:
+            pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @property
+    @pulumi.getter(name="bfdIpv4Endpoints")
+    def bfd_ipv4_endpoints(self) -> Optional[Sequence[str]]:
+        """
+        The IPv4 addresses of the endpoints to send BFD probes to.
+        """
+        return pulumi.get(self, "bfd_ipv4_endpoints")
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -685,6 +824,14 @@ class InterfacePropertiesResponse(dict):
         The IPv4 address.
         """
         return pulumi.get(self, "ipv4_address")
+
+    @property
+    @pulumi.getter(name="ipv4AddressList")
+    def ipv4_address_list(self) -> Optional[Sequence[str]]:
+        """
+        The list of IPv4 addresses, for a multi-node system.
+        """
+        return pulumi.get(self, "ipv4_address_list")
 
     @property
     @pulumi.getter(name="ipv4Gateway")
@@ -709,6 +856,14 @@ class InterfacePropertiesResponse(dict):
         The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[int]:
+        """
+        VLAN identifier of the network interface. Example: 501.
+        """
+        return pulumi.get(self, "vlan_id")
 
 
 @pulumi.output_type
@@ -875,6 +1030,45 @@ class MobileNetworkResourceIdResponse(dict):
         Mobile network resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class NASRerouteConfigurationResponse(dict):
+    """
+    Configuration enabling NAS reroute.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "macroMmeGroupId":
+            suggest = "macro_mme_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NASRerouteConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NASRerouteConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NASRerouteConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 macro_mme_group_id: int):
+        """
+        Configuration enabling NAS reroute.
+        :param int macro_mme_group_id: The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
+        """
+        pulumi.set(__self__, "macro_mme_group_id", macro_mme_group_id)
+
+    @property
+    @pulumi.getter(name="macroMmeGroupId")
+    def macro_mme_group_id(self) -> int:
+        """
+        The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
+        """
+        return pulumi.get(self, "macro_mme_group_id")
 
 
 @pulumi.output_type
@@ -1351,13 +1545,13 @@ class PlatformConfigurationResponse(dict):
 @pulumi.output_type
 class PlmnIdResponse(dict):
     """
-    Public land mobile network (PLMN) ID.
+    Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
     """
     def __init__(__self__, *,
                  mcc: str,
                  mnc: str):
         """
-        Public land mobile network (PLMN) ID.
+        Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         :param str mcc: Mobile country code (MCC).
         :param str mnc: Mobile network code (MNC).
         """
@@ -1480,6 +1674,122 @@ class PortReuseHoldTimesResponse(dict):
         Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.
         """
         return pulumi.get(self, "udp")
+
+
+@pulumi.output_type
+class PublicLandMobileNetworkResponse(dict):
+    """
+    Configuration relating to a particular PLMN
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "homeNetworkPublicKeys":
+            suggest = "home_network_public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicLandMobileNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicLandMobileNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicLandMobileNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mcc: str,
+                 mnc: str,
+                 home_network_public_keys: Optional['outputs.PublicLandMobileNetworkResponseHomeNetworkPublicKeys'] = None):
+        """
+        Configuration relating to a particular PLMN
+        :param str mcc: Mobile country code (MCC).
+        :param str mnc: Mobile network code (MNC).
+        :param 'PublicLandMobileNetworkResponseHomeNetworkPublicKeys' home_network_public_keys: Configuration relating to SUPI concealment.
+        """
+        pulumi.set(__self__, "mcc", mcc)
+        pulumi.set(__self__, "mnc", mnc)
+        if home_network_public_keys is not None:
+            pulumi.set(__self__, "home_network_public_keys", home_network_public_keys)
+
+    @property
+    @pulumi.getter
+    def mcc(self) -> str:
+        """
+        Mobile country code (MCC).
+        """
+        return pulumi.get(self, "mcc")
+
+    @property
+    @pulumi.getter
+    def mnc(self) -> str:
+        """
+        Mobile network code (MNC).
+        """
+        return pulumi.get(self, "mnc")
+
+    @property
+    @pulumi.getter(name="homeNetworkPublicKeys")
+    def home_network_public_keys(self) -> Optional['outputs.PublicLandMobileNetworkResponseHomeNetworkPublicKeys']:
+        """
+        Configuration relating to SUPI concealment.
+        """
+        return pulumi.get(self, "home_network_public_keys")
+
+
+@pulumi.output_type
+class PublicLandMobileNetworkResponseHomeNetworkPublicKeys(dict):
+    """
+    Configuration relating to SUPI concealment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileA":
+            suggest = "profile_a"
+        elif key == "profileB":
+            suggest = "profile_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicLandMobileNetworkResponseHomeNetworkPublicKeys. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicLandMobileNetworkResponseHomeNetworkPublicKeys.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicLandMobileNetworkResponseHomeNetworkPublicKeys.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profile_a: Optional[Sequence['outputs.HomeNetworkPublicKeyResponse']] = None,
+                 profile_b: Optional[Sequence['outputs.HomeNetworkPublicKeyResponse']] = None):
+        """
+        Configuration relating to SUPI concealment.
+        :param Sequence['HomeNetworkPublicKeyResponse'] profile_a: This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
+        :param Sequence['HomeNetworkPublicKeyResponse'] profile_b: This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
+        """
+        if profile_a is not None:
+            pulumi.set(__self__, "profile_a", profile_a)
+        if profile_b is not None:
+            pulumi.set(__self__, "profile_b", profile_b)
+
+    @property
+    @pulumi.getter(name="profileA")
+    def profile_a(self) -> Optional[Sequence['outputs.HomeNetworkPublicKeyResponse']]:
+        """
+        This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
+        """
+        return pulumi.get(self, "profile_a")
+
+    @property
+    @pulumi.getter(name="profileB")
+    def profile_b(self) -> Optional[Sequence['outputs.HomeNetworkPublicKeyResponse']]:
+        """
+        This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
+        """
+        return pulumi.get(self, "profile_b")
 
 
 @pulumi.output_type
@@ -1691,6 +2001,60 @@ class ServiceResourceIdResponse(dict):
         Service resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SignalingConfigurationResponse(dict):
+    """
+    Signaling configuration for the packet core.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nasEncryption":
+            suggest = "nas_encryption"
+        elif key == "nasReroute":
+            suggest = "nas_reroute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalingConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalingConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nas_encryption: Optional[Sequence[str]] = None,
+                 nas_reroute: Optional['outputs.NASRerouteConfigurationResponse'] = None):
+        """
+        Signaling configuration for the packet core.
+        :param Sequence[str] nas_encryption: An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
+        :param 'NASRerouteConfigurationResponse' nas_reroute: Configuration enabling 4G NAS reroute.
+        """
+        if nas_encryption is not None:
+            pulumi.set(__self__, "nas_encryption", nas_encryption)
+        if nas_reroute is not None:
+            pulumi.set(__self__, "nas_reroute", nas_reroute)
+
+    @property
+    @pulumi.getter(name="nasEncryption")
+    def nas_encryption(self) -> Optional[Sequence[str]]:
+        """
+        An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
+        """
+        return pulumi.get(self, "nas_encryption")
+
+    @property
+    @pulumi.getter(name="nasReroute")
+    def nas_reroute(self) -> Optional['outputs.NASRerouteConfigurationResponse']:
+        """
+        Configuration enabling 4G NAS reroute.
+        """
+        return pulumi.get(self, "nas_reroute")
 
 
 @pulumi.output_type
@@ -2269,5 +2633,41 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UserConsentConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowSupportTelemetryAccess":
+            suggest = "allow_support_telemetry_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserConsentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserConsentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserConsentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_support_telemetry_access: Optional[bool] = None):
+        """
+        :param bool allow_support_telemetry_access: Allow Microsoft to access non-PII telemetry information from the packet core.
+        """
+        if allow_support_telemetry_access is not None:
+            pulumi.set(__self__, "allow_support_telemetry_access", allow_support_telemetry_access)
+
+    @property
+    @pulumi.getter(name="allowSupportTelemetryAccess")
+    def allow_support_telemetry_access(self) -> Optional[bool]:
+        """
+        Allow Microsoft to access non-PII telemetry information from the packet core.
+        """
+        return pulumi.get(self, "allow_support_telemetry_access")
 
 

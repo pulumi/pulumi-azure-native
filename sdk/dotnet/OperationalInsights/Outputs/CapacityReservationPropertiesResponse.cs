@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// </summary>
         public readonly string LastSkuUpdate;
         /// <summary>
-        /// Minimum CapacityReservation value in GB.
+        /// Minimum CapacityReservation value in Gigabytes.
         /// </summary>
         public readonly double MinCapacity;
 

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.MigrateMISyncCompleteCommandPropertiesResponse, Outputs.MigrateSyncCompleteCommandPropertiesResponse>> Commands;
         /// <summary>
+        /// DateTime in UTC when the task was created
+        /// </summary>
+        public readonly string? CreatedOn;
+        /// <summary>
         /// Array of errors. This is ignored if submitted.
         /// </summary>
         public readonly ImmutableArray<Outputs.ODataErrorResponse> Errors;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             ImmutableArray<Union<Outputs.MigrateMISyncCompleteCommandPropertiesResponse, Outputs.MigrateSyncCompleteCommandPropertiesResponse>> commands,
 
+            string? createdOn,
+
             ImmutableArray<Outputs.ODataErrorResponse> errors,
 
             Outputs.ConnectToTargetSqlDbTaskInputResponse? input,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         {
             ClientData = clientData;
             Commands = commands;
+            CreatedOn = createdOn;
             Errors = errors;
             Input = input;
             Output = output;

@@ -27,16 +27,28 @@ class GetPacketCoreControlPlaneResult:
     """
     Packet core control plane resource.
     """
-    def __init__(__self__, control_plane_access_interface=None, core_network_technology=None, diagnostics_upload=None, id=None, identity=None, installation=None, installed_version=None, interop_settings=None, local_diagnostics_access=None, location=None, name=None, platform=None, provisioning_state=None, rollback_version=None, sites=None, sku=None, system_data=None, tags=None, type=None, ue_mtu=None, version=None):
+    def __init__(__self__, azure_api_version=None, control_plane_access_interface=None, control_plane_access_virtual_ipv4_addresses=None, core_network_technology=None, diagnostics_upload=None, event_hub=None, home_network_private_keys_provisioning=None, id=None, identity=None, installation=None, installed_version=None, interop_settings=None, local_diagnostics_access=None, location=None, name=None, platform=None, provisioning_state=None, rollback_version=None, signaling=None, sites=None, sku=None, system_data=None, tags=None, type=None, ue_mtu=None, user_consent=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if control_plane_access_interface and not isinstance(control_plane_access_interface, dict):
             raise TypeError("Expected argument 'control_plane_access_interface' to be a dict")
         pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
+        if control_plane_access_virtual_ipv4_addresses and not isinstance(control_plane_access_virtual_ipv4_addresses, list):
+            raise TypeError("Expected argument 'control_plane_access_virtual_ipv4_addresses' to be a list")
+        pulumi.set(__self__, "control_plane_access_virtual_ipv4_addresses", control_plane_access_virtual_ipv4_addresses)
         if core_network_technology and not isinstance(core_network_technology, str):
             raise TypeError("Expected argument 'core_network_technology' to be a str")
         pulumi.set(__self__, "core_network_technology", core_network_technology)
         if diagnostics_upload and not isinstance(diagnostics_upload, dict):
             raise TypeError("Expected argument 'diagnostics_upload' to be a dict")
         pulumi.set(__self__, "diagnostics_upload", diagnostics_upload)
+        if event_hub and not isinstance(event_hub, dict):
+            raise TypeError("Expected argument 'event_hub' to be a dict")
+        pulumi.set(__self__, "event_hub", event_hub)
+        if home_network_private_keys_provisioning and not isinstance(home_network_private_keys_provisioning, dict):
+            raise TypeError("Expected argument 'home_network_private_keys_provisioning' to be a dict")
+        pulumi.set(__self__, "home_network_private_keys_provisioning", home_network_private_keys_provisioning)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -70,6 +82,9 @@ class GetPacketCoreControlPlaneResult:
         if rollback_version and not isinstance(rollback_version, str):
             raise TypeError("Expected argument 'rollback_version' to be a str")
         pulumi.set(__self__, "rollback_version", rollback_version)
+        if signaling and not isinstance(signaling, dict):
+            raise TypeError("Expected argument 'signaling' to be a dict")
+        pulumi.set(__self__, "signaling", signaling)
         if sites and not isinstance(sites, list):
             raise TypeError("Expected argument 'sites' to be a list")
         pulumi.set(__self__, "sites", sites)
@@ -88,9 +103,20 @@ class GetPacketCoreControlPlaneResult:
         if ue_mtu and not isinstance(ue_mtu, int):
             raise TypeError("Expected argument 'ue_mtu' to be a int")
         pulumi.set(__self__, "ue_mtu", ue_mtu)
+        if user_consent and not isinstance(user_consent, dict):
+            raise TypeError("Expected argument 'user_consent' to be a dict")
+        pulumi.set(__self__, "user_consent", user_consent)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="controlPlaneAccessInterface")
@@ -99,6 +125,14 @@ class GetPacketCoreControlPlaneResult:
         The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         """
         return pulumi.get(self, "control_plane_access_interface")
+
+    @property
+    @pulumi.getter(name="controlPlaneAccessVirtualIpv4Addresses")
+    def control_plane_access_virtual_ipv4_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+        """
+        return pulumi.get(self, "control_plane_access_virtual_ipv4_addresses")
 
     @property
     @pulumi.getter(name="coreNetworkTechnology")
@@ -115,6 +149,22 @@ class GetPacketCoreControlPlaneResult:
         Configuration for uploading packet core diagnostics
         """
         return pulumi.get(self, "diagnostics_upload")
+
+    @property
+    @pulumi.getter(name="eventHub")
+    def event_hub(self) -> Optional['outputs.EventHubConfigurationResponse']:
+        """
+        Configuration for sending packet core events to an Azure Event Hub.
+        """
+        return pulumi.get(self, "event_hub")
+
+    @property
+    @pulumi.getter(name="homeNetworkPrivateKeysProvisioning")
+    def home_network_private_keys_provisioning(self) -> 'outputs.HomeNetworkPrivateKeysProvisioningResponse':
+        """
+        The provisioning state of the secret containing private keys and keyIds for SUPI concealment.
+        """
+        return pulumi.get(self, "home_network_private_keys_provisioning")
 
     @property
     @pulumi.getter
@@ -206,6 +256,14 @@ class GetPacketCoreControlPlaneResult:
 
     @property
     @pulumi.getter
+    def signaling(self) -> Optional['outputs.SignalingConfigurationResponse']:
+        """
+        Signaling configuration for the packet core.
+        """
+        return pulumi.get(self, "signaling")
+
+    @property
+    @pulumi.getter
     def sites(self) -> Sequence['outputs.SiteResourceIdResponse']:
         """
         Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
@@ -253,6 +311,14 @@ class GetPacketCoreControlPlaneResult:
         return pulumi.get(self, "ue_mtu")
 
     @property
+    @pulumi.getter(name="userConsent")
+    def user_consent(self) -> Optional['outputs.UserConsentConfigurationResponse']:
+        """
+        The user consent configuration for the packet core.
+        """
+        return pulumi.get(self, "user_consent")
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
@@ -267,9 +333,13 @@ class AwaitableGetPacketCoreControlPlaneResult(GetPacketCoreControlPlaneResult):
         if False:
             yield self
         return GetPacketCoreControlPlaneResult(
+            azure_api_version=self.azure_api_version,
             control_plane_access_interface=self.control_plane_access_interface,
+            control_plane_access_virtual_ipv4_addresses=self.control_plane_access_virtual_ipv4_addresses,
             core_network_technology=self.core_network_technology,
             diagnostics_upload=self.diagnostics_upload,
+            event_hub=self.event_hub,
+            home_network_private_keys_provisioning=self.home_network_private_keys_provisioning,
             id=self.id,
             identity=self.identity,
             installation=self.installation,
@@ -281,12 +351,14 @@ class AwaitableGetPacketCoreControlPlaneResult(GetPacketCoreControlPlaneResult):
             platform=self.platform,
             provisioning_state=self.provisioning_state,
             rollback_version=self.rollback_version,
+            signaling=self.signaling,
             sites=self.sites,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             ue_mtu=self.ue_mtu,
+            user_consent=self.user_consent,
             version=self.version)
 
 
@@ -295,9 +367,7 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreControlPlaneResult:
     """
     Gets information about the specified packet core control plane.
-    Azure REST API version: 2023-06-01.
-
-    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -310,9 +380,13 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getPacketCoreControlPlane', __args__, opts=opts, typ=GetPacketCoreControlPlaneResult).value
 
     return AwaitableGetPacketCoreControlPlaneResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         control_plane_access_interface=pulumi.get(__ret__, 'control_plane_access_interface'),
+        control_plane_access_virtual_ipv4_addresses=pulumi.get(__ret__, 'control_plane_access_virtual_ipv4_addresses'),
         core_network_technology=pulumi.get(__ret__, 'core_network_technology'),
         diagnostics_upload=pulumi.get(__ret__, 'diagnostics_upload'),
+        event_hub=pulumi.get(__ret__, 'event_hub'),
+        home_network_private_keys_provisioning=pulumi.get(__ret__, 'home_network_private_keys_provisioning'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         installation=pulumi.get(__ret__, 'installation'),
@@ -324,21 +398,21 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
         platform=pulumi.get(__ret__, 'platform'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rollback_version=pulumi.get(__ret__, 'rollback_version'),
+        signaling=pulumi.get(__ret__, 'signaling'),
         sites=pulumi.get(__ret__, 'sites'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         ue_mtu=pulumi.get(__ret__, 'ue_mtu'),
+        user_consent=pulumi.get(__ret__, 'user_consent'),
         version=pulumi.get(__ret__, 'version'))
 def get_packet_core_control_plane_output(packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCoreControlPlaneResult]:
     """
     Gets information about the specified packet core control plane.
-    Azure REST API version: 2023-06-01.
-
-    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -350,9 +424,13 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getPacketCoreControlPlane', __args__, opts=opts, typ=GetPacketCoreControlPlaneResult)
     return __ret__.apply(lambda __response__: GetPacketCoreControlPlaneResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         control_plane_access_interface=pulumi.get(__response__, 'control_plane_access_interface'),
+        control_plane_access_virtual_ipv4_addresses=pulumi.get(__response__, 'control_plane_access_virtual_ipv4_addresses'),
         core_network_technology=pulumi.get(__response__, 'core_network_technology'),
         diagnostics_upload=pulumi.get(__response__, 'diagnostics_upload'),
+        event_hub=pulumi.get(__response__, 'event_hub'),
+        home_network_private_keys_provisioning=pulumi.get(__response__, 'home_network_private_keys_provisioning'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         installation=pulumi.get(__response__, 'installation'),
@@ -364,10 +442,12 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
         platform=pulumi.get(__response__, 'platform'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         rollback_version=pulumi.get(__response__, 'rollback_version'),
+        signaling=pulumi.get(__response__, 'signaling'),
         sites=pulumi.get(__response__, 'sites'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         ue_mtu=pulumi.get(__response__, 'ue_mtu'),
+        user_consent=pulumi.get(__response__, 'user_consent'),
         version=pulumi.get(__response__, 'version')))

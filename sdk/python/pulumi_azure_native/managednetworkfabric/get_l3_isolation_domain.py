@@ -25,9 +25,9 @@ __all__ = [
 @pulumi.output_type
 class GetL3IsolationDomainResult:
     """
-    The L3IsolationDomain resource definition.
+    The L3 Isolation Domain resource definition.
     """
-    def __init__(__self__, administrative_state=None, aggregate_route_configuration=None, annotation=None, connected_subnet_route_policy=None, description=None, disabled_on_resources=None, id=None, location=None, name=None, network_fabric_id=None, option_b_disabled_on_resources=None, provisioning_state=None, redistribute_connected_subnets=None, redistribute_static_routes=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrative_state=None, aggregate_route_configuration=None, annotation=None, azure_api_version=None, configuration_state=None, connected_subnet_route_policy=None, id=None, location=None, name=None, network_fabric_id=None, provisioning_state=None, redistribute_connected_subnets=None, redistribute_static_routes=None, system_data=None, tags=None, type=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
@@ -37,15 +37,15 @@ class GetL3IsolationDomainResult:
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if connected_subnet_route_policy and not isinstance(connected_subnet_route_policy, dict):
             raise TypeError("Expected argument 'connected_subnet_route_policy' to be a dict")
         pulumi.set(__self__, "connected_subnet_route_policy", connected_subnet_route_policy)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if disabled_on_resources and not isinstance(disabled_on_resources, list):
-            raise TypeError("Expected argument 'disabled_on_resources' to be a list")
-        pulumi.set(__self__, "disabled_on_resources", disabled_on_resources)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,9 +58,6 @@ class GetL3IsolationDomainResult:
         if network_fabric_id and not isinstance(network_fabric_id, str):
             raise TypeError("Expected argument 'network_fabric_id' to be a str")
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        if option_b_disabled_on_resources and not isinstance(option_b_disabled_on_resources, list):
-            raise TypeError("Expected argument 'option_b_disabled_on_resources' to be a list")
-        pulumi.set(__self__, "option_b_disabled_on_resources", option_b_disabled_on_resources)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -84,7 +81,7 @@ class GetL3IsolationDomainResult:
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> str:
         """
-        Administrative state of the IsolationDomain. Example: Enabled | Disabled.
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -92,7 +89,7 @@ class GetL3IsolationDomainResult:
     @pulumi.getter(name="aggregateRouteConfiguration")
     def aggregate_route_configuration(self) -> Optional['outputs.AggregateRouteConfigurationResponse']:
         """
-        List of Ipv4 and Ipv6 route configurations.
+        Aggregate route configurations.
         """
         return pulumi.get(self, "aggregate_route_configuration")
 
@@ -105,8 +102,24 @@ class GetL3IsolationDomainResult:
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter(name="connectedSubnetRoutePolicy")
-    def connected_subnet_route_policy(self) -> Optional['outputs.L3IsolationDomainPatchPropertiesResponseConnectedSubnetRoutePolicy']:
+    def connected_subnet_route_policy(self) -> Optional['outputs.ConnectedSubnetRoutePolicyResponse']:
         """
         Connected Subnet RoutePolicy
         """
@@ -114,25 +127,9 @@ class GetL3IsolationDomainResult:
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        L3 Isolation Domain description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="disabledOnResources")
-    def disabled_on_resources(self) -> Sequence[str]:
-        """
-        List of resources the L3 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        """
-        return pulumi.get(self, "disabled_on_resources")
-
-    @property
-    @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -156,23 +153,15 @@ class GetL3IsolationDomainResult:
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> str:
         """
-        Network Fabric ARM resource id.
+        ARM Resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
-
-    @property
-    @pulumi.getter(name="optionBDisabledOnResources")
-    def option_b_disabled_on_resources(self) -> Sequence[str]:
-        """
-        List of resources the OptionB is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        """
-        return pulumi.get(self, "option_b_disabled_on_resources")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -226,14 +215,13 @@ class AwaitableGetL3IsolationDomainResult(GetL3IsolationDomainResult):
             administrative_state=self.administrative_state,
             aggregate_route_configuration=self.aggregate_route_configuration,
             annotation=self.annotation,
+            azure_api_version=self.azure_api_version,
+            configuration_state=self.configuration_state,
             connected_subnet_route_policy=self.connected_subnet_route_policy,
-            description=self.description,
-            disabled_on_resources=self.disabled_on_resources,
             id=self.id,
             location=self.location,
             name=self.name,
             network_fabric_id=self.network_fabric_id,
-            option_b_disabled_on_resources=self.option_b_disabled_on_resources,
             provisioning_state=self.provisioning_state,
             redistribute_connected_subnets=self.redistribute_connected_subnets,
             redistribute_static_routes=self.redistribute_static_routes,
@@ -247,12 +235,10 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL3IsolationDomainResult:
     """
     Retrieves details of this L3 Isolation Domain.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain
+    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -265,14 +251,13 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
         administrative_state=pulumi.get(__ret__, 'administrative_state'),
         aggregate_route_configuration=pulumi.get(__ret__, 'aggregate_route_configuration'),
         annotation=pulumi.get(__ret__, 'annotation'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         connected_subnet_route_policy=pulumi.get(__ret__, 'connected_subnet_route_policy'),
-        description=pulumi.get(__ret__, 'description'),
-        disabled_on_resources=pulumi.get(__ret__, 'disabled_on_resources'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
-        option_b_disabled_on_resources=pulumi.get(__ret__, 'option_b_disabled_on_resources'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         redistribute_connected_subnets=pulumi.get(__ret__, 'redistribute_connected_subnets'),
         redistribute_static_routes=pulumi.get(__ret__, 'redistribute_static_routes'),
@@ -284,12 +269,10 @@ def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL3IsolationDomainResult]:
     """
     Retrieves details of this L3 Isolation Domain.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain
+    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -301,14 +284,13 @@ def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Inp
         administrative_state=pulumi.get(__response__, 'administrative_state'),
         aggregate_route_configuration=pulumi.get(__response__, 'aggregate_route_configuration'),
         annotation=pulumi.get(__response__, 'annotation'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         connected_subnet_route_policy=pulumi.get(__response__, 'connected_subnet_route_policy'),
-        description=pulumi.get(__response__, 'description'),
-        disabled_on_resources=pulumi.get(__response__, 'disabled_on_resources'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         network_fabric_id=pulumi.get(__response__, 'network_fabric_id'),
-        option_b_disabled_on_resources=pulumi.get(__response__, 'option_b_disabled_on_resources'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         redistribute_connected_subnets=pulumi.get(__response__, 'redistribute_connected_subnets'),
         redistribute_static_routes=pulumi.get(__response__, 'redistribute_static_routes'),

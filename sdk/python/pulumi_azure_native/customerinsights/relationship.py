@@ -218,7 +218,7 @@ class Relationship(pulumi.CustomResource):
                  __props__=None):
         """
         The relationship resource format.
-        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+        Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,7 +242,7 @@ class Relationship(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The relationship resource format.
-        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+        Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param RelationshipArgs args: The arguments to use to populate this resource's properties.
@@ -298,6 +298,7 @@ class Relationship(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["relationship_guid_id"] = None
@@ -327,6 +328,7 @@ class Relationship(pulumi.CustomResource):
 
         __props__ = RelationshipArgs.__new__(RelationshipArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cardinality"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -342,6 +344,14 @@ class Relationship(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return Relationship(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

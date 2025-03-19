@@ -27,7 +27,10 @@ class GetBrokerResult:
     """
     Instance broker resource
     """
-    def __init__(__self__, extended_location=None, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -46,6 +49,14 @@ class GetBrokerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -102,6 +113,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
         if False:
             yield self
         return GetBrokerResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             name=self.name,
@@ -116,9 +128,7 @@ def get_broker(broker_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerResult:
     """
     Get a BrokerResource
-    Azure REST API version: 2024-07-01-preview.
-
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str broker_name: Name of broker.
@@ -133,6 +143,7 @@ def get_broker(broker_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperations:getBroker', __args__, opts=opts, typ=GetBrokerResult).value
 
     return AwaitableGetBrokerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -145,9 +156,7 @@ def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
     Get a BrokerResource
-    Azure REST API version: 2024-07-01-preview.
-
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str broker_name: Name of broker.
@@ -161,6 +170,7 @@ def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperations:getBroker', __args__, opts=opts, typ=GetBrokerResult)
     return __ret__.apply(lambda __response__: GetBrokerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the Dsc node configurations by node configuration.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the Dsc node configurations by node configuration.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the Dsc node configurations by node configuration.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetDscNodeConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the configuration of the node.
         /// </summary>
         public readonly Outputs.DscConfigurationAssociationPropertyResponse? Configuration;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetDscNodeConfigurationResult(
+            string azureApiVersion,
+
             Outputs.DscConfigurationAssociationPropertyResponse? configuration,
 
             string? creationTime,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.Automation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Configuration = configuration;
             CreationTime = creationTime;
             Id = id;

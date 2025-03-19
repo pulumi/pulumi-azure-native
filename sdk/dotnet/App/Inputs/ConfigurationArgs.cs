@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.App.Inputs
             set => _secrets = value;
         }
 
+        /// <summary>
+        /// Container App to be a dev Container App Service
+        /// </summary>
+        [Input("service")]
+        public Input<Inputs.ServiceArgs>? Service { get; set; }
+
         public ConfigurationArgs()
         {
             ActiveRevisionsMode = "Single";

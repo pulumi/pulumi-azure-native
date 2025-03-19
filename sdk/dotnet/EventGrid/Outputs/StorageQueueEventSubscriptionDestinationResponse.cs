@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly string EndpointType;
         /// <summary>
-        /// Storage queue message time to live in seconds.
+        /// Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         /// </summary>
         public readonly double? QueueMessageTimeToLiveInSeconds;
         /// <summary>

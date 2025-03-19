@@ -27,7 +27,10 @@ class GetPricingResult:
     """
     Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
     """
-    def __init__(__self__, deprecated=None, enablement_time=None, enforce=None, extensions=None, free_trial_remaining_time=None, id=None, inherited=None, inherited_from=None, name=None, pricing_tier=None, replaced_by=None, resources_coverage_status=None, sub_plan=None, type=None):
+    def __init__(__self__, azure_api_version=None, deprecated=None, enablement_time=None, enforce=None, extensions=None, free_trial_remaining_time=None, id=None, inherited=None, inherited_from=None, name=None, pricing_tier=None, replaced_by=None, resources_coverage_status=None, sub_plan=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deprecated and not isinstance(deprecated, bool):
             raise TypeError("Expected argument 'deprecated' to be a bool")
         pulumi.set(__self__, "deprecated", deprecated)
@@ -70,6 +73,14 @@ class GetPricingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetPricingResult(GetPricingResult):
         if False:
             yield self
         return GetPricingResult(
+            azure_api_version=self.azure_api_version,
             deprecated=self.deprecated,
             enablement_time=self.enablement_time,
             enforce=self.enforce,
@@ -224,6 +236,7 @@ def get_pricing(pricing_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getPricing', __args__, opts=opts, typ=GetPricingResult).value
 
     return AwaitableGetPricingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deprecated=pulumi.get(__ret__, 'deprecated'),
         enablement_time=pulumi.get(__ret__, 'enablement_time'),
         enforce=pulumi.get(__ret__, 'enforce'),
@@ -255,6 +268,7 @@ def get_pricing_output(pricing_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getPricing', __args__, opts=opts, typ=GetPricingResult)
     return __ret__.apply(lambda __response__: GetPricingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deprecated=pulumi.get(__response__, 'deprecated'),
         enablement_time=pulumi.get(__response__, 'enablement_time'),
         enforce=pulumi.get(__response__, 'enforce'),

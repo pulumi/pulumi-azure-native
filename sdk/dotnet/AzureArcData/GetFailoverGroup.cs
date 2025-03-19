@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves a failover group resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a failover group resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a failover group resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.AzureArcData
     public sealed class GetFailoverGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         [OutputConstructor]
         private GetFailoverGroupResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.AzureArcData
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

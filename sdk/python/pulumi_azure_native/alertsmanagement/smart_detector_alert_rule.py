@@ -234,7 +234,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  __props__=None):
         """
         The alert rule information
-        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2021-04-01. Prior API version in Azure Native 2.x: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,7 +259,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The alert rule information
-        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2021-04-01. Prior API version in Azure Native 2.x: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.
@@ -325,6 +325,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throttling"] = throttling
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule")])
@@ -352,6 +353,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         __props__ = SmartDetectorAlertRuleArgs.__new__(SmartDetectorAlertRuleArgs)
 
         __props__.__dict__["action_groups"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["detector"] = None
         __props__.__dict__["frequency"] = None
@@ -372,6 +374,14 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         The alert rule actions.
         """
         return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

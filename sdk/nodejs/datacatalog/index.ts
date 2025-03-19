@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["getADCCatalog","getADCCatalogOutput"], () => requi
 // Export enums:
 export * from "../types/enums/datacatalog";
 
-// Export sub-modules:
-import * as v20160330 from "./v20160330";
-
-export {
-    v20160330,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

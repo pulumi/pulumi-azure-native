@@ -184,9 +184,7 @@ class BatchEndpoint(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,9 +205,7 @@ class BatchEndpoint(pulumi.CustomResource):
                  args: BatchEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param BatchEndpointInitArgs args: The arguments to use to populate this resource's properties.
@@ -259,10 +255,11 @@ class BatchEndpoint(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:BatchEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:BatchEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BatchEndpoint, __self__).__init__(
             'azure-native:machinelearningservices:BatchEndpoint',
@@ -286,6 +283,7 @@ class BatchEndpoint(pulumi.CustomResource):
 
         __props__ = BatchEndpointInitArgs.__new__(BatchEndpointInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["batch_endpoint_properties"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
@@ -296,6 +294,14 @@ class BatchEndpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BatchEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="batchEndpointProperties")

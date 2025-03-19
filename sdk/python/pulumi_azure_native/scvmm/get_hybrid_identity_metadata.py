@@ -27,7 +27,10 @@ class GetHybridIdentityMetadataResult:
     """
     Defines the HybridIdentityMetadata.
     """
-    def __init__(__self__, id=None, identity=None, name=None, provisioning_state=None, public_key=None, resource_uid=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, name=None, provisioning_state=None, public_key=None, resource_uid=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetHybridIdentityMetadataResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetHybridIdentityMetadataResult(GetHybridIdentityMetadataResult):
         if False:
             yield self
         return GetHybridIdentityMetadataResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             name=self.name,
@@ -140,9 +152,7 @@ def get_hybrid_identity_metadata(metadata_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadataResult:
     """
     Implements HybridIdentityMetadata GET method.
-    Azure REST API version: 2022-05-21-preview.
-
-    Other available API versions: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -157,6 +167,7 @@ def get_hybrid_identity_metadata(metadata_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getHybridIdentityMetadata', __args__, opts=opts, typ=GetHybridIdentityMetadataResult).value
 
     return AwaitableGetHybridIdentityMetadataResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         name=pulumi.get(__ret__, 'name'),
@@ -171,9 +182,7 @@ def get_hybrid_identity_metadata_output(metadata_name: Optional[pulumi.Input[str
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadataResult]:
     """
     Implements HybridIdentityMetadata GET method.
-    Azure REST API version: 2022-05-21-preview.
-
-    Other available API versions: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -187,6 +196,7 @@ def get_hybrid_identity_metadata_output(metadata_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getHybridIdentityMetadata', __args__, opts=opts, typ=GetHybridIdentityMetadataResult)
     return __ret__.apply(lambda __response__: GetHybridIdentityMetadataResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         name=pulumi.get(__response__, 'name'),

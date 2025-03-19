@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.StandbyPool.Inputs
         [Input("maxReadyCapacity", required: true)]
         public Input<double> MaxReadyCapacity { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
+        /// </summary>
+        [Input("minReadyCapacity")]
+        public Input<double>? MinReadyCapacity { get; set; }
+
         public StandbyVirtualMachinePoolElasticityProfileArgs()
         {
         }

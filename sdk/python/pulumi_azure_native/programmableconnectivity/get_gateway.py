@@ -27,7 +27,10 @@ class GetGatewayResult:
     """
     A Programmable Connectivity Gateway resource
     """
-    def __init__(__self__, gateway_base_url=None, id=None, location=None, name=None, operator_api_connections=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, gateway_base_url=None, id=None, location=None, name=None, operator_api_connections=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if gateway_base_url and not isinstance(gateway_base_url, str):
             raise TypeError("Expected argument 'gateway_base_url' to be a str")
         pulumi.set(__self__, "gateway_base_url", gateway_base_url)
@@ -55,6 +58,14 @@ class GetGatewayResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="gatewayBaseUrl")
@@ -135,6 +146,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
         if False:
             yield self
         return GetGatewayResult(
+            azure_api_version=self.azure_api_version,
             gateway_base_url=self.gateway_base_url,
             id=self.id,
             location=self.location,
@@ -164,6 +176,7 @@ def get_gateway(gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:programmableconnectivity:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         gateway_base_url=pulumi.get(__ret__, 'gateway_base_url'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -190,6 +203,7 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:programmableconnectivity:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         gateway_base_url=pulumi.get(__response__, 'gateway_base_url'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

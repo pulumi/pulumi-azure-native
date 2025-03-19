@@ -10,11 +10,3 @@ from .get_sql_server_registration import *
 from .sql_server import *
 from .sql_server_registration import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azuredata.v20190724preview as __v20190724preview
-    v20190724preview = __v20190724preview
-else:
-    v20190724preview = _utilities.lazy_import('pulumi_azure_native.azuredata.v20190724preview')
-

@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
+    /// The purpose of the dnc controller resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ControllerPurpose : IEquatable<ControllerPurpose>
+    {
+        private readonly string _value;
+
+        private ControllerPurpose(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ControllerPurpose Test { get; } = new ControllerPurpose("test");
+        public static ControllerPurpose Prod { get; } = new ControllerPurpose("prod");
+
+        public static bool operator ==(ControllerPurpose left, ControllerPurpose right) => left.Equals(right);
+        public static bool operator !=(ControllerPurpose left, ControllerPurpose right) => !left.Equals(right);
+
+        public static explicit operator string(ControllerPurpose value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ControllerPurpose other && Equals(other);
+        public bool Equals(ControllerPurpose other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of workbook. Choices are user and shared.
     /// </summary>
     [EnumType]

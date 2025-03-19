@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements NetworkToNetworkInterconnects GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetNetworkToNetworkInterconnectResult> InvokeAsync(GetNetworkToNetworkInterconnectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements NetworkToNetworkInterconnects GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkToNetworkInterconnectResult> Invoke(GetNetworkToNetworkInterconnectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements NetworkToNetworkInterconnects GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkToNetworkInterconnectResult> Invoke(GetNetworkToNetworkInterconnectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectInvokeArgs(), options.WithDefaults());
@@ -43,13 +37,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkToNetworkInterconnectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the NetworkFabric.
+        /// Name of the Network Fabric.
         /// </summary>
         [Input("networkFabricName", required: true)]
         public string NetworkFabricName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the NetworkToNetworkInterconnect
+        /// Name of the Network to Network Interconnect.
         /// </summary>
         [Input("networkToNetworkInterconnectName", required: true)]
         public string NetworkToNetworkInterconnectName { get; set; } = null!;
@@ -69,13 +63,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkToNetworkInterconnectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the NetworkFabric.
+        /// Name of the Network Fabric.
         /// </summary>
         [Input("networkFabricName", required: true)]
         public Input<string> NetworkFabricName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the NetworkToNetworkInterconnect
+        /// Name of the Network to Network Interconnect.
         /// </summary>
         [Input("networkToNetworkInterconnectName", required: true)]
         public Input<string> NetworkToNetworkInterconnectName { get; set; } = null!;
@@ -97,25 +91,45 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkToNetworkInterconnectResult
     {
         /// <summary>
-        /// Gets the administrativeState of the resource. Example -Enabled/Disabled
+        /// Administrative state of the resource.
         /// </summary>
         public readonly string AdministrativeState;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// Egress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        public readonly string? EgressAclId;
+        /// <summary>
+        /// Export Route Policy configuration.
+        /// </summary>
+        public readonly Outputs.ExportRoutePolicyInformationResponse? ExportRoutePolicy;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Import Route Policy configuration.
+        /// </summary>
+        public readonly Outputs.ImportRoutePolicyInformationResponse? ImportRoutePolicy;
+        /// <summary>
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        public readonly string? IngressAclId;
+        /// <summary>
         /// Configuration to use NNI for Infrastructure Management. Example: True/False.
         /// </summary>
-        public readonly string IsManagementType;
+        public readonly string? IsManagementType;
         /// <summary>
-        /// Common properties for Layer2Configuration.
+        /// Common properties for Layer2 Configuration.
         /// </summary>
         public readonly Outputs.Layer2ConfigurationResponse? Layer2Configuration;
-        /// <summary>
-        /// Common properties for Layer3Configuration.
-        /// </summary>
-        public readonly Outputs.Layer3ConfigurationResponse? Layer3Configuration;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -125,7 +139,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? NniType;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// NPB Static Route Configuration properties.
+        /// </summary>
+        public readonly Outputs.NpbStaticRouteConfigurationResponse? NpbStaticRouteConfiguration;
+        /// <summary>
+        /// Common properties for Layer3Configuration.
+        /// </summary>
+        public readonly Outputs.NetworkToNetworkInterconnectPropertiesResponseOptionBLayer3Configuration? OptionBLayer3Configuration;
+        /// <summary>
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -137,7 +159,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+        /// Based on this option layer3 parameters are mandatory. Example: True/False
         /// </summary>
         public readonly string UseOptionB;
 
@@ -145,17 +167,31 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         private GetNetworkToNetworkInterconnectResult(
             string administrativeState,
 
+            string azureApiVersion,
+
+            string configurationState,
+
+            string? egressAclId,
+
+            Outputs.ExportRoutePolicyInformationResponse? exportRoutePolicy,
+
             string id,
 
-            string isManagementType,
+            Outputs.ImportRoutePolicyInformationResponse? importRoutePolicy,
+
+            string? ingressAclId,
+
+            string? isManagementType,
 
             Outputs.Layer2ConfigurationResponse? layer2Configuration,
-
-            Outputs.Layer3ConfigurationResponse? layer3Configuration,
 
             string name,
 
             string? nniType,
+
+            Outputs.NpbStaticRouteConfigurationResponse? npbStaticRouteConfiguration,
+
+            Outputs.NetworkToNetworkInterconnectPropertiesResponseOptionBLayer3Configuration? optionBLayer3Configuration,
 
             string provisioningState,
 
@@ -166,12 +202,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
             string useOptionB)
         {
             AdministrativeState = administrativeState;
+            AzureApiVersion = azureApiVersion;
+            ConfigurationState = configurationState;
+            EgressAclId = egressAclId;
+            ExportRoutePolicy = exportRoutePolicy;
             Id = id;
+            ImportRoutePolicy = importRoutePolicy;
+            IngressAclId = ingressAclId;
             IsManagementType = isManagementType;
             Layer2Configuration = layer2Configuration;
-            Layer3Configuration = layer3Configuration;
             Name = name;
             NniType = nniType;
+            NpbStaticRouteConfiguration = npbStaticRouteConfiguration;
+            OptionBLayer3Configuration = optionBLayer3Configuration;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;

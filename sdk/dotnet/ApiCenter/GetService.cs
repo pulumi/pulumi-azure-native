@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.ApiCenter
     public static class GetService
     {
         /// <summary>
-        /// Get service
-        /// Azure REST API version: 2023-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        /// Returns details of the service.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get service
-        /// Azure REST API version: 2023-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        /// Returns details of the service.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get service
-        /// Azure REST API version: 2023-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        /// Returns details of the service.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.ApiCenter
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Service name
+        /// The name of Azure API Center service.
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.ApiCenter
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Service name
+        /// The name of Azure API Center service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
@@ -85,11 +79,15 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the service.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
@@ -101,9 +99,13 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The status of the last operation.
+        /// Provisioning state of the service.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        /// </summary>
+        public readonly bool? Restore;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -119,6 +121,8 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [OutputConstructor]
         private GetServiceResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -129,17 +133,21 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string provisioningState,
 
+            bool? restore,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            Restore = restore;
             SystemData = systemData;
             Tags = tags;
             Type = type;

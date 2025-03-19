@@ -114,9 +114,7 @@ class IncidentComment(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an incident comment
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +132,7 @@ class IncidentComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an incident comment
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param IncidentCommentArgs args: The arguments to use to populate this resource's properties.
@@ -181,13 +177,14 @@ class IncidentComment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["author"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time_utc"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20231101:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240301:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240901:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:IncidentComment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20231101:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240301:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20240901:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20250301:IncidentComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IncidentComment, __self__).__init__(
             'azure-native:securityinsights:IncidentComment',
@@ -212,6 +209,7 @@ class IncidentComment(pulumi.CustomResource):
         __props__ = IncidentCommentArgs.__new__(IncidentCommentArgs)
 
         __props__.__dict__["author"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_time_utc"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["last_modified_time_utc"] = None
@@ -228,6 +226,14 @@ class IncidentComment(pulumi.CustomResource):
         Describes the client that created the comment
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTimeUtc")

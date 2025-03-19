@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Contoso
 {
     /// <summary>
     /// Employee resource
-    /// Azure REST API version: 2021-10-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:contoso:Employee")]
     public partial class Employee : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.Contoso
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:contoso/v20211001preview:Employee" },
+                    new global::Pulumi.Alias { Type = "azure-native:contoso/v20211101:Employee" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

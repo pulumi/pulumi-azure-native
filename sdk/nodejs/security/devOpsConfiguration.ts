@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * DevOps Configuration resource.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class DevOpsConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class DevOpsConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === DevOpsConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -77,17 +79,19 @@ export class DevOpsConfiguration extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230901preview:DevOpsConfiguration" }, { type: "azure-native:security/v20240401:DevOpsConfiguration" }, { type: "azure-native:security/v20240515preview:DevOpsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230901preview:DevOpsConfiguration" }, { type: "azure-native:security/v20240401:DevOpsConfiguration" }, { type: "azure-native:security/v20240515preview:DevOpsConfiguration" }, { type: "azure-native:security/v20250301:DevOpsConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevOpsConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Get installed extension details by extension id.
         /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Get installed extension details by extension id.
         /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// Get installed extension details by extension id.
         /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ApiPropertiesResponse> AdditionalApiProperties;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
         public readonly string ETag;
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         private GetExtensionResult(
             ImmutableDictionary<string, Outputs.ApiPropertiesResponse> additionalApiProperties,
 
+            string azureApiVersion,
+
             string eTag,
 
             string extensionApiDocsLink,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
             string type)
         {
             AdditionalApiProperties = additionalApiProperties;
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             ExtensionApiDocsLink = extensionApiDocsLink;
             ExtensionAuthLink = extensionAuthLink;

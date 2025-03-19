@@ -27,13 +27,16 @@ class GetSubscriptionResult:
     """
     Description of subscription resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, client_affine_properties=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, is_client_affine=None, location=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, azure_api_version=None, client_affine_properties=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, is_client_affine=None, location=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, system_data=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_affine_properties and not isinstance(client_affine_properties, dict):
             raise TypeError("Expected argument 'client_affine_properties' to be a dict")
         pulumi.set(__self__, "client_affine_properties", client_affine_properties)
@@ -116,6 +119,14 @@ class GetSubscriptionResult:
         ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientAffineProperties")
@@ -302,6 +313,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
         return GetSubscriptionResult(
             accessed_at=self.accessed_at,
             auto_delete_on_idle=self.auto_delete_on_idle,
+            azure_api_version=self.azure_api_version,
             client_affine_properties=self.client_affine_properties,
             count_details=self.count_details,
             created_at=self.created_at,
@@ -333,13 +345,11 @@ def get_subscription(namespace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Returns a subscription description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
@@ -354,6 +364,7 @@ def get_subscription(namespace_name: Optional[str] = None,
     return AwaitableGetSubscriptionResult(
         accessed_at=pulumi.get(__ret__, 'accessed_at'),
         auto_delete_on_idle=pulumi.get(__ret__, 'auto_delete_on_idle'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_affine_properties=pulumi.get(__ret__, 'client_affine_properties'),
         count_details=pulumi.get(__ret__, 'count_details'),
         created_at=pulumi.get(__ret__, 'created_at'),
@@ -383,13 +394,11 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Returns a subscription description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
@@ -403,6 +412,7 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetSubscriptionResult(
         accessed_at=pulumi.get(__response__, 'accessed_at'),
         auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_affine_properties=pulumi.get(__response__, 'client_affine_properties'),
         count_details=pulumi.get(__response__, 'count_details'),
         created_at=pulumi.get(__response__, 'created_at'),

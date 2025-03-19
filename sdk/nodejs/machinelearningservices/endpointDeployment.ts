@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-01-01-preview.
  */
 export class EndpointDeployment extends pulumi.CustomResource {
     /**
@@ -39,6 +37,10 @@ export class EndpointDeployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === EndpointDeployment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -81,17 +83,19 @@ export class EndpointDeployment extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20250101preview:EndpointDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EndpointDeployment.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Contact resource
- * Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 1.x: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 2.x: 2022-12-01-preview.
  */
 export class Contact extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Contact extends pulumi.CustomResource {
         return obj['__pulumiType'] === Contact.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Full name of contact
      */
@@ -113,11 +117,13 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contactName"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

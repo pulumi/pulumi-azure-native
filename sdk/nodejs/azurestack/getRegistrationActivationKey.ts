@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Returns Azure Stack Activation Key.
  * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2020-06-01-preview.
  */
 export function getRegistrationActivationKey(args: GetRegistrationActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,8 +39,6 @@ export interface GetRegistrationActivationKeyResult {
 /**
  * Returns Azure Stack Activation Key.
  * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2020-06-01-preview.
  */
 export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

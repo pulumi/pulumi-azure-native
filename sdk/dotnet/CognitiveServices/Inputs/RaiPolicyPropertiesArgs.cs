@@ -16,22 +16,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     public sealed class RaiPolicyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the base Content Filters.
+        /// Name of Rai policy.
         /// </summary>
         [Input("basePolicyName")]
         public Input<string>? BasePolicyName { get; set; }
-
-        [Input("completionBlocklists")]
-        private InputList<Inputs.RaiBlocklistConfigArgs>? _completionBlocklists;
-
-        /// <summary>
-        /// The list of blocklists for completion.
-        /// </summary>
-        public InputList<Inputs.RaiBlocklistConfigArgs> CompletionBlocklists
-        {
-            get => _completionBlocklists ?? (_completionBlocklists = new InputList<Inputs.RaiBlocklistConfigArgs>());
-            set => _completionBlocklists = value;
-        }
 
         [Input("contentFilters")]
         private InputList<Inputs.RaiPolicyContentFilterArgs>? _contentFilters;
@@ -45,23 +33,23 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
             set => _contentFilters = value;
         }
 
+        [Input("customBlocklists")]
+        private InputList<Inputs.CustomBlocklistConfigArgs>? _customBlocklists;
+
         /// <summary>
-        /// Content Filters mode.
+        /// The list of custom Blocklist.
+        /// </summary>
+        public InputList<Inputs.CustomBlocklistConfigArgs> CustomBlocklists
+        {
+            get => _customBlocklists ?? (_customBlocklists = new InputList<Inputs.CustomBlocklistConfigArgs>());
+            set => _customBlocklists = value;
+        }
+
+        /// <summary>
+        /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.CognitiveServices.RaiPolicyMode>? Mode { get; set; }
-
-        [Input("promptBlocklists")]
-        private InputList<Inputs.RaiBlocklistConfigArgs>? _promptBlocklists;
-
-        /// <summary>
-        /// The list of blocklists for prompt.
-        /// </summary>
-        public InputList<Inputs.RaiBlocklistConfigArgs> PromptBlocklists
-        {
-            get => _promptBlocklists ?? (_promptBlocklists = new InputList<Inputs.RaiBlocklistConfigArgs>());
-            set => _promptBlocklists = value;
-        }
 
         public RaiPolicyPropertiesArgs()
         {

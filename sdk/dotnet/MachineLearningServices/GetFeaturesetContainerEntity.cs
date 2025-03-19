@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetFeaturesetContainerEntityResult> InvokeAsync(GetFeaturesetContainerEntityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFeaturesetContainerEntityResult>("azure-native:machinelearningservices:getFeaturesetContainerEntity", args ?? new GetFeaturesetContainerEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetFeaturesetContainerEntityResult> Invoke(GetFeaturesetContainerEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeaturesetContainerEntityResult>("azure-native:machinelearningservices:getFeaturesetContainerEntity", args ?? new GetFeaturesetContainerEntityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetFeaturesetContainerEntityResult> Invoke(GetFeaturesetContainerEntityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeaturesetContainerEntityResult>("azure-native:machinelearningservices:getFeaturesetContainerEntity", args ?? new GetFeaturesetContainerEntityInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetFeaturesetContainerEntityResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Outputs.FeaturesetContainerResponse FeaturesetContainerProperties;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetFeaturesetContainerEntityResult(
+            string azureApiVersion,
+
             Outputs.FeaturesetContainerResponse featuresetContainerProperties,
 
             string id,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             FeaturesetContainerProperties = featuresetContainerProperties;
             Id = id;
             Name = name;

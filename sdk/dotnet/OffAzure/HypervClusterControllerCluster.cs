@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// A cluster resource belonging to a site resource.
-    /// Azure REST API version: 2023-06-06.
-    /// 
-    /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HypervClusterControllerCluster")]
     public partial class HypervClusterControllerCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets the timestamp marking Hyper-V cluster creation.
         /// </summary>

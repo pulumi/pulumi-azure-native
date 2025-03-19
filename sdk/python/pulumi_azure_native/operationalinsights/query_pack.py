@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['QueryPackArgs', 'QueryPack']
 
@@ -26,9 +27,9 @@ class QueryPackArgs:
         """
         The set of arguments for constructing a QueryPack resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -54,7 +55,7 @@ class QueryPackArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -78,7 +79,7 @@ class QueryPackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -99,16 +100,14 @@ class QueryPack(pulumi.CustomResource):
                  __props__=None):
         """
         An Log Analytics QueryPack definition.
-        Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
-
-        Other available API versions: 2019-09-01-preview, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -118,9 +117,7 @@ class QueryPack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Log Analytics QueryPack definition.
-        Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
-
-        Other available API versions: 2019-09-01-preview, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param QueryPackArgs args: The arguments to use to populate this resource's properties.
@@ -156,13 +153,15 @@ class QueryPack(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["query_pack_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:QueryPack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:QueryPack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueryPack, __self__).__init__(
             'azure-native:operationalinsights:QueryPack',
@@ -186,10 +185,12 @@ class QueryPack(pulumi.CustomResource):
 
         __props__ = QueryPackArgs.__new__(QueryPackArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["query_pack_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_created"] = None
         __props__.__dict__["time_modified"] = None
@@ -197,10 +198,18 @@ class QueryPack(pulumi.CustomResource):
         return QueryPack(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -208,7 +217,7 @@ class QueryPack(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -229,10 +238,18 @@ class QueryPack(pulumi.CustomResource):
         return pulumi.get(self, "query_pack_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -256,7 +273,7 @@ class QueryPack(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

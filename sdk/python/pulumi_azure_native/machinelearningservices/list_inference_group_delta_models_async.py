@@ -71,7 +71,7 @@ def list_inference_group_delta_models_async(count: Optional[int] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListInferenceGroupDeltaModelsAsyncResult:
     """
     A paginated list of String entities.
-    Azure REST API version: 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param int count: Gets or sets number of delta models to return. Default: -1, means that all will be returned.
@@ -106,7 +106,7 @@ def list_inference_group_delta_models_async_output(count: Optional[pulumi.Input[
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListInferenceGroupDeltaModelsAsyncResult]:
     """
     A paginated list of String entities.
-    Azure REST API version: 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param int count: Gets or sets number of delta models to return. Default: -1, means that all will be returned.

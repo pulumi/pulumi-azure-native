@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single API Management gateway resource in List or Get response.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class ApiGatewayConfigConnection extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiGatewayConfigConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The default hostname of the data-plane gateway.
      */
@@ -88,12 +90,14 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
             resourceInputs["hostnames"] = args ? args.hostnames : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hostnames"] = undefined /*out*/;

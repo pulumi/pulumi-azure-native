@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// The storageSpaces resource definition.
-    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+    /// Azure REST API version: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:StorageSpaceRetrieve")]
     public partial class StorageSpaceRetrieve : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("extendedLocation")]
         public Output<Outputs.StorageSpacesResponseExtendedLocation?> ExtendedLocation { get; private set; } = null!;
 
@@ -81,10 +87,7 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:StorageSpaceRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:storageSpaceRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:storageSpaceRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

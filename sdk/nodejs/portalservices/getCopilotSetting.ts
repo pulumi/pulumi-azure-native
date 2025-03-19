@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CopilotSettingsResource
- * Azure REST API version: 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getCopilotSetting(args?: GetCopilotSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetCopilotSettingResult> {
     args = args || {};
@@ -29,6 +29,10 @@ export interface GetCopilotSettingResult {
      * Boolean indicating if role-based access control is enabled for copilot in this tenant.
      */
     readonly accessControlEnabled: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -52,7 +56,7 @@ export interface GetCopilotSettingResult {
 }
 /**
  * Get a CopilotSettingsResource
- * Azure REST API version: 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getCopilotSettingOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCopilotSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

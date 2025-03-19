@@ -11,18 +11,34 @@ namespace Pulumi.AzureNative.DataBox
 {
     /// <summary>
     /// Job Resource.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
-    /// 
-    /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+    /// Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databox:Job")]
     public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Flag to indicate if all devices associated with the job are lost.
+        /// </summary>
+        [Output("allDevicesLost")]
+        public Output<bool> AllDevicesLost { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Reason for cancellation.
         /// </summary>
         [Output("cancellationReason")]
         public Output<string> CancellationReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the stage where delay might be present.
+        /// </summary>
+        [Output("delayedStage")]
+        public Output<string> DelayedStage { get; private set; } = null!;
 
         /// <summary>
         /// Delivery Info of Job.
@@ -191,6 +207,7 @@ namespace Pulumi.AzureNative.DataBox
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20231201:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20240201preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20240301preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:databox/v20250201:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

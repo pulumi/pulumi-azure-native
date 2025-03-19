@@ -11,15 +11,19 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 {
     /// <summary>
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2023-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:Target")]
     public partial class Target : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         /// </summary>
         [Output("connectionServerName")]
         public Output<string> ConnectionServerName { get; private set; } = null!;
@@ -119,7 +123,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     public sealed class TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
+        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         /// </summary>
         [Input("connectionServerName", required: true)]
         public Input<string> ConnectionServerName { get; set; } = null!;

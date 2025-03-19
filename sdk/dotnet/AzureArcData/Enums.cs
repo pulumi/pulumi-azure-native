@@ -139,42 +139,6 @@ namespace Pulumi.AzureNative.AzureArcData
     /// SQL Server license type.
     /// </summary>
     [EnumType]
-    public readonly struct ArcSqlServerLicenseType : IEquatable<ArcSqlServerLicenseType>
-    {
-        private readonly string _value;
-
-        private ArcSqlServerLicenseType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ArcSqlServerLicenseType Undefined { get; } = new ArcSqlServerLicenseType("Undefined");
-        public static ArcSqlServerLicenseType Free { get; } = new ArcSqlServerLicenseType("Free");
-        public static ArcSqlServerLicenseType HADR { get; } = new ArcSqlServerLicenseType("HADR");
-        public static ArcSqlServerLicenseType ServerCAL { get; } = new ArcSqlServerLicenseType("ServerCAL");
-        public static ArcSqlServerLicenseType LicenseOnly { get; } = new ArcSqlServerLicenseType("LicenseOnly");
-        public static ArcSqlServerLicenseType PAYG { get; } = new ArcSqlServerLicenseType("PAYG");
-        public static ArcSqlServerLicenseType Paid { get; } = new ArcSqlServerLicenseType("Paid");
-
-        public static bool operator ==(ArcSqlServerLicenseType left, ArcSqlServerLicenseType right) => left.Equals(right);
-        public static bool operator !=(ArcSqlServerLicenseType left, ArcSqlServerLicenseType right) => !left.Equals(right);
-
-        public static explicit operator string(ArcSqlServerLicenseType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ArcSqlServerLicenseType other && Equals(other);
-        public bool Equals(ArcSqlServerLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// SQL Server license type.
-    /// </summary>
-    [EnumType]
     public readonly struct BillingPlan : IEquatable<BillingPlan>
     {
         private readonly string _value;
@@ -203,31 +167,29 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
-    /// The cloud connectivity status.
+    /// Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
     /// </summary>
     [EnumType]
-    public readonly struct ConnectionStatus : IEquatable<ConnectionStatus>
+    public readonly struct DatabaseCreateMode : IEquatable<DatabaseCreateMode>
     {
         private readonly string _value;
 
-        private ConnectionStatus(string value)
+        private DatabaseCreateMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConnectionStatus Connected { get; } = new ConnectionStatus("Connected");
-        public static ConnectionStatus Disconnected { get; } = new ConnectionStatus("Disconnected");
-        public static ConnectionStatus Registered { get; } = new ConnectionStatus("Registered");
-        public static ConnectionStatus Unknown { get; } = new ConnectionStatus("Unknown");
+        public static DatabaseCreateMode Default { get; } = new DatabaseCreateMode("Default");
+        public static DatabaseCreateMode PointInTimeRestore { get; } = new DatabaseCreateMode("PointInTimeRestore");
 
-        public static bool operator ==(ConnectionStatus left, ConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(ConnectionStatus left, ConnectionStatus right) => !left.Equals(right);
+        public static bool operator ==(DatabaseCreateMode left, DatabaseCreateMode right) => left.Equals(right);
+        public static bool operator !=(DatabaseCreateMode left, DatabaseCreateMode right) => !left.Equals(right);
 
-        public static explicit operator string(ConnectionStatus value) => value._value;
+        public static explicit operator string(DatabaseCreateMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
-        public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DatabaseCreateMode other && Equals(other);
+        public bool Equals(DatabaseCreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -266,38 +228,6 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabaseState other && Equals(other);
         public bool Equals(DatabaseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Status of Azure Defender.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefenderStatus : IEquatable<DefenderStatus>
-    {
-        private readonly string _value;
-
-        private DefenderStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefenderStatus Protected { get; } = new DefenderStatus("Protected");
-        public static DefenderStatus Unprotected { get; } = new DefenderStatus("Unprotected");
-        public static DefenderStatus Unknown { get; } = new DefenderStatus("Unknown");
-
-        public static bool operator ==(DefenderStatus left, DefenderStatus right) => left.Equals(right);
-        public static bool operator !=(DefenderStatus left, DefenderStatus right) => !left.Equals(right);
-
-        public static explicit operator string(DefenderStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefenderStatus other && Equals(other);
-        public bool Equals(DefenderStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

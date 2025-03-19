@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// <summary>
         /// Fault simulation parameters.
         /// </summary>
-        public readonly Outputs.ZoneFaultSimulationParametersResponse? Parameters;
+        public readonly Outputs.ZoneFaultSimulationContentResponse? Parameters;
 
         [OutputConstructor]
         private FaultSimulationDetailsResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 
             string? operationId,
 
-            Outputs.ZoneFaultSimulationParametersResponse? parameters)
+            Outputs.ZoneFaultSimulationContentResponse? parameters)
         {
             ClusterId = clusterId;
             NodeTypeFaultSimulation = nodeTypeFaultSimulation;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
- * Azure REST API version: 2020-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
- *
- * Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2020-01-01-preview.
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**
@@ -41,13 +39,17 @@ export class SecurityContact extends pulumi.CustomResource {
     }
 
     /**
-     * Defines whether to send email notifications about new security alerts
+     * The Azure API version of the resource.
      */
-    public readonly alertNotifications!: pulumi.Output<outputs.security.SecurityContactPropertiesResponseAlertNotifications | undefined>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
      */
     public readonly emails!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether the security contact is enabled.
+     */
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource name
      */
@@ -56,6 +58,10 @@ export class SecurityContact extends pulumi.CustomResource {
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
     public readonly notificationsByRole!: pulumi.Output<outputs.security.SecurityContactPropertiesResponseNotificationsByRole | undefined>;
+    /**
+     * A collection of sources types which evaluate the email notification.
+     */
+    public readonly notificationsSources!: pulumi.Output<(outputs.security.NotificationsSourceAlertResponse | outputs.security.NotificationsSourceAttackPathResponse)[] | undefined>;
     /**
      * The security contact's phone number
      */
@@ -76,18 +82,22 @@ export class SecurityContact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["alertNotifications"] = args ? args.alertNotifications : undefined;
             resourceInputs["emails"] = args ? args.emails : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["notificationsByRole"] = args ? args.notificationsByRole : undefined;
+            resourceInputs["notificationsSources"] = args ? args.notificationsSources : undefined;
             resourceInputs["phone"] = args ? args.phone : undefined;
             resourceInputs["securityContactName"] = args ? args.securityContactName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["alertNotifications"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["emails"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notificationsByRole"] = undefined /*out*/;
+            resourceInputs["notificationsSources"] = undefined /*out*/;
             resourceInputs["phone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -103,17 +113,21 @@ export class SecurityContact extends pulumi.CustomResource {
  */
 export interface SecurityContactArgs {
     /**
-     * Defines whether to send email notifications about new security alerts
-     */
-    alertNotifications?: pulumi.Input<inputs.security.SecurityContactPropertiesAlertNotificationsArgs>;
-    /**
      * List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
      */
     emails?: pulumi.Input<string>;
     /**
+     * Indicates whether the security contact is enabled.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
     notificationsByRole?: pulumi.Input<inputs.security.SecurityContactPropertiesNotificationsByRoleArgs>;
+    /**
+     * A collection of sources types which evaluate the email notification.
+     */
+    notificationsSources?: pulumi.Input<pulumi.Input<inputs.security.NotificationsSourceAlertArgs | inputs.security.NotificationsSourceAttackPathArgs>[]>;
     /**
      * The security contact's phone number
      */

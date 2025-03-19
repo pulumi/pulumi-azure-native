@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// </summary>
         public readonly bool? EnableAutomaticUpgrade;
         /// <summary>
+        /// Specifies the version of the last attempt
+        /// </summary>
+        public readonly string LastAttemptDesiredVersion;
+        /// <summary>
         /// Failure message of last upgrade attempt if any.
         /// </summary>
         public readonly string LastAttemptMessage;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
             bool? enableAutomaticUpgrade,
 
+            string lastAttemptDesiredVersion,
+
             string lastAttemptMessage,
 
             string lastAttemptStatus,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
             CorrelationId = correlationId;
             DesiredVersion = desiredVersion;
             EnableAutomaticUpgrade = enableAutomaticUpgrade;
+            LastAttemptDesiredVersion = lastAttemptDesiredVersion;
             LastAttemptMessage = lastAttemptMessage;
             LastAttemptStatus = lastAttemptStatus;
             LastAttemptTimestamp = lastAttemptTimestamp;

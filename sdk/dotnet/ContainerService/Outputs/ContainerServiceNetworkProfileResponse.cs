@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ContainerServiceNetworkProfileResponse
     {
         /// <summary>
+        /// Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        /// </summary>
+        public readonly Outputs.AdvancedNetworkingResponse? AdvancedNetworking;
+        /// <summary>
         /// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         /// </summary>
         public readonly string? DnsServiceIP;
@@ -79,6 +83,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
         [OutputConstructor]
         private ContainerServiceNetworkProfileResponse(
+            Outputs.AdvancedNetworkingResponse? advancedNetworking,
+
             string? dnsServiceIP,
 
             ImmutableArray<string> ipFamilies,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableArray<string> serviceCidrs)
         {
+            AdvancedNetworking = advancedNetworking;
             DnsServiceIP = dnsServiceIP;
             IpFamilies = ipFamilies;
             LoadBalancerProfile = loadBalancerProfile;

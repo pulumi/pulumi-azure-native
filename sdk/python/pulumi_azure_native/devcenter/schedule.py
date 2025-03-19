@@ -28,8 +28,10 @@ class ScheduleArgs:
                  time: pulumi.Input[str],
                  time_zone: pulumi.Input[str],
                  type: pulumi.Input[Union[str, 'ScheduledType']],
+                 location: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  top: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Schedule resource.
@@ -40,8 +42,10 @@ class ScheduleArgs:
         :param pulumi.Input[str] time: The target time to trigger the action. The format is HH:MM.
         :param pulumi.Input[str] time_zone: The IANA timezone id at which the schedule should execute.
         :param pulumi.Input[Union[str, 'ScheduledType']] type: Supported type this scheduled task represents.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it.
         :param pulumi.Input[Union[str, 'ScheduleEnableStatus']] state: Indicates whether or not this scheduled task is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] top: The maximum number of resources to return from the operation. Example: '$top=10'.
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -51,10 +55,14 @@ class ScheduleArgs:
         pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "time_zone", time_zone)
         pulumi.set(__self__, "type", type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if schedule_name is not None:
             pulumi.set(__self__, "schedule_name", schedule_name)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if top is not None:
             pulumi.set(__self__, "top", top)
 
@@ -143,6 +151,18 @@ class ScheduleArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
     @pulumi.getter(name="scheduleName")
     def schedule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -168,6 +188,18 @@ class ScheduleArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def top(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of resources to return from the operation. Example: '$top=10'.
@@ -185,11 +217,13 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input[Union[str, 'ScheduledFrequency']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  top: Optional[pulumi.Input[int]] = None,
@@ -197,18 +231,18 @@ class Schedule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Schedule to execute a task.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ScheduledFrequency']] frequency: The frequency of this scheduled task.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: Name of the pool.
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it.
         :param pulumi.Input[Union[str, 'ScheduleEnableStatus']] state: Indicates whether or not this scheduled task is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] time: The target time to trigger the action. The format is HH:MM.
         :param pulumi.Input[str] time_zone: The IANA timezone id at which the schedule should execute.
         :param pulumi.Input[int] top: The maximum number of resources to return from the operation. Example: '$top=10'.
@@ -222,9 +256,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Schedule to execute a task.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -242,11 +274,13 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input[Union[str, 'ScheduledFrequency']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  top: Optional[pulumi.Input[int]] = None,
@@ -263,6 +297,7 @@ class Schedule(pulumi.CustomResource):
             if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__.__dict__["frequency"] = frequency
+            __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
@@ -274,6 +309,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["schedule_name"] = schedule_name
             __props__.__dict__["state"] = state
+            __props__.__dict__["tags"] = tags
             if time is None and not opts.urn:
                 raise TypeError("Missing required property 'time'")
             __props__.__dict__["time"] = time
@@ -284,10 +320,11 @@ class Schedule(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-native:devcenter:Schedule',
@@ -311,15 +348,26 @@ class Schedule(pulumi.CustomResource):
 
         __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["frequency"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["time"] = None
         __props__.__dict__["time_zone"] = None
         __props__.__dict__["type"] = None
         return Schedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -328,6 +376,14 @@ class Schedule(pulumi.CustomResource):
         The frequency of this scheduled task.
         """
         return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -360,6 +416,14 @@ class Schedule(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

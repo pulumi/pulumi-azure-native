@@ -27,7 +27,10 @@ class GetScheduledSynchronizationSettingResult:
     """
     A type of synchronization setting based on schedule
     """
-    def __init__(__self__, created_at=None, id=None, kind=None, name=None, provisioning_state=None, recurrence_interval=None, synchronization_time=None, system_data=None, type=None, user_name=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, id=None, kind=None, name=None, provisioning_state=None, recurrence_interval=None, synchronization_time=None, system_data=None, type=None, user_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -58,6 +61,14 @@ class GetScheduledSynchronizationSettingResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -147,6 +158,7 @@ class AwaitableGetScheduledSynchronizationSettingResult(GetScheduledSynchronizat
         if False:
             yield self
         return GetScheduledSynchronizationSettingResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             id=self.id,
             kind=self.kind,
@@ -183,6 +195,7 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getScheduledSynchronizationSetting', __args__, opts=opts, typ=GetScheduledSynchronizationSettingResult).value
 
     return AwaitableGetScheduledSynchronizationSettingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -216,6 +229,7 @@ def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getScheduledSynchronizationSetting', __args__, opts=opts, typ=GetScheduledSynchronizationSettingResult)
     return __ret__.apply(lambda __response__: GetScheduledSynchronizationSettingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

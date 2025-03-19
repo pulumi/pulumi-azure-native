@@ -17,6 +17,18 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MySqlConnectionInfoResponse
     {
         /// <summary>
+        /// Additional connection settings
+        /// </summary>
+        public readonly string? AdditionalSettings;
+        /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        public readonly string? Authentication;
+        /// <summary>
+        /// Data source 
+        /// </summary>
+        public readonly string? DataSource;
+        /// <summary>
         /// Whether to encrypt the connection
         /// </summary>
         public readonly bool? EncryptConnection;
@@ -44,6 +56,12 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MySqlConnectionInfoResponse(
+            string? additionalSettings,
+
+            string? authentication,
+
+            string? dataSource,
+
             bool? encryptConnection,
 
             string? password,
@@ -56,6 +74,9 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string? userName)
         {
+            AdditionalSettings = additionalSettings;
+            Authentication = authentication;
+            DataSource = dataSource;
             EncryptConnection = encryptConnection;
             Password = password;
             Port = port;

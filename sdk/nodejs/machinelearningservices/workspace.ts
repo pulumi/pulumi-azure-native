@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -48,6 +46,11 @@ export class Workspace extends pulumi.CustomResource {
      * ARM id of the application insights associated with this workspace.
      */
     public readonly applicationInsights!: pulumi.Output<string | undefined>;
+    public readonly associatedWorkspaces!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * ARM id of the container registry associated with this workspace.
      */
@@ -60,10 +63,15 @@ export class Workspace extends pulumi.CustomResource {
      * Url for the discovery service to identify regional endpoints for machine learning experimentation services
      */
     public readonly discoveryUrl!: pulumi.Output<string | undefined>;
+    public readonly enableDataIsolation!: pulumi.Output<boolean | undefined>;
     /**
      * The encryption settings of Azure ML workspace.
      */
     public readonly encryption!: pulumi.Output<outputs.machinelearningservices.EncryptionPropertyResponse | undefined>;
+    /**
+     * Settings for feature store type workspace.
+     */
+    public readonly featureStoreSettings!: pulumi.Output<outputs.machinelearningservices.FeatureStoreSettingsResponse | undefined>;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -72,6 +80,7 @@ export class Workspace extends pulumi.CustomResource {
      * The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
      */
     public readonly hbiWorkspace!: pulumi.Output<boolean | undefined>;
+    public readonly hubResourceId!: pulumi.Output<string | undefined>;
     /**
      * The identity of the resource.
      */
@@ -84,10 +93,15 @@ export class Workspace extends pulumi.CustomResource {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     public readonly keyVault!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Managed Network settings for a machine learning workspace.
+     */
+    public readonly managedNetwork!: pulumi.Output<outputs.machinelearningservices.ManagedNetworkSettingsResponse | undefined>;
     /**
      * The URI associated with this workspace that machine learning flow must point at to set up tracking.
      */
@@ -120,6 +134,10 @@ export class Workspace extends pulumi.CustomResource {
      * Whether requests from Public Network are allowed.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Settings for serverless compute created in the workspace
+     */
+    public readonly serverlessComputeSettings!: pulumi.Output<outputs.machinelearningservices.ServerlessComputeSettingsResponse | undefined>;
     /**
      * The service managed resource settings.
      */
@@ -165,6 +183,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly v1LegacyMode!: pulumi.Output<boolean | undefined>;
     /**
+     * WorkspaceHub's configuration object.
+     */
+    public readonly workspaceHubConfig!: pulumi.Output<outputs.machinelearningservices.WorkspaceHubConfigResponse | undefined>;
+    /**
      * The immutable id associated with this workspace.
      */
     public /*out*/ readonly workspaceId!: pulumi.Output<string>;
@@ -185,26 +207,35 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["allowPublicAccessWhenBehindVnet"] = (args ? args.allowPublicAccessWhenBehindVnet : undefined) ?? false;
             resourceInputs["applicationInsights"] = args ? args.applicationInsights : undefined;
+            resourceInputs["associatedWorkspaces"] = args ? args.associatedWorkspaces : undefined;
             resourceInputs["containerRegistry"] = args ? args.containerRegistry : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
+            resourceInputs["enableDataIsolation"] = args ? args.enableDataIsolation : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["featureStoreSettings"] = args ? args.featureStoreSettings : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) ?? false;
+            resourceInputs["hubResourceId"] = args ? args.hubResourceId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
             resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedNetwork"] = args ? args.managedNetwork : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverlessComputeSettings"] = args ? args.serverlessComputeSettings : undefined;
             resourceInputs["serviceManagedResourcesSettings"] = args ? args.serviceManagedResourcesSettings : undefined;
             resourceInputs["sharedPrivateLinkResources"] = args ? args.sharedPrivateLinkResources : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["v1LegacyMode"] = (args ? args.v1LegacyMode : undefined) ?? false;
+            resourceInputs["workspaceHubConfig"] = args ? args.workspaceHubConfig : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notebookInfo"] = undefined /*out*/;
@@ -220,16 +251,23 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             resourceInputs["allowPublicAccessWhenBehindVnet"] = undefined /*out*/;
             resourceInputs["applicationInsights"] = undefined /*out*/;
+            resourceInputs["associatedWorkspaces"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerRegistry"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
+            resourceInputs["enableDataIsolation"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["featureStoreSettings"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["hbiWorkspace"] = undefined /*out*/;
+            resourceInputs["hubResourceId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["imageBuildCompute"] = undefined /*out*/;
             resourceInputs["keyVault"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedNetwork"] = undefined /*out*/;
             resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notebookInfo"] = undefined /*out*/;
@@ -238,6 +276,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["privateLinkCount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["serverlessComputeSettings"] = undefined /*out*/;
             resourceInputs["serviceManagedResourcesSettings"] = undefined /*out*/;
             resourceInputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
             resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
@@ -249,10 +288,11 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["v1LegacyMode"] = undefined /*out*/;
+            resourceInputs["workspaceHubConfig"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20180301preview:Workspace" }, { type: "azure-native:machinelearningservices/v20181119:Workspace" }, { type: "azure-native:machinelearningservices/v20190501:Workspace" }, { type: "azure-native:machinelearningservices/v20190601:Workspace" }, { type: "azure-native:machinelearningservices/v20191101:Workspace" }, { type: "azure-native:machinelearningservices/v20200101:Workspace" }, { type: "azure-native:machinelearningservices/v20200218preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200301:Workspace" }, { type: "azure-native:machinelearningservices/v20200401:Workspace" }, { type: "azure-native:machinelearningservices/v20200501preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200515preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200601:Workspace" }, { type: "azure-native:machinelearningservices/v20200801:Workspace" }, { type: "azure-native:machinelearningservices/v20200901preview:Workspace" }, { type: "azure-native:machinelearningservices/v20210101:Workspace" }, { type: "azure-native:machinelearningservices/v20210301preview:Workspace" }, { type: "azure-native:machinelearningservices/v20210401:Workspace" }, { type: "azure-native:machinelearningservices/v20210701:Workspace" }, { type: "azure-native:machinelearningservices/v20220101preview:Workspace" }, { type: "azure-native:machinelearningservices/v20220201preview:Workspace" }, { type: "azure-native:machinelearningservices/v20220501:Workspace" }, { type: "azure-native:machinelearningservices/v20220601preview:Workspace" }, { type: "azure-native:machinelearningservices/v20221001:Workspace" }, { type: "azure-native:machinelearningservices/v20221001preview:Workspace" }, { type: "azure-native:machinelearningservices/v20221201preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230201preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230401:Workspace" }, { type: "azure-native:machinelearningservices/v20230401preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230601preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230801preview:Workspace" }, { type: "azure-native:machinelearningservices/v20231001:Workspace" }, { type: "azure-native:machinelearningservices/v20240101preview:Workspace" }, { type: "azure-native:machinelearningservices/v20240401:Workspace" }, { type: "azure-native:machinelearningservices/v20240401preview:Workspace" }, { type: "azure-native:machinelearningservices/v20240701preview:Workspace" }, { type: "azure-native:machinelearningservices/v20241001:Workspace" }, { type: "azure-native:machinelearningservices/v20241001preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20180301preview:Workspace" }, { type: "azure-native:machinelearningservices/v20181119:Workspace" }, { type: "azure-native:machinelearningservices/v20190501:Workspace" }, { type: "azure-native:machinelearningservices/v20190601:Workspace" }, { type: "azure-native:machinelearningservices/v20191101:Workspace" }, { type: "azure-native:machinelearningservices/v20200101:Workspace" }, { type: "azure-native:machinelearningservices/v20200218preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200301:Workspace" }, { type: "azure-native:machinelearningservices/v20200401:Workspace" }, { type: "azure-native:machinelearningservices/v20200501preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200515preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200601:Workspace" }, { type: "azure-native:machinelearningservices/v20200801:Workspace" }, { type: "azure-native:machinelearningservices/v20200901preview:Workspace" }, { type: "azure-native:machinelearningservices/v20210101:Workspace" }, { type: "azure-native:machinelearningservices/v20210301preview:Workspace" }, { type: "azure-native:machinelearningservices/v20210401:Workspace" }, { type: "azure-native:machinelearningservices/v20210701:Workspace" }, { type: "azure-native:machinelearningservices/v20220101preview:Workspace" }, { type: "azure-native:machinelearningservices/v20220201preview:Workspace" }, { type: "azure-native:machinelearningservices/v20220501:Workspace" }, { type: "azure-native:machinelearningservices/v20220601preview:Workspace" }, { type: "azure-native:machinelearningservices/v20221001:Workspace" }, { type: "azure-native:machinelearningservices/v20221001preview:Workspace" }, { type: "azure-native:machinelearningservices/v20221201preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230201preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230401:Workspace" }, { type: "azure-native:machinelearningservices/v20230401preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230601preview:Workspace" }, { type: "azure-native:machinelearningservices/v20230801preview:Workspace" }, { type: "azure-native:machinelearningservices/v20231001:Workspace" }, { type: "azure-native:machinelearningservices/v20240101preview:Workspace" }, { type: "azure-native:machinelearningservices/v20240401:Workspace" }, { type: "azure-native:machinelearningservices/v20240401preview:Workspace" }, { type: "azure-native:machinelearningservices/v20240701preview:Workspace" }, { type: "azure-native:machinelearningservices/v20241001:Workspace" }, { type: "azure-native:machinelearningservices/v20241001preview:Workspace" }, { type: "azure-native:machinelearningservices/v20250101preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
@@ -270,6 +310,7 @@ export interface WorkspaceArgs {
      * ARM id of the application insights associated with this workspace.
      */
     applicationInsights?: pulumi.Input<string>;
+    associatedWorkspaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ARM id of the container registry associated with this workspace.
      */
@@ -282,10 +323,15 @@ export interface WorkspaceArgs {
      * Url for the discovery service to identify regional endpoints for machine learning experimentation services
      */
     discoveryUrl?: pulumi.Input<string>;
+    enableDataIsolation?: pulumi.Input<boolean>;
     /**
      * The encryption settings of Azure ML workspace.
      */
     encryption?: pulumi.Input<inputs.machinelearningservices.EncryptionPropertyArgs>;
+    /**
+     * Settings for feature store type workspace.
+     */
+    featureStoreSettings?: pulumi.Input<inputs.machinelearningservices.FeatureStoreSettingsArgs>;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -294,6 +340,7 @@ export interface WorkspaceArgs {
      * The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
      */
     hbiWorkspace?: pulumi.Input<boolean>;
+    hubResourceId?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
@@ -306,10 +353,15 @@ export interface WorkspaceArgs {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     keyVault?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Managed Network settings for a machine learning workspace.
+     */
+    managedNetwork?: pulumi.Input<inputs.machinelearningservices.ManagedNetworkSettingsArgs>;
     /**
      * The user assigned identity resource id that represents the workspace identity.
      */
@@ -322,6 +374,10 @@ export interface WorkspaceArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Settings for serverless compute created in the workspace
+     */
+    serverlessComputeSettings?: pulumi.Input<inputs.machinelearningservices.ServerlessComputeSettingsArgs>;
     /**
      * The service managed resource settings.
      */
@@ -346,6 +402,10 @@ export interface WorkspaceArgs {
      * Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
      */
     v1LegacyMode?: pulumi.Input<boolean>;
+    /**
+     * WorkspaceHub's configuration object.
+     */
+    workspaceHubConfig?: pulumi.Input<inputs.machinelearningservices.WorkspaceHubConfigArgs>;
     /**
      * Name of Azure Machine Learning workspace.
      */

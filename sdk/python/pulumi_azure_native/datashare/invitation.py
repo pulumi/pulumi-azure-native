@@ -170,7 +170,7 @@ class Invitation(pulumi.CustomResource):
                  __props__=None):
         """
         A Invitation data transfer object.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class Invitation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Invitation data transfer object.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param InvitationArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +241,7 @@ class Invitation(pulumi.CustomResource):
             __props__.__dict__["target_active_directory_id"] = target_active_directory_id
             __props__.__dict__["target_email"] = target_email
             __props__.__dict__["target_object_id"] = target_object_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["invitation_id"] = None
             __props__.__dict__["invitation_status"] = None
             __props__.__dict__["name"] = None
@@ -274,6 +275,7 @@ class Invitation(pulumi.CustomResource):
 
         __props__ = InvitationArgs.__new__(InvitationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["expiration_date"] = None
         __props__.__dict__["invitation_id"] = None
         __props__.__dict__["invitation_status"] = None
@@ -288,6 +290,14 @@ class Invitation(pulumi.CustomResource):
         __props__.__dict__["user_email"] = None
         __props__.__dict__["user_name"] = None
         return Invitation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")

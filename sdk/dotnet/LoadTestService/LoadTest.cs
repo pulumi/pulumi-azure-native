@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.LoadTestService
 {
     /// <summary>
     /// LoadTest details.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-    /// 
-    /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+    /// Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Resource data plane URI.
         /// </summary>
@@ -107,6 +111,7 @@ namespace Pulumi.AzureNative.LoadTestService
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20220415preview:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20221201:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20231201preview:LoadTest" },
+                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20241201preview:LoadTest" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

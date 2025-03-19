@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
- * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === DigitalTwinsEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Extension resource name.
      */
@@ -79,10 +83,12 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

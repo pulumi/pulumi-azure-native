@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.ScheduledEventsProfileArgs>? ScheduledEventsProfile { get; set; }
 
         /// <summary>
-        /// Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        /// Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
         /// </summary>
         [Input("securityPostureReference")]
         public Input<Inputs.SecurityPostureReferenceArgs>? SecurityPostureReference { get; set; }

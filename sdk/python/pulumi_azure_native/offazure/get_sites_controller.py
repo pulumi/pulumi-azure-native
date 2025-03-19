@@ -27,13 +27,16 @@ class GetSitesControllerResult:
     """
     A VmwareSite
     """
-    def __init__(__self__, agent_details=None, appliance_name=None, discovery_solution_id=None, e_tag=None, id=None, location=None, master_site_id=None, name=None, provisioning_state=None, service_endpoint=None, service_principal_identity_details=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, agent_details=None, appliance_name=None, azure_api_version=None, discovery_solution_id=None, e_tag=None, id=None, location=None, master_site_id=None, name=None, provisioning_state=None, service_endpoint=None, service_principal_identity_details=None, system_data=None, tags=None, type=None):
         if agent_details and not isinstance(agent_details, dict):
             raise TypeError("Expected argument 'agent_details' to be a dict")
         pulumi.set(__self__, "agent_details", agent_details)
         if appliance_name and not isinstance(appliance_name, str):
             raise TypeError("Expected argument 'appliance_name' to be a str")
         pulumi.set(__self__, "appliance_name", appliance_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if discovery_solution_id and not isinstance(discovery_solution_id, str):
             raise TypeError("Expected argument 'discovery_solution_id' to be a str")
         pulumi.set(__self__, "discovery_solution_id", discovery_solution_id)
@@ -86,6 +89,14 @@ class GetSitesControllerResult:
         Gets or sets the Appliance Name.
         """
         return pulumi.get(self, "appliance_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoverySolutionId")
@@ -194,6 +205,7 @@ class AwaitableGetSitesControllerResult(GetSitesControllerResult):
         return GetSitesControllerResult(
             agent_details=self.agent_details,
             appliance_name=self.appliance_name,
+            azure_api_version=self.azure_api_version,
             discovery_solution_id=self.discovery_solution_id,
             e_tag=self.e_tag,
             id=self.id,
@@ -213,9 +225,7 @@ def get_sites_controller(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesControllerResult:
     """
     Get a VmwareSite
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,6 +240,7 @@ def get_sites_controller(resource_group_name: Optional[str] = None,
     return AwaitableGetSitesControllerResult(
         agent_details=pulumi.get(__ret__, 'agent_details'),
         appliance_name=pulumi.get(__ret__, 'appliance_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         discovery_solution_id=pulumi.get(__ret__, 'discovery_solution_id'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
@@ -247,9 +258,7 @@ def get_sites_controller_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesControllerResult]:
     """
     Get a VmwareSite
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -263,6 +272,7 @@ def get_sites_controller_output(resource_group_name: Optional[pulumi.Input[str]]
     return __ret__.apply(lambda __response__: GetSitesControllerResult(
         agent_details=pulumi.get(__response__, 'agent_details'),
         appliance_name=pulumi.get(__response__, 'appliance_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         discovery_solution_id=pulumi.get(__response__, 'discovery_solution_id'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),

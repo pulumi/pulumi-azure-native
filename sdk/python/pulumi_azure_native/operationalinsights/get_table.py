@@ -27,10 +27,13 @@ class GetTableResult:
     """
     Workspace data table definition.
     """
-    def __init__(__self__, archive_retention_in_days=None, id=None, last_plan_modified_date=None, name=None, plan=None, provisioning_state=None, restored_logs=None, result_statistics=None, retention_in_days=None, retention_in_days_as_default=None, schema=None, search_results=None, system_data=None, total_retention_in_days=None, total_retention_in_days_as_default=None, type=None):
+    def __init__(__self__, archive_retention_in_days=None, azure_api_version=None, id=None, last_plan_modified_date=None, name=None, plan=None, provisioning_state=None, restored_logs=None, result_statistics=None, retention_in_days=None, retention_in_days_as_default=None, schema=None, search_results=None, system_data=None, total_retention_in_days=None, total_retention_in_days_as_default=None, type=None):
         if archive_retention_in_days and not isinstance(archive_retention_in_days, int):
             raise TypeError("Expected argument 'archive_retention_in_days' to be a int")
         pulumi.set(__self__, "archive_retention_in_days", archive_retention_in_days)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -84,6 +87,14 @@ class GetTableResult:
         The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
         """
         return pulumi.get(self, "archive_retention_in_days")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -213,6 +224,7 @@ class AwaitableGetTableResult(GetTableResult):
             yield self
         return GetTableResult(
             archive_retention_in_days=self.archive_retention_in_days,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             last_plan_modified_date=self.last_plan_modified_date,
             name=self.name,
@@ -236,9 +248,7 @@ def get_table(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Gets a Log Analytics workspace table.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -254,6 +264,7 @@ def get_table(resource_group_name: Optional[str] = None,
 
     return AwaitableGetTableResult(
         archive_retention_in_days=pulumi.get(__ret__, 'archive_retention_in_days'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         last_plan_modified_date=pulumi.get(__ret__, 'last_plan_modified_date'),
         name=pulumi.get(__ret__, 'name'),
@@ -275,9 +286,7 @@ def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets a Log Analytics workspace table.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -292,6 +301,7 @@ def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
         archive_retention_in_days=pulumi.get(__response__, 'archive_retention_in_days'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         last_plan_modified_date=pulumi.get(__response__, 'last_plan_modified_date'),
         name=pulumi.get(__response__, 'name'),

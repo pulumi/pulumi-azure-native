@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceNetworking
     {
         /// <summary>
         /// Get a SecurityPolicy
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Task<GetSecurityPoliciesInterfaceResult> InvokeAsync(GetSecurityPoliciesInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecurityPolicy
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecurityPolicy
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ServiceNetworking
     public sealed class GetSecurityPoliciesInterfaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -129,12 +127,14 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Web Application Firewall Policy of the Traffic Controller Security Policy
+        /// Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         /// </summary>
         public readonly Outputs.WafPolicyResponse? WafPolicy;
 
         [OutputConstructor]
         private GetSecurityPoliciesInterfaceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
             Outputs.WafPolicyResponse? wafPolicy)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

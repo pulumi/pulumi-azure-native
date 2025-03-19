@@ -184,9 +184,7 @@ class InferencePool(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-08-01-preview.
-
-        Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,9 +205,7 @@ class InferencePool(pulumi.CustomResource):
                  args: InferencePoolInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-08-01-preview.
-
-        Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param InferencePoolInitArgs args: The arguments to use to populate this resource's properties.
@@ -259,10 +255,11 @@ class InferencePool(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:InferencePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:InferencePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InferencePool, __self__).__init__(
             'azure-native:machinelearningservices:InferencePool',
@@ -286,6 +283,7 @@ class InferencePool(pulumi.CustomResource):
 
         __props__ = InferencePoolInitArgs.__new__(InferencePoolInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["inference_pool_properties"] = None
         __props__.__dict__["kind"] = None
@@ -296,6 +294,14 @@ class InferencePool(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return InferencePool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

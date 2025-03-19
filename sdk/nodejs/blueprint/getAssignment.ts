@@ -35,6 +35,10 @@ export interface GetAssignmentArgs {
  */
 export interface GetAssignmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ID of the published version of a blueprint definition.
      */
     readonly blueprintId?: string;

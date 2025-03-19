@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiCenter
     {
         /// <summary>
         /// Returns details of the API.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apicenter:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns details of the API.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apicenter:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns details of the API.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Azure REST API version: 2024-03-15-preview.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apicenter:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class GetApiResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The set of contacts
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactResponse> Contacts;
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [OutputConstructor]
         private GetApiResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ContactResponse> contacts,
 
             object? customProperties,
@@ -195,6 +195,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Contacts = contacts;
             CustomProperties = customProperties;
             Description = description;

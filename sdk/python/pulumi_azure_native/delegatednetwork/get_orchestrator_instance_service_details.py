@@ -27,10 +27,13 @@ class GetOrchestratorInstanceServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
     """
-    def __init__(__self__, api_server_endpoint=None, cluster_root_ca=None, controller_details=None, id=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, private_link_resource_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, api_server_endpoint=None, azure_api_version=None, cluster_root_ca=None, controller_details=None, id=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, private_link_resource_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if api_server_endpoint and not isinstance(api_server_endpoint, str):
             raise TypeError("Expected argument 'api_server_endpoint' to be a str")
         pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_root_ca and not isinstance(cluster_root_ca, str):
             raise TypeError("Expected argument 'cluster_root_ca' to be a str")
         pulumi.set(__self__, "cluster_root_ca", cluster_root_ca)
@@ -81,6 +84,14 @@ class GetOrchestratorInstanceServiceDetailsResult:
         K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         """
         return pulumi.get(self, "api_server_endpoint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterRootCA")
@@ -202,6 +213,7 @@ class AwaitableGetOrchestratorInstanceServiceDetailsResult(GetOrchestratorInstan
             yield self
         return GetOrchestratorInstanceServiceDetailsResult(
             api_server_endpoint=self.api_server_endpoint,
+            azure_api_version=self.azure_api_version,
             cluster_root_ca=self.cluster_root_ca,
             controller_details=self.controller_details,
             id=self.id,
@@ -223,9 +235,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrchestratorInstanceServiceDetailsResult:
     """
     Gets details about the orchestrator instance.
-    Azure REST API version: 2021-03-15.
-
-    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    Azure REST API version: 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -239,6 +249,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
 
     return AwaitableGetOrchestratorInstanceServiceDetailsResult(
         api_server_endpoint=pulumi.get(__ret__, 'api_server_endpoint'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_root_ca=pulumi.get(__ret__, 'cluster_root_ca'),
         controller_details=pulumi.get(__ret__, 'controller_details'),
         id=pulumi.get(__ret__, 'id'),
@@ -258,9 +269,7 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
     """
     Gets details about the orchestrator instance.
-    Azure REST API version: 2021-03-15.
-
-    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    Azure REST API version: 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -273,6 +282,7 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
     __ret__ = pulumi.runtime.invoke_output('azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails', __args__, opts=opts, typ=GetOrchestratorInstanceServiceDetailsResult)
     return __ret__.apply(lambda __response__: GetOrchestratorInstanceServiceDetailsResult(
         api_server_endpoint=pulumi.get(__response__, 'api_server_endpoint'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_root_ca=pulumi.get(__response__, 'cluster_root_ca'),
         controller_details=pulumi.get(__response__, 'controller_details'),
         id=pulumi.get(__response__, 'id'),

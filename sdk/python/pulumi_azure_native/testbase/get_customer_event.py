@@ -27,7 +27,10 @@ class GetCustomerEventResult:
     """
     The Customer Notification Event resource.
     """
-    def __init__(__self__, event_name=None, id=None, name=None, receivers=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, event_name=None, id=None, name=None, receivers=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if event_name and not isinstance(event_name, str):
             raise TypeError("Expected argument 'event_name' to be a str")
         pulumi.set(__self__, "event_name", event_name)
@@ -48,6 +51,14 @@ class GetCustomerEventResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="eventName")
     def event_name(self) -> str:
         """
@@ -59,7 +70,7 @@ class GetCustomerEventResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -67,7 +78,7 @@ class GetCustomerEventResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -83,7 +94,7 @@ class GetCustomerEventResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -91,7 +102,7 @@ class GetCustomerEventResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -102,6 +113,7 @@ class AwaitableGetCustomerEventResult(GetCustomerEventResult):
         if False:
             yield self
         return GetCustomerEventResult(
+            azure_api_version=self.azure_api_version,
             event_name=self.event_name,
             id=self.id,
             name=self.name,
@@ -116,13 +128,11 @@ def get_customer_event(customer_event_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerEventResult:
     """
     Gets a Test Base CustomerEvent.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -133,6 +143,7 @@ def get_customer_event(customer_event_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase:getCustomerEvent', __args__, opts=opts, typ=GetCustomerEventResult).value
 
     return AwaitableGetCustomerEventResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         event_name=pulumi.get(__ret__, 'event_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -145,13 +156,11 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerEventResult]:
     """
     Gets a Test Base CustomerEvent.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -161,6 +170,7 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getCustomerEvent', __args__, opts=opts, typ=GetCustomerEventResult)
     return __ret__.apply(lambda __response__: GetCustomerEventResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         event_name=pulumi.get(__response__, 'event_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

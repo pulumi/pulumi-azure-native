@@ -69,14 +69,12 @@ def get_test_result_console_log_download_url(log_file_name: Optional[str] = None
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultConsoleLogDownloadURLResult:
     """
     Gets the download URL of the test execution console log file.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str log_file_name: The log file name corresponding to the download URL.
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """
@@ -100,14 +98,12 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
     """
     Gets the download URL of the test execution console log file.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str log_file_name: The log file name corresponding to the download URL.
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """

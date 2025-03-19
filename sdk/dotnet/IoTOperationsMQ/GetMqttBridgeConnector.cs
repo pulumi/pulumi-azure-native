@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetMqttBridgeConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The number of instances to deploy for a bridge rollout.
         /// </summary>
         public readonly int? BridgeInstances;
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetMqttBridgeConnectorResult(
+            string azureApiVersion,
+
             int? bridgeInstances,
 
             string? clientIdPrefix,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BridgeInstances = bridgeInstances;
             ClientIdPrefix = clientIdPrefix;
             ExtendedLocation = extendedLocation;

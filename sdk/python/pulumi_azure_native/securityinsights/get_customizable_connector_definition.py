@@ -27,7 +27,10 @@ class GetCustomizableConnectorDefinitionResult:
     """
     Connector definition for kind 'Customizable'.
     """
-    def __init__(__self__, connections_config=None, connector_ui_config=None, created_time_utc=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, connections_config=None, connector_ui_config=None, created_time_utc=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connections_config and not isinstance(connections_config, dict):
             raise TypeError("Expected argument 'connections_config' to be a dict")
         pulumi.set(__self__, "connections_config", connections_config)
@@ -58,6 +61,14 @@ class GetCustomizableConnectorDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionsConfig")
@@ -147,6 +158,7 @@ class AwaitableGetCustomizableConnectorDefinitionResult(GetCustomizableConnector
         if False:
             yield self
         return GetCustomizableConnectorDefinitionResult(
+            azure_api_version=self.azure_api_version,
             connections_config=self.connections_config,
             connector_ui_config=self.connector_ui_config,
             created_time_utc=self.created_time_utc,
@@ -165,7 +177,7 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomizableConnectorDefinitionResult:
     """
     Gets a data connector definition.
-    Azure REST API version: 2023-07-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_definition_name: The data connector definition name.
@@ -180,6 +192,7 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getCustomizableConnectorDefinition', __args__, opts=opts, typ=GetCustomizableConnectorDefinitionResult).value
 
     return AwaitableGetCustomizableConnectorDefinitionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connections_config=pulumi.get(__ret__, 'connections_config'),
         connector_ui_config=pulumi.get(__ret__, 'connector_ui_config'),
         created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
@@ -196,7 +209,7 @@ def get_customizable_connector_definition_output(data_connector_definition_name:
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomizableConnectorDefinitionResult]:
     """
     Gets a data connector definition.
-    Azure REST API version: 2023-07-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_definition_name: The data connector definition name.
@@ -210,6 +223,7 @@ def get_customizable_connector_definition_output(data_connector_definition_name:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getCustomizableConnectorDefinition', __args__, opts=opts, typ=GetCustomizableConnectorDefinitionResult)
     return __ret__.apply(lambda __response__: GetCustomizableConnectorDefinitionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connections_config=pulumi.get(__response__, 'connections_config'),
         connector_ui_config=pulumi.get(__response__, 'connector_ui_config'),
         created_time_utc=pulumi.get(__response__, 'created_time_utc'),

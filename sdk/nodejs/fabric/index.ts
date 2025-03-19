@@ -19,15 +19,6 @@ utilities.lazyLoad(exports, ["getFabricCapacity","getFabricCapacityOutput"], () 
 // Export enums:
 export * from "../types/enums/fabric";
 
-// Export sub-modules:
-import * as v20231101 from "./v20231101";
-import * as v20250115preview from "./v20250115preview";
-
-export {
-    v20231101,
-    v20250115preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

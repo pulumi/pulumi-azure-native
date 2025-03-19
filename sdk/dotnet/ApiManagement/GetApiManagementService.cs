@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets an API Management service resource description.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an API Management service resource description.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an API Management service resource description.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Control Plane Apis version constraint for the API Management service.
         /// </summary>
         public readonly Outputs.ApiVersionConstraintResponse? ApiVersionConstraint;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         /// </summary>
@@ -251,6 +249,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             Outputs.ApiVersionConstraintResponse? apiVersionConstraint,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.CertificateConfigurationResponse> certificates,
 
             string createdAtUtc,
@@ -329,6 +329,7 @@ namespace Pulumi.AzureNative.ApiManagement
         {
             AdditionalLocations = additionalLocations;
             ApiVersionConstraint = apiVersionConstraint;
+            AzureApiVersion = azureApiVersion;
             Certificates = certificates;
             CreatedAtUtc = createdAtUtc;
             CustomProperties = customProperties;

@@ -27,10 +27,13 @@ class GetBlobServicePropertiesResult:
     """
     The properties of a storage account’s Blob service.
     """
-    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, container_delete_retention_policy=None, cors=None, default_service_version=None, delete_retention_policy=None, id=None, is_versioning_enabled=None, last_access_time_tracking_policy=None, name=None, restore_policy=None, sku=None, type=None):
+    def __init__(__self__, automatic_snapshot_policy_enabled=None, azure_api_version=None, change_feed=None, container_delete_retention_policy=None, cors=None, default_service_version=None, delete_retention_policy=None, id=None, is_versioning_enabled=None, last_access_time_tracking_policy=None, name=None, restore_policy=None, sku=None, type=None):
         if automatic_snapshot_policy_enabled and not isinstance(automatic_snapshot_policy_enabled, bool):
             raise TypeError("Expected argument 'automatic_snapshot_policy_enabled' to be a bool")
         pulumi.set(__self__, "automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if change_feed and not isinstance(change_feed, dict):
             raise TypeError("Expected argument 'change_feed' to be a dict")
         pulumi.set(__self__, "change_feed", change_feed)
@@ -75,6 +78,14 @@ class GetBlobServicePropertiesResult:
         Deprecated in favor of isVersioningEnabled property.
         """
         return pulumi.get(self, "automatic_snapshot_policy_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changeFeed")
@@ -180,6 +191,7 @@ class AwaitableGetBlobServicePropertiesResult(GetBlobServicePropertiesResult):
             yield self
         return GetBlobServicePropertiesResult(
             automatic_snapshot_policy_enabled=self.automatic_snapshot_policy_enabled,
+            azure_api_version=self.azure_api_version,
             change_feed=self.change_feed,
             container_delete_retention_policy=self.container_delete_retention_policy,
             cors=self.cors,
@@ -200,9 +212,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobServicePropertiesResult:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -218,6 +228,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
 
     return AwaitableGetBlobServicePropertiesResult(
         automatic_snapshot_policy_enabled=pulumi.get(__ret__, 'automatic_snapshot_policy_enabled'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         change_feed=pulumi.get(__ret__, 'change_feed'),
         container_delete_retention_policy=pulumi.get(__ret__, 'container_delete_retention_policy'),
         cors=pulumi.get(__ret__, 'cors'),
@@ -236,9 +247,7 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -253,6 +262,7 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getBlobServiceProperties', __args__, opts=opts, typ=GetBlobServicePropertiesResult)
     return __ret__.apply(lambda __response__: GetBlobServicePropertiesResult(
         automatic_snapshot_policy_enabled=pulumi.get(__response__, 'automatic_snapshot_policy_enabled'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         change_feed=pulumi.get(__response__, 'change_feed'),
         container_delete_retention_policy=pulumi.get(__response__, 'container_delete_retention_policy'),
         cors=pulumi.get(__response__, 'cors'),

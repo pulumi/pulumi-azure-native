@@ -27,10 +27,13 @@ class GetSecurityStandardResult:
     """
     Security Standard on a resource
     """
-    def __init__(__self__, assessments=None, cloud_providers=None, description=None, display_name=None, id=None, metadata=None, name=None, policy_set_definition_id=None, standard_type=None, type=None):
+    def __init__(__self__, assessments=None, azure_api_version=None, cloud_providers=None, description=None, display_name=None, id=None, metadata=None, name=None, policy_set_definition_id=None, standard_type=None, type=None):
         if assessments and not isinstance(assessments, list):
             raise TypeError("Expected argument 'assessments' to be a list")
         pulumi.set(__self__, "assessments", assessments)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_providers and not isinstance(cloud_providers, list):
             raise TypeError("Expected argument 'cloud_providers' to be a list")
         pulumi.set(__self__, "cloud_providers", cloud_providers)
@@ -66,6 +69,14 @@ class GetSecurityStandardResult:
         List of assessment keys to apply to standard scope.
         """
         return pulumi.get(self, "assessments")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudProviders")
@@ -147,6 +158,7 @@ class AwaitableGetSecurityStandardResult(GetSecurityStandardResult):
             yield self
         return GetSecurityStandardResult(
             assessments=self.assessments,
+            azure_api_version=self.azure_api_version,
             cloud_providers=self.cloud_providers,
             description=self.description,
             display_name=self.display_name,
@@ -177,6 +189,7 @@ def get_security_standard(scope: Optional[str] = None,
 
     return AwaitableGetSecurityStandardResult(
         assessments=pulumi.get(__ret__, 'assessments'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_providers=pulumi.get(__ret__, 'cloud_providers'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -204,6 +217,7 @@ def get_security_standard_output(scope: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getSecurityStandard', __args__, opts=opts, typ=GetSecurityStandardResult)
     return __ret__.apply(lambda __response__: GetSecurityStandardResult(
         assessments=pulumi.get(__response__, 'assessments'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_providers=pulumi.get(__response__, 'cloud_providers'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

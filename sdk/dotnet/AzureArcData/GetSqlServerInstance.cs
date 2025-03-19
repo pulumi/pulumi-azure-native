@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves a SQL Server Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a SQL Server Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a SQL Server Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.AzureArcData
     public sealed class GetSqlServerInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         [OutputConstructor]
         private GetSqlServerInstanceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.AzureArcData
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

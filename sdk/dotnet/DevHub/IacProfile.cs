@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DevHub
 {
     /// <summary>
     /// Resource representation of a IacProfile.
-    /// Azure REST API version: 2024-05-01-preview.
-    /// 
-    /// Other available API versions: 2024-08-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub:IacProfile")]
     public partial class IacProfile : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Output("authStatus")]
         public Output<string> AuthStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Repository Branch Name
@@ -153,6 +157,7 @@ namespace Pulumi.AzureNative.DevHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240501preview:IacProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240801preview:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20250301preview:IacProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

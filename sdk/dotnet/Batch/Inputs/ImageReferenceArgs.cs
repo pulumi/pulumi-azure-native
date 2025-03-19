@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.Batch.Inputs
     public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+        /// This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
+        /// </summary>
+        [Input("communityGalleryImageId")]
+        public Input<string>? CommunityGalleryImageId { get; set; }
+
+        /// <summary>
+        /// This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -31,6 +37,12 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
+        /// This property is mutually exclusive with other properties and can be fetched from shared gallery image GET call.
+        /// </summary>
+        [Input("sharedGalleryImageId")]
+        public Input<string>? SharedGalleryImageId { get; set; }
+
+        /// <summary>
         /// For example, 18.04-LTS or 2022-datacenter.
         /// </summary>
         [Input("sku")]
@@ -44,7 +56,6 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
         public ImageReferenceArgs()
         {
-            Version = "latest";
         }
         public static new ImageReferenceArgs Empty => new ImageReferenceArgs();
     }

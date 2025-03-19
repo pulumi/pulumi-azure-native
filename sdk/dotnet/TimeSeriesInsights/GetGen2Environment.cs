@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class GetGen2EnvironmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The time the resource was created.
         /// </summary>
         public readonly string CreationTime;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
         [OutputConstructor]
         private GetGen2EnvironmentResult(
+            string azureApiVersion,
+
             string creationTime,
 
             string dataAccessFqdn,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             Outputs.WarmStoreConfigurationPropertiesResponse? warmStoreConfiguration)
         {
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             DataAccessFqdn = dataAccessFqdn;
             DataAccessId = dataAccessId;

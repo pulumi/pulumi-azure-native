@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ElasticSan
     {
         /// <summary>
         /// Get a ElasticSan.
-        /// Azure REST API version: 2021-11-20-preview.
-        /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetElasticSanResult> InvokeAsync(GetElasticSanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticSanResult>("azure-native:elasticsan:getElasticSan", args ?? new GetElasticSanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ElasticSan.
-        /// Azure REST API version: 2021-11-20-preview.
-        /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetElasticSanResult> Invoke(GetElasticSanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSanResult>("azure-native:elasticsan:getElasticSan", args ?? new GetElasticSanInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ElasticSan.
-        /// Azure REST API version: 2021-11-20-preview.
-        /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetElasticSanResult> Invoke(GetElasticSanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSanResult>("azure-native:elasticsan:getElasticSan", args ?? new GetElasticSanInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Base size of the Elastic San appliance in TiB.
         /// </summary>
         public readonly double BaseSizeTiB;
@@ -97,31 +95,39 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly double ExtendedCapacitySizeTiB;
         /// <summary>
-        /// Azure resource identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The geo-location where the resource lives.
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The list of Private Endpoint Connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// State of the operation on the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// resource sku
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// Resource metadata required by ARM RPC
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -141,7 +147,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly double TotalVolumeSizeGiB;
         /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -153,17 +159,23 @@ namespace Pulumi.AzureNative.ElasticSan
         private GetElasticSanResult(
             ImmutableArray<string> availabilityZones,
 
+            string azureApiVersion,
+
             double baseSizeTiB,
 
             double extendedCapacitySizeTiB,
 
             string id,
 
-            string? location,
+            string location,
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SkuResponse sku,
 
@@ -184,12 +196,15 @@ namespace Pulumi.AzureNative.ElasticSan
             double volumeGroupCount)
         {
             AvailabilityZones = availabilityZones;
+            AzureApiVersion = azureApiVersion;
             BaseSizeTiB = baseSizeTiB;
             ExtendedCapacitySizeTiB = extendedCapacitySizeTiB;
             Id = id;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

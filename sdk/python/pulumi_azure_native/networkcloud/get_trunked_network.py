@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrunkedNetworkResult:
-    def __init__(__self__, associated_resource_ids=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, isolation_domain_ids=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlans=None):
+    def __init__(__self__, associated_resource_ids=None, azure_api_version=None, cluster_id=None, detailed_status=None, detailed_status_message=None, etag=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, isolation_domain_ids=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlans=None):
         if associated_resource_ids and not isinstance(associated_resource_ids, list):
             raise TypeError("Expected argument 'associated_resource_ids' to be a list")
         pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -37,6 +40,9 @@ class GetTrunkedNetworkResult:
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -89,6 +95,14 @@ class GetTrunkedNetworkResult:
         return pulumi.get(self, "associated_resource_ids")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
@@ -111,6 +125,14 @@ class GetTrunkedNetworkResult:
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -232,9 +254,11 @@ class AwaitableGetTrunkedNetworkResult(GetTrunkedNetworkResult):
             yield self
         return GetTrunkedNetworkResult(
             associated_resource_ids=self.associated_resource_ids,
+            azure_api_version=self.azure_api_version,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             extended_location=self.extended_location,
             hybrid_aks_clusters_associated_ids=self.hybrid_aks_clusters_associated_ids,
             hybrid_aks_plugin_type=self.hybrid_aks_plugin_type,
@@ -256,9 +280,7 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrunkedNetworkResult:
     """
     Get properties of the provided trunked network.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -272,9 +294,11 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
 
     return AwaitableGetTrunkedNetworkResult(
         associated_resource_ids=pulumi.get(__ret__, 'associated_resource_ids'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hybrid_aks_clusters_associated_ids=pulumi.get(__ret__, 'hybrid_aks_clusters_associated_ids'),
         hybrid_aks_plugin_type=pulumi.get(__ret__, 'hybrid_aks_plugin_type'),
@@ -294,9 +318,7 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrunkedNetworkResult]:
     """
     Get properties of the provided trunked network.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -309,9 +331,11 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getTrunkedNetwork', __args__, opts=opts, typ=GetTrunkedNetworkResult)
     return __ret__.apply(lambda __response__: GetTrunkedNetworkResult(
         associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         hybrid_aks_clusters_associated_ids=pulumi.get(__response__, 'hybrid_aks_clusters_associated_ids'),
         hybrid_aks_plugin_type=pulumi.get(__response__, 'hybrid_aks_plugin_type'),

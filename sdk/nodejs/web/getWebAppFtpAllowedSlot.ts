@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Returns whether FTP is allowed on the site or not.
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppFtpAllowedSlot(args: GetWebAppFtpAllowedSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFtpAllowedSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetWebAppFtpAllowedSlotResult {
      */
     readonly allow: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id.
      */
     readonly id: string;
@@ -58,9 +60,7 @@ export interface GetWebAppFtpAllowedSlotResult {
 }
 /**
  * Description for Returns whether FTP is allowed on the site or not.
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppFtpAllowedSlotOutput(args: GetWebAppFtpAllowedSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppFtpAllowedSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

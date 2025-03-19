@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Lists device insights for catalog.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<ListCatalogDeviceInsightsResult> InvokeAsync(ListCatalogDeviceInsightsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCatalogDeviceInsightsResult>("azure-native:azuresphere:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists device insights for catalog.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListCatalogDeviceInsightsResult> Invoke(ListCatalogDeviceInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceInsightsResult>("azure-native:azuresphere:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists device insights for catalog.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListCatalogDeviceInsightsResult> Invoke(ListCatalogDeviceInsightsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceInsightsResult>("azure-native:azuresphere:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsInvokeArgs(), options.WithDefaults());
@@ -135,7 +129,7 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// The link to the next page of items
         /// </summary>
-        public readonly string NextLink;
+        public readonly string? NextLink;
         /// <summary>
         /// The DeviceInsight items on this page
         /// </summary>
@@ -143,7 +137,7 @@ namespace Pulumi.AzureNative.AzureSphere
 
         [OutputConstructor]
         private ListCatalogDeviceInsightsResult(
-            string nextLink,
+            string? nextLink,
 
             ImmutableArray<Outputs.DeviceInsightResponse> value)
         {

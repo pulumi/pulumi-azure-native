@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class ManagedRulesDefinitionResponse
     {
         /// <summary>
+        /// The exceptions that are applied on the policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExceptionEntryResponse> Exceptions;
+        /// <summary>
         /// The Exclusions that are applied on the policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.OwaspCrsExclusionEntryResponse> Exclusions;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private ManagedRulesDefinitionResponse(
+            ImmutableArray<Outputs.ExceptionEntryResponse> exceptions,
+
             ImmutableArray<Outputs.OwaspCrsExclusionEntryResponse> exclusions,
 
             ImmutableArray<Outputs.ManagedRuleSetResponse> managedRuleSets)
         {
+            Exceptions = exceptions;
             Exclusions = exclusions;
             ManagedRuleSets = managedRuleSets;
         }

@@ -27,7 +27,10 @@ class GetFluidRelayServerResult:
     """
     A FluidRelay Server.
     """
-    def __init__(__self__, encryption=None, fluid_relay_endpoints=None, frs_tenant_id=None, id=None, identity=None, location=None, name=None, provisioning_state=None, storagesku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, encryption=None, fluid_relay_endpoints=None, frs_tenant_id=None, id=None, identity=None, location=None, name=None, provisioning_state=None, storagesku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -64,6 +67,14 @@ class GetFluidRelayServerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetFluidRelayServerResult(GetFluidRelayServerResult):
         if False:
             yield self
         return GetFluidRelayServerResult(
+            azure_api_version=self.azure_api_version,
             encryption=self.encryption,
             fluid_relay_endpoints=self.fluid_relay_endpoints,
             frs_tenant_id=self.frs_tenant_id,
@@ -189,8 +201,6 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
     A FluidRelay Server.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2021-06-15-preview.
-
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
@@ -202,6 +212,7 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:fluidrelay:getFluidRelayServer', __args__, opts=opts, typ=GetFluidRelayServerResult).value
 
     return AwaitableGetFluidRelayServerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption=pulumi.get(__ret__, 'encryption'),
         fluid_relay_endpoints=pulumi.get(__ret__, 'fluid_relay_endpoints'),
         frs_tenant_id=pulumi.get(__ret__, 'frs_tenant_id'),
@@ -221,8 +232,6 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     A FluidRelay Server.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2021-06-15-preview.
-
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
@@ -233,6 +242,7 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:fluidrelay:getFluidRelayServer', __args__, opts=opts, typ=GetFluidRelayServerResult)
     return __ret__.apply(lambda __response__: GetFluidRelayServerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption=pulumi.get(__response__, 'encryption'),
         fluid_relay_endpoints=pulumi.get(__response__, 'fluid_relay_endpoints'),
         frs_tenant_id=pulumi.get(__response__, 'frs_tenant_id'),

@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     [OutputType]
     public sealed class RoutingIdentityInfoResponse
     {
+        /// <summary>
+        /// Routing identity type for topic spaces configuration.
+        /// </summary>
         public readonly string? Type;
         public readonly string? UserAssignedIdentity;
 

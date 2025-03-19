@@ -11,24 +11,28 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// A provider instance associated with SAP monitor.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-    /// 
-    /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    /// Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Defines the provider instance errors.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.ProviderInstancePropertiesResponseErrors> Errors { get; private set; } = null!;
+        public Output<Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// [currently not in use] Managed service identity(user assigned identities)
+        /// Resource health details
         /// </summary>
-        [Output("identity")]
-        public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        [Output("health")]
+        public Output<Outputs.HealthResponse> Health { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -114,12 +118,6 @@ namespace Pulumi.AzureNative.Workloads
 
     public sealed class ProviderInstanceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// [currently not in use] Managed service identity(user assigned identities)
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }
-
         /// <summary>
         /// Name of the SAP monitor resource.
         /// </summary>

@@ -26,7 +26,8 @@ class PlanMemberArgs:
                  member_id: Optional[pulumi.Input[str]] = None,
                  member_name: Optional[pulumi.Input[str]] = None,
                  member_type: Optional[pulumi.Input[Union[str, 'PlanMemberType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlanMember resource.
         :param pulumi.Input[str] plan_name: The name of the devcenter plan.
@@ -35,6 +36,7 @@ class PlanMemberArgs:
         :param pulumi.Input[str] member_name: The name of a devcenter plan member.
         :param pulumi.Input[Union[str, 'PlanMemberType']] member_type: The type of the member (user, group)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] tier: The tier of the member.
         """
         pulumi.set(__self__, "plan_name", plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -46,6 +48,8 @@ class PlanMemberArgs:
             pulumi.set(__self__, "member_type", member_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter(name="planName")
@@ -119,6 +123,18 @@ class PlanMemberArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tier of the member.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
 
 class PlanMember(pulumi.CustomResource):
     @overload
@@ -131,12 +147,11 @@ class PlanMember(pulumi.CustomResource):
                  plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Represents a devcenter plan member resource.
-        Azure REST API version: 2024-05-01-preview.
-
-        Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,6 +161,7 @@ class PlanMember(pulumi.CustomResource):
         :param pulumi.Input[str] plan_name: The name of the devcenter plan.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] tier: The tier of the member.
         """
         ...
     @overload
@@ -155,9 +171,7 @@ class PlanMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a devcenter plan member resource.
-        Azure REST API version: 2024-05-01-preview.
-
-        Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PlanMemberArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +194,7 @@ class PlanMember(pulumi.CustomResource):
                  plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -199,8 +214,11 @@ class PlanMember(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tier"] = tier
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sync_status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:PlanMember"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:PlanMember"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:PlanMember"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:PlanMember"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:PlanMember")])
@@ -227,14 +245,25 @@ class PlanMember(pulumi.CustomResource):
 
         __props__ = PlanMemberArgs.__new__(PlanMemberArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["member_id"] = None
         __props__.__dict__["member_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sync_status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tier"] = None
         __props__.__dict__["type"] = None
         return PlanMember(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="memberId")
@@ -269,6 +298,14 @@ class PlanMember(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="syncStatus")
+    def sync_status(self) -> pulumi.Output['outputs.PlanMemberSyncStatusResponse']:
+        """
+        The sync status of the member.
+        """
+        return pulumi.get(self, "sync_status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
@@ -283,6 +320,14 @@ class PlanMember(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The tier of the member.
+        """
+        return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter

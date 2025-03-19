@@ -21,17 +21,25 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly Outputs.MoveCollectionPropertiesResponseErrors Errors;
         /// <summary>
+        /// Gets or sets the move region which indicates the region where the VM Regional to Zonal move will be conducted.
+        /// </summary>
+        public readonly string? MoveRegion;
+        /// <summary>
+        /// Defines the MoveType.
+        /// </summary>
+        public readonly string? MoveType;
+        /// <summary>
         /// Defines the provisioning states.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// Gets or sets the source region.
         /// </summary>
-        public readonly string SourceRegion;
+        public readonly string? SourceRegion;
         /// <summary>
         /// Gets or sets the target region.
         /// </summary>
-        public readonly string TargetRegion;
+        public readonly string? TargetRegion;
         /// <summary>
         /// Gets or sets the version of move collection.
         /// </summary>
@@ -41,15 +49,21 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         private MoveCollectionPropertiesResponse(
             Outputs.MoveCollectionPropertiesResponseErrors errors,
 
+            string? moveRegion,
+
+            string? moveType,
+
             string provisioningState,
 
-            string sourceRegion,
+            string? sourceRegion,
 
-            string targetRegion,
+            string? targetRegion,
 
             string? version)
         {
             Errors = errors;
+            MoveRegion = moveRegion;
+            MoveType = moveType;
             ProvisioningState = provisioningState;
             SourceRegion = sourceRegion;
             TargetRegion = targetRegion;

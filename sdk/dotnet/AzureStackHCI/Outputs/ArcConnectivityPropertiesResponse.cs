@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// True indicates ARC connectivity is enabled
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceConfigurationResponse> ServiceConfigurations;
 
         [OutputConstructor]
-        private ArcConnectivityPropertiesResponse(bool? enabled)
+        private ArcConnectivityPropertiesResponse(
+            bool? enabled,
+
+            ImmutableArray<Outputs.ServiceConfigurationResponse> serviceConfigurations)
         {
             Enabled = enabled;
+            ServiceConfigurations = serviceConfigurations;
         }
     }
 }

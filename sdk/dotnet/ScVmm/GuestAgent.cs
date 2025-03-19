@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// Defines the GuestAgent.
-    /// Azure REST API version: 2022-05-21-preview.
-    /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.ScVmm
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20231007:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20240601:GuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

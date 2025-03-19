@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the webhook identified by webhook name.
- * Azure REST API version: 2015-10-31.
- *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetWebhookArgs {
  */
 export interface GetWebhookResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets or sets the creation time.
      */
     readonly creationTime?: string;
@@ -54,7 +56,7 @@ export interface GetWebhookResult {
      */
     readonly expiryTime?: string;
     /**
-     * Fully qualified resource Id for the resource
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -90,7 +92,11 @@ export interface GetWebhookResult {
      */
     readonly runbook?: outputs.automation.RunbookAssociationPropertyResponse;
     /**
-     * The type of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.automation.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -100,9 +106,7 @@ export interface GetWebhookResult {
 }
 /**
  * Retrieve the webhook identified by webhook name.
- * Azure REST API version: 2015-10-31.
- *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebhookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

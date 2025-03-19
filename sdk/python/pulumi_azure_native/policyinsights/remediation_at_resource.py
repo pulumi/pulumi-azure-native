@@ -187,9 +187,7 @@ class RemediationAtResource(pulumi.CustomResource):
                  __props__=None):
         """
         The remediation definition.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
-
-        Other available API versions: 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,9 +209,7 @@ class RemediationAtResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The remediation definition.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
-
-        Other available API versions: 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param RemediationAtResourceArgs args: The arguments to use to populate this resource's properties.
@@ -259,6 +255,7 @@ class RemediationAtResource(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["correlation_id"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["deployment_status"] = None
@@ -292,6 +289,7 @@ class RemediationAtResource(pulumi.CustomResource):
 
         __props__ = RemediationAtResourceArgs.__new__(RemediationAtResourceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["correlation_id"] = None
         __props__.__dict__["created_on"] = None
         __props__.__dict__["deployment_status"] = None
@@ -309,6 +307,14 @@ class RemediationAtResource(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RemediationAtResource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="correlationId")

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.VideoIndexer
 {
     /// <summary>
     /// An Azure Video Indexer account.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
-    /// 
-    /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -31,6 +29,12 @@ namespace Pulumi.AzureNative.VideoIndexer
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
@@ -43,12 +47,6 @@ namespace Pulumi.AzureNative.VideoIndexer
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The media services details
-        /// </summary>
-        [Output("mediaServices")]
-        public Output<Outputs.MediaServicesForPutRequestResponse?> MediaServices { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -59,6 +57,12 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage services details
+        /// </summary>
+        [Output("storageServices")]
+        public Output<Outputs.StorageServicesForPutRequestResponse?> StorageServices { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
@@ -126,6 +130,7 @@ namespace Pulumi.AzureNative.VideoIndexer
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240601preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240923preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20250101:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20250301:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -174,16 +179,16 @@ namespace Pulumi.AzureNative.VideoIndexer
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The media services details
-        /// </summary>
-        [Input("mediaServices")]
-        public Input<Inputs.MediaServicesForPutRequestArgs>? MediaServices { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage services details
+        /// </summary>
+        [Input("storageServices")]
+        public Input<Inputs.StorageServicesForPutRequestArgs>? StorageServices { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

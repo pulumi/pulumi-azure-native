@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("availabilitySets")]
         public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponse>> AvailabilitySets { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Describes colocation status of the Proximity Placement Group.
@@ -129,6 +133,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:ProximityPlacementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:ProximityPlacementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:ProximityPlacementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:ProximityPlacementGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the Application Live  and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Task<GetApplicationLiveViewResult> InvokeAsync(GetApplicationLiveViewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationLiveViewResult>("azure-native:appplatform:getApplicationLiveView", args ?? new GetApplicationLiveViewArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Application Live  and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetApplicationLiveViewResult> Invoke(GetApplicationLiveViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationLiveViewResult>("azure-native:appplatform:getApplicationLiveView", args ?? new GetApplicationLiveViewInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Application Live  and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetApplicationLiveViewResult> Invoke(GetApplicationLiveViewInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationLiveViewResult>("azure-native:appplatform:getApplicationLiveView", args ?? new GetApplicationLiveViewInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.AppPlatform
     public sealed class GetApplicationLiveViewResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.AppPlatform
 
         [OutputConstructor]
         private GetApplicationLiveViewResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.AppPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

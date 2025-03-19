@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['WatcherArgs', 'Watcher']
 
@@ -200,9 +201,7 @@ class Watcher(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the watcher type.
-        Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
-
-        Other available API versions: 2023-05-15-preview, 2024-10-23.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2020-01-13-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,9 +224,7 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the watcher type.
-        Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
-
-        Other available API versions: 2023-05-15-preview, 2024-10-23.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2020-01-13-preview.
 
         :param str resource_name: The name of the resource.
         :param WatcherArgs args: The arguments to use to populate this resource's properties.
@@ -277,12 +274,14 @@ class Watcher(pulumi.CustomResource):
             __props__.__dict__["script_run_on"] = script_run_on
             __props__.__dict__["tags"] = tags
             __props__.__dict__["watcher_name"] = watcher_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Watcher"), pulumi.Alias(type_="azure-native:automation/v20190601:Watcher"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Watcher"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Watcher"), pulumi.Alias(type_="azure-native:automation/v20241023:Watcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -308,6 +307,7 @@ class Watcher(pulumi.CustomResource):
 
         __props__ = WatcherArgs.__new__(WatcherArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
@@ -320,9 +320,18 @@ class Watcher(pulumi.CustomResource):
         __props__.__dict__["script_parameters"] = None
         __props__.__dict__["script_run_on"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Watcher(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -421,6 +430,14 @@ class Watcher(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -432,7 +449,7 @@ class Watcher(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

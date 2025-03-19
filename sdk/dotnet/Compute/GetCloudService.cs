@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a cloud service.
         /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2024-11-04.
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a cloud service.
         /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2024-11-04.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a cloud service.
         /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2024-11-04.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetCloudServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetCloudServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -116,9 +116,7 @@ def list_logic_app_workflows_connections(container_app_name: Optional[str] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLogicAppWorkflowsConnectionsResult:
     """
     Workflow properties definition.
-    Azure REST API version: 2024-02-02-preview.
-
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str container_app_name: Name of the Container App.
@@ -145,9 +143,7 @@ def list_logic_app_workflows_connections_output(container_app_name: Optional[pul
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLogicAppWorkflowsConnectionsResult]:
     """
     Workflow properties definition.
-    Azure REST API version: 2024-02-02-preview.
-
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str container_app_name: Name of the Container App.

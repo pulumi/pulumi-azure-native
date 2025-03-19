@@ -356,7 +356,7 @@ class AgentPool(pulumi.CustomResource):
                  __props__=None):
         """
         The agentPool resource definition
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+        Azure REST API version: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,7 +387,7 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The agentPool resource definition
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+        Azure REST API version: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
@@ -459,11 +459,12 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:AgentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:agentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:AgentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:agentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice:agentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:AgentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:AgentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:AgentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-native:hybridcontainerservice:AgentPool',
@@ -488,6 +489,7 @@ class AgentPool(pulumi.CustomResource):
         __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cloud_provider_profile"] = None
         __props__.__dict__["count"] = None
         __props__.__dict__["extended_location"] = None
@@ -516,6 +518,14 @@ class AgentPool(pulumi.CustomResource):
         AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudProviderProfile")

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("apiVersionConstraint")]
         public Output<Outputs.ApiVersionConstraintResponse?> ApiVersionConstraint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.

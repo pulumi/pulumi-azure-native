@@ -26,13 +26,19 @@ class ListPaloAltoNetworksCloudngfwSupportInfoResult:
     """
     Support information for the service
     """
-    def __init__(__self__, account_id=None, account_registration_status=None, credits=None, end_date_for_credits=None, free_trial=None, free_trial_credit_left=None, free_trial_days_left=None, help_url=None, hub_url=None, monthly_credit_left=None, product_serial=None, product_sku=None, register_url=None, start_date_for_credits=None, support_url=None):
+    def __init__(__self__, account_id=None, account_id_for_billing=None, account_registration_status=None, association_type=None, credits=None, end_date_for_credits=None, free_trial=None, free_trial_credit_left=None, free_trial_days_left=None, help_url=None, hub_url=None, monthly_credit_left=None, product_serial=None, product_sku=None, register_url=None, start_date_for_credits=None, support_url=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if account_id_for_billing and not isinstance(account_id_for_billing, str):
+            raise TypeError("Expected argument 'account_id_for_billing' to be a str")
+        pulumi.set(__self__, "account_id_for_billing", account_id_for_billing)
         if account_registration_status and not isinstance(account_registration_status, str):
             raise TypeError("Expected argument 'account_registration_status' to be a str")
         pulumi.set(__self__, "account_registration_status", account_registration_status)
+        if association_type and not isinstance(association_type, str):
+            raise TypeError("Expected argument 'association_type' to be a str")
+        pulumi.set(__self__, "association_type", association_type)
         if credits and not isinstance(credits, int):
             raise TypeError("Expected argument 'credits' to be a int")
         pulumi.set(__self__, "credits", credits)
@@ -77,9 +83,17 @@ class ListPaloAltoNetworksCloudngfwSupportInfoResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
         """
-        Support account associated with given resource
+        Support account associated with given resource when association type is tenant
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="accountIdForBilling")
+    def account_id_for_billing(self) -> Optional[str]:
+        """
+        Support account associated with given resource when association type is billing
+        """
+        return pulumi.get(self, "account_id_for_billing")
 
     @property
     @pulumi.getter(name="accountRegistrationStatus")
@@ -88,6 +102,14 @@ class ListPaloAltoNetworksCloudngfwSupportInfoResult:
         account registered in Customer Support Portal
         """
         return pulumi.get(self, "account_registration_status")
+
+    @property
+    @pulumi.getter(name="associationType")
+    def association_type(self) -> Optional[str]:
+        """
+        Association Type
+        """
+        return pulumi.get(self, "association_type")
 
     @property
     @pulumi.getter
@@ -201,7 +223,9 @@ class AwaitableListPaloAltoNetworksCloudngfwSupportInfoResult(ListPaloAltoNetwor
             yield self
         return ListPaloAltoNetworksCloudngfwSupportInfoResult(
             account_id=self.account_id,
+            account_id_for_billing=self.account_id_for_billing,
             account_registration_status=self.account_registration_status,
+            association_type=self.association_type,
             credits=self.credits,
             end_date_for_credits=self.end_date_for_credits,
             free_trial=self.free_trial,
@@ -220,9 +244,7 @@ class AwaitableListPaloAltoNetworksCloudngfwSupportInfoResult(ListPaloAltoNetwor
 def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPaloAltoNetworksCloudngfwSupportInfoResult:
     """
     Support information for the service
-    Azure REST API version: 2024-02-07-preview.
-
-    Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -230,7 +252,9 @@ def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeO
 
     return AwaitableListPaloAltoNetworksCloudngfwSupportInfoResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        account_id_for_billing=pulumi.get(__ret__, 'account_id_for_billing'),
         account_registration_status=pulumi.get(__ret__, 'account_registration_status'),
+        association_type=pulumi.get(__ret__, 'association_type'),
         credits=pulumi.get(__ret__, 'credits'),
         end_date_for_credits=pulumi.get(__ret__, 'end_date_for_credits'),
         free_trial=pulumi.get(__ret__, 'free_trial'),
@@ -247,16 +271,16 @@ def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeO
 def list_palo_alto_networks_cloudngfw_support_info_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwSupportInfoResult]:
     """
     Support information for the service
-    Azure REST API version: 2024-02-07-preview.
-
-    Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo', __args__, opts=opts, typ=ListPaloAltoNetworksCloudngfwSupportInfoResult)
     return __ret__.apply(lambda __response__: ListPaloAltoNetworksCloudngfwSupportInfoResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        account_id_for_billing=pulumi.get(__response__, 'account_id_for_billing'),
         account_registration_status=pulumi.get(__response__, 'account_registration_status'),
+        association_type=pulumi.get(__response__, 'association_type'),
         credits=pulumi.get(__response__, 'credits'),
         end_date_for_credits=pulumi.get(__response__, 'end_date_for_credits'),
         free_trial=pulumi.get(__response__, 'free_trial'),

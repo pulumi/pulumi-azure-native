@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? ArcServicePrincipalObjectId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// contains connectivity related configuration for ARC resources
         /// </summary>
         public readonly ImmutableArray<Outputs.ArcConnectivityPropertiesResponse> ConnectivityProperties;
@@ -129,7 +127,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly ImmutableArray<Outputs.DefaultExtensionDetailsResponse> DefaultExtensions;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string? arcServicePrincipalObjectId,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ArcConnectivityPropertiesResponse> connectivityProperties,
 
             ImmutableArray<Outputs.DefaultExtensionDetailsResponse> defaultExtensions,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             ArcApplicationTenantId = arcApplicationTenantId;
             ArcInstanceResourceGroup = arcInstanceResourceGroup;
             ArcServicePrincipalObjectId = arcServicePrincipalObjectId;
+            AzureApiVersion = azureApiVersion;
             ConnectivityProperties = connectivityProperties;
             DefaultExtensions = defaultExtensions;
             Id = id;

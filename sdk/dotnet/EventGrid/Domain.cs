@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid Domain.
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
-    /// 
-    /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
@@ -43,6 +41,12 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<bool?> AutoDeleteTopicWithLastSubscription { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Data Residency Boundary of the resource.
         /// </summary>
         [Output("dataResidencyBoundary")]
@@ -59,6 +63,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Event Type Information for the domain. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        [Output("eventTypeInfo")]
+        public Output<Outputs.EventTypeInfoResponse?> EventTypeInfo { get; private set; } = null!;
 
         /// <summary>
         /// Identity information for the Event Grid Domain resource.
@@ -97,6 +108,12 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this domain
+        /// </summary>
+        [Output("minimumTlsVersionAllowed")]
+        public Output<string?> MinimumTlsVersionAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         [Output("name")]
@@ -122,7 +139,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to the Event Grid Domain resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -246,6 +263,13 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
+        /// Event Type Information for the domain. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        [Input("eventTypeInfo")]
+        public Input<Inputs.EventTypeInfoArgs>? EventTypeInfo { get; set; }
+
+        /// <summary>
         /// Identity information for the Event Grid Domain resource.
         /// </summary>
         [Input("identity")]
@@ -280,6 +304,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this domain
+        /// </summary>
+        [Input("minimumTlsVersionAllowed")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.TlsVersion>? MinimumTlsVersionAllowed { get; set; }
 
         /// <summary>
         /// This determines if traffic is allowed over public network. By default it is enabled.

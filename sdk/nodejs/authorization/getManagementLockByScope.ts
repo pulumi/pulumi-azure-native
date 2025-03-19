@@ -35,6 +35,10 @@ export interface GetManagementLockByScopeArgs {
  */
 export interface GetManagementLockByScopeResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID of the lock.
      */
     readonly id: string;

@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Marketplace
         /// </summary>
         public readonly string ApproveAllItemsModifiedAt;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.
         /// </summary>
         public readonly string? Claim;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.Marketplace
 
             string approveAllItemsModifiedAt,
 
+            string azureApiVersion,
+
             string? claim,
 
             string collectionId,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.Marketplace
             AppliedRules = appliedRules;
             ApproveAllItems = approveAllItems;
             ApproveAllItemsModifiedAt = approveAllItemsModifiedAt;
+            AzureApiVersion = azureApiVersion;
             Claim = claim;
             CollectionId = collectionId;
             CollectionName = collectionName;

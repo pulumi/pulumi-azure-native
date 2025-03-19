@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.ManagementPartner
     public sealed class GetPartnerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// This is the DateTime when the partner was created.
         /// </summary>
         public readonly string? CreatedTime;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.ManagementPartner
 
         [OutputConstructor]
         private GetPartnerResult(
+            string azureApiVersion,
+
             string? createdTime,
 
             int? etag,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.ManagementPartner
 
             int? version)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTime = createdTime;
             Etag = etag;
             Id = id;

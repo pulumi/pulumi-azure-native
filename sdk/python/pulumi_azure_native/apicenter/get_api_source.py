@@ -27,10 +27,13 @@ class GetApiSourceResult:
     """
     API source entity.
     """
-    def __init__(__self__, azure_api_management_source=None, id=None, import_specification=None, link_state=None, name=None, system_data=None, target_environment_id=None, target_lifecycle_stage=None, type=None):
+    def __init__(__self__, azure_api_management_source=None, azure_api_version=None, id=None, import_specification=None, link_state=None, name=None, system_data=None, target_environment_id=None, target_lifecycle_stage=None, type=None):
         if azure_api_management_source and not isinstance(azure_api_management_source, dict):
             raise TypeError("Expected argument 'azure_api_management_source' to be a dict")
         pulumi.set(__self__, "azure_api_management_source", azure_api_management_source)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -63,6 +66,14 @@ class GetApiSourceResult:
         API source configuration for Azure API Management.
         """
         return pulumi.get(self, "azure_api_management_source")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetApiSourceResult(GetApiSourceResult):
             yield self
         return GetApiSourceResult(
             azure_api_management_source=self.azure_api_management_source,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             import_specification=self.import_specification,
             link_state=self.link_state,
@@ -171,6 +183,7 @@ def get_api_source(api_source_name: Optional[str] = None,
 
     return AwaitableGetApiSourceResult(
         azure_api_management_source=pulumi.get(__ret__, 'azure_api_management_source'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         import_specification=pulumi.get(__ret__, 'import_specification'),
         link_state=pulumi.get(__ret__, 'link_state'),
@@ -203,6 +216,7 @@ def get_api_source_output(api_source_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getApiSource', __args__, opts=opts, typ=GetApiSourceResult)
     return __ret__.apply(lambda __response__: GetApiSourceResult(
         azure_api_management_source=pulumi.get(__response__, 'azure_api_management_source'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         import_specification=pulumi.get(__response__, 'import_specification'),
         link_state=pulumi.get(__response__, 'link_state'),

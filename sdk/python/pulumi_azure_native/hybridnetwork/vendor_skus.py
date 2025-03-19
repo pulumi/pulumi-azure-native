@@ -187,7 +187,7 @@ class VendorSkus(pulumi.CustomResource):
                  __props__=None):
         """
         Sku sub resource.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +209,7 @@ class VendorSkus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sku sub resource.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VendorSkusArgs args: The arguments to use to populate this resource's properties.
@@ -255,6 +255,7 @@ class VendorSkus(pulumi.CustomResource):
             if vendor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vendor_name'")
             __props__.__dict__["vendor_name"] = vendor_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -283,6 +284,7 @@ class VendorSkus(pulumi.CustomResource):
 
         __props__ = VendorSkusArgs.__new__(VendorSkusArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["deployment_mode"] = None
         __props__.__dict__["managed_application_parameters"] = None
         __props__.__dict__["managed_application_template"] = None
@@ -295,6 +297,14 @@ class VendorSkus(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return VendorSkus(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentMode")

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified application security group.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,6 +31,10 @@ export interface GetApplicationSecurityGroupArgs {
  * An application security group in a resource group.
  */
 export interface GetApplicationSecurityGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -68,9 +70,7 @@ export interface GetApplicationSecurityGroupResult {
 }
 /**
  * Gets information about the specified application security group.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

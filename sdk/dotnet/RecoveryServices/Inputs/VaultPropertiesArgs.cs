@@ -34,6 +34,24 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
+        /// The redundancy Settings of a Vault
+        /// </summary>
+        [Input("redundancySettings")]
+        public Input<Inputs.VaultPropertiesRedundancySettingsArgs>? RedundancySettings { get; set; }
+
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
+
+        /// <summary>
         /// Restore Settings of the vault
         /// </summary>
         [Input("restoreSettings")]

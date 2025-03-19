@@ -48,6 +48,10 @@ export interface GetAlertResult {
      */
     readonly alertRuleResourceId: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Defines the alert instance errors.
      */
     readonly errors: outputs.workloads.ErrorDetailResponse;

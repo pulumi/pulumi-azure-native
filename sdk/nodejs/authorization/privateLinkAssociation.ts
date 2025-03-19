@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ * Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
  */
 export class PrivateLinkAssociation extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateLinkAssociation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The pla name.
      */
@@ -67,9 +71,11 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
             resourceInputs["groupId"] = args ? args.groupId : undefined;
             resourceInputs["plaId"] = args ? args.plaId : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

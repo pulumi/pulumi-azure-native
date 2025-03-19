@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -49,6 +47,10 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly amount!: pulumi.Output<number | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The category of the budget.
      * - 'Cost' defines a Budget.
      * - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
@@ -77,7 +79,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public /*out*/ readonly forecastSpend!: pulumi.Output<outputs.costmanagement.ForecastSpendResponse>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -121,7 +123,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly timePeriod!: pulumi.Output<outputs.costmanagement.BudgetTimePeriodResponse>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -157,12 +159,14 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
             resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["forecastSpend"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["amount"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
@@ -175,7 +179,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:Budget" }, { type: "azure-native:costmanagement/v20230401preview:Budget" }, { type: "azure-native:costmanagement/v20230801:Budget" }, { type: "azure-native:costmanagement/v20230901:Budget" }, { type: "azure-native:costmanagement/v20231101:Budget" }, { type: "azure-native:costmanagement/v20240801:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:Budget" }, { type: "azure-native:costmanagement/v20230401preview:Budget" }, { type: "azure-native:costmanagement/v20230801:Budget" }, { type: "azure-native:costmanagement/v20230901:Budget" }, { type: "azure-native:costmanagement/v20231101:Budget" }, { type: "azure-native:costmanagement/v20240801:Budget" }, { type: "azure-native:costmanagement/v20241001preview:Budget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }

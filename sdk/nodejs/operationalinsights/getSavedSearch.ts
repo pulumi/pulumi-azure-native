@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified saved search for a given workspace.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetSavedSearchArgs {
  * Value object for saved search results.
  */
 export interface GetSavedSearchResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The category of the saved search. This helps the user to find a saved search faster. 
      */
@@ -88,9 +90,7 @@ export interface GetSavedSearchResult {
 }
 /**
  * Gets the specified saved search for a given workspace.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSavedSearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

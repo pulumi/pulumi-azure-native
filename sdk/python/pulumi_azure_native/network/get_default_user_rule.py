@@ -27,7 +27,10 @@ class GetDefaultUserRuleResult:
     """
     Network security default user rule.
     """
-    def __init__(__self__, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, protocol=None, provisioning_state=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, protocol=None, provisioning_state=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -73,6 +76,14 @@ class GetDefaultUserRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -202,6 +213,7 @@ class AwaitableGetDefaultUserRuleResult(GetDefaultUserRuleResult):
         if False:
             yield self
         return GetDefaultUserRuleResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             destination_port_ranges=self.destination_port_ranges,
             destinations=self.destinations,
@@ -246,6 +258,7 @@ def get_default_user_rule(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getDefaultUserRule', __args__, opts=opts, typ=GetDefaultUserRuleResult).value
 
     return AwaitableGetDefaultUserRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
         destinations=pulumi.get(__ret__, 'destinations'),
@@ -287,6 +300,7 @@ def get_default_user_rule_output(configuration_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDefaultUserRule', __args__, opts=opts, typ=GetDefaultUserRuleResult)
     return __ret__.apply(lambda __response__: GetDefaultUserRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
         destinations=pulumi.get(__response__, 'destinations'),

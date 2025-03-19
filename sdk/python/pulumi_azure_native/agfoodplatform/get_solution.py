@@ -27,7 +27,10 @@ class GetSolutionResult:
     """
     Solution resource.
     """
-    def __init__(__self__, e_tag=None, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, e_tag=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -46,6 +49,14 @@ class GetSolutionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -102,6 +113,7 @@ class AwaitableGetSolutionResult(GetSolutionResult):
         if False:
             yield self
         return GetSolutionResult(
+            azure_api_version=self.azure_api_version,
             e_tag=self.e_tag,
             id=self.id,
             name=self.name,
@@ -118,8 +130,6 @@ def get_solution(data_manager_for_agriculture_resource_name: Optional[str] = Non
     Get installed Solution details by Solution id.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -133,6 +143,7 @@ def get_solution(data_manager_for_agriculture_resource_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform:getSolution', __args__, opts=opts, typ=GetSolutionResult).value
 
     return AwaitableGetSolutionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -147,8 +158,6 @@ def get_solution_output(data_manager_for_agriculture_resource_name: Optional[pul
     Get installed Solution details by Solution id.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -161,6 +170,7 @@ def get_solution_output(data_manager_for_agriculture_resource_name: Optional[pul
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getSolution', __args__, opts=opts, typ=GetSolutionResult)
     return __ret__.apply(lambda __response__: GetSolutionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

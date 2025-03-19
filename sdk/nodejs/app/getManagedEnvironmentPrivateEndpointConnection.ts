@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2024-02-02-preview.
- *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  */
 export function getManagedEnvironmentPrivateEndpointConnection(args: GetManagedEnvironmentPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetManagedEnvironmentPrivateEndpointConnectionArgs {
  * The Private Endpoint Connection resource.
  */
 export interface GetManagedEnvironmentPrivateEndpointConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The group ids for the private endpoint resource.
      */
@@ -76,9 +78,7 @@ export interface GetManagedEnvironmentPrivateEndpointConnectionResult {
 }
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2024-02-02-preview.
- *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  */
 export function getManagedEnvironmentPrivateEndpointConnectionOutput(args: GetManagedEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedEnvironmentPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network peering.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,9 +52,17 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly allowVirtualNetworkAccess?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * If we need to verify the provisioning state of the remote gateway.
      */
     readonly doNotVerifyRemoteGateways?: boolean;
+    /**
+     * Whether only Ipv6 address space is peered for subnet peering.
+     */
+    readonly enableOnlyIPv6Peering?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -66,9 +72,25 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly id?: string;
     /**
+     * The local address space of the local virtual network that is peered.
+     */
+    readonly localAddressSpace?: outputs.network.AddressSpaceResponse;
+    /**
+     * List of local subnet names that are subnet peered with remote virtual network.
+     */
+    readonly localSubnetNames?: string[];
+    /**
+     * The current local address space of the local virtual network that is peered.
+     */
+    readonly localVirtualNetworkAddressSpace?: outputs.network.AddressSpaceResponse;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
+    /**
+     * Whether complete virtual network address space is peered.
+     */
+    readonly peerCompleteVnets?: boolean;
     /**
      * The status of the virtual network peering.
      */
@@ -89,6 +111,10 @@ export interface GetVirtualNetworkPeeringResult {
      * The reference to the remote virtual network's Bgp Communities.
      */
     readonly remoteBgpCommunities?: outputs.network.VirtualNetworkBgpCommunitiesResponse;
+    /**
+     * List of remote subnet names from remote virtual network that are subnet peered.
+     */
+    readonly remoteSubnetNames?: string[];
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
@@ -116,9 +142,7 @@ export interface GetVirtualNetworkPeeringResult {
 }
 /**
  * Gets the specified virtual network peering.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

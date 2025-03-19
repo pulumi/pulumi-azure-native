@@ -149,9 +149,7 @@ class NspProfile(pulumi.CustomResource):
                  __props__=None):
         """
         The network security perimeter profile resource
-        Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,9 +169,7 @@ class NspProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network security perimeter profile resource
-        Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NspProfileArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +214,7 @@ class NspProfile(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["access_rules_version"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["diagnostic_settings_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20240601preview:NspProfile")])
@@ -245,6 +242,7 @@ class NspProfile(pulumi.CustomResource):
         __props__ = NspProfileArgs.__new__(NspProfileArgs)
 
         __props__.__dict__["access_rules_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["diagnostic_settings_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -259,6 +257,14 @@ class NspProfile(pulumi.CustomResource):
         Version number that increases with every update to access rules within the profile.
         """
         return pulumi.get(self, "access_rules_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="diagnosticSettingsVersion")

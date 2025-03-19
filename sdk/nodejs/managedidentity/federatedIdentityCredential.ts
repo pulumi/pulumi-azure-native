@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a federated identity credential.
- * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
- *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
+ * Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
  */
 export class FederatedIdentityCredential extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
      * The list of audiences that can appear in the issued token.
      */
     public readonly audiences!: pulumi.Output<string[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The URL of the issuer to be trusted.
      */
@@ -97,11 +99,13 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["audiences"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
@@ -109,7 +113,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20241130:FederatedIdentityCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20241130:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20250131preview:FederatedIdentityCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts);
     }

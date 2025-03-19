@@ -125,7 +125,7 @@ class WebAppAuthSettingsArgs:
         :param pulumi.Input[str] is_auth_from_file: "true" if the auth config settings should be read from a file,
                "false" otherwise
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         :param pulumi.Input[str] kind: Kind of resource.
@@ -601,7 +601,7 @@ class WebAppAuthSettingsArgs:
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -832,9 +832,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -898,7 +896,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
         :param pulumi.Input[str] is_auth_from_file: "true" if the auth config settings should be read from a file,
                "false" otherwise
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         :param pulumi.Input[str] kind: Kind of resource.
@@ -940,9 +938,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -1054,6 +1050,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
             __props__.__dict__["twitter_consumer_secret_setting_name"] = twitter_consumer_secret_setting_name
             __props__.__dict__["unauthenticated_client_action"] = unauthenticated_client_action
             __props__.__dict__["validate_issuer"] = validate_issuer
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppAuthSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -1084,6 +1081,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
         __props__.__dict__["allowed_audiences"] = None
         __props__.__dict__["allowed_external_redirect_urls"] = None
         __props__.__dict__["auth_file_path"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_id"] = None
         __props__.__dict__["client_secret"] = None
         __props__.__dict__["client_secret_certificate_thumbprint"] = None
@@ -1167,6 +1165,14 @@ class WebAppAuthSettings(pulumi.CustomResource):
         If the path is relative, base will the site's root directory.
         """
         return pulumi.get(self, "auth_file_path")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientId")
@@ -1361,7 +1367,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
     def issuer(self) -> pulumi.Output[Optional[str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """

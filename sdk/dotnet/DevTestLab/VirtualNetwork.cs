@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// A virtual network.
-    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("allowedSubnets")]
         public Output<ImmutableArray<Outputs.SubnetResponse>> AllowedSubnets { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of the virtual network.

@@ -78,6 +78,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _tags = value;
         }
 
+        [Input("threadStorageConnections")]
+        private InputList<string>? _threadStorageConnections;
+
+        /// <summary>
+        /// List of Thread storage connections.
+        /// </summary>
+        public InputList<string> ThreadStorageConnections
+        {
+            get => _threadStorageConnections ?? (_threadStorageConnections = new InputList<string>());
+            set => _threadStorageConnections = value;
+        }
+
         [Input("vectorStoreConnections")]
         private InputList<string>? _vectorStoreConnections;
 

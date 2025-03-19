@@ -27,7 +27,10 @@ class GetVaultResult:
     """
     Resource information, as returned by the resource provider.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -58,6 +61,14 @@ class GetVaultResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetVaultResult(GetVaultResult):
         if False:
             yield self
         return GetVaultResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -163,9 +175,7 @@ def get_vault(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
     Get the Vault details.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-09-30-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -178,6 +188,7 @@ def get_vault(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:recoveryservices:getVault', __args__, opts=opts, typ=GetVaultResult).value
 
     return AwaitableGetVaultResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -193,9 +204,7 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVaultResult]:
     """
     Get the Vault details.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-09-30-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -207,6 +216,7 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices:getVault', __args__, opts=opts, typ=GetVaultResult)
     return __ret__.apply(lambda __response__: GetVaultResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

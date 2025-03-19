@@ -27,7 +27,10 @@ class GetSolutionResult:
     """
     A Solution resource belonging to an Instance resource.
     """
-    def __init__(__self__, components=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, components=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if components and not isinstance(components, list):
             raise TypeError("Expected argument 'components' to be a list")
         pulumi.set(__self__, "components", components)
@@ -58,6 +61,14 @@ class GetSolutionResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetSolutionResult(GetSolutionResult):
         if False:
             yield self
         return GetSolutionResult(
+            azure_api_version=self.azure_api_version,
             components=self.components,
             extended_location=self.extended_location,
             id=self.id,
@@ -176,6 +188,7 @@ def get_solution(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsorchestrator:getSolution', __args__, opts=opts, typ=GetSolutionResult).value
 
     return AwaitableGetSolutionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         components=pulumi.get(__ret__, 'components'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -203,6 +216,7 @@ def get_solution_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsorchestrator:getSolution', __args__, opts=opts, typ=GetSolutionResult)
     return __ret__.apply(lambda __response__: GetSolutionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         components=pulumi.get(__response__, 'components'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

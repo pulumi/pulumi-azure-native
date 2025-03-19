@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the description of the specified namespace.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetNamespaceResult {
      * Alternate name specified when alias and namespace names are same.
      */
     readonly alternateName?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Cluster ARM ID of the Namespace.
      */
@@ -139,9 +141,7 @@ export interface GetNamespaceResult {
 }
 /**
  * Gets the description of the specified namespace.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

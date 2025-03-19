@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account session.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
  */
 export class IntegrationAccountSession extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationAccountSession.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The changed time.
      */
@@ -87,11 +91,13 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sessionName"] = args ? args.sessionName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -101,7 +107,7 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20160601:IntegrationAccountSession" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-native:logic/v20190501:IntegrationAccountSession" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20160601:IntegrationAccountSession" }, { type: "azure-native:logic/v20160601:Session" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-native:logic/v20190501:IntegrationAccountSession" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountSession.__pulumiType, name, resourceInputs, opts);
     }

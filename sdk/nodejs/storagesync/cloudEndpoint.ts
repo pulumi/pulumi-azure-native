@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cloud Endpoint object.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
- *
- * Other available API versions: 2022-09-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
  */
 export class CloudEndpoint extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class CloudEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Azure file share name
      */
@@ -121,6 +123,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
             resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupEnabled"] = undefined /*out*/;
             resourceInputs["changeEnumerationStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
@@ -131,6 +134,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureFileShareName"] = undefined /*out*/;
             resourceInputs["backupEnabled"] = undefined /*out*/;
             resourceInputs["changeEnumerationStatus"] = undefined /*out*/;

@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["getAzureLargeStorageInstance","getAzureLargeStorag
 // Export enums:
 export * from "../types/enums/azurelargeinstance";
 
-// Export sub-modules:
-import * as v20240801preview from "./v20240801preview";
-
-export {
-    v20240801preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

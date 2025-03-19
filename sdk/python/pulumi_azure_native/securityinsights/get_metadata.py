@@ -27,10 +27,13 @@ class GetMetadataResult:
     """
     Metadata resource definition.
     """
-    def __init__(__self__, author=None, categories=None, content_id=None, content_schema_version=None, custom_version=None, dependencies=None, etag=None, first_publish_date=None, icon=None, id=None, kind=None, last_publish_date=None, name=None, parent_id=None, preview_images=None, preview_images_dark=None, providers=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
+    def __init__(__self__, author=None, azure_api_version=None, categories=None, content_id=None, content_schema_version=None, custom_version=None, dependencies=None, etag=None, first_publish_date=None, icon=None, id=None, kind=None, last_publish_date=None, name=None, parent_id=None, preview_images=None, preview_images_dark=None, providers=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if categories and not isinstance(categories, dict):
             raise TypeError("Expected argument 'categories' to be a dict")
         pulumi.set(__self__, "categories", categories)
@@ -108,6 +111,14 @@ class GetMetadataResult:
         The creator of the content item.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -301,6 +312,7 @@ class AwaitableGetMetadataResult(GetMetadataResult):
             yield self
         return GetMetadataResult(
             author=self.author,
+            azure_api_version=self.azure_api_version,
             categories=self.categories,
             content_id=self.content_id,
             content_schema_version=self.content_schema_version,
@@ -332,9 +344,7 @@ def get_metadata(metadata_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataResult:
     """
     Get a Metadata.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str metadata_name: The Metadata name.
@@ -350,6 +360,7 @@ def get_metadata(metadata_name: Optional[str] = None,
 
     return AwaitableGetMetadataResult(
         author=pulumi.get(__ret__, 'author'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         categories=pulumi.get(__ret__, 'categories'),
         content_id=pulumi.get(__ret__, 'content_id'),
         content_schema_version=pulumi.get(__ret__, 'content_schema_version'),
@@ -379,9 +390,7 @@ def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataResult]:
     """
     Get a Metadata.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str metadata_name: The Metadata name.
@@ -396,6 +405,7 @@ def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getMetadata', __args__, opts=opts, typ=GetMetadataResult)
     return __ret__.apply(lambda __response__: GetMetadataResult(
         author=pulumi.get(__response__, 'author'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         categories=pulumi.get(__response__, 'categories'),
         content_id=pulumi.get(__response__, 'content_id'),
         content_schema_version=pulumi.get(__response__, 'content_schema_version'),

@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.Purview.Outputs
         /// </summary>
         public readonly string Catalog;
         /// <summary>
-        /// Gets the guardian endpoint.
-        /// </summary>
-        public readonly string Guardian;
-        /// <summary>
         /// Gets the scan endpoint.
         /// </summary>
         public readonly string Scan;
@@ -33,12 +29,9 @@ namespace Pulumi.AzureNative.Purview.Outputs
         private AccountPropertiesResponseEndpoints(
             string catalog,
 
-            string guardian,
-
             string scan)
         {
             Catalog = catalog;
-            Guardian = guardian;
             Scan = scan;
         }
     }

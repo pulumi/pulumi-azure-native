@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ApiCenter
 {
     /// <summary>
     /// Metadata schema entity. Used to define metadata for the entities in API catalog.
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    /// Azure REST API version: 2024-03-15-preview. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:MetadataSchema")]
     public partial class MetadataSchema : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         [Output("assignedTo")]
         public Output<ImmutableArray<Outputs.MetadataAssignmentResponse>> AssignedTo { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

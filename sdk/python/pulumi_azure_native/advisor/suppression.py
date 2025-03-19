@@ -116,7 +116,7 @@ class Suppression(pulumi.CustomResource):
                  __props__=None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2023-09-01-preview. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class Suppression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2023-09-01-preview. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.
@@ -174,10 +174,11 @@ class Suppression(pulumi.CustomResource):
             __props__.__dict__["resource_uri"] = resource_uri
             __props__.__dict__["suppression_id"] = suppression_id
             __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["expiration_time_stamp"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20220901:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20221001:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230101:Suppression")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20220901:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20221001:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230901preview:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
             'azure-native:advisor:Suppression',
@@ -201,6 +202,7 @@ class Suppression(pulumi.CustomResource):
 
         __props__ = SuppressionArgs.__new__(SuppressionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["expiration_time_stamp"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["suppression_id"] = None
@@ -208,6 +210,14 @@ class Suppression(pulumi.CustomResource):
         __props__.__dict__["ttl"] = None
         __props__.__dict__["type"] = None
         return Suppression(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationTimeStamp")

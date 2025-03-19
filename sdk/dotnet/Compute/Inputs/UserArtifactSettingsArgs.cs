@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("packageFileName")]
         public Input<string>? PackageFileName { get; set; }
 
+        /// <summary>
+        /// Optional. The action to be taken with regards to install/update/remove of the gallery application in the event of a reboot.
+        /// </summary>
+        [Input("scriptBehaviorAfterReboot")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.GalleryApplicationScriptRebootBehavior>? ScriptBehaviorAfterReboot { get; set; }
+
         public UserArtifactSettingsArgs()
         {
         }

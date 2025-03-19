@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetMachineGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         /// </summary>
         public readonly int? Count;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         [OutputConstructor]
         private GetMachineGroupResult(
+            string azureApiVersion,
+
             int? count,
 
             string displayName,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Count = count;
             DisplayName = displayName;
             Etag = etag;

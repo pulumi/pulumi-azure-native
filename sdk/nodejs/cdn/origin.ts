@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Origin extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Origin extends pulumi.CustomResource {
         return obj['__pulumiType'] === Origin.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Origin is enabled for load balancing or not
      */
@@ -147,6 +149,7 @@ export class Origin extends pulumi.CustomResource {
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointStatus"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -154,6 +157,7 @@ export class Origin extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["httpPort"] = undefined /*out*/;

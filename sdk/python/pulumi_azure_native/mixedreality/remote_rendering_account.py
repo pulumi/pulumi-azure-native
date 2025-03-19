@@ -187,9 +187,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  __props__=None):
         """
         RemoteRenderingAccount Response.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2021-03-01-preview.
+        Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 2.x: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,9 +209,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         RemoteRenderingAccount Response.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2021-03-01-preview.
+        Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 2.x: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param RemoteRenderingAccountArgs args: The arguments to use to populate this resource's properties.
@@ -261,10 +257,11 @@ class RemoteRenderingAccount(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_domain"] = None
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210101:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210301preview:RemoteRenderingAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210101:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210301preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20250101:RemoteRenderingAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemoteRenderingAccount, __self__).__init__(
             'azure-native:mixedreality:RemoteRenderingAccount',
@@ -290,6 +287,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
 
         __props__.__dict__["account_domain"] = None
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -317,6 +315,14 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         unique id of certain account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

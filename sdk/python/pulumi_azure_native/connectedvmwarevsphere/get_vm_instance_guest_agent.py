@@ -27,7 +27,10 @@ class GetVMInstanceGuestAgentResult:
     """
     Defines the GuestAgent.
     """
-    def __init__(__self__, credentials=None, custom_resource_name=None, http_proxy_config=None, id=None, name=None, private_link_scope_resource_id=None, provisioning_action=None, provisioning_state=None, status=None, statuses=None, system_data=None, type=None, uuid=None):
+    def __init__(__self__, azure_api_version=None, credentials=None, custom_resource_name=None, http_proxy_config=None, id=None, name=None, private_link_scope_resource_id=None, provisioning_action=None, provisioning_state=None, status=None, statuses=None, system_data=None, type=None, uuid=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -67,6 +70,14 @@ class GetVMInstanceGuestAgentResult:
         if uuid and not isinstance(uuid, str):
             raise TypeError("Expected argument 'uuid' to be a str")
         pulumi.set(__self__, "uuid", uuid)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -179,6 +190,7 @@ class AwaitableGetVMInstanceGuestAgentResult(GetVMInstanceGuestAgentResult):
         if False:
             yield self
         return GetVMInstanceGuestAgentResult(
+            azure_api_version=self.azure_api_version,
             credentials=self.credentials,
             custom_resource_name=self.custom_resource_name,
             http_proxy_config=self.http_proxy_config,
@@ -198,9 +210,7 @@ def get_vm_instance_guest_agent(resource_uri: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMInstanceGuestAgentResult:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -211,6 +221,7 @@ def get_vm_instance_guest_agent(resource_uri: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent', __args__, opts=opts, typ=GetVMInstanceGuestAgentResult).value
 
     return AwaitableGetVMInstanceGuestAgentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credentials=pulumi.get(__ret__, 'credentials'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         http_proxy_config=pulumi.get(__ret__, 'http_proxy_config'),
@@ -228,9 +239,7 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMInstanceGuestAgentResult]:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -240,6 +249,7 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent', __args__, opts=opts, typ=GetVMInstanceGuestAgentResult)
     return __ret__.apply(lambda __response__: GetVMInstanceGuestAgentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credentials=pulumi.get(__response__, 'credentials'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),

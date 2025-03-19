@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'IPRuleArgs',
+    'IPRuleArgsDict',
     'LiveTraceCategoryArgs',
     'LiveTraceCategoryArgsDict',
     'LiveTraceConfigurationArgs',
@@ -59,6 +61,62 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        An IP rule
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'ACLAction']]]
+        """
+        Azure Networking ACL Action.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        An IP or CIDR or ServiceTag
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPRuleArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[str, 'ACLAction']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        An IP rule
+        :param pulumi.Input[Union[str, 'ACLAction']] action: Azure Networking ACL Action.
+        :param pulumi.Input[str] value: An IP or CIDR or ServiceTag
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'ACLAction']]]:
+        """
+        Azure Networking ACL Action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'ACLAction']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IP or CIDR or ServiceTag
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 if not MYPY:
     class LiveTraceCategoryArgsDict(TypedDict):
@@ -685,16 +743,18 @@ if not MYPY:
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1, Premium_P1
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         capacity: NotRequired[pulumi.Input[int]]
         """
-        Optional, integer. The unit count of the resource. 1 by default.
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
         
         If present, following values are allowed:
-            Free: 1;
-            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         """
         tier: NotRequired[pulumi.Input[Union[str, 'SignalRSkuTier']]]
         """
@@ -715,13 +775,15 @@ class ResourceSkuArgs:
         The billing information of the resource.
         :param pulumi.Input[str] name: The name of the SKU. Required.
                
-               Allowed values: Standard_S1, Free_F1, Premium_P1
-        :param pulumi.Input[int] capacity: Optional, integer. The unit count of the resource. 1 by default.
+               Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
+        :param pulumi.Input[int] capacity: Optional, integer. The unit count of the resource.
+               1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
                
                If present, following values are allowed:
-                   Free: 1;
-                   Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-                   Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Free_F1: 1;
+                   Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         :param pulumi.Input[Union[str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -738,7 +800,7 @@ class ResourceSkuArgs:
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1, Premium_P1
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
 
@@ -750,12 +812,14 @@ class ResourceSkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Optional, integer. The unit count of the resource. 1 by default.
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
         
         If present, following values are allowed:
-            Free: 1;
-            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         """
         return pulumi.get(self, "capacity")
 
@@ -1004,6 +1068,10 @@ if not MYPY:
         """
         Azure Networking ACL Action.
         """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        IP rules for filtering public traffic
+        """
         private_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]
         """
         ACLs for requests from private endpoints
@@ -1019,16 +1087,20 @@ elif False:
 class SignalRNetworkACLsArgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[Union[str, 'ACLAction']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
         Network ACLs for the resource
         :param pulumi.Input[Union[str, 'ACLAction']] default_action: Azure Networking ACL Action.
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: IP rules for filtering public traffic
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
         :param pulumi.Input['NetworkACLArgs'] public_network: Network ACL
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if private_endpoints is not None:
             pulumi.set(__self__, "private_endpoints", private_endpoints)
         if public_network is not None:
@@ -1045,6 +1117,18 @@ class SignalRNetworkACLsArgs:
     @default_action.setter
     def default_action(self, value: Optional[pulumi.Input[Union[str, 'ACLAction']]]):
         pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
+        """
+        IP rules for filtering public traffic
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="privateEndpoints")
@@ -1078,7 +1162,7 @@ if not MYPY:
         """
         client_cert_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Request client certificate during TLS handshake if enabled
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
 elif False:
     SignalRTlsSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1089,10 +1173,10 @@ class SignalRTlsSettingsArgs:
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None):
         """
         TLS settings for the resource
-        :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled
+        :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         if client_cert_enabled is None:
-            client_cert_enabled = True
+            client_cert_enabled = False
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
 
@@ -1100,7 +1184,7 @@ class SignalRTlsSettingsArgs:
     @pulumi.getter(name="clientCertEnabled")
     def client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Request client certificate during TLS handshake if enabled
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         return pulumi.get(self, "client_cert_enabled")
 

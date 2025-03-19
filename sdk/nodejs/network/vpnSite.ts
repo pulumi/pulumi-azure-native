@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnSite Resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class VpnSite extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class VpnSite extends pulumi.CustomResource {
      * The AddressSpace that contains an array of IP address ranges.
      */
     public readonly addressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The set of bgp properties.
      */
@@ -129,12 +131,14 @@ export class VpnSite extends pulumi.CustomResource {
             resourceInputs["virtualWan"] = args ? args.virtualWan : undefined;
             resourceInputs["vpnSiteLinks"] = args ? args.vpnSiteLinks : undefined;
             resourceInputs["vpnSiteName"] = args ? args.vpnSiteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["addressSpace"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bgpProperties"] = undefined /*out*/;
             resourceInputs["deviceProperties"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

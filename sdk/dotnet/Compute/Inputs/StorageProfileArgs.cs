@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// </summary>
     public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the regional disks should be aligned/moved to the VM zone. This is applicable only for VMs with placement property set. Please note that this change is irreversible. Minimum api-version: 2024-11-01.
+        /// </summary>
+        [Input("alignRegionalDisksToVMZone")]
+        public Input<bool>? AlignRegionalDisksToVMZone { get; set; }
+
         [Input("dataDisks")]
         private InputList<Inputs.DataDiskArgs>? _dataDisks;
 

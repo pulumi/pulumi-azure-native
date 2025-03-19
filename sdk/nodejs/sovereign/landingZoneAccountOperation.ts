@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
- * Azure REST API version: 2025-02-27-preview.
+ * Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
  */
 export class LandingZoneAccountOperation extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class LandingZoneAccountOperation extends pulumi.CustomResource {
         return obj['__pulumiType'] === LandingZoneAccountOperation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
@@ -87,10 +91,12 @@ export class LandingZoneAccountOperation extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

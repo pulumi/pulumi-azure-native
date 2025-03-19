@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Task<GetConnectionDeploymentResult> InvokeAsync(GetConnectionDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetConnectionDeploymentResult> Invoke(GetConnectionDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetConnectionDeploymentResult> Invoke(GetConnectionDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetConnectionDeploymentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -116,8 +114,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.EndpointDeploymentResourcePropertiesResponse Properties;
-        public readonly Outputs.CognitiveServicesSkuResponse? Sku;
+        public readonly object Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -129,22 +126,22 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetConnectionDeploymentResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
 
-            Outputs.EndpointDeploymentResourcePropertiesResponse properties,
-
-            Outputs.CognitiveServicesSkuResponse? sku,
+            object properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;
-            Sku = sku;
             SystemData = systemData;
             Type = type;
         }

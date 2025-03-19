@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// A class represent a replica resource.
-    /// Azure REST API version: 2023-03-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubReplica")]
     public partial class WebPubSubReplica : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -35,6 +39,21 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// </summary>
+        [Output("regionEndpointEnabled")]
+        public Output<string?> RegionEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Stop or start the resource.  Default to "false".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        [Output("resourceStopped")]
+        public Output<string?> ResourceStopped { get; private set; } = null!;
 
         /// <summary>
         /// The billing information of the resource.
@@ -123,6 +142,13 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// </summary>
+        [Input("regionEndpointEnabled")]
+        public Input<string>? RegionEndpointEnabled { get; set; }
+
+        /// <summary>
         /// The name of the replica.
         /// </summary>
         [Input("replicaName")]
@@ -139,6 +165,14 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Stop or start the resource.  Default to "false".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        [Input("resourceStopped")]
+        public Input<string>? ResourceStopped { get; set; }
 
         /// <summary>
         /// The billing information of the resource.
@@ -160,6 +194,8 @@ namespace Pulumi.AzureNative.WebPubSub
 
         public WebPubSubReplicaArgs()
         {
+            RegionEndpointEnabled = "Enabled";
+            ResourceStopped = "false";
         }
         public static new WebPubSubReplicaArgs Empty => new WebPubSubReplicaArgs();
     }

@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.TestBase
     [OutputType]
     public sealed class GetActionRequestResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string CreationDate;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNative.TestBase
 
         [OutputConstructor]
         private GetActionRequestResult(
+            string azureApiVersion,
+
             string creationDate,
 
             string id,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.TestBase
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             Id = id;
             Name = name;

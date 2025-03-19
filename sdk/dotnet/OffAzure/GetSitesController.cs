@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a VmwareSite
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetSitesControllerResult> InvokeAsync(GetSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesControllerResult>("azure-native:offazure:getSitesController", args ?? new GetSitesControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a VmwareSite
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSitesControllerResult> Invoke(GetSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesControllerResult>("azure-native:offazure:getSitesController", args ?? new GetSitesControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a VmwareSite
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSitesControllerResult> Invoke(GetSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesControllerResult>("azure-native:offazure:getSitesController", args ?? new GetSitesControllerInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public readonly string? ApplianceName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the ARM ID of migration hub solution for SDS.
         /// </summary>
         public readonly string? DiscoverySolutionId;
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.OffAzure
 
             string? applianceName,
 
+            string azureApiVersion,
+
             string? discoverySolutionId,
 
             string eTag,
@@ -175,6 +175,7 @@ namespace Pulumi.AzureNative.OffAzure
         {
             AgentDetails = agentDetails;
             ApplianceName = applianceName;
+            AzureApiVersion = azureApiVersion;
             DiscoverySolutionId = discoverySolutionId;
             ETag = eTag;
             Id = id;

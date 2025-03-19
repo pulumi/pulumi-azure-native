@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Dto object representing compute resource
+    /// DTO object representing compute resource
     /// </summary>
     [OutputType]
     public sealed class MaterializationComputeResourceResponse

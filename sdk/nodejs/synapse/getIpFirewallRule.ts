@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Get a firewall rule
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetIpFirewallRuleArgs {
  */
 export interface GetIpFirewallRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
      */
     readonly endIpAddress?: string;
@@ -66,8 +68,6 @@ export interface GetIpFirewallRuleResult {
 /**
  * Get a firewall rule
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getIpFirewallRuleOutput(args: GetIpFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

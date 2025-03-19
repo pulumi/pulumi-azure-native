@@ -84,7 +84,7 @@ class ScopingConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent an AppComplianceAutomation scoping configuration resource.
-        Azure REST API version: 2024-06-27.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +100,7 @@ class ScopingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent an AppComplianceAutomation scoping configuration resource.
-        Azure REST API version: 2024-06-27.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
 
         :param str resource_name: The name of the resource.
         :param ScopingConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -134,6 +134,7 @@ class ScopingConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'report_name'")
             __props__.__dict__["report_name"] = report_name
             __props__.__dict__["scoping_configuration_name"] = scoping_configuration_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -163,6 +164,7 @@ class ScopingConfiguration(pulumi.CustomResource):
         __props__ = ScopingConfigurationArgs.__new__(ScopingConfigurationArgs)
 
         __props__.__dict__["answers"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
@@ -176,6 +178,14 @@ class ScopingConfiguration(pulumi.CustomResource):
         List of scoping question answers.
         """
         return pulumi.get(self, "answers")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Time at which the account was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             string createdAt,
 
             string id,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string userName)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             Id = id;
             Identity = identity;

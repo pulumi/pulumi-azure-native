@@ -134,7 +134,7 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the configuration profile.
-        Azure REST API version: 2022-05-04.
+        Azure REST API version: 2022-05-04. Prior API version in Azure Native 2.x: 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the configuration profile.
-        Azure REST API version: 2022-05-04.
+        Azure REST API version: 2022-05-04. Prior API version in Azure Native 2.x: 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfilesVersionArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +195,7 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version_name"] = version_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -222,6 +223,7 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
 
         __props__ = ConfigurationProfilesVersionArgs.__new__(ConfigurationProfilesVersionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -229,6 +231,14 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ConfigurationProfilesVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
         public Input<Inputs.BrowserCredentialArgs>? BrowserCredential { get; set; }
 
         /// <summary>
+        /// Description of a NotificationHub FcmV1Credential.
+        /// </summary>
+        [Input("fcmV1Credential")]
+        public Input<Inputs.FcmV1CredentialArgs>? FcmV1Credential { get; set; }
+
+        /// <summary>
         /// Description of a NotificationHub GcmCredential.
         /// </summary>
         [Input("gcmCredential")]

@@ -27,10 +27,13 @@ class GetAttestationAtResourceResult:
     """
     An attestation resource.
     """
-    def __init__(__self__, assessment_date=None, comments=None, compliance_state=None, evidence=None, expires_on=None, id=None, last_compliance_state_change_at=None, metadata=None, name=None, owner=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, assessment_date=None, azure_api_version=None, comments=None, compliance_state=None, evidence=None, expires_on=None, id=None, last_compliance_state_change_at=None, metadata=None, name=None, owner=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, system_data=None, type=None):
         if assessment_date and not isinstance(assessment_date, str):
             raise TypeError("Expected argument 'assessment_date' to be a str")
         pulumi.set(__self__, "assessment_date", assessment_date)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if comments and not isinstance(comments, str):
             raise TypeError("Expected argument 'comments' to be a str")
         pulumi.set(__self__, "comments", comments)
@@ -81,6 +84,14 @@ class GetAttestationAtResourceResult:
         The time the evidence was assessed
         """
         return pulumi.get(self, "assessment_date")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -202,6 +213,7 @@ class AwaitableGetAttestationAtResourceResult(GetAttestationAtResourceResult):
             yield self
         return GetAttestationAtResourceResult(
             assessment_date=self.assessment_date,
+            azure_api_version=self.azure_api_version,
             comments=self.comments,
             compliance_state=self.compliance_state,
             evidence=self.evidence,
@@ -223,9 +235,7 @@ def get_attestation_at_resource(attestation_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtResourceResult:
     """
     Gets an existing attestation at resource scope.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str attestation_name: The name of the attestation.
@@ -239,6 +249,7 @@ def get_attestation_at_resource(attestation_name: Optional[str] = None,
 
     return AwaitableGetAttestationAtResourceResult(
         assessment_date=pulumi.get(__ret__, 'assessment_date'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         comments=pulumi.get(__ret__, 'comments'),
         compliance_state=pulumi.get(__ret__, 'compliance_state'),
         evidence=pulumi.get(__ret__, 'evidence'),
@@ -258,9 +269,7 @@ def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[s
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtResourceResult]:
     """
     Gets an existing attestation at resource scope.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str attestation_name: The name of the attestation.
@@ -273,6 +282,7 @@ def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[s
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights:getAttestationAtResource', __args__, opts=opts, typ=GetAttestationAtResourceResult)
     return __ret__.apply(lambda __response__: GetAttestationAtResourceResult(
         assessment_date=pulumi.get(__response__, 'assessment_date'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         comments=pulumi.get(__response__, 'comments'),
         compliance_state=pulumi.get(__response__, 'compliance_state'),
         evidence=pulumi.get(__response__, 'evidence'),

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the capacity reservation.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01.
-    /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The Capacity reservation instance view.
         /// </summary>
@@ -132,6 +136,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:CapacityReservation" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:CapacityReservation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

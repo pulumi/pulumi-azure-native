@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
     public sealed class OrganizationResponse
     {
         /// <summary>
+        /// Determines if the pool should have open access to all projects in this organization.
+        /// </summary>
+        public readonly bool? OpenAccess;
+        /// <summary>
         /// How many machines can be created at maximum in this organization out of the maximumConcurrency of the pool.
         /// </summary>
         public readonly int? Parallelism;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
 
         [OutputConstructor]
         private OrganizationResponse(
+            bool? openAccess,
+
             int? parallelism,
 
             ImmutableArray<string> projects,
 
             string url)
         {
+            OpenAccess = openAccess;
             Parallelism = parallelism;
             Projects = projects;
             Url = url;

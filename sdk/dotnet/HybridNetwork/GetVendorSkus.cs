@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetVendorSkusResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The sku deployment mode.
         /// </summary>
         public readonly string? DeploymentMode;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetVendorSkusResult(
+            string azureApiVersion,
+
             string? deploymentMode,
 
             string id,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeploymentMode = deploymentMode;
             Id = id;
             ManagedApplicationParameters = managedApplicationParameters;

@@ -17,10 +17,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LicenseArgs', 'License']
+__all__ = ['LicenseInitArgs', 'License']
 
 @pulumi.input_type
-class LicenseArgs:
+class LicenseInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  license_details: Optional[pulumi.Input['LicenseDetailsArgs']] = None,
@@ -153,9 +153,7 @@ class License(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a license in a hybrid machine.
-        Azure REST API version: 2023-06-20-preview.
-
-        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2023-06-20-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,21 +169,19 @@ class License(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LicenseArgs,
+                 args: LicenseInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a license in a hybrid machine.
-        Azure REST API version: 2023-06-20-preview.
-
-        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2023-06-20-preview.
 
         :param str resource_name: The name of the resource.
-        :param LicenseArgs args: The arguments to use to populate this resource's properties.
+        :param LicenseInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LicenseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LicenseInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -208,7 +204,7 @@ class License(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LicenseArgs.__new__(LicenseArgs)
+            __props__ = LicenseInitArgs.__new__(LicenseInitArgs)
 
             __props__.__dict__["license_details"] = license_details
             __props__.__dict__["license_name"] = license_name
@@ -219,11 +215,12 @@ class License(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:License")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:License"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:License")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(License, __self__).__init__(
             'azure-native:hybridcompute:License',
@@ -245,8 +242,9 @@ class License(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LicenseArgs.__new__(LicenseArgs)
+        __props__ = LicenseInitArgs.__new__(LicenseInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["license_details"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
@@ -257,6 +255,14 @@ class License(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return License(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="licenseDetails")

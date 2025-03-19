@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// Retrieve the Database Migration Service
-        /// Azure REST API version: 2022-03-30-preview.
-        /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Task<GetSqlMigrationServiceResult> InvokeAsync(GetSqlMigrationServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlMigrationServiceResult>("azure-native:datamigration:getSqlMigrationService", args ?? new GetSqlMigrationServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the Database Migration Service
-        /// Azure REST API version: 2022-03-30-preview.
-        /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetSqlMigrationServiceResult> Invoke(GetSqlMigrationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlMigrationServiceResult>("azure-native:datamigration:getSqlMigrationService", args ?? new GetSqlMigrationServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the Database Migration Service
-        /// Azure REST API version: 2022-03-30-preview.
-        /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetSqlMigrationServiceResult> Invoke(GetSqlMigrationServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlMigrationServiceResult>("azure-native:datamigration:getSqlMigrationService", args ?? new GetSqlMigrationServiceInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.DataMigration
     [OutputType]
     public sealed class GetSqlMigrationServiceResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string Id;
         /// <summary>
         /// Current state of the Integration runtime.
@@ -101,6 +99,8 @@ namespace Pulumi.AzureNative.DataMigration
 
         [OutputConstructor]
         private GetSqlMigrationServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string integrationRuntimeState,
@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IntegrationRuntimeState = integrationRuntimeState;
             Location = location;

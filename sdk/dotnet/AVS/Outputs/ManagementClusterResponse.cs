@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// <summary>
         /// The cluster size
         /// </summary>
-        public readonly int ClusterSize;
+        public readonly int? ClusterSize;
         /// <summary>
         /// The hosts
         /// </summary>
@@ -32,21 +32,28 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// The state of the cluster provisioning
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Name of the vsan datastore associated with the cluster
+        /// </summary>
+        public readonly string? VsanDatastoreName;
 
         [OutputConstructor]
         private ManagementClusterResponse(
             int clusterId,
 
-            int clusterSize,
+            int? clusterSize,
 
             ImmutableArray<string> hosts,
 
-            string provisioningState)
+            string provisioningState,
+
+            string? vsanDatastoreName)
         {
             ClusterId = clusterId;
             ClusterSize = clusterSize;
             Hosts = hosts;
             ProvisioningState = provisioningState;
+            VsanDatastoreName = vsanDatastoreName;
         }
     }
 }

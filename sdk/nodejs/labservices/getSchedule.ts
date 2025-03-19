@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a lab Schedule.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetScheduleArgs {
  */
 export interface GetScheduleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -61,6 +63,10 @@ export interface GetScheduleResult {
      * The recurrence pattern of the scheduled actions.
      */
     readonly recurrencePattern?: outputs.labservices.RecurrencePatternResponse;
+    /**
+     * Error details of last operation done on schedule.
+     */
+    readonly resourceOperationError: outputs.labservices.ResourceOperationErrorResponse;
     /**
      * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
      */
@@ -84,9 +90,7 @@ export interface GetScheduleResult {
 }
 /**
  * Returns the properties of a lab Schedule.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

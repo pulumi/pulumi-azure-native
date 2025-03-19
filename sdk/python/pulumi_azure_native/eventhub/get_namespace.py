@@ -27,10 +27,13 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, alternate_name=None, cluster_arm_id=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, alternate_name=None, azure_api_version=None, cluster_arm_id=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_arm_id and not isinstance(cluster_arm_id, str):
             raise TypeError("Expected argument 'cluster_arm_id' to be a str")
         pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
@@ -111,6 +114,14 @@ class GetNamespaceResult:
         Alternate name specified when alias and namespace names are same.
         """
         return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterArmId")
@@ -312,6 +323,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             yield self
         return GetNamespaceResult(
             alternate_name=self.alternate_name,
+            azure_api_version=self.azure_api_version,
             cluster_arm_id=self.cluster_arm_id,
             created_at=self.created_at,
             disable_local_auth=self.disable_local_auth,
@@ -343,9 +355,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Gets the description of the specified namespace.
-    Azure REST API version: 2022-10-01-preview.
-
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The Namespace name
@@ -359,6 +369,7 @@ def get_namespace(namespace_name: Optional[str] = None,
 
     return AwaitableGetNamespaceResult(
         alternate_name=pulumi.get(__ret__, 'alternate_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_arm_id=pulumi.get(__ret__, 'cluster_arm_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
@@ -388,9 +399,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Gets the description of the specified namespace.
-    Azure REST API version: 2022-10-01-preview.
-
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The Namespace name
@@ -403,6 +412,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
     return __ret__.apply(lambda __response__: GetNamespaceResult(
         alternate_name=pulumi.get(__response__, 'alternate_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_arm_id=pulumi.get(__response__, 'cluster_arm_id'),
         created_at=pulumi.get(__response__, 'created_at'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),

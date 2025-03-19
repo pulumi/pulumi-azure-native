@@ -32,6 +32,7 @@ __all__ = [
     'AzureFilePropertiesResponse',
     'AzureStaticWebAppsRegistrationResponse',
     'AzureStaticWebAppsResponse',
+    'BlobStorageTokenStoreResponse',
     'BuildConfigurationResponse',
     'CertificateResponseProperties',
     'CircuitBreakerPolicyResponse',
@@ -56,10 +57,12 @@ __all__ = [
     'CustomHostnameAnalysisResultResponseDetails',
     'CustomOpenIdConnectProviderResponse',
     'CustomScaleRuleResponse',
+    'DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse',
     'DaprComponentResiliencyPolicyConfigurationResponse',
     'DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse',
     'DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse',
     'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse',
+    'DaprConfigurationResponse',
     'DaprMetadataResponse',
     'DaprResponse',
     'DaprSecretResponse',
@@ -70,7 +73,7 @@ __all__ = [
     'DotNetComponentConfigurationPropertyResponse',
     'DotNetComponentServiceBindResponse',
     'DynamicPoolConfigurationResponse',
-    'EnvironmentSkuPropertiesResponse',
+    'EncryptionSettingsResponse',
     'EnvironmentVarResponse',
     'EnvironmentVariableResponse',
     'ErrorEntityResponse',
@@ -96,10 +99,14 @@ __all__ = [
     'HttpSettingsResponse',
     'HttpSettingsRoutesResponse',
     'IdentityProvidersResponse',
+    'IngressPortMappingResponse',
     'IngressResponse',
+    'IngressResponseStickySessions',
     'InitContainerResponse',
     'IpSecurityRestrictionRuleResponse',
     'JavaComponentConfigurationPropertyResponse',
+    'JavaComponentIngressResponse',
+    'JavaComponentPropertiesResponseScale',
     'JavaComponentServiceBindResponse',
     'JobConfigurationResponse',
     'JobConfigurationResponseEventTriggerConfig',
@@ -109,14 +116,20 @@ __all__ = [
     'JobScaleRuleResponse',
     'JobTemplateResponse',
     'JwtClaimChecksResponse',
+    'KedaConfigurationResponse',
     'LogAnalyticsConfigurationResponse',
     'LoginResponse',
     'LoginRoutesResponse',
     'LoginScopesResponse',
     'ManagedCertificateResponseProperties',
-    'ManagedEnvironmentOutboundSettingsResponse',
+    'ManagedEnvironmentResponseEncryption',
+    'ManagedEnvironmentResponsePeerAuthentication',
+    'ManagedEnvironmentResponsePeerTrafficConfiguration',
     'ManagedEnvironmentStorageResponseProperties',
+    'ManagedIdentitySettingResponse',
     'ManagedServiceIdentityResponse',
+    'MtlsResponse',
+    'NacosComponentResponse',
     'NonceResponse',
     'OpenIdConnectClientCredentialResponse',
     'OpenIdConnectConfigResponse',
@@ -132,21 +145,29 @@ __all__ = [
     'ScaleResponse',
     'ScaleRuleAuthResponse',
     'ScaleRuleResponse',
+    'ScgRouteResponse',
     'ScheduledEntryResponse',
     'SecretResponse',
     'SecretVolumeItemResponse',
+    'ServiceBindResponse',
+    'ServiceResponse',
     'SessionContainerResourcesResponse',
     'SessionContainerResponse',
     'SessionIngressResponse',
     'SessionNetworkConfigurationResponse',
     'SessionPoolSecretResponse',
     'SessionRegistryCredentialsResponse',
+    'SpringBootAdminComponentResponse',
+    'SpringCloudConfigComponentResponse',
+    'SpringCloudEurekaComponentResponse',
+    'SpringCloudGatewayComponentResponse',
     'SystemDataResponse',
     'TcpConnectionPoolResponse',
     'TcpRetryPolicyResponse',
     'TcpScaleRuleResponse',
     'TemplateResponse',
     'TimeoutPolicyResponse',
+    'TokenStoreResponse',
     'TrafficWeightResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
@@ -604,7 +625,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
                a replacement for the Client Secret. It is also optional.
         :param str client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
         :param str open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -672,7 +693,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
     def open_id_issuer(self) -> Optional[str]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -1037,6 +1058,45 @@ class AzureStaticWebAppsResponse(dict):
 
 
 @pulumi.output_type
+class BlobStorageTokenStoreResponse(dict):
+    """
+    The configuration settings of the storage of the tokens if blob storage is used.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sasUrlSettingName":
+            suggest = "sas_url_setting_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobStorageTokenStoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobStorageTokenStoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobStorageTokenStoreResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sas_url_setting_name: str):
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        :param str sas_url_setting_name: The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        """
+        pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
+
+    @property
+    @pulumi.getter(name="sasUrlSettingName")
+    def sas_url_setting_name(self) -> str:
+        """
+        The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "sas_url_setting_name")
+
+
+@pulumi.output_type
 class BuildConfigurationResponse(dict):
     """
     Configuration of the build.
@@ -1073,7 +1133,7 @@ class BuildConfigurationResponse(dict):
         """
         Configuration of the build.
         :param str base_os: Base OS used to build and run the app.
-        :param Sequence['EnvironmentVariableResponse'] environment_variables: List of environment variables to be passed to the build.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: List of environment variables to be passed to the build, secrets should not be used in environment variable.
         :param str platform: Platform to be used to build and run the app.
         :param str platform_version: Platform version to be used to build and run the app.
         :param Sequence['PreBuildStepResponse'] pre_build_steps: List of steps to perform before the build.
@@ -1101,7 +1161,7 @@ class BuildConfigurationResponse(dict):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
         """
-        List of environment variables to be passed to the build.
+        List of environment variables to be passed to the build, secrets should not be used in environment variable.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -1419,7 +1479,8 @@ class ConfigurationResponse(dict):
                  ingress: Optional['outputs.IngressResponse'] = None,
                  max_inactive_revisions: Optional[int] = None,
                  registries: Optional[Sequence['outputs.RegistryCredentialsResponse']] = None,
-                 secrets: Optional[Sequence['outputs.SecretResponse']] = None):
+                 secrets: Optional[Sequence['outputs.SecretResponse']] = None,
+                 service: Optional['outputs.ServiceResponse'] = None):
         """
         Non versioned Container App configuration properties that define the mutable settings of a Container app
         :param str active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
@@ -1429,6 +1490,7 @@ class ConfigurationResponse(dict):
         :param int max_inactive_revisions: Optional. Max inactive revisions a Container App can have.
         :param Sequence['RegistryCredentialsResponse'] registries: Collection of private container registry credentials for containers used by the Container app
         :param Sequence['SecretResponse'] secrets: Collection of secrets used by a Container app
+        :param 'ServiceResponse' service: Container App to be a dev Container App Service
         """
         if active_revisions_mode is None:
             active_revisions_mode = 'Single'
@@ -1444,6 +1506,8 @@ class ConfigurationResponse(dict):
             pulumi.set(__self__, "registries", registries)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
 
     @property
     @pulumi.getter(name="activeRevisionsMode")
@@ -1493,6 +1557,14 @@ class ConfigurationResponse(dict):
         Collection of secrets used by a Container app
         """
         return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional['outputs.ServiceResponse']:
+        """
+        Container App to be a dev Container App Service
+        """
+        return pulumi.get(self, "service")
 
 
 @pulumi.output_type
@@ -1845,15 +1917,37 @@ class ContainerAppSecretResponse(dict):
     Container App Secret.
     """
     def __init__(__self__, *,
+                 identity: str,
+                 key_vault_url: str,
                  name: str,
                  value: str):
         """
         Container App Secret.
+        :param str identity: Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        :param str key_vault_url: Azure Key Vault URL pointing to the secret referenced by the container app.
         :param str name: Secret Name.
         :param str value: Secret Value.
         """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "key_vault_url", key_vault_url)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> str:
+        """
+        Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> str:
+        """
+        Azure Key Vault URL pointing to the secret referenced by the container app.
+        """
+        return pulumi.get(self, "key_vault_url")
 
     @property
     @pulumi.getter
@@ -2238,12 +2332,12 @@ class CorsPolicyResponse(dict):
                  max_age: Optional[int] = None):
         """
         Cross-Origin-Resource-Sharing policy
-        :param Sequence[str] allowed_origins: allowed origins
-        :param bool allow_credentials: allow credential or not
-        :param Sequence[str] allowed_headers: allowed HTTP headers
-        :param Sequence[str] allowed_methods: allowed HTTP methods
-        :param Sequence[str] expose_headers: expose HTTP headers 
-        :param int max_age: max time client can cache the result
+        :param Sequence[str] allowed_origins: Specifies the content for the access-control-allow-origins header
+        :param bool allow_credentials: Specifies whether the resource allows credentials
+        :param Sequence[str] allowed_headers: Specifies the content for the access-control-allow-headers header
+        :param Sequence[str] allowed_methods: Specifies the content for the access-control-allow-methods header
+        :param Sequence[str] expose_headers: Specifies the content for the access-control-expose-headers header 
+        :param int max_age: Specifies the content for the access-control-max-age header
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allow_credentials is not None:
@@ -2261,7 +2355,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="allowedOrigins")
     def allowed_origins(self) -> Sequence[str]:
         """
-        allowed origins
+        Specifies the content for the access-control-allow-origins header
         """
         return pulumi.get(self, "allowed_origins")
 
@@ -2269,7 +2363,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[bool]:
         """
-        allow credential or not
+        Specifies whether the resource allows credentials
         """
         return pulumi.get(self, "allow_credentials")
 
@@ -2277,7 +2371,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="allowedHeaders")
     def allowed_headers(self) -> Optional[Sequence[str]]:
         """
-        allowed HTTP headers
+        Specifies the content for the access-control-allow-headers header
         """
         return pulumi.get(self, "allowed_headers")
 
@@ -2285,7 +2379,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[Sequence[str]]:
         """
-        allowed HTTP methods
+        Specifies the content for the access-control-allow-methods header
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -2293,7 +2387,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[Sequence[str]]:
         """
-        expose HTTP headers 
+        Specifies the content for the access-control-expose-headers header 
         """
         return pulumi.get(self, "expose_headers")
 
@@ -2301,7 +2395,7 @@ class CorsPolicyResponse(dict):
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[int]:
         """
-        max time client can cache the result
+        Specifies the content for the access-control-max-age header
         """
         return pulumi.get(self, "max_age")
 
@@ -2750,6 +2844,74 @@ class CustomScaleRuleResponse(dict):
 
 
 @pulumi.output_type
+class DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse(dict):
+    """
+    Dapr Component Resiliency Policy Circuit Breaker Policy Configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consecutiveErrors":
+            suggest = "consecutive_errors"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consecutive_errors: Optional[int] = None,
+                 interval_in_seconds: Optional[int] = None,
+                 timeout_in_seconds: Optional[int] = None):
+        """
+        Dapr Component Resiliency Policy Circuit Breaker Policy Configuration.
+        :param int consecutive_errors: The number of consecutive errors before the circuit is opened.
+        :param int interval_in_seconds: The optional interval in seconds after which the error count resets to 0. An interval of 0 will never reset. If not specified, the timeoutInSeconds value will be used.
+        :param int timeout_in_seconds: The interval in seconds until a retry attempt is made after the circuit is opened.
+        """
+        if consecutive_errors is not None:
+            pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> Optional[int]:
+        """
+        The number of consecutive errors before the circuit is opened.
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[int]:
+        """
+        The optional interval in seconds after which the error count resets to 0. An interval of 0 will never reset. If not specified, the timeoutInSeconds value will be used.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[int]:
+        """
+        The interval in seconds until a retry attempt is made after the circuit is opened.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+
+@pulumi.output_type
 class DaprComponentResiliencyPolicyConfigurationResponse(dict):
     """
     Dapr Component Resiliency Policy Configuration.
@@ -2757,7 +2919,9 @@ class DaprComponentResiliencyPolicyConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "httpRetryPolicy":
+        if key == "circuitBreakerPolicy":
+            suggest = "circuit_breaker_policy"
+        elif key == "httpRetryPolicy":
             suggest = "http_retry_policy"
         elif key == "timeoutPolicy":
             suggest = "timeout_policy"
@@ -2774,17 +2938,29 @@ class DaprComponentResiliencyPolicyConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 circuit_breaker_policy: Optional['outputs.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse'] = None,
                  http_retry_policy: Optional['outputs.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse'] = None,
                  timeout_policy: Optional['outputs.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse'] = None):
         """
         Dapr Component Resiliency Policy Configuration.
+        :param 'DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse' circuit_breaker_policy: The optional circuit breaker policy configuration
         :param 'DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse' http_retry_policy: The optional HTTP retry policy configuration
         :param 'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse' timeout_policy: The optional timeout policy configuration
         """
+        if circuit_breaker_policy is not None:
+            pulumi.set(__self__, "circuit_breaker_policy", circuit_breaker_policy)
         if http_retry_policy is not None:
             pulumi.set(__self__, "http_retry_policy", http_retry_policy)
         if timeout_policy is not None:
             pulumi.set(__self__, "timeout_policy", timeout_policy)
+
+    @property
+    @pulumi.getter(name="circuitBreakerPolicy")
+    def circuit_breaker_policy(self) -> Optional['outputs.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse']:
+        """
+        The optional circuit breaker policy configuration
+        """
+        return pulumi.get(self, "circuit_breaker_policy")
 
     @property
     @pulumi.getter(name="httpRetryPolicy")
@@ -2949,6 +3125,28 @@ class DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse(dict):
         The optional response timeout in seconds
         """
         return pulumi.get(self, "response_timeout_in_seconds")
+
+
+@pulumi.output_type
+class DaprConfigurationResponse(dict):
+    """
+    Configuration properties Dapr component
+    """
+    def __init__(__self__, *,
+                 version: str):
+        """
+        Configuration properties Dapr component
+        :param str version: The version of Dapr
+        """
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of Dapr
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -3539,25 +3737,57 @@ class DynamicPoolConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class EnvironmentSkuPropertiesResponse(dict):
+class EncryptionSettingsResponse(dict):
     """
-    Managed Environment resource SKU properties.
+    The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerAppAuthEncryptionSecretName":
+            suggest = "container_app_auth_encryption_secret_name"
+        elif key == "containerAppAuthSigningSecretName":
+            suggest = "container_app_auth_signing_secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 name: str):
+                 container_app_auth_encryption_secret_name: Optional[str] = None,
+                 container_app_auth_signing_secret_name: Optional[str] = None):
         """
-        Managed Environment resource SKU properties.
-        :param str name: Name of the Sku.
+        The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        :param str container_app_auth_encryption_secret_name: The secret name which is referenced for EncryptionKey.
+        :param str container_app_auth_signing_secret_name: The secret name which is referenced for SigningKey.
         """
-        pulumi.set(__self__, "name", name)
+        if container_app_auth_encryption_secret_name is not None:
+            pulumi.set(__self__, "container_app_auth_encryption_secret_name", container_app_auth_encryption_secret_name)
+        if container_app_auth_signing_secret_name is not None:
+            pulumi.set(__self__, "container_app_auth_signing_secret_name", container_app_auth_signing_secret_name)
 
     @property
-    @pulumi.getter
-    def name(self) -> str:
+    @pulumi.getter(name="containerAppAuthEncryptionSecretName")
+    def container_app_auth_encryption_secret_name(self) -> Optional[str]:
         """
-        Name of the Sku.
+        The secret name which is referenced for EncryptionKey.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "container_app_auth_encryption_secret_name")
+
+    @property
+    @pulumi.getter(name="containerAppAuthSigningSecretName")
+    def container_app_auth_signing_secret_name(self) -> Optional[str]:
+        """
+        The secret name which is referenced for SigningKey.
+        """
+        return pulumi.get(self, "container_app_auth_signing_secret_name")
 
 
 @pulumi.output_type
@@ -5241,6 +5471,70 @@ class IdentityProvidersResponse(dict):
 
 
 @pulumi.output_type
+class IngressPortMappingResponse(dict):
+    """
+    Port mappings of container app ingress
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetPort":
+            suggest = "target_port"
+        elif key == "exposedPort":
+            suggest = "exposed_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngressPortMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngressPortMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngressPortMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external: bool,
+                 target_port: int,
+                 exposed_port: Optional[int] = None):
+        """
+        Port mappings of container app ingress
+        :param bool external: Specifies whether the app port is accessible outside of the environment
+        :param int target_port: Specifies the port user's container listens on
+        :param int exposed_port: Specifies the exposed port for the target port. If not specified, it defaults to target port
+        """
+        pulumi.set(__self__, "external", external)
+        pulumi.set(__self__, "target_port", target_port)
+        if exposed_port is not None:
+            pulumi.set(__self__, "exposed_port", exposed_port)
+
+    @property
+    @pulumi.getter
+    def external(self) -> bool:
+        """
+        Specifies whether the app port is accessible outside of the environment
+        """
+        return pulumi.get(self, "external")
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> int:
+        """
+        Specifies the port user's container listens on
+        """
+        return pulumi.get(self, "target_port")
+
+    @property
+    @pulumi.getter(name="exposedPort")
+    def exposed_port(self) -> Optional[int]:
+        """
+        Specifies the exposed port for the target port. If not specified, it defaults to target port
+        """
+        return pulumi.get(self, "exposed_port")
+
+
+@pulumi.output_type
 class IngressResponse(dict):
     """
     Container App Ingress configuration.
@@ -5248,7 +5542,9 @@ class IngressResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowInsecure":
+        if key == "additionalPortMappings":
+            suggest = "additional_port_mappings"
+        elif key == "allowInsecure":
             suggest = "allow_insecure"
         elif key == "clientCertificateMode":
             suggest = "client_certificate_mode"
@@ -5260,6 +5556,8 @@ class IngressResponse(dict):
             suggest = "exposed_port"
         elif key == "ipSecurityRestrictions":
             suggest = "ip_security_restrictions"
+        elif key == "stickySessions":
+            suggest = "sticky_sessions"
         elif key == "targetPort":
             suggest = "target_port"
 
@@ -5276,6 +5574,7 @@ class IngressResponse(dict):
 
     def __init__(__self__, *,
                  fqdn: str,
+                 additional_port_mappings: Optional[Sequence['outputs.IngressPortMappingResponse']] = None,
                  allow_insecure: Optional[bool] = None,
                  client_certificate_mode: Optional[str] = None,
                  cors_policy: Optional['outputs.CorsPolicyResponse'] = None,
@@ -5283,12 +5582,14 @@ class IngressResponse(dict):
                  exposed_port: Optional[int] = None,
                  external: Optional[bool] = None,
                  ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionRuleResponse']] = None,
+                 sticky_sessions: Optional['outputs.IngressResponseStickySessions'] = None,
                  target_port: Optional[int] = None,
                  traffic: Optional[Sequence['outputs.TrafficWeightResponse']] = None,
                  transport: Optional[str] = None):
         """
         Container App Ingress configuration.
         :param str fqdn: Hostname.
+        :param Sequence['IngressPortMappingResponse'] additional_port_mappings: Settings to expose additional ports on container app
         :param bool allow_insecure: Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
         :param str client_certificate_mode: Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
         :param 'CorsPolicyResponse' cors_policy: CORS policy for container app
@@ -5296,11 +5597,14 @@ class IngressResponse(dict):
         :param int exposed_port: Exposed Port in containers for TCP traffic from ingress
         :param bool external: Bool indicating if app exposes an external http endpoint
         :param Sequence['IpSecurityRestrictionRuleResponse'] ip_security_restrictions: Rules to restrict incoming IP address.
+        :param 'IngressResponseStickySessions' sticky_sessions: Sticky Sessions for Single Revision Mode
         :param int target_port: Target Port in containers for traffic from ingress
         :param Sequence['TrafficWeightResponse'] traffic: Traffic weights for app's revisions
         :param str transport: Ingress transport protocol
         """
         pulumi.set(__self__, "fqdn", fqdn)
+        if additional_port_mappings is not None:
+            pulumi.set(__self__, "additional_port_mappings", additional_port_mappings)
         if allow_insecure is None:
             allow_insecure = False
         if allow_insecure is not None:
@@ -5319,6 +5623,8 @@ class IngressResponse(dict):
             pulumi.set(__self__, "external", external)
         if ip_security_restrictions is not None:
             pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if sticky_sessions is not None:
+            pulumi.set(__self__, "sticky_sessions", sticky_sessions)
         if target_port is not None:
             pulumi.set(__self__, "target_port", target_port)
         if traffic is not None:
@@ -5335,6 +5641,14 @@ class IngressResponse(dict):
         Hostname.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="additionalPortMappings")
+    def additional_port_mappings(self) -> Optional[Sequence['outputs.IngressPortMappingResponse']]:
+        """
+        Settings to expose additional ports on container app
+        """
+        return pulumi.get(self, "additional_port_mappings")
 
     @property
     @pulumi.getter(name="allowInsecure")
@@ -5393,6 +5707,14 @@ class IngressResponse(dict):
         return pulumi.get(self, "ip_security_restrictions")
 
     @property
+    @pulumi.getter(name="stickySessions")
+    def sticky_sessions(self) -> Optional['outputs.IngressResponseStickySessions']:
+        """
+        Sticky Sessions for Single Revision Mode
+        """
+        return pulumi.get(self, "sticky_sessions")
+
+    @property
     @pulumi.getter(name="targetPort")
     def target_port(self) -> Optional[int]:
         """
@@ -5415,6 +5737,29 @@ class IngressResponse(dict):
         Ingress transport protocol
         """
         return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class IngressResponseStickySessions(dict):
+    """
+    Sticky Sessions for Single Revision Mode
+    """
+    def __init__(__self__, *,
+                 affinity: Optional[str] = None):
+        """
+        Sticky Sessions for Single Revision Mode
+        :param str affinity: Sticky Session Affinity
+        """
+        if affinity is not None:
+            pulumi.set(__self__, "affinity", affinity)
+
+    @property
+    @pulumi.getter
+    def affinity(self) -> Optional[str]:
+        """
+        Sticky Session Affinity
+        """
+        return pulumi.get(self, "affinity")
 
 
 @pulumi.output_type
@@ -5652,6 +5997,82 @@ class JavaComponentConfigurationPropertyResponse(dict):
         The value of the property
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JavaComponentIngressResponse(dict):
+    """
+    Container App Ingress configuration.
+    """
+    def __init__(__self__, *,
+                 fqdn: str):
+        """
+        Container App Ingress configuration.
+        :param str fqdn: Hostname of the Java Component endpoint
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        Hostname of the Java Component endpoint
+        """
+        return pulumi.get(self, "fqdn")
+
+
+@pulumi.output_type
+class JavaComponentPropertiesResponseScale(dict):
+    """
+    Java component scaling configurations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxReplicas":
+            suggest = "max_replicas"
+        elif key == "minReplicas":
+            suggest = "min_replicas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaComponentPropertiesResponseScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaComponentPropertiesResponseScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaComponentPropertiesResponseScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_replicas: Optional[int] = None,
+                 min_replicas: Optional[int] = None):
+        """
+        Java component scaling configurations
+        :param int max_replicas: Optional. Maximum number of Java component replicas
+        :param int min_replicas: Optional. Minimum number of Java component replicas. Defaults to 1 if not set
+        """
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[int]:
+        """
+        Optional. Maximum number of Java component replicas
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[int]:
+        """
+        Optional. Minimum number of Java component replicas. Defaults to 1 if not set
+        """
+        return pulumi.get(self, "min_replicas")
 
 
 @pulumi.output_type
@@ -6285,6 +6706,28 @@ class JwtClaimChecksResponse(dict):
 
 
 @pulumi.output_type
+class KedaConfigurationResponse(dict):
+    """
+    Configuration properties Keda component
+    """
+    def __init__(__self__, *,
+                 version: str):
+        """
+        Configuration properties Keda component
+        :param str version: The version of Keda
+        """
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of Keda
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class LogAnalyticsConfigurationResponse(dict):
     """
     Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
@@ -6338,6 +6781,8 @@ class LoginResponse(dict):
             suggest = "cookie_expiration"
         elif key == "preserveUrlFragmentsForLogins":
             suggest = "preserve_url_fragments_for_logins"
+        elif key == "tokenStore":
+            suggest = "token_store"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LoginResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6355,7 +6800,8 @@ class LoginResponse(dict):
                  cookie_expiration: Optional['outputs.CookieExpirationResponse'] = None,
                  nonce: Optional['outputs.NonceResponse'] = None,
                  preserve_url_fragments_for_logins: Optional[bool] = None,
-                 routes: Optional['outputs.LoginRoutesResponse'] = None):
+                 routes: Optional['outputs.LoginRoutesResponse'] = None,
+                 token_store: Optional['outputs.TokenStoreResponse'] = None):
         """
         The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -6365,6 +6811,7 @@ class LoginResponse(dict):
         :param 'NonceResponse' nonce: The configuration settings of the nonce used in the login flow.
         :param bool preserve_url_fragments_for_logins: <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
         :param 'LoginRoutesResponse' routes: The routes that specify the endpoints used for login and logout requests.
+        :param 'TokenStoreResponse' token_store: The configuration settings of the token store.
         """
         if allowed_external_redirect_urls is not None:
             pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -6376,6 +6823,8 @@ class LoginResponse(dict):
             pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
+        if token_store is not None:
+            pulumi.set(__self__, "token_store", token_store)
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
@@ -6418,6 +6867,14 @@ class LoginResponse(dict):
         The routes that specify the endpoints used for login and logout requests.
         """
         return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter(name="tokenStore")
+    def token_store(self) -> Optional['outputs.TokenStoreResponse']:
+        """
+        The configuration settings of the token store.
+        """
+        return pulumi.get(self, "token_store")
 
 
 @pulumi.output_type
@@ -6575,57 +7032,72 @@ class ManagedCertificateResponseProperties(dict):
 
 
 @pulumi.output_type
-class ManagedEnvironmentOutboundSettingsResponse(dict):
+class ManagedEnvironmentResponseEncryption(dict):
     """
-    Configuration used to control the Environment Egress outbound traffic
+    Peer traffic encryption settings for the Managed Environment
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "outBoundType":
-            suggest = "out_bound_type"
-        elif key == "virtualNetworkApplianceIp":
-            suggest = "virtual_network_appliance_ip"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedEnvironmentOutboundSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedEnvironmentOutboundSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedEnvironmentOutboundSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 out_bound_type: Optional[str] = None,
-                 virtual_network_appliance_ip: Optional[str] = None):
+                 enabled: Optional[bool] = None):
         """
-        Configuration used to control the Environment Egress outbound traffic
-        :param str out_bound_type: Outbound type for the cluster
-        :param str virtual_network_appliance_ip: Virtual Appliance IP used as the Egress controller for the Environment
+        Peer traffic encryption settings for the Managed Environment
+        :param bool enabled: Boolean indicating whether the peer traffic encryption is enabled
         """
-        if out_bound_type is not None:
-            pulumi.set(__self__, "out_bound_type", out_bound_type)
-        if virtual_network_appliance_ip is not None:
-            pulumi.set(__self__, "virtual_network_appliance_ip", virtual_network_appliance_ip)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
-    @pulumi.getter(name="outBoundType")
-    def out_bound_type(self) -> Optional[str]:
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
-        Outbound type for the cluster
+        Boolean indicating whether the peer traffic encryption is enabled
         """
-        return pulumi.get(self, "out_bound_type")
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ManagedEnvironmentResponsePeerAuthentication(dict):
+    """
+    Peer authentication settings for the Managed Environment
+    """
+    def __init__(__self__, *,
+                 mtls: Optional['outputs.MtlsResponse'] = None):
+        """
+        Peer authentication settings for the Managed Environment
+        :param 'MtlsResponse' mtls: Mutual TLS authentication settings for the Managed Environment
+        """
+        if mtls is not None:
+            pulumi.set(__self__, "mtls", mtls)
 
     @property
-    @pulumi.getter(name="virtualNetworkApplianceIp")
-    def virtual_network_appliance_ip(self) -> Optional[str]:
+    @pulumi.getter
+    def mtls(self) -> Optional['outputs.MtlsResponse']:
         """
-        Virtual Appliance IP used as the Egress controller for the Environment
+        Mutual TLS authentication settings for the Managed Environment
         """
-        return pulumi.get(self, "virtual_network_appliance_ip")
+        return pulumi.get(self, "mtls")
+
+
+@pulumi.output_type
+class ManagedEnvironmentResponsePeerTrafficConfiguration(dict):
+    """
+    Peer traffic settings for the Managed Environment
+    """
+    def __init__(__self__, *,
+                 encryption: Optional['outputs.ManagedEnvironmentResponseEncryption'] = None):
+        """
+        Peer traffic settings for the Managed Environment
+        :param 'ManagedEnvironmentResponseEncryption' encryption: Peer traffic encryption settings for the Managed Environment
+        """
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.ManagedEnvironmentResponseEncryption']:
+        """
+        Peer traffic encryption settings for the Managed Environment
+        """
+        return pulumi.get(self, "encryption")
 
 
 @pulumi.output_type
@@ -6666,6 +7138,42 @@ class ManagedEnvironmentStorageResponseProperties(dict):
         Azure file properties
         """
         return pulumi.get(self, "azure_file")
+
+
+@pulumi.output_type
+class ManagedIdentitySettingResponse(dict):
+    """
+    Optional settings for a Managed Identity that is assigned to the Session pool.
+    """
+    def __init__(__self__, *,
+                 identity: str,
+                 lifecycle: Optional[str] = None):
+        """
+        Optional settings for a Managed Identity that is assigned to the Session pool.
+        :param str identity: The resource ID of a user-assigned managed identity that is assigned to the Session Pool, or 'system' for system-assigned identity.
+        :param str lifecycle: Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+        """
+        pulumi.set(__self__, "identity", identity)
+        if lifecycle is None:
+            lifecycle = 'None'
+        if lifecycle is not None:
+            pulumi.set(__self__, "lifecycle", lifecycle)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> str:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Session Pool, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def lifecycle(self) -> Optional[str]:
+        """
+        Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+        """
+        return pulumi.get(self, "lifecycle")
 
 
 @pulumi.output_type
@@ -6743,6 +7251,133 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class MtlsResponse(dict):
+    """
+    Configuration properties for mutual TLS authentication
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Configuration properties for mutual TLS authentication
+        :param bool enabled: Boolean indicating whether the mutual TLS authentication is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean indicating whether the mutual TLS authentication is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class NacosComponentResponse(dict):
+    """
+    Nacos properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBinds":
+            suggest = "service_binds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NacosComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NacosComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NacosComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: str,
+                 provisioning_state: str,
+                 configurations: Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']] = None,
+                 ingress: Optional['outputs.JavaComponentIngressResponse'] = None,
+                 scale: Optional['outputs.JavaComponentPropertiesResponseScale'] = None,
+                 service_binds: Optional[Sequence['outputs.JavaComponentServiceBindResponse']] = None):
+        """
+        Nacos properties.
+        :param str component_type: Type of the Java Component.
+               Expected value is 'Nacos'.
+        :param str provisioning_state: Provisioning state of the Java Component.
+        :param Sequence['JavaComponentConfigurationPropertyResponse'] configurations: List of Java Components configuration properties
+        :param 'JavaComponentIngressResponse' ingress: Java Component Ingress configurations.
+        :param 'JavaComponentPropertiesResponseScale' scale: Java component scaling configurations
+        :param Sequence['JavaComponentServiceBindResponse'] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'Nacos')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> str:
+        """
+        Type of the Java Component.
+        Expected value is 'Nacos'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Java Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional['outputs.JavaComponentIngressResponse']:
+        """
+        Java Component Ingress configurations.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.JavaComponentPropertiesResponseScale']:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[Sequence['outputs.JavaComponentServiceBindResponse']]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
 
 
 @pulumi.output_type
@@ -7676,6 +8311,75 @@ class ScaleRuleResponse(dict):
 
 
 @pulumi.output_type
+class ScgRouteResponse(dict):
+    """
+    Spring Cloud Gateway route definition
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 uri: str,
+                 filters: Optional[Sequence[str]] = None,
+                 order: Optional[float] = None,
+                 predicates: Optional[Sequence[str]] = None):
+        """
+        Spring Cloud Gateway route definition
+        :param str id: Id of the route
+        :param str uri: Uri of the route
+        :param Sequence[str] filters: Filters of the route
+        :param float order: Order of the route
+        :param Sequence[str] predicates: Predicates of the route
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "uri", uri)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the route
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Uri of the route
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence[str]]:
+        """
+        Filters of the route
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[float]:
+        """
+        Order of the route
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[Sequence[str]]:
+        """
+        Predicates of the route
+        """
+        return pulumi.get(self, "predicates")
+
+
+@pulumi.output_type
 class ScheduledEntryResponse(dict):
     """
     Maintenance schedule entry for a managed environment.
@@ -7854,6 +8558,80 @@ class SecretVolumeItemResponse(dict):
         Name of the Container App secret from which to pull the secret value.
         """
         return pulumi.get(self, "secret_ref")
+
+
+@pulumi.output_type
+class ServiceBindResponse(dict):
+    """
+    Configuration to bind a ContainerApp to a dev ContainerApp Service
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceId":
+            suggest = "service_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBindResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBindResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBindResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 service_id: Optional[str] = None):
+        """
+        Configuration to bind a ContainerApp to a dev ContainerApp Service
+        :param str name: Name of the service bind
+        :param str service_id: Resource id of the target service
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[str]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
+
+
+@pulumi.output_type
+class ServiceResponse(dict):
+    """
+    Container App to be a dev service
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        Container App to be a dev service
+        :param str type: Dev ContainerApp service type
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Dev ContainerApp service type
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -8070,8 +8848,6 @@ class SessionRegistryCredentialsResponse(dict):
         suggest = None
         if key == "passwordSecretRef":
             suggest = "password_secret_ref"
-        elif key == "registryServer":
-            suggest = "registry_server"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SessionRegistryCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8085,21 +8861,33 @@ class SessionRegistryCredentialsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 identity: Optional[str] = None,
                  password_secret_ref: Optional[str] = None,
-                 registry_server: Optional[str] = None,
+                 server: Optional[str] = None,
                  username: Optional[str] = None):
         """
         Session pool private registry credentials.
+        :param str identity: A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
         :param str password_secret_ref: The name of the secret that contains the registry login password
-        :param str registry_server: Container registry server.
+        :param str server: Container registry server.
         :param str username: Container registry username.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if password_secret_ref is not None:
             pulumi.set(__self__, "password_secret_ref", password_secret_ref)
-        if registry_server is not None:
-            pulumi.set(__self__, "registry_server", registry_server)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="passwordSecretRef")
@@ -8110,12 +8898,12 @@ class SessionRegistryCredentialsResponse(dict):
         return pulumi.get(self, "password_secret_ref")
 
     @property
-    @pulumi.getter(name="registryServer")
-    def registry_server(self) -> Optional[str]:
+    @pulumi.getter
+    def server(self) -> Optional[str]:
         """
         Container registry server.
         """
-        return pulumi.get(self, "registry_server")
+        return pulumi.get(self, "server")
 
     @property
     @pulumi.getter
@@ -8124,6 +8912,424 @@ class SessionRegistryCredentialsResponse(dict):
         Container registry username.
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class SpringBootAdminComponentResponse(dict):
+    """
+    Spring Boot Admin properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBinds":
+            suggest = "service_binds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringBootAdminComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringBootAdminComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringBootAdminComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: str,
+                 provisioning_state: str,
+                 configurations: Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']] = None,
+                 ingress: Optional['outputs.JavaComponentIngressResponse'] = None,
+                 scale: Optional['outputs.JavaComponentPropertiesResponseScale'] = None,
+                 service_binds: Optional[Sequence['outputs.JavaComponentServiceBindResponse']] = None):
+        """
+        Spring Boot Admin properties.
+        :param str component_type: Type of the Java Component.
+               Expected value is 'SpringBootAdmin'.
+        :param str provisioning_state: Provisioning state of the Java Component.
+        :param Sequence['JavaComponentConfigurationPropertyResponse'] configurations: List of Java Components configuration properties
+        :param 'JavaComponentIngressResponse' ingress: Java Component Ingress configurations.
+        :param 'JavaComponentPropertiesResponseScale' scale: Java component scaling configurations
+        :param Sequence['JavaComponentServiceBindResponse'] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'SpringBootAdmin')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> str:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringBootAdmin'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Java Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional['outputs.JavaComponentIngressResponse']:
+        """
+        Java Component Ingress configurations.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.JavaComponentPropertiesResponseScale']:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[Sequence['outputs.JavaComponentServiceBindResponse']]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+
+@pulumi.output_type
+class SpringCloudConfigComponentResponse(dict):
+    """
+    Spring Cloud Config properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBinds":
+            suggest = "service_binds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudConfigComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudConfigComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudConfigComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: str,
+                 provisioning_state: str,
+                 configurations: Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']] = None,
+                 scale: Optional['outputs.JavaComponentPropertiesResponseScale'] = None,
+                 service_binds: Optional[Sequence['outputs.JavaComponentServiceBindResponse']] = None):
+        """
+        Spring Cloud Config properties.
+        :param str component_type: Type of the Java Component.
+               Expected value is 'SpringCloudConfig'.
+        :param str provisioning_state: Provisioning state of the Java Component.
+        :param Sequence['JavaComponentConfigurationPropertyResponse'] configurations: List of Java Components configuration properties
+        :param 'JavaComponentPropertiesResponseScale' scale: Java component scaling configurations
+        :param Sequence['JavaComponentServiceBindResponse'] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudConfig')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> str:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudConfig'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Java Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.JavaComponentPropertiesResponseScale']:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[Sequence['outputs.JavaComponentServiceBindResponse']]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+
+@pulumi.output_type
+class SpringCloudEurekaComponentResponse(dict):
+    """
+    Spring Cloud Eureka properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBinds":
+            suggest = "service_binds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudEurekaComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudEurekaComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudEurekaComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: str,
+                 provisioning_state: str,
+                 configurations: Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']] = None,
+                 ingress: Optional['outputs.JavaComponentIngressResponse'] = None,
+                 scale: Optional['outputs.JavaComponentPropertiesResponseScale'] = None,
+                 service_binds: Optional[Sequence['outputs.JavaComponentServiceBindResponse']] = None):
+        """
+        Spring Cloud Eureka properties.
+        :param str component_type: Type of the Java Component.
+               Expected value is 'SpringCloudEureka'.
+        :param str provisioning_state: Provisioning state of the Java Component.
+        :param Sequence['JavaComponentConfigurationPropertyResponse'] configurations: List of Java Components configuration properties
+        :param 'JavaComponentIngressResponse' ingress: Java Component Ingress configurations.
+        :param 'JavaComponentPropertiesResponseScale' scale: Java component scaling configurations
+        :param Sequence['JavaComponentServiceBindResponse'] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudEureka')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> str:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudEureka'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Java Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional['outputs.JavaComponentIngressResponse']:
+        """
+        Java Component Ingress configurations.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.JavaComponentPropertiesResponseScale']:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[Sequence['outputs.JavaComponentServiceBindResponse']]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+
+@pulumi.output_type
+class SpringCloudGatewayComponentResponse(dict):
+    """
+    Spring Cloud Gateway properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBinds":
+            suggest = "service_binds"
+        elif key == "springCloudGatewayRoutes":
+            suggest = "spring_cloud_gateway_routes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: str,
+                 provisioning_state: str,
+                 configurations: Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']] = None,
+                 ingress: Optional['outputs.JavaComponentIngressResponse'] = None,
+                 scale: Optional['outputs.JavaComponentPropertiesResponseScale'] = None,
+                 service_binds: Optional[Sequence['outputs.JavaComponentServiceBindResponse']] = None,
+                 spring_cloud_gateway_routes: Optional[Sequence['outputs.ScgRouteResponse']] = None):
+        """
+        Spring Cloud Gateway properties.
+        :param str component_type: Type of the Java Component.
+               Expected value is 'SpringCloudGateway'.
+        :param str provisioning_state: Provisioning state of the Java Component.
+        :param Sequence['JavaComponentConfigurationPropertyResponse'] configurations: List of Java Components configuration properties
+        :param 'JavaComponentIngressResponse' ingress: Java Component Ingress configurations.
+        :param 'JavaComponentPropertiesResponseScale' scale: Java component scaling configurations
+        :param Sequence['JavaComponentServiceBindResponse'] service_binds: List of Java Components that are bound to the Java component
+        :param Sequence['ScgRouteResponse'] spring_cloud_gateway_routes: Gateway route definition
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudGateway')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+        if spring_cloud_gateway_routes is not None:
+            pulumi.set(__self__, "spring_cloud_gateway_routes", spring_cloud_gateway_routes)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> str:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudGateway'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Java Component.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional['outputs.JavaComponentIngressResponse']:
+        """
+        Java Component Ingress configurations.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.JavaComponentPropertiesResponseScale']:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[Sequence['outputs.JavaComponentServiceBindResponse']]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @property
+    @pulumi.getter(name="springCloudGatewayRoutes")
+    def spring_cloud_gateway_routes(self) -> Optional[Sequence['outputs.ScgRouteResponse']]:
+        """
+        Gateway route definition
+        """
+        return pulumi.get(self, "spring_cloud_gateway_routes")
 
 
 @pulumi.output_type
@@ -8365,6 +9571,10 @@ class TemplateResponse(dict):
             suggest = "init_containers"
         elif key == "revisionSuffix":
             suggest = "revision_suffix"
+        elif key == "serviceBinds":
+            suggest = "service_binds"
+        elif key == "terminationGracePeriodSeconds":
+            suggest = "termination_grace_period_seconds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8382,6 +9592,8 @@ class TemplateResponse(dict):
                  init_containers: Optional[Sequence['outputs.InitContainerResponse']] = None,
                  revision_suffix: Optional[str] = None,
                  scale: Optional['outputs.ScaleResponse'] = None,
+                 service_binds: Optional[Sequence['outputs.ServiceBindResponse']] = None,
+                 termination_grace_period_seconds: Optional[float] = None,
                  volumes: Optional[Sequence['outputs.VolumeResponse']] = None):
         """
         Container App versioned application definition.
@@ -8391,6 +9603,8 @@ class TemplateResponse(dict):
         :param Sequence['InitContainerResponse'] init_containers: List of specialized containers that run before app containers.
         :param str revision_suffix: User friendly suffix that is appended to the revision name
         :param 'ScaleResponse' scale: Scaling properties for the Container App.
+        :param Sequence['ServiceBindResponse'] service_binds: List of container app services bound to the app
+        :param float termination_grace_period_seconds: Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
         :param Sequence['VolumeResponse'] volumes: List of volume definitions for the Container App.
         """
         if containers is not None:
@@ -8401,6 +9615,10 @@ class TemplateResponse(dict):
             pulumi.set(__self__, "revision_suffix", revision_suffix)
         if scale is not None:
             pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -8435,6 +9653,22 @@ class TemplateResponse(dict):
         Scaling properties for the Container App.
         """
         return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[Sequence['outputs.ServiceBindResponse']]:
+        """
+        List of container app services bound to the app
+        """
+        return pulumi.get(self, "service_binds")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[float]:
+        """
+        Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
 
     @property
     @pulumi.getter
@@ -8497,6 +9731,76 @@ class TimeoutPolicyResponse(dict):
         Timeout, in seconds, for a request to respond
         """
         return pulumi.get(self, "response_timeout_in_seconds")
+
+
+@pulumi.output_type
+class TokenStoreResponse(dict):
+    """
+    The configuration settings of the token store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobStorage":
+            suggest = "azure_blob_storage"
+        elif key == "tokenRefreshExtensionHours":
+            suggest = "token_refresh_extension_hours"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TokenStoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TokenStoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TokenStoreResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional['outputs.BlobStorageTokenStoreResponse'] = None,
+                 enabled: Optional[bool] = None,
+                 token_refresh_extension_hours: Optional[float] = None):
+        """
+        The configuration settings of the token store.
+        :param 'BlobStorageTokenStoreResponse' azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
+        :param bool enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+                The default is <code>false</code>.
+        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
+               call the token refresh API. The default is 72 hours.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional['outputs.BlobStorageTokenStoreResponse']:
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         The default is <code>false</code>.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[float]:
+        """
+        The number of hours after session token expiration that a session token can be used to
+        call the token refresh API. The default is 72 hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
 
 
 @pulumi.output_type
@@ -8738,14 +10042,10 @@ class VnetConfigurationResponse(dict):
             suggest = "docker_bridge_cidr"
         elif key == "infrastructureSubnetId":
             suggest = "infrastructure_subnet_id"
-        elif key == "outboundSettings":
-            suggest = "outbound_settings"
         elif key == "platformReservedCidr":
             suggest = "platform_reserved_cidr"
         elif key == "platformReservedDnsIP":
             suggest = "platform_reserved_dns_ip"
-        elif key == "runtimeSubnetId":
-            suggest = "runtime_subnet_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VnetConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8762,19 +10062,15 @@ class VnetConfigurationResponse(dict):
                  docker_bridge_cidr: Optional[str] = None,
                  infrastructure_subnet_id: Optional[str] = None,
                  internal: Optional[bool] = None,
-                 outbound_settings: Optional['outputs.ManagedEnvironmentOutboundSettingsResponse'] = None,
                  platform_reserved_cidr: Optional[str] = None,
-                 platform_reserved_dns_ip: Optional[str] = None,
-                 runtime_subnet_id: Optional[str] = None):
+                 platform_reserved_dns_ip: Optional[str] = None):
         """
         Configuration properties for apps environment to join a Virtual Network
         :param str docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge, network. Must not overlap with any other provided IP ranges.
-        :param str infrastructure_subnet_id: Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
-        :param bool internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
-        :param 'ManagedEnvironmentOutboundSettingsResponse' outbound_settings: Configuration used to control the Environment Egress outbound traffic
+        :param str infrastructure_subnet_id: Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
+        :param bool internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         :param str platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         :param str platform_reserved_dns_ip:  An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
-        :param str runtime_subnet_id: This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
         """
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
@@ -8782,14 +10078,10 @@ class VnetConfigurationResponse(dict):
             pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
         if internal is not None:
             pulumi.set(__self__, "internal", internal)
-        if outbound_settings is not None:
-            pulumi.set(__self__, "outbound_settings", outbound_settings)
         if platform_reserved_cidr is not None:
             pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
         if platform_reserved_dns_ip is not None:
             pulumi.set(__self__, "platform_reserved_dns_ip", platform_reserved_dns_ip)
-        if runtime_subnet_id is not None:
-            pulumi.set(__self__, "runtime_subnet_id", runtime_subnet_id)
 
     @property
     @pulumi.getter(name="dockerBridgeCidr")
@@ -8803,7 +10095,7 @@ class VnetConfigurationResponse(dict):
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> Optional[str]:
         """
-        Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
+        Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -8811,17 +10103,9 @@ class VnetConfigurationResponse(dict):
     @pulumi.getter
     def internal(self) -> Optional[bool]:
         """
-        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
+        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         """
         return pulumi.get(self, "internal")
-
-    @property
-    @pulumi.getter(name="outboundSettings")
-    def outbound_settings(self) -> Optional['outputs.ManagedEnvironmentOutboundSettingsResponse']:
-        """
-        Configuration used to control the Environment Egress outbound traffic
-        """
-        return pulumi.get(self, "outbound_settings")
 
     @property
     @pulumi.getter(name="platformReservedCidr")
@@ -8838,14 +10122,6 @@ class VnetConfigurationResponse(dict):
          An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
         """
         return pulumi.get(self, "platform_reserved_dns_ip")
-
-    @property
-    @pulumi.getter(name="runtimeSubnetId")
-    def runtime_subnet_id(self) -> Optional[str]:
-        """
-        This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
-        """
-        return pulumi.get(self, "runtime_subnet_id")
 
 
 @pulumi.output_type
@@ -9097,12 +10373,12 @@ class WorkloadProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maximumCount":
+        if key == "workloadProfileType":
+            suggest = "workload_profile_type"
+        elif key == "maximumCount":
             suggest = "maximum_count"
         elif key == "minimumCount":
             suggest = "minimum_count"
-        elif key == "workloadProfileType":
-            suggest = "workload_profile_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkloadProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -9116,34 +10392,31 @@ class WorkloadProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 maximum_count: int,
-                 minimum_count: int,
-                 workload_profile_type: str):
+                 name: str,
+                 workload_profile_type: str,
+                 maximum_count: Optional[int] = None,
+                 minimum_count: Optional[int] = None):
         """
         Workload profile to scope container app execution.
+        :param str name: Workload profile type for the workloads to run on.
+        :param str workload_profile_type: Workload profile type for the workloads to run on.
         :param int maximum_count: The maximum capacity.
         :param int minimum_count: The minimum capacity.
-        :param str workload_profile_type: Workload profile type for the workloads to run on.
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+        if maximum_count is not None:
+            pulumi.set(__self__, "maximum_count", maximum_count)
+        if minimum_count is not None:
+            pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
-    @pulumi.getter(name="maximumCount")
-    def maximum_count(self) -> int:
+    @pulumi.getter
+    def name(self) -> str:
         """
-        The maximum capacity.
+        Workload profile type for the workloads to run on.
         """
-        return pulumi.get(self, "maximum_count")
-
-    @property
-    @pulumi.getter(name="minimumCount")
-    def minimum_count(self) -> int:
-        """
-        The minimum capacity.
-        """
-        return pulumi.get(self, "minimum_count")
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="workloadProfileType")
@@ -9152,5 +10425,21 @@ class WorkloadProfileResponse(dict):
         Workload profile type for the workloads to run on.
         """
         return pulumi.get(self, "workload_profile_type")
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> Optional[int]:
+        """
+        The maximum capacity.
+        """
+        return pulumi.get(self, "maximum_count")
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> Optional[int]:
+        """
+        The minimum capacity.
+        """
+        return pulumi.get(self, "minimum_count")
 
 

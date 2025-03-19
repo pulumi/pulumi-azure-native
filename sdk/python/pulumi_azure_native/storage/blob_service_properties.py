@@ -237,9 +237,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                  __props__=None):
         """
         The properties of a storage account’s Blob service.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,9 +262,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of a storage account’s Blob service.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param BlobServicePropertiesArgs args: The arguments to use to populate this resource's properties.
@@ -320,6 +316,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_policy"] = restore_policy
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sku"] = None
             __props__.__dict__["type"] = None
@@ -348,6 +345,7 @@ class BlobServiceProperties(pulumi.CustomResource):
         __props__ = BlobServicePropertiesArgs.__new__(BlobServicePropertiesArgs)
 
         __props__.__dict__["automatic_snapshot_policy_enabled"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["change_feed"] = None
         __props__.__dict__["container_delete_retention_policy"] = None
         __props__.__dict__["cors"] = None
@@ -368,6 +366,14 @@ class BlobServiceProperties(pulumi.CustomResource):
         Deprecated in favor of isVersioningEnabled property.
         """
         return pulumi.get(self, "automatic_snapshot_policy_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changeFeed")

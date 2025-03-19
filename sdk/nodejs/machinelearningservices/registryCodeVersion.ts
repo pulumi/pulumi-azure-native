@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class RegistryCodeVersion extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class RegistryCodeVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryCodeVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -85,17 +87,19 @@ export class RegistryCodeVersion extends pulumi.CustomResource {
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["codeVersionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20231001:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240401:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20241001:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:RegistryCodeVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20231001:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240401:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20241001:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20250101preview:RegistryCodeVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryCodeVersion.__pulumiType, name, resourceInputs, opts);
     }

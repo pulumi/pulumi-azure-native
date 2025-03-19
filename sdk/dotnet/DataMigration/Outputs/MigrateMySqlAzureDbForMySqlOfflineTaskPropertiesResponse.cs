@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse? Input;
         /// <summary>
+        /// whether the task can be cloned or not
+        /// </summary>
+        public readonly bool? IsCloneable;
+        /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
         public readonly ImmutableArray<object> Output;
@@ -40,6 +44,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// The state of the task. This is ignored if submitted.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Task id 
+        /// </summary>
+        public readonly string? TaskId;
         /// <summary>
         /// Task type.
         /// Expected value is 'Migrate.MySql.AzureDbForMySql'.
@@ -56,9 +64,13 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             Outputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse? input,
 
+            bool? isCloneable,
+
             ImmutableArray<object> output,
 
             string state,
+
+            string? taskId,
 
             string taskType)
         {
@@ -66,8 +78,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             Commands = commands;
             Errors = errors;
             Input = input;
+            IsCloneable = isCloneable;
             Output = output;
             State = state;
+            TaskId = taskId;
             TaskType = taskType;
         }
     }

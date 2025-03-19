@@ -22,22 +22,16 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? DockerBridgeCidr { get; set; }
 
         /// <summary>
-        /// Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
+        /// Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }
 
         /// <summary>
-        /// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
+        /// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
-
-        /// <summary>
-        /// Configuration used to control the Environment Egress outbound traffic
-        /// </summary>
-        [Input("outboundSettings")]
-        public Input<Inputs.ManagedEnvironmentOutboundSettingsArgs>? OutboundSettings { get; set; }
 
         /// <summary>
         /// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
@@ -50,12 +44,6 @@ namespace Pulumi.AzureNative.App.Inputs
         /// </summary>
         [Input("platformReservedDnsIP")]
         public Input<string>? PlatformReservedDnsIP { get; set; }
-
-        /// <summary>
-        /// This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
-        /// </summary>
-        [Input("runtimeSubnetId")]
-        public Input<string>? RuntimeSubnetId { get; set; }
 
         public VnetConfigurationArgs()
         {

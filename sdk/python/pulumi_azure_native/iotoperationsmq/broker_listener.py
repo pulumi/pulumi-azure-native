@@ -292,7 +292,7 @@ class BrokerListener(pulumi.CustomResource):
                  __props__=None):
         """
         MQ broker/listener resource
-        Azure REST API version: 2023-10-04-preview.
+        Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,7 +320,7 @@ class BrokerListener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MQ broker/listener resource
-        Azure REST API version: 2023-10-04-preview.
+        Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param BrokerListenerArgs args: The arguments to use to populate this resource's properties.
@@ -396,6 +396,7 @@ class BrokerListener(pulumi.CustomResource):
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tls"] = tls
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -426,6 +427,7 @@ class BrokerListener(pulumi.CustomResource):
 
         __props__.__dict__["authentication_enabled"] = None
         __props__.__dict__["authorization_enabled"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["broker_ref"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
@@ -456,6 +458,14 @@ class BrokerListener(pulumi.CustomResource):
         The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
         """
         return pulumi.get(self, "authorization_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="brokerRef")

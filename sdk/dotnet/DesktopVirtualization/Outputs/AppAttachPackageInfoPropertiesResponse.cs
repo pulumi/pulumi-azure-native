@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// </summary>
         public readonly string? PackageRelativePath;
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml. 
         /// </summary>
         public readonly string? Version;
 

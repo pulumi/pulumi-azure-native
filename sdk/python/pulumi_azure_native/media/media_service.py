@@ -219,9 +219,7 @@ class MediaService(pulumi.CustomResource):
                  __props__=None):
         """
         A Media Services account.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
-
-        Other available API versions: 2015-10-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,9 +242,7 @@ class MediaService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Media Services account.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
-
-        Other available API versions: 2015-10-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param MediaServiceArgs args: The arguments to use to populate this resource's properties.
@@ -298,6 +294,7 @@ class MediaService(pulumi.CustomResource):
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["storage_authentication"] = storage_authentication
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["media_service_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
@@ -328,6 +325,7 @@ class MediaService(pulumi.CustomResource):
 
         __props__ = MediaServiceArgs.__new__(MediaServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["key_delivery"] = None
@@ -344,6 +342,14 @@ class MediaService(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MediaService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

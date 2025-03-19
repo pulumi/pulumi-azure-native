@@ -300,7 +300,7 @@ class EventHubEventSource(pulumi.CustomResource):
                  __props__=None):
         """
         An event source that receives its data from an Azure EventHub.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,7 +330,7 @@ class EventHubEventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event source that receives its data from an Azure EventHub.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param EventHubEventSourceArgs args: The arguments to use to populate this resource's properties.
@@ -406,10 +406,11 @@ class EventHubEventSource(pulumi.CustomResource):
             __props__.__dict__["time"] = time
             __props__.__dict__["timestamp_property_name"] = timestamp_property_name
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:EventHubEventSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights:IoTHubEventSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubEventSource, __self__).__init__(
             'azure-native:timeseriesinsights:EventHubEventSource',
@@ -433,6 +434,7 @@ class EventHubEventSource(pulumi.CustomResource):
 
         __props__ = EventHubEventSourceArgs.__new__(EventHubEventSourceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["consumer_group_name"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["event_hub_name"] = None
@@ -449,6 +451,14 @@ class EventHubEventSource(pulumi.CustomResource):
         __props__.__dict__["timestamp_property_name"] = None
         __props__.__dict__["type"] = None
         return EventHubEventSource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consumerGroupName")

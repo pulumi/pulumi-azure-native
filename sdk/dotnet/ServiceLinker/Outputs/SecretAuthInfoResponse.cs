@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
     public sealed class SecretAuthInfoResponse
     {
         /// <summary>
+        /// Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        /// </summary>
+        public readonly string? AuthMode;
+        /// <summary>
         /// The authentication type.
         /// Expected value is 'secret'.
         /// </summary>
@@ -32,12 +36,15 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
         [OutputConstructor]
         private SecretAuthInfoResponse(
+            string? authMode,
+
             string authType,
 
             string? name,
 
             object? secretInfo)
         {
+            AuthMode = authMode;
             AuthType = authType;
             Name = name;
             SecretInfo = secretInfo;

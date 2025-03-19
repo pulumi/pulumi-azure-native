@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a custom domain.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalRCustomDomain(args: GetSignalRCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +26,7 @@ export interface GetSignalRCustomDomainArgs {
      */
     name: string;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -42,6 +40,10 @@ export interface GetSignalRCustomDomainArgs {
  */
 export interface GetSignalRCustomDomainResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Reference to a resource.
      */
     readonly customCertificate: outputs.signalrservice.ResourceReferenceResponse;
@@ -50,11 +52,11 @@ export interface GetSignalRCustomDomainResult {
      */
     readonly domainName: string;
     /**
-     * Fully qualified resource Id for the resource.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -62,19 +64,17 @@ export interface GetSignalRCustomDomainResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.signalrservice.SystemDataResponse;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get a custom domain.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalRCustomDomainOutput(args: GetSignalRCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +91,7 @@ export interface GetSignalRCustomDomainOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

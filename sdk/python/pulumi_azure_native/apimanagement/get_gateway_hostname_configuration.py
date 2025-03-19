@@ -26,7 +26,10 @@ class GetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
     """
-    def __init__(__self__, certificate_id=None, hostname=None, http2_enabled=None, id=None, name=None, negotiate_client_certificate=None, tls10_enabled=None, tls11_enabled=None, type=None):
+    def __init__(__self__, azure_api_version=None, certificate_id=None, hostname=None, http2_enabled=None, id=None, name=None, negotiate_client_certificate=None, tls10_enabled=None, tls11_enabled=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificate_id and not isinstance(certificate_id, str):
             raise TypeError("Expected argument 'certificate_id' to be a str")
         pulumi.set(__self__, "certificate_id", certificate_id)
@@ -54,6 +57,14 @@ class GetGatewayHostnameConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certificateId")
@@ -134,6 +145,7 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
         if False:
             yield self
         return GetGatewayHostnameConfigurationResult(
+            azure_api_version=self.azure_api_version,
             certificate_id=self.certificate_id,
             hostname=self.hostname,
             http2_enabled=self.http2_enabled,
@@ -152,9 +164,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
     Get details of a hostname configuration
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -171,6 +181,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getGatewayHostnameConfiguration', __args__, opts=opts, typ=GetGatewayHostnameConfigurationResult).value
 
     return AwaitableGetGatewayHostnameConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificate_id=pulumi.get(__ret__, 'certificate_id'),
         hostname=pulumi.get(__ret__, 'hostname'),
         http2_enabled=pulumi.get(__ret__, 'http2_enabled'),
@@ -187,9 +198,7 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
     Get details of a hostname configuration
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -205,6 +214,7 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getGatewayHostnameConfiguration', __args__, opts=opts, typ=GetGatewayHostnameConfigurationResult)
     return __ret__.apply(lambda __response__: GetGatewayHostnameConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificate_id=pulumi.get(__response__, 'certificate_id'),
         hostname=pulumi.get(__response__, 'hostname'),
         http2_enabled=pulumi.get(__response__, 'http2_enabled'),

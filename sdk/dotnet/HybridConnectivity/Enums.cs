@@ -8,39 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.HybridConnectivity
 {
     /// <summary>
-    /// The type of identity that last modified the resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct CreatedByType : IEquatable<CreatedByType>
-    {
-        private readonly string _value;
-
-        private CreatedByType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CreatedByType User { get; } = new CreatedByType("User");
-        public static CreatedByType Application { get; } = new CreatedByType("Application");
-        public static CreatedByType ManagedIdentity { get; } = new CreatedByType("ManagedIdentity");
-        public static CreatedByType Key { get; } = new CreatedByType("Key");
-
-        public static bool operator ==(CreatedByType left, CreatedByType right) => left.Equals(right);
-        public static bool operator !=(CreatedByType left, CreatedByType right) => !left.Equals(right);
-
-        public static explicit operator string(CreatedByType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CreatedByType other && Equals(other);
-        public bool Equals(CreatedByType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Host cloud the public cloud connector.
     /// </summary>
     [EnumType]

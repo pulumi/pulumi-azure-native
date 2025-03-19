@@ -27,7 +27,10 @@ class GetCertificateResult:
     """
     SSL certificate for an app.
     """
-    def __init__(__self__, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, azure_api_version=None, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if canonical_name and not isinstance(canonical_name, str):
             raise TypeError("Expected argument 'canonical_name' to be a str")
         pulumi.set(__self__, "canonical_name", canonical_name)
@@ -106,6 +109,14 @@ class GetCertificateResult:
         if valid and not isinstance(valid, bool):
             raise TypeError("Expected argument 'valid' to be a bool")
         pulumi.set(__self__, "valid", valid)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="canonicalName")
@@ -215,7 +226,7 @@ class GetCertificateResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -322,6 +333,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         if False:
             yield self
         return GetCertificateResult(
+            azure_api_version=self.azure_api_version,
             canonical_name=self.canonical_name,
             cer_blob=self.cer_blob,
             domain_validation_method=self.domain_validation_method,
@@ -355,9 +367,7 @@ def get_certificate(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Description for Get a certificate.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the certificate.
@@ -370,6 +380,7 @@ def get_certificate(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         canonical_name=pulumi.get(__ret__, 'canonical_name'),
         cer_blob=pulumi.get(__ret__, 'cer_blob'),
         domain_validation_method=pulumi.get(__ret__, 'domain_validation_method'),
@@ -401,9 +412,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Description for Get a certificate.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the certificate.
@@ -415,6 +424,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         canonical_name=pulumi.get(__response__, 'canonical_name'),
         cer_blob=pulumi.get(__response__, 'cer_blob'),
         domain_validation_method=pulumi.get(__response__, 'domain_validation_method'),

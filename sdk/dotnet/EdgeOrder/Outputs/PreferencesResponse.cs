@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Preferences related to the order
+    /// Preferences related to the order.
     /// </summary>
     [OutputType]
     public sealed class PreferencesResponse
@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPreferenceResponse> NotificationPreferences;
         /// <summary>
+        /// Preferences related to the Term commitment.
+        /// </summary>
+        public readonly Outputs.TermCommitmentPreferencesResponse? TermCommitmentPreferences;
+        /// <summary>
         /// Preferences related to the shipment logistics of the order.
         /// </summary>
         public readonly Outputs.TransportPreferencesResponse? TransportPreferences;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             ImmutableArray<Outputs.NotificationPreferenceResponse> notificationPreferences,
 
+            Outputs.TermCommitmentPreferencesResponse? termCommitmentPreferences,
+
             Outputs.TransportPreferencesResponse? transportPreferences)
         {
             EncryptionPreferences = encryptionPreferences;
             ManagementResourcePreferences = managementResourcePreferences;
             NotificationPreferences = notificationPreferences;
+            TermCommitmentPreferences = termCommitmentPreferences;
             TransportPreferences = transportPreferences;
         }
     }

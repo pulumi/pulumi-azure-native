@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Manager Connection resource
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-05-01-preview.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
         return obj['__pulumiType'] === ManagementGroupNetworkManagerConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A description of the network manager connection.
      */
@@ -83,11 +85,13 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
             resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             resourceInputs["networkManagerConnectionName"] = args ? args.networkManagerConnectionName : undefined;
             resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

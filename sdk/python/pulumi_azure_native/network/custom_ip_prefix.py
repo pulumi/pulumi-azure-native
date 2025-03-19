@@ -323,9 +323,7 @@ class CustomIPPrefix(pulumi.CustomResource):
                  __props__=None):
         """
         Custom IP prefix resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,9 +353,7 @@ class CustomIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom IP prefix resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.
@@ -419,6 +415,7 @@ class CustomIPPrefix(pulumi.CustomResource):
             __props__.__dict__["signed_message"] = signed_message
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["child_custom_ip_prefixes"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["failed_reason"] = None
@@ -453,6 +450,7 @@ class CustomIPPrefix(pulumi.CustomResource):
 
         __props__.__dict__["asn"] = None
         __props__.__dict__["authorization_message"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["child_custom_ip_prefixes"] = None
         __props__.__dict__["cidr"] = None
         __props__.__dict__["commissioned_state"] = None
@@ -490,6 +488,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         Authorization message for WAN validation.
         """
         return pulumi.get(self, "authorization_message")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="childCustomIpPrefixes")

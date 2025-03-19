@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Issue for an API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetApiIssueResult> InvokeAsync(GetApiIssueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueResult>("azure-native:apimanagement:getApiIssue", args ?? new GetApiIssueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Issue for an API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiIssueResult> Invoke(GetApiIssueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueResult>("azure-native:apimanagement:getApiIssue", args ?? new GetApiIssueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Issue for an API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiIssueResult> Invoke(GetApiIssueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueResult>("azure-native:apimanagement:getApiIssue", args ?? new GetApiIssueInvokeArgs(), options.WithDefaults());
@@ -125,6 +119,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? ApiId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Date and time when the issue was created.
         /// </summary>
         public readonly string? CreatedDate;
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.ApiManagement
         private GetApiIssueResult(
             string? apiId,
 
+            string azureApiVersion,
+
             string? createdDate,
 
             string description,
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.ApiManagement
             string userId)
         {
             ApiId = apiId;
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             Description = description;
             Id = id;

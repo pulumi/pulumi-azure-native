@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        /// Azure REST API version: 2024-03-02-preview.
-        /// 
-        /// Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:containerservice:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        /// Azure REST API version: 2024-03-02-preview.
-        /// 
-        /// Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:containerservice:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        /// Azure REST API version: 2024-03-02-preview.
-        /// 
-        /// Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:containerservice:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly bool? AllowServicePlacement;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.ContainerService
         private GetLoadBalancerResult(
             bool? allowServicePlacement,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.ContainerService
             string type)
         {
             AllowServicePlacement = allowServicePlacement;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             NodeSelector = nodeSelector;

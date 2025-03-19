@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Dapr PubSub Event Subscription.
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Task<GetDaprSubscriptionResult> InvokeAsync(GetDaprSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaprSubscriptionResult>("azure-native:app:getDaprSubscription", args ?? new GetDaprSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr PubSub Event Subscription.
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetDaprSubscriptionResult> Invoke(GetDaprSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprSubscriptionResult>("azure-native:app:getDaprSubscription", args ?? new GetDaprSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr PubSub Event Subscription.
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetDaprSubscriptionResult> Invoke(GetDaprSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprSubscriptionResult>("azure-native:app:getDaprSubscription", args ?? new GetDaprSubscriptionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetDaprSubscriptionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Bulk subscription options
         /// </summary>
         public readonly Outputs.DaprSubscriptionBulkSubscribeOptionsResponse? BulkSubscribe;
@@ -105,7 +103,7 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string? DeadLetterTopic;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetDaprSubscriptionResult(
+            string azureApiVersion,
+
             Outputs.DaprSubscriptionBulkSubscribeOptionsResponse? bulkSubscribe,
 
             string? deadLetterTopic,
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BulkSubscribe = bulkSubscribe;
             DeadLetterTopic = deadLetterTopic;
             Id = id;

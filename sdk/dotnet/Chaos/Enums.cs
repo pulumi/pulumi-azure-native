@@ -38,6 +38,37 @@ namespace Pulumi.AzureNative.Chaos
     }
 
     /// <summary>
+    /// Public Network Access Control for PrivateAccess resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessOption : IEquatable<PublicNetworkAccessOption>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessOption Enabled { get; } = new PublicNetworkAccessOption("Enabled");
+        public static PublicNetworkAccessOption Disabled { get; } = new PublicNetworkAccessOption("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessOption left, PublicNetworkAccessOption right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessOption left, PublicNetworkAccessOption right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessOption other && Equals(other);
+        public bool Equals(PublicNetworkAccessOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// String of the resource identity type.
     /// </summary>
     [EnumType]

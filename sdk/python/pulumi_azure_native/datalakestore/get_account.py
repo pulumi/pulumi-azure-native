@@ -27,10 +27,13 @@ class GetAccountResult:
     """
     Data Lake Store account information.
     """
-    def __init__(__self__, account_id=None, creation_time=None, current_tier=None, default_group=None, encryption_config=None, encryption_provisioning_state=None, encryption_state=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, id=None, identity=None, last_modified_time=None, location=None, name=None, new_tier=None, provisioning_state=None, state=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, azure_api_version=None, creation_time=None, current_tier=None, default_group=None, encryption_config=None, encryption_provisioning_state=None, encryption_state=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, id=None, identity=None, last_modified_time=None, location=None, name=None, new_tier=None, provisioning_state=None, state=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -108,6 +111,14 @@ class GetAccountResult:
         The unique identifier associated with this Data Lake Store account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -301,6 +312,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             current_tier=self.current_tier,
             default_group=self.default_group,
@@ -345,6 +357,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         current_tier=pulumi.get(__ret__, 'current_tier'),
         default_group=pulumi.get(__ret__, 'default_group'),
@@ -386,6 +399,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:datalakestore:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         current_tier=pulumi.get(__response__, 'current_tier'),
         default_group=pulumi.get(__response__, 'default_group'),

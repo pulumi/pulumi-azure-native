@@ -34,6 +34,10 @@ export interface GetWorkflowAccessKeyArgs {
 
 export interface GetWorkflowAccessKeyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets or sets the resource id.
      */
     readonly id?: string;

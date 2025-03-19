@@ -17,6 +17,18 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class PostgreSqlConnectionInfoResponse
     {
         /// <summary>
+        /// Additional connection settings
+        /// </summary>
+        public readonly string? AdditionalSettings;
+        /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        public readonly string? Authentication;
+        /// <summary>
+        /// Data source 
+        /// </summary>
+        public readonly string? DataSource;
+        /// <summary>
         /// Name of the database
         /// </summary>
         public readonly string? DatabaseName;
@@ -33,9 +45,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly int Port;
         /// <summary>
+        /// server brand version
+        /// </summary>
+        public readonly string? ServerBrandVersion;
+        /// <summary>
         /// Name of the server
         /// </summary>
         public readonly string ServerName;
+        /// <summary>
+        /// server version
+        /// </summary>
+        public readonly string? ServerVersion;
         /// <summary>
         /// Whether to trust the server certificate
         /// </summary>
@@ -52,6 +72,12 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private PostgreSqlConnectionInfoResponse(
+            string? additionalSettings,
+
+            string? authentication,
+
+            string? dataSource,
+
             string? databaseName,
 
             bool? encryptConnection,
@@ -60,7 +86,11 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             int port,
 
+            string? serverBrandVersion,
+
             string serverName,
+
+            string? serverVersion,
 
             bool? trustServerCertificate,
 
@@ -68,11 +98,16 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string? userName)
         {
+            AdditionalSettings = additionalSettings;
+            Authentication = authentication;
+            DataSource = dataSource;
             DatabaseName = databaseName;
             EncryptConnection = encryptConnection;
             Password = password;
             Port = port;
+            ServerBrandVersion = serverBrandVersion;
             ServerName = serverName;
+            ServerVersion = serverVersion;
             TrustServerCertificate = trustServerCertificate;
             Type = type;
             UserName = userName;

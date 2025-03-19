@@ -94,15 +94,6 @@ utilities.lazyLoad(exports, ["SkusNestedResourceTypeThird"], () => require("./sk
 // Export enums:
 export * from "../types/enums/providerhub";
 
-// Export sub-modules:
-import * as v20210501preview from "./v20210501preview";
-import * as v20210901preview from "./v20210901preview";
-
-export {
-    v20210501preview,
-    v20210901preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

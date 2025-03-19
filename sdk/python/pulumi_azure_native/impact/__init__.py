@@ -14,11 +14,3 @@ from .insight import *
 from .workload_impact import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.impact.v20240501preview as __v20240501preview
-    v20240501preview = __v20240501preview
-else:
-    v20240501preview = _utilities.lazy_import('pulumi_azure_native.impact.v20240501preview')
-

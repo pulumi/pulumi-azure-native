@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about JIT request definition.
-    /// Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
-    /// 
-    /// Other available API versions: 2023-12-01-preview.
+    /// Azure REST API version: 2021-07-01. Prior API version in Azure Native 2.x: 2021-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:JitRequest")]
     public partial class JitRequest : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         [Output("applicationResourceId")]
         public Output<string> ApplicationResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The client entity that created the JIT request.

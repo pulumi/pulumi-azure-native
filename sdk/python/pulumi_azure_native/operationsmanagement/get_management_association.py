@@ -27,7 +27,10 @@ class GetManagementAssociationResult:
     """
     The container for solution.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetManagementAssociationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetManagementAssociationResult(GetManagementAssociationResult):
         if False:
             yield self
         return GetManagementAssociationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -125,6 +137,7 @@ def get_management_association(management_association_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:operationsmanagement:getManagementAssociation', __args__, opts=opts, typ=GetManagementAssociationResult).value
 
     return AwaitableGetManagementAssociationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -156,6 +169,7 @@ def get_management_association_output(management_association_name: Optional[pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationsmanagement:getManagementAssociation', __args__, opts=opts, typ=GetManagementAssociationResult)
     return __ret__.apply(lambda __response__: GetManagementAssociationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

@@ -40,6 +40,10 @@ export interface GetStreamingPolicyArgs {
  */
 export interface GetStreamingPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Configuration of CommonEncryptionCbcs
      */
     readonly commonEncryptionCbcs?: outputs.media.CommonEncryptionCbcsResponse;

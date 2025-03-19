@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Contoso
     {
         /// <summary>
         /// Get a Employee
-        /// Azure REST API version: 2021-10-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetEmployeeResult> InvokeAsync(GetEmployeeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Employee
-        /// Azure REST API version: 2021-10-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Employee
-        /// Azure REST API version: 2021-10-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Contoso
     public sealed class GetEmployeeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.Contoso
 
         [OutputConstructor]
         private GetEmployeeResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.Contoso
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

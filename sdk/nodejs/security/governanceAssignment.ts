@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Governance assignment over a given scope
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class GovernanceAssignment extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class GovernanceAssignment extends pulumi.CustomResource {
      * The additional data for the governance assignment - e.g. links to ticket (optional), see example
      */
     public readonly additionalData!: pulumi.Output<outputs.security.GovernanceAssignmentAdditionalDataResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
@@ -100,10 +104,12 @@ export class GovernanceAssignment extends pulumi.CustomResource {
             resourceInputs["remediationDueDate"] = args ? args.remediationDueDate : undefined;
             resourceInputs["remediationEta"] = args ? args.remediationEta : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["governanceEmailNotification"] = undefined /*out*/;
             resourceInputs["isGracePeriod"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

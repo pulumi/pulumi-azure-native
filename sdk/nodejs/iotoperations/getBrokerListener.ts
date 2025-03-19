@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a BrokerListenerResource
- * Azure REST API version: 2024-07-01-preview.
- *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getBrokerListener(args: GetBrokerListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetBrokerListenerArgs {
  */
 export interface GetBrokerListenerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Edge location of the resource.
      */
     readonly extendedLocation: outputs.iotoperations.ExtendedLocationResponse;
@@ -73,9 +75,7 @@ export interface GetBrokerListenerResult {
 }
 /**
  * Get a BrokerListenerResource
- * Azure REST API version: 2024-07-01-preview.
- *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getBrokerListenerOutput(args: GetBrokerListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

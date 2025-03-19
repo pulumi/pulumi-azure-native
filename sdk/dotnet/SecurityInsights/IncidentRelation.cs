@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a relation between two resources
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-    /// 
-    /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentRelation")]
     public partial class IncidentRelation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Etag of the azure resource
         /// </summary>
@@ -127,6 +131,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:IncidentRelation" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:IncidentRelation" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:IncidentRelation" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:IncidentRelation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

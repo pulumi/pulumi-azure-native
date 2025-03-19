@@ -27,10 +27,13 @@ class GetStandbyVirtualMachinePoolResult:
     """
     A StandbyVirtualMachinePoolResource.
     """
-    def __init__(__self__, attached_virtual_machine_scale_set_id=None, elasticity_profile=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machine_state=None):
+    def __init__(__self__, attached_virtual_machine_scale_set_id=None, azure_api_version=None, elasticity_profile=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machine_state=None):
         if attached_virtual_machine_scale_set_id and not isinstance(attached_virtual_machine_scale_set_id, str):
             raise TypeError("Expected argument 'attached_virtual_machine_scale_set_id' to be a str")
         pulumi.set(__self__, "attached_virtual_machine_scale_set_id", attached_virtual_machine_scale_set_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if elasticity_profile and not isinstance(elasticity_profile, dict):
             raise TypeError("Expected argument 'elasticity_profile' to be a dict")
         pulumi.set(__self__, "elasticity_profile", elasticity_profile)
@@ -66,6 +69,14 @@ class GetStandbyVirtualMachinePoolResult:
         Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
         """
         return pulumi.get(self, "attached_virtual_machine_scale_set_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="elasticityProfile")
@@ -147,6 +158,7 @@ class AwaitableGetStandbyVirtualMachinePoolResult(GetStandbyVirtualMachinePoolRe
             yield self
         return GetStandbyVirtualMachinePoolResult(
             attached_virtual_machine_scale_set_id=self.attached_virtual_machine_scale_set_id,
+            azure_api_version=self.azure_api_version,
             elasticity_profile=self.elasticity_profile,
             id=self.id,
             location=self.location,
@@ -163,9 +175,7 @@ def get_standby_virtual_machine_pool(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandbyVirtualMachinePoolResult:
     """
     Get a StandbyVirtualMachinePoolResource
-    Azure REST API version: 2023-12-01-preview.
-
-    Other available API versions: 2024-03-01, 2024-03-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,6 +189,7 @@ def get_standby_virtual_machine_pool(resource_group_name: Optional[str] = None,
 
     return AwaitableGetStandbyVirtualMachinePoolResult(
         attached_virtual_machine_scale_set_id=pulumi.get(__ret__, 'attached_virtual_machine_scale_set_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         elasticity_profile=pulumi.get(__ret__, 'elasticity_profile'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -193,9 +204,7 @@ def get_standby_virtual_machine_pool_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandbyVirtualMachinePoolResult]:
     """
     Get a StandbyVirtualMachinePoolResource
-    Azure REST API version: 2023-12-01-preview.
-
-    Other available API versions: 2024-03-01, 2024-03-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -208,6 +217,7 @@ def get_standby_virtual_machine_pool_output(resource_group_name: Optional[pulumi
     __ret__ = pulumi.runtime.invoke_output('azure-native:standbypool:getStandbyVirtualMachinePool', __args__, opts=opts, typ=GetStandbyVirtualMachinePoolResult)
     return __ret__.apply(lambda __response__: GetStandbyVirtualMachinePoolResult(
         attached_virtual_machine_scale_set_id=pulumi.get(__response__, 'attached_virtual_machine_scale_set_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         elasticity_profile=pulumi.get(__response__, 'elasticity_profile'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

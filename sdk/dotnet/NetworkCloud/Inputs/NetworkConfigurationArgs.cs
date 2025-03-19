@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         public Input<Inputs.AttachedNetworkConfigurationArgs>? AttachedNetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration of the BGP service load balancer for this Kubernetes cluster.
+        /// The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         /// </summary>
         [Input("bgpServiceLoadBalancerConfiguration")]
         public Input<Inputs.BgpServiceLoadBalancerConfigurationArgs>? BgpServiceLoadBalancerConfiguration { get; set; }
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         /// </summary>
         [Input("dnsServiceIp")]
         public Input<string>? DnsServiceIp { get; set; }
+
+        /// <summary>
+        /// The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
+        /// </summary>
+        [Input("l2ServiceLoadBalancerConfiguration")]
+        public Input<Inputs.L2ServiceLoadBalancerConfigurationArgs>? L2ServiceLoadBalancerConfiguration { get; set; }
 
         [Input("podCidrs")]
         private InputList<string>? _podCidrs;

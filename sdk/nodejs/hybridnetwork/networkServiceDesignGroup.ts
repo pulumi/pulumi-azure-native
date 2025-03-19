@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * network service design group resource.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class NetworkServiceDesignGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class NetworkServiceDesignGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkServiceDesignGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -88,10 +90,12 @@ export class NetworkServiceDesignGroup extends pulumi.CustomResource {
             resourceInputs["publisherName"] = args ? args.publisherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

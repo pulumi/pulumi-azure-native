@@ -169,7 +169,7 @@ class CapacityDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of a Dedicated Capacity resource.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2021-01-01. Prior API version in Azure Native 2.x: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class CapacityDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a Dedicated Capacity resource.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2021-01-01. Prior API version in Azure Native 2.x: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param CapacityDetailsArgs args: The arguments to use to populate this resource's properties.
@@ -236,6 +236,7 @@ class CapacityDetails(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["system_data"] = system_data
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["friendly_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -267,6 +268,7 @@ class CapacityDetails(pulumi.CustomResource):
         __props__ = CapacityDetailsArgs.__new__(CapacityDetailsArgs)
 
         __props__.__dict__["administration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["mode"] = None
@@ -287,6 +289,14 @@ class CapacityDetails(pulumi.CustomResource):
         A collection of Dedicated capacity administrators
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="friendlyName")

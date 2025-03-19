@@ -131,7 +131,7 @@ class SchemaVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Schema version's definition.
-        Azure REST API version: 2024-09-01-preview.
+        Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class SchemaVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema version's definition.
-        Azure REST API version: 2024-09-01-preview.
+        Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SchemaVersionArgs args: The arguments to use to populate this resource's properties.
@@ -196,6 +196,7 @@ class SchemaVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema_registry_name'")
             __props__.__dict__["schema_registry_name"] = schema_registry_name
             __props__.__dict__["schema_version_name"] = schema_version_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["hash"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -226,6 +227,7 @@ class SchemaVersion(pulumi.CustomResource):
 
         __props__ = SchemaVersionArgs.__new__(SchemaVersionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hash"] = None
         __props__.__dict__["name"] = None
@@ -235,6 +237,14 @@ class SchemaVersion(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["uuid"] = None
         return SchemaVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

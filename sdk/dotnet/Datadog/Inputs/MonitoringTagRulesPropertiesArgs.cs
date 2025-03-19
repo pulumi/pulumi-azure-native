@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public Input<bool>? Automuting { get; set; }
 
         /// <summary>
+        /// Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
+        /// </summary>
+        [Input("customMetrics")]
+        public Input<bool>? CustomMetrics { get; set; }
+
+        /// <summary>
         /// Set of rules for sending logs for the Monitor resource.
         /// </summary>
         [Input("logRules")]

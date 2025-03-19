@@ -30,6 +30,10 @@ export interface GetConsoleArgs {
  */
 export interface GetConsoleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Cloud shell console properties.
      */
     readonly properties: outputs.portal.ConsolePropertiesResponse;

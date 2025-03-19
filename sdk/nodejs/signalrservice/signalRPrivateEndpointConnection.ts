@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection to an azure resource
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -41,11 +39,15 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Group IDs
      */
     public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -61,11 +63,11 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.signalrservice.SystemDataResponse>;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -91,12 +93,14 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -121,7 +125,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
      */
     privateEndpoint?: pulumi.Input<inputs.signalrservice.PrivateEndpointArgs>;
     /**
-     * The name of the private endpoint connection
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
@@ -129,7 +133,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.PrivateLinkServiceConnectionStateArgs>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

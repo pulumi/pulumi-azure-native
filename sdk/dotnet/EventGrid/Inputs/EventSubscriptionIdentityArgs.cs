@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     public sealed class EventSubscriptionIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        /// The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.EventGrid.EventSubscriptionIdentityType>? Type { get; set; }

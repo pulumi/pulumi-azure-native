@@ -49,6 +49,10 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly attachedDatabaseConfigurationName: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
     readonly hotCachePeriod?: string;

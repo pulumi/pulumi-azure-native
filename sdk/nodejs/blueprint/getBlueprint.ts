@@ -35,6 +35,10 @@ export interface GetBlueprintArgs {
  */
 export interface GetBlueprintResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Multi-line explain this resource.
      */
     readonly description?: string;

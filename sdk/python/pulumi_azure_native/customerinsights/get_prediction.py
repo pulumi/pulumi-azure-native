@@ -27,10 +27,13 @@ class GetPredictionResult:
     """
     The prediction resource format.
     """
-    def __init__(__self__, auto_analyze=None, description=None, display_name=None, grades=None, id=None, involved_interaction_types=None, involved_kpi_types=None, involved_relationships=None, mappings=None, name=None, negative_outcome_expression=None, positive_outcome_expression=None, prediction_name=None, primary_profile_type=None, provisioning_state=None, scope_expression=None, score_label=None, system_generated_entities=None, tenant_id=None, type=None):
+    def __init__(__self__, auto_analyze=None, azure_api_version=None, description=None, display_name=None, grades=None, id=None, involved_interaction_types=None, involved_kpi_types=None, involved_relationships=None, mappings=None, name=None, negative_outcome_expression=None, positive_outcome_expression=None, prediction_name=None, primary_profile_type=None, provisioning_state=None, scope_expression=None, score_label=None, system_generated_entities=None, tenant_id=None, type=None):
         if auto_analyze and not isinstance(auto_analyze, bool):
             raise TypeError("Expected argument 'auto_analyze' to be a bool")
         pulumi.set(__self__, "auto_analyze", auto_analyze)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, dict):
             raise TypeError("Expected argument 'description' to be a dict")
         pulumi.set(__self__, "description", description)
@@ -96,6 +99,14 @@ class GetPredictionResult:
         Whether do auto analyze.
         """
         return pulumi.get(self, "auto_analyze")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -257,6 +268,7 @@ class AwaitableGetPredictionResult(GetPredictionResult):
             yield self
         return GetPredictionResult(
             auto_analyze=self.auto_analyze,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             grades=self.grades,
@@ -300,6 +312,7 @@ def get_prediction(hub_name: Optional[str] = None,
 
     return AwaitableGetPredictionResult(
         auto_analyze=pulumi.get(__ret__, 'auto_analyze'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         grades=pulumi.get(__ret__, 'grades'),
@@ -340,6 +353,7 @@ def get_prediction_output(hub_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getPrediction', __args__, opts=opts, typ=GetPredictionResult)
     return __ret__.apply(lambda __response__: GetPredictionResult(
         auto_analyze=pulumi.get(__response__, 'auto_analyze'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         grades=pulumi.get(__response__, 'grades'),

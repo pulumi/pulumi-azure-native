@@ -40,6 +40,10 @@ export interface GetMachineLearningDatasetArgs {
  */
 export interface GetMachineLearningDatasetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the resource ID.
      */
     readonly id: string;

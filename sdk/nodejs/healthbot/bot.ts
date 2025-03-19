@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Health Bot resource definition
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08.
- *
- * Other available API versions: 2020-12-08-preview, 2024-02-01.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Bot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Bot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity of the Azure Health Bot.
      */
@@ -97,10 +99,12 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

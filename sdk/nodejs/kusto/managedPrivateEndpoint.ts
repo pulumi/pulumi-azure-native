@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a managed private endpoint.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedPrivateEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The groupId in which the managed private endpoint is created.
      */
@@ -103,11 +105,13 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
             resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkResourceId"] = undefined /*out*/;
@@ -153,7 +157,7 @@ export interface ManagedPrivateEndpointArgs {
      */
     requestMessage?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

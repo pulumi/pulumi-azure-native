@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string AccountName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Unique id for identifying a data set resource
         /// </summary>
         public readonly string DataSetId;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.DataShare
         private GetADLSGen1FileDataSetResult(
             string accountName,
 
+            string azureApiVersion,
+
             string dataSetId,
 
             string fileName,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.DataShare
             string type)
         {
             AccountName = accountName;
+            AzureApiVersion = azureApiVersion;
             DataSetId = dataSetId;
             FileName = fileName;
             FolderPath = folderPath;

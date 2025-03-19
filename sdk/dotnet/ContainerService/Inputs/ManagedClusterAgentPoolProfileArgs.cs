@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         }
 
         /// <summary>
+        /// AKS will associate the specified agent pool with the Capacity Reservation Group.
+        /// </summary>
+        [Input("capacityReservationGroupID")]
+        public Input<string>? CapacityReservationGroupID { get; set; }
+
+        /// <summary>
         /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         /// </summary>
         [Input("count")]
@@ -112,6 +118,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
+        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        /// </summary>
+        [Input("messageOfTheDay")]
+        public Input<string>? MessageOfTheDay { get; set; }
+
+        /// <summary>
         /// The minimum number of nodes for auto-scaling
         /// </summary>
         [Input("minCount")]
@@ -128,6 +140,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Network-related settings of an agent pool.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.AgentPoolNetworkProfileArgs>? NetworkProfile { get; set; }
 
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
@@ -226,6 +244,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
+        /// The security settings of an agent pool.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.AgentPoolSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         /// </summary>
         [Input("spotMaxPrice")]
@@ -256,7 +280,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.AgentPoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
 
         /// <summary>
-        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }
@@ -266,6 +290,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         /// </summary>
         [Input("vnetSubnetID")]
         public Input<string>? VnetSubnetID { get; set; }
+
+        /// <summary>
+        /// The Windows agent pool's specific profile.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.AgentPoolWindowsProfileArgs>? WindowsProfile { get; set; }
 
         /// <summary>
         /// Determines the type of workload a node can run.

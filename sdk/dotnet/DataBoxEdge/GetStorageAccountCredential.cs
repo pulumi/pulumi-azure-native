@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Gets the properties of the specified storage account credential.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified storage account credential.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified storage account credential.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Alias;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Blob end point for private clouds.
         /// </summary>
         public readonly string? BlobDomainName;
@@ -153,6 +151,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string alias,
 
+            string azureApiVersion,
+
             string? blobDomainName,
 
             string? connectionString,
@@ -174,6 +174,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
             AccountKey = accountKey;
             AccountType = accountType;
             Alias = alias;
+            AzureApiVersion = azureApiVersion;
             BlobDomainName = blobDomainName;
             ConnectionString = connectionString;
             Id = id;

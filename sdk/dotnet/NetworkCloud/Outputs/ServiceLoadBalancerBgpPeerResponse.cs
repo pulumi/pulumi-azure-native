@@ -22,11 +22,11 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly string? BgpMultiHop;
         /// <summary>
-        /// The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
         /// </summary>
         public readonly string? HoldTime;
         /// <summary>
-        /// The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         /// </summary>
         public readonly string? KeepAliveTime;
         /// <summary>

@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get a EdgeDeviceJob
-        /// Azure REST API version: 2024-09-01-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// </summary>
         public static Task<GetHciEdgeDeviceJobResult> InvokeAsync(GetHciEdgeDeviceJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHciEdgeDeviceJobResult>("azure-native:azurestackhci:getHciEdgeDeviceJob", args ?? new GetHciEdgeDeviceJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EdgeDeviceJob
-        /// Azure REST API version: 2024-09-01-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// </summary>
         public static Output<GetHciEdgeDeviceJobResult> Invoke(GetHciEdgeDeviceJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciEdgeDeviceJobResult>("azure-native:azurestackhci:getHciEdgeDeviceJob", args ?? new GetHciEdgeDeviceJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EdgeDeviceJob
-        /// Azure REST API version: 2024-09-01-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// </summary>
         public static Output<GetHciEdgeDeviceJobResult> Invoke(GetHciEdgeDeviceJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciEdgeDeviceJobResult>("azure-native:azurestackhci:getHciEdgeDeviceJob", args ?? new GetHciEdgeDeviceJobInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetHciEdgeDeviceJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetHciEdgeDeviceJobResult(
+            string azureApiVersion,
+
             string id,
 
             string kind,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Name = name;

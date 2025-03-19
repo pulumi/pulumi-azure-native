@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
- * Azure REST API version: 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
  */
 export class Pricing extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Pricing extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pricing.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Optional. True if the plan is deprecated. If there are replacing plans they will appear in `replacedBy` property
      */
@@ -114,6 +118,7 @@ export class Pricing extends pulumi.CustomResource {
             resourceInputs["pricingTier"] = args ? args.pricingTier : undefined;
             resourceInputs["scopeId"] = args ? args.scopeId : undefined;
             resourceInputs["subPlan"] = args ? args.subPlan : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deprecated"] = undefined /*out*/;
             resourceInputs["enablementTime"] = undefined /*out*/;
             resourceInputs["freeTrialRemainingTime"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class Pricing extends pulumi.CustomResource {
             resourceInputs["resourcesCoverageStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deprecated"] = undefined /*out*/;
             resourceInputs["enablementTime"] = undefined /*out*/;
             resourceInputs["enforce"] = undefined /*out*/;

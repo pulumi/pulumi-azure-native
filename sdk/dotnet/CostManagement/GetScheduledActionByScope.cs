@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get the shared scheduled action from the given scope by name.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Task<GetScheduledActionByScopeResult> InvokeAsync(GetScheduledActionByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionByScopeResult>("azure-native:costmanagement:getScheduledActionByScope", args ?? new GetScheduledActionByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the shared scheduled action from the given scope by name.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetScheduledActionByScopeResult> Invoke(GetScheduledActionByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionByScopeResult>("azure-native:costmanagement:getScheduledActionByScope", args ?? new GetScheduledActionByScopeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the shared scheduled action from the given scope by name.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetScheduledActionByScopeResult> Invoke(GetScheduledActionByScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionByScopeResult>("azure-native:costmanagement:getScheduledActionByScope", args ?? new GetScheduledActionByScopeInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.CostManagement
     [OutputType]
     public sealed class GetScheduledActionByScopeResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Scheduled action name.
         /// </summary>
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetScheduledActionByScopeResult(
+            string azureApiVersion,
+
             string displayName,
 
             string eTag,
@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string viewId)
         {
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             ETag = eTag;
             FileDestination = fileDestination;

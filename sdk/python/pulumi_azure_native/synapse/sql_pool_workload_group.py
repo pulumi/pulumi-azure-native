@@ -196,9 +196,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Workload group operations for a sql pool
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,9 +219,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload group operations for a sql pool
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadGroupArgs args: The arguments to use to populate this resource's properties.
@@ -281,6 +277,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210501:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210601:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup")])
@@ -307,6 +304,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         __props__ = SqlPoolWorkloadGroupArgs.__new__(SqlPoolWorkloadGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["importance"] = None
         __props__.__dict__["max_resource_percent"] = None
         __props__.__dict__["max_resource_percent_per_request"] = None
@@ -316,6 +314,14 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         __props__.__dict__["query_execution_timeout"] = None
         __props__.__dict__["type"] = None
         return SqlPoolWorkloadGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

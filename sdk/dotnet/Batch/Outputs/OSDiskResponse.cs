@@ -13,12 +13,29 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class OSDiskResponse
     {
+        public readonly string? Caching;
+        public readonly int? DiskSizeGB;
         public readonly Outputs.DiffDiskSettingsResponse? EphemeralOSDiskSettings;
+        public readonly Outputs.ManagedDiskResponse? ManagedDisk;
+        public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]
-        private OSDiskResponse(Outputs.DiffDiskSettingsResponse? ephemeralOSDiskSettings)
+        private OSDiskResponse(
+            string? caching,
+
+            int? diskSizeGB,
+
+            Outputs.DiffDiskSettingsResponse? ephemeralOSDiskSettings,
+
+            Outputs.ManagedDiskResponse? managedDisk,
+
+            bool? writeAcceleratorEnabled)
         {
+            Caching = caching;
+            DiskSizeGB = diskSizeGB;
             EphemeralOSDiskSettings = ephemeralOSDiskSettings;
+            ManagedDisk = managedDisk;
+            WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }
 }

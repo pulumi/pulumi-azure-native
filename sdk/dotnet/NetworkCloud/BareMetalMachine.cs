@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-    /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:BareMetalMachine")]
     public partial class BareMetalMachine : global::Pulumi.CustomResource
@@ -22,6 +20,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("associatedResourceIds")]
         public Output<ImmutableArray<string>> AssociatedResourceIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The connection string for the baseboard management controller including IP address and protocol.
@@ -72,6 +76,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> DetailedStatusMessage { get; private set; } = null!;
 
         /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
@@ -112,6 +122,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster version that has been applied to this machine during deployment or a version update.
+        /// </summary>
+        [Output("machineClusterVersion")]
+        public Output<string?> MachineClusterVersion { get; private set; } = null!;
 
         /// <summary>
         /// The custom details provided by the customer.
@@ -198,6 +214,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.RuntimeProtectionStatusResponse> RuntimeProtectionStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The list of statuses that represent secret rotation activity.
+        /// </summary>
+        [Output("secretRotationStatus")]
+        public Output<ImmutableArray<Outputs.SecretRotationStatusResponse>> SecretRotationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The serial number of the bare metal machine.
         /// </summary>
         [Output("serialNumber")]
@@ -263,6 +285,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:BareMetalMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:BareMetalMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -327,6 +350,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The cluster version that has been applied to this machine during deployment or a version update.
+        /// </summary>
+        [Input("machineClusterVersion")]
+        public Input<string>? MachineClusterVersion { get; set; }
 
         /// <summary>
         /// The custom details provided by the customer.

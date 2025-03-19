@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Schema Group operation
- * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
  */
 export class SchemaRegistry extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SchemaRegistry extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchemaRegistry.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Exact time the Schema Group was created.
      */
@@ -98,6 +100,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
             resourceInputs["schemaCompatibility"] = args ? args.schemaCompatibility : undefined;
             resourceInputs["schemaGroupName"] = args ? args.schemaGroupName : undefined;
             resourceInputs["schemaType"] = args ? args.schemaType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -106,6 +109,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAtUtc"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["groupProperties"] = undefined /*out*/;

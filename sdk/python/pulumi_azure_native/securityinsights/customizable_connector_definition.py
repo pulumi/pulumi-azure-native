@@ -169,7 +169,7 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Connector definition for kind 'Customizable'.
-        Azure REST API version: 2023-07-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,7 +191,7 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Connector definition for kind 'Customizable'.
-        Azure REST API version: 2023-07-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomizableConnectorDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -241,11 +241,12 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20240901:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:CustomizableConnectorDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20240901:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:CustomizableConnectorDefinition"), pulumi.Alias(type_="azure-native:securityinsights/v20250301:CustomizableConnectorDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomizableConnectorDefinition, __self__).__init__(
             'azure-native:securityinsights:CustomizableConnectorDefinition',
@@ -269,6 +270,7 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
 
         __props__ = CustomizableConnectorDefinitionArgs.__new__(CustomizableConnectorDefinitionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connections_config"] = None
         __props__.__dict__["connector_ui_config"] = None
         __props__.__dict__["created_time_utc"] = None
@@ -279,6 +281,14 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CustomizableConnectorDefinition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionsConfig")

@@ -27,7 +27,10 @@ class GetChannelResult:
     """
     Bot channel resource definition
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -58,6 +61,14 @@ class GetChannelResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetChannelResult(GetChannelResult):
         if False:
             yield self
         return GetChannelResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
@@ -164,9 +176,7 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Returns a BotService Channel registration specified by the parameters.
-    Azure REST API version: 2022-09-15.
-
-    Other available API versions: 2023-09-15-preview.
+    Azure REST API version: 2023-09-15-preview.
 
 
     :param str channel_name: The name of the Bot resource.
@@ -181,6 +191,7 @@ def get_channel(channel_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:botservice:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -197,9 +208,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Returns a BotService Channel registration specified by the parameters.
-    Azure REST API version: 2022-09-15.
-
-    Other available API versions: 2023-09-15-preview.
+    Azure REST API version: 2023-09-15-preview.
 
 
     :param str channel_name: The name of the Bot resource.
@@ -213,6 +222,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:botservice:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

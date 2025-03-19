@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the vCenter.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class VCenter extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VCenter extends pulumi.CustomResource {
         return obj['__pulumiType'] === VCenter.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the connection status to the vCenter.
      */
@@ -81,7 +83,7 @@ export class VCenter extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -135,6 +137,7 @@ export class VCenter extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["instanceUuid"] = undefined /*out*/;
@@ -146,6 +149,7 @@ export class VCenter extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;

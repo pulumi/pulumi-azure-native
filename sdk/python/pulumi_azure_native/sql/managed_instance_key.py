@@ -115,9 +115,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
                  __props__=None):
         """
         A managed instance key.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed instance key.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceKeyArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +176,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
             __props__.__dict__["server_key_type"] = server_key_type
             __props__.__dict__["uri"] = uri
             __props__.__dict__["auto_rotation_enabled"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
@@ -210,6 +207,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
         __props__ = ManagedInstanceKeyArgs.__new__(ManagedInstanceKeyArgs)
 
         __props__.__dict__["auto_rotation_enabled"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
@@ -224,6 +222,14 @@ class ManagedInstanceKey(pulumi.CustomResource):
         Key auto rotation opt-in flag. Either true or false.
         """
         return pulumi.get(self, "auto_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")

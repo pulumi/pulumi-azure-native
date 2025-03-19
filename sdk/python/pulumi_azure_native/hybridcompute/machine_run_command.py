@@ -306,9 +306,7 @@ class MachineRunCommand(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Run Command
-        Azure REST API version: 2023-10-03-preview.
-
-        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2023-10-03-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,9 +335,7 @@ class MachineRunCommand(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Run Command
-        Azure REST API version: 2023-10-03-preview.
-
-        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2023-10-03-preview.
 
         :param str resource_name: The name of the resource.
         :param MachineRunCommandArgs args: The arguments to use to populate this resource's properties.
@@ -403,12 +399,13 @@ class MachineRunCommand(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:MachineRunCommand")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:MachineRunCommand")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineRunCommand, __self__).__init__(
             'azure-native:hybridcompute:MachineRunCommand',
@@ -433,6 +430,7 @@ class MachineRunCommand(pulumi.CustomResource):
         __props__ = MachineRunCommandArgs.__new__(MachineRunCommandArgs)
 
         __props__.__dict__["async_execution"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["error_blob_managed_identity"] = None
         __props__.__dict__["error_blob_uri"] = None
         __props__.__dict__["instance_view"] = None
@@ -459,6 +457,14 @@ class MachineRunCommand(pulumi.CustomResource):
         Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete.
         """
         return pulumi.get(self, "async_execution")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorBlobManagedIdentity")

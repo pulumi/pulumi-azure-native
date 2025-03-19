@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly string? Family;
         /// <summary>
+        /// The model name.
+        /// </summary>
+        public readonly string Model;
+        /// <summary>
         /// The sku name.
         /// </summary>
         public readonly string Name;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             string? family,
 
+            string model,
+
             string name)
         {
             DisplayName = displayName;
             Family = family;
+            Model = model;
             Name = name;
         }
     }

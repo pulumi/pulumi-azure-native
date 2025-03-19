@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
     public sealed class GetTargetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A list of components.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentPropertiesResponse> Components;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
 
         [OutputConstructor]
         private GetTargetResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ComponentPropertiesResponse> components,
 
             Outputs.ExtendedLocationResponse extendedLocation,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Components = components;
             ExtendedLocation = extendedLocation;
             Id = id;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlManagedInstance.
- * Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2023-01-15-preview.
  */
 export class SqlManagedInstance extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SqlManagedInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlManagedInstance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The extendedLocation of the resource.
      */
@@ -97,10 +99,12 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.azurearcdata.sqlManagedInstanceSkuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["sqlManagedInstanceName"] = args ? args.sqlManagedInstanceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -111,7 +115,7 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20240101:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20240501preview:SqlManagedInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20240101:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20240501preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20250301preview:SqlManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlManagedInstance.__pulumiType, name, resourceInputs, opts);
     }

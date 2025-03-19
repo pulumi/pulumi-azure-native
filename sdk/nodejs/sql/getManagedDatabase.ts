@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a managed database.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetManagedDatabaseArgs {
  * A managed database resource.
  */
 export interface GetManagedDatabaseResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Collation of the metadata catalog.
      */
@@ -90,8 +92,6 @@ export interface GetManagedDatabaseResult {
 /**
  * Gets a managed database.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

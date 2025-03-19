@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// The Gcp project's details
         /// </summary>
         public readonly Outputs.GcpProjectDetailsResponse? ProjectDetails;
+        /// <summary>
+        /// Scan interval in hours (value should be between 1-hour to 24-hours)
+        /// </summary>
+        public readonly double? ScanInterval;
 
         [OutputConstructor]
         private GcpProjectEnvironmentDataResponse(
@@ -36,11 +40,14 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             Union<Outputs.GcpOrganizationalDataMemberResponse, Outputs.GcpOrganizationalDataOrganizationResponse>? organizationalData,
 
-            Outputs.GcpProjectDetailsResponse? projectDetails)
+            Outputs.GcpProjectDetailsResponse? projectDetails,
+
+            double? scanInterval)
         {
             EnvironmentType = environmentType;
             OrganizationalData = organizationalData;
             ProjectDetails = projectDetails;
+            ScanInterval = scanInterval;
         }
     }
 }

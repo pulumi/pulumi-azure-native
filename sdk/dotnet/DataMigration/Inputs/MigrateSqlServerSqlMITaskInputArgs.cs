@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         [Input("backupMode")]
         public InputUnion<string, Pulumi.AzureNative.DataMigration.BackupMode>? BackupMode { get; set; }
 
+        /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        [Input("encryptedKeyForSecureFields")]
+        public Input<string>? EncryptedKeyForSecureFields { get; set; }
+
         [Input("selectedAgentJobs")]
         private InputList<string>? _selectedAgentJobs;
 
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// </summary>
         [Input("sourceConnectionInfo", required: true)]
         public Input<Inputs.SqlConnectionInfoArgs> SourceConnectionInfo { get; set; } = null!;
+
+        /// <summary>
+        /// Date and time relative to UTC when the migration was started on
+        /// </summary>
+        [Input("startedOn")]
+        public Input<string>? StartedOn { get; set; }
 
         /// <summary>
         /// Information for connecting to target

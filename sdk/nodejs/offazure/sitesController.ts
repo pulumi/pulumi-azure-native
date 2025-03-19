@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A VmwareSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class SitesController extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class SitesController extends pulumi.CustomResource {
      * Gets or sets the Appliance Name.
      */
     public readonly applianceName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the ARM ID of migration hub solution for SDS.
      */
@@ -117,6 +119,7 @@ export class SitesController extends pulumi.CustomResource {
             resourceInputs["servicePrincipalIdentityDetails"] = args ? args.servicePrincipalIdentityDetails : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -127,6 +130,7 @@ export class SitesController extends pulumi.CustomResource {
         } else {
             resourceInputs["agentDetails"] = undefined /*out*/;
             resourceInputs["applianceName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoverySolutionId"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -140,7 +144,7 @@ export class SitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:SitesController" }, { type: "azure-native:offazure/v20200707:SitesController" }, { type: "azure-native:offazure/v20230606:SitesController" }, { type: "azure-native:offazure/v20231001preview:SitesController" }, { type: "azure-native:offazure/v20240501preview:SitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:SitesController" }, { type: "azure-native:offazure/v20200707:Site" }, { type: "azure-native:offazure/v20200707:SitesController" }, { type: "azure-native:offazure/v20230606:SitesController" }, { type: "azure-native:offazure/v20231001preview:SitesController" }, { type: "azure-native:offazure/v20240501preview:SitesController" }, { type: "azure-native:offazure:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SitesController.__pulumiType, name, resourceInputs, opts);
     }

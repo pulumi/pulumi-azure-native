@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Represents product details
+    /// Represents product details.
     /// </summary>
     public sealed class ProductDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Hierarchy of the product which uniquely identifies the product
+        /// Hierarchy of the product which uniquely identifies the product.
         /// </summary>
         [Input("hierarchyInformation", required: true)]
         public Input<Inputs.HierarchyInformationArgs> HierarchyInformation { get; set; } = null!;
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
             get => _optInAdditionalConfigurations ?? (_optInAdditionalConfigurations = new InputList<Inputs.AdditionalConfigurationArgs>());
             set => _optInAdditionalConfigurations = value;
         }
+
+        /// <summary>
+        /// Device Provisioning Details for Parent.
+        /// </summary>
+        [Input("parentProvisioningDetails")]
+        public Input<Inputs.ProvisioningDetailsArgs>? ParentProvisioningDetails { get; set; }
 
         public ProductDetailsArgs()
         {

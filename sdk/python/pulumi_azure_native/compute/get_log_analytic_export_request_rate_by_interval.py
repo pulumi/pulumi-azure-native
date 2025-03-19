@@ -64,9 +64,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportRequestRateByIntervalResult:
     """
     Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
@@ -109,9 +107,7 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnalyticExportRequestRateByIntervalResult]:
     """
     Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.

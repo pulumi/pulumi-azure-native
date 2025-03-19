@@ -18,18 +18,14 @@ from ._enums import *
 __all__ = [
     'ApiEntityReferenceArgs',
     'ApiEntityReferenceArgsDict',
-    'CloudHsmClusterSecurityDomainPropertiesArgs',
-    'CloudHsmClusterSecurityDomainPropertiesArgsDict',
     'CloudHsmClusterSkuArgs',
     'CloudHsmClusterSkuArgsDict',
-    'CloudHsmPropertiesArgs',
-    'CloudHsmPropertiesArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NetworkInterfaceArgs',
     'NetworkInterfaceArgsDict',
     'NetworkProfileArgs',
     'NetworkProfileArgsDict',
-    'PrivateEndpointConnectionArgs',
-    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'SkuArgs',
@@ -43,9 +39,9 @@ if not MYPY:
         """
         The API entity reference.
         """
-        id: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
         """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
 elif False:
     ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -53,81 +49,25 @@ elif False:
 @pulumi.input_type
 class ApiEntityReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
         The API entity reference.
-        :param pulumi.Input[str] id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        :param pulumi.Input[str] resource_id: The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "resource_id")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class CloudHsmClusterSecurityDomainPropertiesArgsDict(TypedDict):
-        """
-        Security domain properties information for Cloud HSM cluster
-        """
-        activation_status: NotRequired[pulumi.Input[str]]
-        """
-        status of security domain activation
-        """
-        fips_state: NotRequired[pulumi.Input[int]]
-        """
-        FIPS state information for security domain
-        """
-elif False:
-    CloudHsmClusterSecurityDomainPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class CloudHsmClusterSecurityDomainPropertiesArgs:
-    def __init__(__self__, *,
-                 activation_status: Optional[pulumi.Input[str]] = None,
-                 fips_state: Optional[pulumi.Input[int]] = None):
-        """
-        Security domain properties information for Cloud HSM cluster
-        :param pulumi.Input[str] activation_status: status of security domain activation
-        :param pulumi.Input[int] fips_state: FIPS state information for security domain
-        """
-        if activation_status is not None:
-            pulumi.set(__self__, "activation_status", activation_status)
-        if fips_state is not None:
-            pulumi.set(__self__, "fips_state", fips_state)
-
-    @property
-    @pulumi.getter(name="activationStatus")
-    def activation_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        status of security domain activation
-        """
-        return pulumi.get(self, "activation_status")
-
-    @activation_status.setter
-    def activation_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "activation_status", value)
-
-    @property
-    @pulumi.getter(name="fipsState")
-    def fips_state(self) -> Optional[pulumi.Input[int]]:
-        """
-        FIPS state information for security domain
-        """
-        return pulumi.get(self, "fips_state")
-
-    @fips_state.setter
-    def fips_state(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "fips_state", value)
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:
@@ -205,79 +145,58 @@ class CloudHsmClusterSkuArgs:
 
 
 if not MYPY:
-    class CloudHsmPropertiesArgsDict(TypedDict):
+    class ManagedServiceIdentityArgsDict(TypedDict):
         """
-        The Cloud HSM Properties
+        Managed service identity (system assigned and/or user assigned identities)
         """
-        fqdn: NotRequired[pulumi.Input[str]]
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
         """
-        FQDN of the Cloud HSM
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
-        state: NotRequired[pulumi.Input[str]]
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The Cloud HSM State
-        """
-        state_message: NotRequired[pulumi.Input[str]]
-        """
-        The Cloud HSM State message
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
 elif False:
-    CloudHsmPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class CloudHsmPropertiesArgs:
+class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 fqdn: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
-                 state_message: Optional[pulumi.Input[str]] = None):
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The Cloud HSM Properties
-        :param pulumi.Input[str] fqdn: FQDN of the Cloud HSM
-        :param pulumi.Input[str] state: The Cloud HSM State
-        :param pulumi.Input[str] state_message: The Cloud HSM State message
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if state_message is not None:
-            pulumi.set(__self__, "state_message", state_message)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
         """
-        FQDN of the Cloud HSM
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
-        return pulumi.get(self, "fqdn")
+        return pulumi.get(self, "type")
 
-    @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "fqdn", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Cloud HSM State
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "state", value)
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="stateMessage")
-    def state_message(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Cloud HSM State message
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        return pulumi.get(self, "state_message")
+        return pulumi.get(self, "user_assigned_identities")
 
-    @state_message.setter
-    def state_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "state_message", value)
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:
@@ -370,61 +289,6 @@ class NetworkProfileArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
         pulumi.set(self, "subnet", value)
-
-
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        The private endpoint connection resource.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        etag: NotRequired[pulumi.Input[str]]
-        """
-        Modified whenever there is a change in the state of private endpoint connection.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 etag: Optional[pulumi.Input[str]] = None):
-        """
-        The private endpoint connection resource.
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] etag: Modified whenever there is a change in the state of private endpoint connection.
-        """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Modified whenever there is a change in the state of private endpoint connection.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
 
 if not MYPY:

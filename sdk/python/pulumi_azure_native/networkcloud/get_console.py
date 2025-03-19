@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConsoleResult:
-    def __init__(__self__, detailed_status=None, detailed_status_message=None, enabled=None, expiration=None, extended_location=None, id=None, location=None, name=None, private_link_service_id=None, provisioning_state=None, ssh_public_key=None, system_data=None, tags=None, type=None, virtual_machine_access_id=None):
+    def __init__(__self__, azure_api_version=None, detailed_status=None, detailed_status_message=None, enabled=None, etag=None, expiration=None, extended_location=None, id=None, location=None, name=None, private_link_service_id=None, provisioning_state=None, ssh_public_key=None, system_data=None, tags=None, type=None, virtual_machine_access_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if detailed_status and not isinstance(detailed_status, str):
             raise TypeError("Expected argument 'detailed_status' to be a str")
         pulumi.set(__self__, "detailed_status", detailed_status)
@@ -34,6 +37,9 @@ class GetConsoleResult:
         if enabled and not isinstance(enabled, str):
             raise TypeError("Expected argument 'enabled' to be a str")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if expiration and not isinstance(expiration, str):
             raise TypeError("Expected argument 'expiration' to be a str")
         pulumi.set(__self__, "expiration", expiration)
@@ -72,6 +78,14 @@ class GetConsoleResult:
         pulumi.set(__self__, "virtual_machine_access_id", virtual_machine_access_id)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="detailedStatus")
     def detailed_status(self) -> str:
         """
@@ -94,6 +108,14 @@ class GetConsoleResult:
         The indicator of whether the console access is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -198,9 +220,11 @@ class AwaitableGetConsoleResult(GetConsoleResult):
         if False:
             yield self
         return GetConsoleResult(
+            azure_api_version=self.azure_api_version,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
             enabled=self.enabled,
+            etag=self.etag,
             expiration=self.expiration,
             extended_location=self.extended_location,
             id=self.id,
@@ -221,9 +245,7 @@ def get_console(console_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
     Get properties of the provided virtual machine console.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str console_name: The name of the virtual machine console.
@@ -238,9 +260,11 @@ def get_console(console_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getConsole', __args__, opts=opts, typ=GetConsoleResult).value
 
     return AwaitableGetConsoleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
         enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
         expiration=pulumi.get(__ret__, 'expiration'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -259,9 +283,7 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsoleResult]:
     """
     Get properties of the provided virtual machine console.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str console_name: The name of the virtual machine console.
@@ -275,9 +297,11 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getConsole', __args__, opts=opts, typ=GetConsoleResult)
     return __ret__.apply(lambda __response__: GetConsoleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
         enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
         expiration=pulumi.get(__response__, 'expiration'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

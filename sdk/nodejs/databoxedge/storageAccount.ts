@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class StorageAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageAccount.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * BlobEndpoint of Storage Account
      */
@@ -104,12 +106,14 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobEndpoint"] = undefined /*out*/;
             resourceInputs["containerCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobEndpoint"] = undefined /*out*/;
             resourceInputs["containerCount"] = undefined /*out*/;
             resourceInputs["dataPolicy"] = undefined /*out*/;

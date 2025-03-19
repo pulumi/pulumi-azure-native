@@ -70,9 +70,7 @@ def list_local_rulestack_advanced_security_objects(local_rulestack_name: Optiona
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLocalRulestackAdvancedSecurityObjectsResult:
     """
     Get the list of advanced security objects
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name
@@ -98,9 +96,7 @@ def list_local_rulestack_advanced_security_objects_output(local_rulestack_name: 
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalRulestackAdvancedSecurityObjectsResult]:
     """
     Get the list of advanced security objects
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name

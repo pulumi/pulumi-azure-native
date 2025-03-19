@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// The private endpoint connection resource.
-    /// Azure REST API version: 2022-09-30-preview. Prior API version in Azure Native 1.x: 2018-06-01.
-    /// 
-    /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
+    /// Azure REST API version: 2023-06-30. Prior API version in Azure Native 2.x: 2022-09-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
@@ -85,6 +89,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220930preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:PrivateEndpointConnection" },
                 },

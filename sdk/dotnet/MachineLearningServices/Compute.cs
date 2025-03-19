@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
-    /// Azure REST API version: 2023-04-01.
-    /// 
-    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Compute")]
     public partial class Compute : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The identity of the resource.
         /// </summary>
@@ -108,6 +112,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:Compute" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:MachineLearningCompute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Compute" },
@@ -128,6 +133,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:Compute" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:Compute" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

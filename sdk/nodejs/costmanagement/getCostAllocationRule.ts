@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
- * Azure REST API version: 2020-03-01-preview.
- *
- * Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01.
  */
 export function getCostAllocationRule(args: GetCostAllocationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCostAllocationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetCostAllocationRuleArgs {
  */
 export interface GetCostAllocationRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure Resource Manager Id for the rule. This is a read ony value.
      */
     readonly id: string;
@@ -55,9 +57,7 @@ export interface GetCostAllocationRuleResult {
 }
 /**
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
- * Azure REST API version: 2020-03-01-preview.
- *
- * Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01.
  */
 export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostAllocationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

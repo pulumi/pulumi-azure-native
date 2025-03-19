@@ -14,3 +14,6 @@ class AssociationType(str, Enum):
     Association Type
     """
     SUBNETS = "subnets"
+    """
+    Association of Type Subnet
+    """

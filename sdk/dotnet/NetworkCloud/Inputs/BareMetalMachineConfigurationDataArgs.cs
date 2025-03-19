@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
     public sealed class BareMetalMachineConfigurationDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The credentials of the baseboard management controller on this bare metal machine.
+        /// The credentials of the baseboard management controller on this bare metal machine. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         /// </summary>
         [Input("bmcCredentials", required: true)]
         public Input<Inputs.AdministrativeCredentialsArgs> BmcCredentials { get; set; } = null!;

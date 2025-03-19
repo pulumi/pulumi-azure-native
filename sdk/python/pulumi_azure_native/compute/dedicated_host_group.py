@@ -168,9 +168,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,9 +189,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostGroupArgs args: The arguments to use to populate this resource's properties.
@@ -239,11 +235,12 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__.__dict__["support_automatic_placement"] = support_automatic_placement
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["hosts"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:DedicatedHostGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20241101:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHostGroup, __self__).__init__(
             'azure-native:compute:DedicatedHostGroup',
@@ -268,6 +265,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
         __props__.__dict__["additional_capabilities"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["hosts"] = None
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["location"] = None
@@ -286,6 +284,14 @@ class DedicatedHostGroup(pulumi.CustomResource):
         Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         """
         return pulumi.get(self, "additional_capabilities")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

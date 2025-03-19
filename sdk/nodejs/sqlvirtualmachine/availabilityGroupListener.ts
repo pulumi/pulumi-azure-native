@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Server availability group listener.
- * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
  */
 export class AvailabilityGroupListener extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      * Name of the availability group.
      */
     public readonly availabilityGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Create a default availability group if it does not exist.
      */
@@ -107,6 +109,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -114,6 +117,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
         } else {
             resourceInputs["availabilityGroupConfiguration"] = undefined /*out*/;
             resourceInputs["availabilityGroupName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = undefined /*out*/;
             resourceInputs["loadBalancerConfigurations"] = undefined /*out*/;
             resourceInputs["multiSubnetIpConfigurations"] = undefined /*out*/;

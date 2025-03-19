@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Returns an AML file system.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetAmlFilesystemResult> InvokeAsync(GetAmlFilesystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmlFilesystemResult>("azure-native:storagecache:getAmlFilesystem", args ?? new GetAmlFilesystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an AML file system.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an AML file system.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());
@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.StorageCache
     public sealed class GetAmlFilesystemResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Client information for the AML file system.
         /// </summary>
         public readonly Outputs.AmlFilesystemClientInfoResponse ClientInfo;
@@ -123,6 +127,10 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Specifies root squash settings of the AML file system.
+        /// </summary>
+        public readonly Outputs.AmlFilesystemRootSquashSettingsResponse? RootSquashSettings;
+        /// <summary>
         /// SKU for the resource.
         /// </summary>
         public readonly Outputs.SkuNameResponse? Sku;
@@ -153,6 +161,8 @@ namespace Pulumi.AzureNative.StorageCache
 
         [OutputConstructor]
         private GetAmlFilesystemResult(
+            string azureApiVersion,
+
             Outputs.AmlFilesystemClientInfoResponse clientInfo,
 
             Outputs.AmlFilesystemEncryptionSettingsResponse? encryptionSettings,
@@ -175,6 +185,8 @@ namespace Pulumi.AzureNative.StorageCache
 
             string provisioningState,
 
+            Outputs.AmlFilesystemRootSquashSettingsResponse? rootSquashSettings,
+
             Outputs.SkuNameResponse? sku,
 
             double storageCapacityTiB,
@@ -189,6 +201,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             ClientInfo = clientInfo;
             EncryptionSettings = encryptionSettings;
             FilesystemSubnet = filesystemSubnet;
@@ -200,6 +213,7 @@ namespace Pulumi.AzureNative.StorageCache
             MaintenanceWindow = maintenanceWindow;
             Name = name;
             ProvisioningState = provisioningState;
+            RootSquashSettings = rootSquashSettings;
             Sku = sku;
             StorageCapacityTiB = storageCapacityTiB;
             SystemData = systemData;

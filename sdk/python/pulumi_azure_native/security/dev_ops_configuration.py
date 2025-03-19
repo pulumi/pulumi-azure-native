@@ -84,9 +84,7 @@ class DevOpsConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         DevOps Configuration resource.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-04-01, 2024-05-15-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,9 +100,7 @@ class DevOpsConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         DevOps Configuration resource.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-04-01, 2024-05-15-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DevOpsConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -140,10 +136,11 @@ class DevOpsConfiguration(pulumi.CustomResource):
             if security_connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_connector_name'")
             __props__.__dict__["security_connector_name"] = security_connector_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230901preview:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240401:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240515preview:DevOpsConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230901preview:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240401:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240515preview:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20250301:DevOpsConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevOpsConfiguration, __self__).__init__(
             'azure-native:security:DevOpsConfiguration',
@@ -167,11 +164,20 @@ class DevOpsConfiguration(pulumi.CustomResource):
 
         __props__ = DevOpsConfigurationArgs.__new__(DevOpsConfigurationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DevOpsConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

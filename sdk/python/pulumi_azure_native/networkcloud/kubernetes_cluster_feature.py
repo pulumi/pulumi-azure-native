@@ -133,9 +133,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2024-06-01-preview.
-
-        Other available API versions: 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  args: KubernetesClusterFeatureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2024-06-01-preview.
-
-        Other available API versions: 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterFeatureArgs args: The arguments to use to populate this resource's properties.
@@ -198,15 +194,17 @@ class KubernetesClusterFeature(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["availability_lifecycle"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["required"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:KubernetesClusterFeature"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:KubernetesClusterFeature"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:KubernetesClusterFeature")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:KubernetesClusterFeature"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:KubernetesClusterFeature"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:KubernetesClusterFeature"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:KubernetesClusterFeature")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubernetesClusterFeature, __self__).__init__(
             'azure-native:networkcloud:KubernetesClusterFeature',
@@ -231,8 +229,10 @@ class KubernetesClusterFeature(pulumi.CustomResource):
         __props__ = KubernetesClusterFeatureArgs.__new__(KubernetesClusterFeatureArgs)
 
         __props__.__dict__["availability_lifecycle"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["options"] = None
@@ -253,6 +253,14 @@ class KubernetesClusterFeature(pulumi.CustomResource):
         return pulumi.get(self, "availability_lifecycle")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="detailedStatus")
     def detailed_status(self) -> pulumi.Output[str]:
         """
@@ -267,6 +275,14 @@ class KubernetesClusterFeature(pulumi.CustomResource):
         The descriptive message for the detailed status of the feature.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

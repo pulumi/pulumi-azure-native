@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account partner.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-    /// 
-    /// Other available API versions: 2015-08-01-preview.
+    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountPartner")]
     public partial class IntegrationAccountPartner : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The changed time.
         /// </summary>
@@ -99,6 +103,7 @@ namespace Pulumi.AzureNative.Logic
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountPartner" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountPartner" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Partner" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountPartner" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountPartner" },
                 },

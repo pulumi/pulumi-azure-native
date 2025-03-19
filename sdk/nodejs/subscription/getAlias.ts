@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Alias Subscription.
- * Azure REST API version: 2021-10-01.
- *
- * Other available API versions: 2020-09-01, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +29,10 @@ export interface GetAliasArgs {
  * Subscription Information with the alias.
  */
 export interface GetAliasResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified ID for the alias resource.
      */
@@ -54,9 +56,7 @@ export interface GetAliasResult {
 }
 /**
  * Get Alias Subscription.
- * Azure REST API version: 2021-10-01.
- *
- * Other available API versions: 2020-09-01, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview.
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

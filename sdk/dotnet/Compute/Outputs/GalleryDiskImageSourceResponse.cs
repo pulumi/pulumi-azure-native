@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class GalleryDiskImageSourceResponse
     {
         /// <summary>
-        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        /// The id of the gallery artifact version source.
         /// </summary>
         public readonly string? Id;
         /// <summary>

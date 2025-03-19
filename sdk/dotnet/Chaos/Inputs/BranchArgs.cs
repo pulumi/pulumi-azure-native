@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
 {
 
     /// <summary>
-    /// Model that represents a branch in the step.
+    /// Model that represents a branch in the step. 9 total per experiment.
     /// </summary>
     public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {

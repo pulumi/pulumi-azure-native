@@ -7,6 +7,125 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.Databricks
 {
+    [EnumType]
+    public readonly struct AutomaticClusterUpdateValue : IEquatable<AutomaticClusterUpdateValue>
+    {
+        private readonly string _value;
+
+        private AutomaticClusterUpdateValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomaticClusterUpdateValue Enabled { get; } = new AutomaticClusterUpdateValue("Enabled");
+        public static AutomaticClusterUpdateValue Disabled { get; } = new AutomaticClusterUpdateValue("Disabled");
+
+        public static bool operator ==(AutomaticClusterUpdateValue left, AutomaticClusterUpdateValue right) => left.Equals(right);
+        public static bool operator !=(AutomaticClusterUpdateValue left, AutomaticClusterUpdateValue right) => !left.Equals(right);
+
+        public static explicit operator string(AutomaticClusterUpdateValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomaticClusterUpdateValue other && Equals(other);
+        public bool Equals(AutomaticClusterUpdateValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ComplianceSecurityProfileValue : IEquatable<ComplianceSecurityProfileValue>
+    {
+        private readonly string _value;
+
+        private ComplianceSecurityProfileValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComplianceSecurityProfileValue Enabled { get; } = new ComplianceSecurityProfileValue("Enabled");
+        public static ComplianceSecurityProfileValue Disabled { get; } = new ComplianceSecurityProfileValue("Disabled");
+
+        public static bool operator ==(ComplianceSecurityProfileValue left, ComplianceSecurityProfileValue right) => left.Equals(right);
+        public static bool operator !=(ComplianceSecurityProfileValue left, ComplianceSecurityProfileValue right) => !left.Equals(right);
+
+        public static explicit operator string(ComplianceSecurityProfileValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComplianceSecurityProfileValue other && Equals(other);
+        public bool Equals(ComplianceSecurityProfileValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Compliance standard that can be associated with a workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComplianceStandard : IEquatable<ComplianceStandard>
+    {
+        private readonly string _value;
+
+        private ComplianceStandard(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComplianceStandard NONE { get; } = new ComplianceStandard("NONE");
+        public static ComplianceStandard HIPAA { get; } = new ComplianceStandard("HIPAA");
+        public static ComplianceStandard PCI_DSS { get; } = new ComplianceStandard("PCI_DSS");
+
+        public static bool operator ==(ComplianceStandard left, ComplianceStandard right) => left.Equals(right);
+        public static bool operator !=(ComplianceStandard left, ComplianceStandard right) => !left.Equals(right);
+
+        public static explicit operator string(ComplianceStandard value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComplianceStandard other && Equals(other);
+        public bool Equals(ComplianceStandard other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or Sets Default Storage Firewall configuration information
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultStorageFirewall : IEquatable<DefaultStorageFirewall>
+    {
+        private readonly string _value;
+
+        private DefaultStorageFirewall(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultStorageFirewall Disabled { get; } = new DefaultStorageFirewall("Disabled");
+        public static DefaultStorageFirewall Enabled { get; } = new DefaultStorageFirewall("Enabled");
+
+        public static bool operator ==(DefaultStorageFirewall left, DefaultStorageFirewall right) => left.Equals(right);
+        public static bool operator !=(DefaultStorageFirewall left, DefaultStorageFirewall right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultStorageFirewall value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultStorageFirewall other && Equals(other);
+        public bool Equals(DefaultStorageFirewall other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
     /// </summary>
@@ -30,6 +149,96 @@ namespace Pulumi.AzureNative.Databricks
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionKeySource other && Equals(other);
         public bool Equals(EncryptionKeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EnhancedSecurityMonitoringValue : IEquatable<EnhancedSecurityMonitoringValue>
+    {
+        private readonly string _value;
+
+        private EnhancedSecurityMonitoringValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnhancedSecurityMonitoringValue Enabled { get; } = new EnhancedSecurityMonitoringValue("Enabled");
+        public static EnhancedSecurityMonitoringValue Disabled { get; } = new EnhancedSecurityMonitoringValue("Disabled");
+
+        public static bool operator ==(EnhancedSecurityMonitoringValue left, EnhancedSecurityMonitoringValue right) => left.Equals(right);
+        public static bool operator !=(EnhancedSecurityMonitoringValue left, EnhancedSecurityMonitoringValue right) => !left.Equals(right);
+
+        public static explicit operator string(EnhancedSecurityMonitoringValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnhancedSecurityMonitoringValue other && Equals(other);
+        public bool Equals(EnhancedSecurityMonitoringValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type of the Access Connector Resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+    /// </summary>
+    [EnumType]
+    public readonly struct InitialType : IEquatable<InitialType>
+    {
+        private readonly string _value;
+
+        private InitialType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InitialType HiveMetastore { get; } = new InitialType("HiveMetastore");
+        public static InitialType UnityCatalog { get; } = new InitialType("UnityCatalog");
+
+        public static bool operator ==(InitialType left, InitialType right) => left.Equals(right);
+        public static bool operator !=(InitialType left, InitialType right) => !left.Equals(right);
+
+        public static explicit operator string(InitialType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InitialType other && Equals(other);
+        public bool Equals(InitialType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

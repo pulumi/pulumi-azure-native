@@ -40,6 +40,10 @@ export interface GetLinkedServiceArgs {
  */
 export interface GetLinkedServiceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ResourceId of the link of the linked service.
      */
     readonly id: string;

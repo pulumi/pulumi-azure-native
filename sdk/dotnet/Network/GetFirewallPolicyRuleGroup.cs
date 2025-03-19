@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetFirewallPolicyRuleGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetFirewallPolicyRuleGroupResult(
+            string azureApiVersion,
+
             string etag,
 
             string? id,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

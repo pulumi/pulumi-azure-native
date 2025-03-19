@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The underlying cloud infra provider properties.
         /// </summary>
         public readonly Outputs.CloudProviderProfileResponse? CloudProviderProfile;
@@ -173,6 +177,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         private GetAgentPoolResult(
             ImmutableArray<string> availabilityZones,
 
+            string azureApiVersion,
+
             Outputs.CloudProviderProfileResponse? cloudProviderProfile,
 
             int? count,
@@ -214,6 +220,7 @@ namespace Pulumi.AzureNative.HybridContainerService
             string? vmSize)
         {
             AvailabilityZones = availabilityZones;
+            AzureApiVersion = azureApiVersion;
             CloudProviderProfile = cloudProviderProfile;
             Count = count;
             ExtendedLocation = extendedLocation;

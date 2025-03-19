@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// The device Configuration of a device.
+    /// The device Configuration for edge device.
     /// </summary>
     public sealed class DeviceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// device metadata details.
+        /// Device metadata details.
         /// </summary>
         [Input("deviceMetadata")]
         public Input<string>? DeviceMetadata { get; set; }
 
-        [Input("nicDetails", required: true)]
+        [Input("nicDetails")]
         private InputList<Inputs.NicDetailArgs>? _nicDetails;
 
         /// <summary>

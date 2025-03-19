@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     {
         public readonly Outputs.SqlServerDatabaseResourcePropertiesResponseBackupInformation? BackupInformation;
         /// <summary>
+        /// The backup profile for the SQL server.
+        /// </summary>
+        public readonly Outputs.BackupPolicyResponse? BackupPolicy;
+        /// <summary>
         /// Collation of the database.
         /// </summary>
         public readonly string? CollationName;
@@ -25,6 +29,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// Compatibility level of the database
         /// </summary>
         public readonly int? CompatibilityLevel;
+        /// <summary>
+        /// Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        /// </summary>
+        public readonly string? CreateMode;
         /// <summary>
         /// Creation date of the database.
         /// </summary>
@@ -34,9 +42,17 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly Outputs.SqlServerDatabaseResourcePropertiesResponseDatabaseOptions? DatabaseOptions;
         /// <summary>
+        /// This records the earliest start date and time that restore is available for this database (ISO8601 format).
+        /// </summary>
+        public readonly string EarliestRestoreDate;
+        /// <summary>
         /// Whether the database is read only or not.
         /// </summary>
         public readonly bool? IsReadOnly;
+        /// <summary>
+        /// The time when last successful database upload was performed.
+        /// </summary>
+        public readonly string LastDatabaseUploadTime;
         /// <summary>
         /// The provisioning state of the Arc-enabled SQL Server database resource.
         /// </summary>
@@ -46,9 +62,17 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? RecoveryMode;
         /// <summary>
+        /// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        /// </summary>
+        public readonly string? RestorePointInTime;
+        /// <summary>
         /// Size of the database.
         /// </summary>
         public readonly double? SizeMB;
+        /// <summary>
+        /// The resource identifier of the source database associated with create operation of this database.
+        /// </summary>
+        public readonly string? SourceDatabaseId;
         /// <summary>
         /// Space left of the database.
         /// </summary>
@@ -62,35 +86,53 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         private SqlServerDatabaseResourcePropertiesResponse(
             Outputs.SqlServerDatabaseResourcePropertiesResponseBackupInformation? backupInformation,
 
+            Outputs.BackupPolicyResponse? backupPolicy,
+
             string? collationName,
 
             int? compatibilityLevel,
+
+            string? createMode,
 
             string? databaseCreationDate,
 
             Outputs.SqlServerDatabaseResourcePropertiesResponseDatabaseOptions? databaseOptions,
 
+            string earliestRestoreDate,
+
             bool? isReadOnly,
+
+            string lastDatabaseUploadTime,
 
             string provisioningState,
 
             string? recoveryMode,
 
+            string? restorePointInTime,
+
             double? sizeMB,
+
+            string? sourceDatabaseId,
 
             double? spaceAvailableMB,
 
             string? state)
         {
             BackupInformation = backupInformation;
+            BackupPolicy = backupPolicy;
             CollationName = collationName;
             CompatibilityLevel = compatibilityLevel;
+            CreateMode = createMode;
             DatabaseCreationDate = databaseCreationDate;
             DatabaseOptions = databaseOptions;
+            EarliestRestoreDate = earliestRestoreDate;
             IsReadOnly = isReadOnly;
+            LastDatabaseUploadTime = lastDatabaseUploadTime;
             ProvisioningState = provisioningState;
             RecoveryMode = recoveryMode;
+            RestorePointInTime = restorePointInTime;
             SizeMB = sizeMB;
+            SourceDatabaseId = sourceDatabaseId;
             SpaceAvailableMB = spaceAvailableMB;
             State = state;
         }

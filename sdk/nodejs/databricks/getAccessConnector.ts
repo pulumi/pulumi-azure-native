@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets an azure databricks accessConnector.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+ * Gets an Azure Databricks Access Connector.
+ * Azure REST API version: 2024-05-01.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +21,7 @@ export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.I
 
 export interface GetAccessConnectorArgs {
     /**
-     * The name of the azure databricks accessConnector.
+     * The name of the Azure Databricks Access Connector.
      */
     connectorName: string;
     /**
@@ -33,9 +31,13 @@ export interface GetAccessConnectorArgs {
 }
 
 /**
- * Information about azure databricks accessConnector.
+ * Information about Azure Databricks Access Connector.
  */
 export interface GetAccessConnectorResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -53,7 +55,7 @@ export interface GetAccessConnectorResult {
      */
     readonly name: string;
     /**
-     * Azure Databricks accessConnector properties
+     * Azure Databricks Access Connector properties
      */
     readonly properties: outputs.databricks.AccessConnectorPropertiesResponse;
     /**
@@ -70,10 +72,8 @@ export interface GetAccessConnectorResult {
     readonly type: string;
 }
 /**
- * Gets an azure databricks accessConnector.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+ * Gets an Azure Databricks Access Connector.
+ * Azure REST API version: 2024-05-01.
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,7 +85,7 @@ export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opt
 
 export interface GetAccessConnectorOutputArgs {
     /**
-     * The name of the azure databricks accessConnector.
+     * The name of the Azure Databricks Access Connector.
      */
     connectorName: pulumi.Input<string>;
     /**

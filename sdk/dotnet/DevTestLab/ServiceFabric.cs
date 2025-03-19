@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// A Service Fabric.
-    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ServiceFabric")]
     public partial class ServiceFabric : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("applicableSchedule")]
         public Output<Outputs.ApplicableScheduleResponse> ApplicableSchedule { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource id of the environment under which the service fabric resource is present

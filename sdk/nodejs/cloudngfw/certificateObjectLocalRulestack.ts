@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * LocalRulestack Certificate Object
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
      * comment for this object
      */
     public readonly auditComment!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * use certificate self signed
      */
@@ -104,12 +106,14 @@ export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
             resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["auditComment"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certificateSelfSigned"] = undefined /*out*/;
             resourceInputs["certificateSignerResourceId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

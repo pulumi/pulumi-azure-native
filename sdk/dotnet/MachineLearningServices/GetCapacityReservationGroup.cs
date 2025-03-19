@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Task<GetCapacityReservationGroupResult> InvokeAsync(GetCapacityReservationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationGroupResult>("azure-native:machinelearningservices:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:machinelearningservices:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:machinelearningservices:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
@@ -42,6 +36,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
     public sealed class GetCapacityReservationGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Group ID
+        /// </summary>
         [Input("groupId", required: true)]
         public string GroupId { get; set; } = null!;
 
@@ -59,6 +56,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
     public sealed class GetCapacityReservationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Group ID
+        /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     [OutputType]
     public sealed class GetCapacityReservationGroupResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetCapacityReservationGroupResult(
+            string azureApiVersion,
+
             Outputs.CapacityReservationGroupResponse capacityReservationGroupProperties,
 
             string id,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CapacityReservationGroupProperties = capacityReservationGroupProperties;
             Id = id;
             Identity = identity;

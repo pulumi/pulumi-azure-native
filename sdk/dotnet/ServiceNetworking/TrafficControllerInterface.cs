@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
-    /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    /// Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:TrafficControllerInterface")]
     public partial class TrafficControllerInterface : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         [Output("associations")]
         public Output<ImmutableArray<Outputs.ResourceIdResponse>> Associations { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration Endpoints.
@@ -53,6 +57,18 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Security Policies References List
+        /// </summary>
+        [Output("securityPolicies")]
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> SecurityPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Security Policy Configuration
+        /// </summary>
+        [Output("securityPolicyConfigurations")]
+        public Output<Outputs.SecurityPolicyConfigurationsResponse?> SecurityPolicyConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -102,6 +118,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:TrafficControllerInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,6 +153,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Security Policy Configuration
+        /// </summary>
+        [Input("securityPolicyConfigurations")]
+        public Input<Inputs.SecurityPolicyConfigurationsArgs>? SecurityPolicyConfigurations { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// Get the Domains resource and its properties.
-        /// Azure REST API version: 2023-03-31.
-        /// 
-        /// Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Domains resource and its properties.
-        /// Azure REST API version: 2023-03-31.
-        /// 
-        /// Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Domains resource and its properties.
-        /// Azure REST API version: 2023-03-31.
-        /// 
-        /// Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Communication
     public sealed class GetDomainResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The location where the Domains resource data is stored at rest.
         /// </summary>
         public readonly string DataLocation;
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.Communication
 
         [OutputConstructor]
         private GetDomainResult(
+            string azureApiVersion,
+
             string dataLocation,
 
             string domainManagement,
@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.Communication
 
             Outputs.DomainPropertiesResponseVerificationStates verificationStates)
         {
+            AzureApiVersion = azureApiVersion;
             DataLocation = dataLocation;
             DomainManagement = domainManagement;
             FromSenderDomain = fromSenderDomain;

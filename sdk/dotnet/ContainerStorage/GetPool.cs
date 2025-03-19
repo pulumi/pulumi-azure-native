@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// </summary>
         public readonly ImmutableArray<Outputs.AssignmentResponse> Assignments;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         private GetPoolResult(
             ImmutableArray<Outputs.AssignmentResponse> assignments,
 
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.ContainerStorage
             ImmutableArray<string> zones)
         {
             Assignments = assignments;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

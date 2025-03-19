@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Connector definition for kind 'Customizable'.
-    /// Azure REST API version: 2023-07-01-preview.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:CustomizableConnectorDefinition")]
     public partial class CustomizableConnectorDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The UiConfig for 'Customizable' connector definition kind.
         /// </summary>
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:CustomizableConnectorDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:CustomizableConnectorDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:CustomizableConnectorDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:CustomizableConnectorDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

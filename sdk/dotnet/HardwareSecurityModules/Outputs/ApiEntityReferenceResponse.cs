@@ -17,14 +17,14 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.Outputs
     public sealed class ApiEntityReferenceResponse
     {
         /// <summary>
-        /// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        /// The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         /// </summary>
-        public readonly string? Id;
+        public readonly string? ResourceId;
 
         [OutputConstructor]
-        private ApiEntityReferenceResponse(string? id)
+        private ApiEntityReferenceResponse(string? resourceId)
         {
-            Id = id;
+            ResourceId = resourceId;
         }
     }
 }

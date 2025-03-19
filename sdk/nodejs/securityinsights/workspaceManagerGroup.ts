@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The workspace manager group
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class WorkspaceManagerGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WorkspaceManagerGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceManagerGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The description of the workspace manager group
      */
@@ -98,11 +100,13 @@ export class WorkspaceManagerGroup extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceManagerGroupName"] = args ? args.workspaceManagerGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

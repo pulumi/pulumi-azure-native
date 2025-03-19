@@ -135,9 +135,7 @@ class Gateway(pulumi.CustomResource):
                  __props__=None):
         """
         Describes an Arc Gateway.
-        Azure REST API version: 2024-03-31-preview.
-
-        Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2024-03-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an Arc Gateway.
-        Azure REST API version: 2024-03-31-preview.
-
-        Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2024-03-31-preview.
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -198,13 +194,14 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["gateway_endpoint"] = None
             __props__.__dict__["gateway_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:hybridcompute:Gateway',
@@ -229,6 +226,7 @@ class Gateway(pulumi.CustomResource):
         __props__ = GatewayArgs.__new__(GatewayArgs)
 
         __props__.__dict__["allowed_features"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["gateway_endpoint"] = None
         __props__.__dict__["gateway_id"] = None
         __props__.__dict__["gateway_type"] = None
@@ -247,6 +245,14 @@ class Gateway(pulumi.CustomResource):
         Specifies the list of features that are enabled for this Gateway.
         """
         return pulumi.get(self, "allowed_features")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="gatewayEndpoint")

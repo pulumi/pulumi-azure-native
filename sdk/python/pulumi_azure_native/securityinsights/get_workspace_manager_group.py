@@ -27,7 +27,10 @@ class GetWorkspaceManagerGroupResult:
     """
     The workspace manager group
     """
-    def __init__(__self__, description=None, display_name=None, etag=None, id=None, member_resource_names=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, etag=None, id=None, member_resource_names=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -52,6 +55,14 @@ class GetWorkspaceManagerGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -81,7 +92,7 @@ class GetWorkspaceManagerGroupResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -124,6 +135,7 @@ class AwaitableGetWorkspaceManagerGroupResult(GetWorkspaceManagerGroupResult):
         if False:
             yield self
         return GetWorkspaceManagerGroupResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
@@ -140,9 +152,7 @@ def get_workspace_manager_group(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceManagerGroupResult:
     """
     Gets a workspace manager group
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -157,6 +167,7 @@ def get_workspace_manager_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getWorkspaceManagerGroup', __args__, opts=opts, typ=GetWorkspaceManagerGroupResult).value
 
     return AwaitableGetWorkspaceManagerGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -171,9 +182,7 @@ def get_workspace_manager_group_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceManagerGroupResult]:
     """
     Gets a workspace manager group
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -187,6 +196,7 @@ def get_workspace_manager_group_output(resource_group_name: Optional[pulumi.Inpu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getWorkspaceManagerGroup', __args__, opts=opts, typ=GetWorkspaceManagerGroupResult)
     return __ret__.apply(lambda __response__: GetWorkspaceManagerGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         etag=pulumi.get(__response__, 'etag'),

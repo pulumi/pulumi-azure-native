@@ -25,6 +25,7 @@ __all__ = [
     'KeyVaultPropertiesResponse',
     'LogAnalyticsQueryPackQueryPropertiesResponseRelated',
     'MachineReferenceWithHintsResponse',
+    'ManagedServiceIdentityResponse',
     'PrivateLinkScopedResourceResponse',
     'RestoredLogsResponse',
     'ResultStatisticsResponse',
@@ -34,6 +35,7 @@ __all__ = [
     'StorageInsightStatusResponse',
     'SystemDataResponse',
     'TagResponse',
+    'UserAssignedIdentityResponse',
     'UserIdentityPropertiesResponse',
     'WorkspaceCappingResponse',
     'WorkspaceFeaturesResponse',
@@ -76,9 +78,9 @@ class AssociatedWorkspaceResponse(dict):
         """
         The list of Log Analytics workspaces associated with the cluster.
         :param str associate_date: The time of workspace association.
-        :param str resource_id: The ResourceId id the assigned workspace.
-        :param str workspace_id: The id of the assigned workspace.
-        :param str workspace_name: The name id the assigned workspace.
+        :param str resource_id: Associated workspace arm resource id, in the form of: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}.
+        :param str workspace_id: Associated workspace immutable id.
+        :param str workspace_name: Associated workspace resource name.
         """
         pulumi.set(__self__, "associate_date", associate_date)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -97,7 +99,7 @@ class AssociatedWorkspaceResponse(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
         """
-        The ResourceId id the assigned workspace.
+        Associated workspace arm resource id, in the form of: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}.
         """
         return pulumi.get(self, "resource_id")
 
@@ -105,7 +107,7 @@ class AssociatedWorkspaceResponse(dict):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> str:
         """
-        The id of the assigned workspace.
+        Associated workspace immutable id.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -113,7 +115,7 @@ class AssociatedWorkspaceResponse(dict):
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> str:
         """
-        The name id the assigned workspace.
+        Associated workspace resource name.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -148,7 +150,7 @@ class CapacityReservationPropertiesResponse(dict):
         """
         The Capacity Reservation properties.
         :param str last_sku_update: The last time Sku was updated.
-        :param float min_capacity: Minimum CapacityReservation value in GB.
+        :param float min_capacity: Minimum CapacityReservation value in Gigabytes.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -165,7 +167,7 @@ class CapacityReservationPropertiesResponse(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> float:
         """
-        Minimum CapacityReservation value in GB.
+        Minimum CapacityReservation value in Gigabytes.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -180,8 +182,8 @@ class ClusterSkuResponse(dict):
                  name: Optional[str] = None):
         """
         The cluster sku definition.
-        :param float capacity: The capacity value
-        :param str name: The name of the SKU.
+        :param float capacity: The capacity reservation level in Gigabytes for this cluster.
+        :param str name: The SKU (tier) of a cluster.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -192,7 +194,7 @@ class ClusterSkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[float]:
         """
-        The capacity value
+        The capacity reservation level in Gigabytes for this cluster.
         """
         return pulumi.get(self, "capacity")
 
@@ -200,7 +202,7 @@ class ClusterSkuResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the SKU.
+        The SKU (tier) of a cluster.
         """
         return pulumi.get(self, "name")
 
@@ -640,6 +642,83 @@ class MachineReferenceWithHintsResponse(dict):
         Resource type qualifier.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -1326,6 +1405,58 @@ class TagResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class UserIdentityPropertiesResponse(dict):
     """
     User assigned identity properties.
@@ -1451,7 +1582,9 @@ class WorkspaceFeaturesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clusterResourceId":
+        if key == "unifiedSentinelBillingOnly":
+            suggest = "unified_sentinel_billing_only"
+        elif key == "clusterResourceId":
             suggest = "cluster_resource_id"
         elif key == "disableLocalAuth":
             suggest = "disable_local_auth"
@@ -1474,6 +1607,7 @@ class WorkspaceFeaturesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 unified_sentinel_billing_only: bool,
                  cluster_resource_id: Optional[str] = None,
                  disable_local_auth: Optional[bool] = None,
                  enable_data_export: Optional[bool] = None,
@@ -1481,12 +1615,14 @@ class WorkspaceFeaturesResponse(dict):
                  immediate_purge_data_on30_days: Optional[bool] = None):
         """
         Workspace features.
+        :param bool unified_sentinel_billing_only: An indication if the specify workspace is limited to sentinel's unified billing model only.
         :param str cluster_resource_id: Dedicated LA cluster resourceId that is linked to the workspaces.
         :param bool disable_local_auth: Disable Non-AAD based Auth.
         :param bool enable_data_export: Flag that indicate if data should be exported.
         :param bool enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
         :param bool immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
         """
+        pulumi.set(__self__, "unified_sentinel_billing_only", unified_sentinel_billing_only)
         if cluster_resource_id is not None:
             pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         if disable_local_auth is not None:
@@ -1497,6 +1633,14 @@ class WorkspaceFeaturesResponse(dict):
             pulumi.set(__self__, "enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
         if immediate_purge_data_on30_days is not None:
             pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+
+    @property
+    @pulumi.getter(name="unifiedSentinelBillingOnly")
+    def unified_sentinel_billing_only(self) -> bool:
+        """
+        An indication if the specify workspace is limited to sentinel's unified billing model only.
+        """
+        return pulumi.get(self, "unified_sentinel_billing_only")
 
     @property
     @pulumi.getter(name="clusterResourceId")

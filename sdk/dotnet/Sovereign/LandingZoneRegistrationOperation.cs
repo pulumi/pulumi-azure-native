@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Sovereign
 {
     /// <summary>
     /// The Landing zone registration resource type.
-    /// Azure REST API version: 2025-02-27-preview.
+    /// Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign:LandingZoneRegistrationOperation")]
     public partial class LandingZoneRegistrationOperation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

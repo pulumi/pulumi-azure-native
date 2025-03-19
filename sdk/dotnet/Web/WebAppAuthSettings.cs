@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : global::Pulumi.CustomResource
@@ -53,6 +51,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("authFilePath")]
         public Output<string?> AuthFilePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Client ID of this relying party application, known as the client_id.
@@ -204,7 +208,7 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
         /// This URI is a case-sensitive identifier for the token issuer.
         /// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         /// </summary>
@@ -604,7 +608,7 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
         /// This URI is a case-sensitive identifier for the token issuer.
         /// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         /// </summary>

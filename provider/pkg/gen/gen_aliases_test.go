@@ -31,7 +31,7 @@ func TestAliasesGen(t *testing.T) {
 	}
 
 	t.Run("v2", func(t *testing.T) {
-		generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("2.0.0"))
+		generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("2.0.0"), false /* onlyExplicitVersions */)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -50,7 +50,7 @@ func TestAliasesGen(t *testing.T) {
 				"azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
 			},
 		}
-		generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"))
+		generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"), false /* onlyExplicitVersions */)
 		if err != nil {
 			t.Fatal(err)
 		}

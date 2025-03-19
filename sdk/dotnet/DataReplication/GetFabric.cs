@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.DataReplication
     public sealed class GetFabricResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the Id of the resource.
         /// </summary>
         public readonly string Id;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNative.DataReplication
 
         [OutputConstructor]
         private GetFabricResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.DataReplication
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

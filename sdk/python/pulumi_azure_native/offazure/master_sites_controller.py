@@ -175,9 +175,7 @@ class MasterSitesController(pulumi.CustomResource):
                  __props__=None):
         """
         A MasterSite
-        Azure REST API version: 2023-06-06.
-
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,9 +199,7 @@ class MasterSitesController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A MasterSite
-        Azure REST API version: 2023-06-06.
-
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
 
         :param str resource_name: The name of the resource.
         :param MasterSitesControllerArgs args: The arguments to use to populate this resource's properties.
@@ -247,6 +243,7 @@ class MasterSitesController(pulumi.CustomResource):
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["sites"] = sites
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["nested_sites"] = None
             __props__.__dict__["private_endpoint_connections"] = None
@@ -278,6 +275,7 @@ class MasterSitesController(pulumi.CustomResource):
         __props__ = MasterSitesControllerArgs.__new__(MasterSitesControllerArgs)
 
         __props__.__dict__["allow_multiple_sites"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["customer_storage_account_arm_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -299,6 +297,14 @@ class MasterSitesController(pulumi.CustomResource):
         allowed.
         """
         return pulumi.get(self, "allow_multiple_sites")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerStorageAccountArmId")

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Instance broker resource
- * Azure REST API version: 2024-07-01-preview.
- *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2024-07-01-preview.
  */
 export class Broker extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Broker extends pulumi.CustomResource {
         return obj['__pulumiType'] === Broker.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Edge location of the resource.
      */
@@ -86,10 +88,12 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.brokerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -97,7 +101,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:Broker" }, { type: "azure-native:iotoperations/v20240815preview:Broker" }, { type: "azure-native:iotoperations/v20240915preview:Broker" }, { type: "azure-native:iotoperations/v20241101:Broker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:Broker" }, { type: "azure-native:iotoperations/v20240815preview:Broker" }, { type: "azure-native:iotoperations/v20240915preview:Broker" }, { type: "azure-native:iotoperations/v20241101:Broker" }, { type: "azure-native:iotoperations/v20250401:Broker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Broker.__pulumiType, name, resourceInputs, opts);
     }

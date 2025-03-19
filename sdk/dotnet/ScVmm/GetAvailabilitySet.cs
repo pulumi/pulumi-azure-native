@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements AvailabilitySet GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:scvmm:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements AvailabilitySet GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:scvmm:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements AvailabilitySet GET method.
-        /// Azure REST API version: 2022-05-21-preview.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:scvmm:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string? AvailabilitySetName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -129,6 +127,8 @@ namespace Pulumi.AzureNative.ScVmm
         private GetAvailabilitySetResult(
             string? availabilitySetName,
 
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.ScVmm
             string? vmmServerId)
         {
             AvailabilitySetName = availabilitySetName;
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

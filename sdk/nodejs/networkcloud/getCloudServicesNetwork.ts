@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided cloud services network.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getCloudServicesNetwork(args: GetCloudServicesNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServicesNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +46,10 @@ export interface GetCloudServicesNetworkResult {
      */
     readonly associatedResourceIds: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID of the Network Cloud cluster this cloud services network is associated with.
      */
     readonly clusterId: string;
@@ -67,6 +69,10 @@ export interface GetCloudServicesNetworkResult {
      * The full list of additional and default egress endpoints that are currently enabled.
      */
     readonly enabledEgressEndpoints: outputs.networkcloud.EgressEndpointResponse[];
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -114,9 +120,7 @@ export interface GetCloudServicesNetworkResult {
 }
 /**
  * Get properties of the provided cloud services network.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2025-02-01.
  */
 export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudServicesNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -51,7 +51,7 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[Union[str, 'LoadBalancingMode']] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
         :param pulumi.Input[str] name: Name of the App Service Environment.
@@ -210,7 +210,7 @@ class AppServiceEnvironmentArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -341,9 +341,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  __props__=None):
         """
         App Service Environment ARM resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,7 +352,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[Union[str, 'LoadBalancingMode']] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
         :param pulumi.Input[str] name: Name of the App Service Environment.
@@ -374,9 +372,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App Service Environment ARM resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -444,6 +440,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_network'")
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["has_linux_workers"] = None
             __props__.__dict__["maximum_number_of_machines"] = None
             __props__.__dict__["multi_role_count"] = None
@@ -476,6 +473,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
         __props__ = AppServiceEnvironmentArgs.__new__(AppServiceEnvironmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_settings"] = None
         __props__.__dict__["custom_dns_suffix_configuration"] = None
         __props__.__dict__["dedicated_host_count"] = None
@@ -502,6 +500,14 @@ class AppServiceEnvironment(pulumi.CustomResource):
         __props__.__dict__["virtual_network"] = None
         __props__.__dict__["zone_redundant"] = None
         return AppServiceEnvironment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterSettings")
@@ -571,7 +577,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

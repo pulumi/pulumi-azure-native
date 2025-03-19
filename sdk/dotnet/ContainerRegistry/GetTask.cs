@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the properties of a specified task.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the properties of a specified task.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the properties of a specified task.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
@@ -104,6 +98,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The dedicated agent pool for the task.
         /// </summary>
         public readonly string? AgentPoolName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The creation date of task.
         /// </summary>
@@ -179,6 +177,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string? agentPoolName,
 
+            string azureApiVersion,
+
             string creationDate,
 
             Outputs.CredentialsResponse? credentials,
@@ -215,6 +215,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         {
             AgentConfiguration = agentConfiguration;
             AgentPoolName = agentPoolName;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             Credentials = credentials;
             Id = id;

@@ -39,6 +39,18 @@ namespace Pulumi.AzureNative.Cloudngfw.Inputs
         [Input("networkType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cloudngfw.NetworkType> NetworkType { get; set; } = null!;
 
+        [Input("privateSourceNatRulesDestination")]
+        private InputList<string>? _privateSourceNatRulesDestination;
+
+        /// <summary>
+        /// Array of ipv4 destination address for which source NAT is to be performed
+        /// </summary>
+        public InputList<string> PrivateSourceNatRulesDestination
+        {
+            get => _privateSourceNatRulesDestination ?? (_privateSourceNatRulesDestination = new InputList<string>());
+            set => _privateSourceNatRulesDestination = value;
+        }
+
         [Input("publicIps", required: true)]
         private InputList<Inputs.IPAddressArgs>? _publicIps;
 

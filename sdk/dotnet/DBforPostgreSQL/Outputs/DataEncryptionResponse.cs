@@ -11,33 +11,65 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Data encryption properties of a server
+    /// The data encryption properties of a cluster.
     /// </summary>
     [OutputType]
     public sealed class DataEncryptionResponse
     {
         /// <summary>
-        /// URI for the key for data encryption for primary server.
+        /// Geo-backup encryption key status for Data encryption enabled server.
+        /// </summary>
+        public readonly string? GeoBackupEncryptionKeyStatus;
+        /// <summary>
+        /// URI for the key in keyvault for data encryption for geo-backup of server.
+        /// </summary>
+        public readonly string? GeoBackupKeyURI;
+        /// <summary>
+        /// Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
+        /// </summary>
+        public readonly string? GeoBackupUserAssignedIdentityId;
+        /// <summary>
+        /// Primary encryption key status for Data encryption enabled server.
+        /// </summary>
+        public readonly string? PrimaryEncryptionKeyStatus;
+        /// <summary>
+        /// URI for the key in keyvault for data encryption of the primary server.
         /// </summary>
         public readonly string? PrimaryKeyURI;
         /// <summary>
-        /// Resource Id for the User assigned identity to be used for data encryption for primary server.
+        /// URI for the key in keyvault for data encryption of the primary server.
+        /// </summary>
+        public readonly string? PrimaryKeyUri;
+        /// <summary>
+        /// Resource Id for the User assigned identity to be used for data encryption of the primary server.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
-        /// <summary>
-        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
         private DataEncryptionResponse(
+            string? geoBackupEncryptionKeyStatus,
+
+            string? geoBackupKeyURI,
+
+            string? geoBackupUserAssignedIdentityId,
+
+            string? primaryEncryptionKeyStatus,
+
             string? primaryKeyURI,
+
+            string? primaryKeyUri,
 
             string? primaryUserAssignedIdentityId,
 
             string? type)
         {
+            GeoBackupEncryptionKeyStatus = geoBackupEncryptionKeyStatus;
+            GeoBackupKeyURI = geoBackupKeyURI;
+            GeoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
+            PrimaryEncryptionKeyStatus = primaryEncryptionKeyStatus;
             PrimaryKeyURI = primaryKeyURI;
+            PrimaryKeyUri = primaryKeyUri;
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             Type = type;
         }

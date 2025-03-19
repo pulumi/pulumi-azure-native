@@ -24,13 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetInferenceGroupStatusResult:
-    def __init__(__self__, actual_capacity_info=None, bonus_extra_capacity=None, endpoint_count=None, requested_capacity=None):
+    def __init__(__self__, actual_capacity_info=None, endpoint_count=None, requested_capacity=None):
         if actual_capacity_info and not isinstance(actual_capacity_info, dict):
             raise TypeError("Expected argument 'actual_capacity_info' to be a dict")
         pulumi.set(__self__, "actual_capacity_info", actual_capacity_info)
-        if bonus_extra_capacity and not isinstance(bonus_extra_capacity, int):
-            raise TypeError("Expected argument 'bonus_extra_capacity' to be a int")
-        pulumi.set(__self__, "bonus_extra_capacity", bonus_extra_capacity)
         if endpoint_count and not isinstance(endpoint_count, int):
             raise TypeError("Expected argument 'endpoint_count' to be a int")
         pulumi.set(__self__, "endpoint_count", endpoint_count)
@@ -45,14 +42,6 @@ class GetInferenceGroupStatusResult:
         Gets or sets the actual capacity info for the group.
         """
         return pulumi.get(self, "actual_capacity_info")
-
-    @property
-    @pulumi.getter(name="bonusExtraCapacity")
-    def bonus_extra_capacity(self) -> Optional[int]:
-        """
-        Gets or sets capacity used from the pool's reserved capacity.
-        """
-        return pulumi.get(self, "bonus_extra_capacity")
 
     @property
     @pulumi.getter(name="endpointCount")
@@ -78,7 +67,6 @@ class AwaitableGetInferenceGroupStatusResult(GetInferenceGroupStatusResult):
             yield self
         return GetInferenceGroupStatusResult(
             actual_capacity_info=self.actual_capacity_info,
-            bonus_extra_capacity=self.bonus_extra_capacity,
             endpoint_count=self.endpoint_count,
             requested_capacity=self.requested_capacity)
 
@@ -89,9 +77,7 @@ def get_inference_group_status(group_name: Optional[str] = None,
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceGroupStatusResult:
     """
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str group_name: InferenceGroup name.
@@ -109,7 +95,6 @@ def get_inference_group_status(group_name: Optional[str] = None,
 
     return AwaitableGetInferenceGroupStatusResult(
         actual_capacity_info=pulumi.get(__ret__, 'actual_capacity_info'),
-        bonus_extra_capacity=pulumi.get(__ret__, 'bonus_extra_capacity'),
         endpoint_count=pulumi.get(__ret__, 'endpoint_count'),
         requested_capacity=pulumi.get(__ret__, 'requested_capacity'))
 def get_inference_group_status_output(group_name: Optional[pulumi.Input[str]] = None,
@@ -118,9 +103,7 @@ def get_inference_group_status_output(group_name: Optional[pulumi.Input[str]] = 
                                       workspace_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceGroupStatusResult]:
     """
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str group_name: InferenceGroup name.
@@ -137,6 +120,5 @@ def get_inference_group_status_output(group_name: Optional[pulumi.Input[str]] = 
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getInferenceGroupStatus', __args__, opts=opts, typ=GetInferenceGroupStatusResult)
     return __ret__.apply(lambda __response__: GetInferenceGroupStatusResult(
         actual_capacity_info=pulumi.get(__response__, 'actual_capacity_info'),
-        bonus_extra_capacity=pulumi.get(__response__, 'bonus_extra_capacity'),
         endpoint_count=pulumi.get(__response__, 'endpoint_count'),
         requested_capacity=pulumi.get(__response__, 'requested_capacity')))

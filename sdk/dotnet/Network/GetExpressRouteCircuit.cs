@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> Authorizations;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         /// </summary>
         public readonly double? BandwidthInGbps;
@@ -108,6 +106,10 @@ namespace Pulumi.AzureNative.Network
         /// The CircuitProvisioningState state of the resource.
         /// </summary>
         public readonly string? CircuitProvisioningState;
+        /// <summary>
+        /// Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
+        /// </summary>
+        public readonly bool? EnableDirectPortRateLimit;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -187,9 +189,13 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> authorizations,
 
+            string azureApiVersion,
+
             double? bandwidthInGbps,
 
             string? circuitProvisioningState,
+
+            bool? enableDirectPortRateLimit,
 
             string etag,
 
@@ -229,8 +235,10 @@ namespace Pulumi.AzureNative.Network
             AuthorizationKey = authorizationKey;
             AuthorizationStatus = authorizationStatus;
             Authorizations = authorizations;
+            AzureApiVersion = azureApiVersion;
             BandwidthInGbps = bandwidthInGbps;
             CircuitProvisioningState = circuitProvisioningState;
+            EnableDirectPortRateLimit = enableDirectPortRateLimit;
             Etag = etag;
             ExpressRoutePort = expressRoutePort;
             GatewayManagerEtag = gatewayManagerEtag;

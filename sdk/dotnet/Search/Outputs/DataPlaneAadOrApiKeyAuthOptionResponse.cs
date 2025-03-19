@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+    /// Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.
     /// </summary>
     [OutputType]
     public sealed class DataPlaneAadOrApiKeyAuthOptionResponse
     {
         /// <summary>
-        /// Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        /// Describes what response the data plane API of a search service would send for requests that failed authentication.
         /// </summary>
         public readonly string? AadAuthFailureMode;
 

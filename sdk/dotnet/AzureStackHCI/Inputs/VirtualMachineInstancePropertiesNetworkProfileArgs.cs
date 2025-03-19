@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     public sealed class VirtualMachineInstancePropertiesNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
-        private InputList<Inputs.VirtualMachineInstancePropertiesNetworkInterfacesArgs>? _networkInterfaces;
+        private InputList<Inputs.NetworkInterfaceArmReferenceArgs>? _networkInterfaces;
 
         /// <summary>
         /// NetworkInterfaces - list of network interfaces to be attached to the virtual machine instance
         /// </summary>
-        public InputList<Inputs.VirtualMachineInstancePropertiesNetworkInterfacesArgs> NetworkInterfaces
+        public InputList<Inputs.NetworkInterfaceArmReferenceArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.VirtualMachineInstancePropertiesNetworkInterfacesArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.NetworkInterfaceArmReferenceArgs>());
             set => _networkInterfaces = value;
         }
 

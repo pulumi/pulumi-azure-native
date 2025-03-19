@@ -11,13 +11,23 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Backend details.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Backend")]
     public partial class Backend : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend Circuit Breaker Configuration
+        /// </summary>
+        [Output("circuitBreaker")]
+        public Output<Outputs.BackendCircuitBreakerResponse?> CircuitBreaker { get; private set; } = null!;
+
         /// <summary>
         /// Backend Credentials Contract Properties
         /// </summary>
@@ -159,6 +169,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("backendId")]
         public Input<string>? BackendId { get; set; }
+
+        /// <summary>
+        /// Backend Circuit Breaker Configuration
+        /// </summary>
+        [Input("circuitBreaker")]
+        public Input<Inputs.BackendCircuitBreakerArgs>? CircuitBreaker { get; set; }
 
         /// <summary>
         /// Backend Credentials Contract Properties

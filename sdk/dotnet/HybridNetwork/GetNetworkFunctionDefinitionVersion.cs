@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about a network function definition version.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Task<GetNetworkFunctionDefinitionVersionResult> InvokeAsync(GetNetworkFunctionDefinitionVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a network function definition version.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkFunctionDefinitionVersionResult> Invoke(GetNetworkFunctionDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a network function definition version.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkFunctionDefinitionVersionResult> Invoke(GetNetworkFunctionDefinitionVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetNetworkFunctionDefinitionVersionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetNetworkFunctionDefinitionVersionResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

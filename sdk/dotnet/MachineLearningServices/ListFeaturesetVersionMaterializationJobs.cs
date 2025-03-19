@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<ListFeaturesetVersionMaterializationJobsResult> InvokeAsync(ListFeaturesetVersionMaterializationJobsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsArgs(), options.WithDefaults());
 
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<ListFeaturesetVersionMaterializationJobsResult> Invoke(ListFeaturesetVersionMaterializationJobsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<ListFeaturesetVersionMaterializationJobsResult> Invoke(ListFeaturesetVersionMaterializationJobsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsInvokeArgs(), options.WithDefaults());

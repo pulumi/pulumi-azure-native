@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-    /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -24,7 +22,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.RackDefinitionResponse> AggregatorOrSingleRackDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        /// The settings for the log analytics workspace used for output of logs from this cluster.
+        /// </summary>
+        [Output("analyticsOutputSettings")]
+        public Output<Outputs.AnalyticsOutputSettingsResponse?> AnalyticsOutputSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         /// </summary>
         [Output("analyticsWorkspaceId")]
         public Output<string?> AnalyticsWorkspaceId { get; private set; } = null!;
@@ -34,6 +38,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("availableUpgradeVersions")]
         public Output<ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse>> AvailableUpgradeVersions { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The capacity supported by this cluster.
@@ -90,6 +100,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> ClusterVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        /// </summary>
+        [Output("commandOutputSettings")]
+        public Output<Outputs.CommandOutputSettingsResponse?> CommandOutputSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         /// </summary>
         [Output("computeDeploymentThreshold")]
@@ -115,6 +131,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> DetailedStatusMessage { get; private set; } = null!;
 
         /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// The extended location of the cluster manager associated with the cluster.
         /// </summary>
         [Output("extendedLocation")]
@@ -125,6 +147,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("hybridAksExtendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> HybridAksExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -175,6 +203,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.ClusterSecretArchiveResponse?> SecretArchive { get; private set; } = null!;
 
         /// <summary>
+        /// The settings for the secret archive used to hold credentials for the cluster.
+        /// </summary>
+        [Output("secretArchiveSettings")]
+        public Output<Outputs.SecretArchiveSettingsResponse?> SecretArchiveSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The support end date of the runtime version of the cluster.
         /// </summary>
         [Output("supportExpiryDate")]
@@ -203,6 +237,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("updateStrategy")]
         public Output<Outputs.ClusterUpdateStrategyResponse?> UpdateStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// The settings for how security vulnerability scanning is applied to the cluster.
+        /// </summary>
+        [Output("vulnerabilityScanningSettings")]
+        public Output<Outputs.VulnerabilityScanningSettingsResponse?> VulnerabilityScanningSettings { get; private set; } = null!;
 
         /// <summary>
         /// The list of workload resource IDs that are hosted within this cluster.
@@ -240,6 +280,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -270,7 +311,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<Inputs.RackDefinitionArgs> AggregatorOrSingleRackDefinition { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        /// The settings for the log analytics workspace used for output of logs from this cluster.
+        /// </summary>
+        [Input("analyticsOutputSettings")]
+        public Input<Inputs.AnalyticsOutputSettingsArgs>? AnalyticsOutputSettings { get; set; }
+
+        /// <summary>
+        /// Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         /// </summary>
         [Input("analyticsWorkspaceId")]
         public Input<string>? AnalyticsWorkspaceId { get; set; }
@@ -306,6 +353,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string> ClusterVersion { get; set; } = null!;
 
         /// <summary>
+        /// The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        /// </summary>
+        [Input("commandOutputSettings")]
+        public Input<Inputs.CommandOutputSettingsArgs>? CommandOutputSettings { get; set; }
+
+        /// <summary>
         /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         /// </summary>
         [Input("computeDeploymentThreshold")]
@@ -329,6 +382,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Input("extendedLocation", required: true)]
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
+
+        /// <summary>
+        /// The identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -366,6 +425,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("secretArchive")]
         public Input<Inputs.ClusterSecretArchiveArgs>? SecretArchive { get; set; }
 
+        /// <summary>
+        /// The settings for the secret archive used to hold credentials for the cluster.
+        /// </summary>
+        [Input("secretArchiveSettings")]
+        public Input<Inputs.SecretArchiveSettingsArgs>? SecretArchiveSettings { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -383,6 +448,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Input("updateStrategy")]
         public Input<Inputs.ClusterUpdateStrategyArgs>? UpdateStrategy { get; set; }
+
+        /// <summary>
+        /// The settings for how security vulnerability scanning is applied to the cluster.
+        /// </summary>
+        [Input("vulnerabilityScanningSettings")]
+        public Input<Inputs.VulnerabilityScanningSettingsArgs>? VulnerabilityScanningSettings { get; set; }
 
         public ClusterArgs()
         {

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing custom domain within an endpoint.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetCustomDomainArgs {
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  */
 export interface GetCustomDomainResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Certificate parameters for securing custom HTTPS
      */
@@ -93,9 +95,7 @@ export interface GetCustomDomainResult {
 }
 /**
  * Gets an existing custom domain within an endpoint.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

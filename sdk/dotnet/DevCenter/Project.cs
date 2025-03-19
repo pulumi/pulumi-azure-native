@@ -11,13 +11,23 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a project resource.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings to be used when associating a project with a catalog.
+        /// </summary>
+        [Output("catalogSettings")]
+        public Output<Outputs.ProjectCatalogSettingsResponse?> CatalogSettings { get; private set; } = null!;
+
         /// <summary>
         /// Description of the project.
         /// </summary>
@@ -35,6 +45,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("devCenterUri")]
         public Output<string> DevCenterUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the project.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed identity properties
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -117,6 +139,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,6 +164,12 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Settings to be used when associating a project with a catalog.
+        /// </summary>
+        [Input("catalogSettings")]
+        public Input<Inputs.ProjectCatalogSettingsArgs>? CatalogSettings { get; set; }
+
+        /// <summary>
         /// Description of the project.
         /// </summary>
         [Input("description")]
@@ -151,6 +180,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("devCenterId")]
         public Input<string>? DevCenterId { get; set; }
+
+        /// <summary>
+        /// The display name of the project.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Managed identity properties
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

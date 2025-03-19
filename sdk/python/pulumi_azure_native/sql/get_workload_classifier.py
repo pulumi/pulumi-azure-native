@@ -26,7 +26,10 @@ class GetWorkloadClassifierResult:
     """
     Workload classifier operations for a data warehouse
     """
-    def __init__(__self__, context=None, end_time=None, id=None, importance=None, label=None, member_name=None, name=None, start_time=None, type=None):
+    def __init__(__self__, azure_api_version=None, context=None, end_time=None, id=None, importance=None, label=None, member_name=None, name=None, start_time=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if context and not isinstance(context, str):
             raise TypeError("Expected argument 'context' to be a str")
         pulumi.set(__self__, "context", context)
@@ -54,6 +57,14 @@ class GetWorkloadClassifierResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -134,6 +145,7 @@ class AwaitableGetWorkloadClassifierResult(GetWorkloadClassifierResult):
         if False:
             yield self
         return GetWorkloadClassifierResult(
+            azure_api_version=self.azure_api_version,
             context=self.context,
             end_time=self.end_time,
             id=self.id,
@@ -155,8 +167,6 @@ def get_workload_classifier(database_name: Optional[str] = None,
     Gets a workload classifier
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -174,6 +184,7 @@ def get_workload_classifier(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getWorkloadClassifier', __args__, opts=opts, typ=GetWorkloadClassifierResult).value
 
     return AwaitableGetWorkloadClassifierResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         context=pulumi.get(__ret__, 'context'),
         end_time=pulumi.get(__ret__, 'end_time'),
         id=pulumi.get(__ret__, 'id'),
@@ -193,8 +204,6 @@ def get_workload_classifier_output(database_name: Optional[pulumi.Input[str]] = 
     Gets a workload classifier
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -211,6 +220,7 @@ def get_workload_classifier_output(database_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getWorkloadClassifier', __args__, opts=opts, typ=GetWorkloadClassifierResult)
     return __ret__.apply(lambda __response__: GetWorkloadClassifierResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         context=pulumi.get(__response__, 'context'),
         end_time=pulumi.get(__response__, 'end_time'),
         id=pulumi.get(__response__, 'id'),

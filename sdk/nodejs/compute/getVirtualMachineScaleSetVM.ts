@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual machine from a VM scale set.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +23,7 @@ export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArg
 
 export interface GetVirtualMachineScaleSetVMArgs {
     /**
-     * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine. 'resiliencyView' will retrieve the instance view of the Virtual machine (if applicable) and include 'resilientVMDeletionStatus' as part of it.
      */
     expand?: string;
     /**
@@ -55,9 +53,17 @@ export interface GetVirtualMachineScaleSetVMResult {
      */
     readonly availabilitySet?: outputs.compute.SubResourceResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     readonly diagnosticsProfile?: outputs.compute.DiagnosticsProfileResponse;
+    /**
+     * Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+     */
+    readonly etag: string;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
@@ -123,6 +129,10 @@ export interface GetVirtualMachineScaleSetVMResult {
      */
     readonly provisioningState: string;
     /**
+     * Specifies the resilient VM deletion status for the virtual machine.
+     */
+    readonly resilientVMDeletionStatus?: string;
+    /**
      * The virtual machine child extension resources.
      */
     readonly resources: outputs.compute.VirtualMachineExtensionResponse[];
@@ -143,11 +153,15 @@ export interface GetVirtualMachineScaleSetVMResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+     */
+    readonly timeCreated: string;
+    /**
      * Resource type
      */
     readonly type: string;
     /**
-     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
     readonly userData?: string;
     /**
@@ -161,9 +175,7 @@ export interface GetVirtualMachineScaleSetVMResult {
 }
 /**
  * Gets a virtual machine from a VM scale set.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-11-01.
  */
 export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSetVMOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineScaleSetVMResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -177,7 +189,7 @@ export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSe
 
 export interface GetVirtualMachineScaleSetVMOutputArgs {
     /**
-     * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine. 'resiliencyView' will retrieve the instance view of the Virtual machine (if applicable) and include 'resilientVMDeletionStatus' as part of it.
      */
     expand?: pulumi.Input<string>;
     /**

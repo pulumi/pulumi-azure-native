@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Fetches the managed proxy details 
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Task<ListEndpointManagedProxyDetailsResult> InvokeAsync(ListEndpointManagedProxyDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the managed proxy details 
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<ListEndpointManagedProxyDetailsResult> Invoke(ListEndpointManagedProxyDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the managed proxy details 
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<ListEndpointManagedProxyDetailsResult> Invoke(ListEndpointManagedProxyDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public string? Hostname { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -93,7 +87,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

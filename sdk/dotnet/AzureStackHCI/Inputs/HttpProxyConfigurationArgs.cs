@@ -16,10 +16,34 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     public sealed class HttpProxyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The httpsProxy url.
+        /// The HTTP proxy server endpoint to use.
+        /// </summary>
+        [Input("httpProxy")]
+        public Input<string>? HttpProxy { get; set; }
+
+        /// <summary>
+        /// The HTTPS proxy server endpoint to use.
         /// </summary>
         [Input("httpsProxy")]
         public Input<string>? HttpsProxy { get; set; }
+
+        [Input("noProxy")]
+        private InputList<string>? _noProxy;
+
+        /// <summary>
+        /// The endpoints that should not go through proxy.
+        /// </summary>
+        public InputList<string> NoProxy
+        {
+            get => _noProxy ?? (_noProxy = new InputList<string>());
+            set => _noProxy = value;
+        }
+
+        /// <summary>
+        /// Alternative CA cert to use for connecting to proxy servers.
+        /// </summary>
+        [Input("trustedCa")]
+        public Input<string>? TrustedCa { get; set; }
 
         public HttpProxyConfigurationArgs()
         {

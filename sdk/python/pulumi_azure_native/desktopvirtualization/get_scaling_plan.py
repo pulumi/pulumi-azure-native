@@ -27,7 +27,10 @@ class GetScalingPlanResult:
     """
     Represents a scaling plan definition.
     """
-    def __init__(__self__, description=None, etag=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, schedules=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, etag=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, schedules=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -90,6 +93,14 @@ class GetScalingPlanResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -141,7 +152,7 @@ class GetScalingPlanResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -154,13 +165,13 @@ class GetScalingPlanResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
@@ -212,7 +223,7 @@ class GetScalingPlanResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -247,6 +258,7 @@ class AwaitableGetScalingPlanResult(GetScalingPlanResult):
         if False:
             yield self
         return GetScalingPlanResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             exclusion_tag=self.exclusion_tag,
@@ -274,9 +286,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanResult:
     """
     Get a scaling plan.
-    Azure REST API version: 2022-09-09.
-
-    Other available API versions: 2021-02-01-preview, 2022-02-10-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Azure REST API version: 2024-04-03.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -289,6 +299,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization:getScalingPlan', __args__, opts=opts, typ=GetScalingPlanResult).value
 
     return AwaitableGetScalingPlanResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         exclusion_tag=pulumi.get(__ret__, 'exclusion_tag'),
@@ -314,9 +325,7 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPlanResult]:
     """
     Get a scaling plan.
-    Azure REST API version: 2022-09-09.
-
-    Other available API versions: 2021-02-01-preview, 2022-02-10-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Azure REST API version: 2024-04-03.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -328,6 +337,7 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getScalingPlan', __args__, opts=opts, typ=GetScalingPlanResult)
     return __ret__.apply(lambda __response__: GetScalingPlanResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         exclusion_tag=pulumi.get(__response__, 'exclusion_tag'),

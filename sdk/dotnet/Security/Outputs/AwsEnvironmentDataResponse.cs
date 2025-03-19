@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// list of regions to scan
         /// </summary>
         public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// Scan interval in hours (value should be between 1-hour to 24-hours)
+        /// </summary>
+        public readonly double? ScanInterval;
 
         [OutputConstructor]
         private AwsEnvironmentDataResponse(
@@ -42,12 +46,15 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             Union<Outputs.AwsOrganizationalDataMasterResponse, Outputs.AwsOrganizationalDataMemberResponse>? organizationalData,
 
-            ImmutableArray<string> regions)
+            ImmutableArray<string> regions,
+
+            double? scanInterval)
         {
             AccountName = accountName;
             EnvironmentType = environmentType;
             OrganizationalData = organizationalData;
             Regions = regions;
+            ScanInterval = scanInterval;
         }
     }
 }

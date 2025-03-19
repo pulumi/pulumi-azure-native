@@ -17,17 +17,25 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class SqlServerInstancePropertiesResponse
     {
         /// <summary>
+        /// The role of the SQL Server, based on availability.
+        /// </summary>
+        public readonly string AlwaysOnRole;
+        /// <summary>
         /// Status of Azure Defender.
         /// </summary>
-        public readonly string? AzureDefenderStatus;
+        public readonly string AzureDefenderStatus;
         /// <summary>
         /// Timestamp of last Azure Defender status update.
         /// </summary>
-        public readonly string? AzureDefenderStatusLastUpdated;
+        public readonly string AzureDefenderStatusLastUpdated;
+        /// <summary>
+        /// The backup profile for the SQL server.
+        /// </summary>
+        public readonly Outputs.BackupPolicyResponse? BackupPolicy;
         /// <summary>
         /// SQL Server collation.
         /// </summary>
-        public readonly string? Collation;
+        public readonly string Collation;
         /// <summary>
         /// ARM Resource id of the container resource (Azure Arc for Servers).
         /// </summary>
@@ -43,11 +51,15 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// <summary>
         /// SQL Server current version.
         /// </summary>
-        public readonly string? CurrentVersion;
+        public readonly string CurrentVersion;
         /// <summary>
         /// SQL Server edition.
         /// </summary>
         public readonly string? Edition;
+        /// <summary>
+        /// Failover Cluster Instance properties.
+        /// </summary>
+        public readonly Outputs.FailoverClusterResponse? FailoverCluster;
         /// <summary>
         /// Type of host for Azure Arc SQL Server
         /// </summary>
@@ -57,17 +69,29 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? InstanceName;
         /// <summary>
+        /// The time when last successful inventory upload was performed.
+        /// </summary>
+        public readonly string LastInventoryUploadTime;
+        /// <summary>
+        /// The time when last successful usage upload was performed.
+        /// </summary>
+        public readonly string LastUsageUploadTime;
+        /// <summary>
         /// SQL Server license type.
         /// </summary>
-        public readonly string? LicenseType;
+        public readonly string LicenseType;
+        /// <summary>
+        /// The monitoring configuration.
+        /// </summary>
+        public readonly Outputs.MonitoringResponse? Monitoring;
         /// <summary>
         /// SQL Server update level.
         /// </summary>
-        public readonly string? PatchLevel;
+        public readonly string PatchLevel;
         /// <summary>
         /// SQL Server product ID.
         /// </summary>
-        public readonly string? ProductId;
+        public readonly string ProductId;
         /// <summary>
         /// The provisioning state of the Arc-enabled SQL Server resource.
         /// </summary>
@@ -79,15 +103,19 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// <summary>
         /// Dynamic TCP ports used by SQL Server.
         /// </summary>
-        public readonly string? TcpDynamicPorts;
+        public readonly string TcpDynamicPorts;
         /// <summary>
         /// Static TCP ports used by SQL Server.
         /// </summary>
-        public readonly string? TcpStaticPorts;
+        public readonly string TcpStaticPorts;
+        /// <summary>
+        /// Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
+        /// </summary>
+        public readonly string? UpgradeLockedUntil;
         /// <summary>
         /// The number of logical processors used by the SQL Server instance.
         /// </summary>
-        public readonly string? VCore;
+        public readonly string VCore;
         /// <summary>
         /// SQL Server version.
         /// </summary>
@@ -95,11 +123,15 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private SqlServerInstancePropertiesResponse(
-            string? azureDefenderStatus,
+            string alwaysOnRole,
 
-            string? azureDefenderStatusLastUpdated,
+            string azureDefenderStatus,
 
-            string? collation,
+            string azureDefenderStatusLastUpdated,
+
+            Outputs.BackupPolicyResponse? backupPolicy,
+
+            string collation,
 
             string containerResourceId,
 
@@ -107,49 +139,66 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string createTime,
 
-            string? currentVersion,
+            string currentVersion,
 
             string? edition,
+
+            Outputs.FailoverClusterResponse? failoverCluster,
 
             string? hostType,
 
             string? instanceName,
 
-            string? licenseType,
+            string lastInventoryUploadTime,
 
-            string? patchLevel,
+            string lastUsageUploadTime,
 
-            string? productId,
+            string licenseType,
+
+            Outputs.MonitoringResponse? monitoring,
+
+            string patchLevel,
+
+            string productId,
 
             string provisioningState,
 
             string status,
 
-            string? tcpDynamicPorts,
+            string tcpDynamicPorts,
 
-            string? tcpStaticPorts,
+            string tcpStaticPorts,
 
-            string? vCore,
+            string? upgradeLockedUntil,
+
+            string vCore,
 
             string? version)
         {
+            AlwaysOnRole = alwaysOnRole;
             AzureDefenderStatus = azureDefenderStatus;
             AzureDefenderStatusLastUpdated = azureDefenderStatusLastUpdated;
+            BackupPolicy = backupPolicy;
             Collation = collation;
             ContainerResourceId = containerResourceId;
             Cores = cores;
             CreateTime = createTime;
             CurrentVersion = currentVersion;
             Edition = edition;
+            FailoverCluster = failoverCluster;
             HostType = hostType;
             InstanceName = instanceName;
+            LastInventoryUploadTime = lastInventoryUploadTime;
+            LastUsageUploadTime = lastUsageUploadTime;
             LicenseType = licenseType;
+            Monitoring = monitoring;
             PatchLevel = patchLevel;
             ProductId = productId;
             ProvisioningState = provisioningState;
             Status = status;
             TcpDynamicPorts = tcpDynamicPorts;
             TcpStaticPorts = tcpStaticPorts;
+            UpgradeLockedUntil = upgradeLockedUntil;
             VCore = vCore;
             Version = version;
         }

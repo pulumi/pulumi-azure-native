@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The managed private endpoint resource type.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedPrivateEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The state of managed private endpoint connection.
      */
@@ -120,6 +122,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkServicePrivateIP"] = undefined /*out*/;
@@ -127,6 +130,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -27,7 +27,10 @@ class GetAttachedNetworkByDevCenterResult:
     """
     Represents an attached NetworkConnection.
     """
-    def __init__(__self__, domain_join_type=None, health_check_status=None, id=None, name=None, network_connection_id=None, network_connection_location=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, domain_join_type=None, health_check_status=None, id=None, name=None, network_connection_id=None, network_connection_location=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if domain_join_type and not isinstance(domain_join_type, str):
             raise TypeError("Expected argument 'domain_join_type' to be a str")
         pulumi.set(__self__, "domain_join_type", domain_join_type)
@@ -57,6 +60,14 @@ class GetAttachedNetworkByDevCenterResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="domainJoinType")
     def domain_join_type(self) -> str:
         """
@@ -76,7 +87,7 @@ class GetAttachedNetworkByDevCenterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -135,6 +146,7 @@ class AwaitableGetAttachedNetworkByDevCenterResult(GetAttachedNetworkByDevCenter
         if False:
             yield self
         return GetAttachedNetworkByDevCenterResult(
+            azure_api_version=self.azure_api_version,
             domain_join_type=self.domain_join_type,
             health_check_status=self.health_check_status,
             id=self.id,
@@ -152,9 +164,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedNetworkByDevCenterResult:
     """
     Gets an attached NetworkConnection.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.
@@ -169,6 +179,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getAttachedNetworkByDevCenter', __args__, opts=opts, typ=GetAttachedNetworkByDevCenterResult).value
 
     return AwaitableGetAttachedNetworkByDevCenterResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         domain_join_type=pulumi.get(__ret__, 'domain_join_type'),
         health_check_status=pulumi.get(__ret__, 'health_check_status'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,9 +195,7 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedNetworkByDevCenterResult]:
     """
     Gets an attached NetworkConnection.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.
@@ -200,6 +209,7 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getAttachedNetworkByDevCenter', __args__, opts=opts, typ=GetAttachedNetworkByDevCenterResult)
     return __ret__.apply(lambda __response__: GetAttachedNetworkByDevCenterResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         domain_join_type=pulumi.get(__response__, 'domain_join_type'),
         health_check_status=pulumi.get(__response__, 'health_check_status'),
         id=pulumi.get(__response__, 'id'),

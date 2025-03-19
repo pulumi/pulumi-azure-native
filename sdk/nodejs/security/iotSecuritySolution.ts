@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Security solution configuration and resource information.
- * Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01.
- *
- * Other available API versions: 2017-08-01-preview.
+ * Azure REST API version: 2019-08-01. Prior API version in Azure Native 2.x: 2019-08-01.
  */
 export class IotSecuritySolution extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * List of resources that were automatically discovered as relevant to the security solution.
      */
     public /*out*/ readonly autoDiscoveredResources!: pulumi.Output<string[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
@@ -140,12 +142,14 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             resourceInputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
             resourceInputs["workspace"] = args ? args.workspace : undefined;
             resourceInputs["autoDiscoveredResources"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalWorkspaces"] = undefined /*out*/;
             resourceInputs["autoDiscoveredResources"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["disabledDataSources"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["export"] = undefined /*out*/;

@@ -27,13 +27,16 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_autotune_enabled=None, is_compute_isolation_enabled=None, last_succeeded_timestamp=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, azure_api_version=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_autotune_enabled=None, is_compute_isolation_enabled=None, last_succeeded_timestamp=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
         if auto_scale and not isinstance(auto_scale, dict):
             raise TypeError("Expected argument 'auto_scale' to be a dict")
         pulumi.set(__self__, "auto_scale", auto_scale)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cache_size and not isinstance(cache_size, int):
             raise TypeError("Expected argument 'cache_size' to be a int")
         pulumi.set(__self__, "cache_size", cache_size)
@@ -116,6 +119,14 @@ class GetBigDataPoolResult:
         Auto-scaling properties
         """
         return pulumi.get(self, "auto_scale")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cacheSize")
@@ -302,6 +313,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
         return GetBigDataPoolResult(
             auto_pause=self.auto_pause,
             auto_scale=self.auto_scale,
+            azure_api_version=self.azure_api_version,
             cache_size=self.cache_size,
             creation_date=self.creation_date,
             custom_libraries=self.custom_libraries,
@@ -334,8 +346,6 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
     Get a Big Data pool.
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-05-01, 2021-06-01-preview.
-
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -351,6 +361,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
     return AwaitableGetBigDataPoolResult(
         auto_pause=pulumi.get(__ret__, 'auto_pause'),
         auto_scale=pulumi.get(__ret__, 'auto_scale'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cache_size=pulumi.get(__ret__, 'cache_size'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         custom_libraries=pulumi.get(__ret__, 'custom_libraries'),
@@ -381,8 +392,6 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
     Get a Big Data pool.
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-05-01, 2021-06-01-preview.
-
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -397,6 +406,7 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
     return __ret__.apply(lambda __response__: GetBigDataPoolResult(
         auto_pause=pulumi.get(__response__, 'auto_pause'),
         auto_scale=pulumi.get(__response__, 'auto_scale'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cache_size=pulumi.get(__response__, 'cache_size'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         custom_libraries=pulumi.get(__response__, 'custom_libraries'),

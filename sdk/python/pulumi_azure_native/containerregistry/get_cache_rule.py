@@ -27,7 +27,10 @@ class GetCacheRuleResult:
     """
     An object that represents a cache rule for a container registry.
     """
-    def __init__(__self__, creation_date=None, credential_set_resource_id=None, id=None, name=None, provisioning_state=None, source_repository=None, system_data=None, target_repository=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_date=None, credential_set_resource_id=None, id=None, name=None, provisioning_state=None, source_repository=None, system_data=None, target_repository=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -55,6 +58,14 @@ class GetCacheRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -136,6 +147,7 @@ class AwaitableGetCacheRuleResult(GetCacheRuleResult):
         if False:
             yield self
         return GetCacheRuleResult(
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             credential_set_resource_id=self.credential_set_resource_id,
             id=self.id,
@@ -153,9 +165,7 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheRuleResult:
     """
     Gets the properties of the specified cache rule resource.
-    Azure REST API version: 2023-01-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str cache_rule_name: The name of the cache rule.
@@ -170,6 +180,7 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getCacheRule', __args__, opts=opts, typ=GetCacheRuleResult).value
 
     return AwaitableGetCacheRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         credential_set_resource_id=pulumi.get(__ret__, 'credential_set_resource_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -185,9 +196,7 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheRuleResult]:
     """
     Gets the properties of the specified cache rule resource.
-    Azure REST API version: 2023-01-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str cache_rule_name: The name of the cache rule.
@@ -201,6 +210,7 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getCacheRule', __args__, opts=opts, typ=GetCacheRuleResult)
     return __ret__.apply(lambda __response__: GetCacheRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         credential_set_resource_id=pulumi.get(__response__, 'credential_set_resource_id'),
         id=pulumi.get(__response__, 'id'),
