@@ -43,6 +43,10 @@
   }
  },
  "properties": {
+  "azureApiVersion": {
+   "description": "The Azure API version of the resource.",
+   "type": "string"
+  },
   "location": {
    "description": "The geo-location where the resource lives",
    "type": "string"
@@ -74,6 +78,7 @@
   }
  },
  "required": [
+  "azureApiVersion",
   "location",
   "name",
   "properties",
