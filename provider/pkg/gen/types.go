@@ -262,6 +262,13 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	}
 	enumName = m.typeNameOverride(ToUpperCamel(enumName))
 
+	if m.moduleName == "DBforMySQL" && m.resourceName == "SingleServer" {
+		enumName = "SingleServer" + enumName
+	}
+	if m.moduleName == "DBforPostgreSQL" && m.resourceName == "SingleServer" {
+		enumName = "SingleServer" + enumName
+	}
+
 	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
