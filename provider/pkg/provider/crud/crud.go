@@ -83,7 +83,9 @@ type ResourceCrudClient interface {
 	ResourceCrudOperations
 	AzureRESTConverter
 	SubresourceMaintainer
-	ApiVersion() string
+	// ApiVersion returns the API version for the resource. The second return value is the value of
+	// `ApiVersionIsUserInput` on the underlying resources.AzureAPIResource.
+	ApiVersion() (string, bool)
 }
 
 type resourceCrudClient struct {
@@ -115,8 +117,8 @@ func NewResourceCrudClient(
 	}
 }
 
-func (r *resourceCrudClient) ApiVersion() string {
-	return r.res.APIVersion
+func (r *resourceCrudClient) ApiVersion() (string, bool) {
+	return r.res.APIVersion, r.res.ApiVersionIsUserInput
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {

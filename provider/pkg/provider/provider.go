@@ -1134,8 +1134,11 @@ func reader(customRes *customresources.CustomResource, crudClient crud.ResourceC
 	}
 
 	return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
-		overrideApiVersion := getOverrideApiVersion(inputs)
-		response, err := crudClient.Read(ctx, id, overrideApiVersion)
+		apiVersion, isUserInput := crudClient.ApiVersion()
+		if isUserInput {
+			apiVersion = getApiVersionFromInputs(inputs)
+		}
+		response, err := crudClient.Read(ctx, id, apiVersion)
 		if err == nil {
 			// Map the raw response to the shape of outputs that the SDKs expect.
 			response = crudClient.ResponseBodyToSdkOutputs(response)
@@ -1291,11 +1294,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = response
 	case res.ReadMethod == "HEAD":
 		url := id + res.ReadPath
-		err = k.azureClient.Head(ctx, url, getOverrideApiVersion(oldState))
+		err = k.azureClient.Head(ctx, url, getApiVersion(res, oldState))
 		response = oldState.Mappable()
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	default:
-		response, err = crudClient.Read(ctx, id, getOverrideApiVersion(oldState))
+		response, err = crudClient.Read(ctx, id, getApiVersion(res, oldState))
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
@@ -1633,10 +1636,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			}
 		}
 	default:
-		apiVersion := getOverrideApiVersion(state)
-		if apiVersion == "" {
-			apiVersion = res.APIVersion
-		}
+		apiVersion := getApiVersion(res, state)
 		err := k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
 			return nil, azure.AzureError(err)
@@ -1770,7 +1770,14 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	}
 }
 
-func getOverrideApiVersion(inputs resource.PropertyMap) string {
+func getApiVersion(resource *resources.AzureAPIResource, inputs resource.PropertyMap) string {
+	if resource.ApiVersionIsUserInput {
+		return getApiVersionFromInputs(inputs)
+	}
+	return resource.APIVersion
+}
+
+func getApiVersionFromInputs(inputs resource.PropertyMap) string {
 	overrideApiVersion := ""
 	if apiVersion, ok := inputs["apiVersion"]; ok {
 		overrideApiVersion = apiVersion.StringValue()

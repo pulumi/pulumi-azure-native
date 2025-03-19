@@ -99,7 +99,10 @@ type AzureAPIType struct {
 type AzureAPIResource struct {
 	// API version in "2020-10-01" format.
 	APIVersion string `json:"apiVersion"`
-	Path       string `json:"path"`
+	// True if the "apiVersion" parameter is set by the user, not the provider.
+	ApiVersionIsUserInput bool `json:"apiVersionIsUserInput,omitempty"`
+
+	Path string `json:"path"`
 	// HTTP method to create/update the resource. Defaults to PUT if empty.
 	UpdateMethod  string                      `json:"updateMethod,omitempty"`
 	PutParameters []AzureAPIParameter         `json:"PUT"`
