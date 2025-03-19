@@ -115,7 +115,11 @@ func TestAzureInAzureWithUserManagedIdentity(t *testing.T) {
 }
 
 func TestGenericResource(t *testing.T) {
-	test := getGoBaseOptionsSdk(t, testDir(t, "go-generic-resource"))
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-generic-resource")).
+		With(integration.ProgramTestOptions{
+			Verbose:                 true,
+			PreviewCommandlineFlags: []string{"--diff"},
+		})
 	integration.ProgramTest(t, &test)
 }
 

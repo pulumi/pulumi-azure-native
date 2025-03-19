@@ -897,3 +897,27 @@ func TestIsParameterized(t *testing.T) {
 		assert.False(t, provider.isParameterized())
 	})
 }
+
+func TestGetOverrideApiVersion(t *testing.T) {
+	t.Run("no override", func(t *testing.T) {
+		inputs := resource.PropertyMap{}
+		assert.Equal(t, "", getOverrideApiVersion(inputs))
+	})
+
+	t.Run("override", func(t *testing.T) {
+		inputs := resource.PropertyMap{
+			"apiVersion":      resource.NewStringProperty("v20241101"),
+			"azureApiVersion": resource.NewStringProperty("v20220202"),
+		}
+		assert.Equal(t, "v20241101", getOverrideApiVersion(inputs))
+	})
+
+	t.Run("override in __inputs", func(t *testing.T) {
+		inputs := resource.PropertyMap{
+			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+				"apiVersion": resource.NewStringProperty("v20241101"),
+			}),
+		}
+		assert.Equal(t, "v20241101", getOverrideApiVersion(inputs))
+	})
+}

@@ -1133,8 +1133,9 @@ func reader(customRes *customresources.CustomResource, crudClient crud.ResourceC
 		}
 	}
 
-	return func(ctx context.Context, id string, _ resource.PropertyMap) (map[string]any, error) {
-		response, err := crudClient.Read(ctx, id)
+	return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+		overrideApiVersion := getOverrideApiVersion(inputs)
+		response, err := crudClient.Read(ctx, id, overrideApiVersion)
 		if err == nil {
 			// Map the raw response to the shape of outputs that the SDKs expect.
 			response = crudClient.ResponseBodyToSdkOutputs(response)
@@ -1290,11 +1291,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = response
 	case res.ReadMethod == "HEAD":
 		url := id + res.ReadPath
-		err = k.azureClient.Head(ctx, url, res.APIVersion)
+		err = k.azureClient.Head(ctx, url, getOverrideApiVersion(oldState))
 		response = oldState.Mappable()
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	default:
-		response, err = crudClient.Read(ctx, id)
+		response, err = crudClient.Read(ctx, id, getOverrideApiVersion(oldState))
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
@@ -1584,11 +1585,12 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	ctx, cancel := azureContext(ctx, req.Timeout)
 	defer cancel()
 
+	state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
+	})
+
 	switch {
 	case isCustom && customRes.Delete != nil:
-		state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
-		})
 		if err != nil {
 			return nil, err
 		}
@@ -1631,7 +1633,11 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			}
 		}
 	default:
-		err := k.azureClient.Delete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, nil)
+		apiVersion := getOverrideApiVersion(state)
+		if apiVersion == "" {
+			apiVersion = res.APIVersion
+		}
+		err := k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -1762,4 +1768,16 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	default:
 		return environments.Global
 	}
+}
+
+func getOverrideApiVersion(inputs resource.PropertyMap) string {
+	overrideApiVersion := ""
+	if apiVersion, ok := inputs["apiVersion"]; ok {
+		overrideApiVersion = apiVersion.StringValue()
+	} else if oldInputs, ok := inputs["__inputs"]; ok {
+		if apiVersion, ok := oldInputs.ObjectValue()["apiVersion"]; ok {
+			overrideApiVersion = apiVersion.StringValue()
+		}
+	}
+	return overrideApiVersion
 }

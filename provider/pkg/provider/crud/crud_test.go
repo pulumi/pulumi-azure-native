@@ -108,7 +108,7 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 
 		crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
 		// Runs the assertions as part of HTTP transport
-		crudClient.Read(context.Background(), resourceId)
+		crudClient.Read(context.Background(), resourceId, "")
 	}
 
 	t.Run("explicit GET, no read path", func(t *testing.T) {
@@ -204,7 +204,7 @@ func TestSqlVirtualMachineUsesReadQueryParams(t *testing.T) {
 
 		crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
 		// Runs the assertions as part of HTTP transport
-		crudClient.Read(context.Background(), sqlVmId)
+		crudClient.Read(context.Background(), sqlVmId, "")
 	}
 
 	runTest(t, &sqlVmResource, func(t *testing.T, req *http.Request) {

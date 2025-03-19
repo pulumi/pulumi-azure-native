@@ -18,7 +18,7 @@ func main() {
 		_, err = resources.NewResource(ctx, "acc", &resources.ResourceArgs{
 			ResourceProviderNamespace: pulumi.String("Microsoft.Storage"),
 			ResourceType:              pulumi.String("storageAccounts"),
-			ApiVersion:                pulumi.String("2022-09-01"),
+			ApiVersion:                pulumi.String("2024-01-01"),
 			ParentResourcePath:        pulumi.String(""),
 			ResourceGroupName:         resourceGroup.Name,
 			Kind:                      pulumi.String("StorageV2"),
