@@ -232,6 +232,10 @@
       "description": "Indicates the access allowed for this particular rule",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description for this rule. Restricted to 140 chars.",
       "type": "string"
@@ -315,6 +319,7 @@
     },
     "required": [
      "access",
+     "azureApiVersion",
      "direction",
      "etag",
      "id",
@@ -374,6 +379,10 @@
       },
       "type": "array"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the admin rule collection.",
       "type": "string"
@@ -410,6 +419,7 @@
     },
     "required": [
      "appliesToGroups",
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -457,6 +467,10 @@
       "$ref": "#/types/azure-native:network/v20230201:ApplicationGatewayAutoscaleConfigurationResponse",
       "description": "Autoscale Configuration.",
       "type": "object"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "backendAddressPools": {
       "description": "Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
@@ -728,6 +742,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "defaultPredefinedSslPolicy",
      "etag",
      "name",
@@ -854,6 +869,10 @@
    "outputs": {
     "description": "Private Endpoint connection on an application gateway.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -890,6 +909,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "linkIdentifier",
      "privateEndpoint",
@@ -923,6 +943,10 @@
    "outputs": {
     "description": "An application security group in a resource group.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -960,6 +984,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -1007,6 +1032,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -1109,6 +1138,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "ipGroups",
      "name",
@@ -1142,6 +1172,10 @@
    "outputs": {
     "description": "Bastion Host resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "disableCopyPaste": {
       "default": false,
       "description": "Enable/Disable Copy/Paste feature of the Bastion Host resource.",
@@ -1226,6 +1260,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -1312,6 +1347,10 @@
    "outputs": {
     "description": "VpnServerConfigurationPolicyGroup Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -1358,6 +1397,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "p2SConnectionConfigurations",
      "provisioningState",
@@ -1400,6 +1440,10 @@
       "default": true,
       "description": "Determines if the connection monitor will start automatically once created.",
       "type": "boolean"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "connectionMonitorType": {
       "description": "Type of connection monitor.",
@@ -1497,6 +1541,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "connectionMonitorType",
      "etag",
      "id",
@@ -1546,6 +1591,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "connectivityTopology": {
       "description": "Connectivity topology type.",
@@ -1603,6 +1652,7 @@
     },
     "required": [
      "appliesToGroups",
+     "azureApiVersion",
      "connectivityTopology",
      "etag",
      "id",
@@ -1649,6 +1699,10 @@
      },
      "authorizationMessage": {
       "description": "Authorization message for WAN validation.",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "childCustomIpPrefixes": {
@@ -1753,6 +1807,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "childCustomIpPrefixes",
      "etag",
      "failedReason",
@@ -1789,6 +1844,10 @@
    "outputs": {
     "description": "A DDoS custom policy in a resource group.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -1826,6 +1885,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -1859,6 +1919,10 @@
    "outputs": {
     "description": "A DDoS protection plan in a resource group.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -1912,6 +1976,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -1968,6 +2033,10 @@
     "properties": {
      "access": {
       "description": "Indicates the access allowed for this particular rule",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "description": {
@@ -2057,6 +2126,7 @@
     },
     "required": [
      "access",
+     "azureApiVersion",
      "description",
      "destinationPortRanges",
      "destinations",
@@ -2108,6 +2178,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "destinationIpRanges": {
       "description": "Destination IP ranges.",
@@ -2202,6 +2276,7 @@
     },
     "required": [
      "associatedNetworkInterfaces",
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -2255,6 +2330,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "bandwidthInGbps": {
       "description": "The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.",
@@ -2345,6 +2424,7 @@
     },
     "required": [
      "authorizationStatus",
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -2392,6 +2472,10 @@
       "description": "The authorization use status.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -2414,6 +2498,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -2465,6 +2550,10 @@
       "description": "The authorization key.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "circuitConnectionStatus": {
       "description": "Express Route Circuit connection state.",
       "type": "string"
@@ -2506,6 +2595,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "circuitConnectionStatus",
      "etag",
      "provisioningState",
@@ -2547,6 +2637,10 @@
      "azureASN": {
       "description": "The Azure ASN.",
       "type": "integer"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "connections": {
       "description": "The list of circuit connections associated with Azure Private Peering for this circuit.",
@@ -2655,6 +2749,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "lastModifiedBy",
      "peeredConnections",
@@ -2698,6 +2793,10 @@
       "description": "Authorization key to establish the connection.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "enableInternetSecurity": {
       "description": "Enable internet security.",
       "type": "boolean"
@@ -2738,6 +2837,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "expressRouteCircuitPeering",
      "name",
      "provisioningState"
@@ -2778,6 +2878,10 @@
      "azureASN": {
       "description": "The Azure ASN.",
       "type": "integer"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -2852,6 +2956,7 @@
     },
     "required": [
      "azureASN",
+     "azureApiVersion",
      "etag",
      "lastModifiedBy",
      "primaryAzurePort",
@@ -2893,6 +2998,10 @@
       "$ref": "#/types/azure-native:network/v20230201:ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration",
       "description": "Configuration for auto scaling.",
       "type": "object"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -2940,6 +3049,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -2975,6 +3085,10 @@
     "properties": {
      "allocationDate": {
       "description": "Date of the physical port allocation to be used in Letter of Authorization.",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "bandwidthInGbps": {
@@ -3064,6 +3178,7 @@
     },
     "required": [
      "allocationDate",
+     "azureApiVersion",
      "circuits",
      "etag",
      "etherType",
@@ -3115,6 +3230,10 @@
       "description": "The authorization use status.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "circuitResourceUri": {
       "description": "The reference to the ExpressRoute circuit resource using the authorization.",
       "type": "string"
@@ -3143,6 +3262,7 @@
     "required": [
      "authorizationKey",
      "authorizationUseStatus",
+     "azureApiVersion",
      "circuitResourceUri",
      "etag",
      "provisioningState",
@@ -3179,6 +3299,10 @@
    "outputs": {
     "description": "FirewallPolicy Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "basePolicy": {
       "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
       "description": "The parent firewall policy from which rules are inherited.",
@@ -3295,6 +3419,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "childPolicies",
      "etag",
      "firewalls",
@@ -3336,6 +3461,10 @@
    "outputs": {
     "description": "Rule Collection Group resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -3385,6 +3514,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -3422,6 +3552,10 @@
    "outputs": {
     "description": "A flow log resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "enabled": {
       "description": "Flag to enable/disable flow logging.",
       "type": "boolean"
@@ -3486,6 +3620,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -3534,6 +3669,10 @@
       },
       "type": "array"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -3579,6 +3718,7 @@
     },
     "required": [
      "associatedConnections",
+     "azureApiVersion",
      "etag",
      "propagatingConnections",
      "provisioningState",
@@ -3625,6 +3765,10 @@
       "description": "Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.",
       "type": "boolean"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "enableInternetSecurity": {
       "description": "Enable internet security.",
       "type": "boolean"
@@ -3657,6 +3801,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState"
     ],
@@ -3697,6 +3842,10 @@
    "outputs": {
     "description": "Inbound NAT rule of the load balancer.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "backendAddressPool": {
       "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
       "description": "A reference to backendAddressPool resource.",
@@ -3766,6 +3915,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "backendIPConfiguration",
      "etag",
      "provisioningState",
@@ -3808,6 +3958,10 @@
       },
       "description": "IpAllocation tags.",
       "type": "object"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -3865,6 +4019,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "subnet",
@@ -3902,6 +4057,10 @@
    "outputs": {
     "description": "The IpGroups resource information.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -3958,6 +4117,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "firewallPolicies",
      "firewalls",
@@ -3996,6 +4156,10 @@
    "outputs": {
     "description": "LoadBalancer resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "backendAddressPools": {
       "description": "Collection of backend address pools used by a load balancer.",
       "items": {
@@ -4099,6 +4263,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -4138,6 +4303,10 @@
    "outputs": {
     "description": "Pool of backend IP addresses.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "backendIPConfigurations": {
       "description": "An array of references to IP addresses defined in network interfaces.",
       "items": {
@@ -4226,6 +4395,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "backendIPConfigurations",
      "etag",
      "inboundNatRules",
@@ -4262,6 +4432,10 @@
    "outputs": {
     "description": "A common class for general resource information.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "bgpSettings": {
       "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
       "description": "Local network gateway's BGP speaker settings.",
@@ -4317,6 +4491,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -4350,6 +4525,10 @@
    "outputs": {
     "description": "The Network Manager Connection resource",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the network manager connection.",
       "type": "string"
@@ -4381,6 +4560,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -4418,6 +4598,10 @@
    "outputs": {
     "description": "Nat Gateway resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -4495,6 +4679,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -4535,6 +4720,10 @@
    "outputs": {
     "description": "VpnGatewayNatRule Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "egressVpnSiteLinkConnections": {
       "description": "List of egress VpnSiteLinkConnections.",
       "items": {
@@ -4597,6 +4786,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "egressVpnSiteLinkConnections",
      "etag",
      "ingressVpnSiteLinkConnections",
@@ -4636,6 +4826,10 @@
    "outputs": {
     "description": "The network group resource",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the network group.",
       "type": "string"
@@ -4671,6 +4865,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -4716,6 +4911,10 @@
      },
      "auxiliarySku": {
       "description": "Auxiliary sku of Network Interface resource.",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "disableTcpStateTracking": {
@@ -4849,6 +5048,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "dscpConfiguration",
      "etag",
      "hostedWorkloads",
@@ -4896,6 +5096,10 @@
    "outputs": {
     "description": "Tap configuration in a Network Interface.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -4923,6 +5127,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -4954,6 +5159,10 @@
    "outputs": {
     "description": "The Managed Network resource",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the network manager.",
       "type": "string"
@@ -5012,6 +5221,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "networkManagerScopeAccesses",
@@ -5052,6 +5262,10 @@
    "outputs": {
     "description": "Network profile resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "containerNetworkInterfaceConfigurations": {
       "description": "List of chid container network interface configurations.",
       "items": {
@@ -5105,6 +5319,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "containerNetworkInterfaces",
      "etag",
      "name",
@@ -5143,6 +5358,10 @@
    "outputs": {
     "description": "NetworkSecurityGroup resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "defaultSecurityRules": {
       "description": "The default security rules of network security group.",
       "items": {
@@ -5224,6 +5443,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "defaultSecurityRules",
      "etag",
      "flowLogs",
@@ -5275,6 +5495,10 @@
      },
      "addressPrefix": {
       "description": "Address Prefix.",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "bootStrapConfigurationBlobs": {
@@ -5398,6 +5622,7 @@
     },
     "required": [
      "addressPrefix",
+     "azureApiVersion",
      "deploymentType",
      "etag",
      "inboundSecurityRules",
@@ -5441,20 +5666,9 @@
    "outputs": {
     "description": "NetworkVirtualApplianceConnection resource.",
     "properties": {
-     "asn": {
-      "description": "Network Virtual Appliance ASN.",
-      "type": "number"
-     },
-     "bgpPeerAddress": {
-      "description": "List of bgpPeerAddresses for the NVA instances",
-      "items": {
-       "type": "string"
-      },
-      "type": "array"
-     },
-     "enableInternetSecurity": {
-      "description": "Enable internet security.",
-      "type": "boolean"
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "id": {
       "description": "Resource ID.",
@@ -5464,22 +5678,15 @@
       "description": "The name of the resource.",
       "type": "string"
      },
-     "provisioningState": {
-      "description": "The provisioning state of the NetworkVirtualApplianceConnection resource.",
-      "type": "string"
-     },
-     "routingConfiguration": {
-      "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfvResponse",
-      "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
+     "properties": {
+      "$ref": "#/types/azure-native:network/v20230201:NetworkVirtualApplianceConnectionPropertiesResponse",
+      "description": "Properties of the express route connection.",
       "type": "object"
-     },
-     "tunnelIdentifier": {
-      "description": "Unique identifier for the connection.",
-      "type": "number"
      }
     },
     "required": [
-     "provisioningState"
+     "azureApiVersion",
+     "properties"
     ],
     "type": "object"
    }
@@ -5508,6 +5715,10 @@
    "outputs": {
     "description": "Network watcher in a resource group.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -5541,6 +5752,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -5573,6 +5785,10 @@
    "outputs": {
     "description": "P2SVpnGateway Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "customDnsServers": {
       "description": "List of all customer specified DNS servers IP addresses.",
       "items": {
@@ -5644,6 +5860,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "location",
      "name",
@@ -5832,6 +6049,10 @@
    "outputs": {
     "description": "Information about packet capture session.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "bytesToCapturePerPacket": {
       "default": 0,
       "description": "Number of bytes captured per packet, the remaining bytes are truncated.",
@@ -5891,6 +6112,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -5931,6 +6153,10 @@
    "outputs": {
     "description": "Private dns zone group resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -5957,6 +6183,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState"
     ],
@@ -5998,6 +6225,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "customDnsConfigs": {
       "description": "An array of custom dns configurations.",
@@ -6086,6 +6317,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "networkInterfaces",
@@ -6131,6 +6363,10 @@
       "$ref": "#/types/azure-native:network/v20230201:PrivateLinkServicePropertiesResponseAutoApproval",
       "description": "The auto-approval list of the private link service.",
       "type": "object"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "enableProxyProtocol": {
       "description": "Whether the private link service is enabled for proxy protocol or not.",
@@ -6219,6 +6455,7 @@
     },
     "required": [
      "alias",
+     "azureApiVersion",
      "etag",
      "name",
      "networkInterfaces",
@@ -6263,6 +6500,10 @@
    "outputs": {
     "description": "PrivateEndpointConnection resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -6303,6 +6544,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "linkIdentifier",
      "privateEndpoint",
@@ -6341,6 +6583,10 @@
    "outputs": {
     "description": "Public IP address resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "ddosSettings": {
       "$ref": "#/types/azure-native:network/v20230201:DdosSettingsResponse",
       "description": "The DDoS protection custom policy associated with the public IP address.",
@@ -6462,6 +6708,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "ipConfiguration",
      "name",
@@ -6500,6 +6747,10 @@
    "outputs": {
     "description": "Public IP prefix resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "customIPPrefix": {
       "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
       "description": "The customIpPrefix that this prefix is associated with.",
@@ -6597,6 +6848,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "ipPrefix",
      "loadBalancerFrontendIpConfiguration",
@@ -6643,6 +6895,10 @@
       "description": "The destination CIDR to which the route applies.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -6677,6 +6933,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "nextHopType",
      "provisioningState"
@@ -6712,6 +6969,10 @@
    "outputs": {
     "description": "Route Filter Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -6769,6 +7030,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "ipv6Peerings",
      "location",
@@ -6814,6 +7076,10 @@
       "description": "The access type of the rule.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "communities": {
       "description": "The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].",
       "items": {
@@ -6848,6 +7114,7 @@
     },
     "required": [
      "access",
+     "azureApiVersion",
      "communities",
      "etag",
      "provisioningState",
@@ -6900,6 +7167,10 @@
       },
       "type": "array"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -6930,6 +7201,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -6967,6 +7239,10 @@
    "outputs": {
     "description": "Route table resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "disableBgpRoutePropagation": {
       "description": "Whether to disable the routes learned by BGP on that route table. True means disable.",
       "type": "boolean"
@@ -7024,6 +7300,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "provisioningState",
@@ -7064,6 +7341,10 @@
    "outputs": {
     "description": "The routing intent child resource of a Virtual hub.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -7094,6 +7375,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -7131,6 +7413,10 @@
    "outputs": {
     "description": "The Scope Connections resource",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the scope connection.",
       "type": "string"
@@ -7166,6 +7452,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -7212,6 +7499,10 @@
       },
       "type": "array"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the security configuration.",
       "type": "string"
@@ -7247,6 +7538,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -7282,6 +7574,10 @@
    "outputs": {
     "description": "Security Partner Provider resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "connectionStatus": {
       "description": "The connection status with the Security Partner Provider.",
       "type": "string"
@@ -7328,6 +7624,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "connectionStatus",
      "etag",
      "name",
@@ -7369,6 +7666,10 @@
     "properties": {
      "access": {
       "description": "The network traffic is allowed or denied.",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "description": {
@@ -7470,6 +7771,7 @@
     },
     "required": [
      "access",
+     "azureApiVersion",
      "direction",
      "etag",
      "priority",
@@ -7507,6 +7809,10 @@
    "outputs": {
     "description": "Service End point policy resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "contextualServiceEndpointPolicies": {
       "description": "A collection of contextual service endpoint policy.",
       "items": {
@@ -7575,6 +7881,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "kind",
      "name",
@@ -7616,6 +7923,10 @@
    "outputs": {
     "description": "Service Endpoint policy definitions.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description for this rule. Restricted to 140 chars.",
       "type": "string"
@@ -7653,6 +7964,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState"
     ],
@@ -7695,6 +8007,10 @@
    "outputs": {
     "description": "StaticMember Item.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -7730,6 +8046,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -7793,6 +8110,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "delegations": {
       "description": "An array of references to the delegations on the subnet.",
@@ -7917,6 +8238,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "ipConfigurationProfiles",
      "ipConfigurations",
@@ -7947,6 +8269,10 @@
    "outputs": {
     "description": "The Network Manager Connection resource",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "description": {
       "description": "A description of the network manager connection.",
       "type": "string"
@@ -7978,6 +8304,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "id",
      "name",
@@ -8021,6 +8348,10 @@
       "description": "Address Prefix.",
       "type": "string"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -8048,6 +8379,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -8086,6 +8418,10 @@
      "allowBranchToBranchTraffic": {
       "description": "Flag to control transit for VirtualRouter hub.",
       "type": "boolean"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "azureFirewall": {
       "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
@@ -8227,6 +8563,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "bgpConnections",
      "etag",
      "ipConfigurations",
@@ -8271,6 +8608,10 @@
    "outputs": {
     "description": "Virtual Appliance Site resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "connectionState": {
       "description": "The current state of the VirtualHub to Peer.",
       "type": "string"
@@ -8310,6 +8651,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "connectionState",
      "etag",
      "provisioningState",
@@ -8348,6 +8690,10 @@
    "outputs": {
     "description": "IpConfigurations.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -8388,6 +8734,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -8432,6 +8779,10 @@
       },
       "type": "array"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -8458,6 +8809,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState"
     ],
@@ -8496,6 +8848,10 @@
       "$ref": "#/types/azure-native:network/v20230201:AddressSpaceResponse",
       "description": "The AddressSpace that contains an array of IP address ranges that can be used by subnets.",
       "type": "object"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "bgpCommunities": {
       "$ref": "#/types/azure-native:network/v20230201:VirtualNetworkBgpCommunitiesResponse",
@@ -8605,6 +8961,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "flowLogs",
      "name",
@@ -8654,6 +9011,10 @@
      "allowVirtualWanTraffic": {
       "description": "Configures this gateway to accept traffic from remote Virtual WAN networks.",
       "type": "boolean"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "bgpSettings": {
       "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
@@ -8786,6 +9147,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "inboundDnsForwardingEndpoint",
      "name",
@@ -8903,6 +9265,10 @@
     "properties": {
      "authorizationKey": {
       "description": "The authorizationKey.",
+      "type": "string"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
       "type": "string"
      },
      "connectionMode": {
@@ -9066,6 +9432,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "connectionStatus",
      "connectionType",
      "egressBytesTransferred",
@@ -9177,6 +9544,10 @@
    "outputs": {
     "description": "VirtualNetworkGatewayNatRule Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -9223,6 +9594,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -9408,6 +9780,10 @@
       "description": "Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.",
       "type": "boolean"
      },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "doNotVerifyRemoteGateways": {
       "description": "If we need to verify the provisioning state of the remote gateway.",
       "type": "boolean"
@@ -9475,6 +9851,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "remoteVirtualNetworkEncryption",
@@ -9507,6 +9884,10 @@
    "outputs": {
     "description": "Virtual Network Tap resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "destinationLoadBalancerFrontEndIPConfiguration": {
       "$ref": "#/types/azure-native:network/v20230201:FrontendIPConfigurationResponse",
       "description": "The reference to the private IP address on the internal Load Balancer that will receive the tap.",
@@ -9566,6 +9947,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "networkInterfaceTapConfigurations",
@@ -9604,6 +9986,10 @@
    "outputs": {
     "description": "VirtualRouter Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -9666,6 +10052,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
      "peerings",
@@ -9705,6 +10092,10 @@
    "outputs": {
     "description": "Virtual Router Peering resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
       "type": "string"
@@ -9735,6 +10126,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "provisioningState",
      "type"
@@ -9773,6 +10165,10 @@
      "allowVnetToVnetTraffic": {
       "description": "True if Vnet to Vnet traffic is allowed.",
       "type": "boolean"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "disableVpnEncryption": {
       "description": "Vpn encryption to be disabled or not.",
@@ -9831,6 +10227,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "location",
      "name",
@@ -9873,6 +10270,10 @@
    "outputs": {
     "description": "VpnConnection Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "connectionBandwidth": {
       "description": "Expected bandwidth in MBPS.",
       "type": "integer"
@@ -9977,6 +10378,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "connectionStatus",
      "egressBytesTransferred",
      "etag",
@@ -10010,6 +10412,10 @@
    "outputs": {
     "description": "VpnGateway Resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "bgpSettings": {
       "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
       "description": "Local network gateway's BGP speaker settings.",
@@ -10089,6 +10495,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "ipConfigurations",
      "location",
@@ -10165,18 +10572,9 @@
    "outputs": {
     "description": "VpnServerConfiguration Resource.",
     "properties": {
-     "aadAuthenticationParameters": {
-      "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParametersResponse",
-      "description": "The set of aad vpn authentication parameters.",
-      "type": "object"
-     },
-     "configurationPolicyGroups": {
-      "description": "List of all VpnServerConfigurationPolicyGroups.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroupResponse",
-       "type": "object"
-      },
-      "type": "array"
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "etag": {
       "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -10194,49 +10592,10 @@
       "description": "Resource name.",
       "type": "string"
      },
-     "p2SVpnGateways": {
-      "description": "List of references to P2SVpnGateways.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:P2SVpnGatewayResponse",
-       "type": "object"
-      },
-      "type": "array"
-     },
-     "provisioningState": {
-      "description": "The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-      "type": "string"
-     },
-     "radiusClientRootCertificates": {
-      "description": "Radius client root certificate of VpnServerConfiguration.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificateResponse",
-       "type": "object"
-      },
-      "type": "array"
-     },
-     "radiusServerAddress": {
-      "description": "The radius server address property of the VpnServerConfiguration resource for point to site client connection.",
-      "type": "string"
-     },
-     "radiusServerRootCertificates": {
-      "description": "Radius Server root certificate of VpnServerConfiguration.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificateResponse",
-       "type": "object"
-      },
-      "type": "array"
-     },
-     "radiusServerSecret": {
-      "description": "The radius secret property of the VpnServerConfiguration resource for point to site client connection.",
-      "type": "string"
-     },
-     "radiusServers": {
-      "description": "Multiple Radius Server configuration for VpnServerConfiguration.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:RadiusServerResponse",
-       "type": "object"
-      },
-      "type": "array"
+     "properties": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPropertiesResponse",
+      "description": "Properties of the P2SVpnServer configuration.",
+      "type": "object"
      },
      "tags": {
       "additionalProperties": {
@@ -10248,51 +10607,13 @@
      "type": {
       "description": "Resource type.",
       "type": "string"
-     },
-     "vpnAuthenticationTypes": {
-      "description": "VPN authentication types for the VpnServerConfiguration.",
-      "items": {
-       "type": "string"
-      },
-      "type": "array"
-     },
-     "vpnClientIpsecPolicies": {
-      "description": "VpnClientIpsecPolicies for VpnServerConfiguration.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:IpsecPolicyResponse",
-       "type": "object"
-      },
-      "type": "array"
-     },
-     "vpnClientRevokedCertificates": {
-      "description": "VPN client revoked certificate of VpnServerConfiguration.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificateResponse",
-       "type": "object"
-      },
-      "type": "array"
-     },
-     "vpnClientRootCertificates": {
-      "description": "VPN client root certificate of VpnServerConfiguration.",
-      "items": {
-       "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificateResponse",
-       "type": "object"
-      },
-      "type": "array"
-     },
-     "vpnProtocols": {
-      "description": "VPN protocols for the VpnServerConfiguration.",
-      "items": {
-       "type": "string"
-      },
-      "type": "array"
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "name",
-     "p2SVpnGateways",
-     "provisioningState",
+     "properties",
      "type"
     ],
     "type": "object"
@@ -10326,6 +10647,10 @@
       "$ref": "#/types/azure-native:network/v20230201:AddressSpaceResponse",
       "description": "The AddressSpace that contains an array of IP address ranges.",
       "type": "object"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "bgpProperties": {
       "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
@@ -10400,6 +10725,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "etag",
      "location",
      "name",
@@ -10440,6 +10766,10 @@
        "type": "object"
       },
       "type": "array"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "customRules": {
       "description": "The custom rules inside the policy.",
@@ -10513,6 +10843,7 @@
     },
     "required": [
      "applicationGateways",
+     "azureApiVersion",
      "etag",
      "httpListeners",
      "managedRules",
@@ -11228,6 +11559,10 @@
      "description": "Indicates the access allowed for this particular rule",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description for this rule. Restricted to 140 chars.",
      "type": "string"
@@ -11307,6 +11642,7 @@
    },
    "required": [
     "access",
+    "azureApiVersion",
     "direction",
     "etag",
     "kind",
@@ -11376,6 +11712,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the admin rule collection.",
      "type": "string"
@@ -11408,6 +11748,7 @@
    },
    "required": [
     "appliesToGroups",
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -11696,6 +12037,10 @@
      "description": "Autoscale Configuration.",
      "type": "object"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "backendAddressPools": {
      "description": "Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
      "items": {
@@ -11962,6 +12307,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "defaultPredefinedSslPolicy",
     "etag",
     "name",
@@ -12009,6 +12355,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -12041,6 +12391,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "linkIdentifier",
     "privateEndpoint",
@@ -12083,6 +12434,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -12116,6 +12471,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -12254,6 +12610,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -12351,6 +12711,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "ipGroups",
     "name",
@@ -12443,6 +12804,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "disableCopyPaste": {
      "default": false,
      "description": "Enable/Disable Copy/Paste feature of the Bastion Host resource.",
@@ -12523,6 +12888,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -12577,6 +12943,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -12619,6 +12989,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "p2SConnectionConfigurations",
     "provisioningState",
@@ -12726,6 +13097,10 @@
      "description": "Determines if the connection monitor will start automatically once created.",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connectionMonitorType": {
      "description": "Type of connection monitor.",
      "type": "string"
@@ -12818,6 +13193,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "connectionMonitorType",
     "etag",
     "monitoringStatus",
@@ -12913,6 +13289,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connectivityTopology": {
      "description": "Connectivity topology type.",
      "type": "string"
@@ -12965,6 +13345,7 @@
    },
    "required": [
     "appliesToGroups",
+    "azureApiVersion",
     "connectivityTopology",
     "etag",
     "name",
@@ -13093,6 +13474,10 @@
      "description": "Authorization message for WAN validation.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "childCustomIpPrefixes": {
      "description": "The list of all Children for IPv6 /48 CustomIpPrefix.",
      "items": {
@@ -13191,6 +13576,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "childCustomIpPrefixes",
     "etag",
     "failedReason",
@@ -13235,6 +13621,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -13268,6 +13658,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -13305,6 +13696,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -13354,6 +13749,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -13408,6 +13804,10 @@
    "properties": {
     "access": {
      "description": "Indicates the access allowed for this particular rule",
+     "type": "string"
+    },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
      "type": "string"
     },
     "description": {
@@ -13493,6 +13893,7 @@
    },
    "required": [
     "access",
+    "azureApiVersion",
     "description",
     "destinationPortRanges",
     "destinations",
@@ -13614,6 +14015,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "destinationIpRanges": {
      "description": "Destination IP ranges.",
      "items": {
@@ -13703,6 +14108,7 @@
    },
    "required": [
     "associatedNetworkInterfaces",
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -13839,6 +14245,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bandwidthInGbps": {
      "description": "The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.",
      "type": "number"
@@ -13924,6 +14334,7 @@
    },
    "required": [
     "authorizationStatus",
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -13986,6 +14397,10 @@
      "description": "The authorization use status.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -14004,6 +14419,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -14078,6 +14494,10 @@
      "description": "The authorization key.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "circuitConnectionStatus": {
      "description": "Express Route Circuit connection state.",
      "type": "string"
@@ -14115,6 +14535,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "circuitConnectionStatus",
     "etag",
     "provisioningState",
@@ -14245,6 +14666,10 @@
      "description": "The Azure ASN.",
      "type": "integer"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connections": {
      "description": "The list of circuit connections associated with Azure Private Peering for this circuit.",
      "items": {
@@ -14348,6 +14773,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "lastModifiedBy",
     "peeredConnections",
@@ -14422,6 +14848,10 @@
      "description": "Authorization key to establish the connection.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "enableInternetSecurity": {
      "description": "Enable internet security.",
      "type": "boolean"
@@ -14458,6 +14888,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "expressRouteCircuitPeering",
     "name",
     "provisioningState"
@@ -14558,6 +14989,10 @@
      "description": "The Azure ASN.",
      "type": "integer"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -14627,6 +15062,7 @@
    },
    "required": [
     "azureASN",
+    "azureApiVersion",
     "etag",
     "lastModifiedBy",
     "primaryAzurePort",
@@ -14700,6 +15136,10 @@
      "description": "Configuration for auto scaling.",
      "type": "object"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -14742,6 +15182,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -14831,6 +15272,10 @@
      "description": "Date of the physical port allocation to be used in Letter of Authorization.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bandwidthInGbps": {
      "description": "Bandwidth of procured ports in Gbps.",
      "type": "integer"
@@ -14914,6 +15359,7 @@
    },
    "required": [
     "allocationDate",
+    "azureApiVersion",
     "circuits",
     "etag",
     "etherType",
@@ -14965,6 +15411,10 @@
      "description": "The authorization use status.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "circuitResourceUri": {
      "description": "The reference to the ExpressRoute circuit resource using the authorization.",
      "type": "string"
@@ -14989,6 +15439,7 @@
    "required": [
     "authorizationKey",
     "authorizationUseStatus",
+    "azureApiVersion",
     "circuitResourceUri",
     "etag",
     "provisioningState",
@@ -15096,6 +15547,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "basePolicy": {
      "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
      "description": "The parent firewall policy from which rules are inherited.",
@@ -15208,6 +15663,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "childPolicies",
     "etag",
     "firewalls",
@@ -15276,6 +15732,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -15321,6 +15781,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -15393,6 +15854,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "enabled": {
      "description": "Flag to enable/disable flow logging.",
      "type": "boolean"
@@ -15453,6 +15918,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -15519,6 +15985,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -15560,6 +16030,7 @@
    },
    "required": [
     "associatedConnections",
+    "azureApiVersion",
     "etag",
     "propagatingConnections",
     "provisioningState",
@@ -15629,6 +16100,10 @@
      "description": "Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "enableInternetSecurity": {
      "description": "Enable internet security.",
      "type": "boolean"
@@ -15657,6 +16132,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState"
    ],
@@ -15743,6 +16219,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "backendAddressPool": {
      "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
      "description": "A reference to backendAddressPool resource.",
@@ -15808,6 +16288,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "backendIPConfiguration",
     "etag",
     "provisioningState",
@@ -15898,6 +16379,10 @@
      "description": "IpAllocation tags.",
      "type": "object"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -15950,6 +16435,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "subnet",
@@ -15998,6 +16484,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -16050,6 +16540,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "firewallPolicies",
     "firewalls",
@@ -16158,6 +16649,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "backendAddressPools": {
      "description": "Collection of backend address pools used by a load balancer.",
      "items": {
@@ -16257,6 +16752,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -16325,6 +16821,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "backendIPConfigurations": {
      "description": "An array of references to IP addresses defined in network interfaces.",
      "items": {
@@ -16409,6 +16909,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "backendIPConfigurations",
     "etag",
     "inboundNatRules",
@@ -16472,6 +16973,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bgpSettings": {
      "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
      "description": "Local network gateway's BGP speaker settings.",
@@ -16523,6 +17028,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -16557,6 +17063,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the network manager connection.",
      "type": "string"
@@ -16584,6 +17094,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "systemData",
@@ -16656,6 +17167,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -16729,6 +17244,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -16811,6 +17327,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "egressVpnSiteLinkConnections": {
      "description": "List of egress VpnSiteLinkConnections.",
      "items": {
@@ -16869,6 +17389,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "egressVpnSiteLinkConnections",
     "etag",
     "ingressVpnSiteLinkConnections",
@@ -16905,6 +17426,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the network group.",
      "type": "string"
@@ -16936,6 +17461,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -17075,6 +17601,10 @@
      "description": "Auxiliary sku of Network Interface resource.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "disableTcpStateTracking": {
      "description": "Indicates whether to disable tcp state tracking.",
      "type": "boolean"
@@ -17202,6 +17732,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "dscpConfiguration",
     "etag",
     "hostedWorkloads",
@@ -17254,6 +17785,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -17277,6 +17812,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -17340,6 +17876,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the network manager.",
      "type": "string"
@@ -17394,6 +17934,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "networkManagerScopeAccesses",
@@ -17448,6 +17989,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "containerNetworkInterfaceConfigurations": {
      "description": "List of chid container network interface configurations.",
      "items": {
@@ -17497,6 +18042,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "containerNetworkInterfaces",
     "etag",
     "name",
@@ -17551,6 +18097,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "defaultSecurityRules": {
      "description": "The default security rules of network security group.",
      "items": {
@@ -17628,6 +18178,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "defaultSecurityRules",
     "etag",
     "flowLogs",
@@ -17737,6 +18288,10 @@
     },
     "addressPrefix": {
      "description": "Address Prefix.",
+     "type": "string"
+    },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
      "type": "string"
     },
     "bootStrapConfigurationBlobs": {
@@ -17856,6 +18411,7 @@
    },
    "required": [
     "addressPrefix",
+    "azureApiVersion",
     "deploymentType",
     "etag",
     "inboundSecurityRules",
@@ -17874,25 +18430,10 @@
   "azure-native:network/v20230201:NetworkVirtualApplianceConnection": {
    "description": "NetworkVirtualApplianceConnection resource.",
    "inputProperties": {
-    "asn": {
-     "description": "Network Virtual Appliance ASN.",
-     "type": "number"
-    },
-    "bgpPeerAddress": {
-     "description": "List of bgpPeerAddresses for the NVA instances",
-     "items": {
-      "type": "string"
-     },
-     "type": "array"
-    },
     "connectionName": {
      "description": "The name of the NVA connection.",
      "type": "string",
      "willReplaceOnChanges": true
-    },
-    "enableInternetSecurity": {
-     "description": "Enable internet security.",
-     "type": "boolean"
     },
     "id": {
      "description": "Resource ID.",
@@ -17907,57 +18448,35 @@
      "type": "string",
      "willReplaceOnChanges": true
     },
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:NetworkVirtualApplianceConnectionProperties",
+     "description": "Properties of the express route connection.",
+     "type": "object"
+    },
     "resourceGroupName": {
      "description": "The name of the resource group.",
      "type": "string",
      "willReplaceOnChanges": true
-    },
-    "routingConfiguration": {
-     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfv",
-     "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
-     "type": "object"
-    },
-    "tunnelIdentifier": {
-     "description": "Unique identifier for the connection.",
-     "type": "number"
     }
    },
    "properties": {
-    "asn": {
-     "description": "Network Virtual Appliance ASN.",
-     "type": "number"
-    },
-    "bgpPeerAddress": {
-     "description": "List of bgpPeerAddresses for the NVA instances",
-     "items": {
-      "type": "string"
-     },
-     "type": "array"
-    },
-    "enableInternetSecurity": {
-     "description": "Enable internet security.",
-     "type": "boolean"
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
     },
     "name": {
      "description": "The name of the resource.",
      "type": "string"
     },
-    "provisioningState": {
-     "description": "The provisioning state of the NetworkVirtualApplianceConnection resource.",
-     "type": "string"
-    },
-    "routingConfiguration": {
-     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfvResponse",
-     "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:NetworkVirtualApplianceConnectionPropertiesResponse",
+     "description": "Properties of the express route connection.",
      "type": "object"
-    },
-    "tunnelIdentifier": {
-     "description": "Unique identifier for the connection.",
-     "type": "number"
     }
    },
    "required": [
-    "provisioningState"
+    "azureApiVersion",
+    "properties"
    ],
    "requiredInputs": [
     "networkVirtualApplianceName",
@@ -17995,6 +18514,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -18024,6 +18547,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -18097,6 +18621,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "customDnsServers": {
      "description": "List of all customer specified DNS servers IP addresses.",
      "items": {
@@ -18164,6 +18692,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "location",
     "name",
@@ -18237,6 +18766,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bytesToCapturePerPacket": {
      "default": 0,
      "description": "Number of bytes captured per packet, the remaining bytes are truncated.",
@@ -18292,6 +18825,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -18342,6 +18876,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -18364,6 +18902,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState"
    ],
@@ -18466,6 +19005,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "customDnsConfigs": {
      "description": "An array of custom dns configurations.",
      "items": {
@@ -18549,6 +19092,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "networkInterfaces",
@@ -18641,6 +19185,10 @@
      "description": "The auto-approval list of the private link service.",
      "type": "object"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "enableProxyProtocol": {
      "description": "Whether the private link service is enabled for proxy protocol or not.",
      "type": "boolean"
@@ -18724,6 +19272,7 @@
    },
    "required": [
     "alias",
+    "azureApiVersion",
     "etag",
     "name",
     "networkInterfaces",
@@ -18769,6 +19318,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -18805,6 +19358,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "linkIdentifier",
     "privateEndpoint",
@@ -18959,6 +19513,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "ddosSettings": {
      "$ref": "#/types/azure-native:network/v20230201:DdosSettingsResponse",
      "description": "The DDoS protection custom policy associated with the public IP address.",
@@ -19076,6 +19634,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "ipConfiguration",
     "name",
@@ -19168,6 +19727,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "customIPPrefix": {
      "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
      "description": "The customIpPrefix that this prefix is associated with.",
@@ -19261,6 +19824,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "ipPrefix",
     "loadBalancerFrontendIpConfiguration",
@@ -19334,6 +19898,10 @@
      "description": "The destination CIDR to which the route applies.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -19364,6 +19932,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "nextHopType",
     "provisioningState"
@@ -19413,6 +19982,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -19466,6 +20039,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "ipv6Peerings",
     "location",
@@ -19544,6 +20118,10 @@
      "description": "The access type of the rule.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "communities": {
      "description": "The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].",
      "items": {
@@ -19574,6 +20152,7 @@
    },
    "required": [
     "access",
+    "azureApiVersion",
     "communities",
     "etag",
     "provisioningState",
@@ -19648,6 +20227,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -19674,6 +20257,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -19727,6 +20311,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "disableBgpRoutePropagation": {
      "description": "Whether to disable the routes learned by BGP on that route table. True means disable.",
      "type": "boolean"
@@ -19780,6 +20368,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -19828,6 +20417,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -19854,6 +20447,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -19896,6 +20490,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the scope connection.",
      "type": "string"
@@ -19927,6 +20525,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "systemData",
@@ -19983,6 +20582,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the security configuration.",
      "type": "string"
@@ -20014,6 +20617,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -20073,6 +20677,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connectionStatus": {
      "description": "The connection status with the Security Partner Provider.",
      "type": "string"
@@ -20115,6 +20723,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "connectionStatus",
     "etag",
     "name",
@@ -20263,6 +20872,10 @@
      "description": "The network traffic is allowed or denied.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description for this rule. Restricted to 140 chars.",
      "type": "string"
@@ -20358,6 +20971,7 @@
    },
    "required": [
     "access",
+    "azureApiVersion",
     "direction",
     "etag",
     "priority",
@@ -20423,6 +21037,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "contextualServiceEndpointPolicies": {
      "description": "A collection of contextual service endpoint policy.",
      "items": {
@@ -20487,6 +21105,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "kind",
     "name",
@@ -20547,6 +21166,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description for this rule. Restricted to 140 chars.",
      "type": "string"
@@ -20580,6 +21203,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState"
    ],
@@ -20618,6 +21242,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -20649,6 +21277,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "provisioningState",
@@ -20804,6 +21433,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "delegations": {
      "description": "An array of references to the delegations on the subnet.",
      "items": {
@@ -20923,6 +21556,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "ipConfigurationProfiles",
     "ipConfigurations",
@@ -20956,6 +21590,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "description": {
      "description": "A description of the network manager connection.",
      "type": "string"
@@ -20983,6 +21621,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "systemData",
@@ -21031,6 +21670,10 @@
      "description": "Address Prefix.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -21054,6 +21697,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -21199,6 +21843,10 @@
      "description": "Flag to control transit for VirtualRouter hub.",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "azureFirewall": {
      "$ref": "#/types/azure-native:network/v20230201:SubResourceResponse",
      "description": "The azureFirewall associated with this VirtualHub.",
@@ -21335,6 +21983,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "bgpConnections",
     "etag",
     "ipConfigurations",
@@ -21392,6 +22041,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connectionState": {
      "description": "The current state of the VirtualHub to Peer.",
      "type": "string"
@@ -21427,6 +22080,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "connectionState",
     "etag",
     "provisioningState",
@@ -21491,6 +22145,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -21527,6 +22185,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -21587,6 +22246,10 @@
      },
      "type": "array"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -21609,6 +22272,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState"
    ],
@@ -21722,6 +22386,10 @@
      "description": "The AddressSpace that contains an array of IP address ranges that can be used by subnets.",
      "type": "object"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bgpCommunities": {
      "$ref": "#/types/azure-native:network/v20230201:VirtualNetworkBgpCommunitiesResponse",
      "description": "Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.",
@@ -21826,6 +22494,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "flowLogs",
     "name",
@@ -22018,6 +22687,10 @@
      "description": "Configures this gateway to accept traffic from remote Virtual WAN networks.",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bgpSettings": {
      "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
      "description": "Virtual network gateway's BGP speaker settings.",
@@ -22145,6 +22818,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "inboundDnsForwardingEndpoint",
     "name",
@@ -22320,6 +22994,10 @@
      "description": "The authorizationKey.",
      "type": "string"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connectionMode": {
      "description": "The connection mode for this connection.",
      "type": "string"
@@ -22477,6 +23155,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "connectionStatus",
     "connectionType",
     "egressBytesTransferred",
@@ -22566,6 +23245,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -22608,6 +23291,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -22728,6 +23412,10 @@
      "description": "Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "doNotVerifyRemoteGateways": {
      "description": "If we need to verify the provisioning state of the remote gateway.",
      "type": "boolean"
@@ -22791,6 +23479,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "remoteVirtualNetworkEncryption",
@@ -22846,6 +23535,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "destinationLoadBalancerFrontEndIPConfiguration": {
      "$ref": "#/types/azure-native:network/v20230201:FrontendIPConfigurationResponse",
      "description": "The reference to the private IP address on the internal Load Balancer that will receive the tap.",
@@ -22901,6 +23594,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "networkInterfaceTapConfigurations",
@@ -22964,6 +23658,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -23022,6 +23720,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
     "peerings",
@@ -23069,6 +23768,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
      "type": "string"
@@ -23095,6 +23798,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "provisioningState",
     "type"
@@ -23159,6 +23863,10 @@
      "description": "True if Vnet to Vnet traffic is allowed.",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "disableVpnEncryption": {
      "description": "Vpn encryption to be disabled or not.",
      "type": "boolean"
@@ -23212,6 +23920,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "location",
     "name",
@@ -23335,6 +24044,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "connectionBandwidth": {
      "description": "Expected bandwidth in MBPS.",
      "type": "integer"
@@ -23435,6 +24148,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "connectionStatus",
     "egressBytesTransferred",
     "etag",
@@ -23515,6 +24229,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bgpSettings": {
      "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
      "description": "Local network gateway's BGP speaker settings.",
@@ -23590,6 +24308,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "ipConfigurations",
     "location",
@@ -23605,19 +24324,6 @@
   "azure-native:network/v20230201:VpnServerConfiguration": {
    "description": "VpnServerConfiguration Resource.",
    "inputProperties": {
-    "aadAuthenticationParameters": {
-     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParameters",
-     "description": "The set of aad vpn authentication parameters.",
-     "type": "object"
-    },
-    "configurationPolicyGroups": {
-     "description": "List of all VpnServerConfigurationPolicyGroups.\nThese are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroup",
-      "type": "object"
-     },
-     "type": "array"
-    },
     "id": {
      "description": "Resource ID.",
      "type": "string"
@@ -23627,40 +24333,13 @@
      "type": "string"
     },
     "name": {
-     "description": "The name of the VpnServerConfiguration that is unique within a resource group.",
+     "description": "The name of the resource that is unique within a resource group. This name can be used to access the resource.",
      "type": "string"
     },
-    "radiusClientRootCertificates": {
-     "description": "Radius client root certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificate",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "radiusServerAddress": {
-     "description": "The radius server address property of the VpnServerConfiguration resource for point to site client connection.",
-     "type": "string"
-    },
-    "radiusServerRootCertificates": {
-     "description": "Radius Server root certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificate",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "radiusServerSecret": {
-     "description": "The radius secret property of the VpnServerConfiguration resource for point to site client connection.",
-     "type": "string"
-    },
-    "radiusServers": {
-     "description": "Multiple Radius Server configuration for VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:RadiusServer",
-      "type": "object"
-     },
-     "type": "array"
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationProperties",
+     "description": "Properties of the P2SVpnServer configuration.",
+     "type": "object"
     },
     "resourceGroupName": {
      "description": "The resource group name of the VpnServerConfiguration.",
@@ -23674,58 +24353,6 @@
      "description": "Resource tags.",
      "type": "object"
     },
-    "vpnAuthenticationTypes": {
-     "description": "VPN authentication types for the VpnServerConfiguration.",
-     "items": {
-      "oneOf": [
-       {
-        "type": "string"
-       },
-       {
-        "$ref": "#/types/azure-native:network/v20230201:VpnAuthenticationType"
-       }
-      ]
-     },
-     "type": "array"
-    },
-    "vpnClientIpsecPolicies": {
-     "description": "VpnClientIpsecPolicies for VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicy",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "vpnClientRevokedCertificates": {
-     "description": "VPN client revoked certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificate",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "vpnClientRootCertificates": {
-     "description": "VPN client root certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificate",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "vpnProtocols": {
-     "description": "VPN protocols for the VpnServerConfiguration.",
-     "items": {
-      "oneOf": [
-       {
-        "type": "string"
-       },
-       {
-        "$ref": "#/types/azure-native:network/v20230201:VpnGatewayTunnelingProtocol"
-       }
-      ]
-     },
-     "type": "array"
-    },
     "vpnServerConfigurationName": {
      "description": "The name of the VpnServerConfiguration being created or updated.",
      "type": "string",
@@ -23733,18 +24360,9 @@
     }
    },
    "properties": {
-    "aadAuthenticationParameters": {
-     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParametersResponse",
-     "description": "The set of aad vpn authentication parameters.",
-     "type": "object"
-    },
-    "configurationPolicyGroups": {
-     "description": "List of all VpnServerConfigurationPolicyGroups.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroupResponse",
-      "type": "object"
-     },
-     "type": "array"
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
     },
     "etag": {
      "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -23758,49 +24376,10 @@
      "description": "Resource name.",
      "type": "string"
     },
-    "p2SVpnGateways": {
-     "description": "List of references to P2SVpnGateways.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:P2SVpnGatewayResponse",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "provisioningState": {
-     "description": "The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-     "type": "string"
-    },
-    "radiusClientRootCertificates": {
-     "description": "Radius client root certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificateResponse",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "radiusServerAddress": {
-     "description": "The radius server address property of the VpnServerConfiguration resource for point to site client connection.",
-     "type": "string"
-    },
-    "radiusServerRootCertificates": {
-     "description": "Radius Server root certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificateResponse",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "radiusServerSecret": {
-     "description": "The radius secret property of the VpnServerConfiguration resource for point to site client connection.",
-     "type": "string"
-    },
-    "radiusServers": {
-     "description": "Multiple Radius Server configuration for VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:RadiusServerResponse",
-      "type": "object"
-     },
-     "type": "array"
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPropertiesResponse",
+     "description": "Properties of the P2SVpnServer configuration.",
+     "type": "object"
     },
     "tags": {
      "additionalProperties": {
@@ -23812,51 +24391,13 @@
     "type": {
      "description": "Resource type.",
      "type": "string"
-    },
-    "vpnAuthenticationTypes": {
-     "description": "VPN authentication types for the VpnServerConfiguration.",
-     "items": {
-      "type": "string"
-     },
-     "type": "array"
-    },
-    "vpnClientIpsecPolicies": {
-     "description": "VpnClientIpsecPolicies for VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicyResponse",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "vpnClientRevokedCertificates": {
-     "description": "VPN client revoked certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificateResponse",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "vpnClientRootCertificates": {
-     "description": "VPN client root certificate of VpnServerConfiguration.",
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificateResponse",
-      "type": "object"
-     },
-     "type": "array"
-    },
-    "vpnProtocols": {
-     "description": "VPN protocols for the VpnServerConfiguration.",
-     "items": {
-      "type": "string"
-     },
-     "type": "array"
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "name",
-    "p2SVpnGateways",
-    "provisioningState",
+    "properties",
     "type"
    ],
    "requiredInputs": [
@@ -23944,6 +24485,10 @@
      "description": "The AddressSpace that contains an array of IP address ranges.",
      "type": "object"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "bgpProperties": {
      "$ref": "#/types/azure-native:network/v20230201:BgpSettingsResponse",
      "description": "The set of bgp properties.",
@@ -24013,6 +24558,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "etag",
     "location",
     "name",
@@ -24079,6 +24625,10 @@
       "type": "object"
      },
      "type": "array"
+    },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
     },
     "customRules": {
      "description": "The custom rules inside the policy.",
@@ -24148,6 +24698,7 @@
    },
    "required": [
     "applicationGateways",
+    "azureApiVersion",
     "etag",
     "httpListeners",
     "managedRules",
@@ -38362,6 +38913,81 @@
    ],
    "type": "object"
   },
+  "azure-native:network/v20230201:NetworkVirtualApplianceConnectionProperties": {
+   "description": "Properties of the NetworkVirtualApplianceConnection subresource.",
+   "properties": {
+    "asn": {
+     "description": "Network Virtual Appliance ASN.",
+     "type": "number"
+    },
+    "bgpPeerAddress": {
+     "description": "List of bgpPeerAddresses for the NVA instances",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "enableInternetSecurity": {
+     "description": "Enable internet security.",
+     "type": "boolean"
+    },
+    "name": {
+     "description": "The name of the resource.",
+     "type": "string"
+    },
+    "routingConfiguration": {
+     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfv",
+     "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
+     "type": "object"
+    },
+    "tunnelIdentifier": {
+     "description": "Unique identifier for the connection.",
+     "type": "number"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:network/v20230201:NetworkVirtualApplianceConnectionPropertiesResponse": {
+   "description": "Properties of the NetworkVirtualApplianceConnection subresource.",
+   "properties": {
+    "asn": {
+     "description": "Network Virtual Appliance ASN.",
+     "type": "number"
+    },
+    "bgpPeerAddress": {
+     "description": "List of bgpPeerAddresses for the NVA instances",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "enableInternetSecurity": {
+     "description": "Enable internet security.",
+     "type": "boolean"
+    },
+    "name": {
+     "description": "The name of the resource.",
+     "type": "string"
+    },
+    "provisioningState": {
+     "description": "The provisioning state of the NetworkVirtualApplianceConnection resource.",
+     "type": "string"
+    },
+    "routingConfiguration": {
+     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfvResponse",
+     "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
+     "type": "object"
+    },
+    "tunnelIdentifier": {
+     "description": "Unique identifier for the connection.",
+     "type": "number"
+    }
+   },
+   "required": [
+    "provisioningState"
+   ],
+   "type": "object"
+  },
   "azure-native:network/v20230201:NextStep": {
    "description": "Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.",
    "enum": [
@@ -46123,6 +46749,227 @@
    ],
    "type": "object"
   },
+  "azure-native:network/v20230201:VpnServerConfigurationProperties": {
+   "description": "Parameters for VpnServerConfiguration.",
+   "properties": {
+    "aadAuthenticationParameters": {
+     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParameters",
+     "description": "The set of aad vpn authentication parameters.",
+     "type": "object"
+    },
+    "configurationPolicyGroups": {
+     "description": "List of all VpnServerConfigurationPolicyGroups.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroup",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "name": {
+     "description": "The name of the VpnServerConfiguration that is unique within a resource group.",
+     "type": "string"
+    },
+    "radiusClientRootCertificates": {
+     "description": "Radius client root certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "radiusServerAddress": {
+     "description": "The radius server address property of the VpnServerConfiguration resource for point to site client connection.",
+     "type": "string"
+    },
+    "radiusServerRootCertificates": {
+     "description": "Radius Server root certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "radiusServerSecret": {
+     "description": "The radius secret property of the VpnServerConfiguration resource for point to site client connection.",
+     "type": "string"
+    },
+    "radiusServers": {
+     "description": "Multiple Radius Server configuration for VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:RadiusServer",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnAuthenticationTypes": {
+     "description": "VPN authentication types for the VpnServerConfiguration.",
+     "items": {
+      "oneOf": [
+       {
+        "type": "string"
+       },
+       {
+        "$ref": "#/types/azure-native:network/v20230201:VpnAuthenticationType"
+       }
+      ]
+     },
+     "type": "array"
+    },
+    "vpnClientIpsecPolicies": {
+     "description": "VpnClientIpsecPolicies for VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicy",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnClientRevokedCertificates": {
+     "description": "VPN client revoked certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnClientRootCertificates": {
+     "description": "VPN client root certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnProtocols": {
+     "description": "VPN protocols for the VpnServerConfiguration.",
+     "items": {
+      "oneOf": [
+       {
+        "type": "string"
+       },
+       {
+        "$ref": "#/types/azure-native:network/v20230201:VpnGatewayTunnelingProtocol"
+       }
+      ]
+     },
+     "type": "array"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:network/v20230201:VpnServerConfigurationPropertiesResponse": {
+   "description": "Parameters for VpnServerConfiguration.",
+   "properties": {
+    "aadAuthenticationParameters": {
+     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParametersResponse",
+     "description": "The set of aad vpn authentication parameters.",
+     "type": "object"
+    },
+    "configurationPolicyGroups": {
+     "description": "List of all VpnServerConfigurationPolicyGroups.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroupResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "etag": {
+     "description": "A unique read-only string that changes whenever the resource is updated.",
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the VpnServerConfiguration that is unique within a resource group.",
+     "type": "string"
+    },
+    "p2SVpnGateways": {
+     "description": "List of references to P2SVpnGateways.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:P2SVpnGatewayResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "provisioningState": {
+     "description": "The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
+     "type": "string"
+    },
+    "radiusClientRootCertificates": {
+     "description": "Radius client root certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificateResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "radiusServerAddress": {
+     "description": "The radius server address property of the VpnServerConfiguration resource for point to site client connection.",
+     "type": "string"
+    },
+    "radiusServerRootCertificates": {
+     "description": "Radius Server root certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificateResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "radiusServerSecret": {
+     "description": "The radius secret property of the VpnServerConfiguration resource for point to site client connection.",
+     "type": "string"
+    },
+    "radiusServers": {
+     "description": "Multiple Radius Server configuration for VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:RadiusServerResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnAuthenticationTypes": {
+     "description": "VPN authentication types for the VpnServerConfiguration.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "vpnClientIpsecPolicies": {
+     "description": "VpnClientIpsecPolicies for VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicyResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnClientRevokedCertificates": {
+     "description": "VPN client revoked certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificateResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnClientRootCertificates": {
+     "description": "VPN client root certificate of VpnServerConfiguration.",
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificateResponse",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnProtocols": {
+     "description": "VPN protocols for the VpnServerConfiguration.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "etag",
+    "p2SVpnGateways",
+    "provisioningState"
+   ],
+   "type": "object"
+  },
   "azure-native:network/v20230201:VpnSiteLink": {
    "description": "VpnSiteLink Resource.",
    "properties": {
@@ -51884,45 +52731,10 @@
    "isResourceGetter": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName}",
    "response": {
-    "asn": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "bgpPeerAddress": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "type": "string"
-     }
-    },
-    "enableInternetSecurity": {
-     "containers": [
-      "properties"
-     ]
-    },
     "id": {},
-    "name": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "provisioningState": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "routingConfiguration": {
-     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfvResponse",
-     "containers": [
-      "properties"
-     ]
-    },
-    "tunnelIdentifier": {
-     "containers": [
-      "properties"
-     ]
+    "name": {},
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:NetworkVirtualApplianceConnectionPropertiesResponse"
     }
    }
   },
@@ -56400,129 +57212,19 @@
    "isResourceGetter": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}",
    "response": {
-    "aadAuthenticationParameters": {
-     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParametersResponse",
-     "containers": [
-      "properties"
-     ]
-    },
-    "configurationPolicyGroups": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroupResponse",
-      "type": "object"
-     }
-    },
-    "etag": {
-     "containers": [
-      "properties"
-     ]
-    },
+    "etag": {},
     "id": {},
     "location": {},
     "name": {},
-    "p2SVpnGateways": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:P2SVpnGatewayResponse",
-      "type": "object"
-     }
-    },
-    "provisioningState": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "radiusClientRootCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificateResponse",
-      "type": "object"
-     }
-    },
-    "radiusServerAddress": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "radiusServerRootCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificateResponse",
-      "type": "object"
-     }
-    },
-    "radiusServerSecret": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "radiusServers": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:RadiusServerResponse",
-      "type": "object"
-     }
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPropertiesResponse"
     },
     "tags": {
      "additionalProperties": {
       "type": "string"
      }
     },
-    "type": {},
-    "vpnAuthenticationTypes": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "type": "string"
-     }
-    },
-    "vpnClientIpsecPolicies": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicyResponse",
-      "type": "object"
-     }
-    },
-    "vpnClientRevokedCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificateResponse",
-      "type": "object"
-     }
-    },
-    "vpnClientRootCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificateResponse",
-      "type": "object"
-     }
-    },
-    "vpnProtocols": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "type": "string"
-     }
-    }
+    "type": {}
    }
   },
   "azure-native:network/v20230201:getVpnSite": {
@@ -64978,52 +65680,15 @@
     {
      "body": {
       "properties": {
-       "asn": {
-        "containers": [
-         "properties"
-        ],
-        "maximum": 4294967295,
-        "minimum": 0,
-        "type": "number"
-       },
-       "bgpPeerAddress": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "type": "string"
-        },
-        "type": "array"
-       },
-       "enableInternetSecurity": {
-        "containers": [
-         "properties"
-        ],
-        "type": "boolean"
-       },
        "id": {
         "type": "string"
        },
        "name": {
-        "containers": [
-         "properties"
-        ],
         "type": "string"
        },
-       "routingConfiguration": {
-        "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfv",
-        "containers": [
-         "properties"
-        ],
+       "properties": {
+        "$ref": "#/types/azure-native:network/v20230201:NetworkVirtualApplianceConnectionProperties",
         "type": "object"
-       },
-       "tunnelIdentifier": {
-        "containers": [
-         "properties"
-        ],
-        "maximum": 4294967295,
-        "minimum": 0,
-        "type": "number"
        }
       }
      },
@@ -65039,45 +65704,10 @@
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
-    "asn": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "bgpPeerAddress": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "type": "string"
-     }
-    },
-    "enableInternetSecurity": {
-     "containers": [
-      "properties"
-     ]
-    },
     "id": {},
-    "name": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "provisioningState": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "routingConfiguration": {
-     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfvResponse",
-     "containers": [
-      "properties"
-     ]
-    },
-    "tunnelIdentifier": {
-     "containers": [
-      "properties"
-     ]
+    "name": {},
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:NetworkVirtualApplianceConnectionPropertiesResponse"
     }
    }
   },
@@ -71614,24 +72244,6 @@
     {
      "body": {
       "properties": {
-       "aadAuthenticationParameters": {
-        "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParameters",
-        "containers": [
-         "properties"
-        ],
-        "type": "object"
-       },
-       "configurationPolicyGroups": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroup",
-         "type": "object"
-        },
-        "maintainSubResourceIfUnset": true,
-        "type": "array"
-       },
        "id": {
         "type": "string"
        },
@@ -71639,106 +72251,17 @@
         "type": "string"
        },
        "name": {
-        "containers": [
-         "properties"
-        ],
         "type": "string"
        },
-       "radiusClientRootCertificates": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificate",
-         "type": "object"
-        },
-        "type": "array"
-       },
-       "radiusServerAddress": {
-        "containers": [
-         "properties"
-        ],
-        "type": "string"
-       },
-       "radiusServerRootCertificates": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificate",
-         "type": "object"
-        },
-        "type": "array"
-       },
-       "radiusServerSecret": {
-        "containers": [
-         "properties"
-        ],
-        "type": "string"
-       },
-       "radiusServers": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:RadiusServer",
-         "type": "object"
-        },
-        "type": "array"
+       "properties": {
+        "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationProperties",
+        "type": "object"
        },
        "tags": {
         "additionalProperties": {
          "type": "string"
         },
         "type": "object"
-       },
-       "vpnAuthenticationTypes": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "type": "string"
-        },
-        "type": "array"
-       },
-       "vpnClientIpsecPolicies": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:IpsecPolicy",
-         "type": "object"
-        },
-        "type": "array"
-       },
-       "vpnClientRevokedCertificates": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificate",
-         "type": "object"
-        },
-        "type": "array"
-       },
-       "vpnClientRootCertificates": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificate",
-         "type": "object"
-        },
-        "type": "array"
-       },
-       "vpnProtocols": {
-        "containers": [
-         "properties"
-        ],
-        "items": {
-         "type": "string"
-        },
-        "type": "array"
        }
       }
      },
@@ -71754,129 +72277,19 @@
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {
-    "aadAuthenticationParameters": {
-     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParametersResponse",
-     "containers": [
-      "properties"
-     ]
-    },
-    "configurationPolicyGroups": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroupResponse",
-      "type": "object"
-     }
-    },
-    "etag": {
-     "containers": [
-      "properties"
-     ]
-    },
+    "etag": {},
     "id": {},
     "location": {},
     "name": {},
-    "p2SVpnGateways": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:P2SVpnGatewayResponse",
-      "type": "object"
-     }
-    },
-    "provisioningState": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "radiusClientRootCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificateResponse",
-      "type": "object"
-     }
-    },
-    "radiusServerAddress": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "radiusServerRootCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificateResponse",
-      "type": "object"
-     }
-    },
-    "radiusServerSecret": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "radiusServers": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:RadiusServerResponse",
-      "type": "object"
-     }
+    "properties": {
+     "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPropertiesResponse"
     },
     "tags": {
      "additionalProperties": {
       "type": "string"
      }
     },
-    "type": {},
-    "vpnAuthenticationTypes": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "type": "string"
-     }
-    },
-    "vpnClientIpsecPolicies": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicyResponse",
-      "type": "object"
-     }
-    },
-    "vpnClientRevokedCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificateResponse",
-      "type": "object"
-     }
-    },
-    "vpnClientRootCertificates": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificateResponse",
-      "type": "object"
-     }
-    },
-    "vpnProtocols": {
-     "containers": [
-      "properties"
-     ],
-     "items": {
-      "type": "string"
-     }
-    }
+    "type": {}
    }
   },
   "azure-native:network/v20230201:VpnSite": {
@@ -81673,6 +82086,53 @@
     "type": {}
    }
   },
+  "azure-native:network/v20230201:NetworkVirtualApplianceConnectionProperties": {
+   "properties": {
+    "asn": {
+     "maximum": 4294967295,
+     "minimum": 0,
+     "type": "number"
+    },
+    "bgpPeerAddress": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "enableInternetSecurity": {
+     "type": "boolean"
+    },
+    "name": {
+     "type": "string"
+    },
+    "routingConfiguration": {
+     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfv",
+     "type": "object"
+    },
+    "tunnelIdentifier": {
+     "maximum": 4294967295,
+     "minimum": 0,
+     "type": "number"
+    }
+   }
+  },
+  "azure-native:network/v20230201:NetworkVirtualApplianceConnectionPropertiesResponse": {
+   "properties": {
+    "asn": {},
+    "bgpPeerAddress": {
+     "items": {
+      "type": "string"
+     }
+    },
+    "enableInternetSecurity": {},
+    "name": {},
+    "provisioningState": {},
+    "routingConfiguration": {
+     "$ref": "#/types/azure-native:network/v20230201:RoutingConfigurationNfvResponse"
+    },
+    "tunnelIdentifier": {}
+   }
+  },
   "azure-native:network/v20230201:O365BreakOutCategoryPolicies": {
    "properties": {
     "allow": {
@@ -86832,6 +87292,154 @@
      ]
     },
     "type": {}
+   }
+  },
+  "azure-native:network/v20230201:VpnServerConfigurationProperties": {
+   "properties": {
+    "aadAuthenticationParameters": {
+     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParameters",
+     "type": "object"
+    },
+    "configurationPolicyGroups": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroup",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "name": {
+     "type": "string"
+    },
+    "radiusClientRootCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "radiusServerAddress": {
+     "type": "string"
+    },
+    "radiusServerRootCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "radiusServerSecret": {
+     "type": "string"
+    },
+    "radiusServers": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:RadiusServer",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnAuthenticationTypes": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "vpnClientIpsecPolicies": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicy",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnClientRevokedCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnClientRootCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificate",
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vpnProtocols": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   }
+  },
+  "azure-native:network/v20230201:VpnServerConfigurationPropertiesResponse": {
+   "properties": {
+    "aadAuthenticationParameters": {
+     "$ref": "#/types/azure-native:network/v20230201:AadAuthenticationParametersResponse"
+    },
+    "configurationPolicyGroups": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigurationPolicyGroupResponse",
+      "type": "object"
+     }
+    },
+    "etag": {},
+    "name": {},
+    "p2SVpnGateways": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:P2SVpnGatewayResponse",
+      "type": "object"
+     }
+    },
+    "provisioningState": {},
+    "radiusClientRootCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusClientRootCertificateResponse",
+      "type": "object"
+     }
+    },
+    "radiusServerAddress": {},
+    "radiusServerRootCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigRadiusServerRootCertificateResponse",
+      "type": "object"
+     }
+    },
+    "radiusServerSecret": {},
+    "radiusServers": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:RadiusServerResponse",
+      "type": "object"
+     }
+    },
+    "vpnAuthenticationTypes": {
+     "items": {
+      "type": "string"
+     }
+    },
+    "vpnClientIpsecPolicies": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:IpsecPolicyResponse",
+      "type": "object"
+     }
+    },
+    "vpnClientRevokedCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRevokedCertificateResponse",
+      "type": "object"
+     }
+    },
+    "vpnClientRootCertificates": {
+     "items": {
+      "$ref": "#/types/azure-native:network/v20230201:VpnServerConfigVpnClientRootCertificateResponse",
+      "type": "object"
+     }
+    },
+    "vpnProtocols": {
+     "items": {
+      "type": "string"
+     }
+    }
    }
   },
   "azure-native:network/v20230201:VpnSiteLink": {
