@@ -490,9 +490,23 @@ var typeNameOverrides = map[string]string{
 }
 
 var typeNameOverridesV3 = map[string]string{
+	"CosmosDB.MongoCluster.CreateMode": "MongoClusterCreateMode",
+
 	// DocumentDB.MongoCluster from /mongocluster uses a different private endpoint connection.
 	// The MongoCluster resource has the same name in v2 and v3, but the private endpoint connection was disambiguated in v3.
 	"DocumentDB.MongoCluster.PrivateEndpointConnection": "MongoClusterPrivateEndpointConnection",
+
+	"DBforMySQL.SingleServer.ServerVersion":      "SingleServerVersion",
+	"DBforMySQL.SingleServer.SkuTier":            "SingleServerSkuTier",
+	"DBforPostgreSQL.SingleServer.CreateMode":    "SingleServerCreateMode",
+	"DBforPostgreSQL.SingleServer.IdentityType":  "SingleServerIdentityProperties",
+	"DBforPostgreSQL.SingleServer.PrincipalType": "SingleServerPrincipalType",
+	"DBforPostgreSQL.SingleServer.ServerVersion": "SingleServerVersion",
+	"DBforPostgreSQL.SingleServer.SkuTier":       "SingleServerSkuTier",
+
+	"Migrate.AssessmentProjectsAssessmentsOperation.AzureOfferCode":          "AssessmentProjectsAssessmentsOperationAzureOfferCode",
+	"Migrate.AssessmentProjectsAssessmentsOperation.AzureVmFamily":           "AssessmentProjectsAssessmentsOperationAzureVmFamily",
+	"Migrate.AssessmentProjectsAssessmentsOperation.AvsAssessmentProperties": "AssessmentProjectsAssessmentsOperationAvsAssessmentProperties",
 }
 
 func (m *moduleGenerator) typeNameOverride(typeName string) string {
