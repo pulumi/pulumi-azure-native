@@ -198,10 +198,16 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteRenderingAccountResult:
     """
-    Retrieve a Remote Rendering Account.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
+
+     Retrieve a Remote Rendering Account.
     Azure REST API version: 2021-01-01.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-03-01-preview, 2025-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -231,10 +237,16 @@ def get_remote_rendering_account_output(account_name: Optional[pulumi.Input[str]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteRenderingAccountResult]:
     """
-    Retrieve a Remote Rendering Account.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
+
+     Retrieve a Remote Rendering Account.
     Azure REST API version: 2021-01-01.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-03-01-preview, 2025-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.

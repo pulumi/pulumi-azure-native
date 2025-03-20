@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:Deployment" },
                 },
             };

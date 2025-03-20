@@ -131,7 +131,7 @@ class JobCredential(pulumi.CustomResource):
         A stored credential that can be used by a job to connect to target databases.
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class JobCredential(pulumi.CustomResource):
         A stored credential that can be used by a job to connect to target databases.
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param JobCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class JobCredential(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20211101:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20221101preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230201preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230501preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20240501preview:JobCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20211101:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20221101preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230201preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230501preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230801:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20230801preview:JobCredential"), pulumi.Alias(type_="azure-native:sql/v20240501preview:JobCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobCredential, __self__).__init__(
             'azure-native:sql:JobCredential',

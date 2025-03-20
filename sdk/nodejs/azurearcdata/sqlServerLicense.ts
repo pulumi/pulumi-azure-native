@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describe SQL Server license resource.
  * Azure REST API version: 2024-05-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export class SqlServerLicense extends pulumi.CustomResource {
     /**
@@ -97,7 +99,7 @@ export class SqlServerLicense extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240501preview:SqlServerLicense" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240501preview:SqlServerLicense" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerLicense" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerLicense.__pulumiType, name, resourceInputs, opts);
     }

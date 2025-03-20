@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20231003Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:License" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute:License" },
                 },
             };

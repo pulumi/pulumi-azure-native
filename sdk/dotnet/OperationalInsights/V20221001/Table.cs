@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20221001
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Table" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Table" },
                 },
             };

@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:TrafficControllerInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking:TrafficControllerInterface" },
                 },
             };

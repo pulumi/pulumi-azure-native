@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Outputs
         /// and to DefaultScaleSettings for ManagedOnlineDeployment.
         /// </summary>
         public readonly Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? ScaleSettings;
+        /// <summary>
+        /// Startup probe verify whether an application within a container has started successfully.
+        /// </summary>
+        public readonly Outputs.ProbeSettingsResponse? StartupProbe;
 
         [OutputConstructor]
         private KubernetesOnlineDeploymentResponse(
@@ -129,7 +133,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Outputs
 
             Outputs.OnlineRequestSettingsResponse? requestSettings,
 
-            Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? scaleSettings)
+            Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? scaleSettings,
+
+            Outputs.ProbeSettingsResponse? startupProbe)
         {
             AppInsightsEnabled = appInsightsEnabled;
             CodeConfiguration = codeConfiguration;
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Outputs
             ReadinessProbe = readinessProbe;
             RequestSettings = requestSettings;
             ScaleSettings = scaleSettings;
+            StartupProbe = startupProbe;
         }
     }
 }

@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class GetMSIXPackageResult
     {
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
+        /// User friendly Name to be displayed in the portal.
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         /// </summary>
         public readonly string? ImagePath;
         /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
+        /// Make this version of the package the active one across the hostpool.
         /// </summary>
         public readonly bool? IsActive;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         /// </summary>
         public readonly bool? IsRegularRegistration;
         /// <summary>
-        /// Date Package was last updated, found in the appxmanifest.xml. 
+        /// Date Package was last updated, found in the appxmanifest.xml.
         /// </summary>
         public readonly string? LastUpdated;
         /// <summary>
@@ -116,23 +116,23 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of package applications. 
+        /// List of package applications.
         /// </summary>
         public readonly ImmutableArray<Outputs.MsixPackageApplicationsResponse> PackageApplications;
         /// <summary>
-        /// List of package dependencies. 
+        /// List of package dependencies.
         /// </summary>
         public readonly ImmutableArray<Outputs.MsixPackageDependenciesResponse> PackageDependencies;
         /// <summary>
-        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         /// </summary>
         public readonly string? PackageFamilyName;
         /// <summary>
-        /// Package Name from appxmanifest.xml. 
+        /// Package Name from appxmanifest.xml.
         /// </summary>
         public readonly string? PackageName;
         /// <summary>
-        /// Relative Path to the package inside the image. 
+        /// Relative Path to the package inside the image.
         /// </summary>
         public readonly string? PackageRelativePath;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml.
         /// </summary>
         public readonly string? Version;
 

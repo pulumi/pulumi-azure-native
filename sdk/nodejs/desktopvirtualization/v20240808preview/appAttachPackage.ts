@@ -38,6 +38,26 @@ export class AppAttachPackage extends pulumi.CustomResource {
     }
 
     /**
+     * Field that can be populated with custom data and filtered on in list GET calls
+     */
+    public readonly customData!: pulumi.Output<string | undefined>;
+    /**
+     * Parameter indicating how the health check should behave if this package fails staging
+     */
+    public readonly failHealthCheckOnStagingFailure!: pulumi.Output<string | undefined>;
+    /**
+     * List of Hostpool resource Ids.
+     */
+    public readonly hostPoolReferences!: pulumi.Output<string[] | undefined>;
+    /**
+     * Detailed properties for App Attach Package
+     */
+    public readonly image!: pulumi.Output<outputs.desktopvirtualization.v20240808preview.AppAttachPackageInfoPropertiesResponse | undefined>;
+    /**
+     * URL path to certificate name located in keyVault
+     */
+    public readonly keyVaultURL!: pulumi.Output<string | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -46,9 +66,17 @@ export class AppAttachPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Detailed properties for App Attach Package
+     * Lookback url to third party control plane, is null for native app attach packages
      */
-    public readonly properties!: pulumi.Output<outputs.desktopvirtualization.v20240808preview.AppAttachPackagePropertiesResponse>;
+    public readonly packageLookbackUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Specific name of package owner, is "AppAttach" for native app attach packages
+     */
+    public readonly packageOwnerName!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the App Attach Package.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,30 +101,41 @@ export class AppAttachPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["appAttachPackageName"] = args ? args.appAttachPackageName : undefined;
+            resourceInputs["customData"] = args ? args.customData : undefined;
+            resourceInputs["failHealthCheckOnStagingFailure"] = args ? args.failHealthCheckOnStagingFailure : undefined;
+            resourceInputs["hostPoolReferences"] = args ? args.hostPoolReferences : undefined;
+            resourceInputs["image"] = args ? args.image : undefined;
+            resourceInputs["keyVaultURL"] = args ? args.keyVaultURL : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["packageLookbackUrl"] = args ? args.packageLookbackUrl : undefined;
+            resourceInputs["packageOwnerName"] = args ? args.packageOwnerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["customData"] = undefined /*out*/;
+            resourceInputs["failHealthCheckOnStagingFailure"] = undefined /*out*/;
+            resourceInputs["hostPoolReferences"] = undefined /*out*/;
+            resourceInputs["image"] = undefined /*out*/;
+            resourceInputs["keyVaultURL"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["packageLookbackUrl"] = undefined /*out*/;
+            resourceInputs["packageOwnerName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20231004preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240306preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240403:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240408preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization:AppAttachPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20231004preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240306preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240403:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240408preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20241101preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization:AppAttachPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppAttachPackage.__pulumiType, name, resourceInputs, opts);
     }
@@ -107,17 +146,41 @@ export class AppAttachPackage extends pulumi.CustomResource {
  */
 export interface AppAttachPackageArgs {
     /**
-     * The name of the App Attach package arm object
+     * The name of the App Attach package
      */
     appAttachPackageName?: pulumi.Input<string>;
+    /**
+     * Field that can be populated with custom data and filtered on in list GET calls
+     */
+    customData?: pulumi.Input<string>;
+    /**
+     * Parameter indicating how the health check should behave if this package fails staging
+     */
+    failHealthCheckOnStagingFailure?: pulumi.Input<string | enums.desktopvirtualization.v20240808preview.FailHealthCheckOnStagingFailure>;
+    /**
+     * List of Hostpool resource Ids.
+     */
+    hostPoolReferences?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Detailed properties for App Attach Package
+     */
+    image?: pulumi.Input<inputs.desktopvirtualization.v20240808preview.AppAttachPackageInfoPropertiesArgs>;
+    /**
+     * URL path to certificate name located in keyVault
+     */
+    keyVaultURL?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Detailed properties for App Attach Package
+     * Lookback url to third party control plane, is null for native app attach packages
      */
-    properties: pulumi.Input<inputs.desktopvirtualization.v20240808preview.AppAttachPackagePropertiesArgs>;
+    packageLookbackUrl?: pulumi.Input<string>;
+    /**
+     * Specific name of package owner, is "AppAttach" for native app attach packages
+     */
+    packageOwnerName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

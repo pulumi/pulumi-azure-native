@@ -169,7 +169,7 @@ class StorageInsightConfig(pulumi.CustomResource):
         The top level storage insight resource container.
         Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
-        Other available API versions: 2023-09-01.
+        Other available API versions: 2023-09-01, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,7 +192,7 @@ class StorageInsightConfig(pulumi.CustomResource):
         The top level storage insight resource container.
         Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
-        Other available API versions: 2023-09-01.
+        Other available API versions: 2023-09-01, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param StorageInsightConfigArgs args: The arguments to use to populate this resource's properties.
@@ -243,7 +243,7 @@ class StorageInsightConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20150320:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:StorageInsightConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20150320:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:StorageInsightConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageInsightConfig, __self__).__init__(
             'azure-native:operationalinsights:StorageInsightConfig',

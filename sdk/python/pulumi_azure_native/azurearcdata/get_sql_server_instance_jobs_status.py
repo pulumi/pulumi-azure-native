@@ -59,6 +59,8 @@ def get_sql_server_instance_jobs_status(feature_name: Optional[str] = None,
     Gets jobs status details for sql arc resource
     Azure REST API version: 2024-05-01-preview.
 
+    Other available API versions: 2025-03-01-preview.
+
 
     :param str feature_name: The name of the feature to retrieve the job status for.
     :param str job_type: The type of the job to retrieve the status for.
@@ -83,6 +85,8 @@ def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Inp
     """
     Gets jobs status details for sql arc resource
     Azure REST API version: 2024-05-01-preview.
+
+    Other available API versions: 2025-03-01-preview.
 
 
     :param str feature_name: The name of the feature to retrieve the job status for.

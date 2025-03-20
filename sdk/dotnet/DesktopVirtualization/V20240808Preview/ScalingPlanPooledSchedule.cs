@@ -163,7 +163,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule" },
@@ -171,6 +170,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:ScalingPlanPooledSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlanPooledSchedule" },
                 },
             };
@@ -196,16 +196,22 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class ScalingPlanPooledScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeek", required: true)]
-        private InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>>? _daysOfWeek;
+        private InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>? _daysOfWeek;
 
         /// <summary>
         /// Set of days of the week on which this schedule is active.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>> DaysOfWeek
+        public InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek> DaysOfWeek
         {
-            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>>());
+            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>());
             set => _daysOfWeek = value;
         }
+
+        /// <summary>
+        /// Name of the ScalingPlanPooledSchedule
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Load balancing algorithm for off-peak period.

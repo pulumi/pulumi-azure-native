@@ -107,7 +107,7 @@ def get_managed_cluster_fault_simulation(cluster_name: Optional[str] = None,
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str simulation_id: unique identifier for the fault simulation.
     """
     __args__ = dict()
@@ -132,7 +132,7 @@ def get_managed_cluster_fault_simulation_output(cluster_name: Optional[pulumi.In
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str simulation_id: unique identifier for the fault simulation.
     """
     __args__ = dict()

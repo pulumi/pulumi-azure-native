@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240116Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:AppAttachPackage" },
                 },
             };

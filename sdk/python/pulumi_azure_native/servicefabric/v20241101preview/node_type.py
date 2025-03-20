@@ -80,8 +80,8 @@ class NodeTypeArgs:
         The set of arguments for constructing a NodeType resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[bool] is_primary: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
         :param pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]] additional_data_disks: Additional managed data disks.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]] additional_network_interface_configurations: Specifies the settings for any additional secondary network interfaces to attach to the node type.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
@@ -114,7 +114,7 @@ class NodeTypeArgs:
         :param pulumi.Input['NodeTypeSkuArgs'] sku: The node type sku.
         :param pulumi.Input[str] spot_restore_timeout: Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
         :param pulumi.Input[str] subnet_id: Indicates the resource id of the subnet for the node type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] use_default_public_load_balancer: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
         :param pulumi.Input[bool] use_ephemeral_os_disk: Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
         :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
@@ -151,6 +151,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "data_disk_letter", data_disk_letter)
         if data_disk_size_gb is not None:
             pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
+        if data_disk_type is None:
+            data_disk_type = 'StandardSSD_LRS'
         if data_disk_type is not None:
             pulumi.set(__self__, "data_disk_type", data_disk_type)
         if dscp_configuration_id is not None:
@@ -272,7 +274,7 @@ class NodeTypeArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -284,7 +286,7 @@ class NodeTypeArgs:
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> pulumi.Input[int]:
         """
-        The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
         """
         return pulumi.get(self, "vm_instance_count")
 
@@ -680,7 +682,7 @@ class NodeTypeArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -986,14 +988,14 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
         :param pulumi.Input[Union[str, 'SecurityType']] security_type: Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         :param pulumi.Input[str] service_artifact_reference_id: Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
         :param pulumi.Input[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']] sku: The node type sku.
         :param pulumi.Input[str] spot_restore_timeout: Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
         :param pulumi.Input[str] subnet_id: Indicates the resource id of the subnet for the node type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] use_default_public_load_balancer: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
         :param pulumi.Input[bool] use_ephemeral_os_disk: Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
         :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
@@ -1005,7 +1007,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[str] vm_image_resource_id: Indicates the resource id of the vm image. This parameter is used for custom vm image.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
         :param pulumi.Input[Union['VmManagedIdentityArgs', 'VmManagedIdentityArgsDict']] vm_managed_identity: Identities to assign to the virtual machine scale set under the node type.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VaultSecretGroupArgs', 'VaultSecretGroupArgsDict']]]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmSetupAction']]]] vm_setup_actions: Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.
@@ -1110,6 +1112,8 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["computer_name_prefix"] = computer_name_prefix
             __props__.__dict__["data_disk_letter"] = data_disk_letter
             __props__.__dict__["data_disk_size_gb"] = data_disk_size_gb
+            if data_disk_type is None:
+                data_disk_type = 'StandardSSD_LRS'
             __props__.__dict__["data_disk_type"] = data_disk_type
             __props__.__dict__["dscp_configuration_id"] = dscp_configuration_id
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
@@ -1433,7 +1437,7 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1529,7 +1533,7 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -1537,7 +1541,7 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -1545,7 +1549,7 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1641,7 +1645,7 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> pulumi.Output[int]:
         """
-        The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
         """
         return pulumi.get(self, "vm_instance_count")
 

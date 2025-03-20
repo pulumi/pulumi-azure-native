@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:JobCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:JobCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:JobCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:JobCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:JobCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:JobCredential" },

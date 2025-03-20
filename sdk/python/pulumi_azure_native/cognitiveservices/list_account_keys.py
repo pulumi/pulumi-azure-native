@@ -68,7 +68,7 @@ def list_account_keys(account_name: Optional[str] = None,
     Lists the account keys for the specified Cognitive Services account.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -90,7 +90,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     Lists the account keys for the specified Cognitive Services account.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.

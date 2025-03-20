@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:LinkedStorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:LinkedStorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedStorageAccount" },
                 },
             };

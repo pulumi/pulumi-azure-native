@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:RaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:RaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:RaiPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:RaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:RaiPolicy" },
                 },
             };

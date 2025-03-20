@@ -133,6 +133,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Inputs
         [Input("scaleSettings")]
         public InputUnion<Inputs.DefaultScaleSettingsArgs, Inputs.TargetUtilizationScaleSettingsArgs>? ScaleSettings { get; set; }
 
+        /// <summary>
+        /// Startup probe verify whether an application within a container has started successfully.
+        /// </summary>
+        [Input("startupProbe")]
+        public Input<Inputs.ProbeSettingsArgs>? StartupProbe { get; set; }
+
         public KubernetesOnlineDeploymentArgs()
         {
             AppInsightsEnabled = false;

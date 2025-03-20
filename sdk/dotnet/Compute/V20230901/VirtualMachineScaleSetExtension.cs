@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.Compute.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:VirtualMachineScaleSetExtension" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:VirtualMachineScaleSetExtension" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:VirtualMachineScaleSetExtension" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:VirtualMachineScaleSetExtension" },
                     new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetExtension" },
                 },
             };

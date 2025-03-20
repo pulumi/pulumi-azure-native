@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Datasources under OMS Workspace.
     /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
     /// 
-    /// Other available API versions: 2015-11-01-preview, 2023-09-01.
+    /// Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataSource" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:DataSource" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:DataSource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

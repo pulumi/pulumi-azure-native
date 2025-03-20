@@ -145,6 +145,11 @@ export const getProjectCatalogImageDefinitionBuildDetails: typeof import("./getP
 export const getProjectCatalogImageDefinitionBuildDetailsOutput: typeof import("./getProjectCatalogImageDefinitionBuildDetails").getProjectCatalogImageDefinitionBuildDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["getProjectCatalogImageDefinitionBuildDetails","getProjectCatalogImageDefinitionBuildDetailsOutput"], () => require("./getProjectCatalogImageDefinitionBuildDetails"));
 
+export { GetProjectCatalogImageDefinitionErrorDetailsArgs, GetProjectCatalogImageDefinitionErrorDetailsResult, GetProjectCatalogImageDefinitionErrorDetailsOutputArgs } from "./getProjectCatalogImageDefinitionErrorDetails";
+export const getProjectCatalogImageDefinitionErrorDetails: typeof import("./getProjectCatalogImageDefinitionErrorDetails").getProjectCatalogImageDefinitionErrorDetails = null as any;
+export const getProjectCatalogImageDefinitionErrorDetailsOutput: typeof import("./getProjectCatalogImageDefinitionErrorDetails").getProjectCatalogImageDefinitionErrorDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectCatalogImageDefinitionErrorDetails","getProjectCatalogImageDefinitionErrorDetailsOutput"], () => require("./getProjectCatalogImageDefinitionErrorDetails"));
+
 export { GetProjectCatalogSyncErrorDetailsArgs, GetProjectCatalogSyncErrorDetailsResult, GetProjectCatalogSyncErrorDetailsOutputArgs } from "./getProjectCatalogSyncErrorDetails";
 export const getProjectCatalogSyncErrorDetails: typeof import("./getProjectCatalogSyncErrorDetails").getProjectCatalogSyncErrorDetails = null as any;
 export const getProjectCatalogSyncErrorDetailsOutput: typeof import("./getProjectCatalogSyncErrorDetails").getProjectCatalogSyncErrorDetailsOutput = null as any;
@@ -235,6 +240,7 @@ import * as v20240601preview from "./v20240601preview";
 import * as v20240701preview from "./v20240701preview";
 import * as v20240801preview from "./v20240801preview";
 import * as v20241001preview from "./v20241001preview";
+import * as v20250201 from "./v20250201";
 
 export {
     v20221111preview,
@@ -247,6 +253,7 @@ export {
     v20240701preview,
     v20240801preview,
     v20241001preview,
+    v20250201,
 };
 
 const _module = {

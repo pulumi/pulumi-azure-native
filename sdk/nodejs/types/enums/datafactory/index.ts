@@ -54,6 +54,17 @@ export const AzureFunctionActivityMethod = {
  */
 export type AzureFunctionActivityMethod = (typeof AzureFunctionActivityMethod)[keyof typeof AzureFunctionActivityMethod];
 
+export const AzurePostgreSqlWriteMethodEnum = {
+    BulkInsert: "BulkInsert",
+    CopyCommand: "CopyCommand",
+    Upsert: "Upsert",
+} as const;
+
+/**
+ * The write behavior for the operation. Default is Bulk Insert.
+ */
+export type AzurePostgreSqlWriteMethodEnum = (typeof AzurePostgreSqlWriteMethodEnum)[keyof typeof AzurePostgreSqlWriteMethodEnum];
+
 export const AzureSearchIndexWriteBehaviorType = {
     Merge: "Merge",
     Upload: "Upload",
@@ -932,6 +943,16 @@ export const Type = {
  * Linked service reference type.
  */
 export type Type = (typeof Type)[keyof typeof Type];
+
+export const ValueType = {
+    Actual: "actual",
+    Display: "display",
+} as const;
+
+/**
+ * Type of value copied from source.
+ */
+export type ValueType = (typeof ValueType)[keyof typeof ValueType];
 
 export const VariableType = {
     String: "String",

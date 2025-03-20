@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Policy model.
  * Azure REST API version: 2021-02-16-preview.
+ *
+ * Other available API versions: 2024-09-01.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -86,7 +88,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Policy" }, { type: "azure-native:datareplication/v20240901:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }

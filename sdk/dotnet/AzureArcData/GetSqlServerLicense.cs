@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a SQL Server license resource
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Task<GetSqlServerLicenseResult> InvokeAsync(GetSqlServerLicenseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a SQL Server license resource
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetSqlServerLicenseResult> Invoke(GetSqlServerLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a SQL Server license resource
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetSqlServerLicenseResult> Invoke(GetSqlServerLicenseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseInvokeArgs(), options.WithDefaults());

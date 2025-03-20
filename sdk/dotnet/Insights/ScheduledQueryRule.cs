@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights
     /// The scheduled query rule resource.
     /// Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
     /// 
-    /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
+    /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource
@@ -214,6 +214,7 @@ namespace Pulumi.AzureNative.Insights
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230315preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20231201:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20240101preview:ScheduledQueryRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20250101preview:ScheduledQueryRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

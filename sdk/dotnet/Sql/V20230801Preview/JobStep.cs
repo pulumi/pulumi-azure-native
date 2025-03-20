@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:JobStep" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:JobStep" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:JobStep" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:JobStep" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobStep" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:JobStep" },
                 },

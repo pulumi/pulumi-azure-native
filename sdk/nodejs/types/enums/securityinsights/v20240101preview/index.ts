@@ -1320,8 +1320,8 @@ export const SourceKind = {
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
 
 export const SourceType = {
-    Local_file: "Local file",
-    Remote_storage: "Remote storage",
+    Local: "Local",
+    AzureStorage: "AzureStorage",
 } as const;
 
 /**

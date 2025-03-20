@@ -125,7 +125,7 @@ class WebAppAuthSettingsArgs:
         :param pulumi.Input[str] is_auth_from_file: "true" if the auth config settings should be read from a file,
                "false" otherwise
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         :param pulumi.Input[str] kind: Kind of resource.
@@ -601,7 +601,7 @@ class WebAppAuthSettingsArgs:
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -898,7 +898,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
         :param pulumi.Input[str] is_auth_from_file: "true" if the auth config settings should be read from a file,
                "false" otherwise
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         :param pulumi.Input[str] kind: Kind of resource.
@@ -1361,7 +1361,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
     def issuer(self) -> pulumi.Output[Optional[str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MixedReality
     /// RemoteRenderingAccount Response.
     /// Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview.
+    /// Other available API versions: 2021-03-01-preview, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality:RemoteRenderingAccount")]
     public partial class RemoteRenderingAccount : global::Pulumi.CustomResource
@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.MixedReality
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20250101:RemoteRenderingAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedInstanceAzureADOnlyAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ManagedInstanceAzureADOnlyAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:ManagedInstanceAzureADOnlyAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ManagedInstanceAzureADOnlyAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ManagedInstanceAzureADOnlyAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceAzureADOnlyAuthentication" },

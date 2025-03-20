@@ -98,7 +98,7 @@ export class BrokerAuthorization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthorization" }, { type: "azure-native:iotoperations:BrokerAuthorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20250401:BrokerAuthorization" }, { type: "azure-native:iotoperations:BrokerAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BrokerAuthorization.__pulumiType, name, resourceInputs, opts);
     }

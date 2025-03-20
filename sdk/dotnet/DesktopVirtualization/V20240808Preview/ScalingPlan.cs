@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -52,13 +52,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string?> HostPoolType { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -88,19 +88,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string> ObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Plan for the resource.
+        /// Details of the resource plan.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// List of Pooled ScalingSchedule definitions.
+        /// List of ScalingPlanPooledSchedule definitions.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<Outputs.ScalingScheduleResponse>> Schedules { get; private set; } = null!;
 
         /// <summary>
-        /// The resource model definition representing SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
@@ -165,7 +165,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ScalingPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ScalingPlan" },
@@ -173,6 +172,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlan" },
                 },
             };
@@ -234,13 +234,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.ScalingHostPoolType>? HostPoolType { get; set; }
 
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
-        /// Plan for the resource.
+        /// Details of the resource plan.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         private InputList<Inputs.ScalingScheduleArgs>? _schedules;
 
         /// <summary>
-        /// List of Pooled ScalingSchedule definitions.
+        /// List of ScalingPlanPooledSchedule definitions.
         /// </summary>
         public InputList<Inputs.ScalingScheduleArgs> Schedules
         {
@@ -288,7 +288,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         }
 
         /// <summary>
-        /// The resource model definition representing SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }

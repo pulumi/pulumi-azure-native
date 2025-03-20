@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20241101
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:BrokerAuthorization" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:BrokerAuthorization" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:BrokerAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:BrokerAuthorization" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations:BrokerAuthorization" },
                 },
             };

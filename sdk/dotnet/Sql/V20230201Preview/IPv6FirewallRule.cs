@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:IPv6FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:IPv6FirewallRule" },

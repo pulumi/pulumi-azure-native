@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Get a private endpoint connection.
+ * Get a PrivateEndpointConnectionWithSystemData
  */
 export function getPrivateEndpointConnectionByHostPool(args: GetPrivateEndpointConnectionByHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByHostPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionByHostPoolArgs {
      */
     hostPoolName: string;
     /**
-     * The name of the private endpoint connection associated with the Azure resource.
+     * The name parameter for private endpoint
      */
     privateEndpointConnectionName: string;
     /**
@@ -72,7 +72,7 @@ export interface GetPrivateEndpointConnectionByHostPoolResult {
     readonly type: string;
 }
 /**
- * Get a private endpoint connection.
+ * Get a PrivateEndpointConnectionWithSystemData
  */
 export function getPrivateEndpointConnectionByHostPoolOutput(args: GetPrivateEndpointConnectionByHostPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionByHostPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface GetPrivateEndpointConnectionByHostPoolOutputArgs {
      */
     hostPoolName: pulumi.Input<string>;
     /**
-     * The name of the private endpoint connection associated with the Azure resource.
+     * The name parameter for private endpoint
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**

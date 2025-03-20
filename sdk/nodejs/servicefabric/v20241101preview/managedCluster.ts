@@ -130,7 +130,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly enableServicePublicIP!: pulumi.Output<boolean | undefined>;
     /**
-     * Azure resource etag.
+     * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.",
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
@@ -166,11 +166,11 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly loadBalancingRules!: pulumi.Output<outputs.servicefabric.v20241101preview.LoadBalancingRuleResponse[] | undefined>;
     /**
-     * Azure resource location.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Azure resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -202,15 +202,15 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.v20241101preview.SystemDataResponse>;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -267,7 +267,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterUpgradeCadence"] = args ? args.clusterUpgradeCadence : undefined;
-            resourceInputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
+            resourceInputs["clusterUpgradeMode"] = (args ? args.clusterUpgradeMode : undefined) ?? "Automatic";
             resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
             resourceInputs["dnsName"] = args ? args.dnsName : undefined;
             resourceInputs["enableAutoOSUpgrade"] = args ? args.enableAutoOSUpgrade : undefined;
@@ -469,7 +469,7 @@ export interface ManagedClusterArgs {
      */
     loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20241101preview.LoadBalancingRuleArgs>[]>;
     /**
-     * Azure resource location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -485,7 +485,7 @@ export interface ManagedClusterArgs {
      */
     publicIPv6PrefixId?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -501,7 +501,7 @@ export interface ManagedClusterArgs {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

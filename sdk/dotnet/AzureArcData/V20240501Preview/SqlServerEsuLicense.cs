@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerEsuLicense" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlServerEsuLicense" },
                 },
             };

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Value object for saved search results.
     /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
     /// 
-    /// Other available API versions: 2023-09-01.
+    /// Other available API versions: 2023-09-01, 2025-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:SavedSearch")]
     public partial class SavedSearch : global::Pulumi.CustomResource
@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:SavedSearch" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:SavedSearch" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

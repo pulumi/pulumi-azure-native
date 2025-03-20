@@ -97,7 +97,7 @@ export class RaiBlocklist extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklist" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiBlocklist" }, { type: "azure-native:cognitiveservices/v20241001:RaiBlocklist" }, { type: "azure-native:cognitiveservices:RaiBlocklist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklist" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiBlocklist" }, { type: "azure-native:cognitiveservices/v20241001:RaiBlocklist" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiBlocklist" }, { type: "azure-native:cognitiveservices:RaiBlocklist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiBlocklist.__pulumiType, name, resourceInputs, opts);
     }

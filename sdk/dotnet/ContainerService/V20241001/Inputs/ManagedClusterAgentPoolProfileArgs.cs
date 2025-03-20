@@ -280,7 +280,7 @@ namespace Pulumi.AzureNative.ContainerService.V20241001.Inputs
         public Input<Inputs.AgentPoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
 
         /// <summary>
-        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

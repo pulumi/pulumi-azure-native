@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:OutboundFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:OutboundFirewallRule" },
                 },

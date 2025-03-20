@@ -22,7 +22,7 @@ __all__ = ['ScalingPlanPersonalScheduleArgs', 'ScalingPlanPersonalSchedule']
 @pulumi.input_type
 class ScalingPlanPersonalScheduleArgs:
     def __init__(__self__, *,
-                 days_of_week: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]],
+                 days_of_week: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]],
                  off_peak_start_time: pulumi.Input['TimeArgs'],
                  peak_start_time: pulumi.Input['TimeArgs'],
                  ramp_down_start_time: pulumi.Input['TimeArgs'],
@@ -53,7 +53,7 @@ class ScalingPlanPersonalScheduleArgs:
                  scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPersonalSchedule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_week: Set of days of the week on which this schedule is active.
         :param pulumi.Input['TimeArgs'] off_peak_start_time: Starting time for off-peak period.
         :param pulumi.Input['TimeArgs'] peak_start_time: Starting time for peak period.
         :param pulumi.Input['TimeArgs'] ramp_down_start_time: Starting time for ramp down period.
@@ -145,14 +145,14 @@ class ScalingPlanPersonalScheduleArgs:
 
     @property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]:
+    def days_of_week(self) -> pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]:
         """
         Set of days of the week on which this schedule is active.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]):
+    def days_of_week(self, value: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]):
         pulumi.set(self, "days_of_week", value)
 
     @property
@@ -497,7 +497,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
                  off_peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
@@ -532,7 +532,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_week: Set of days of the week on which this schedule is active.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] off_peak_action_on_disconnect: Action to be taken after a user disconnect during the off-peak period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] off_peak_action_on_logoff: Action to be taken after a logoff during the off-peak period.
         :param pulumi.Input[int] off_peak_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the off-peak period.
@@ -586,7 +586,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
                  off_peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
@@ -678,7 +678,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization:ScalingPlanPersonalSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization:ScalingPlanPersonalSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlanPersonalSchedule, __self__).__init__(
             'azure-native:desktopvirtualization/v20240808preview:ScalingPlanPersonalSchedule',

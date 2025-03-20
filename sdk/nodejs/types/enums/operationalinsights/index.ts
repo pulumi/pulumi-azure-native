@@ -9,6 +9,7 @@ import * as v20210601 from "./v20210601";
 import * as v20211201preview from "./v20211201preview";
 import * as v20221001 from "./v20221001";
 import * as v20230901 from "./v20230901";
+import * as v20250201 from "./v20250201";
 
 export {
     v20151101preview,
@@ -18,6 +19,7 @@ export {
     v20211201preview,
     v20221001,
     v20230901,
+    v20250201,
 };
 
 export const BillingType = {

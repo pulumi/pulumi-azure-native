@@ -2534,8 +2534,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SourceType Local_file { get; } = new SourceType("Local file");
-        public static SourceType Remote_storage { get; } = new SourceType("Remote storage");
+        public static SourceType Local { get; } = new SourceType("Local");
+        public static SourceType AzureStorage { get; } = new SourceType("AzureStorage");
 
         public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
         public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);

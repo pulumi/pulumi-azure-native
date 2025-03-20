@@ -120,7 +120,7 @@ class Application(pulumi.CustomResource):
         The HDInsight cluster application
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
 
-        Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+        Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class Application(pulumi.CustomResource):
         The HDInsight cluster application
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
 
-        Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+        Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20230415preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20230815preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20240801preview:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20230415preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20230815preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20240801preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20250115preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:hdinsight:Application',

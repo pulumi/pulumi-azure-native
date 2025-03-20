@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
 
         public ApplicationUpgradePolicyArgs()
         {
+            ForceRestart = false;
         }
         public static new ApplicationUpgradePolicyArgs Empty => new ApplicationUpgradePolicyArgs();
     }

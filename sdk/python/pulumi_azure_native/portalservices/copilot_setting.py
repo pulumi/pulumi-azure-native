@@ -51,6 +51,8 @@ class CopilotSetting(pulumi.CustomResource):
         The copilot settings tenant resource definition.
         Azure REST API version: 2024-04-01-preview.
 
+        Other available API versions: 2024-04-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] access_control_enabled: Boolean indicating if role-based access control is enabled for copilot in this tenant.
@@ -64,6 +66,8 @@ class CopilotSetting(pulumi.CustomResource):
         """
         The copilot settings tenant resource definition.
         Azure REST API version: 2024-04-01-preview.
+
+        Other available API versions: 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param CopilotSettingArgs args: The arguments to use to populate this resource's properties.
@@ -97,7 +101,7 @@ class CopilotSetting(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portalservices/v20240401preview:CopilotSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portalservices/v20240401:CopilotSetting"), pulumi.Alias(type_="azure-native:portalservices/v20240401preview:CopilotSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CopilotSetting, __self__).__init__(
             'azure-native:portalservices:CopilotSetting',

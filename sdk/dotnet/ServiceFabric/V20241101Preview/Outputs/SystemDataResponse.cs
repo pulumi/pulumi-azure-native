@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The timestamp of resource last modification (UTC).
+        /// The timestamp of resource last modification (UTC)
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>

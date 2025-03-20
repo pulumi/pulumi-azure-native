@@ -68,6 +68,8 @@ def get_adoo_auth_info(location: Optional[str] = None,
     Response containing ADO OAuth information
     Azure REST API version: 2024-08-01-preview.
 
+    Other available API versions: 2025-03-01-preview.
+
 
     :param str location: The name of the Azure region.
     :param str redirect_url: The URL the client will redirect to on successful authentication. If empty, no redirect will occur.
@@ -87,6 +89,8 @@ def get_adoo_auth_info_output(location: Optional[pulumi.Input[str]] = None,
     """
     Response containing ADO OAuth information
     Azure REST API version: 2024-08-01-preview.
+
+    Other available API versions: 2025-03-01-preview.
 
 
     :param str location: The name of the Azure region.

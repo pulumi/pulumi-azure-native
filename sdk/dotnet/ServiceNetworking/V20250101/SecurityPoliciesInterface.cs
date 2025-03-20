@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20250101
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Web Application Firewall Policy of the Traffic Controller Security Policy
+        /// Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         /// </summary>
         [Output("wafPolicy")]
         public Output<Outputs.WafPolicyResponse?> WafPolicy { get; private set; } = null!;
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20250101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:SecurityPoliciesInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking:SecurityPoliciesInterface" },
                 },
             };
@@ -150,7 +151,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20250101
         public Input<string> TrafficControllerName { get; set; } = null!;
 
         /// <summary>
-        /// Web Application Firewall Policy of the Traffic Controller Security Policy
+        /// Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         /// </summary>
         [Input("wafPolicy")]
         public Input<Inputs.WafPolicyArgs>? WafPolicy { get; set; }

@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public string NodeTypeName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> NodeTypeName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -91,11 +91,11 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class ListNodeTypeFaultSimulationResult
     {
         /// <summary>
-        /// The URL to use for getting the next set of results.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// The list of fault simulations.
+        /// The FaultSimulation items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.FaultSimulationResponse> Value;
 

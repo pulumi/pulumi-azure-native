@@ -25,7 +25,7 @@ export interface ListManagedClusterFaultSimulationArgs {
      */
     clusterName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -35,13 +35,13 @@ export interface ListManagedClusterFaultSimulationArgs {
  */
 export interface ListManagedClusterFaultSimulationResult {
     /**
-     * The URL to use for getting the next set of results.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * The list of fault simulations.
+     * The FaultSimulation items on this page
      */
-    readonly value?: outputs.servicefabric.FaultSimulationResponse[];
+    readonly value: outputs.servicefabric.FaultSimulationResponse[];
 }
 /**
  * Gets the list of recent fault simulations for the cluster.
@@ -61,7 +61,7 @@ export interface ListManagedClusterFaultSimulationOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

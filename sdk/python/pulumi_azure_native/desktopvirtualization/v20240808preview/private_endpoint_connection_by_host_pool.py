@@ -31,7 +31,7 @@ class PrivateEndpointConnectionByHostPoolArgs:
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name parameter for private endpoint
         """
         pulumi.set(__self__, "host_pool_name", host_pool_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -79,7 +79,7 @@ class PrivateEndpointConnectionByHostPoolArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection associated with the Azure resource.
+        The name parameter for private endpoint
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -104,7 +104,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name parameter for private endpoint
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -161,7 +161,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByHostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionByHostPool, __self__).__init__(
             'azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByHostPool',

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves a SQL Server ESU license resource
  * Azure REST API version: 2024-05-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getSqlServerEsuLicense(args: GetSqlServerEsuLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerEsuLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,6 +68,8 @@ export interface GetSqlServerEsuLicenseResult {
 /**
  * Retrieves a SQL Server ESU license resource
  * Azure REST API version: 2024-05-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getSqlServerEsuLicenseOutput(args: GetSqlServerEsuLicenseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerEsuLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

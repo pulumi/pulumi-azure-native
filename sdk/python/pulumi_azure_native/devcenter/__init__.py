@@ -34,6 +34,7 @@ from .get_project import *
 from .get_project_catalog import *
 from .get_project_catalog_environment_definition_error_details import *
 from .get_project_catalog_image_definition_build_details import *
+from .get_project_catalog_image_definition_error_details import *
 from .get_project_catalog_sync_error_details import *
 from .get_project_environment_type import *
 from .get_project_inherited_settings import *
@@ -74,6 +75,8 @@ if typing.TYPE_CHECKING:
     v20240801preview = __v20240801preview
     import pulumi_azure_native.devcenter.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
+    import pulumi_azure_native.devcenter.v20250201 as __v20250201
+    v20250201 = __v20250201
 else:
     v20221111preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20221111preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230401')
@@ -85,4 +88,5 @@ else:
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240701preview')
     v20240801preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240801preview')
     v20241001preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20241001preview')
+    v20250201 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20250201')
 

@@ -66,7 +66,7 @@ def list_host_pool_registration_tokens(host_pool_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListHostPoolRegistrationTokensResult:
     """
-    Operation to list the RegistrationTokens associated with the HostPool.
+    Operation to list the RegistrationTokens associated with the HostPool
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -85,7 +85,7 @@ def list_host_pool_registration_tokens_output(host_pool_name: Optional[pulumi.In
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListHostPoolRegistrationTokensResult]:
     """
-    Operation to list the RegistrationTokens associated with the HostPool.
+    Operation to list the RegistrationTokens associated with the HostPool
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

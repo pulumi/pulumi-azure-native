@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Response containing ADO OAuth information
  * Azure REST API version: 2024-08-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getADOOAuthInfo(args: GetADOOAuthInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetADOOAuthInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +45,8 @@ export interface GetADOOAuthInfoResult {
 /**
  * Response containing ADO OAuth information
  * Azure REST API version: 2024-08-01-preview.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADOOAuthInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

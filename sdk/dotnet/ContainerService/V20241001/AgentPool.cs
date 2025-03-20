@@ -280,7 +280,7 @@ namespace Pulumi.AzureNative.ContainerService.V20241001
         public Output<Outputs.AgentPoolUpgradeSettingsResponse?> UpgradeSettings { get; private set; } = null!;
 
         /// <summary>
-        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         /// </summary>
         [Output("vmSize")]
         public Output<string?> VmSize { get; private set; } = null!;
@@ -407,6 +407,8 @@ namespace Pulumi.AzureNative.ContainerService.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240801:AgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240901:AgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20250101:AgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice:AgentPool" },
                 },
             };
@@ -708,7 +710,7 @@ namespace Pulumi.AzureNative.ContainerService.V20241001
         public Input<Inputs.AgentPoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
 
         /// <summary>
-        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

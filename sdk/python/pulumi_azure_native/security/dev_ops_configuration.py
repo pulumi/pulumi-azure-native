@@ -86,7 +86,7 @@ class DevOpsConfiguration(pulumi.CustomResource):
         DevOps Configuration resource.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-04-01, 2024-05-15-preview.
+        Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +104,7 @@ class DevOpsConfiguration(pulumi.CustomResource):
         DevOps Configuration resource.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-04-01, 2024-05-15-preview.
+        Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param DevOpsConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -143,7 +143,7 @@ class DevOpsConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230901preview:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240401:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240515preview:DevOpsConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230901preview:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240401:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20240515preview:DevOpsConfiguration"), pulumi.Alias(type_="azure-native:security/v20250301:DevOpsConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevOpsConfiguration, __self__).__init__(
             'azure-native:security:DevOpsConfiguration',

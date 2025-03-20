@@ -129,6 +129,8 @@ def get_sql_server_license(resource_group_name: Optional[str] = None,
     Retrieves a SQL Server license resource
     Azure REST API version: 2024-05-01-preview.
 
+    Other available API versions: 2025-03-01-preview.
+
 
     :param str resource_group_name: The name of the Azure resource group
     :param str sql_server_license_name: Name of SQL Server License
@@ -153,6 +155,8 @@ def get_sql_server_license_output(resource_group_name: Optional[pulumi.Input[str
     """
     Retrieves a SQL Server license resource
     Azure REST API version: 2024-05-01-preview.
+
+    Other available API versions: 2025-03-01-preview.
 
 
     :param str resource_group_name: The name of the Azure resource group

@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? AlternateKeyName { get; set; }
 
         /// <summary>
+        /// Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("bypassBusinessLogicExecution")]
+        public Input<object>? BypassBusinessLogicExecution { get; set; }
+
+        /// <summary>
+        /// Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("bypassPowerAutomateFlows")]
+        public Input<object>? BypassPowerAutomateFlows { get; set; }
+
+        /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("disableMetricsCollection")]

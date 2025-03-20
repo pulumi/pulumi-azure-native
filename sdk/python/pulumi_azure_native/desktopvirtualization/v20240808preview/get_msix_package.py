@@ -78,7 +78,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         return pulumi.get(self, "display_name")
 
@@ -102,7 +102,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         return pulumi.get(self, "is_active")
 
@@ -118,7 +118,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[str]:
         """
-        Date Package was last updated, found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "last_updated")
 
@@ -134,7 +134,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageApplications")
     def package_applications(self) -> Optional[Sequence['outputs.MsixPackageApplicationsResponse']]:
         """
-        List of package applications. 
+        List of package applications.
         """
         return pulumi.get(self, "package_applications")
 
@@ -142,7 +142,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageDependencies")
     def package_dependencies(self) -> Optional[Sequence['outputs.MsixPackageDependenciesResponse']]:
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         return pulumi.get(self, "package_dependencies")
 
@@ -150,7 +150,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageFamilyName")
     def package_family_name(self) -> Optional[str]:
         """
-        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         return pulumi.get(self, "package_family_name")
 
@@ -158,7 +158,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[str]:
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_name")
 
@@ -166,7 +166,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="packageRelativePath")
     def package_relative_path(self) -> Optional[str]:
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         return pulumi.get(self, "package_relative_path")
 
@@ -190,7 +190,7 @@ class GetMSIXPackageResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
         return pulumi.get(self, "version")
 

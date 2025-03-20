@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:MetricsConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:MetricsConfiguration" },
                 },
             };

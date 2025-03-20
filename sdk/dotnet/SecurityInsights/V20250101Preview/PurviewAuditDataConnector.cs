@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20250101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:PurviewAuditDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:PurviewAuditDataConnector" },
                 },
             };

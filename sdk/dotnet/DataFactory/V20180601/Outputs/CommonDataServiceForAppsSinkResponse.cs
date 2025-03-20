@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? AlternateKeyName;
         /// <summary>
+        /// Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? BypassBusinessLogicExecution;
+        /// <summary>
+        /// Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? BypassPowerAutomateFlows;
+        /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? DisableMetricsCollection;
@@ -62,6 +70,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private CommonDataServiceForAppsSinkResponse(
             object? alternateKeyName,
 
+            object? bypassBusinessLogicExecution,
+
+            object? bypassPowerAutomateFlows,
+
             object? disableMetricsCollection,
 
             object? ignoreNullValues,
@@ -81,6 +93,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             string writeBehavior)
         {
             AlternateKeyName = alternateKeyName;
+            BypassBusinessLogicExecution = bypassBusinessLogicExecution;
+            BypassPowerAutomateFlows = bypassPowerAutomateFlows;
             DisableMetricsCollection = disableMetricsCollection;
             IgnoreNullValues = ignoreNullValues;
             MaxConcurrentConnections = maxConcurrentConnections;

@@ -44,6 +44,8 @@ if typing.TYPE_CHECKING:
     v20240601preview = __v20240601preview
     import pulumi_azure_native.cognitiveservices.v20241001 as __v20241001
     v20241001 = __v20241001
+    import pulumi_azure_native.cognitiveservices.v20250401preview as __v20250401preview
+    v20250401preview = __v20250401preview
 else:
     v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20230501')
@@ -51,4 +53,5 @@ else:
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20240401preview')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20240601preview')
     v20241001 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20241001')
+    v20250401preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20250401preview')
 

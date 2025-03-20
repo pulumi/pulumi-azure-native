@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
-    /// A copy activity Azure PostgreSQL sink.
+    /// A copy activity Azure Database for PostgreSQL sink.
     /// </summary>
     public sealed class AzurePostgreSqlSinkArgs : global::Pulumi.ResourceArgs
     {
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Azure Database for PostgreSQL upsert option settings
+        /// </summary>
+        [Input("upsertSettings")]
+        public Input<Inputs.AzurePostgreSqlSinkUpsertSettingsArgs>? UpsertSettings { get; set; }
+
+        /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
         [Input("writeBatchSize")]
@@ -63,6 +69,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("writeBatchTimeout")]
         public Input<object>? WriteBatchTimeout { get; set; }
+
+        /// <summary>
+        /// The write behavior for the operation. Default is Bulk Insert.
+        /// </summary>
+        [Input("writeMethod")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.AzurePostgreSqlWriteMethodEnum>? WriteMethod { get; set; }
 
         public AzurePostgreSqlSinkArgs()
         {

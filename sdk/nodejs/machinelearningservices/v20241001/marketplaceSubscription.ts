@@ -87,7 +87,7 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices:MarketplaceSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices:MarketplaceSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MarketplaceSubscription.__pulumiType, name, resourceInputs, opts);
     }

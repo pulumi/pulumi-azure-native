@@ -95,7 +95,7 @@ class SecurityPolicyConfigurationsResponse(dict):
                  waf_security_policy: Optional['outputs.WafSecurityPolicyResponse'] = None):
         """
         SecurityPolicyConfigurations Subresource of Traffic Controller.
-        :param 'WafSecurityPolicyResponse' waf_security_policy: Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        :param 'WafSecurityPolicyResponse' waf_security_policy: Contains reference to a WAF-type security policy.
         """
         if waf_security_policy is not None:
             pulumi.set(__self__, "waf_security_policy", waf_security_policy)
@@ -104,7 +104,7 @@ class SecurityPolicyConfigurationsResponse(dict):
     @pulumi.getter(name="wafSecurityPolicy")
     def waf_security_policy(self) -> Optional['outputs.WafSecurityPolicyResponse']:
         """
-        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        Contains reference to a WAF-type security policy.
         """
         return pulumi.get(self, "waf_security_policy")
 

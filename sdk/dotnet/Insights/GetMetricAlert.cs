@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the list of resource id's that this metric alert is scoped to.
+        /// the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>

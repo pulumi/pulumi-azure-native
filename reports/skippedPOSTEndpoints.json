@@ -18,7 +18,10 @@
   },
   "Advisor": {
     "Predict": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/predict",
-    "Recommendations_Generate": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations"
+    "Recommendations_Generate": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations",
+    "triageRecommendations_ApproveTriageRecommendation": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/resiliencyReviews/{reviewId}/providers/Microsoft.Advisor/triageRecommendations/{recommendationId}/approve",
+    "triageRecommendations_RejectTriageRecommendation": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/resiliencyReviews/{reviewId}/providers/Microsoft.Advisor/triageRecommendations/{recommendationId}/reject",
+    "triageRecommendations_ResetTriageRecommendation": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/resiliencyReviews/{reviewId}/providers/Microsoft.Advisor/triageRecommendations/{recommendationId}/reset"
   },
   "AgFoodPlatform": {
     "CheckNameAvailability_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AgFoodPlatform/checkNameAvailability",
@@ -164,6 +167,7 @@
     "Alerts_Refresh": "/{scope}/providers/Microsoft.Authorization/roleManagementAlerts/{alertId}/refresh",
     "Alerts_RefreshAll": "/{scope}/providers/Microsoft.Authorization/roleManagementAlerts/refresh",
     "GlobalAdministrator_ElevateAccess": "/providers/Microsoft.Authorization/elevateAccess",
+    "PolicyTokens_Acquire": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/acquirePolicyToken",
     "RoleAssignmentScheduleRequests_Cancel": "/{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}/cancel",
     "RoleAssignmentScheduleRequests_Validate": "/{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}/validate",
     "RoleAssignments_Validate": "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}/validate",
@@ -206,11 +210,14 @@
     "SqlServerAvailabilityGroups_AddDatabases": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/addDatabases",
     "SqlServerAvailabilityGroups_CreateAvailabilityGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/createAvailabilityGroup",
     "SqlServerAvailabilityGroups_CreateDistributedAvailabilityGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/createDistributedAvailabilityGroup",
+    "SqlServerAvailabilityGroups_CreateManagedInstanceLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/createManagedInstanceLink",
     "SqlServerAvailabilityGroups_Failover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/failover",
     "SqlServerAvailabilityGroups_ForceFailoverAllowDataLoss": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/forceFailoverAllowDataLoss",
     "SqlServerAvailabilityGroups_RemoveDatabases": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/removeDatabases",
+    "SqlServerAvailabilityGroups_failoverMiLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/failoverMiLink",
     "SqlServerInstances_postUpgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/postUpgrade",
     "SqlServerInstances_preUpgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/preUpgrade",
+    "SqlServerInstances_runManagedInstanceLinkAssessment": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/runManagedInstanceLinkAssessment",
     "SqlServerInstances_runMigrationAssessment": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/runMigrationAssessment"
   },
   "AzureDataTransfer": {
@@ -368,6 +375,7 @@
     "Transfers_Initiate": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/initiateTransfer"
   },
   "BillingBenefits": {
+    "Discounts_Cancel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/discounts/{discountName}/cancel",
     "SavingsPlanOrder_Elevate": "/providers/Microsoft.BillingBenefits/savingsPlanOrders/{savingsPlanOrderId}/elevate",
     "SavingsPlan_ValidateUpdate": "/providers/Microsoft.BillingBenefits/savingsPlanOrders/{savingsPlanOrderId}/savingsPlans/{savingsPlanId}/validate",
     "ValidatePurchase": "/providers/Microsoft.BillingBenefits/validate"
@@ -431,6 +439,9 @@
     "CustomDomains_EnableCustomHttps": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/customDomains/{customDomainName}/enableCustomHttps",
     "DeploymentVersions_Approve": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/deploymentVersions/{versionName}/approve",
     "DeploymentVersions_Compare": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/deploymentVersions/{versionName}/compare",
+    "EdgeActionVersions_DeployVersionCode": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version}/deployVersionCode",
+    "EdgeActions_AddAttachment": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/addAttachment",
+    "EdgeActions_DeleteAttachment": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/deleteAttachment",
     "Endpoints_ListResourceUsage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/checkResourceUsage",
     "Endpoints_LoadContent": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/load",
     "Endpoints_PurgeContent": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/purge",
@@ -511,6 +522,10 @@
   },
   "Compute": {
     "AttributeBasedVMSizeRecommender_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/vmSizeRecommendations/vmAttributeBased/generate",
+    "AvailabilitySets_CancelMigrationToVirtualMachineScaleSet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}/cancelMigrationToVirtualMachineScaleSet",
+    "AvailabilitySets_ConvertToVirtualMachineScaleSet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}/convertToVirtualMachineScaleSet",
+    "AvailabilitySets_StartMigrationToVirtualMachineScaleSet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}/startMigrationToVirtualMachineScaleSet",
+    "AvailabilitySets_ValidateMigrationToVirtualMachineScaleSet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}/validateMigrationToVirtualMachineScaleSet",
     "CloudServiceRoleInstances_Rebuild": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/rebuild",
     "CloudServiceRoleInstances_Reimage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/reimage",
     "CloudServiceRoleInstances_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/restart",
@@ -584,6 +599,7 @@
     "VirtualMachines_RunCommand": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/runCommand",
     "VirtualMachines_SimulateEviction": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction",
     "VirtualMachines_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/start",
+    "VirtualMachines_migrateToVMScaleSet": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/migrateToVirtualMachineScaleSet",
     "VirtualMachines_simulateEviction": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction"
   },
   "ComputeSchedule": {
@@ -912,7 +928,10 @@
   },
   "DataReplication": {
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.DataReplication/locations/{location}/checkNameAvailability",
+    "CheckNameAvailability_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.DataReplication/locations/{location}/checkNameAvailability",
     "DeploymentPreflight": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/deployments/{deploymentId}/preflight",
+    "DeploymentPreflight_Post": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/deployments/{deploymentId}/preflight",
+    "PrivateEndpointConnectionProxies_Validate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyName}/validate",
     "ProtectedItem_PlannedFailover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/protectedItems/{protectedItemName}/plannedFailover"
   },
   "DataShare": {
@@ -925,6 +944,14 @@
     "ShareSubscriptions_CancelSynchronization": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/cancelSynchronization",
     "ShareSubscriptions_Synchronize": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/synchronize"
   },
+  "DatabaseFleetManager": {
+    "FleetDatabases_ChangeTier": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}/changeTier",
+    "FleetDatabases_Rename": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}/rename",
+    "FleetDatabases_Revert": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}/revert",
+    "FleetTiers_Disable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/tiers/{tierName}/disable",
+    "Fleetspaces_RegisterServer": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/registerServer",
+    "Fleetspaces_Unregister": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/unregister"
+  },
   "DatabaseWatcher": {
     "HealthValidations_StartValidation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseWatcher/watchers/{watcherName}/healthValidations/{healthValidationName}/startValidation",
     "Watchers_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseWatcher/watchers/{watcherName}/start",
@@ -934,12 +961,16 @@
     "Monitors_RefreshSetPasswordLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/refreshSetPasswordLink",
     "Monitors_SetDefaultKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/setDefaultKey"
   },
+  "DependencyMap": {
+    "Maps_ExportDependencies": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}/exportDependencies"
+  },
   "DesktopVirtualization": {
     "AppAttachPackageInfo_Import": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/importAppAttachPackageInfo",
     "ControlSessionHostUpdate_Post": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHostManagements/default/controlSessionHostUpdate",
     "InitiateSessionHostUpdate_Post": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHostManagements/default/initiateSessionHostUpdate",
     "MsixImages_Expand": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/expandMsixImage",
     "SessionHost_RetryProvisioning": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}/retryProvisioning",
+    "SessionHosts_RetryProvisioning": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}/retryProvisioning",
     "UserSessions_Disconnect": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}/userSessions/{userSessionId}/disconnect",
     "UserSessions_SendMessage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}/userSessions/{userSessionId}/sendMessage"
   },
@@ -959,7 +990,8 @@
     "GeneratePreviewArtifacts": "/subscriptions/{subscriptionId}/providers/Microsoft.DevHub/locations/{location}/generatePreviewArtifacts",
     "IacProfiles_Export": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/export",
     "IacProfiles_Scale": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/scale",
-    "IacProfiles_Sync": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/sync"
+    "IacProfiles_Sync": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/sync",
+    "VersionedTemplate_Generate": "/subscriptions/{subscriptionId}/providers/Microsoft.DevHub/templates/{templateName}/versions/{templateVersion}/generate"
   },
   "DevOpsInfrastructure": {
     "Pools_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.DevOpsInfrastructure/checkNameAvailability"
@@ -1376,6 +1408,7 @@
     "VirtualMachines_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/virtualMachines/{virtualMachineName}/stop"
   },
   "LoadTestService": {
+    "LoadTestsMaxMonthlyVirtualUserHoursLimitsResource_Set": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}/limits/maxMonthlyVirtualUserHours/set",
     "Quotas_CheckAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.LoadTestService/locations/{location}/quotas/{quotaBucketName}/checkAvailability"
   },
   "Logic": {
@@ -1398,12 +1431,6 @@
     "Workflows_ValidateByLocation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/locations/{location}/workflows/{workflowName}/validate",
     "Workflows_ValidateByResourceGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/validate",
     "Workflows_ValidateWorkflow": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/validate"
-  },
-  "Logz": {
-    "Monitor_ListVmHostUpdate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logz/monitors/{monitorName}/vmHostUpdate",
-    "Monitor_VMHostPayload": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logz/monitors/{monitorName}/vmHostPayload",
-    "SubAccount_ListVmHostUpdate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logz/monitors/{monitorName}/accounts/{subAccountName}/vmHostUpdate",
-    "SubAccount_VMHostPayload": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logz/monitors/{monitorName}/accounts/{subAccountName}/vmHostPayload"
   },
   "MachineLearning": {
     "CommitmentAssociations_Move": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/commitmentPlans/{commitmentPlanName}/commitmentAssociations/{commitmentAssociationName}/move",
@@ -1630,6 +1657,9 @@
     "Sims_Clone": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/cloneSims",
     "Sims_Move": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/moveSims",
     "Sites_DeletePacketCore": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileNetworks/{mobileNetworkName}/sites/{siteName}/deletePacketCore"
+  },
+  "MySQLDiscovery": {
+    "MySQLSites_TriggerRefresh": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MySQLDiscovery/MySQLSites/{siteName}/refresh"
   },
   "NetApp": {
     "Accounts_ChangeKeyVault": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/changeKeyVault",
@@ -2162,8 +2192,8 @@
     "AdminKeys_Regenerate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/regenerateAdminKey/{keyKind}",
     "NetworkSecurityPerimeterConfigurations_Reconcile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/networkSecurityPerimeterConfigurations/{nspConfigName}/reconcile",
     "QueryKeys_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}",
-    "Service_Upgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/upgrade",
-    "Services_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Search/checkNameAvailability"
+    "Services_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Search/checkNameAvailability",
+    "Services_Upgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/upgrade"
   },
   "Security": {
     "Alerts_Simulate": "/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/default/simulate",
@@ -2557,15 +2587,14 @@
   "VideoIndexer": {
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.VideoIndexer/checkNameAvailability",
     "Generate_AccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateAccessToken",
+    "Generate_ExtensionAccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateExtensionAccessToken",
+    "Generate_ExtensionRestrictedViewerAccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateExtensionRestrictedViewerAccessToken",
     "Generate_RestrictedViewerAccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateRestrictedViewerAccessToken"
   },
   "VirtualMachineImages": {
     "VirtualMachineImageTemplate_run": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}/run",
     "VirtualMachineImageTemplates_Cancel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}/cancel",
     "VirtualMachineImageTemplates_Run": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}/run"
-  },
-  "VisualStudio": {
-    "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/microsoft.visualstudio/checkNameAvailability"
   },
   "VoiceServices": {
     "NameAvailability_CheckLocal": "/subscriptions/{subscriptionId}/providers/Microsoft.VoiceServices/locations/{location}/checkNameAvailability"

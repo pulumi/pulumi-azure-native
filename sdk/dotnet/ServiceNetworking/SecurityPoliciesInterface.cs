@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// SecurityPolicy Subresource of Traffic Controller.
     /// Azure REST API version: 2024-05-01-preview.
     /// 
-    /// Other available API versions: 2025-01-01.
+    /// Other available API versions: 2025-01-01, 2025-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:SecurityPoliciesInterface")]
     public partial class SecurityPoliciesInterface : global::Pulumi.CustomResource
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Web Application Firewall Policy of the Traffic Controller Security Policy
+        /// Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         /// </summary>
         [Output("wafPolicy")]
         public Output<Outputs.WafPolicyResponse?> WafPolicy { get; private set; } = null!;
@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:SecurityPoliciesInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +154,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         public Input<string> TrafficControllerName { get; set; } = null!;
 
         /// <summary>
-        /// Web Application Firewall Policy of the Traffic Controller Security Policy
+        /// Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         /// </summary>
         [Input("wafPolicy")]
         public Input<Inputs.WafPolicyArgs>? WafPolicy { get; set; }

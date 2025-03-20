@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Gets jobs status details for sql arc resource
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Task<GetSqlServerInstanceJobsStatusResult> InvokeAsync(GetSqlServerInstanceJobsStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Gets jobs status details for sql arc resource
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceJobsStatusResult> Invoke(GetSqlServerInstanceJobsStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Gets jobs status details for sql arc resource
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceJobsStatusResult> Invoke(GetSqlServerInstanceJobsStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusInvokeArgs(), options.WithDefaults());

@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.Compute.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:DedicatedHost" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:DedicatedHost" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:DedicatedHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:DedicatedHost" },
                     new global::Pulumi.Alias { Type = "azure-native:compute:DedicatedHost" },
                 },
             };

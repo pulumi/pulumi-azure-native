@@ -264,7 +264,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:HostPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240116preview:HostPool" },
@@ -272,6 +271,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:HostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:HostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:HostPool" },
                 },
             };

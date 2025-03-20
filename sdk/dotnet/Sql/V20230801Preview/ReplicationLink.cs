@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ReplicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:ReplicationLink" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ReplicationLink" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:ReplicationLink" },
                 },

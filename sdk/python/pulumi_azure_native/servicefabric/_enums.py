@@ -222,7 +222,7 @@ class NsgProtocol(str, Enum):
 
 class PartitionScheme(str, Enum):
     """
-    Specifies how the service is partitioned.
+    Enumerates the ways that a service can be partitioned.
     """
     SINGLETON = "Singleton"
     """
@@ -387,7 +387,7 @@ class ServicePlacementPolicyType(str, Enum):
 
 class ServiceScalingMechanismKind(str, Enum):
     """
-    Specifies the mechanism associated with this scaling policy.
+    Enumerates the ways that a service can be partitioned.
     """
     SCALE_PARTITION_INSTANCE_COUNT = "ScalePartitionInstanceCount"
     """
@@ -401,7 +401,7 @@ class ServiceScalingMechanismKind(str, Enum):
 
 class ServiceScalingTriggerKind(str, Enum):
     """
-    Specifies the trigger associated with this scaling policy.
+    Enumerates the ways that a service can be partitioned.
     """
     AVERAGE_PARTITION_LOAD_TRIGGER = "AveragePartitionLoadTrigger"
     """

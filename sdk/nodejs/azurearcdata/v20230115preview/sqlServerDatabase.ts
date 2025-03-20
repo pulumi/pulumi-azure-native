@@ -100,7 +100,7 @@ export class SqlServerDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240101:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata:SqlServerDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240101:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata:SqlServerDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerDatabase.__pulumiType, name, resourceInputs, opts);
     }

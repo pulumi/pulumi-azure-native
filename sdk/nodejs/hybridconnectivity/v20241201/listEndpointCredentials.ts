@@ -30,11 +30,11 @@ export interface ListEndpointCredentialsArgs {
      */
     expiresin?: number;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
     /**
-     * The name of the service. If not provided, the request will by pass the generation of service configuration token 
+     * The name of the service. If not provided, the request will by pass the generation of service configuration token
      */
     serviceName?: string | enums.hybridconnectivity.v20241201.ServiceName;
 }
@@ -91,11 +91,11 @@ export interface ListEndpointCredentialsOutputArgs {
      */
     expiresin?: pulumi.Input<number>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**
-     * The name of the service. If not provided, the request will by pass the generation of service configuration token 
+     * The name of the service. If not provided, the request will by pass the generation of service configuration token
      */
     serviceName?: pulumi.Input<string | enums.hybridconnectivity.v20241201.ServiceName>;
 }

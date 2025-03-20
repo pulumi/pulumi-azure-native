@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The network traffic is allowed.
+        /// </summary>
         public static Access Allow { get; } = new Access("allow");
+        /// <summary>
+        /// The network traffic is denied.
+        /// </summary>
         public static Access Deny { get; } = new Access("deny");
 
         public static bool operator ==(Access left, Access right) => left.Equals(right);
@@ -174,7 +180,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Inbound direction.
+        /// </summary>
         public static Direction Inbound { get; } = new Direction("inbound");
+        /// <summary>
+        /// Outbound direction.
+        /// </summary>
         public static Direction Outbound { get; } = new Direction("outbound");
 
         public static bool operator ==(Direction left, Direction right) => left.Equals(right);
@@ -500,12 +512,33 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Protocol applies to HTTP.
+        /// </summary>
         public static NsgProtocol Http { get; } = new NsgProtocol("http");
+        /// <summary>
+        /// Protocol applies to HTTPS.
+        /// </summary>
         public static NsgProtocol Https { get; } = new NsgProtocol("https");
+        /// <summary>
+        /// Protocol applies to TCP.
+        /// </summary>
         public static NsgProtocol Tcp { get; } = new NsgProtocol("tcp");
+        /// <summary>
+        /// Protocol applies to UDP.
+        /// </summary>
         public static NsgProtocol Udp { get; } = new NsgProtocol("udp");
+        /// <summary>
+        /// Protocol applies to ICMP.
+        /// </summary>
         public static NsgProtocol Icmp { get; } = new NsgProtocol("icmp");
+        /// <summary>
+        /// Protocol applies to AH.
+        /// </summary>
         public static NsgProtocol Ah { get; } = new NsgProtocol("ah");
+        /// <summary>
+        /// Protocol applies to ESP.
+        /// </summary>
         public static NsgProtocol Esp { get; } = new NsgProtocol("esp");
 
         public static bool operator ==(NsgProtocol left, NsgProtocol right) => left.Equals(right);
@@ -524,7 +557,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
     }
 
     /// <summary>
-    /// Specifies how the service is partitioned.
+    /// Enumerates the ways that a service can be partitioned.
     /// </summary>
     [EnumType]
     public readonly struct PartitionScheme : IEquatable<PartitionScheme>
@@ -577,7 +610,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enable apply network policies on private end point in the subnet.
+        /// </summary>
         public static PrivateEndpointNetworkPolicies Enabled { get; } = new PrivateEndpointNetworkPolicies("enabled");
+        /// <summary>
+        /// Disable apply network policies on private end point in the subnet.
+        /// </summary>
         public static PrivateEndpointNetworkPolicies Disabled { get; } = new PrivateEndpointNetworkPolicies("disabled");
 
         public static bool operator ==(PrivateEndpointNetworkPolicies left, PrivateEndpointNetworkPolicies right) => left.Equals(right);
@@ -608,7 +647,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The IP configuration's private IP is IPv4.
+        /// </summary>
         public static PrivateIPAddressVersion IPv4 { get; } = new PrivateIPAddressVersion("IPv4");
+        /// <summary>
+        /// The IP configuration's private IP is IPv6.
+        /// </summary>
         public static PrivateIPAddressVersion IPv6 { get; } = new PrivateIPAddressVersion("IPv6");
 
         public static bool operator ==(PrivateIPAddressVersion left, PrivateIPAddressVersion right) => left.Equals(right);
@@ -639,7 +684,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enable apply network policies on private link service in the subnet.
+        /// </summary>
         public static PrivateLinkServiceNetworkPolicies Enabled { get; } = new PrivateLinkServiceNetworkPolicies("enabled");
+        /// <summary>
+        /// Disable apply network policies on private link service in the subnet.
+        /// </summary>
         public static PrivateLinkServiceNetworkPolicies Disabled { get; } = new PrivateLinkServiceNetworkPolicies("disabled");
 
         public static bool operator ==(PrivateLinkServiceNetworkPolicies left, PrivateLinkServiceNetworkPolicies right) => left.Equals(right);
@@ -670,8 +721,17 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Probe protocol is TCP.
+        /// </summary>
         public static ProbeProtocol Tcp { get; } = new ProbeProtocol("tcp");
+        /// <summary>
+        /// Probe protocol is HTTP.
+        /// </summary>
         public static ProbeProtocol Http { get; } = new ProbeProtocol("http");
+        /// <summary>
+        /// Probe protocol is HTTPS.
+        /// </summary>
         public static ProbeProtocol Https { get; } = new ProbeProtocol("https");
 
         public static bool operator ==(ProbeProtocol left, ProbeProtocol right) => left.Equals(right);
@@ -702,7 +762,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Transport protocol is TCP.
+        /// </summary>
         public static Protocol Tcp { get; } = new Protocol("tcp");
+        /// <summary>
+        /// Transport protocol is UDP.
+        /// </summary>
         public static Protocol Udp { get; } = new Protocol("udp");
 
         public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
@@ -733,7 +799,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The IP configuration's public IP is IPv4.
+        /// </summary>
         public static PublicIPAddressVersion IPv4 { get; } = new PublicIPAddressVersion("IPv4");
+        /// <summary>
+        /// The IP configuration's public IP is IPv6.
+        /// </summary>
         public static PublicIPAddressVersion IPv6 { get; } = new PublicIPAddressVersion("IPv6");
 
         public static bool operator ==(PublicIPAddressVersion left, PublicIPAddressVersion right) => left.Equals(right);
@@ -1031,7 +1103,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
     }
 
     /// <summary>
-    /// Specifies the mechanism associated with this scaling policy.
+    /// Enumerates the ways that a service can be partitioned.
     /// </summary>
     [EnumType]
     public readonly struct ServiceScalingMechanismKind : IEquatable<ServiceScalingMechanismKind>
@@ -1068,7 +1140,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
     }
 
     /// <summary>
-    /// Specifies the trigger associated with this scaling policy.
+    /// Enumerates the ways that a service can be partitioned.
     /// </summary>
     [EnumType]
     public readonly struct ServiceScalingTriggerKind : IEquatable<ServiceScalingTriggerKind>

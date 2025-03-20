@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Insights.V20180416
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230315preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20231201:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20240101preview:ScheduledQueryRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20250101preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:ScheduledQueryRule" },
                 },
             };

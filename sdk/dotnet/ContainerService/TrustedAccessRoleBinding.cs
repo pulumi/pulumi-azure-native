@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// Defines binding between a resource and role
     /// Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview.
     /// 
-    /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+    /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:TrustedAccessRoleBinding")]
     public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource
@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240901:TrustedAccessRoleBinding" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:TrustedAccessRoleBinding" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241001:TrustedAccessRoleBinding" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:TrustedAccessRoleBinding" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20250101:TrustedAccessRoleBinding" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

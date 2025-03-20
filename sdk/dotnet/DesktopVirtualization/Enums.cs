@@ -508,6 +508,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         public static SessionHandlingOperation None { get; } = new SessionHandlingOperation("None");
         public static SessionHandlingOperation Deallocate { get; } = new SessionHandlingOperation("Deallocate");
+        public static SessionHandlingOperation Hibernate { get; } = new SessionHandlingOperation("Hibernate");
 
         public static bool operator ==(SessionHandlingOperation left, SessionHandlingOperation right) => left.Equals(right);
         public static bool operator !=(SessionHandlingOperation left, SessionHandlingOperation right) => !left.Equals(right);

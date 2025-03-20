@@ -16,6 +16,36 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public partial class AppAttachPackage : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Field that can be populated with custom data and filtered on in list GET calls
+        /// </summary>
+        [Output("customData")]
+        public Output<string?> CustomData { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameter indicating how the health check should behave if this package fails staging
+        /// </summary>
+        [Output("failHealthCheckOnStagingFailure")]
+        public Output<string?> FailHealthCheckOnStagingFailure { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Hostpool resource Ids.
+        /// </summary>
+        [Output("hostPoolReferences")]
+        public Output<ImmutableArray<string>> HostPoolReferences { get; private set; } = null!;
+
+        /// <summary>
+        /// Detailed properties for App Attach Package
+        /// </summary>
+        [Output("image")]
+        public Output<Outputs.AppAttachPackageInfoPropertiesResponse?> Image { get; private set; } = null!;
+
+        /// <summary>
+        /// URL path to certificate name located in keyVault
+        /// </summary>
+        [Output("keyVaultURL")]
+        public Output<string?> KeyVaultURL { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -28,10 +58,22 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Detailed properties for App Attach Package
+        /// Lookback url to third party control plane, is null for native app attach packages
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AppAttachPackagePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("packageLookbackUrl")]
+        public Output<string?> PackageLookbackUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Specific name of package owner, is "AppAttach" for native app attach packages
+        /// </summary>
+        [Output("packageOwnerName")]
+        public Output<string?> PackageOwnerName { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the App Attach Package.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -82,6 +124,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:AppAttachPackage" },
                 },
             };
@@ -107,10 +150,46 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class AppAttachPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the App Attach package arm object
+        /// The name of the App Attach package
         /// </summary>
         [Input("appAttachPackageName")]
         public Input<string>? AppAttachPackageName { get; set; }
+
+        /// <summary>
+        /// Field that can be populated with custom data and filtered on in list GET calls
+        /// </summary>
+        [Input("customData")]
+        public Input<string>? CustomData { get; set; }
+
+        /// <summary>
+        /// Parameter indicating how the health check should behave if this package fails staging
+        /// </summary>
+        [Input("failHealthCheckOnStagingFailure")]
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.FailHealthCheckOnStagingFailure>? FailHealthCheckOnStagingFailure { get; set; }
+
+        [Input("hostPoolReferences")]
+        private InputList<string>? _hostPoolReferences;
+
+        /// <summary>
+        /// List of Hostpool resource Ids.
+        /// </summary>
+        public InputList<string> HostPoolReferences
+        {
+            get => _hostPoolReferences ?? (_hostPoolReferences = new InputList<string>());
+            set => _hostPoolReferences = value;
+        }
+
+        /// <summary>
+        /// Detailed properties for App Attach Package
+        /// </summary>
+        [Input("image")]
+        public Input<Inputs.AppAttachPackageInfoPropertiesArgs>? Image { get; set; }
+
+        /// <summary>
+        /// URL path to certificate name located in keyVault
+        /// </summary>
+        [Input("keyVaultURL")]
+        public Input<string>? KeyVaultURL { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -119,10 +198,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Detailed properties for App Attach Package
+        /// Lookback url to third party control plane, is null for native app attach packages
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AppAttachPackagePropertiesArgs> Properties { get; set; } = null!;
+        [Input("packageLookbackUrl")]
+        public Input<string>? PackageLookbackUrl { get; set; }
+
+        /// <summary>
+        /// Specific name of package owner, is "AppAttach" for native app attach packages
+        /// </summary>
+        [Input("packageOwnerName")]
+        public Input<string>? PackageOwnerName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

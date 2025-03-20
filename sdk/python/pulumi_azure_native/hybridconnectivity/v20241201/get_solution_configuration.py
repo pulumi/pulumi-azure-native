@@ -27,16 +27,31 @@ class GetSolutionConfigurationResult:
     """
     Solution Configuration
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, last_sync_time=None, name=None, provisioning_state=None, solution_settings=None, solution_type=None, status=None, status_details=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_sync_time and not isinstance(last_sync_time, str):
+            raise TypeError("Expected argument 'last_sync_time' to be a str")
+        pulumi.set(__self__, "last_sync_time", last_sync_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if solution_settings and not isinstance(solution_settings, dict):
+            raise TypeError("Expected argument 'solution_settings' to be a dict")
+        pulumi.set(__self__, "solution_settings", solution_settings)
+        if solution_type and not isinstance(solution_type, str):
+            raise TypeError("Expected argument 'solution_type' to be a str")
+        pulumi.set(__self__, "solution_type", solution_type)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if status_details and not isinstance(status_details, str):
+            raise TypeError("Expected argument 'status_details' to be a str")
+        pulumi.set(__self__, "status_details", status_details)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,6 +68,14 @@ class GetSolutionConfigurationResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="lastSyncTime")
+    def last_sync_time(self) -> str:
+        """
+        The last time resources were inventoried
+        """
+        return pulumi.get(self, "last_sync_time")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -61,12 +84,44 @@ class GetSolutionConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The resource provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="solutionSettings")
+    def solution_settings(self) -> Optional[Mapping[str, str]]:
+        """
+        Solution settings
+        """
+        return pulumi.get(self, "solution_settings")
+
+    @property
+    @pulumi.getter(name="solutionType")
+    def solution_type(self) -> str:
+        """
+        The type of the solution
+        """
+        return pulumi.get(self, "solution_type")
+
+    @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SolutionConfigurationPropertiesResponse':
+    def status(self) -> str:
         """
-        The resource-specific properties for this resource.
+        The status of solution configurations
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusDetails")
+    def status_details(self) -> str:
+        """
+        The detailed message of status details
+        """
+        return pulumi.get(self, "status_details")
 
     @property
     @pulumi.getter(name="systemData")
@@ -92,8 +147,13 @@ class AwaitableGetSolutionConfigurationResult(GetSolutionConfigurationResult):
             yield self
         return GetSolutionConfigurationResult(
             id=self.id,
+            last_sync_time=self.last_sync_time,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            solution_settings=self.solution_settings,
+            solution_type=self.solution_type,
+            status=self.status,
+            status_details=self.status_details,
             system_data=self.system_data,
             type=self.type)
 
@@ -116,8 +176,13 @@ def get_solution_configuration(resource_uri: Optional[str] = None,
 
     return AwaitableGetSolutionConfigurationResult(
         id=pulumi.get(__ret__, 'id'),
+        last_sync_time=pulumi.get(__ret__, 'last_sync_time'),
         name=pulumi.get(__ret__, 'name'),
-        properties=pulumi.get(__ret__, 'properties'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        solution_settings=pulumi.get(__ret__, 'solution_settings'),
+        solution_type=pulumi.get(__ret__, 'solution_type'),
+        status=pulumi.get(__ret__, 'status'),
+        status_details=pulumi.get(__ret__, 'status_details'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] = None,
@@ -137,7 +202,12 @@ def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] 
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20241201:getSolutionConfiguration', __args__, opts=opts, typ=GetSolutionConfigurationResult)
     return __ret__.apply(lambda __response__: GetSolutionConfigurationResult(
         id=pulumi.get(__response__, 'id'),
+        last_sync_time=pulumi.get(__response__, 'last_sync_time'),
         name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        solution_settings=pulumi.get(__response__, 'solution_settings'),
+        solution_type=pulumi.get(__response__, 'solution_type'),
+        status=pulumi.get(__response__, 'status'),
+        status_details=pulumi.get(__response__, 'status_details'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

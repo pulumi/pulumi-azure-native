@@ -177,6 +177,7 @@ class SessionHandlingOperation(str, Enum):
     """
     NONE = "None"
     DEALLOCATE = "Deallocate"
+    HIBERNATE = "Hibernate"
 
 
 class SessionHostComponentUpdateType(str, Enum):

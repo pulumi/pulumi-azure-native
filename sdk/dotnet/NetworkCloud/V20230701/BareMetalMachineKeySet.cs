@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:BareMetalMachineKeySet" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:BareMetalMachineKeySet" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:BareMetalMachineKeySet" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:BareMetalMachineKeySet" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:BareMetalMachineKeySet" },
                 },
             };

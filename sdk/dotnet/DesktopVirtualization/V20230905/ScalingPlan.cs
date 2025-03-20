@@ -156,7 +156,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20230905
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ScalingPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240116preview:ScalingPlan" },
@@ -164,6 +163,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20230905
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:ScalingPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlan" },
                 },
             };

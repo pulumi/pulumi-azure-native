@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a federated identity credential.
  * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
  *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
+ * Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
  */
 export class FederatedIdentityCredential extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20241130:FederatedIdentityCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20241130:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20250131preview:FederatedIdentityCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts);
     }

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
     public sealed class MsixPackageDependenciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        /// Name of package dependency.
         /// </summary>
         [Input("dependencyName")]
         public Input<string>? DependencyName { get; set; }

@@ -3,7 +3,13 @@
 
 
 export const ApplicationGroupType = {
+    /**
+     * Application group is Remote and can launch individual applications without a Desktop.
+     */
     RemoteApp: "RemoteApp",
+    /**
+     * Application Group delivers a full expected Desktop experience
+     */
     Desktop: "Desktop",
 } as const;
 
@@ -13,8 +19,17 @@ export const ApplicationGroupType = {
 export type ApplicationGroupType = (typeof ApplicationGroupType)[keyof typeof ApplicationGroupType];
 
 export const CommandLineSetting = {
+    /**
+     * Cannot be launched with command line arguments.
+     */
     DoNotAllow: "DoNotAllow",
+    /**
+     * Can optionally be launched with command line arguments.
+     */
     Allow: "Allow",
+    /**
+     * Required to be launched with command line arguments.
+     */
     Require: "Require",
 } as const;
 
@@ -24,23 +39,32 @@ export const CommandLineSetting = {
 export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
 
 export const DayOfWeek = {
-    Sunday: "Sunday",
     Monday: "Monday",
     Tuesday: "Tuesday",
     Wednesday: "Wednesday",
     Thursday: "Thursday",
     Friday: "Friday",
     Saturday: "Saturday",
+    Sunday: "Sunday",
 } as const;
 
 /**
- * Day of the week.
+ * Day of the week. Modeled as string
  */
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 export const DirectUDP = {
+    /**
+     * AVD-wide settings are used to determine connection availability
+     */
     Default: "Default",
+    /**
+     * UDP will attempt this connection type when making connections.
+     */
     Enabled: "Enabled",
+    /**
+     * UDP will not attempt this connection type when making connections
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -50,8 +74,17 @@ export const DirectUDP = {
 export type DirectUDP = (typeof DirectUDP)[keyof typeof DirectUDP];
 
 export const FailHealthCheckOnStagingFailure = {
+    /**
+     * Health Check will report unhealthy
+     */
     Unhealthy: "Unhealthy",
+    /**
+     * Health Check will report NeedsAssistance
+     */
     NeedsAssistance: "NeedsAssistance",
+    /**
+     * Health Check will not report failure
+     */
     DoNotFail: "DoNotFail",
 } as const;
 
@@ -81,9 +114,21 @@ export const HostPoolType = {
 export type HostPoolType = (typeof HostPoolType)[keyof typeof HostPoolType];
 
 export const HostpoolPublicNetworkAccess = {
+    /**
+     * Allows this resource to be accessed from the public network
+     */
     Enabled: "Enabled",
+    /**
+     * Prevents this resource from being accessed from the public network
+     */
     Disabled: "Disabled",
+    /**
+     * Allows SessionHosts to be accessed from the public network
+     */
     EnabledForSessionHostsOnly: "EnabledForSessionHostsOnly",
+    /**
+     * Allows Clients to be accessed from the public network
+     */
     EnabledForClientsOnly: "EnabledForClientsOnly",
 } as const;
 
@@ -93,9 +138,21 @@ export const HostpoolPublicNetworkAccess = {
 export type HostpoolPublicNetworkAccess = (typeof HostpoolPublicNetworkAccess)[keyof typeof HostpoolPublicNetworkAccess];
 
 export const LoadBalancerType = {
+    /**
+     * Uses BreadthFirst algorithm for load balancing.
+     */
     BreadthFirst: "BreadthFirst",
+    /**
+     * Uses DepthFirst algorithm for load balancing.
+     */
     DepthFirst: "DepthFirst",
+    /**
+     * Maintains persistent connections.
+     */
     Persistent: "Persistent",
+    /**
+     * Maintains multiple persistents connections.
+     */
     MultiplePersistent: "MultiplePersistent",
 } as const;
 
@@ -105,8 +162,17 @@ export const LoadBalancerType = {
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
 export const ManagedPrivateUDP = {
+    /**
+     * AVD-wide settings are used to determine connection availability
+     */
     Default: "Default",
+    /**
+     * UDP will attempt this connection type when making connections.
+     */
     Enabled: "Enabled",
+    /**
+     * UDP will not attempt this connection type when making connections
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -128,7 +194,13 @@ export const ManagedServiceIdentityType = {
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const ManagementType = {
+    /**
+     * Automated management of the hostpool
+     */
     Automated: "Automated",
+    /**
+     * Standard management of the hostpool
+     */
     Standard: "Standard",
 } as const;
 
@@ -138,7 +210,13 @@ export const ManagementType = {
 export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType];
 
 export const PackageTimestamped = {
+    /**
+     * Package is timestamped
+     */
     Timestamped: "Timestamped",
+    /**
+     * Package is not timestamped, use certificate expiry date
+     */
     NotTimestamped: "NotTimestamped",
 } as const;
 
@@ -148,7 +226,13 @@ export const PackageTimestamped = {
 export type PackageTimestamped = (typeof PackageTimestamped)[keyof typeof PackageTimestamped];
 
 export const PersonalDesktopAssignmentType = {
+    /**
+     * Automatically assigns an available personal desktop to the user.
+     */
     Automatic: "Automatic",
+    /**
+     * Manually assigns a specific personal desktop to the user.
+     */
     Direct: "Direct",
 } as const;
 
@@ -159,15 +243,15 @@ export type PersonalDesktopAssignmentType = (typeof PersonalDesktopAssignmentTyp
 
 export const PreferredAppGroupType = {
     /**
-     * This value is read only, it is not accepted on input.
+     * Internal Use Only
      */
     None: "None",
     /**
-     * Users access the full Windows desktop from a session host. Available with pooled or personal host pools.
+     * Use Desktop Application Group
      */
     Desktop: "Desktop",
     /**
-     * Users access individual applications you select and publish to the application group. Available with pooled host pools only.
+     * Use RailApplications (RemoteApp)
      */
     RailApplications: "RailApplications",
 } as const;
@@ -178,8 +262,17 @@ export const PreferredAppGroupType = {
 export type PreferredAppGroupType = (typeof PreferredAppGroupType)[keyof typeof PreferredAppGroupType];
 
 export const PrivateEndpointServiceConnectionStatus = {
+    /**
+     * Connection is Pending
+     */
     Pending: "Pending",
+    /**
+     * Connection was Approved
+     */
     Approved: "Approved",
+    /**
+     * Connection was rejected
+     */
     Rejected: "Rejected",
 } as const;
 
@@ -189,7 +282,13 @@ export const PrivateEndpointServiceConnectionStatus = {
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
+    /**
+     * This resource is accessible from the public network.
+     */
     Enabled: "Enabled",
+    /**
+     * This resource is not accessible from the public network.
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -199,8 +298,17 @@ export const PublicNetworkAccess = {
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const PublicUDP = {
+    /**
+     * AVD-wide settings are used to determine connection availability
+     */
     Default: "Default",
+    /**
+     * UDP will attempt this connection type when making connections.
+     */
     Enabled: "Enabled",
+    /**
+     * UDP will not attempt this connection type when making connections
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -210,8 +318,17 @@ export const PublicUDP = {
 export type PublicUDP = (typeof PublicUDP)[keyof typeof PublicUDP];
 
 export const RegistrationTokenOperation = {
+    /**
+     * Delete operation
+     */
     Delete: "Delete",
+    /**
+     * No Operation
+     */
     None: "None",
+    /**
+     * Update Operation
+     */
     Update: "Update",
 } as const;
 
@@ -221,8 +338,17 @@ export const RegistrationTokenOperation = {
 export type RegistrationTokenOperation = (typeof RegistrationTokenOperation)[keyof typeof RegistrationTokenOperation];
 
 export const RelayUDP = {
+    /**
+     * AVD-wide settings are used to determine connection availability
+     */
     Default: "Default",
+    /**
+     * UDP will attempt this connection type when making connections.
+     */
     Enabled: "Enabled",
+    /**
+     * UDP will not attempt this connection type when making connections
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -232,7 +358,13 @@ export const RelayUDP = {
 export type RelayUDP = (typeof RelayUDP)[keyof typeof RelayUDP];
 
 export const RemoteApplicationType = {
+    /**
+     * Built-in applications
+     */
     InBuilt: "InBuilt",
+    /**
+     * Imported MSIX application packages
+     */
     MsixApplication: "MsixApplication",
 } as const;
 
@@ -242,9 +374,21 @@ export const RemoteApplicationType = {
 export type RemoteApplicationType = (typeof RemoteApplicationType)[keyof typeof RemoteApplicationType];
 
 export const SSOSecretType = {
+    /**
+     * The SSO Secret is a Shared Key.
+     */
     SharedKey: "SharedKey",
+    /**
+     * The SSO Secret is a Certificate.
+     */
     Certificate: "Certificate",
+    /**
+     * The SSO Secret is a SharedKey that is stored in KeyVault.
+     */
     SharedKeyInKeyVault: "SharedKeyInKeyVault",
+    /**
+     * The SSO Secret is a Certificate that is stored in KeyVault.
+     */
     CertificateInKeyVault: "CertificateInKeyVault",
 } as const;
 
@@ -270,8 +414,17 @@ export const ScalingHostPoolType = {
 export type ScalingHostPoolType = (typeof ScalingHostPoolType)[keyof typeof ScalingHostPoolType];
 
 export const SessionHandlingOperation = {
+    /**
+     * No action will be taken after disconnect
+     */
     None: "None",
+    /**
+     * Session Host will be deallocated after disconnect
+     */
     Deallocate: "Deallocate",
+    /**
+     * Session Host will hibernate after disconnect
+     */
     Hibernate: "Hibernate",
 } as const;
 
@@ -297,7 +450,13 @@ export const SessionHostComponentUpdateType = {
 export type SessionHostComponentUpdateType = (typeof SessionHostComponentUpdateType)[keyof typeof SessionHostComponentUpdateType];
 
 export const SessionHostLoadBalancingAlgorithm = {
+    /**
+     * Breadth First Algorithm for Load Balancing
+     */
     BreadthFirst: "BreadthFirst",
+    /**
+     * Depth First Algorithm for Load Balancing
+     */
     DepthFirst: "DepthFirst",
 } as const;
 
@@ -307,7 +466,13 @@ export const SessionHostLoadBalancingAlgorithm = {
 export type SessionHostLoadBalancingAlgorithm = (typeof SessionHostLoadBalancingAlgorithm)[keyof typeof SessionHostLoadBalancingAlgorithm];
 
 export const SetStartVMOnConnect = {
+    /**
+     * Start VM on Connect is enabled
+     */
     Enable: "Enable",
+    /**
+     * Start VM on Connect is disabled, must use rampUpAutoStartHosts or turn on manually
+     */
     Disable: "Disable",
 } as const;
 
@@ -349,7 +514,13 @@ export const StartupBehavior = {
 export type StartupBehavior = (typeof StartupBehavior)[keyof typeof StartupBehavior];
 
 export const StopHostsWhen = {
+    /**
+     * Zero Total Sessions
+     */
     ZeroSessions: "ZeroSessions",
+    /**
+     * Zero Active Sessions
+     */
     ZeroActiveSessions: "ZeroActiveSessions",
 } as const;
 

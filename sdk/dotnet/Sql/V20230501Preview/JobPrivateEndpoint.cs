@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:JobPrivateEndpoint" },

@@ -22,7 +22,7 @@ __all__ = ['ScalingPlanPooledScheduleArgs', 'ScalingPlanPooledSchedule']
 @pulumi.input_type
 class ScalingPlanPooledScheduleArgs:
     def __init__(__self__, *,
-                 days_of_week: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]],
+                 days_of_week: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]],
                  off_peak_start_time: pulumi.Input['TimeArgs'],
                  peak_start_time: pulumi.Input['TimeArgs'],
                  ramp_down_capacity_threshold_pct: pulumi.Input[int],
@@ -31,6 +31,7 @@ class ScalingPlanPooledScheduleArgs:
                  ramp_up_start_time: pulumi.Input['TimeArgs'],
                  resource_group_name: pulumi.Input[str],
                  scaling_plan_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  ramp_down_force_logoff_users: Optional[pulumi.Input[bool]] = None,
@@ -44,7 +45,7 @@ class ScalingPlanPooledScheduleArgs:
                  scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPooledSchedule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_week: Set of days of the week on which this schedule is active.
         :param pulumi.Input['TimeArgs'] off_peak_start_time: Starting time for off-peak period.
         :param pulumi.Input['TimeArgs'] peak_start_time: Starting time for peak period.
         :param pulumi.Input[int] ramp_down_capacity_threshold_pct: Capacity threshold for ramp down period.
@@ -53,6 +54,7 @@ class ScalingPlanPooledScheduleArgs:
         :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
+        :param pulumi.Input[str] name: Name of the ScalingPlanPooledSchedule
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] off_peak_load_balancing_algorithm: Load balancing algorithm for off-peak period.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] peak_load_balancing_algorithm: Load balancing algorithm for peak period.
         :param pulumi.Input[bool] ramp_down_force_logoff_users: Should users be logged off forcefully from hosts.
@@ -74,6 +76,8 @@ class ScalingPlanPooledScheduleArgs:
         pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if off_peak_load_balancing_algorithm is not None:
             pulumi.set(__self__, "off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
         if peak_load_balancing_algorithm is not None:
@@ -99,14 +103,14 @@ class ScalingPlanPooledScheduleArgs:
 
     @property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]:
+    def days_of_week(self) -> pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]:
         """
         Set of days of the week on which this schedule is active.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]):
+    def days_of_week(self, value: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]):
         pulumi.set(self, "days_of_week", value)
 
     @property
@@ -204,6 +208,18 @@ class ScalingPlanPooledScheduleArgs:
     @scaling_plan_name.setter
     def scaling_plan_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "scaling_plan_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the ScalingPlanPooledSchedule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="offPeakLoadBalancingAlgorithm")
@@ -343,7 +359,8 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
@@ -369,7 +386,8 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input[str] name: Name of the ScalingPlanPooledSchedule
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] off_peak_load_balancing_algorithm: Load balancing algorithm for off-peak period.
         :param pulumi.Input[Union['TimeArgs', 'TimeArgsDict']] off_peak_start_time: Starting time for off-peak period.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] peak_load_balancing_algorithm: Load balancing algorithm for peak period.
@@ -414,7 +432,8 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
@@ -446,6 +465,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
             if days_of_week is None and not opts.urn:
                 raise TypeError("Missing required property 'days_of_week'")
             __props__.__dict__["days_of_week"] = days_of_week
+            __props__.__dict__["name"] = name
             __props__.__dict__["off_peak_load_balancing_algorithm"] = off_peak_load_balancing_algorithm
             if off_peak_start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'off_peak_start_time'")
@@ -481,10 +501,9 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scaling_plan_name'")
             __props__.__dict__["scaling_plan_name"] = scaling_plan_name
             __props__.__dict__["scaling_plan_schedule_name"] = scaling_plan_schedule_name
-            __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization:ScalingPlanPooledSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization:ScalingPlanPooledSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlanPooledSchedule, __self__).__init__(
             'azure-native:desktopvirtualization/v20240808preview:ScalingPlanPooledSchedule',

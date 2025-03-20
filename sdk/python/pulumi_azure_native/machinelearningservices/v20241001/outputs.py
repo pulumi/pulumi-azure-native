@@ -16301,6 +16301,8 @@ class InferenceContainerPropertiesResponse(dict):
             suggest = "readiness_route"
         elif key == "scoringRoute":
             suggest = "scoring_route"
+        elif key == "startupRoute":
+            suggest = "startup_route"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InferenceContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -16316,11 +16318,13 @@ class InferenceContainerPropertiesResponse(dict):
     def __init__(__self__, *,
                  liveness_route: Optional['outputs.RouteResponse'] = None,
                  readiness_route: Optional['outputs.RouteResponse'] = None,
-                 scoring_route: Optional['outputs.RouteResponse'] = None):
+                 scoring_route: Optional['outputs.RouteResponse'] = None,
+                 startup_route: Optional['outputs.RouteResponse'] = None):
         """
         :param 'RouteResponse' liveness_route: The route to check the liveness of the inference server container.
         :param 'RouteResponse' readiness_route: The route to check the readiness of the inference server container.
         :param 'RouteResponse' scoring_route: The port to send the scoring requests to, within the inference server container.
+        :param 'RouteResponse' startup_route: The route to check the startup of the application in the container.
         """
         if liveness_route is not None:
             pulumi.set(__self__, "liveness_route", liveness_route)
@@ -16328,6 +16332,8 @@ class InferenceContainerPropertiesResponse(dict):
             pulumi.set(__self__, "readiness_route", readiness_route)
         if scoring_route is not None:
             pulumi.set(__self__, "scoring_route", scoring_route)
+        if startup_route is not None:
+            pulumi.set(__self__, "startup_route", startup_route)
 
     @property
     @pulumi.getter(name="livenessRoute")
@@ -16352,6 +16358,14 @@ class InferenceContainerPropertiesResponse(dict):
         The port to send the scoring requests to, within the inference server container.
         """
         return pulumi.get(self, "scoring_route")
+
+    @property
+    @pulumi.getter(name="startupRoute")
+    def startup_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The route to check the startup of the application in the container.
+        """
+        return pulumi.get(self, "startup_route")
 
 
 @pulumi.output_type
@@ -16737,6 +16751,8 @@ class KubernetesOnlineDeploymentResponse(dict):
             suggest = "request_settings"
         elif key == "scaleSettings":
             suggest = "scale_settings"
+        elif key == "startupProbe":
+            suggest = "startup_probe"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesOnlineDeploymentResponse. Access the value via the '{suggest}' property getter instead.")
@@ -16767,7 +16783,8 @@ class KubernetesOnlineDeploymentResponse(dict):
                  properties: Optional[Mapping[str, str]] = None,
                  readiness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
                  request_settings: Optional['outputs.OnlineRequestSettingsResponse'] = None,
-                 scale_settings: Optional[Any] = None):
+                 scale_settings: Optional[Any] = None,
+                 startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
         """
         Properties specific to a KubernetesOnlineDeployment.
         :param str endpoint_compute_type: Enum to determine endpoint compute type.
@@ -16792,6 +16809,7 @@ class KubernetesOnlineDeploymentResponse(dict):
                If it is null or not provided,
                it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
                and to DefaultScaleSettings for ManagedOnlineDeployment.
+        :param 'ProbeSettingsResponse' startup_probe: Startup probe verify whether an application within a container has started successfully.
         """
         pulumi.set(__self__, "endpoint_compute_type", 'Kubernetes')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -16833,6 +16851,8 @@ class KubernetesOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "request_settings", request_settings)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
 
     @property
     @pulumi.getter(name="endpointComputeType")
@@ -16981,6 +17001,14 @@ class KubernetesOnlineDeploymentResponse(dict):
         and to DefaultScaleSettings for ManagedOnlineDeployment.
         """
         return pulumi.get(self, "scale_settings")
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Startup probe verify whether an application within a container has started successfully.
+        """
+        return pulumi.get(self, "startup_probe")
 
 
 @pulumi.output_type
@@ -18318,6 +18346,8 @@ class ManagedOnlineDeploymentResponse(dict):
             suggest = "request_settings"
         elif key == "scaleSettings":
             suggest = "scale_settings"
+        elif key == "startupProbe":
+            suggest = "startup_probe"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedOnlineDeploymentResponse. Access the value via the '{suggest}' property getter instead.")
@@ -18347,7 +18377,8 @@ class ManagedOnlineDeploymentResponse(dict):
                  properties: Optional[Mapping[str, str]] = None,
                  readiness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
                  request_settings: Optional['outputs.OnlineRequestSettingsResponse'] = None,
-                 scale_settings: Optional[Any] = None):
+                 scale_settings: Optional[Any] = None,
+                 startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
         """
         Properties specific to a ManagedOnlineDeployment.
         :param str endpoint_compute_type: Enum to determine endpoint compute type.
@@ -18371,6 +18402,7 @@ class ManagedOnlineDeploymentResponse(dict):
                If it is null or not provided,
                it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
                and to DefaultScaleSettings for ManagedOnlineDeployment.
+        :param 'ProbeSettingsResponse' startup_probe: Startup probe verify whether an application within a container has started successfully.
         """
         pulumi.set(__self__, "endpoint_compute_type", 'Managed')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -18410,6 +18442,8 @@ class ManagedOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "request_settings", request_settings)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
 
     @property
     @pulumi.getter(name="endpointComputeType")
@@ -18550,6 +18584,14 @@ class ManagedOnlineDeploymentResponse(dict):
         and to DefaultScaleSettings for ManagedOnlineDeployment.
         """
         return pulumi.get(self, "scale_settings")
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Startup probe verify whether an application within a container has started successfully.
+        """
+        return pulumi.get(self, "startup_probe")
 
 
 @pulumi.output_type

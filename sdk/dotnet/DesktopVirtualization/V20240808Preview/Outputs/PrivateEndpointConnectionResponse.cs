@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// The group ids for the private endpoint resource.
-        /// </summary>
-        public readonly ImmutableArray<string> GroupIds;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -29,17 +25,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The private endpoint resource.
+        /// Resource properties.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
-        /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
-        /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
-        /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse? Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -51,28 +39,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
-            ImmutableArray<string> groupIds,
-
             string id,
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
-
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
-
-            string provisioningState,
+            Outputs.PrivateEndpointConnectionPropertiesResponse? properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            GroupIds = groupIds;
             Id = id;
             Name = name;
-            PrivateEndpoint = privateEndpoint;
-            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

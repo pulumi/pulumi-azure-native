@@ -170,6 +170,7 @@ namespace Pulumi.AzureNative.Authorization.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240401:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240501:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20250101:PolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20250301:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment" },
                 },
             };

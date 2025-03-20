@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:StartStopManagedInstanceSchedule" },
                 },

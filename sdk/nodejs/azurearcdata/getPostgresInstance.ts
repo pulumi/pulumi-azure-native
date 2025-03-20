@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieves a postgres Instance resource
  * Azure REST API version: 2023-01-15-preview.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
  */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +77,7 @@ export interface GetPostgresInstanceResult {
  * Retrieves a postgres Instance resource
  * Azure REST API version: 2023-01-15-preview.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
  */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostgresInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

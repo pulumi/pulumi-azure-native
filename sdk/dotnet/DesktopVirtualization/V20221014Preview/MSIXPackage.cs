@@ -137,7 +137,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:MSIXPackage" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:MSIXPackage" },
@@ -146,6 +145,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:MSIXPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:MSIXPackage" },
                 },
             };

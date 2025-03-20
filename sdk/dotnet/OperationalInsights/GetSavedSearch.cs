@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets the specified saved search for a given workspace.
         /// Azure REST API version: 2020-08-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2025-02-01.
         /// </summary>
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-native:operationalinsights:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets the specified saved search for a given workspace.
         /// Azure REST API version: 2020-08-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets the specified saved search for a given workspace.
         /// Azure REST API version: 2020-08-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithDefaults());

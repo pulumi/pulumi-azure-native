@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20241130
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230131:UserAssignedIdentity" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230731preview:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20250131preview:UserAssignedIdentity" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity" },
                 },
             };

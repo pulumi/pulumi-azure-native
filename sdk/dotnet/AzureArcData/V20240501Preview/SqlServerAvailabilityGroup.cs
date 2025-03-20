@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlServerAvailabilityGroup" },
                 },
             };

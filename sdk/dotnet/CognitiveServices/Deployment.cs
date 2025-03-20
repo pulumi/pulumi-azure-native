@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services account deployment.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
     /// 
-    /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:Deployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

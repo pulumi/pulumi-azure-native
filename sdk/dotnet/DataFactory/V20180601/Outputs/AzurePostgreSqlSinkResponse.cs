@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
     /// <summary>
-    /// A copy activity Azure PostgreSQL sink.
+    /// A copy activity Azure Database for PostgreSQL sink.
     /// </summary>
     [OutputType]
     public sealed class AzurePostgreSqlSinkResponse
@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Azure Database for PostgreSQL upsert option settings
+        /// </summary>
+        public readonly Outputs.AzurePostgreSqlSinkResponseUpsertSettings? UpsertSettings;
+        /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
         public readonly object? WriteBatchSize;
@@ -49,6 +53,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? WriteBatchTimeout;
+        /// <summary>
+        /// The write behavior for the operation. Default is Bulk Insert.
+        /// </summary>
+        public readonly string? WriteMethod;
 
         [OutputConstructor]
         private AzurePostgreSqlSinkResponse(
@@ -64,9 +72,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
+            Outputs.AzurePostgreSqlSinkResponseUpsertSettings? upsertSettings,
+
             object? writeBatchSize,
 
-            object? writeBatchTimeout)
+            object? writeBatchTimeout,
+
+            string? writeMethod)
         {
             DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
@@ -74,8 +86,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             SinkRetryCount = sinkRetryCount;
             SinkRetryWait = sinkRetryWait;
             Type = type;
+            UpsertSettings = upsertSettings;
             WriteBatchSize = writeBatchSize;
             WriteBatchTimeout = writeBatchTimeout;
+            WriteMethod = writeMethod;
         }
     }
 }

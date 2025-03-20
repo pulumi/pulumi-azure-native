@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Application group is Remote and can launch individual applications without a Desktop.
+        /// </summary>
         public static ApplicationGroupType RemoteApp { get; } = new ApplicationGroupType("RemoteApp");
+        /// <summary>
+        /// Application Group delivers a full expected Desktop experience
+        /// </summary>
         public static ApplicationGroupType Desktop { get; } = new ApplicationGroupType("Desktop");
 
         public static bool operator ==(ApplicationGroupType left, ApplicationGroupType right) => left.Equals(right);
@@ -51,8 +57,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cannot be launched with command line arguments.
+        /// </summary>
         public static CommandLineSetting DoNotAllow { get; } = new CommandLineSetting("DoNotAllow");
+        /// <summary>
+        /// Can optionally be launched with command line arguments.
+        /// </summary>
         public static CommandLineSetting Allow { get; } = new CommandLineSetting("Allow");
+        /// <summary>
+        /// Required to be launched with command line arguments.
+        /// </summary>
         public static CommandLineSetting Require { get; } = new CommandLineSetting("Require");
 
         public static bool operator ==(CommandLineSetting left, CommandLineSetting right) => left.Equals(right);
@@ -71,7 +86,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     }
 
     /// <summary>
-    /// Day of the week.
+    /// Day of the week. Modeled as string
     /// </summary>
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>
@@ -83,13 +98,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
         public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
         public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
         public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
         public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
         public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
         public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
 
         public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
         public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
@@ -119,8 +134,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AVD-wide settings are used to determine connection availability
+        /// </summary>
         public static DirectUDP Default { get; } = new DirectUDP("Default");
+        /// <summary>
+        /// UDP will attempt this connection type when making connections.
+        /// </summary>
         public static DirectUDP Enabled { get; } = new DirectUDP("Enabled");
+        /// <summary>
+        /// UDP will not attempt this connection type when making connections
+        /// </summary>
         public static DirectUDP Disabled { get; } = new DirectUDP("Disabled");
 
         public static bool operator ==(DirectUDP left, DirectUDP right) => left.Equals(right);
@@ -151,8 +175,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Health Check will report unhealthy
+        /// </summary>
         public static FailHealthCheckOnStagingFailure Unhealthy { get; } = new FailHealthCheckOnStagingFailure("Unhealthy");
+        /// <summary>
+        /// Health Check will report NeedsAssistance
+        /// </summary>
         public static FailHealthCheckOnStagingFailure NeedsAssistance { get; } = new FailHealthCheckOnStagingFailure("NeedsAssistance");
+        /// <summary>
+        /// Health Check will not report failure
+        /// </summary>
         public static FailHealthCheckOnStagingFailure DoNotFail { get; } = new FailHealthCheckOnStagingFailure("DoNotFail");
 
         public static bool operator ==(FailHealthCheckOnStagingFailure left, FailHealthCheckOnStagingFailure right) => left.Equals(right);
@@ -224,9 +257,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Allows this resource to be accessed from the public network
+        /// </summary>
         public static HostpoolPublicNetworkAccess Enabled { get; } = new HostpoolPublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Prevents this resource from being accessed from the public network
+        /// </summary>
         public static HostpoolPublicNetworkAccess Disabled { get; } = new HostpoolPublicNetworkAccess("Disabled");
+        /// <summary>
+        /// Allows SessionHosts to be accessed from the public network
+        /// </summary>
         public static HostpoolPublicNetworkAccess EnabledForSessionHostsOnly { get; } = new HostpoolPublicNetworkAccess("EnabledForSessionHostsOnly");
+        /// <summary>
+        /// Allows Clients to be accessed from the public network
+        /// </summary>
         public static HostpoolPublicNetworkAccess EnabledForClientsOnly { get; } = new HostpoolPublicNetworkAccess("EnabledForClientsOnly");
 
         public static bool operator ==(HostpoolPublicNetworkAccess left, HostpoolPublicNetworkAccess right) => left.Equals(right);
@@ -257,9 +302,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Uses BreadthFirst algorithm for load balancing.
+        /// </summary>
         public static LoadBalancerType BreadthFirst { get; } = new LoadBalancerType("BreadthFirst");
+        /// <summary>
+        /// Uses DepthFirst algorithm for load balancing.
+        /// </summary>
         public static LoadBalancerType DepthFirst { get; } = new LoadBalancerType("DepthFirst");
+        /// <summary>
+        /// Maintains persistent connections.
+        /// </summary>
         public static LoadBalancerType Persistent { get; } = new LoadBalancerType("Persistent");
+        /// <summary>
+        /// Maintains multiple persistents connections.
+        /// </summary>
         public static LoadBalancerType MultiplePersistent { get; } = new LoadBalancerType("MultiplePersistent");
 
         public static bool operator ==(LoadBalancerType left, LoadBalancerType right) => left.Equals(right);
@@ -290,8 +347,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AVD-wide settings are used to determine connection availability
+        /// </summary>
         public static ManagedPrivateUDP Default { get; } = new ManagedPrivateUDP("Default");
+        /// <summary>
+        /// UDP will attempt this connection type when making connections.
+        /// </summary>
         public static ManagedPrivateUDP Enabled { get; } = new ManagedPrivateUDP("Enabled");
+        /// <summary>
+        /// UDP will not attempt this connection type when making connections
+        /// </summary>
         public static ManagedPrivateUDP Disabled { get; } = new ManagedPrivateUDP("Disabled");
 
         public static bool operator ==(ManagedPrivateUDP left, ManagedPrivateUDP right) => left.Equals(right);
@@ -355,7 +421,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Automated management of the hostpool
+        /// </summary>
         public static ManagementType Automated { get; } = new ManagementType("Automated");
+        /// <summary>
+        /// Standard management of the hostpool
+        /// </summary>
         public static ManagementType Standard { get; } = new ManagementType("Standard");
 
         public static bool operator ==(ManagementType left, ManagementType right) => left.Equals(right);
@@ -386,7 +458,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Package is timestamped
+        /// </summary>
         public static PackageTimestamped Timestamped { get; } = new PackageTimestamped("Timestamped");
+        /// <summary>
+        /// Package is not timestamped, use certificate expiry date
+        /// </summary>
         public static PackageTimestamped NotTimestamped { get; } = new PackageTimestamped("NotTimestamped");
 
         public static bool operator ==(PackageTimestamped left, PackageTimestamped right) => left.Equals(right);
@@ -417,7 +495,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Automatically assigns an available personal desktop to the user.
+        /// </summary>
         public static PersonalDesktopAssignmentType Automatic { get; } = new PersonalDesktopAssignmentType("Automatic");
+        /// <summary>
+        /// Manually assigns a specific personal desktop to the user.
+        /// </summary>
         public static PersonalDesktopAssignmentType Direct { get; } = new PersonalDesktopAssignmentType("Direct");
 
         public static bool operator ==(PersonalDesktopAssignmentType left, PersonalDesktopAssignmentType right) => left.Equals(right);
@@ -449,15 +533,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         }
 
         /// <summary>
-        /// This value is read only, it is not accepted on input.
+        /// Internal Use Only
         /// </summary>
         public static PreferredAppGroupType None { get; } = new PreferredAppGroupType("None");
         /// <summary>
-        /// Users access the full Windows desktop from a session host. Available with pooled or personal host pools.
+        /// Use Desktop Application Group
         /// </summary>
         public static PreferredAppGroupType Desktop { get; } = new PreferredAppGroupType("Desktop");
         /// <summary>
-        /// Users access individual applications you select and publish to the application group. Available with pooled host pools only.
+        /// Use RailApplications (RemoteApp)
         /// </summary>
         public static PreferredAppGroupType RailApplications { get; } = new PreferredAppGroupType("RailApplications");
 
@@ -489,8 +573,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Connection is Pending
+        /// </summary>
         public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        /// <summary>
+        /// Connection was Approved
+        /// </summary>
         public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        /// <summary>
+        /// Connection was rejected
+        /// </summary>
         public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
 
         public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
@@ -521,7 +614,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// This resource is accessible from the public network.
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// This resource is not accessible from the public network.
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
@@ -552,8 +651,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AVD-wide settings are used to determine connection availability
+        /// </summary>
         public static PublicUDP Default { get; } = new PublicUDP("Default");
+        /// <summary>
+        /// UDP will attempt this connection type when making connections.
+        /// </summary>
         public static PublicUDP Enabled { get; } = new PublicUDP("Enabled");
+        /// <summary>
+        /// UDP will not attempt this connection type when making connections
+        /// </summary>
         public static PublicUDP Disabled { get; } = new PublicUDP("Disabled");
 
         public static bool operator ==(PublicUDP left, PublicUDP right) => left.Equals(right);
@@ -584,8 +692,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Delete operation
+        /// </summary>
         public static RegistrationTokenOperation Delete { get; } = new RegistrationTokenOperation("Delete");
+        /// <summary>
+        /// No Operation
+        /// </summary>
         public static RegistrationTokenOperation None { get; } = new RegistrationTokenOperation("None");
+        /// <summary>
+        /// Update Operation
+        /// </summary>
         public static RegistrationTokenOperation Update { get; } = new RegistrationTokenOperation("Update");
 
         public static bool operator ==(RegistrationTokenOperation left, RegistrationTokenOperation right) => left.Equals(right);
@@ -616,8 +733,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AVD-wide settings are used to determine connection availability
+        /// </summary>
         public static RelayUDP Default { get; } = new RelayUDP("Default");
+        /// <summary>
+        /// UDP will attempt this connection type when making connections.
+        /// </summary>
         public static RelayUDP Enabled { get; } = new RelayUDP("Enabled");
+        /// <summary>
+        /// UDP will not attempt this connection type when making connections
+        /// </summary>
         public static RelayUDP Disabled { get; } = new RelayUDP("Disabled");
 
         public static bool operator ==(RelayUDP left, RelayUDP right) => left.Equals(right);
@@ -648,7 +774,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Built-in applications
+        /// </summary>
         public static RemoteApplicationType InBuilt { get; } = new RemoteApplicationType("InBuilt");
+        /// <summary>
+        /// Imported MSIX application packages
+        /// </summary>
         public static RemoteApplicationType MsixApplication { get; } = new RemoteApplicationType("MsixApplication");
 
         public static bool operator ==(RemoteApplicationType left, RemoteApplicationType right) => left.Equals(right);
@@ -679,9 +811,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The SSO Secret is a Shared Key.
+        /// </summary>
         public static SSOSecretType SharedKey { get; } = new SSOSecretType("SharedKey");
+        /// <summary>
+        /// The SSO Secret is a Certificate.
+        /// </summary>
         public static SSOSecretType Certificate { get; } = new SSOSecretType("Certificate");
+        /// <summary>
+        /// The SSO Secret is a SharedKey that is stored in KeyVault.
+        /// </summary>
         public static SSOSecretType SharedKeyInKeyVault { get; } = new SSOSecretType("SharedKeyInKeyVault");
+        /// <summary>
+        /// The SSO Secret is a Certificate that is stored in KeyVault.
+        /// </summary>
         public static SSOSecretType CertificateInKeyVault { get; } = new SSOSecretType("CertificateInKeyVault");
 
         public static bool operator ==(SSOSecretType left, SSOSecretType right) => left.Equals(right);
@@ -749,8 +893,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// No action will be taken after disconnect
+        /// </summary>
         public static SessionHandlingOperation None { get; } = new SessionHandlingOperation("None");
+        /// <summary>
+        /// Session Host will be deallocated after disconnect
+        /// </summary>
         public static SessionHandlingOperation Deallocate { get; } = new SessionHandlingOperation("Deallocate");
+        /// <summary>
+        /// Session Host will hibernate after disconnect
+        /// </summary>
         public static SessionHandlingOperation Hibernate { get; } = new SessionHandlingOperation("Hibernate");
 
         public static bool operator ==(SessionHandlingOperation left, SessionHandlingOperation right) => left.Equals(right);
@@ -818,7 +971,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Breadth First Algorithm for Load Balancing
+        /// </summary>
         public static SessionHostLoadBalancingAlgorithm BreadthFirst { get; } = new SessionHostLoadBalancingAlgorithm("BreadthFirst");
+        /// <summary>
+        /// Depth First Algorithm for Load Balancing
+        /// </summary>
         public static SessionHostLoadBalancingAlgorithm DepthFirst { get; } = new SessionHostLoadBalancingAlgorithm("DepthFirst");
 
         public static bool operator ==(SessionHostLoadBalancingAlgorithm left, SessionHostLoadBalancingAlgorithm right) => left.Equals(right);
@@ -849,7 +1008,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Start VM on Connect is enabled
+        /// </summary>
         public static SetStartVMOnConnect Enable { get; } = new SetStartVMOnConnect("Enable");
+        /// <summary>
+        /// Start VM on Connect is disabled, must use rampUpAutoStartHosts or turn on manually
+        /// </summary>
         public static SetStartVMOnConnect Disable { get; } = new SetStartVMOnConnect("Disable");
 
         public static bool operator ==(SetStartVMOnConnect left, SetStartVMOnConnect right) => left.Equals(right);
@@ -954,7 +1119,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Zero Total Sessions
+        /// </summary>
         public static StopHostsWhen ZeroSessions { get; } = new StopHostsWhen("ZeroSessions");
+        /// <summary>
+        /// Zero Active Sessions
+        /// </summary>
         public static StopHostsWhen ZeroActiveSessions { get; } = new StopHostsWhen("ZeroActiveSessions");
 
         public static bool operator ==(StopHostsWhen left, StopHostsWhen right) => left.Equals(right);

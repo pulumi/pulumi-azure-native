@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves an Arc Sql Server availability group.
         /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-05-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
         public static Task<GetSqlServerAvailabilityGroupResult> InvokeAsync(GetSqlServerAvailabilityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerAvailabilityGroupResult>("azure-native:azurearcdata:getSqlServerAvailabilityGroup", args ?? new GetSqlServerAvailabilityGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves an Arc Sql Server availability group.
         /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-05-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
         public static Output<GetSqlServerAvailabilityGroupResult> Invoke(GetSqlServerAvailabilityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerAvailabilityGroupResult>("azure-native:azurearcdata:getSqlServerAvailabilityGroup", args ?? new GetSqlServerAvailabilityGroupInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves an Arc Sql Server availability group.
         /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-05-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
         public static Output<GetSqlServerAvailabilityGroupResult> Invoke(GetSqlServerAvailabilityGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerAvailabilityGroupResult>("azure-native:azurearcdata:getSqlServerAvailabilityGroup", args ?? new GetSqlServerAvailabilityGroupInvokeArgs(), options.WithDefaults());

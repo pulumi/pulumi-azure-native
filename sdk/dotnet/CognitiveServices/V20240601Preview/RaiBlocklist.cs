@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:RaiBlocklist" },
                 },
             };

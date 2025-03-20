@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public string NodeTypeName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Input<string> NodeTypeName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly string? HostGroupId;
         /// <summary>
-        /// Azure resource identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly bool? MultiplePlacementGroups;
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -228,15 +228,15 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -284,7 +284,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly string? VmImageVersion;
         /// <summary>
-        /// The number of nodes in the node type. &lt;br /&gt;&lt;br /&gt;**Values:** &lt;br /&gt;-1 - Use when auto scale rules are configured or sku.capacity is defined &lt;br /&gt; 0 - Not supported &lt;br /&gt; &gt;0 - Use for manual scale.
+        /// The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported &gt;0 - Use for manual scale.
         /// </summary>
         public readonly int VmInstanceCount;
         /// <summary>

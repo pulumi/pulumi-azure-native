@@ -478,7 +478,7 @@ def get_machine(expand: Optional[str] = None,
     Retrieves information about the model view or the instance view of a hybrid machine.
     Azure REST API version: 2022-12-27.
 
-    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -537,7 +537,7 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieves information about the model view or the instance view of a hybrid machine.
     Azure REST API version: 2022-12-27.
 
-    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
 
 
     :param str expand: The expand expression to apply on the operation.

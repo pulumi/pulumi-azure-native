@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Employee
  * Azure REST API version: 2021-10-01-preview.
+ *
+ * Other available API versions: 2021-11-01.
  */
 export function getEmployee(args: GetEmployeeArgs, opts?: pulumi.InvokeOptions): Promise<GetEmployeeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,6 +68,8 @@ export interface GetEmployeeResult {
 /**
  * Get a Employee
  * Azure REST API version: 2021-10-01-preview.
+ *
+ * Other available API versions: 2021-11-01.
  */
 export function getEmployeeOutput(args: GetEmployeeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmployeeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

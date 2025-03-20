@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Storage.V20240101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         /// </summary>
         public readonly Outputs.ManagementPolicySchemaResponse Policy;
         /// <summary>

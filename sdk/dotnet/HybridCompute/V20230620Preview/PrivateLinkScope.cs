@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20230620Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScope" },
                 },
             };

@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class GetAppAttachPackageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the App Attach package arm object
+        /// The name of the App Attach package
         /// </summary>
         [Input("appAttachPackageName", required: true)]
         public string AppAttachPackageName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class GetAppAttachPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the App Attach package arm object
+        /// The name of the App Attach package
         /// </summary>
         [Input("appAttachPackageName", required: true)]
         public Input<string> AppAttachPackageName { get; set; } = null!;
@@ -76,9 +76,29 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class GetAppAttachPackageResult
     {
         /// <summary>
+        /// Field that can be populated with custom data and filtered on in list GET calls
+        /// </summary>
+        public readonly string? CustomData;
+        /// <summary>
+        /// Parameter indicating how the health check should behave if this package fails staging
+        /// </summary>
+        public readonly string? FailHealthCheckOnStagingFailure;
+        /// <summary>
+        /// List of Hostpool resource Ids.
+        /// </summary>
+        public readonly ImmutableArray<string> HostPoolReferences;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Detailed properties for App Attach Package
+        /// </summary>
+        public readonly Outputs.AppAttachPackageInfoPropertiesResponse? Image;
+        /// <summary>
+        /// URL path to certificate name located in keyVault
+        /// </summary>
+        public readonly string? KeyVaultURL;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -88,9 +108,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Detailed properties for App Attach Package
+        /// Lookback url to third party control plane, is null for native app attach packages
         /// </summary>
-        public readonly Outputs.AppAttachPackagePropertiesResponse Properties;
+        public readonly string? PackageLookbackUrl;
+        /// <summary>
+        /// Specific name of package owner, is "AppAttach" for native app attach packages
+        /// </summary>
+        public readonly string? PackageOwnerName;
+        /// <summary>
+        /// The provisioning state of the App Attach Package.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -106,13 +134,27 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
 
         [OutputConstructor]
         private GetAppAttachPackageResult(
+            string? customData,
+
+            string? failHealthCheckOnStagingFailure,
+
+            ImmutableArray<string> hostPoolReferences,
+
             string id,
+
+            Outputs.AppAttachPackageInfoPropertiesResponse? image,
+
+            string? keyVaultURL,
 
             string location,
 
             string name,
 
-            Outputs.AppAttachPackagePropertiesResponse properties,
+            string? packageLookbackUrl,
+
+            string? packageOwnerName,
+
+            string provisioningState,
 
             Outputs.SystemDataResponse systemData,
 
@@ -120,10 +162,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
 
             string type)
         {
+            CustomData = customData;
+            FailHealthCheckOnStagingFailure = failHealthCheckOnStagingFailure;
+            HostPoolReferences = hostPoolReferences;
             Id = id;
+            Image = image;
+            KeyVaultURL = keyVaultURL;
             Location = location;
             Name = name;
-            Properties = properties;
+            PackageLookbackUrl = packageLookbackUrl;
+            PackageOwnerName = packageOwnerName;
+            ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;
             Type = type;

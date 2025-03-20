@@ -47,14 +47,14 @@ class ScalingPlanArgs:
         :param pulumi.Input[str] friendly_name: User friendly name of scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]] host_pool_references: List of ScalingHostPoolReference definitions.
         :param pulumi.Input[Union[str, 'ScalingHostPoolType']] host_pool_type: HostPool type for desktop.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
-        :param pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]] schedules: List of Pooled ScalingSchedule definitions.
-        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]] schedules: List of ScalingPlanPooledSchedule definitions.
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -178,7 +178,7 @@ class ScalingPlanArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -190,7 +190,7 @@ class ScalingPlanArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -226,7 +226,7 @@ class ScalingPlanArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -250,7 +250,7 @@ class ScalingPlanArgs:
     @pulumi.getter
     def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]]:
         """
-        List of Pooled ScalingSchedule definitions.
+        List of ScalingPlanPooledSchedule definitions.
         """
         return pulumi.get(self, "schedules")
 
@@ -262,7 +262,7 @@ class ScalingPlanArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
@@ -315,15 +315,15 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: User friendly name of scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingHostPoolReferenceArgs', 'ScalingHostPoolReferenceArgsDict']]]] host_pool_references: List of ScalingHostPoolReference definitions.
         :param pulumi.Input[Union[str, 'ScalingHostPoolType']] host_pool_type: HostPool type for desktop.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Details of the resource plan.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingScheduleArgs', 'ScalingScheduleArgsDict']]]] schedules: List of Pooled ScalingSchedule definitions.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingScheduleArgs', 'ScalingScheduleArgsDict']]]] schedules: List of ScalingPlanPooledSchedule definitions.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] time_zone: Timezone of the scaling plan.
         """
@@ -403,7 +403,7 @@ class ScalingPlan(pulumi.CustomResource):
             __props__.__dict__["object_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization:ScalingPlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ScalingPlan"), pulumi.Alias(type_="azure-native:desktopvirtualization:ScalingPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlan, __self__).__init__(
             'azure-native:desktopvirtualization/v20240808preview:ScalingPlan',
@@ -460,7 +460,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -500,7 +500,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -508,7 +508,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -548,7 +548,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -556,7 +556,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def schedules(self) -> pulumi.Output[Optional[Sequence['outputs.ScalingScheduleResponse']]]:
         """
-        List of Pooled ScalingSchedule definitions.
+        List of ScalingPlanPooledSchedule definitions.
         """
         return pulumi.get(self, "schedules")
 
@@ -564,7 +564,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 

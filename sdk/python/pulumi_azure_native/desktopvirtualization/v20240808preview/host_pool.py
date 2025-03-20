@@ -67,21 +67,21 @@ class HostPoolArgs:
         :param pulumi.Input[Union[str, 'DirectUDP']] direct_udp: Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Union[str, 'ManagedPrivateUDP']] managed_private_udp: Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
         :param pulumi.Input[Union[str, 'ManagementType']] management_type: The type of management for this hostpool, Automated or Standard. The default value is Automated.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
-        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
         :param pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[Union[str, 'PublicUDP']] public_udp: Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
-        :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool. This is not returned on GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool.
         :param pulumi.Input[Union[str, 'RelayUDP']] relay_udp: Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
         :param pulumi.Input[int] ring: The ring number of HostPool.
-        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
         :param pulumi.Input[str] sso_client_secret_key_vault_path: Path to Azure KeyVault storing the secret used for communication to ADFS.
         :param pulumi.Input[Union[str, 'SSOSecretType']] sso_secret_type: The type of single sign on Secret Type.
@@ -278,7 +278,7 @@ class HostPoolArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -290,7 +290,7 @@ class HostPoolArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -374,7 +374,7 @@ class HostPoolArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -410,7 +410,7 @@ class HostPoolArgs:
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> Optional[pulumi.Input['RegistrationInfoArgs']]:
         """
-        The registration info of HostPool. This is not returned on GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        The registration info of HostPool.
         """
         return pulumi.get(self, "registration_info")
 
@@ -446,7 +446,7 @@ class HostPoolArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
@@ -602,8 +602,8 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -611,15 +611,15 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ManagementType']] management_type: The type of management for this hostpool, Automated or Standard. The default value is Automated.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Details of the resource plan.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[Union[str, 'PublicUDP']] public_udp: Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
-        :param pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']] registration_info: The registration info of HostPool. This is not returned on GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        :param pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']] registration_info: The registration info of HostPool.
         :param pulumi.Input[Union[str, 'RelayUDP']] relay_udp: Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] ring: The ring number of HostPool.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
         :param pulumi.Input[str] sso_client_secret_key_vault_path: Path to Azure KeyVault storing the secret used for communication to ADFS.
         :param pulumi.Input[Union[str, 'SSOSecretType']] sso_secret_type: The type of single sign on Secret Type.
@@ -745,7 +745,7 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization:HostPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HostPool, __self__).__init__(
             'azure-native:desktopvirtualization/v20240808preview:HostPool',
@@ -871,7 +871,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -895,7 +895,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -903,7 +903,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -983,7 +983,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -1023,7 +1023,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> pulumi.Output[Optional['outputs.RegistrationInfoResponse']]:
         """
-        The registration info of HostPool. This is not returned on GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        The registration info of HostPool.
         """
         return pulumi.get(self, "registration_info")
 
@@ -1047,7 +1047,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 

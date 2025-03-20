@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> ApplicationGatewayBackendAddressPools;
         /// <summary>
-        /// Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        /// Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> LoadBalancerBackendAddressPools;
         /// <summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
         /// <summary>
         /// The public IP address configuration of the network interface.
         /// </summary>
-        public readonly Outputs.IpConfigurationResponsePublicIPAddressConfiguration? PublicIPAddressConfiguration;
+        public readonly Outputs.PublicIPAddressConfigurationResponse? PublicIPAddressConfiguration;
         /// <summary>
         /// Specifies the subnet of the network interface.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
 
             string? privateIPAddressVersion,
 
-            Outputs.IpConfigurationResponsePublicIPAddressConfiguration? publicIPAddressConfiguration,
+            Outputs.PublicIPAddressConfigurationResponse? publicIPAddressConfiguration,
 
             Outputs.SubResourceResponse? subnet)
         {

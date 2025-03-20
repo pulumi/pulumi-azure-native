@@ -22,71 +22,74 @@ __all__ = ['ScalingPlanPersonalScheduleArgs', 'ScalingPlanPersonalSchedule']
 @pulumi.input_type
 class ScalingPlanPersonalScheduleArgs:
     def __init__(__self__, *,
+                 days_of_week: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]],
+                 off_peak_start_time: pulumi.Input['TimeArgs'],
+                 peak_start_time: pulumi.Input['TimeArgs'],
+                 ramp_down_start_time: pulumi.Input['TimeArgs'],
+                 ramp_up_start_time: pulumi.Input['TimeArgs'],
                  resource_group_name: pulumi.Input[str],
                  scaling_plan_name: pulumi.Input[str],
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
                  off_peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_down_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_up_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[str, 'StartupBehavior']]] = None,
                  ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPersonalSchedule resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input['TimeArgs'] off_peak_start_time: Starting time for off-peak period.
+        :param pulumi.Input['TimeArgs'] peak_start_time: Starting time for peak period.
+        :param pulumi.Input['TimeArgs'] ramp_down_start_time: Starting time for ramp down period.
+        :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] off_peak_action_on_disconnect: Action to be taken after a user disconnect during the off-peak period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] off_peak_action_on_logoff: Action to be taken after a logoff during the off-peak period.
         :param pulumi.Input[int] off_peak_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the off-peak period.
         :param pulumi.Input[int] off_peak_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the off-peak period.
-        :param pulumi.Input['TimeArgs'] off_peak_start_time: Starting time for off-peak period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] off_peak_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] peak_action_on_disconnect: Action to be taken after a user disconnect during the peak period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] peak_action_on_logoff: Action to be taken after a logoff during the peak period.
         :param pulumi.Input[int] peak_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the peak period.
         :param pulumi.Input[int] peak_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the peak period.
-        :param pulumi.Input['TimeArgs'] peak_start_time: Starting time for peak period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] peak_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the peak phase.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_down_action_on_disconnect: Action to be taken after a user disconnect during the ramp down period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_down_action_on_logoff: Action to be taken after a logoff during the ramp down period.
         :param pulumi.Input[int] ramp_down_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp down period.
         :param pulumi.Input[int] ramp_down_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp down period.
-        :param pulumi.Input['TimeArgs'] ramp_down_start_time: Starting time for ramp down period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] ramp_down_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_up_action_on_disconnect: Action to be taken after a user disconnect during the ramp up period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_up_action_on_logoff: Action to be taken after a logoff during the ramp up period.
         :param pulumi.Input[Union[str, 'StartupBehavior']] ramp_up_auto_start_hosts: The desired startup behavior during the ramp up period for personal vms in the hostpool.
         :param pulumi.Input[int] ramp_up_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp up period.
         :param pulumi.Input[int] ramp_up_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp up period.
-        :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] ramp_up_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
         :param pulumi.Input[str] scaling_plan_schedule_name: The name of the ScalingPlanSchedule
         """
+        pulumi.set(__self__, "days_of_week", days_of_week)
+        pulumi.set(__self__, "off_peak_start_time", off_peak_start_time)
+        pulumi.set(__self__, "peak_start_time", peak_start_time)
+        pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
+        pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
-        if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
         if off_peak_action_on_disconnect is not None:
             pulumi.set(__self__, "off_peak_action_on_disconnect", off_peak_action_on_disconnect)
         if off_peak_action_on_logoff is not None:
@@ -95,8 +98,6 @@ class ScalingPlanPersonalScheduleArgs:
             pulumi.set(__self__, "off_peak_minutes_to_wait_on_disconnect", off_peak_minutes_to_wait_on_disconnect)
         if off_peak_minutes_to_wait_on_logoff is not None:
             pulumi.set(__self__, "off_peak_minutes_to_wait_on_logoff", off_peak_minutes_to_wait_on_logoff)
-        if off_peak_start_time is not None:
-            pulumi.set(__self__, "off_peak_start_time", off_peak_start_time)
         if off_peak_start_vm_on_connect is None:
             off_peak_start_vm_on_connect = 'Enable'
         if off_peak_start_vm_on_connect is not None:
@@ -109,8 +110,6 @@ class ScalingPlanPersonalScheduleArgs:
             pulumi.set(__self__, "peak_minutes_to_wait_on_disconnect", peak_minutes_to_wait_on_disconnect)
         if peak_minutes_to_wait_on_logoff is not None:
             pulumi.set(__self__, "peak_minutes_to_wait_on_logoff", peak_minutes_to_wait_on_logoff)
-        if peak_start_time is not None:
-            pulumi.set(__self__, "peak_start_time", peak_start_time)
         if peak_start_vm_on_connect is None:
             peak_start_vm_on_connect = 'Enable'
         if peak_start_vm_on_connect is not None:
@@ -123,8 +122,6 @@ class ScalingPlanPersonalScheduleArgs:
             pulumi.set(__self__, "ramp_down_minutes_to_wait_on_disconnect", ramp_down_minutes_to_wait_on_disconnect)
         if ramp_down_minutes_to_wait_on_logoff is not None:
             pulumi.set(__self__, "ramp_down_minutes_to_wait_on_logoff", ramp_down_minutes_to_wait_on_logoff)
-        if ramp_down_start_time is not None:
-            pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
         if ramp_down_start_vm_on_connect is None:
             ramp_down_start_vm_on_connect = 'Enable'
         if ramp_down_start_vm_on_connect is not None:
@@ -139,14 +136,72 @@ class ScalingPlanPersonalScheduleArgs:
             pulumi.set(__self__, "ramp_up_minutes_to_wait_on_disconnect", ramp_up_minutes_to_wait_on_disconnect)
         if ramp_up_minutes_to_wait_on_logoff is not None:
             pulumi.set(__self__, "ramp_up_minutes_to_wait_on_logoff", ramp_up_minutes_to_wait_on_logoff)
-        if ramp_up_start_time is not None:
-            pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
         if ramp_up_start_vm_on_connect is None:
             ramp_up_start_vm_on_connect = 'Enable'
         if ramp_up_start_vm_on_connect is not None:
             pulumi.set(__self__, "ramp_up_start_vm_on_connect", ramp_up_start_vm_on_connect)
         if scaling_plan_schedule_name is not None:
             pulumi.set(__self__, "scaling_plan_schedule_name", scaling_plan_schedule_name)
+
+    @property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]:
+        """
+        Set of days of the week on which this schedule is active.
+        """
+        return pulumi.get(self, "days_of_week")
+
+    @days_of_week.setter
+    def days_of_week(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]):
+        pulumi.set(self, "days_of_week", value)
+
+    @property
+    @pulumi.getter(name="offPeakStartTime")
+    def off_peak_start_time(self) -> pulumi.Input['TimeArgs']:
+        """
+        Starting time for off-peak period.
+        """
+        return pulumi.get(self, "off_peak_start_time")
+
+    @off_peak_start_time.setter
+    def off_peak_start_time(self, value: pulumi.Input['TimeArgs']):
+        pulumi.set(self, "off_peak_start_time", value)
+
+    @property
+    @pulumi.getter(name="peakStartTime")
+    def peak_start_time(self) -> pulumi.Input['TimeArgs']:
+        """
+        Starting time for peak period.
+        """
+        return pulumi.get(self, "peak_start_time")
+
+    @peak_start_time.setter
+    def peak_start_time(self, value: pulumi.Input['TimeArgs']):
+        pulumi.set(self, "peak_start_time", value)
+
+    @property
+    @pulumi.getter(name="rampDownStartTime")
+    def ramp_down_start_time(self) -> pulumi.Input['TimeArgs']:
+        """
+        Starting time for ramp down period.
+        """
+        return pulumi.get(self, "ramp_down_start_time")
+
+    @ramp_down_start_time.setter
+    def ramp_down_start_time(self, value: pulumi.Input['TimeArgs']):
+        pulumi.set(self, "ramp_down_start_time", value)
+
+    @property
+    @pulumi.getter(name="rampUpStartTime")
+    def ramp_up_start_time(self) -> pulumi.Input['TimeArgs']:
+        """
+        Starting time for ramp up period.
+        """
+        return pulumi.get(self, "ramp_up_start_time")
+
+    @ramp_up_start_time.setter
+    def ramp_up_start_time(self, value: pulumi.Input['TimeArgs']):
+        pulumi.set(self, "ramp_up_start_time", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -171,18 +226,6 @@ class ScalingPlanPersonalScheduleArgs:
     @scaling_plan_name.setter
     def scaling_plan_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "scaling_plan_name", value)
-
-    @property
-    @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]]:
-        """
-        Set of days of the week on which this schedule is active.
-        """
-        return pulumi.get(self, "days_of_week")
-
-    @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]]):
-        pulumi.set(self, "days_of_week", value)
 
     @property
     @pulumi.getter(name="offPeakActionOnDisconnect")
@@ -231,18 +274,6 @@ class ScalingPlanPersonalScheduleArgs:
     @off_peak_minutes_to_wait_on_logoff.setter
     def off_peak_minutes_to_wait_on_logoff(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "off_peak_minutes_to_wait_on_logoff", value)
-
-    @property
-    @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
-        """
-        Starting time for off-peak period.
-        """
-        return pulumi.get(self, "off_peak_start_time")
-
-    @off_peak_start_time.setter
-    def off_peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
-        pulumi.set(self, "off_peak_start_time", value)
 
     @property
     @pulumi.getter(name="offPeakStartVMOnConnect")
@@ -305,18 +336,6 @@ class ScalingPlanPersonalScheduleArgs:
         pulumi.set(self, "peak_minutes_to_wait_on_logoff", value)
 
     @property
-    @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
-        """
-        Starting time for peak period.
-        """
-        return pulumi.get(self, "peak_start_time")
-
-    @peak_start_time.setter
-    def peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
-        pulumi.set(self, "peak_start_time", value)
-
-    @property
     @pulumi.getter(name="peakStartVMOnConnect")
     def peak_start_vm_on_connect(self) -> Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]]:
         """
@@ -375,18 +394,6 @@ class ScalingPlanPersonalScheduleArgs:
     @ramp_down_minutes_to_wait_on_logoff.setter
     def ramp_down_minutes_to_wait_on_logoff(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ramp_down_minutes_to_wait_on_logoff", value)
-
-    @property
-    @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
-        """
-        Starting time for ramp down period.
-        """
-        return pulumi.get(self, "ramp_down_start_time")
-
-    @ramp_down_start_time.setter
-    def ramp_down_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
-        pulumi.set(self, "ramp_down_start_time", value)
 
     @property
     @pulumi.getter(name="rampDownStartVMOnConnect")
@@ -461,18 +468,6 @@ class ScalingPlanPersonalScheduleArgs:
         pulumi.set(self, "ramp_up_minutes_to_wait_on_logoff", value)
 
     @property
-    @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
-        """
-        Starting time for ramp up period.
-        """
-        return pulumi.get(self, "ramp_up_start_time")
-
-    @ramp_up_start_time.setter
-    def ramp_up_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
-        pulumi.set(self, "ramp_up_start_time", value)
-
-    @property
     @pulumi.getter(name="rampUpStartVMOnConnect")
     def ramp_up_start_vm_on_connect(self) -> Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]]:
         """
@@ -534,7 +529,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a ScalingPlanPersonalSchedule definition.
-        Azure REST API version: 2023-07-07-preview.
+        Azure REST API version: 2024-11-01-preview.
 
         Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
 
@@ -578,7 +573,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a ScalingPlanPersonalSchedule definition.
-        Azure REST API version: 2023-07-07-preview.
+        Azure REST API version: 2024-11-01-preview.
 
         Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
 
@@ -635,11 +630,15 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScalingPlanPersonalScheduleArgs.__new__(ScalingPlanPersonalScheduleArgs)
 
+            if days_of_week is None and not opts.urn:
+                raise TypeError("Missing required property 'days_of_week'")
             __props__.__dict__["days_of_week"] = days_of_week
             __props__.__dict__["off_peak_action_on_disconnect"] = off_peak_action_on_disconnect
             __props__.__dict__["off_peak_action_on_logoff"] = off_peak_action_on_logoff
             __props__.__dict__["off_peak_minutes_to_wait_on_disconnect"] = off_peak_minutes_to_wait_on_disconnect
             __props__.__dict__["off_peak_minutes_to_wait_on_logoff"] = off_peak_minutes_to_wait_on_logoff
+            if off_peak_start_time is None and not opts.urn:
+                raise TypeError("Missing required property 'off_peak_start_time'")
             __props__.__dict__["off_peak_start_time"] = off_peak_start_time
             if off_peak_start_vm_on_connect is None:
                 off_peak_start_vm_on_connect = 'Enable'
@@ -648,6 +647,8 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["peak_action_on_logoff"] = peak_action_on_logoff
             __props__.__dict__["peak_minutes_to_wait_on_disconnect"] = peak_minutes_to_wait_on_disconnect
             __props__.__dict__["peak_minutes_to_wait_on_logoff"] = peak_minutes_to_wait_on_logoff
+            if peak_start_time is None and not opts.urn:
+                raise TypeError("Missing required property 'peak_start_time'")
             __props__.__dict__["peak_start_time"] = peak_start_time
             if peak_start_vm_on_connect is None:
                 peak_start_vm_on_connect = 'Enable'
@@ -656,6 +657,8 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["ramp_down_action_on_logoff"] = ramp_down_action_on_logoff
             __props__.__dict__["ramp_down_minutes_to_wait_on_disconnect"] = ramp_down_minutes_to_wait_on_disconnect
             __props__.__dict__["ramp_down_minutes_to_wait_on_logoff"] = ramp_down_minutes_to_wait_on_logoff
+            if ramp_down_start_time is None and not opts.urn:
+                raise TypeError("Missing required property 'ramp_down_start_time'")
             __props__.__dict__["ramp_down_start_time"] = ramp_down_start_time
             if ramp_down_start_vm_on_connect is None:
                 ramp_down_start_vm_on_connect = 'Enable'
@@ -665,6 +668,8 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["ramp_up_auto_start_hosts"] = ramp_up_auto_start_hosts
             __props__.__dict__["ramp_up_minutes_to_wait_on_disconnect"] = ramp_up_minutes_to_wait_on_disconnect
             __props__.__dict__["ramp_up_minutes_to_wait_on_logoff"] = ramp_up_minutes_to_wait_on_logoff
+            if ramp_up_start_time is None and not opts.urn:
+                raise TypeError("Missing required property 'ramp_up_start_time'")
             __props__.__dict__["ramp_up_start_time"] = ramp_up_start_time
             if ramp_up_start_vm_on_connect is None:
                 ramp_up_start_vm_on_connect = 'Enable'
@@ -679,7 +684,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:ScalingPlanPersonalSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ScalingPlanPersonalSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlanPersonalSchedule, __self__).__init__(
             'azure-native:desktopvirtualization:ScalingPlanPersonalSchedule',
@@ -736,7 +741,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def days_of_week(self) -> pulumi.Output[Sequence[str]]:
         """
         Set of days of the week on which this schedule is active.
         """
@@ -784,7 +789,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> pulumi.Output[Optional['outputs.TimeResponse']]:
+    def off_peak_start_time(self) -> pulumi.Output['outputs.TimeResponse']:
         """
         Starting time for off-peak period.
         """
@@ -832,7 +837,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> pulumi.Output[Optional['outputs.TimeResponse']]:
+    def peak_start_time(self) -> pulumi.Output['outputs.TimeResponse']:
         """
         Starting time for peak period.
         """
@@ -880,7 +885,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> pulumi.Output[Optional['outputs.TimeResponse']]:
+    def ramp_down_start_time(self) -> pulumi.Output['outputs.TimeResponse']:
         """
         Starting time for ramp down period.
         """
@@ -936,7 +941,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> pulumi.Output[Optional['outputs.TimeResponse']]:
+    def ramp_up_start_time(self) -> pulumi.Output['outputs.TimeResponse']:
         """
         Starting time for ramp up period.
         """
@@ -954,7 +959,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Operation to list the RegistrationTokens associated with the HostPool.
+ * Operation to list the RegistrationTokens associated with the HostPool
  */
 export function listHostPoolRegistrationTokens(args: ListHostPoolRegistrationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListHostPoolRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface ListHostPoolRegistrationTokensResult {
     readonly value?: outputs.desktopvirtualization.v20240808preview.RegistrationTokenMinimalResponse[];
 }
 /**
- * Operation to list the RegistrationTokens associated with the HostPool.
+ * Operation to list the RegistrationTokens associated with the HostPool
  */
 export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -129,6 +129,8 @@ def get_load_test_profile_mapping(load_test_profile_mapping_name: Optional[str] 
     Get a LoadTestProfileMappingResource
     Azure REST API version: 2023-12-01-preview.
 
+    Other available API versions: 2024-12-01-preview.
+
 
     :param str load_test_profile_mapping_name: Load Test Profile Mapping name
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -153,6 +155,8 @@ def get_load_test_profile_mapping_output(load_test_profile_mapping_name: Optiona
     """
     Get a LoadTestProfileMappingResource
     Azure REST API version: 2023-12-01-preview.
+
+    Other available API versions: 2024-12-01-preview.
 
 
     :param str load_test_profile_mapping_name: Load Test Profile Mapping name

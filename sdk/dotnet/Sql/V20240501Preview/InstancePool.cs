@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:InstancePool" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:InstancePool" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:InstancePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:InstancePool" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:InstancePool" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:InstancePool" },
                 },

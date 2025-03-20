@@ -230,6 +230,7 @@ namespace Pulumi.AzureNative.DevHub.V20221011Preview
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20230801:Workflow" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240501preview:Workflow" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240801preview:Workflow" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20250301preview:Workflow" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub:Workflow" },
                 },
             };

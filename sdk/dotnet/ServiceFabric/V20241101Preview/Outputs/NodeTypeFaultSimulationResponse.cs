@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
         /// <summary>
         /// Current or latest asynchronous operation status on the node type
         /// </summary>
-        public readonly string? OperationStatus;
+        public readonly string OperationStatus;
         /// <summary>
         /// Fault simulation status
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
 
             string? operationId,
 
-            string? operationStatus,
+            string operationStatus,
 
             string? status)
         {

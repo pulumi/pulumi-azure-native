@@ -41,7 +41,6 @@ __all__ = [
     'OwnerType',
     'PackageKind',
     'ProviderPermissionsScope',
-    'RepositoryAccessKind',
     'RestApiPollerRequestPagingKind',
     'SecurityMLAnalyticsSettingsKind',
     'SettingsStatus',
@@ -915,15 +914,6 @@ class ProviderPermissionsScope(str, Enum):
     WORKSPACE = "Workspace"
 
 
-class RepositoryAccessKind(str, Enum):
-    """
-    The kind of repository access credentials
-    """
-    O_AUTH = "OAuth"
-    PAT = "PAT"
-    APP = "App"
-
-
 class RestApiPollerRequestPagingKind(str, Enum):
     """
     Type of paging
@@ -972,13 +962,13 @@ class SourceType(str, Enum):
     """
     The sourceType of the watchlist
     """
-    LOCAL_FILE = "Local file"
+    LOCAL = "Local"
     """
     The source from local file.
     """
-    REMOTE_STORAGE = "Remote storage"
+    AZURE_STORAGE = "AzureStorage"
     """
-    The source from remote storage.
+    The source from Azure storage.
     """
 
 

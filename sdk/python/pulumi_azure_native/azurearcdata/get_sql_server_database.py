@@ -130,7 +130,7 @@ def get_sql_server_database(database_name: Optional[str] = None,
     Retrieves an Arc Sql Server database.
     Azure REST API version: 2023-01-15-preview.
 
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param str database_name: Name of the database
@@ -160,7 +160,7 @@ def get_sql_server_database_output(database_name: Optional[pulumi.Input[str]] = 
     Retrieves an Arc Sql Server database.
     Azure REST API version: 2023-01-15-preview.
 
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param str database_name: Name of the database

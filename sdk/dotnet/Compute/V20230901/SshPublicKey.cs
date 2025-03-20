@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Compute.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:SshPublicKey" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:SshPublicKey" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:SshPublicKey" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:SshPublicKey" },
                     new global::Pulumi.Alias { Type = "azure-native:compute:SshPublicKey" },
                 },
             };

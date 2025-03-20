@@ -94,6 +94,7 @@ export const IdentityType = {
     None: "None",
     UserAssigned: "UserAssigned",
     SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**

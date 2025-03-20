@@ -172,7 +172,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         Specifies information about the proximity placement group.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +195,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         Specifies information about the proximity placement group.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param ProximityPlacementGroupArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +244,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine_scale_sets"] = None
             __props__.__dict__["virtual_machines"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20201201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20210301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:ProximityPlacementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20201201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20210301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20241101:ProximityPlacementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProximityPlacementGroup, __self__).__init__(
             'azure-native:compute:ProximityPlacementGroup',

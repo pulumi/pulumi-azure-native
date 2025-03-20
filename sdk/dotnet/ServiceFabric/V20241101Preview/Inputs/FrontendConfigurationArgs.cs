@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
     public sealed class FrontendConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/&lt;subscriptionId&gt;/resourceGroups/&lt;resourceGroupName&gt;/providers/Microsoft.Network/applicationGateways/&lt;applicationGatewayName&gt;/backendAddressPools/&lt;backendAddressPoolName&gt;'.
+        /// The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/&lt;subscriptionId&gt;/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{backendAddressPoolName}'.
         /// </summary>
         [Input("applicationGatewayBackendAddressPoolId")]
         public Input<string>? ApplicationGatewayBackendAddressPoolId { get; set; }
@@ -28,19 +28,20 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.ServiceFabric.V20241101Preview.IPAddressType>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/&lt;subscriptionId&gt;/resourceGroups/&lt;resourceGroupName&gt;/providers/Microsoft.Network/loadBalancers/&lt;loadBalancerName&gt;/backendAddressPools/&lt;backendAddressPoolName&gt;'.
+        /// The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}'.
         /// </summary>
         [Input("loadBalancerBackendAddressPoolId")]
         public Input<string>? LoadBalancerBackendAddressPoolId { get; set; }
 
         /// <summary>
-        /// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/&lt;subscriptionId&gt;/resourceGroups/&lt;resourceGroupName&gt;/providers/Microsoft.Network/loadBalancers/&lt;loadBalancerName&gt;/inboundNatPools/&lt;inboundNatPoolName&gt;'.
+        /// The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatPools/{inboundNatPoolName}'.
         /// </summary>
         [Input("loadBalancerInboundNatPoolId")]
         public Input<string>? LoadBalancerInboundNatPoolId { get; set; }
 
         public FrontendConfigurationArgs()
         {
+            IpAddressType = "IPv4";
         }
         public static new FrontendConfigurationArgs Empty => new FrontendConfigurationArgs();
     }

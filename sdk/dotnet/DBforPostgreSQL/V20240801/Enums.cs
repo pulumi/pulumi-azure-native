@@ -243,7 +243,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801
     }
 
     /// <summary>
-    /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+    /// the types of identities associated with this resource
     /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>
@@ -258,6 +258,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801
         public static IdentityType None { get; } = new IdentityType("None");
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
         public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);

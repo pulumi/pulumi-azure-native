@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
 {
 
+    /// <summary>
+    /// User assigned identity.
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityResponse
     {

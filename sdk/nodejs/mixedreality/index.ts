@@ -57,10 +57,12 @@ export * from "../types/enums/mixedreality";
 // Export sub-modules:
 import * as v20210101 from "./v20210101";
 import * as v20210301preview from "./v20210301preview";
+import * as v20250101 from "./v20250101";
 
 export {
     v20210101,
     v20210301preview,
+    v20250101,
 };
 
 const _module = {
