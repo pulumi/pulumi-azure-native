@@ -173,9 +173,8 @@ export const ServerSkuTier = {
 export type ServerSkuTier = (typeof ServerSkuTier)[keyof typeof ServerSkuTier];
 
 export const ServerVersion = {
-    ServerVersion_5_6: "5.6",
     ServerVersion_5_7: "5.7",
-    ServerVersion_8_0: "8.0",
+    ServerVersion_8_0_21: "8.0.21",
 } as const;
 
 /**
@@ -183,7 +182,7 @@ export const ServerVersion = {
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
-export const SkuTier = {
+export const SingleServerSkuTier = {
     Basic: "Basic",
     GeneralPurpose: "GeneralPurpose",
     MemoryOptimized: "MemoryOptimized",
@@ -192,7 +191,18 @@ export const SkuTier = {
 /**
  * The tier of the particular SKU, e.g. Basic.
  */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+export type SingleServerSkuTier = (typeof SingleServerSkuTier)[keyof typeof SingleServerSkuTier];
+
+export const SingleServerVersion = {
+    SingleServerVersion_5_6: "5.6",
+    SingleServerVersion_5_7: "5.7",
+    SingleServerVersion_8_0: "8.0",
+} as const;
+
+/**
+ * Server version.
+ */
+export type SingleServerVersion = (typeof SingleServerVersion)[keyof typeof SingleServerVersion];
 
 export const SslEnforcementEnum = {
     Enabled: "Enabled",

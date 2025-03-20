@@ -8,6 +8,156 @@ using Pulumi;
 namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
+    /// Azure Offer Code.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentProjectsAssessmentsOperationAzureOfferCode : IEquatable<AssessmentProjectsAssessmentsOperationAzureOfferCode>
+    {
+        private readonly string _value;
+
+        private AssessmentProjectsAssessmentsOperationAzureOfferCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Unknown { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("Unknown");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0003P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0003P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0044P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0044P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0059P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0059P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0060P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0060P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0062P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0062P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0063P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0063P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0064P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0064P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0029P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0029P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0022P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0022P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0023P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0023P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0148P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0148P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0025P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0025P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0036P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0036P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0120P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0120P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0121P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0121P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0122P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0122P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0123P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0123P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0124P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0124P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0125P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0125P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0126P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0126P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0127P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0127P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0128P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0128P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0129P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0129P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0130P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0130P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0111P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0111P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0144P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0144P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0149P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0149P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0044P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0044P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0059P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0059P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0060P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0060P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0063P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0063P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0120P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0120P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0121P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0121P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0125P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0125P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msmcazr0128P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSMCAZR0128P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazrde0003P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZRDE0003P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazrde0044P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZRDE0044P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazrusgov0003P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZRUSGOV0003P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode EA { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("EA");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode Msazr0243P { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("MSAZR0243P");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode SavingsPlan1Year { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("SavingsPlan1Year");
+        public static AssessmentProjectsAssessmentsOperationAzureOfferCode SavingsPlan3Year { get; } = new AssessmentProjectsAssessmentsOperationAzureOfferCode("SavingsPlan3Year");
+
+        public static bool operator ==(AssessmentProjectsAssessmentsOperationAzureOfferCode left, AssessmentProjectsAssessmentsOperationAzureOfferCode right) => left.Equals(right);
+        public static bool operator !=(AssessmentProjectsAssessmentsOperationAzureOfferCode left, AssessmentProjectsAssessmentsOperationAzureOfferCode right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentProjectsAssessmentsOperationAzureOfferCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentProjectsAssessmentsOperationAzureOfferCode other && Equals(other);
+        public bool Equals(AssessmentProjectsAssessmentsOperationAzureOfferCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AssessmentProjectsAssessmentsOperationAzureVmFamily : IEquatable<AssessmentProjectsAssessmentsOperationAzureVmFamily>
+    {
+        private readonly string _value;
+
+        private AssessmentProjectsAssessmentsOperationAzureVmFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Unknown { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Unknown");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily BasicA0A4 { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Basic_A0_A4");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily StandardA0A7 { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Standard_A0_A7");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily StandardA8A11 { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Standard_A8_A11");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Av2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Av2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily DSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("D_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily DSSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("DS_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily DSv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("DSv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily FSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("F_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily FsSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Fs_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily GSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("G_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily GSSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("GS_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily HSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("H_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily LsSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ls_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dsv3Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dsv3_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dv3Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dv3_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Fsv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Fsv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ev3Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ev3_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Esv3Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Esv3_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily MSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("M_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily DCSeries { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("DC_Series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Lsv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Lsv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ev4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ev4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Esv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Esv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Edv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Edv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Edsv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Edsv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dsv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dsv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ddv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ddv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ddsv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ddsv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Easv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Easv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dasv4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dasv4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Mv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Mv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Eav4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Eav4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dav4Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dav4_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Msv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Msv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Mdsv2Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Mdsv2_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dsv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ddv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ddv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ddsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ddsv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dasv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dasv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Dadsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Dadsv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ev5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ev5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Esv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Esv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Edv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Edv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Edsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Edsv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Easv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Easv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Eadsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Eadsv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ebsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ebsv5_series");
+        public static AssessmentProjectsAssessmentsOperationAzureVmFamily Ebdsv5Series { get; } = new AssessmentProjectsAssessmentsOperationAzureVmFamily("Ebdsv5_series");
+
+        public static bool operator ==(AssessmentProjectsAssessmentsOperationAzureVmFamily left, AssessmentProjectsAssessmentsOperationAzureVmFamily right) => left.Equals(right);
+        public static bool operator !=(AssessmentProjectsAssessmentsOperationAzureVmFamily left, AssessmentProjectsAssessmentsOperationAzureVmFamily right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentProjectsAssessmentsOperationAzureVmFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentProjectsAssessmentsOperationAzureVmFamily other && Equals(other);
+        public bool Equals(AssessmentProjectsAssessmentsOperationAzureVmFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Assessment sizing criterion.
     /// </summary>
     [EnumType]

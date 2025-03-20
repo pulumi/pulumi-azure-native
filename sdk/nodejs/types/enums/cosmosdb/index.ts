@@ -240,6 +240,16 @@ export const MinimalTlsVersion = {
  */
 export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
 
+export const MongoClusterCreateMode = {
+    Default: "Default",
+    PointInTimeRestore: "PointInTimeRestore",
+} as const;
+
+/**
+ * The mode to create a mongo cluster.
+ */
+export type MongoClusterCreateMode = (typeof MongoClusterCreateMode)[keyof typeof MongoClusterCreateMode];
+
 export const MongoRoleDefinitionType = {
     BuiltInRole: "BuiltInRole",
     CustomRole: "CustomRole",

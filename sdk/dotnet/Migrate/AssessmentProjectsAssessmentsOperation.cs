@@ -401,7 +401,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Azure Offer Code.
         /// </summary>
         [Input("azureOfferCode")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.AzureOfferCode>? AzureOfferCode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Migrate.AssessmentProjectsAssessmentsOperationAzureOfferCode>? AzureOfferCode { get; set; }
 
         /// <summary>
         /// Gets or sets Azure Pricing Tier - Free, Basic, etc.
@@ -416,14 +416,14 @@ namespace Pulumi.AzureNative.Migrate
         public InputUnion<string, Pulumi.AzureNative.Migrate.AzureStorageRedundancy>? AzureStorageRedundancy { get; set; }
 
         [Input("azureVmFamilies")]
-        private InputList<Union<string, Pulumi.AzureNative.Migrate.AzureVmFamily>>? _azureVmFamilies;
+        private InputList<Union<string, Pulumi.AzureNative.Migrate.AssessmentProjectsAssessmentsOperationAzureVmFamily>>? _azureVmFamilies;
 
         /// <summary>
         /// Gets or sets the Azure VM families.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.Migrate.AzureVmFamily>> AzureVmFamilies
+        public InputList<Union<string, Pulumi.AzureNative.Migrate.AssessmentProjectsAssessmentsOperationAzureVmFamily>> AzureVmFamilies
         {
-            get => _azureVmFamilies ?? (_azureVmFamilies = new InputList<Union<string, Pulumi.AzureNative.Migrate.AzureVmFamily>>());
+            get => _azureVmFamilies ?? (_azureVmFamilies = new InputList<Union<string, Pulumi.AzureNative.Migrate.AssessmentProjectsAssessmentsOperationAzureVmFamily>>());
             set => _azureVmFamilies = value;
         }
 

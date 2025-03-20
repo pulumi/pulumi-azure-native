@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SingleServerVersion>? Version { get; set; }
 
         public ServerPropertiesForGeoRestoreArgs()
         {

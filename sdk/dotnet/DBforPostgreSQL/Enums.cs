@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The mode to create a new server.
+    /// The mode to create a new PostgreSQL server.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -215,9 +215,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         public static CreateMode Default { get; } = new CreateMode("Default");
+        public static CreateMode Create { get; } = new CreateMode("Create");
+        public static CreateMode Update { get; } = new CreateMode("Update");
         public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
         public static CreateMode GeoRestore { get; } = new CreateMode("GeoRestore");
         public static CreateMode Replica { get; } = new CreateMode("Replica");
+        public static CreateMode ReviveDropped { get; } = new CreateMode("ReviveDropped");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
         public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
@@ -356,9 +359,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-    /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>
     {
@@ -369,6 +369,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -980,7 +981,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// Server version.
+    /// PostgreSQL Server version.
     /// </summary>
     [EnumType]
     public readonly struct ServerVersion : IEquatable<ServerVersion>
@@ -992,11 +993,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion ServerVersion_9_5 { get; } = new ServerVersion("9.5");
-        public static ServerVersion ServerVersion_9_6 { get; } = new ServerVersion("9.6");
-        public static ServerVersion ServerVersion_10 { get; } = new ServerVersion("10");
-        public static ServerVersion ServerVersion_10_0 { get; } = new ServerVersion("10.0");
-        public static ServerVersion ServerVersion_10_2 { get; } = new ServerVersion("10.2");
+        public static ServerVersion ServerVersion_16 { get; } = new ServerVersion("16");
+        public static ServerVersion ServerVersion_15 { get; } = new ServerVersion("15");
+        public static ServerVersion ServerVersion_14 { get; } = new ServerVersion("14");
+        public static ServerVersion ServerVersion_13 { get; } = new ServerVersion("13");
+        public static ServerVersion ServerVersion_12 { get; } = new ServerVersion("12");
         public static ServerVersion ServerVersion_11 { get; } = new ServerVersion("11");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
@@ -1015,7 +1016,137 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// The mode to create a new server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerCreateMode : IEquatable<SingleServerCreateMode>
+    {
+        private readonly string _value;
+
+        private SingleServerCreateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerCreateMode Default { get; } = new SingleServerCreateMode("Default");
+        public static SingleServerCreateMode PointInTimeRestore { get; } = new SingleServerCreateMode("PointInTimeRestore");
+        public static SingleServerCreateMode GeoRestore { get; } = new SingleServerCreateMode("GeoRestore");
+        public static SingleServerCreateMode Replica { get; } = new SingleServerCreateMode("Replica");
+
+        public static bool operator ==(SingleServerCreateMode left, SingleServerCreateMode right) => left.Equals(right);
+        public static bool operator !=(SingleServerCreateMode left, SingleServerCreateMode right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerCreateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerCreateMode other && Equals(other);
+        public bool Equals(SingleServerCreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerIdentityProperties : IEquatable<SingleServerIdentityProperties>
+    {
+        private readonly string _value;
+
+        private SingleServerIdentityProperties(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerIdentityProperties SystemAssigned { get; } = new SingleServerIdentityProperties("SystemAssigned");
+
+        public static bool operator ==(SingleServerIdentityProperties left, SingleServerIdentityProperties right) => left.Equals(right);
+        public static bool operator !=(SingleServerIdentityProperties left, SingleServerIdentityProperties right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerIdentityProperties value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerIdentityProperties other && Equals(other);
+        public bool Equals(SingleServerIdentityProperties other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The tier of the particular SKU, e.g. Basic.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerSkuTier : IEquatable<SingleServerSkuTier>
+    {
+        private readonly string _value;
+
+        private SingleServerSkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerSkuTier Basic { get; } = new SingleServerSkuTier("Basic");
+        public static SingleServerSkuTier GeneralPurpose { get; } = new SingleServerSkuTier("GeneralPurpose");
+        public static SingleServerSkuTier MemoryOptimized { get; } = new SingleServerSkuTier("MemoryOptimized");
+
+        public static bool operator ==(SingleServerSkuTier left, SingleServerSkuTier right) => left.Equals(right);
+        public static bool operator !=(SingleServerSkuTier left, SingleServerSkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerSkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerSkuTier other && Equals(other);
+        public bool Equals(SingleServerSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Server version.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerVersion : IEquatable<SingleServerVersion>
+    {
+        private readonly string _value;
+
+        private SingleServerVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerVersion SingleServerVersion_9_5 { get; } = new SingleServerVersion("9.5");
+        public static SingleServerVersion SingleServerVersion_9_6 { get; } = new SingleServerVersion("9.6");
+        public static SingleServerVersion SingleServerVersion_10 { get; } = new SingleServerVersion("10");
+        public static SingleServerVersion SingleServerVersion_10_0 { get; } = new SingleServerVersion("10.0");
+        public static SingleServerVersion SingleServerVersion_10_2 { get; } = new SingleServerVersion("10.2");
+        public static SingleServerVersion SingleServerVersion_11 { get; } = new SingleServerVersion("11");
+
+        public static bool operator ==(SingleServerVersion left, SingleServerVersion right) => left.Equals(right);
+        public static bool operator !=(SingleServerVersion left, SingleServerVersion right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerVersion other && Equals(other);
+        public bool Equals(SingleServerVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The tier of the particular SKU, e.g. Burstable.
     /// </summary>
     [EnumType]
     public readonly struct SkuTier : IEquatable<SkuTier>
@@ -1027,7 +1158,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
+        public static SkuTier Burstable { get; } = new SkuTier("Burstable");
         public static SkuTier GeneralPurpose { get; } = new SkuTier("GeneralPurpose");
         public static SkuTier MemoryOptimized { get; } = new SkuTier("MemoryOptimized");
 

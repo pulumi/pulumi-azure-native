@@ -27,6 +27,7 @@ __all__ = [
     'ManagedCassandraProvisioningState',
     'ManagedCassandraResourceIdentityType',
     'MinimalTlsVersion',
+    'MongoClusterCreateMode',
     'MongoRoleDefinitionType',
     'NetworkAclBypass',
     'NodeKind',
@@ -238,6 +239,14 @@ class MinimalTlsVersion(str, Enum):
     TLS = "Tls"
     TLS11 = "Tls11"
     TLS12 = "Tls12"
+
+
+class MongoClusterCreateMode(str, Enum):
+    """
+    The mode to create a mongo cluster.
+    """
+    DEFAULT = "Default"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
 class MongoRoleDefinitionType(str, Enum):

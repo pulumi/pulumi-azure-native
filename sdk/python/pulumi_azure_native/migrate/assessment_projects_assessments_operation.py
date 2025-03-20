@@ -29,10 +29,10 @@ class AssessmentProjectsAssessmentsOperationArgs:
                  azure_disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]] = None,
                  azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
                  azure_location: Optional[pulumi.Input[str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']]] = None,
                  azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
                  azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
-                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,
@@ -56,10 +56,10 @@ class AssessmentProjectsAssessmentsOperationArgs:
         :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the azure hybrid use
                benefit.
         :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
-        :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Azure Offer Code.
+        :param pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']] azure_offer_code: Azure Offer Code.
         :param pulumi.Input[Union[str, 'AzurePricingTier']] azure_pricing_tier: Gets or sets Azure Pricing Tier - Free, Basic, etc.
         :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]] azure_vm_families: Gets or sets the Azure VM families.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]] azure_vm_families: Gets or sets the Azure VM families.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
         :param pulumi.Input[str] ea_subscription_id: Gets or sets enterprise agreement subscription id.
@@ -212,14 +212,14 @@ class AssessmentProjectsAssessmentsOperationArgs:
 
     @property
     @pulumi.getter(name="azureOfferCode")
-    def azure_offer_code(self) -> Optional[pulumi.Input[Union[str, 'AzureOfferCode']]]:
+    def azure_offer_code(self) -> Optional[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']]]:
         """
         Azure Offer Code.
         """
         return pulumi.get(self, "azure_offer_code")
 
     @azure_offer_code.setter
-    def azure_offer_code(self, value: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]]):
+    def azure_offer_code(self, value: Optional[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']]]):
         pulumi.set(self, "azure_offer_code", value)
 
     @property
@@ -248,14 +248,14 @@ class AssessmentProjectsAssessmentsOperationArgs:
 
     @property
     @pulumi.getter(name="azureVmFamilies")
-    def azure_vm_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]:
+    def azure_vm_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]]]:
         """
         Gets or sets the Azure VM families.
         """
         return pulumi.get(self, "azure_vm_families")
 
     @azure_vm_families.setter
-    def azure_vm_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]):
+    def azure_vm_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]]]):
         pulumi.set(self, "azure_vm_families", value)
 
     @property
@@ -429,10 +429,10 @@ class AssessmentProjectsAssessmentsOperation(pulumi.CustomResource):
                  azure_disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]] = None,
                  azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
                  azure_location: Optional[pulumi.Input[str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']]] = None,
                  azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
                  azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
-                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,
@@ -461,10 +461,10 @@ class AssessmentProjectsAssessmentsOperation(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: Gets or sets the user configurable setting to display the azure hybrid use
                benefit.
         :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
-        :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Azure Offer Code.
+        :param pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']] azure_offer_code: Azure Offer Code.
         :param pulumi.Input[Union[str, 'AzurePricingTier']] azure_pricing_tier: Gets or sets Azure Pricing Tier - Free, Basic, etc.
         :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]] azure_vm_families: Gets or sets the Azure VM families.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]] azure_vm_families: Gets or sets the Azure VM families.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
         :param pulumi.Input[str] ea_subscription_id: Gets or sets enterprise agreement subscription id.
@@ -516,10 +516,10 @@ class AssessmentProjectsAssessmentsOperation(pulumi.CustomResource):
                  azure_disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]] = None,
                  azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
                  azure_location: Optional[pulumi.Input[str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureOfferCode']]] = None,
                  azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
                  azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
-                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+                 azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentProjectsAssessmentsOperationAzureVmFamily']]]]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,

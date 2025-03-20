@@ -924,7 +924,7 @@ if not MYPY:
         """
         Azure Active Directory identity configuration for a resource.
         """
-        type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        type: NotRequired[pulumi.Input[Union[str, 'SingleServerIdentityProperties']]]
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
@@ -934,24 +934,24 @@ elif False:
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'SingleServerIdentityProperties']]] = None):
         """
         Azure Active Directory identity configuration for a resource.
-        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        :param pulumi.Input[Union[str, 'SingleServerIdentityProperties']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'SingleServerIdentityProperties']]]:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'SingleServerIdentityProperties']]]):
         pulumi.set(self, "type", value)
 
 
@@ -993,7 +993,7 @@ if not MYPY:
         """
         Storage profile of a server.
         """
-        version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
+        version: NotRequired[pulumi.Input[Union[str, 'SingleServerVersion']]]
         """
         Server version.
         """
@@ -1011,7 +1011,7 @@ class ServerPropertiesForDefaultCreateArgs:
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
+                 version: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]] = None):
         """
         The properties used to create a new server.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -1023,7 +1023,7 @@ class ServerPropertiesForDefaultCreateArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
-        :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
+        :param pulumi.Input[Union[str, 'SingleServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "administrator_login", administrator_login)
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
@@ -1140,14 +1140,14 @@ class ServerPropertiesForDefaultCreateArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
+    def version(self) -> Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
+    def version(self, value: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1185,7 +1185,7 @@ if not MYPY:
         """
         Storage profile of a server.
         """
-        version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
+        version: NotRequired[pulumi.Input[Union[str, 'SingleServerVersion']]]
         """
         Server version.
         """
@@ -1202,7 +1202,7 @@ class ServerPropertiesForGeoRestoreArgs:
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
+                 version: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]] = None):
         """
         The properties used to create a new server by restoring to a different region from a geo replicated backup.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
@@ -1213,7 +1213,7 @@ class ServerPropertiesForGeoRestoreArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
-        :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
+        :param pulumi.Input[Union[str, 'SingleServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "create_mode", 'GeoRestore')
         pulumi.set(__self__, "source_server_id", source_server_id)
@@ -1317,14 +1317,14 @@ class ServerPropertiesForGeoRestoreArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
+    def version(self) -> Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
+    def version(self, value: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1362,7 +1362,7 @@ if not MYPY:
         """
         Storage profile of a server.
         """
-        version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
+        version: NotRequired[pulumi.Input[Union[str, 'SingleServerVersion']]]
         """
         Server version.
         """
@@ -1379,7 +1379,7 @@ class ServerPropertiesForReplicaArgs:
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
+                 version: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]] = None):
         """
         The properties to create a new replica.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
@@ -1390,7 +1390,7 @@ class ServerPropertiesForReplicaArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
-        :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
+        :param pulumi.Input[Union[str, 'SingleServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "create_mode", 'Replica')
         pulumi.set(__self__, "source_server_id", source_server_id)
@@ -1494,14 +1494,14 @@ class ServerPropertiesForReplicaArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
+    def version(self) -> Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
+    def version(self, value: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1543,7 +1543,7 @@ if not MYPY:
         """
         Storage profile of a server.
         """
-        version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
+        version: NotRequired[pulumi.Input[Union[str, 'SingleServerVersion']]]
         """
         Server version.
         """
@@ -1561,7 +1561,7 @@ class ServerPropertiesForRestoreArgs:
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
                  ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
+                 version: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]] = None):
         """
         The properties used to create a new server by restoring from a backup.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
@@ -1573,7 +1573,7 @@ class ServerPropertiesForRestoreArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccessEnum']] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input['SslEnforcementEnum'] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
-        :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
+        :param pulumi.Input[Union[str, 'SingleServerVersion']] version: Server version.
         """
         pulumi.set(__self__, "create_mode", 'PointInTimeRestore')
         pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
@@ -1690,14 +1690,14 @@ class ServerPropertiesForRestoreArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
+    def version(self) -> Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]:
         """
         Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
+    def version(self, value: Optional[pulumi.Input[Union[str, 'SingleServerVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -1722,7 +1722,7 @@ if not MYPY:
         """
         The size code, to be interpreted by resource as appropriate.
         """
-        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        tier: NotRequired[pulumi.Input[Union[str, 'SingleServerSkuTier']]]
         """
         The tier of the particular SKU, e.g. Basic.
         """
@@ -1736,14 +1736,14 @@ class SingleServerSkuArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'SingleServerSkuTier']]] = None):
         """
         Billing information related properties of a server.
         :param pulumi.Input[str] name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param pulumi.Input[int] capacity: The scale up/out capacity, representing server's compute units.
         :param pulumi.Input[str] family: The family of hardware.
         :param pulumi.Input[str] size: The size code, to be interpreted by resource as appropriate.
-        :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of the particular SKU, e.g. Basic.
+        :param pulumi.Input[Union[str, 'SingleServerSkuTier']] tier: The tier of the particular SKU, e.g. Basic.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -1805,14 +1805,14 @@ class SingleServerSkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SingleServerSkuTier']]]:
         """
         The tier of the particular SKU, e.g. Basic.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SingleServerSkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

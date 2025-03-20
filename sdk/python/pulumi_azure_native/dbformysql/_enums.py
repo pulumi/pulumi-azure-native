@@ -22,7 +22,8 @@ __all__ = [
     'ReplicationRole',
     'ServerSkuTier',
     'ServerVersion',
-    'SkuTier',
+    'SingleServerSkuTier',
+    'SingleServerVersion',
     'SslEnforcementEnum',
     'StorageAutogrow',
     'StorageRedundancyEnum',
@@ -171,18 +172,26 @@ class ServerVersion(str, Enum):
     """
     Server version.
     """
-    SERVER_VERSION_5_6 = "5.6"
     SERVER_VERSION_5_7 = "5.7"
-    SERVER_VERSION_8_0 = "8.0"
+    SERVER_VERSION_8_0_21 = "8.0.21"
 
 
-class SkuTier(str, Enum):
+class SingleServerSkuTier(str, Enum):
     """
     The tier of the particular SKU, e.g. Basic.
     """
     BASIC = "Basic"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class SingleServerVersion(str, Enum):
+    """
+    Server version.
+    """
+    SINGLE_SERVER_VERSION_5_6 = "5.6"
+    SINGLE_SERVER_VERSION_5_7 = "5.7"
+    SINGLE_SERVER_VERSION_8_0 = "8.0"
 
 
 class SslEnforcementEnum(str, Enum):

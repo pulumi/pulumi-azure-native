@@ -526,9 +526,8 @@ namespace Pulumi.AzureNative.DBforMySQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion ServerVersion_5_6 { get; } = new ServerVersion("5.6");
         public static ServerVersion ServerVersion_5_7 { get; } = new ServerVersion("5.7");
-        public static ServerVersion ServerVersion_8_0 { get; } = new ServerVersion("8.0");
+        public static ServerVersion ServerVersion_8_0_21 { get; } = new ServerVersion("8.0.21");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);
@@ -549,27 +548,59 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// The tier of the particular SKU, e.g. Basic.
     /// </summary>
     [EnumType]
-    public readonly struct SkuTier : IEquatable<SkuTier>
+    public readonly struct SingleServerSkuTier : IEquatable<SingleServerSkuTier>
     {
         private readonly string _value;
 
-        private SkuTier(string value)
+        private SingleServerSkuTier(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
-        public static SkuTier GeneralPurpose { get; } = new SkuTier("GeneralPurpose");
-        public static SkuTier MemoryOptimized { get; } = new SkuTier("MemoryOptimized");
+        public static SingleServerSkuTier Basic { get; } = new SingleServerSkuTier("Basic");
+        public static SingleServerSkuTier GeneralPurpose { get; } = new SingleServerSkuTier("GeneralPurpose");
+        public static SingleServerSkuTier MemoryOptimized { get; } = new SingleServerSkuTier("MemoryOptimized");
 
-        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
-        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
+        public static bool operator ==(SingleServerSkuTier left, SingleServerSkuTier right) => left.Equals(right);
+        public static bool operator !=(SingleServerSkuTier left, SingleServerSkuTier right) => !left.Equals(right);
 
-        public static explicit operator string(SkuTier value) => value._value;
+        public static explicit operator string(SingleServerSkuTier value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
-        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SingleServerSkuTier other && Equals(other);
+        public bool Equals(SingleServerSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Server version.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleServerVersion : IEquatable<SingleServerVersion>
+    {
+        private readonly string _value;
+
+        private SingleServerVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleServerVersion SingleServerVersion_5_6 { get; } = new SingleServerVersion("5.6");
+        public static SingleServerVersion SingleServerVersion_5_7 { get; } = new SingleServerVersion("5.7");
+        public static SingleServerVersion SingleServerVersion_8_0 { get; } = new SingleServerVersion("8.0");
+
+        public static bool operator ==(SingleServerVersion left, SingleServerVersion right) => left.Equals(right);
+        public static bool operator !=(SingleServerVersion left, SingleServerVersion right) => !left.Equals(right);
+
+        public static explicit operator string(SingleServerVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleServerVersion other && Equals(other);
+        public bool Equals(SingleServerVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

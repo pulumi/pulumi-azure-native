@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.IdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerIdentityProperties>? Type { get; set; }
 
         public ResourceIdentityArgs()
         {

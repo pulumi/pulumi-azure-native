@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// The mode to create a mongo cluster.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNative.CosmosDB.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CosmosDB.MongoClusterCreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

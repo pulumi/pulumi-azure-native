@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerVersion>? Version { get; set; }
 
         public ServerPropertiesForReplicaArgs()
         {

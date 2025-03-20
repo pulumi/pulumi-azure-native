@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// The tier of the particular SKU, e.g. Basic.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SingleServerSkuTier>? Tier { get; set; }
 
         public SingleServerSkuArgs()
         {

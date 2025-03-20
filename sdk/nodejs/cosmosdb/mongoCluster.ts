@@ -160,7 +160,7 @@ export interface MongoClusterArgs {
     /**
      * The mode to create a mongo cluster.
      */
-    createMode?: pulumi.Input<string | enums.cosmosdb.CreateMode>;
+    createMode?: pulumi.Input<string | enums.cosmosdb.MongoClusterCreateMode>;
     /**
      * The geo-location where the resource lives
      */

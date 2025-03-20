@@ -384,7 +384,7 @@ export interface AssessmentProjectsAssessmentsOperationArgs {
     /**
      * Azure Offer Code.
      */
-    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
+    azureOfferCode?: pulumi.Input<string | enums.migrate.AssessmentProjectsAssessmentsOperationAzureOfferCode>;
     /**
      * Gets or sets Azure Pricing Tier - Free, Basic, etc.
      */
@@ -396,7 +396,7 @@ export interface AssessmentProjectsAssessmentsOperationArgs {
     /**
      * Gets or sets the Azure VM families.
      */
-    azureVmFamilies?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureVmFamily>[]>;
+    azureVmFamilies?: pulumi.Input<pulumi.Input<string | enums.migrate.AssessmentProjectsAssessmentsOperationAzureVmFamily>[]>;
     /**
      * Currency in which prices should be reported.
      */

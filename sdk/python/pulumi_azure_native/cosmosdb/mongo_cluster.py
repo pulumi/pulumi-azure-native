@@ -25,7 +25,7 @@ class MongoClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'MongoClusterCreateMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
                  node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]] = None,
@@ -37,7 +37,7 @@ class MongoClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] administrator_login: The administrator's login for the mongo cluster.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
-        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a mongo cluster.
+        :param pulumi.Input[Union[str, 'MongoClusterCreateMode']] create_mode: The mode to create a mongo cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]] node_group_specs: The list of node group specs in the cluster.
@@ -105,14 +105,14 @@ class MongoClusterArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'MongoClusterCreateMode']]]:
         """
         The mode to create a mongo cluster.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'MongoClusterCreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -195,7 +195,7 @@ class MongoCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'MongoClusterCreateMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
                  node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
@@ -212,7 +212,7 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login for the mongo cluster.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
-        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a mongo cluster.
+        :param pulumi.Input[Union[str, 'MongoClusterCreateMode']] create_mode: The mode to create a mongo cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]] node_group_specs: The list of node group specs in the cluster.
@@ -248,7 +248,7 @@ class MongoCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'MongoClusterCreateMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
                  node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,

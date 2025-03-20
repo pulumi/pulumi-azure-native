@@ -37,6 +37,10 @@ __all__ = [
     'ServerPublicNetworkAccessState',
     'ServerSecurityAlertPolicyState',
     'ServerVersion',
+    'SingleServerCreateMode',
+    'SingleServerIdentityProperties',
+    'SingleServerSkuTier',
+    'SingleServerVersion',
     'SkuTier',
     'SourceType',
     'SslEnforcementEnum',
@@ -108,12 +112,15 @@ class CancelEnum(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    The mode to create a new server.
+    The mode to create a new PostgreSQL server.
     """
     DEFAULT = "Default"
+    CREATE = "Create"
+    UPDATE = "Update"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
     GEO_RESTORE = "GeoRestore"
     REPLICA = "Replica"
+    REVIVE_DROPPED = "ReviveDropped"
 
 
 class DataEncryptionType(str, Enum):
@@ -147,9 +154,7 @@ class HighAvailabilityMode(str, Enum):
 
 
 class IdentityType(str, Enum):
-    """
-    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-    """
+    USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
@@ -311,21 +316,59 @@ class ServerSecurityAlertPolicyState(str, Enum):
 
 class ServerVersion(str, Enum):
     """
-    Server version.
+    PostgreSQL Server version.
     """
-    SERVER_VERSION_9_5 = "9.5"
-    SERVER_VERSION_9_6 = "9.6"
-    SERVER_VERSION_10 = "10"
-    SERVER_VERSION_10_0 = "10.0"
-    SERVER_VERSION_10_2 = "10.2"
+    SERVER_VERSION_16 = "16"
+    SERVER_VERSION_15 = "15"
+    SERVER_VERSION_14 = "14"
+    SERVER_VERSION_13 = "13"
+    SERVER_VERSION_12 = "12"
     SERVER_VERSION_11 = "11"
 
 
-class SkuTier(str, Enum):
+class SingleServerCreateMode(str, Enum):
+    """
+    The mode to create a new server.
+    """
+    DEFAULT = "Default"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    GEO_RESTORE = "GeoRestore"
+    REPLICA = "Replica"
+
+
+class SingleServerIdentityProperties(str, Enum):
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SingleServerSkuTier(str, Enum):
     """
     The tier of the particular SKU, e.g. Basic.
     """
     BASIC = "Basic"
+    GENERAL_PURPOSE = "GeneralPurpose"
+    MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class SingleServerVersion(str, Enum):
+    """
+    Server version.
+    """
+    SINGLE_SERVER_VERSION_9_5 = "9.5"
+    SINGLE_SERVER_VERSION_9_6 = "9.6"
+    SINGLE_SERVER_VERSION_10 = "10"
+    SINGLE_SERVER_VERSION_10_0 = "10.0"
+    SINGLE_SERVER_VERSION_10_2 = "10.2"
+    SINGLE_SERVER_VERSION_11 = "11"
+
+
+class SkuTier(str, Enum):
+    """
+    The tier of the particular SKU, e.g. Burstable.
+    """
+    BURSTABLE = "Burstable"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
 

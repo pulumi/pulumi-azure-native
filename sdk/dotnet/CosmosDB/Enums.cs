@@ -708,6 +708,37 @@ namespace Pulumi.AzureNative.CosmosDB
     }
 
     /// <summary>
+    /// The mode to create a mongo cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct MongoClusterCreateMode : IEquatable<MongoClusterCreateMode>
+    {
+        private readonly string _value;
+
+        private MongoClusterCreateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MongoClusterCreateMode Default { get; } = new MongoClusterCreateMode("Default");
+        public static MongoClusterCreateMode PointInTimeRestore { get; } = new MongoClusterCreateMode("PointInTimeRestore");
+
+        public static bool operator ==(MongoClusterCreateMode left, MongoClusterCreateMode right) => left.Equals(right);
+        public static bool operator !=(MongoClusterCreateMode left, MongoClusterCreateMode right) => !left.Equals(right);
+
+        public static explicit operator string(MongoClusterCreateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MongoClusterCreateMode other && Equals(other);
+        public bool Equals(MongoClusterCreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the Role Definition was built-in or user created.
     /// </summary>
     [EnumType]
