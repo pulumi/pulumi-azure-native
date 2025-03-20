@@ -44,7 +44,8 @@ type ResourceCrudOperations interface {
 	CanCreate(ctx context.Context, id string) error
 	CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
 	// `overrideApiVersion` is (rarely) used for generic resources like resources:Resource where the API version is
-	// specified by the user and passed on to another Azure service.
+	// specified by the user and passed on to another Azure service. Leaving it empty means use the API version from
+	// resource metadata, which is the standard case.
 	Read(ctx context.Context, id string, overrideApiVersion string) (map[string]any, error)
 	HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error
 }
@@ -83,9 +84,10 @@ type ResourceCrudClient interface {
 	ResourceCrudOperations
 	AzureRESTConverter
 	SubresourceMaintainer
-	// ApiVersion returns the API version for the resource. The second return value is the value of
-	// `ApiVersionIsUserInput` on the underlying resources.AzureAPIResource.
-	ApiVersion() (string, bool)
+	// ApiVersion returns the API version for the resource.
+	ApiVersion() string
+	// see `ApiVersionIsUserInput` on resources.AzureAPIResource
+	ApiVersionIsUserInput() bool
 }
 
 type resourceCrudClient struct {
@@ -117,8 +119,12 @@ func NewResourceCrudClient(
 	}
 }
 
-func (r *resourceCrudClient) ApiVersion() (string, bool) {
-	return r.res.APIVersion, r.res.ApiVersionIsUserInput
+func (r *resourceCrudClient) ApiVersion() string {
+	return r.res.APIVersion
+}
+
+func (r *resourceCrudClient) ApiVersionIsUserInput() bool {
+	return r.res.ApiVersionIsUserInput
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {

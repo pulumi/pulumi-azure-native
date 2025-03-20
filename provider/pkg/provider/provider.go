@@ -1134,11 +1134,11 @@ func reader(customRes *customresources.CustomResource, crudClient crud.ResourceC
 	}
 
 	return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
-		apiVersion, isUserInput := crudClient.ApiVersion()
-		if isUserInput {
-			apiVersion = getApiVersionFromInputs(inputs)
+		overrideApiVersion := ""
+		if crudClient.ApiVersionIsUserInput() {
+			overrideApiVersion = getApiVersionFromInputs(inputs)
 		}
-		response, err := crudClient.Read(ctx, id, apiVersion)
+		response, err := crudClient.Read(ctx, id, overrideApiVersion)
 		if err == nil {
 			// Map the raw response to the shape of outputs that the SDKs expect.
 			response = crudClient.ResponseBodyToSdkOutputs(response)
