@@ -1024,21 +1024,22 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
 	r := resources.AzureAPIResource{
-		APIVersion:           swagger.Info.Version,
-		Path:                 resource.Path,
-		UpdateMethod:         updateMethod,
-		PutParameters:        resourceRequest.parameters,
-		Response:             resourceResponse.properties,
-		DefaultBody:          resource.DefaultBody,
-		Singleton:            isSingleton(resource),
-		PutAsyncStyle:        g.getAsyncStyle(updateOp),
-		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
-		ReadMethod:           readMethod,
-		ReadPath:             readPath,
-		ReadQueryParams:      readUrlParams,
-		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
-		RequiredContainers:   requiredContainers,
-		DefaultProperties:    propertyDefaults(module, resource.typeName),
+		APIVersion:            swagger.Info.Version,
+		Path:                  resource.Path,
+		UpdateMethod:          updateMethod,
+		PutParameters:         resourceRequest.parameters,
+		Response:              resourceResponse.properties,
+		DefaultBody:           resource.DefaultBody,
+		Singleton:             isSingleton(resource),
+		PutAsyncStyle:         g.getAsyncStyle(updateOp),
+		DeleteAsyncStyle:      g.getAsyncStyle(resource.PathItem.Delete),
+		ReadMethod:            readMethod,
+		ReadPath:              readPath,
+		ReadQueryParams:       readUrlParams,
+		AutoLocationDisabled:  resources.AutoLocationDisabled(resource.Path),
+		RequiredContainers:    requiredContainers,
+		DefaultProperties:     propertyDefaults(module, resource.typeName),
+		ApiVersionIsUserInput: apiVersionIsUserInput(string(g.moduleName), resource.typeName),
 	}
 
 	g.metadata.Resources[resourceTok] = r
@@ -1589,18 +1590,22 @@ func (m *moduleGenerator) paramIsSetByProvider(param *openapi.Parameter, bodySch
 	if param.Name != "api-version" || param.In != "query" {
 		return false
 	}
+	return !apiVersionIsUserInput(string(m.moduleName), m.resourceName)
+}
 
+// apiVersionIsUserInput returns true if this "apiVersion" parameter is set by the user, not the provider.
+func apiVersionIsUserInput(module, resourceName string) bool {
 	// #3524: for this resource, the api-version is passed through to another Azure service, so the user needs to specify it.
-	if m.moduleName == "Resources" && m.resourceName == "Resource" {
-		return false
+	if module == "Resources" && resourceName == "Resource" {
+		return true
 	}
 
 	// #3524: for this resource, the api-version is passed through to another Azure service, so the user needs to specify it.
-	if m.moduleName == "Authorization" && m.resourceName == "ManagementLockAtResourceLevel" {
-		return false
+	if module == "Authorization" && resourceName == "ManagementLockAtResourceLevel" {
+		return true
 	}
 
-	return true
+	return false
 }
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext,

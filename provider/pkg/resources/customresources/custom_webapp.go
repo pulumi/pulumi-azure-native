@@ -58,7 +58,7 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 				logging.V(3).Infof("Warning: could not find default API version for %s. Using %s", resourceType, apiVersion)
 			}
 
-			webAppResponse, err := crudClient.Read(ctx, id)
+			webAppResponse, err := crudClient.Read(ctx, id, "")
 			if err != nil {
 				if azure.IsNotFound(err) {
 					return nil, false, nil

@@ -897,3 +897,50 @@ func TestIsParameterized(t *testing.T) {
 		assert.False(t, provider.isParameterized())
 	})
 }
+
+func TestGetApiVersionFromInputs(t *testing.T) {
+	t.Run("no override", func(t *testing.T) {
+		inputs := resource.PropertyMap{}
+		assert.Equal(t, "", getApiVersionFromInputs(inputs))
+	})
+
+	t.Run("override", func(t *testing.T) {
+		inputs := resource.PropertyMap{
+			"apiVersion":      resource.NewStringProperty("v20241101"),
+			"azureApiVersion": resource.NewStringProperty("v20220202"),
+		}
+		assert.Equal(t, "v20241101", getApiVersionFromInputs(inputs))
+	})
+
+	t.Run("override in __inputs", func(t *testing.T) {
+		inputs := resource.PropertyMap{
+			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+				"apiVersion": resource.NewStringProperty("v20241101"),
+			}),
+		}
+		assert.Equal(t, "v20241101", getApiVersionFromInputs(inputs))
+	})
+}
+
+func TestGetApiVersion(t *testing.T) {
+	t.Run("no override", func(t *testing.T) {
+		res := &resources.AzureAPIResource{
+			APIVersion: "v20241101",
+		}
+		inputs := resource.PropertyMap{
+			"apiVersion": resource.NewStringProperty("v20220202"),
+		}
+		assert.Equal(t, "v20241101", getApiVersion(res, inputs))
+	})
+
+	t.Run("override", func(t *testing.T) {
+		res := &resources.AzureAPIResource{
+			APIVersion:            "v20241101",
+			ApiVersionIsUserInput: true,
+		}
+		inputs := resource.PropertyMap{
+			"apiVersion": resource.NewStringProperty("v20220202"),
+		}
+		assert.Equal(t, "v20220202", getApiVersion(res, inputs))
+	})
+}

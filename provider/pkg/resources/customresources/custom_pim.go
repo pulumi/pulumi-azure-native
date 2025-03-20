@@ -27,7 +27,7 @@ type roleManagementPolicyClient struct {
 }
 
 func (c *roleManagementPolicyClient) create(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
-	originalState, err := c.client.Read(ctx, id)
+	originalState, err := c.client.Read(ctx, id, "")
 	if err != nil {
 		return nil, err
 	}

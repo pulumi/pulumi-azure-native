@@ -31,7 +31,7 @@ func postgresFlexibleServerConfiguration(crudClientFactory crud.ResourceCrudClie
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/configurations/{configurationName}",
 		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
-			conf, err := crudClient.Read(ctx, id)
+			conf, err := crudClient.Read(ctx, id, "")
 			if err != nil {
 				return err
 			}

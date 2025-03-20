@@ -43,7 +43,10 @@ type AzureRESTConverter interface {
 type ResourceCrudOperations interface {
 	CanCreate(ctx context.Context, id string) error
 	CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
-	Read(ctx context.Context, id string) (map[string]any, error)
+	// `overrideApiVersion` is (rarely) used for generic resources like resources:Resource where the API version is
+	// specified by the user and passed on to another Azure service. Leaving it empty means use the API version from
+	// resource metadata, which is the standard case.
+	Read(ctx context.Context, id string, overrideApiVersion string) (map[string]any, error)
 	HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error
 }
 
@@ -81,7 +84,10 @@ type ResourceCrudClient interface {
 	ResourceCrudOperations
 	AzureRESTConverter
 	SubresourceMaintainer
+	// ApiVersion returns the API version for the resource.
 	ApiVersion() string
+	// see `ApiVersionIsUserInput` on resources.AzureAPIResource
+	ApiVersionIsUserInput() bool
 }
 
 type resourceCrudClient struct {
@@ -115,6 +121,10 @@ func NewResourceCrudClient(
 
 func (r *resourceCrudClient) ApiVersion() string {
 	return r.res.APIVersion
+}
+
+func (r *resourceCrudClient) ApiVersionIsUserInput() bool {
+	return r.res.ApiVersionIsUserInput
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
@@ -386,23 +396,28 @@ func (r *resourceCrudClient) CreateOrUpdate(ctx context.Context, id string, body
 	return op(ctx, id, bodyParams, queryParams, r.res.PutAsyncStyle)
 }
 
-func (r *resourceCrudClient) Read(ctx context.Context, id string) (map[string]any, error) {
+func (r *resourceCrudClient) Read(ctx context.Context, id string, overrideApiVersion string) (map[string]any, error) {
 	url := id + r.res.ReadPath
+
+	apiVersion := r.res.APIVersion
+	if overrideApiVersion != "" {
+		apiVersion = overrideApiVersion
+	}
 
 	var resp any
 	var err error
 	switch r.res.ReadMethod {
 	case "HEAD":
-		err = r.azureClient.Head(ctx, url, r.res.APIVersion)
+		err = r.azureClient.Head(ctx, url, apiVersion)
 		return nil, err
 	case "POST":
 		bodyParams := map[string]interface{}{}
 		queryParams := map[string]interface{}{
-			"api-version": r.res.APIVersion,
+			"api-version": apiVersion,
 		}
 		resp, err = r.azureClient.Post(ctx, url, bodyParams, queryParams)
 	default:
-		resp, err = r.azureClient.Get(ctx, url, r.res.APIVersion, r.res.ReadQueryParams)
+		resp, err = r.azureClient.Get(ctx, url, apiVersion, r.res.ReadQueryParams)
 	}
 
 	if err != nil {
