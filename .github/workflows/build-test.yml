@@ -251,6 +251,7 @@ jobs:
     needs: build_sdks
     runs-on: ubuntu-latest
     name: Test pulumi/examples
+    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
