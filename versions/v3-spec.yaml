@@ -873,42 +873,55 @@ Media:
         listStreamingLocatorPaths: "2023-01-01"
 Migrate:
     additions:
-        AssessmentProjectsAksAssessmentOperation: 2024-01-01-preview
-        AssessmentProjectsAssessment: "2019-10-01"
-        AssessmentProjectsAssessmentsOperation: 2024-01-01-preview
-        AssessmentProjectsAvsAssessmentsOperation: 2024-01-01-preview
-        AssessmentProjectsBusinessCaseOperation: 2024-01-01-preview
-        AssessmentProjectsGroup: "2019-10-01"
-        AssessmentProjectsGroupsOperation: 2024-01-01-preview
-        AssessmentProjectsHyperVCollector: "2019-10-01"
-        AssessmentProjectsHypervCollectorsOperation: 2024-01-01-preview
-        AssessmentProjectsImportCollector: "2019-10-01"
-        AssessmentProjectsImportCollectorsOperation: 2024-01-01-preview
+        AksAssessmentOperation: 2024-01-01-preview
+        Assessment: "2019-10-01"
         AssessmentProjectsOperation: 2024-01-01-preview
-        AssessmentProjectsPrivateEndpointConnection: "2019-10-01"
-        AssessmentProjectsPrivateEndpointConnectionOperation: 2024-01-01-preview
-        AssessmentProjectsProject: "2019-10-01"
-        AssessmentProjectsServerCollector: "2019-10-01"
-        AssessmentProjectsServerCollectorsOperation: 2024-01-01-preview
-        AssessmentProjectsSqlAssessmentV2Operation: 2024-01-01-preview
-        AssessmentProjectsSqlCollectorOperation: 2024-01-01-preview
-        AssessmentProjectsVMwareCollector: "2019-10-01"
-        AssessmentProjectsVmwareCollectorsOperation: 2024-01-01-preview
-        AssessmentProjectsWebAppAssessmentV2Operation: 2024-01-01-preview
-        AssessmentProjectsWebAppCollectorOperation: 2024-01-01-preview
+        AssessmentsOperation: 2024-01-01-preview
+        AvsAssessmentsOperation: 2024-01-01-preview
+        BusinessCaseOperation: 2024-01-01-preview
+        Group: "2019-10-01"
+        GroupsOperation: 2024-01-01-preview
+        HyperVCollector: "2019-10-01"
+        HypervCollectorsOperation: 2024-01-01-preview
+        ImportCollector: "2019-10-01"
+        ImportCollectorsOperation: 2024-01-01-preview
         MigrateAgent: 2022-05-01-preview
         MigrateProject: 2018-09-01-preview
         MigrateProjectsControllerMigrateProject: "2020-05-01"
         ModernizeProject: 2022-05-01-preview
         MoveCollection: "2023-08-01"
         MoveResource: "2023-08-01"
+        PrivateEndpointConnection: "2019-10-01"
         PrivateEndpointConnectionControllerPrivateEndpointConnection: "2020-05-01"
+        PrivateEndpointConnectionOperation: 2024-01-01-preview
+        Project: "2019-10-01"
+        ServerCollector: "2019-10-01"
+        ServerCollectorsOperation: 2024-01-01-preview
         Solution: 2018-09-01-preview
+        SqlAssessmentV2Operation: 2024-01-01-preview
+        SqlCollectorOperation: 2024-01-01-preview
+        VMwareCollector: "2019-10-01"
+        VmwareCollectorsOperation: 2024-01-01-preview
+        WebAppAssessmentV2Operation: 2024-01-01-preview
+        WebAppCollectorOperation: 2024-01-01-preview
         WorkloadDeployment: 2022-05-01-preview
         WorkloadInstance: 2022-05-01-preview
-        getAssessmentProjectsBusinessCaseOperationReportDownloadUrl: 2024-01-01-preview
+        getBusinessCaseOperationReportDownloadUrl: 2024-01-01-preview
         getSolutionConfig: 2018-09-01-preview
         getWorkloadDeploymentSecretConfigurations: 2022-05-01-preview
+    exclusionErrors:
+        - modulename: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2023-04-01-preview is greater than 2023-03-15
+        - modulename: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2023-05-01-preview is greater than 2023-03-15
+        - modulename: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2023-09-09-preview is greater than 2023-03-15
+        - modulename: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2024-01-01-preview is greater than 2023-03-15
 MixedReality:
     tracking: 2021-03-01-preview
 MobileNetwork:
@@ -1225,7 +1238,7 @@ Redis:
 RedisEnterprise:
     tracking: 2024-03-01-preview
     additions:
-        EnterpriseAccessPolicyAssignment: 2024-09-01-preview
+        AccessPolicyAssignment: 2024-09-01-preview
 Relay:
     tracking: "2024-01-01"
 ResourceConnector:

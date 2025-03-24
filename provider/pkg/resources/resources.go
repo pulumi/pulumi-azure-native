@@ -615,15 +615,6 @@ func handleResourceNameSpecialCases(resourceName, operationID, path string, majo
 	}
 
 	if majorVersion >= 3 {
-		// Microsoft.Cache
-		if strings.Contains(lowerPath, "/providers/microsoft.cache/redis/") {
-			// resourceName, nameDisambiguation = newName("Redis", resourceName)
-		} else if strings.Contains(lowerPath, "/providers/microsoft.cache/redisenterprise/") {
-			if resourceName != "RedisEnterprise" {
-				resourceName, nameDisambiguation = newName("Enterprise", resourceName)
-			}
-		}
-
 		// Microsoft.DBforMySQL
 		if strings.Contains(lowerPath, "/providers/microsoft.dbformysql/servers/") {
 			if resourceName == "Server" {
@@ -644,11 +635,6 @@ func handleResourceNameSpecialCases(resourceName, operationID, path string, majo
 			resourceName, nameDisambiguation = newName("ServerGroup", resourceName)
 		}
 
-		// Microsoft.DocumentDB
-		if strings.Contains(lowerPath, "/providers/microsoft.documentdb/mongoclusters/") {
-			resourceName, nameDisambiguation = newName("MongoCluster", resourceName)
-		}
-
 		// Microsoft.HDInsight
 		if strings.Contains(lowerPath, "/providers/microsoft.hdinsight/clusterpools/") {
 			resourceName, nameDisambiguation = newName("ClusterPool", resourceName)
@@ -659,21 +645,6 @@ func handleResourceNameSpecialCases(resourceName, operationID, path string, majo
 			if !strings.Contains(resourceName, "ClusterInstance") {
 				resourceName, nameDisambiguation = newName("ClusterInstance", resourceName)
 			}
-		}
-
-		// Microsoft.LabServices
-		if strings.Contains(lowerPath, "/providers/microsoft.labservices/labaccounts/") {
-			resourceName, nameDisambiguation = newName("LabAccount", resourceName)
-		}
-
-		// Microsoft.Migrate
-		if strings.Contains(lowerPath, "/providers/microsoft.migrate/assessmentprojects/") {
-			resourceName, nameDisambiguation = newName("AssessmentProjects", resourceName)
-		}
-
-		// Microsoft.MobileNetwork
-		if strings.Contains(lowerPath, "/providers/microsoft.mobilenetwork/simgroups/") {
-			resourceName, nameDisambiguation = newName("SimGroup", resourceName)
 		}
 
 		// Microsoft.NetApp

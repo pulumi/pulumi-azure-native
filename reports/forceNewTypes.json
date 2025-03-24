@@ -20106,84 +20106,434 @@
   {
     "VersionedModule": "redisenterprise",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "DatabaseProperties",
     "Property": "groupNickname"
   },
   {
     "VersionedModule": "redisenterprise",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "LinkedDatabase",
     "Property": "id"
   },
   {
     "VersionedModule": "redisenterprise",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "Module",
     "Property": "args"
   },
   {
     "VersionedModule": "redisenterprise",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20201001preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20201001preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210201preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210201preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210201preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210201preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210301",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210301",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210801",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20210801",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20220101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20220101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20220101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20220101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20221101preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20221101preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20221101preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20221101preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230701",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230701",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230701",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230701",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230801preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230801preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230801preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20230801preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231001preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231001preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231001preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231001preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20231101",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240201",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240201",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240201",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240201",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240301preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240601preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240601preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240601preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "VersionedModule": "redisenterprise/v20240601preview",
+    "Module": "RedisEnterprise",
+    "ResourceName": "Database",
     "ReferenceName": "Module",
     "Property": "name"
   },
   {
     "VersionedModule": "redisenterprise/v20240901preview",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "DatabaseProperties",
     "Property": "groupNickname"
   },
   {
     "VersionedModule": "redisenterprise/v20240901preview",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "LinkedDatabase",
     "Property": "id"
   },
   {
     "VersionedModule": "redisenterprise/v20240901preview",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "Module",
     "Property": "args"
   },
   {
     "VersionedModule": "redisenterprise/v20240901preview",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "Module",
     "Property": "name"
   },
   {
     "VersionedModule": "redisenterprise/v20241001",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "DatabaseProperties",
     "Property": "groupNickname"
   },
   {
     "VersionedModule": "redisenterprise/v20241001",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "LinkedDatabase",
     "Property": "id"
   },
   {
     "VersionedModule": "redisenterprise/v20241001",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "Module",
     "Property": "args"
   },
   {
     "VersionedModule": "redisenterprise/v20241001",
     "Module": "RedisEnterprise",
-    "ResourceName": "EnterpriseDatabase",
+    "ResourceName": "Database",
     "ReferenceName": "Module",
     "Property": "name"
   },

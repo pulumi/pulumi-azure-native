@@ -4673,6 +4673,11 @@ DataMigration:
         SpecFilePath: specification/datamigration/resource-manager/Microsoft.DataMigration/preview/2023-07-15-preview/sqlmigration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{targetResourceName}/providers/Microsoft.DataMigration/databaseMigrations/{migrationName}
         RpNamespace: Microsoft.DataMigration
+    DatabaseMigrationsMongoToCosmosDbvCoreMongo:
+        ApiVersion: 2023-07-15-preview
+        SpecFilePath: specification/datamigration/resource-manager/Microsoft.DataMigration/preview/2023-07-15-preview/sqlmigration.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{targetResourceName}/providers/Microsoft.DataMigration/databaseMigrations/{migrationName}
+        RpNamespace: Microsoft.DataMigration
     DatabaseMigrationsSqlDb:
         ApiVersion: 2023-07-15-preview
         SpecFilePath: specification/datamigration/resource-manager/Microsoft.DataMigration/preview/2023-07-15-preview/sqlmigration.json
@@ -4687,11 +4692,6 @@ DataMigration:
         ApiVersion: 2023-07-15-preview
         SpecFilePath: specification/datamigration/resource-manager/Microsoft.DataMigration/preview/2023-07-15-preview/sqlmigration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataMigration/migrationServices/{migrationServiceName}
-        RpNamespace: Microsoft.DataMigration
-    MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo:
-        ApiVersion: 2023-07-15-preview
-        SpecFilePath: specification/datamigration/resource-manager/Microsoft.DataMigration/preview/2023-07-15-preview/sqlmigration.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{targetResourceName}/providers/Microsoft.DataMigration/databaseMigrations/{migrationName}
         RpNamespace: Microsoft.DataMigration
     Project:
         ApiVersion: 2023-07-15-preview
@@ -8088,120 +8088,65 @@ Media:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/streamingLocators/{streamingLocatorName}/listPaths
         RpNamespace: Microsoft.Media
 Migrate:
-    AssessmentProjectsAksAssessmentOperation:
+    AksAssessmentOperation:
         ApiVersion: 2024-01-01-preview
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
-    AssessmentProjectsAssessment:
+    Assessment:
         ApiVersion: "2019-10-01"
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsAssessmentsOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsAvsAssessmentsOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsBusinessCaseOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsGroup:
-        ApiVersion: "2019-10-01"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsGroupsOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsHyperVCollector:
-        ApiVersion: "2019-10-01"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hyperVCollectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsHypervCollectorsOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsImportCollector:
-        ApiVersion: "2019-10-01"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsImportCollectorsOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsOperation:
         ApiVersion: 2024-01-01-preview
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
         RpNamespace: Microsoft.Migrate
-    AssessmentProjectsPrivateEndpointConnection:
+    AssessmentsOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName}
+        RpNamespace: Microsoft.Migrate
+    AvsAssessmentsOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName}
+        RpNamespace: Microsoft.Migrate
+    BusinessCaseOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}
+        RpNamespace: Microsoft.Migrate
+    Group:
         ApiVersion: "2019-10-01"
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentprojects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
         RpNamespace: Microsoft.Migrate
-    AssessmentProjectsPrivateEndpointConnectionOperation:
+    GroupsOperation:
         ApiVersion: 2024-01-01-preview
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
         RpNamespace: Microsoft.Migrate
-    AssessmentProjectsProject:
+    HyperVCollector:
         ApiVersion: "2019-10-01"
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hyperVCollectorName}
         RpNamespace: Microsoft.Migrate
-    AssessmentProjectsServerCollector:
+    HypervCollectorsOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName}
+        RpNamespace: Microsoft.Migrate
+    ImportCollector:
         ApiVersion: "2019-10-01"
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}
         RpNamespace: Microsoft.Migrate
-    AssessmentProjectsServerCollectorsOperation:
+    ImportCollectorsOperation:
         ApiVersion: 2024-01-01-preview
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsSqlAssessmentV2Operation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/sqlAssessments/{assessmentName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsSqlCollectorOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsVMwareCollector:
-        ApiVersion: "2019-10-01"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsVmwareCollectorsOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsWebAppAssessmentV2Operation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName}
-        RpNamespace: Microsoft.Migrate
-    AssessmentProjectsWebAppCollectorOperation:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}
         RpNamespace: Microsoft.Migrate
     MigrateAgent:
         ApiVersion: 2022-05-01-preview
@@ -8233,15 +8178,70 @@ Migrate:
         SpecFilePath: specification/resourcemover/resource-manager/Microsoft.Migrate/stable/2023-08-01/resourcemovercollection.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/moveResources/{moveResourceName}
         RpNamespace: Microsoft.Migrate
+    PrivateEndpointConnection:
+        ApiVersion: "2019-10-01"
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentprojects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.Migrate
     PrivateEndpointConnectionControllerPrivateEndpointConnection:
         ApiVersion: "2020-05-01"
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/MigrateProjects/stable/2020-05-01/hubmigrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/privateEndpointConnections/{peConnectionName}
         RpNamespace: Microsoft.Migrate
+    PrivateEndpointConnectionOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.Migrate
+    Project:
+        ApiVersion: "2019-10-01"
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
+        RpNamespace: Microsoft.Migrate
+    ServerCollector:
+        ApiVersion: "2019-10-01"
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}
+        RpNamespace: Microsoft.Migrate
+    ServerCollectorsOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}
+        RpNamespace: Microsoft.Migrate
     Solution:
         ApiVersion: 2018-09-01-preview
         SpecFilePath: specification/migrateprojects/resource-manager/Microsoft.Migrate/preview/2018-09-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/solutions/{solutionName}
+        RpNamespace: Microsoft.Migrate
+    SqlAssessmentV2Operation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/sqlAssessments/{assessmentName}
+        RpNamespace: Microsoft.Migrate
+    SqlCollectorOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName}
+        RpNamespace: Microsoft.Migrate
+    VMwareCollector:
+        ApiVersion: "2019-10-01"
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}
+        RpNamespace: Microsoft.Migrate
+    VmwareCollectorsOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}
+        RpNamespace: Microsoft.Migrate
+    WebAppAssessmentV2Operation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName}
+        RpNamespace: Microsoft.Migrate
+    WebAppCollectorOperation:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName}
         RpNamespace: Microsoft.Migrate
     WorkloadDeployment:
         ApiVersion: 2022-05-01-preview
@@ -8253,7 +8253,7 @@ Migrate:
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/MordernizeProjects/preview/2022-05-01-preview/migrateEngine.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName}
         RpNamespace: Microsoft.Migrate
-    getAssessmentProjectsBusinessCaseOperationReportDownloadUrl:
+    getBusinessCaseOperationReportDownloadUrl:
         ApiVersion: 2024-01-01-preview
         SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}/getReportDownloadUrl
@@ -8340,15 +8340,15 @@ MobileNetwork:
         SpecFilePath: specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2024-04-01/service.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileNetworks/{mobileNetworkName}/services/{serviceName}
         RpNamespace: Microsoft.MobileNetwork
+    Sim:
+        ApiVersion: "2024-04-01"
+        SpecFilePath: specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2024-04-01/sim.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}
+        RpNamespace: Microsoft.MobileNetwork
     SimGroup:
         ApiVersion: "2024-04-01"
         SpecFilePath: specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2024-04-01/simGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}
-        RpNamespace: Microsoft.MobileNetwork
-    SimGroupSim:
-        ApiVersion: "2024-04-01"
-        SpecFilePath: specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2024-04-01/sim.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}
         RpNamespace: Microsoft.MobileNetwork
     SimPolicy:
         ApiVersion: "2024-04-01"
@@ -8376,17 +8376,17 @@ MobileNetwork:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileNetworks/{mobileNetworkName}/listSimIds
         RpNamespace: Microsoft.MobileNetwork
 MongoCluster:
+    FirewallRule:
+        ApiVersion: "2024-07-01"
+        SpecFilePath: specification/mongocluster/resource-manager/Microsoft.DocumentDB/stable/2024-07-01/mongoCluster.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DocumentDB
     MongoCluster:
         ApiVersion: "2024-07-01"
         SpecFilePath: specification/mongocluster/resource-manager/Microsoft.DocumentDB/stable/2024-07-01/mongoCluster.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}
         RpNamespace: Microsoft.DocumentDB
-    MongoClusterFirewallRule:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/mongocluster/resource-manager/Microsoft.DocumentDB/stable/2024-07-01/mongoCluster.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}
-        RpNamespace: Microsoft.DocumentDB
-    MongoClusterPrivateEndpointConnection:
+    PrivateEndpointConnection:
         ApiVersion: "2024-07-01"
         SpecFilePath: specification/mongocluster/resource-manager/Microsoft.DocumentDB/stable/2024-07-01/mongoCluster.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}
@@ -10218,17 +10218,17 @@ Redis:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/listKeys
         RpNamespace: Microsoft.Cache
 RedisEnterprise:
-    EnterpriseAccessPolicyAssignment:
+    AccessPolicyAssignment:
         ApiVersion: 2024-09-01-preview
         SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-09-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName}
         RpNamespace: Microsoft.Cache
-    EnterpriseDatabase:
+    Database:
         ApiVersion: 2024-03-01-preview
         SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}
         RpNamespace: Microsoft.Cache
-    EnterprisePrivateEndpointConnection:
+    PrivateEndpointConnection:
         ApiVersion: 2024-03-01-preview
         SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}
@@ -10238,7 +10238,7 @@ RedisEnterprise:
         SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}
         RpNamespace: Microsoft.Cache
-    listEnterpriseDatabaseKeys:
+    listDatabaseKeys:
         ApiVersion: 2024-03-01-preview
         SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/listKeys
