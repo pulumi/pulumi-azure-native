@@ -1246,33 +1246,38 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeNam
 	return g.formatDescription(desc, typeName, openapi.ApiVersion(info.Version), "", nil)
 }
 
+const generateApiVersionsMsg = "These versions are not included in the SDK but you can generate them as a local SDK package; see the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details."
+
 func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion openapi.ApiVersion, additionalDocs *string) string {
 	var b strings.Builder
 	b.WriteString(desc)
 
 	if g.sdkVersion == "" {
-		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
+		if desc != "" {
+			fmt.Fprint(&b, "\n\n")
+		}
+		fmt.Fprintf(&b, "Azure REST API version: %s.", defaultVersion)
 		if previousDefaultVersion != "" {
 			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion-1, previousDefaultVersion)
 		}
 
-		if g.majorVersion <= 2 {
-			// List other available API versions, if any.
-			allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
-			includedVersions := []string{}
-			for _, v := range allVersions {
-				// Don't list the default version twice.
-				if v == defaultVersion {
-					continue
-				}
-				tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
-				if g.shouldInclude(typeName, tok, &v) {
-					includedVersions = append(includedVersions, string(v))
-				}
+		allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
+		includedVersions := []string{}
+		for _, v := range allVersions {
+			// Don't list the default version twice.
+			if v == defaultVersion {
+				continue
 			}
+			tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
+			if g.shouldInclude(typeName, tok, &v) {
+				includedVersions = append(includedVersions, string(v))
+			}
+		}
 
-			if len(includedVersions) > 0 {
-				fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+		if len(includedVersions) > 0 {
+			fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+			if g.majorVersion >= 3 {
+				fmt.Fprintf(&b, "\n\n%s", generateApiVersionsMsg)
 			}
 		}
 	}

@@ -3,11 +3,13 @@
 package gen
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -460,5 +462,137 @@ func TestIsApiVersionQueryParam(t *testing.T) {
 		}
 		param := createParam("api-version", "query")
 		assert.True(t, m.paramIsSetByProvider(param, nil))
+	})
+}
+
+func TestFormatDescriptionV2(t *testing.T) {
+	t.Parallel()
+
+	g := &packageGenerator{
+		majorVersion: 2,
+		versioning:   versioningStub{},
+	}
+
+	t.Run("no description", func(t *testing.T) {
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", nil)
+		assert.Equal(t, "Azure REST API version: 2022-02-22.", strings.TrimSpace(desc))
+	})
+
+	t.Run("description", func(t *testing.T) {
+		desc := g.formatDescription("This is a wonderful resource.", "SomeResource", "2022-02-22", "", nil)
+		assert.Equal(t, "This is a wonderful resource.\n\nAzure REST API version: 2022-02-22.", strings.TrimSpace(desc))
+	})
+
+	t.Run("additional docs", func(t *testing.T) {
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", pulumi.StringRef("Additional docs."))
+		assert.Equal(t, "Azure REST API version: 2022-02-22.\n\nAdditional docs.", strings.TrimSpace(desc))
+	})
+
+	t.Run("previous default version", func(t *testing.T) {
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "2021-01-01", nil)
+		assert.Equal(t, "Azure REST API version: 2022-02-22. Prior API version in Azure Native 1.x: 2021-01-01.", strings.TrimSpace(desc))
+	})
+
+	t.Run("other versions", func(t *testing.T) {
+		g := &packageGenerator{
+			majorVersion: 2,
+			versioning: versioningStub{
+				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
+					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
+				},
+			},
+		}
+
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", nil)
+		assert.Equal(t, "Azure REST API version: 2022-02-22.\n\nOther available API versions: 2023-03-03, 2024-04-04.", strings.TrimSpace(desc))
+	})
+
+	t.Run("everything", func(t *testing.T) {
+		g := &packageGenerator{
+			majorVersion: 2,
+			versioning: versioningStub{
+				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
+					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
+				},
+			},
+		}
+
+		desc := g.formatDescription("This is a wonderful resource.", "SomeResource", "2022-02-22", "2021-01-01", pulumi.StringRef("Additional docs."))
+		assert.Equal(t, `This is a wonderful resource.
+
+Azure REST API version: 2022-02-22. Prior API version in Azure Native 1.x: 2021-01-01.
+
+Other available API versions: 2023-03-03, 2024-04-04.
+
+Additional docs.`, strings.TrimSpace(desc))
+	})
+}
+
+func TestFormatDescriptionV3(t *testing.T) {
+	t.Parallel()
+
+	g := &packageGenerator{
+		majorVersion: 3,
+		versioning:   versioningStub{},
+	}
+
+	t.Run("no description", func(t *testing.T) {
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", nil)
+		assert.Equal(t, "Azure REST API version: 2022-02-22.", strings.TrimSpace(desc))
+	})
+
+	t.Run("description", func(t *testing.T) {
+		desc := g.formatDescription("This is a wonderful resource.", "SomeResource", "2022-02-22", "", nil)
+		assert.Equal(t, "This is a wonderful resource.\n\nAzure REST API version: 2022-02-22.", strings.TrimSpace(desc))
+	})
+
+	t.Run("additional docs", func(t *testing.T) {
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", pulumi.StringRef("Additional docs."))
+		assert.Equal(t, "Azure REST API version: 2022-02-22.\n\nAdditional docs.", strings.TrimSpace(desc))
+	})
+
+	t.Run("previous default version", func(t *testing.T) {
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "2021-01-01", nil)
+		assert.Equal(t, "Azure REST API version: 2022-02-22. Prior API version in Azure Native 2.x: 2021-01-01.", strings.TrimSpace(desc))
+	})
+
+	t.Run("other versions", func(t *testing.T) {
+		g := &packageGenerator{
+			majorVersion: 3,
+			versioning: versioningStub{
+				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
+					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
+				},
+			},
+		}
+
+		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", nil)
+		assert.Equal(t, `Azure REST API version: 2022-02-22.
+
+Other available API versions: 2023-03-03, 2024-04-04.
+
+`+generateApiVersionsMsg, strings.TrimSpace(desc))
+	})
+
+	t.Run("everything", func(t *testing.T) {
+		g := &packageGenerator{
+			majorVersion: 3,
+			versioning: versioningStub{
+				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
+					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
+				},
+			},
+		}
+
+		desc := g.formatDescription("This is a wonderful resource.", "SomeResource", "2022-02-22", "2021-01-01", pulumi.StringRef("Additional docs."))
+		assert.Equal(t, `This is a wonderful resource.
+
+Azure REST API version: 2022-02-22. Prior API version in Azure Native 2.x: 2021-01-01.
+
+Other available API versions: 2023-03-03, 2024-04-04.
+
+`+generateApiVersionsMsg+`
+
+Additional docs.`, strings.TrimSpace(desc))
 	})
 }
