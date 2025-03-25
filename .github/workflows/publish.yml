@@ -289,7 +289,7 @@ jobs:
         with:
           arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
           build-root-directory: ./sdk/java
-          gradle-version: 7.4.1
+          gradle-version: 8.13
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
