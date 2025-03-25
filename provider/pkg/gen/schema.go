@@ -1246,8 +1246,6 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeNam
 	return g.formatDescription(desc, typeName, openapi.ApiVersion(info.Version), "", nil)
 }
 
-const generateApiVersionsMsg = "These versions are not included in the SDK but you can generate them as a local SDK package; see the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details."
-
 func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion openapi.ApiVersion, additionalDocs *string) string {
 	var b strings.Builder
 	b.WriteString(desc)
@@ -1258,7 +1256,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 		}
 		fmt.Fprintf(&b, "Azure REST API version: %s.", defaultVersion)
 		if previousDefaultVersion != "" {
-			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion-1, previousDefaultVersion)
+			fmt.Fprintf(&b, " In version %d.x of the Azure Native provider, it used API version %s.", g.majorVersion-1, previousDefaultVersion)
 		}
 
 		allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
@@ -1277,7 +1275,10 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 		if len(includedVersions) > 0 {
 			fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
 			if g.majorVersion >= 3 {
-				fmt.Fprintf(&b, "\n\n%s", generateApiVersionsMsg)
+				fmt.Fprintf(&b, " These can be accessed by generating a local SDK package using the CLI command "+
+					"`pulumi package add azure-native %s [ApiVersion]`. See the [version guide]"+
+					"(../../../version-guide/#accessing-any-api-version-via-local-packages) for details.",
+					strings.ToLower(string(g.moduleName)))
 			}
 		}
 	}

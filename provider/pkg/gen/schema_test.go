@@ -490,7 +490,7 @@ func TestFormatDescriptionV2(t *testing.T) {
 
 	t.Run("previous default version", func(t *testing.T) {
 		desc := g.formatDescription("", "SomeResource", "2022-02-22", "2021-01-01", nil)
-		assert.Equal(t, "Azure REST API version: 2022-02-22. Prior API version in Azure Native 1.x: 2021-01-01.", strings.TrimSpace(desc))
+		assert.Equal(t, "Azure REST API version: 2022-02-22. In version 1.x of the Azure Native provider, it used API version 2021-01-01.", strings.TrimSpace(desc))
 	})
 
 	t.Run("other versions", func(t *testing.T) {
@@ -520,7 +520,7 @@ func TestFormatDescriptionV2(t *testing.T) {
 		desc := g.formatDescription("This is a wonderful resource.", "SomeResource", "2022-02-22", "2021-01-01", pulumi.StringRef("Additional docs."))
 		assert.Equal(t, `This is a wonderful resource.
 
-Azure REST API version: 2022-02-22. Prior API version in Azure Native 1.x: 2021-01-01.
+Azure REST API version: 2022-02-22. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
 Other available API versions: 2023-03-03, 2024-04-04.
 
@@ -553,12 +553,13 @@ func TestFormatDescriptionV3(t *testing.T) {
 
 	t.Run("previous default version", func(t *testing.T) {
 		desc := g.formatDescription("", "SomeResource", "2022-02-22", "2021-01-01", nil)
-		assert.Equal(t, "Azure REST API version: 2022-02-22. Prior API version in Azure Native 2.x: 2021-01-01.", strings.TrimSpace(desc))
+		assert.Equal(t, "Azure REST API version: 2022-02-22. In version 2.x of the Azure Native provider, it used API version 2021-01-01.", strings.TrimSpace(desc))
 	})
 
 	t.Run("other versions", func(t *testing.T) {
 		g := &packageGenerator{
 			majorVersion: 3,
+			moduleName:   "storage",
 			versioning: versioningStub{
 				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
 					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
@@ -569,14 +570,14 @@ func TestFormatDescriptionV3(t *testing.T) {
 		desc := g.formatDescription("", "SomeResource", "2022-02-22", "", nil)
 		assert.Equal(t, `Azure REST API version: 2022-02-22.
 
-Other available API versions: 2023-03-03, 2024-04-04.
-
-`+generateApiVersionsMsg, strings.TrimSpace(desc))
+Other available API versions: 2023-03-03, 2024-04-04. These can be accessed by generating a local SDK package using the CLI command `+"`"+`pulumi package add azure-native storage [ApiVersion]`+"`"+`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.`,
+			strings.TrimSpace(desc))
 	})
 
 	t.Run("everything", func(t *testing.T) {
 		g := &packageGenerator{
 			majorVersion: 3,
+			moduleName:   "Authorization",
 			versioning: versioningStub{
 				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
 					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
@@ -587,11 +588,9 @@ Other available API versions: 2023-03-03, 2024-04-04.
 		desc := g.formatDescription("This is a wonderful resource.", "SomeResource", "2022-02-22", "2021-01-01", pulumi.StringRef("Additional docs."))
 		assert.Equal(t, `This is a wonderful resource.
 
-Azure REST API version: 2022-02-22. Prior API version in Azure Native 2.x: 2021-01-01.
+Azure REST API version: 2022-02-22. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
-Other available API versions: 2023-03-03, 2024-04-04.
-
-`+generateApiVersionsMsg+`
+Other available API versions: 2023-03-03, 2024-04-04. These can be accessed by generating a local SDK package using the CLI command `+"`"+`pulumi package add azure-native authorization [ApiVersion]`+"`"+`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 Additional docs.`, strings.TrimSpace(desc))
 	})
