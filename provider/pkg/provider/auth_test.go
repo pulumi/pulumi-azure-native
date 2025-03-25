@@ -373,6 +373,10 @@ func TestGetCloud(t *testing.T) {
 }
 
 func TestReadAzureEnvironmentFromConfig(t *testing.T) {
+	// Reset environment
+	t.Setenv("ARM_ENVIRONMENT", "")
+	t.Setenv("AZURE_ENVIRONMENT", "")
+
 	t.Run("Default to Public", func(t *testing.T) {
 		p := azureNativeProvider{config: map[string]string{}}
 		assert.Equal(t, "public", readAzureEnvironmentFromConfig(&p))
