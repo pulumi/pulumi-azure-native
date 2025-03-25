@@ -372,29 +372,33 @@ func TestGetCloud(t *testing.T) {
 	})
 }
 
-// This test doesn't use subtests because they run concurrently which causes races around `Setenv`.
 func TestReadAzureEnvironmentFromConfig(t *testing.T) {
-	// default
-	p := azureNativeProvider{config: map[string]string{}}
-	assert.Equal(t, "public", readAzureEnvironmentFromConfig(&p))
+	t.Run("Default to Public", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		assert.Equal(t, "public", readAzureEnvironmentFromConfig(&p))
+	})
 
-	// from config
-	p = azureNativeProvider{config: map[string]string{"environment": "azureusgovernment"}}
-	assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	t.Run("From config", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{"environment": "azureusgovernment"}}
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
 
-	// from AZURE_ENVIRONMENT
-	p = azureNativeProvider{config: map[string]string{}}
-	t.Setenv("AZURE_ENVIRONMENT", "azureusgovernment")
-	assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	t.Run("From AZURE_ENVIRONMENT", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		t.Setenv("AZURE_ENVIRONMENT", "azureusgovernment")
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
 
-	// from ARM_ENVIRONMENT
-	p = azureNativeProvider{config: map[string]string{}}
-	t.Setenv("ARM_ENVIRONMENT", "azureusgovernment")
-	assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	t.Run("From ARM_ENVIRONMENT", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		t.Setenv("ARM_ENVIRONMENT", "azureusgovernment")
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
 
-	// ARM_ENVIRONMENT over AZURE_ENVIRONMENT
-	p = azureNativeProvider{config: map[string]string{}}
-	t.Setenv("ARM_ENVIRONMENT", "azureusgovernment")
-	t.Setenv("AZURE_ENVIRONMENT", "azurechina")
-	assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	t.Run("ARM_ENVIRONMENT over AZURE_ENVIRONMENT", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		t.Setenv("ARM_ENVIRONMENT", "azureusgovernment")
+		t.Setenv("AZURE_ENVIRONMENT", "azurechina")
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
 }
