@@ -108,10 +108,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants", auxTenantsString)
 		}
 	}
-	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
-	if envName == "" {
-		envName = "public"
-	}
+	envName := readAzureEnvironmentFromConfig(k)
 
 	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
 	oidcConf, err := k.determineOidcConfig()
@@ -179,6 +176,17 @@ You can change environments using 'az cloud set --name <environment>'.`,
 	}
 
 	return &authConfig{c, needCli}, nil
+}
+
+func readAzureEnvironmentFromConfig(k *azureNativeProvider) string {
+	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
+	if envName == "" {
+		envName = k.getConfig("environment", "AZURE_ENVIRONMENT")
+	}
+	if envName == "" {
+		envName = "public"
+	}
+	return envName
 }
 
 // Without any of the other methods above, we fall back to the `az` CLI to authenticate.

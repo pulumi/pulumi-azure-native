@@ -88,6 +88,8 @@ func GetCloudByName(cloudName string) azcloud.Configuration {
 		return azcloud.AzureGovernment
 	case "azureusgovernment":
 		return azcloud.AzureGovernment
+	case "azureusgovernmentcloud":
+		return azcloud.AzureGovernment
 	}
 	return azcloud.AzurePublic
 }
