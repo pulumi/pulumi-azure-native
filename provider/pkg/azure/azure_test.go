@@ -28,6 +28,8 @@ func TestGetCloudByName(t *testing.T) {
 		{name: "usgovernment", expected: cloud.AzureGovernment},
 		{name: "azureusgovernment", expected: cloud.AzureGovernment},
 		{name: "AzureUSGovernment", expected: cloud.AzureGovernment},
+		{name: "azureusgovernmentcloud", expected: cloud.AzureGovernment},
+		{name: "AzureUSGovernmentCloud", expected: cloud.AzureGovernment},
 	} {
 		assert.Equal(t, tc.expected, GetCloudByName(tc.name), tc.name)
 	}

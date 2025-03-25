@@ -371,3 +371,38 @@ func TestGetCloud(t *testing.T) {
 		assert.Equal(t, azcloud.AzurePublic, a.cloud())
 	})
 }
+
+func TestReadAzureEnvironmentFromConfig(t *testing.T) {
+	// Reset environment
+	t.Setenv("ARM_ENVIRONMENT", "")
+	t.Setenv("AZURE_ENVIRONMENT", "")
+
+	t.Run("Default to Public", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		assert.Equal(t, "public", readAzureEnvironmentFromConfig(&p))
+	})
+
+	t.Run("From config", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{"environment": "azureusgovernment"}}
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
+
+	t.Run("From AZURE_ENVIRONMENT", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		t.Setenv("AZURE_ENVIRONMENT", "azureusgovernment")
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
+
+	t.Run("From ARM_ENVIRONMENT", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		t.Setenv("ARM_ENVIRONMENT", "azureusgovernment")
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
+
+	t.Run("ARM_ENVIRONMENT over AZURE_ENVIRONMENT", func(t *testing.T) {
+		p := azureNativeProvider{config: map[string]string{}}
+		t.Setenv("ARM_ENVIRONMENT", "azureusgovernment")
+		t.Setenv("AZURE_ENVIRONMENT", "azurechina")
+		assert.Equal(t, "azureusgovernment", readAzureEnvironmentFromConfig(&p))
+	})
+}
