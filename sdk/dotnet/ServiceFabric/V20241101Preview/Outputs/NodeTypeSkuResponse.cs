@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Outputs
     public sealed class NodeTypeSkuResponse
     {
         /// <summary>
-        /// The number of nodes in the node type.&lt;br /&gt;&lt;br /&gt;If present in request it will override properties.vmInstanceCount.
+        /// The number of nodes in the node type. If present in request it will override properties.vmInstanceCount.
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// The sku name. &lt;br /&gt;&lt;br /&gt;Name is internally generated and is used in auto-scale scenarios.&lt;br /&gt; Property does not allow to be changed to other values than generated.&lt;br /&gt; To avoid deployment errors please omit the property.
+        /// The sku name. Name is internally generated and is used in auto-scale scenarios. Property does not allow to be changed to other values than generated. To avoid deployment errors please omit the property.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Specifies the tier of the node type. &lt;br /&gt;&lt;br /&gt; Possible Values:&lt;br /&gt; **Standard**
+        /// Specifies the tier of the node type. Possible Values: **Standard**
         /// </summary>
         public readonly string? Tier;
 

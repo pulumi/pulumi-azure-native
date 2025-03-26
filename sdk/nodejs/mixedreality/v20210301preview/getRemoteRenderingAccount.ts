@@ -8,7 +8,13 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Retrieve a Remote Rendering Account.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  Retrieve a Remote Rendering Account.
  */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +93,13 @@ export interface GetRemoteRenderingAccountResult {
     readonly type: string;
 }
 /**
- * Retrieve a Remote Rendering Account.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  Retrieve a Remote Rendering Account.
  */
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

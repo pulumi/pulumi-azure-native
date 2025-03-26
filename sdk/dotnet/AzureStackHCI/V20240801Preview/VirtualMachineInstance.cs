@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240801Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:VirtualMachineInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:VirtualMachineInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:VirtualMachineInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:VirtualMachineInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualMachineInstance" },
                 },
             };

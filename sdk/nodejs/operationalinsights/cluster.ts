@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The top level Log Analytics cluster resource container.
  * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
  *
- * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+ * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -156,7 +156,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-native:operationalinsights/v20210601:Cluster" }, { type: "azure-native:operationalinsights/v20221001:Cluster" }, { type: "azure-native:operationalinsights/v20230901:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-native:operationalinsights/v20210601:Cluster" }, { type: "azure-native:operationalinsights/v20221001:Cluster" }, { type: "azure-native:operationalinsights/v20230901:Cluster" }, { type: "azure-native:operationalinsights/v20250201:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

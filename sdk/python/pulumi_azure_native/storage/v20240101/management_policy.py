@@ -29,7 +29,7 @@ class ManagementPolicyArgs:
         """
         The set of arguments for constructing a ManagementPolicy resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input['ManagementPolicySchemaArgs'] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param pulumi.Input['ManagementPolicySchemaArgs'] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
         """
@@ -55,7 +55,7 @@ class ManagementPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input['ManagementPolicySchemaArgs']:
         """
-        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "policy")
 
@@ -105,7 +105,7 @@ class ManagementPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
-        :param pulumi.Input[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param pulumi.Input[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         ...
@@ -208,7 +208,7 @@ class ManagementPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.ManagementPolicySchemaResponse']:
         """
-        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "policy")
 

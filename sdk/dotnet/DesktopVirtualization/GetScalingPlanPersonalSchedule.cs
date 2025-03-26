@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
-        /// Azure REST API version: 2023-07-07-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// 
         /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
-        /// Azure REST API version: 2023-07-07-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// 
         /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
-        /// Azure REST API version: 2023-07-07-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// 
         /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeek;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for off-peak period.
         /// </summary>
-        public readonly Outputs.TimeResponse? OffPeakStartTime;
+        public readonly Outputs.TimeResponse OffPeakStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for peak period.
         /// </summary>
-        public readonly Outputs.TimeResponse? PeakStartTime;
+        public readonly Outputs.TimeResponse PeakStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the peak phase.
         /// </summary>
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for ramp down period.
         /// </summary>
-        public readonly Outputs.TimeResponse? RampDownStartTime;
+        public readonly Outputs.TimeResponse RampDownStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
         /// </summary>
@@ -203,13 +203,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for ramp up period.
         /// </summary>
-        public readonly Outputs.TimeResponse? RampUpStartTime;
+        public readonly Outputs.TimeResponse RampUpStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
         /// </summary>
         public readonly string? RampUpStartVMOnConnect;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -233,7 +233,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? offPeakMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse? offPeakStartTime,
+            Outputs.TimeResponse offPeakStartTime,
 
             string? offPeakStartVMOnConnect,
 
@@ -245,7 +245,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? peakMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse? peakStartTime,
+            Outputs.TimeResponse peakStartTime,
 
             string? peakStartVMOnConnect,
 
@@ -257,7 +257,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? rampDownMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse? rampDownStartTime,
+            Outputs.TimeResponse rampDownStartTime,
 
             string? rampDownStartVMOnConnect,
 
@@ -271,7 +271,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? rampUpMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse? rampUpStartTime,
+            Outputs.TimeResponse rampUpStartTime,
 
             string? rampUpStartVMOnConnect,
 

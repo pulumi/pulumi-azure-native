@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// The top level storage insight resource container.
     /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
     /// 
-    /// Other available API versions: 2023-09-01.
+    /// Other available API versions: 2023-09-01, 2025-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:StorageInsightConfig")]
     public partial class StorageInsightConfig : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsightConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsightConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:StorageInsightConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:StorageInsightConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

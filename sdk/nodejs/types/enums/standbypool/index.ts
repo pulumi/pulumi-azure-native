@@ -5,11 +5,13 @@
 import * as v20231201preview from "./v20231201preview";
 import * as v20240301 from "./v20240301";
 import * as v20240301preview from "./v20240301preview";
+import * as v20250301 from "./v20250301";
 
 export {
     v20231201preview,
     v20240301,
     v20240301preview,
+    v20250301,
 };
 
 export const RefillPolicy = {

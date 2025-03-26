@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a Log Analytics workspace table.
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2025-02-01.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a Log Analytics workspace table.
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a Log Analytics workspace table.
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());

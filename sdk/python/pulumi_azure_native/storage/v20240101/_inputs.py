@@ -2951,11 +2951,11 @@ class ManagementPolicyRuleArgs:
 if not MYPY:
     class ManagementPolicySchemaArgsDict(TypedDict):
         """
-        The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgsDict']]]
         """
-        The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
 elif False:
     ManagementPolicySchemaArgsDict: TypeAlias = Mapping[str, Any]
@@ -2965,8 +2965,8 @@ class ManagementPolicySchemaArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]):
         """
-        The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -2974,7 +2974,7 @@ class ManagementPolicySchemaArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]:
         """
-        The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "rules")
 

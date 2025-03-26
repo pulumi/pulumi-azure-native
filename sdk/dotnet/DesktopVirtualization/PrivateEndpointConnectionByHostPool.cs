@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
     /// 
-    /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool")]
     public partial class PrivateEndpointConnectionByHostPool : global::Pulumi.CustomResource
@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByHostPool" },
@@ -93,6 +92,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByHostPool" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByHostPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByHostPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

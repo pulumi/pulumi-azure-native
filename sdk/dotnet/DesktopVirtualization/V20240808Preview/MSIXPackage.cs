@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public partial class MSIXPackage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
+        /// User friendly Name to be displayed in the portal.
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string?> ImagePath { get; private set; } = null!;
 
         /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
+        /// Make this version of the package the active one across the hostpool.
         /// </summary>
         [Output("isActive")]
         public Output<bool?> IsActive { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<bool?> IsRegularRegistration { get; private set; } = null!;
 
         /// <summary>
-        /// Date Package was last updated, found in the appxmanifest.xml. 
+        /// Date Package was last updated, found in the appxmanifest.xml.
         /// </summary>
         [Output("lastUpdated")]
         public Output<string?> LastUpdated { get; private set; } = null!;
@@ -52,31 +52,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of package applications. 
+        /// List of package applications.
         /// </summary>
         [Output("packageApplications")]
         public Output<ImmutableArray<Outputs.MsixPackageApplicationsResponse>> PackageApplications { get; private set; } = null!;
 
         /// <summary>
-        /// List of package dependencies. 
+        /// List of package dependencies.
         /// </summary>
         [Output("packageDependencies")]
         public Output<ImmutableArray<Outputs.MsixPackageDependenciesResponse>> PackageDependencies { get; private set; } = null!;
 
         /// <summary>
-        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         /// </summary>
         [Output("packageFamilyName")]
         public Output<string?> PackageFamilyName { get; private set; } = null!;
 
         /// <summary>
-        /// Package Name from appxmanifest.xml. 
+        /// Package Name from appxmanifest.xml.
         /// </summary>
         [Output("packageName")]
         public Output<string?> PackageName { get; private set; } = null!;
 
         /// <summary>
-        /// Relative Path to the package inside the image. 
+        /// Relative Path to the package inside the image.
         /// </summary>
         [Output("packageRelativePath")]
         public Output<string?> PackageRelativePath { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -138,7 +138,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:MSIXPackage" },
@@ -146,6 +145,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:MSIXPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:MSIXPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:MSIXPackage" },
                 },
             };
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class MSIXPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
+        /// User friendly Name to be displayed in the portal.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Input<string>? ImagePath { get; set; }
 
         /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
+        /// Make this version of the package the active one across the hostpool.
         /// </summary>
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Input<bool>? IsRegularRegistration { get; set; }
 
         /// <summary>
-        /// Date Package was last updated, found in the appxmanifest.xml. 
+        /// Date Package was last updated, found in the appxmanifest.xml.
         /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         private InputList<Inputs.MsixPackageApplicationsArgs>? _packageApplications;
 
         /// <summary>
-        /// List of package applications. 
+        /// List of package applications.
         /// </summary>
         public InputList<Inputs.MsixPackageApplicationsArgs> PackageApplications
         {
@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         private InputList<Inputs.MsixPackageDependenciesArgs>? _packageDependencies;
 
         /// <summary>
-        /// List of package dependencies. 
+        /// List of package dependencies.
         /// </summary>
         public InputList<Inputs.MsixPackageDependenciesArgs> PackageDependencies
         {
@@ -237,19 +237,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         }
 
         /// <summary>
-        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         /// </summary>
         [Input("packageFamilyName")]
         public Input<string>? PackageFamilyName { get; set; }
 
         /// <summary>
-        /// Package Name from appxmanifest.xml. 
+        /// Package Name from appxmanifest.xml.
         /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
 
         /// <summary>
-        /// Relative Path to the package inside the image. 
+        /// Relative Path to the package inside the image.
         /// </summary>
         [Input("packageRelativePath")]
         public Input<string>? PackageRelativePath { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

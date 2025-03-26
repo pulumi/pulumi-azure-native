@@ -103,6 +103,8 @@ def get_replication_extension(replication_extension_name: Optional[str] = None,
     Gets the details of the replication extension.
     Azure REST API version: 2021-02-16-preview.
 
+    Other available API versions: 2024-09-01.
+
 
     :param str replication_extension_name: The replication extension name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -128,6 +130,8 @@ def get_replication_extension_output(replication_extension_name: Optional[pulumi
     """
     Gets the details of the replication extension.
     Azure REST API version: 2021-02-16-preview.
+
+    Other available API versions: 2024-09-01.
 
 
     :param str replication_extension_name: The replication extension name.

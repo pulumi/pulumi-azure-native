@@ -413,7 +413,7 @@ class AgentPoolUpgradeSettingsResponse(dict):
         """
         Settings for upgrading an agentpool
         :param int drain_timeout_in_minutes: The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
-        :param str max_surge: This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        :param str max_surge: This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
         :param int node_soak_duration_in_minutes: The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         """
         if drain_timeout_in_minutes is not None:
@@ -435,7 +435,7 @@ class AgentPoolUpgradeSettingsResponse(dict):
     @pulumi.getter(name="maxSurge")
     def max_surge(self) -> Optional[str]:
         """
-        This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
         """
         return pulumi.get(self, "max_surge")
 
@@ -2499,7 +2499,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param Mapping[str, str] tags: The tags to be persisted on the agent pool virtual machine scale set.
         :param str type: The type of Agent Pool.
         :param 'AgentPoolUpgradeSettingsResponse' upgrade_settings: Settings for upgrading the agentpool
-        :param str vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        :param str vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         :param str vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         :param 'AgentPoolWindowsProfileResponse' windows_profile: The Windows agent pool's specific profile.
         :param str workload_runtime: Determines the type of workload a node can run.
@@ -2952,7 +2952,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         """
         return pulumi.get(self, "vm_size")
 

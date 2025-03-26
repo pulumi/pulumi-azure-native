@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// Response containing ADO OAuth information
         /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Task<GetADOOAuthInfoResult> InvokeAsync(GetADOOAuthInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// Response containing ADO OAuth information
         /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetADOOAuthInfoResult> Invoke(GetADOOAuthInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// Response containing ADO OAuth information
         /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetADOOAuthInfoResult> Invoke(GetADOOAuthInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());

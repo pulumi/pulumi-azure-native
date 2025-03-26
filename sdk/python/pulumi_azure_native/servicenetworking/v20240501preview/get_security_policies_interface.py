@@ -124,7 +124,7 @@ class GetSecurityPoliciesInterfaceResult:
     @pulumi.getter(name="wafPolicy")
     def waf_policy(self) -> Optional['outputs.WafPolicyResponse']:
         """
-        Web Application Firewall Policy of the Traffic Controller Security Policy
+        Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         return pulumi.get(self, "waf_policy")
 

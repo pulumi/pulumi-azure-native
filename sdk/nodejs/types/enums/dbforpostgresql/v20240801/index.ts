@@ -94,10 +94,11 @@ export const IdentityType = {
     None: "None",
     UserAssigned: "UserAssigned",
     SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+ * the types of identities associated with this resource
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 

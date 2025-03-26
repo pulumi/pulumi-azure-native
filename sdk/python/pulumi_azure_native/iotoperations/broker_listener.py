@@ -135,7 +135,7 @@ class BrokerListener(pulumi.CustomResource):
         Instance broker resource
         Azure REST API version: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class BrokerListener(pulumi.CustomResource):
         Instance broker resource
         Azure REST API version: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param BrokerListenerArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class BrokerListener(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:BrokerListener")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:BrokerListener")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BrokerListener, __self__).__init__(
             'azure-native:iotoperations:BrokerListener',

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the shared scheduled action from the given scope by name.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
  */
 export function getScheduledActionByScope(args: GetScheduledActionByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionByScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,7 +97,7 @@ export interface GetScheduledActionByScopeResult {
  * Get the shared scheduled action from the given scope by name.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
  */
 export function getScheduledActionByScopeOutput(args: GetScheduledActionByScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledActionByScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

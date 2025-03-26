@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? EncryptedCredential { get; set; }
 
         /// <summary>
-        /// The host name of the Snowflake account.
+        /// The host name of the Snowflake account. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("host")]
         public Input<object>? Host { get; set; }
@@ -110,6 +110,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("privateKeyPassphrase")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? PrivateKeyPassphrase { get; set; }
+
+        /// <summary>
+        /// The default access control role to use in the Snowflake session. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("role")]
+        public Input<object>? Role { get; set; }
+
+        /// <summary>
+        /// Schema name for connection. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.

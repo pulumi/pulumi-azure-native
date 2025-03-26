@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified deployments associated with the Cognitive Services account.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +74,7 @@ export interface GetDeploymentResult {
  * Gets the specified deployments associated with the Cognitive Services account.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * List of elastic traffic filters in the account
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
  */
 export function listlistAssociatedTrafficFilter(args: ListlistAssociatedTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListlistAssociatedTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface ListlistAssociatedTrafficFilterResult {
  * List of elastic traffic filters in the account
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
  */
 export function listlistAssociatedTrafficFilterOutput(args: ListlistAssociatedTrafficFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListlistAssociatedTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

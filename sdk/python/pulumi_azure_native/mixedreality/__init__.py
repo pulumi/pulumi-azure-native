@@ -24,7 +24,10 @@ if typing.TYPE_CHECKING:
     v20210101 = __v20210101
     import pulumi_azure_native.mixedreality.v20210301preview as __v20210301preview
     v20210301preview = __v20210301preview
+    import pulumi_azure_native.mixedreality.v20250101 as __v20250101
+    v20250101 = __v20250101
 else:
     v20210101 = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20210101')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20210301preview')
+    v20250101 = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20250101')
 

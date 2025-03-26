@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.App.V20221001
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ConnectedEnvironmentsDaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ConnectedEnvironmentsDaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ConnectedEnvironmentsDaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsDaprComponent" },
                 },
             };

@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:CustomizableConnectorDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:CustomizableConnectorDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:CustomizableConnectorDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:CustomizableConnectorDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:CustomizableConnectorDefinition" },
                 },
             };

@@ -118,6 +118,8 @@ class Suppression(pulumi.CustomResource):
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
         Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
 
+        Other available API versions: 2023-09-01-preview, 2025-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the suppression.
@@ -135,6 +137,8 @@ class Suppression(pulumi.CustomResource):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
         Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+
+        Other available API versions: 2023-09-01-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +181,7 @@ class Suppression(pulumi.CustomResource):
             __props__.__dict__["expiration_time_stamp"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20220901:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20221001:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230101:Suppression")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20220901:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20221001:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230901preview:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20250101:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
             'azure-native:advisor:Suppression',

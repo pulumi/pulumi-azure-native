@@ -69,6 +69,8 @@ class Variable(pulumi.CustomResource):
         The variable.
         Azure REST API version: 2022-08-01-preview.
 
+        Other available API versions: 2024-12-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]] columns: Variable column definitions.
@@ -83,6 +85,8 @@ class Variable(pulumi.CustomResource):
         """
         The variable.
         Azure REST API version: 2022-08-01-preview.
+
+        Other available API versions: 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.
@@ -117,7 +121,7 @@ class Variable(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20220801preview:Variable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20220801preview:Variable"), pulumi.Alias(type_="azure-native:authorization/v20241201preview:Variable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Variable, __self__).__init__(
             'azure-native:authorization:Variable',

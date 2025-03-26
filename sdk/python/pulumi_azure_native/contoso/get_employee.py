@@ -129,6 +129,8 @@ def get_employee(employee_name: Optional[str] = None,
     Get a Employee
     Azure REST API version: 2021-10-01-preview.
 
+    Other available API versions: 2021-11-01.
+
 
     :param str employee_name: The name of the Employee
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -153,6 +155,8 @@ def get_employee_output(employee_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Employee
     Azure REST API version: 2021-10-01-preview.
+
+    Other available API versions: 2021-11-01.
 
 
     :param str employee_name: The name of the Employee

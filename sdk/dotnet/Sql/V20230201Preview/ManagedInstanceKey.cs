@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ManagedInstanceKey" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceKey" },

@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.App.V20240202Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ContainerAppsSessionPool" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ContainerAppsSessionPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ContainerAppsSessionPool" },
                     new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsSessionPool" },
                 },
             };

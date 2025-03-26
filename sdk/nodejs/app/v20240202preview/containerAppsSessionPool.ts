@@ -153,7 +153,7 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240802preview:ContainerAppsSessionPool" }, { type: "azure-native:app/v20241002preview:ContainerAppsSessionPool" }, { type: "azure-native:app:ContainerAppsSessionPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240802preview:ContainerAppsSessionPool" }, { type: "azure-native:app/v20241002preview:ContainerAppsSessionPool" }, { type: "azure-native:app/v20250101:ContainerAppsSessionPool" }, { type: "azure-native:app:ContainerAppsSessionPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerAppsSessionPool.__pulumiType, name, resourceInputs, opts);
     }

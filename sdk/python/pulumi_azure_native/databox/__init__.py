@@ -24,10 +24,13 @@ if typing.TYPE_CHECKING:
     v20240201preview = __v20240201preview
     import pulumi_azure_native.databox.v20240301preview as __v20240301preview
     v20240301preview = __v20240301preview
+    import pulumi_azure_native.databox.v20250201 as __v20250201
+    v20250201 = __v20250201
 else:
     v20221201 = _utilities.lazy_import('pulumi_azure_native.databox.v20221201')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.databox.v20230301')
     v20231201 = _utilities.lazy_import('pulumi_azure_native.databox.v20231201')
     v20240201preview = _utilities.lazy_import('pulumi_azure_native.databox.v20240201preview')
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.databox.v20240301preview')
+    v20250201 = _utilities.lazy_import('pulumi_azure_native.databox.v20250201')
 

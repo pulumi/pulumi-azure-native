@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.Databricks.V20240901Preview
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230501:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks:AccessConnector" },
                 },
             };

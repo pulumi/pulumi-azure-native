@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense.V20230208Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20240110:Firmware" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20250401preview:Firmware" },
                     new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense:Firmware" },
                 },
             };

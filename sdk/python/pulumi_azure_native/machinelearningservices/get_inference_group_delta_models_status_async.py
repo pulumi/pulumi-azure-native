@@ -109,6 +109,8 @@ def get_inference_group_delta_models_status_async(delta_models: Optional[Sequenc
     Contract returning to user the delta models.
     Azure REST API version: 2024-10-01-preview.
 
+    Other available API versions: 2025-01-01-preview.
+
 
     :param Sequence[str] delta_models: Gets or sets collection of delta models to retrieve status for.
     :param str group_name: InferenceGroup name.
@@ -143,6 +145,8 @@ def get_inference_group_delta_models_status_async_output(delta_models: Optional[
     """
     Contract returning to user the delta models.
     Azure REST API version: 2024-10-01-preview.
+
+    Other available API versions: 2025-01-01-preview.
 
 
     :param Sequence[str] delta_models: Gets or sets collection of delta models to retrieve status for.

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Instance broker authorizations resource
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
  */
 export class BrokerAuthorization extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class BrokerAuthorization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20240915preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20240915preview:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20241101:BrokerAuthorization" }, { type: "azure-native:iotoperations/v20250401:BrokerAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BrokerAuthorization.__pulumiType, name, resourceInputs, opts);
     }

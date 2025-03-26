@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get baseboard management controller key set of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
         /// </summary>
         public static Task<GetBmcKeySetResult> InvokeAsync(GetBmcKeySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBmcKeySetResult>("azure-native:networkcloud:getBmcKeySet", args ?? new GetBmcKeySetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get baseboard management controller key set of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
         /// </summary>
         public static Output<GetBmcKeySetResult> Invoke(GetBmcKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBmcKeySetResult>("azure-native:networkcloud:getBmcKeySet", args ?? new GetBmcKeySetInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get baseboard management controller key set of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
         /// </summary>
         public static Output<GetBmcKeySetResult> Invoke(GetBmcKeySetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBmcKeySetResult>("azure-native:networkcloud:getBmcKeySet", args ?? new GetBmcKeySetInvokeArgs(), options.WithDefaults());

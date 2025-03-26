@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Authorization.V20250101
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicyDefinitionVersionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240501:PolicyDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20250301:PolicyDefinitionVersionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization:PolicyDefinitionVersionAtManagementGroup" },
                 },
             };

@@ -19,12 +19,12 @@ from ._enums import *
 __all__ = [
     'AgentUpdatePropertiesResponse',
     'AppAttachPackageInfoPropertiesResponse',
-    'AppAttachPackagePropertiesResponse',
     'MaintenanceWindowPropertiesResponse',
     'ManagedServiceIdentityResponse',
     'MsixPackageApplicationsResponse',
     'MsixPackageDependenciesResponse',
     'PlanResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -187,22 +187,22 @@ class AppAttachPackageInfoPropertiesResponse(dict):
                  version: Optional[str] = None):
         """
         Schema for Import Package Information properties.
-        :param str certificate_expiry: Date certificate expires, found in the appxmanifest.xml. 
-        :param str certificate_name: Certificate name found in the appxmanifest.xml. 
-        :param str display_name: User friendly Name to be displayed in the portal. 
-        :param str image_path: VHD/CIM/APP-V image path on Network Share.
-        :param bool is_active: Make this version of the package the active one across the hostpool. 
+        :param str certificate_expiry: Date certificate expires, found in the appxmanifest.xml.
+        :param str certificate_name: Certificate name found in the appxmanifest.xml.
+        :param str display_name: User friendly Name to be displayed in the portal.
+        :param str image_path: VHD/CIM image path on Network Share.
+        :param bool is_active: Make this version of the package the active one across the hostpool.
         :param str is_package_timestamped: Is package timestamped so it can ignore the certificate expiry date
         :param bool is_regular_registration: Specifies how to register Package in feed.
-        :param str last_updated: Date the package source was last updated, for Msix packages this is found in the appxmanifest.xml. 
+        :param str last_updated: Date Package was last updated, found in the appxmanifest.xml.
         :param str package_alias: Alias of App Attach Package. Assigned at import time
-        :param Sequence['MsixPackageApplicationsResponse'] package_applications: List of package applications. 
-        :param Sequence['MsixPackageDependenciesResponse'] package_dependencies: List of package dependencies. 
-        :param str package_family_name: Identifier not including the package version, for Msix packages it is the family name from the appxmanifest.xml. 
-        :param str package_full_name: Identifier including the package version, for Msix packages it is the full name from the appxmanifest.xml. 
-        :param str package_name: Package Name from appxmanifest.xml. 
-        :param str package_relative_path: Relative Path to the package inside the image. 
-        :param str version: Package Version found in the appxmanifest.xml. 
+        :param Sequence['MsixPackageApplicationsResponse'] package_applications: List of package applications.
+        :param Sequence['MsixPackageDependenciesResponse'] package_dependencies: List of package dependencies.
+        :param str package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
+        :param str package_full_name: Package Full Name from appxmanifest.xml.
+        :param str package_name: Package Name from appxmanifest.xml.
+        :param str package_relative_path: Relative Path to the package inside the image.
+        :param str version: Package version found in the appxmanifest.xml.
         """
         if certificate_expiry is not None:
             pulumi.set(__self__, "certificate_expiry", certificate_expiry)
@@ -241,7 +241,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="certificateExpiry")
     def certificate_expiry(self) -> Optional[str]:
         """
-        Date certificate expires, found in the appxmanifest.xml. 
+        Date certificate expires, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_expiry")
 
@@ -249,7 +249,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[str]:
         """
-        Certificate name found in the appxmanifest.xml. 
+        Certificate name found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -257,7 +257,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         return pulumi.get(self, "display_name")
 
@@ -265,7 +265,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="imagePath")
     def image_path(self) -> Optional[str]:
         """
-        VHD/CIM/APP-V image path on Network Share.
+        VHD/CIM image path on Network Share.
         """
         return pulumi.get(self, "image_path")
 
@@ -273,7 +273,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         return pulumi.get(self, "is_active")
 
@@ -297,7 +297,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[str]:
         """
-        Date the package source was last updated, for Msix packages this is found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "last_updated")
 
@@ -313,7 +313,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageApplications")
     def package_applications(self) -> Optional[Sequence['outputs.MsixPackageApplicationsResponse']]:
         """
-        List of package applications. 
+        List of package applications.
         """
         return pulumi.get(self, "package_applications")
 
@@ -321,7 +321,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageDependencies")
     def package_dependencies(self) -> Optional[Sequence['outputs.MsixPackageDependenciesResponse']]:
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         return pulumi.get(self, "package_dependencies")
 
@@ -329,7 +329,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageFamilyName")
     def package_family_name(self) -> Optional[str]:
         """
-        Identifier not including the package version, for Msix packages it is the family name from the appxmanifest.xml. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         return pulumi.get(self, "package_family_name")
 
@@ -337,7 +337,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageFullName")
     def package_full_name(self) -> Optional[str]:
         """
-        Identifier including the package version, for Msix packages it is the full name from the appxmanifest.xml. 
+        Package Full Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_full_name")
 
@@ -345,7 +345,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[str]:
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_name")
 
@@ -353,7 +353,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter(name="packageRelativePath")
     def package_relative_path(self) -> Optional[str]:
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         return pulumi.get(self, "package_relative_path")
 
@@ -361,144 +361,9 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class AppAttachPackagePropertiesResponse(dict):
-    """
-    Schema for App Attach Package properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "customData":
-            suggest = "custom_data"
-        elif key == "failHealthCheckOnStagingFailure":
-            suggest = "fail_health_check_on_staging_failure"
-        elif key == "hostPoolReferences":
-            suggest = "host_pool_references"
-        elif key == "keyVaultURL":
-            suggest = "key_vault_url"
-        elif key == "packageLookbackUrl":
-            suggest = "package_lookback_url"
-        elif key == "packageOwnerName":
-            suggest = "package_owner_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AppAttachPackagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AppAttachPackagePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AppAttachPackagePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 custom_data: Optional[str] = None,
-                 fail_health_check_on_staging_failure: Optional[str] = None,
-                 host_pool_references: Optional[Sequence[str]] = None,
-                 image: Optional['outputs.AppAttachPackageInfoPropertiesResponse'] = None,
-                 key_vault_url: Optional[str] = None,
-                 package_lookback_url: Optional[str] = None,
-                 package_owner_name: Optional[str] = None):
-        """
-        Schema for App Attach Package properties.
-        :param str provisioning_state: The provisioning state of the App Attach Package.
-        :param str custom_data: Field that can be populated with custom data and filtered on in list GET calls
-        :param str fail_health_check_on_staging_failure: Parameter indicating how the health check should behave if this package fails staging
-        :param Sequence[str] host_pool_references: List of Hostpool resource Ids.
-        :param 'AppAttachPackageInfoPropertiesResponse' image: Detailed properties for App Attach Package
-        :param str key_vault_url: URL of keyvault location to store certificate
-        :param str package_lookback_url: Lookback url to third party control plane, is null for native app attach packages
-        :param str package_owner_name: Specific name of package owner, is "AppAttach" for native app attach packages
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
-        if fail_health_check_on_staging_failure is not None:
-            pulumi.set(__self__, "fail_health_check_on_staging_failure", fail_health_check_on_staging_failure)
-        if host_pool_references is not None:
-            pulumi.set(__self__, "host_pool_references", host_pool_references)
-        if image is not None:
-            pulumi.set(__self__, "image", image)
-        if key_vault_url is not None:
-            pulumi.set(__self__, "key_vault_url", key_vault_url)
-        if package_lookback_url is not None:
-            pulumi.set(__self__, "package_lookback_url", package_lookback_url)
-        if package_owner_name is not None:
-            pulumi.set(__self__, "package_owner_name", package_owner_name)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the App Attach Package.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[str]:
-        """
-        Field that can be populated with custom data and filtered on in list GET calls
-        """
-        return pulumi.get(self, "custom_data")
-
-    @property
-    @pulumi.getter(name="failHealthCheckOnStagingFailure")
-    def fail_health_check_on_staging_failure(self) -> Optional[str]:
-        """
-        Parameter indicating how the health check should behave if this package fails staging
-        """
-        return pulumi.get(self, "fail_health_check_on_staging_failure")
-
-    @property
-    @pulumi.getter(name="hostPoolReferences")
-    def host_pool_references(self) -> Optional[Sequence[str]]:
-        """
-        List of Hostpool resource Ids.
-        """
-        return pulumi.get(self, "host_pool_references")
-
-    @property
-    @pulumi.getter
-    def image(self) -> Optional['outputs.AppAttachPackageInfoPropertiesResponse']:
-        """
-        Detailed properties for App Attach Package
-        """
-        return pulumi.get(self, "image")
-
-    @property
-    @pulumi.getter(name="keyVaultURL")
-    def key_vault_url(self) -> Optional[str]:
-        """
-        URL of keyvault location to store certificate
-        """
-        return pulumi.get(self, "key_vault_url")
-
-    @property
-    @pulumi.getter(name="packageLookbackUrl")
-    def package_lookback_url(self) -> Optional[str]:
-        """
-        Lookback url to third party control plane, is null for native app attach packages
-        """
-        return pulumi.get(self, "package_lookback_url")
-
-    @property
-    @pulumi.getter(name="packageOwnerName")
-    def package_owner_name(self) -> Optional[str]:
-        """
-        Specific name of package owner, is "AppAttach" for native app attach packages
-        """
-        return pulumi.get(self, "package_owner_name")
 
 
 @pulumi.output_type
@@ -782,7 +647,7 @@ class MsixPackageDependenciesResponse(dict):
                  publisher: Optional[str] = None):
         """
         Schema for MSIX Package Dependencies properties.
-        :param str dependency_name: Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        :param str dependency_name: Name of package dependency.
         :param str min_version: Dependency version required.
         :param str publisher: Name of dependency publisher.
         """
@@ -797,7 +662,7 @@ class MsixPackageDependenciesResponse(dict):
     @pulumi.getter(name="dependencyName")
     def dependency_name(self) -> Optional[str]:
         """
-        Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        Name of package dependency.
         """
         return pulumi.get(self, "dependency_name")
 
@@ -904,9 +769,9 @@ class PlanResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
+class PrivateEndpointConnectionPropertiesResponse(dict):
     """
-    The private endpoint connection resource.
+    Properties of the private endpoint connection.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -917,49 +782,35 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  group_ids: Sequence[str],
-                 id: str,
-                 name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
-                 system_data: 'outputs.SystemDataResponse',
-                 type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
-        The private endpoint connection resource.
+        Properties of the private endpoint connection.
         :param Sequence[str] group_ids: The group ids for the private endpoint resource.
-        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-        :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         """
         pulumi.set(__self__, "group_ids", group_ids)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
 
@@ -970,22 +821,6 @@ class PrivateEndpointConnectionResponse(dict):
         The group ids for the private endpoint resource.
         """
         return pulumi.get(self, "group_ids")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -1004,6 +839,74 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
+        """
+        The private endpoint connection resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Resource properties.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -1020,12 +923,12 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
-        The private endpoint resource.
+        Resource properties.
         """
-        return pulumi.get(self, "private_endpoint")
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -1117,7 +1020,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 @pulumi.output_type
 class RegistrationInfoResponse(dict):
     """
-    Represents a RegistrationInfo definition.  This is not returned on HostPool GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+    Represents a RegistrationInfo definition.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1143,7 +1046,7 @@ class RegistrationInfoResponse(dict):
                  registration_token_operation: Optional[str] = None,
                  token: Optional[str] = None):
         """
-        Represents a RegistrationInfo definition.  This is not returned on HostPool GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        Represents a RegistrationInfo definition.
         :param str expiration_time: Expiration time of registration token.
         :param str registration_token_operation: The type of resetting the token.
         :param str token: The registration token base64 encoded string.

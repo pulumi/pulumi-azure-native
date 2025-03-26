@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Authorization.V20240501
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20250101:PolicyDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20250301:PolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization:PolicyDefinition" },
                 },
             };

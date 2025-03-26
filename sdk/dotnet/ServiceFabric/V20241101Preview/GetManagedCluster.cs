@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly bool? EnableServicePublicIP;
         /// <summary>
-        /// Azure resource etag.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.",
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly int? HttpGatewayTokenAuthConnectionPort;
         /// <summary>
-        /// Azure resource identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -208,11 +208,11 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
         /// <summary>
-        /// Azure resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -244,15 +244,15 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -43,7 +43,7 @@ class MetricAlertArgs:
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -131,7 +131,7 @@ class MetricAlertArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        the list of resource id's that this metric alert is scoped to.
+        the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         """
         return pulumi.get(self, "scopes")
 
@@ -295,7 +295,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
@@ -510,7 +510,7 @@ class MetricAlert(pulumi.CustomResource):
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
-        the list of resource id's that this metric alert is scoped to.
+        the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         """
         return pulumi.get(self, "scopes")
 

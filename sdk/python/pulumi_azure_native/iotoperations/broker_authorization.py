@@ -135,7 +135,7 @@ class BrokerAuthorization(pulumi.CustomResource):
         Instance broker authorizations resource
         Azure REST API version: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class BrokerAuthorization(pulumi.CustomResource):
         Instance broker authorizations resource
         Azure REST API version: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param BrokerAuthorizationArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class BrokerAuthorization(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:BrokerAuthorization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:BrokerAuthorization"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:BrokerAuthorization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BrokerAuthorization, __self__).__init__(
             'azure-native:iotoperations:BrokerAuthorization',

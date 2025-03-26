@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Contoso.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:contoso/v20211101:Employee" },
                     new global::Pulumi.Alias { Type = "azure-native:contoso:Employee" },
                 },
             };

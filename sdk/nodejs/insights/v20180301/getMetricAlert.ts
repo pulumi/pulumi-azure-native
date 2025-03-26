@@ -78,7 +78,7 @@ export interface GetMetricAlertResult {
      */
     readonly name: string;
     /**
-     * the list of resource id's that this metric alert is scoped to.
+     * the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
      */
     readonly scopes: string[];
     /**

@@ -70,7 +70,7 @@ if not MYPY:
         """
         waf_security_policy: NotRequired[pulumi.Input['WafSecurityPolicyArgsDict']]
         """
-        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        Contains reference to a WAF-type security policy.
         """
 elif False:
     SecurityPolicyConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
@@ -81,7 +81,7 @@ class SecurityPolicyConfigurationsArgs:
                  waf_security_policy: Optional[pulumi.Input['WafSecurityPolicyArgs']] = None):
         """
         SecurityPolicyConfigurations Subresource of Traffic Controller.
-        :param pulumi.Input['WafSecurityPolicyArgs'] waf_security_policy: Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        :param pulumi.Input['WafSecurityPolicyArgs'] waf_security_policy: Contains reference to a WAF-type security policy.
         """
         if waf_security_policy is not None:
             pulumi.set(__self__, "waf_security_policy", waf_security_policy)
@@ -90,7 +90,7 @@ class SecurityPolicyConfigurationsArgs:
     @pulumi.getter(name="wafSecurityPolicy")
     def waf_security_policy(self) -> Optional[pulumi.Input['WafSecurityPolicyArgs']]:
         """
-        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        Contains reference to a WAF-type security policy.
         """
         return pulumi.get(self, "waf_security_policy")
 

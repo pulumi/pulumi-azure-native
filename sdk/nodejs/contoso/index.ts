@@ -18,9 +18,11 @@ utilities.lazyLoad(exports, ["getEmployee","getEmployeeOutput"], () => require("
 
 // Export sub-modules:
 import * as v20211001preview from "./v20211001preview";
+import * as v20211101 from "./v20211101";
 
 export {
     v20211001preview,
+    v20211101,
 };
 
 const _module = {

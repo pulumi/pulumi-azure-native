@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
 {
 
+    /// <summary>
+    /// User assigned identity for the application.
+    /// </summary>
     public sealed class ApplicationUserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

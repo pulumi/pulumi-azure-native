@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The policy set definition.
  * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
  */
 export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20230401:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20250101:PolicySetDefinitionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20230401:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20250101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20250301:PolicySetDefinitionAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinitionAtManagementGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -34,7 +34,7 @@ class SecurityPoliciesInterfaceArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] security_policy_name: SecurityPolicy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input['WafPolicyArgs'] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy
+        :param pulumi.Input['WafPolicyArgs'] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
@@ -111,7 +111,7 @@ class SecurityPoliciesInterfaceArgs:
     @pulumi.getter(name="wafPolicy")
     def waf_policy(self) -> Optional[pulumi.Input['WafPolicyArgs']]:
         """
-        Web Application Firewall Policy of the Traffic Controller Security Policy
+        Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         return pulumi.get(self, "waf_policy")
 
@@ -142,7 +142,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
         :param pulumi.Input[str] security_policy_name: SecurityPolicy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
-        :param pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy
+        :param pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         ...
     @overload
@@ -198,7 +198,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface"), pulumi.Alias(type_="azure-native:servicenetworking:SecurityPoliciesInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20250301preview:SecurityPoliciesInterface"), pulumi.Alias(type_="azure-native:servicenetworking:SecurityPoliciesInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityPoliciesInterface, __self__).__init__(
             'azure-native:servicenetworking/v20250101:SecurityPoliciesInterface',
@@ -292,7 +292,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
     @pulumi.getter(name="wafPolicy")
     def waf_policy(self) -> pulumi.Output[Optional['outputs.WafPolicyResponse']]:
         """
-        Web Application Firewall Policy of the Traffic Controller Security Policy
+        Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         return pulumi.get(self, "waf_policy")
 

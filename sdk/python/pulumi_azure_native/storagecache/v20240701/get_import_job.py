@@ -114,7 +114,7 @@ class GetImportJobResult:
     @pulumi.getter(name="adminStatus")
     def admin_status(self) -> Optional[str]:
         """
-        The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         """
         return pulumi.get(self, "admin_status")
 

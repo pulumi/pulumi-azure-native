@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
         private InputList<Inputs.SubResourceArgs>? _loadBalancerBackendAddressPools;
 
         /// <summary>
-        /// Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        /// Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         /// </summary>
         public InputList<Inputs.SubResourceArgs> LoadBalancerBackendAddressPools
         {
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
         /// The public IP address configuration of the network interface.
         /// </summary>
         [Input("publicIPAddressConfiguration")]
-        public Input<Inputs.IpConfigurationPublicIPAddressConfigurationArgs>? PublicIPAddressConfiguration { get; set; }
+        public Input<Inputs.PublicIPAddressConfigurationArgs>? PublicIPAddressConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the subnet of the network interface.

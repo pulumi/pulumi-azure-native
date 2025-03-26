@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents a catalog.
     /// Azure REST API version: 2024-02-01.
     /// 
-    /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectCatalog")]
     public partial class ProjectCatalog : global::Pulumi.CustomResource
@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:ProjectCatalog" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectCatalog" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

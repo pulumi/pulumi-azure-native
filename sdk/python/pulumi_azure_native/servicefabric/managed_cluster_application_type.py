@@ -118,7 +118,7 @@ class ManagedClusterApplicationType(pulumi.CustomResource):
         The application type name resource
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class ManagedClusterApplicationType(pulumi.CustomResource):
         The application type name resource
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterApplicationTypeArgs args: The arguments to use to populate this resource's properties.

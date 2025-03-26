@@ -279,7 +279,7 @@ def get_iac_profile(iac_profile_name: Optional[str] = None,
     Resource representation of a IacProfile.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-08-01-preview.
+    Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
 
 
     :param str iac_profile_name: The name of the IacProfile.
@@ -319,7 +319,7 @@ def get_iac_profile_output(iac_profile_name: Optional[pulumi.Input[str]] = None,
     Resource representation of a IacProfile.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-08-01-preview.
+    Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
 
 
     :param str iac_profile_name: The name of the IacProfile.

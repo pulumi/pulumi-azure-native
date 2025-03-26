@@ -101,6 +101,8 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["user"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20250401:AccessPolicyAssignment" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }

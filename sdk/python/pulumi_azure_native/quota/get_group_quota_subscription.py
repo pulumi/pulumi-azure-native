@@ -102,7 +102,7 @@ def get_group_quota_subscription(group_quota_name: Optional[str] = None,
     Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -127,7 +127,7 @@ def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[
     Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.

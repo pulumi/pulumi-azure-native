@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:SavedSearch" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:SavedSearch" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:SavedSearch" },
                 },
             };

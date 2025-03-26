@@ -61,10 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
         /// The port for the connection. Type: integer. Only used for V2.
         /// </summary>
         public readonly object? Port;
@@ -114,8 +110,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
             object? port,
 
             Outputs.AzureKeyVaultSecretReferenceResponse? pwd,
@@ -139,7 +133,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             EncryptedCredential = encryptedCredential;
             Host = host;
             Parameters = parameters;
-            Password = password;
             Port = port;
             Pwd = pwd;
             SslMode = sslMode;

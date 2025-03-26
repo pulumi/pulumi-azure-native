@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Storage.V20240101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         /// </summary>
         [Output("policy")]
         public Output<Outputs.ManagementPolicySchemaResponse> Policy { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Storage.V20240101
         public Input<string>? ManagementPolicyName { get; set; }
 
         /// <summary>
-        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.ManagementPolicySchemaArgs> Policy { get; set; } = null!;

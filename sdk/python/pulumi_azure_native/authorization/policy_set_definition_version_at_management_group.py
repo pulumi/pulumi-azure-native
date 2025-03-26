@@ -221,7 +221,7 @@ class PolicySetDefinitionVersionAtManagementGroup(pulumi.CustomResource):
         The policy set definition version.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2024-05-01, 2025-01-01.
+        Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,7 +247,7 @@ class PolicySetDefinitionVersionAtManagementGroup(pulumi.CustomResource):
         The policy set definition version.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2024-05-01, 2025-01-01.
+        Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param PolicySetDefinitionVersionAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
@@ -304,7 +304,7 @@ class PolicySetDefinitionVersionAtManagementGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20250101:PolicySetDefinitionVersionAtManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20250101:PolicySetDefinitionVersionAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20250301:PolicySetDefinitionVersionAtManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicySetDefinitionVersionAtManagementGroup, __self__).__init__(
             'azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup',

@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DataMaskingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DataMaskingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:DataMaskingPolicy" },
                 },

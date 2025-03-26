@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20250101.Outputs
     public sealed class SecurityPolicyConfigurationsResponse
     {
         /// <summary>
-        /// Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        /// Contains reference to a WAF-type security policy.
         /// </summary>
         public readonly Outputs.WafSecurityPolicyResponse? WafSecurityPolicy;
 

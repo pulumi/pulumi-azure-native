@@ -8,7 +8,13 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Retrieve a Spatial Anchors Account.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  Retrieve a Spatial Anchors Account.
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +93,13 @@ export interface GetSpatialAnchorsAccountResult {
     readonly type: string;
 }
 /**
- * Retrieve a Spatial Anchors Account.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  Retrieve a Spatial Anchors Account.
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

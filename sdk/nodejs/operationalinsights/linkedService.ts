@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The top level Linked service resource container.
  * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
  *
- * Other available API versions: 2015-11-01-preview, 2023-09-01.
+ * Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
  */
 export class LinkedService extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["writeAccessResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-native:operationalinsights/v20230901:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-native:operationalinsights/v20230901:LinkedService" }, { type: "azure-native:operationalinsights/v20250201:LinkedService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }

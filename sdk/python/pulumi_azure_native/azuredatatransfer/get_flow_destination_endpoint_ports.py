@@ -57,6 +57,8 @@ def get_flow_destination_endpoint_ports(connection_name: Optional[str] = None,
     Get the destination endpoint ports for the specified flow and stream ID.
     Azure REST API version: 2024-09-27.
 
+    Other available API versions: 2025-03-01-preview.
+
 
     :param str connection_name: The name for the connection that is to be requested.
     :param str flow_name: The name for the flow that is to be onboarded.
@@ -78,6 +80,8 @@ def get_flow_destination_endpoint_ports_output(connection_name: Optional[pulumi.
     """
     Get the destination endpoint ports for the specified flow and stream ID.
     Azure REST API version: 2024-09-27.
+
+    Other available API versions: 2025-03-01-preview.
 
 
     :param str connection_name: The name for the connection that is to be requested.

@@ -234,7 +234,7 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
     Get the properties of the provided cluster manager.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
 
 
     :param str cluster_manager_name: The name of the cluster manager.
@@ -270,7 +270,7 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     Get the properties of the provided cluster manager.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
 
 
     :param str cluster_manager_name: The name of the cluster manager.

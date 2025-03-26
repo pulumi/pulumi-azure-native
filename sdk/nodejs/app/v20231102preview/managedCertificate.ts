@@ -97,7 +97,7 @@ export class ManagedCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:ManagedCertificate" }, { type: "azure-native:app/v20230401preview:ManagedCertificate" }, { type: "azure-native:app/v20230501:ManagedCertificate" }, { type: "azure-native:app/v20230502preview:ManagedCertificate" }, { type: "azure-native:app/v20230801preview:ManagedCertificate" }, { type: "azure-native:app/v20240202preview:ManagedCertificate" }, { type: "azure-native:app/v20240301:ManagedCertificate" }, { type: "azure-native:app/v20240802preview:ManagedCertificate" }, { type: "azure-native:app/v20241002preview:ManagedCertificate" }, { type: "azure-native:app:ManagedCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:ManagedCertificate" }, { type: "azure-native:app/v20230401preview:ManagedCertificate" }, { type: "azure-native:app/v20230501:ManagedCertificate" }, { type: "azure-native:app/v20230502preview:ManagedCertificate" }, { type: "azure-native:app/v20230801preview:ManagedCertificate" }, { type: "azure-native:app/v20240202preview:ManagedCertificate" }, { type: "azure-native:app/v20240301:ManagedCertificate" }, { type: "azure-native:app/v20240802preview:ManagedCertificate" }, { type: "azure-native:app/v20241002preview:ManagedCertificate" }, { type: "azure-native:app/v20250101:ManagedCertificate" }, { type: "azure-native:app:ManagedCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCertificate.__pulumiType, name, resourceInputs, opts);
     }

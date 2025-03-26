@@ -87,7 +87,7 @@ class GroupQuota(pulumi.CustomResource):
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +105,7 @@ class GroupQuota(pulumi.CustomResource):
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param GroupQuotaArgs args: The arguments to use to populate this resource's properties.
@@ -142,7 +142,7 @@ class GroupQuota(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuota")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuota"), pulumi.Alias(type_="azure-native:quota/v20250315preview:GroupQuota")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupQuota, __self__).__init__(
             'azure-native:quota:GroupQuota',

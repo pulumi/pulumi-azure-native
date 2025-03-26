@@ -123,7 +123,7 @@ export class LogicalNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240501preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240715preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240801preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20241001preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250201preview:LogicalNetwork" }, { type: "azure-native:azurestackhci:LogicalNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240501preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240715preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240801preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20241001preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250201preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20250401preview:LogicalNetwork" }, { type: "azure-native:azurestackhci:LogicalNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogicalNetwork.__pulumiType, name, resourceInputs, opts);
     }

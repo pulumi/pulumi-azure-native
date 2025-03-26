@@ -139,11 +139,11 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionByHostPoolResult:
     """
-    Get a private endpoint connection.
+    Get a PrivateEndpointConnectionWithSystemData
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
-    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+    :param str private_endpoint_connection_name: The name parameter for private endpoint
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -167,11 +167,11 @@ def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
     """
-    Get a private endpoint connection.
+    Get a PrivateEndpointConnectionWithSystemData
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
-    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+    :param str private_endpoint_connection_name: The name parameter for private endpoint
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

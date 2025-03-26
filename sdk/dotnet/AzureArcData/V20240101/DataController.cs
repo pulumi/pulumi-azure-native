@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:DataController" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:DataController" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:DataController" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata:DataController" },
                 },
             };

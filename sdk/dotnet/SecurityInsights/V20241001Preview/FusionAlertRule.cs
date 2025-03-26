@@ -179,6 +179,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:FusionAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:FusionAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:FusionAlertRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:FusionAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:FusionAlertRule" },
                 },
             };

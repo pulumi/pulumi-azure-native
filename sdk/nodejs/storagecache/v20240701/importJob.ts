@@ -38,7 +38,7 @@ export class ImportJob extends pulumi.CustomResource {
     }
 
     /**
-     * The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+     * The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
      */
     public readonly adminStatus!: pulumi.Output<string | undefined>;
     /**
@@ -228,7 +228,7 @@ export class ImportJob extends pulumi.CustomResource {
  */
 export interface ImportJobArgs {
     /**
-     * The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+     * The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
      */
     adminStatus?: pulumi.Input<string | enums.storagecache.v20240701.ImportJobAdminStatus>;
     /**

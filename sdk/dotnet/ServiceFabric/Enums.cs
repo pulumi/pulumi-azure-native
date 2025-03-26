@@ -467,7 +467,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
-    /// Specifies how the service is partitioned.
+    /// Enumerates the ways that a service can be partitioned.
     /// </summary>
     [EnumType]
     public readonly struct PartitionScheme : IEquatable<PartitionScheme>
@@ -908,7 +908,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
-    /// Specifies the mechanism associated with this scaling policy.
+    /// Enumerates the ways that a service can be partitioned.
     /// </summary>
     [EnumType]
     public readonly struct ServiceScalingMechanismKind : IEquatable<ServiceScalingMechanismKind>
@@ -945,7 +945,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
-    /// Specifies the trigger associated with this scaling policy.
+    /// Enumerates the ways that a service can be partitioned.
     /// </summary>
     [EnumType]
     public readonly struct ServiceScalingTriggerKind : IEquatable<ServiceScalingTriggerKind>

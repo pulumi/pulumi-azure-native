@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:CapacityReservation" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservation" },
                 },
             };

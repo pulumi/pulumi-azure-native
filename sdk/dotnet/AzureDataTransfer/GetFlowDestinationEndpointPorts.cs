@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the destination endpoint ports for the specified flow and stream ID.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Task<GetFlowDestinationEndpointPortsResult> InvokeAsync(GetFlowDestinationEndpointPortsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowDestinationEndpointPortsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpointPorts", args ?? new GetFlowDestinationEndpointPortsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the destination endpoint ports for the specified flow and stream ID.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetFlowDestinationEndpointPortsResult> Invoke(GetFlowDestinationEndpointPortsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointPortsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpointPorts", args ?? new GetFlowDestinationEndpointPortsInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the destination endpoint ports for the specified flow and stream ID.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetFlowDestinationEndpointPortsResult> Invoke(GetFlowDestinationEndpointPortsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointPortsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpointPorts", args ?? new GetFlowDestinationEndpointPortsInvokeArgs(), options.WithDefaults());

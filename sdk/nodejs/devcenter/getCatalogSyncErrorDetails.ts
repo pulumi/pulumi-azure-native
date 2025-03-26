@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets catalog synchronization error details
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
 export function getCatalogSyncErrorDetails(args: GetCatalogSyncErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogSyncErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +58,7 @@ export interface GetCatalogSyncErrorDetailsResult {
  * Gets catalog synchronization error details
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
 export function getCatalogSyncErrorDetailsOutput(args: GetCatalogSyncErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCatalogSyncErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

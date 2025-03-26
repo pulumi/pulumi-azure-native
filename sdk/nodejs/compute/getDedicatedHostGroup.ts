@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieves information about a dedicated host group.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
  */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,7 +90,7 @@ export interface GetDedicatedHostGroupResult {
  * Retrieves information about a dedicated host group.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
  */
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHostGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

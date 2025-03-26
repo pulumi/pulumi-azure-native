@@ -190,7 +190,7 @@ def get_policy_definition_version_at_management_group(management_group_name: Opt
     This operation retrieves the policy definition version in the given management group with the given name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
 
 
     :param str management_group_name: The name of the management group. The name is case insensitive.
@@ -225,7 +225,7 @@ def get_policy_definition_version_at_management_group_output(management_group_na
     This operation retrieves the policy definition version in the given management group with the given name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
 
 
     :param str management_group_name: The name of the management group. The name is case insensitive.

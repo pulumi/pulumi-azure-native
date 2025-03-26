@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a specific Azure Active Directory only authentication property.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetServerAzureADOnlyAuthenticationResult> InvokeAsync(GetServerAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a specific Azure Active Directory only authentication property.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerAzureADOnlyAuthenticationResult> Invoke(GetServerAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a specific Azure Active Directory only authentication property.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerAzureADOnlyAuthenticationResult> Invoke(GetServerAzureADOnlyAuthenticationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());

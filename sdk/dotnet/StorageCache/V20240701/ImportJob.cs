@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StorageCache.V20240701
     public partial class ImportJob : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        /// The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         /// </summary>
         [Output("adminStatus")]
         public Output<string?> AdminStatus { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.AzureNative.StorageCache.V20240701
     public sealed class ImportJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        /// The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         /// </summary>
         [Input("adminStatus")]
         public InputUnion<string, Pulumi.AzureNative.StorageCache.V20240701.ImportJobAdminStatus>? AdminStatus { get; set; }

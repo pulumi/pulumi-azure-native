@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.Portal.V20221201Preview
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20181001preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20190101preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20200901preview:Dashboard" },
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20250401preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal:Dashboard" },
                 },
             };

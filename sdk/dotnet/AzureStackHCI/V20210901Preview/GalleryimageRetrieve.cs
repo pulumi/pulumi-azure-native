@@ -159,6 +159,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:galleryimageRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:GalleryimageRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:galleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:GalleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:galleryimageRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:GalleryimageRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:galleryimageRetrieve" },
                 },

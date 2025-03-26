@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Container App.
     /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
     /// 
-    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
     /// 
     /// **Note**: the current default Azure API version for this resource, 2022-10-01, has an issue with referencing Key Vault secrets via the `KeyVaultUrl` property. If you encounter the error _"invalid: value or keyVaultUrl and identity should be provided"_ with such a configuration, you can use API version 2023-05-1 instead. In v3 of this provider, we will update the default API version.
     /// </summary>
@@ -173,6 +173,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ContainerApp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

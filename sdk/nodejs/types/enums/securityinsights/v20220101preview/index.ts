@@ -35,8 +35,8 @@ export const SettingKind = {
 export type SettingKind = (typeof SettingKind)[keyof typeof SettingKind];
 
 export const SourceType = {
-    Local_file: "Local file",
-    Remote_storage: "Remote storage",
+    Local: "Local",
+    AzureStorage: "AzureStorage",
 } as const;
 
 /**

@@ -88,7 +88,7 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20230115preview:FailoverGroup" }, { type: "azure-native:azurearcdata/v20240101:FailoverGroup" }, { type: "azure-native:azurearcdata:FailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20230115preview:FailoverGroup" }, { type: "azure-native:azurearcdata/v20240101:FailoverGroup" }, { type: "azure-native:azurearcdata/v20250301preview:FailoverGroup" }, { type: "azure-native:azurearcdata:FailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,19 +27,40 @@ class GetAppAttachPackageResult:
     """
     Schema for App Attach Package properties.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, custom_data=None, fail_health_check_on_staging_failure=None, host_pool_references=None, id=None, image=None, key_vault_url=None, location=None, name=None, package_lookback_url=None, package_owner_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if custom_data and not isinstance(custom_data, str):
+            raise TypeError("Expected argument 'custom_data' to be a str")
+        pulumi.set(__self__, "custom_data", custom_data)
+        if fail_health_check_on_staging_failure and not isinstance(fail_health_check_on_staging_failure, str):
+            raise TypeError("Expected argument 'fail_health_check_on_staging_failure' to be a str")
+        pulumi.set(__self__, "fail_health_check_on_staging_failure", fail_health_check_on_staging_failure)
+        if host_pool_references and not isinstance(host_pool_references, list):
+            raise TypeError("Expected argument 'host_pool_references' to be a list")
+        pulumi.set(__self__, "host_pool_references", host_pool_references)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if image and not isinstance(image, dict):
+            raise TypeError("Expected argument 'image' to be a dict")
+        pulumi.set(__self__, "image", image)
+        if key_vault_url and not isinstance(key_vault_url, str):
+            raise TypeError("Expected argument 'key_vault_url' to be a str")
+        pulumi.set(__self__, "key_vault_url", key_vault_url)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if package_lookback_url and not isinstance(package_lookback_url, str):
+            raise TypeError("Expected argument 'package_lookback_url' to be a str")
+        pulumi.set(__self__, "package_lookback_url", package_lookback_url)
+        if package_owner_name and not isinstance(package_owner_name, str):
+            raise TypeError("Expected argument 'package_owner_name' to be a str")
+        pulumi.set(__self__, "package_owner_name", package_owner_name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -51,12 +72,52 @@ class GetAppAttachPackageResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[str]:
+        """
+        Field that can be populated with custom data and filtered on in list GET calls
+        """
+        return pulumi.get(self, "custom_data")
+
+    @property
+    @pulumi.getter(name="failHealthCheckOnStagingFailure")
+    def fail_health_check_on_staging_failure(self) -> Optional[str]:
+        """
+        Parameter indicating how the health check should behave if this package fails staging
+        """
+        return pulumi.get(self, "fail_health_check_on_staging_failure")
+
+    @property
+    @pulumi.getter(name="hostPoolReferences")
+    def host_pool_references(self) -> Optional[Sequence[str]]:
+        """
+        List of Hostpool resource Ids.
+        """
+        return pulumi.get(self, "host_pool_references")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional['outputs.AppAttachPackageInfoPropertiesResponse']:
+        """
+        Detailed properties for App Attach Package
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="keyVaultURL")
+    def key_vault_url(self) -> Optional[str]:
+        """
+        URL path to certificate name located in keyVault
+        """
+        return pulumi.get(self, "key_vault_url")
 
     @property
     @pulumi.getter
@@ -75,12 +136,28 @@ class GetAppAttachPackageResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.AppAttachPackagePropertiesResponse':
+    @pulumi.getter(name="packageLookbackUrl")
+    def package_lookback_url(self) -> Optional[str]:
         """
-        Detailed properties for App Attach Package
+        Lookback url to third party control plane, is null for native app attach packages
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "package_lookback_url")
+
+    @property
+    @pulumi.getter(name="packageOwnerName")
+    def package_owner_name(self) -> Optional[str]:
+        """
+        Specific name of package owner, is "AppAttach" for native app attach packages
+        """
+        return pulumi.get(self, "package_owner_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the App Attach Package.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="systemData")
@@ -113,10 +190,17 @@ class AwaitableGetAppAttachPackageResult(GetAppAttachPackageResult):
         if False:
             yield self
         return GetAppAttachPackageResult(
+            custom_data=self.custom_data,
+            fail_health_check_on_staging_failure=self.fail_health_check_on_staging_failure,
+            host_pool_references=self.host_pool_references,
             id=self.id,
+            image=self.image,
+            key_vault_url=self.key_vault_url,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            package_lookback_url=self.package_lookback_url,
+            package_owner_name=self.package_owner_name,
+            provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -129,7 +213,7 @@ def get_app_attach_package(app_attach_package_name: Optional[str] = None,
     Get an app attach package.
 
 
-    :param str app_attach_package_name: The name of the App Attach package arm object
+    :param str app_attach_package_name: The name of the App Attach package
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -139,10 +223,17 @@ def get_app_attach_package(app_attach_package_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization/v20240808preview:getAppAttachPackage', __args__, opts=opts, typ=GetAppAttachPackageResult).value
 
     return AwaitableGetAppAttachPackageResult(
+        custom_data=pulumi.get(__ret__, 'custom_data'),
+        fail_health_check_on_staging_failure=pulumi.get(__ret__, 'fail_health_check_on_staging_failure'),
+        host_pool_references=pulumi.get(__ret__, 'host_pool_references'),
         id=pulumi.get(__ret__, 'id'),
+        image=pulumi.get(__ret__, 'image'),
+        key_vault_url=pulumi.get(__ret__, 'key_vault_url'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        properties=pulumi.get(__ret__, 'properties'),
+        package_lookback_url=pulumi.get(__ret__, 'package_lookback_url'),
+        package_owner_name=pulumi.get(__ret__, 'package_owner_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -153,7 +244,7 @@ def get_app_attach_package_output(app_attach_package_name: Optional[pulumi.Input
     Get an app attach package.
 
 
-    :param str app_attach_package_name: The name of the App Attach package arm object
+    :param str app_attach_package_name: The name of the App Attach package
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -162,10 +253,17 @@ def get_app_attach_package_output(app_attach_package_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20240808preview:getAppAttachPackage', __args__, opts=opts, typ=GetAppAttachPackageResult)
     return __ret__.apply(lambda __response__: GetAppAttachPackageResult(
+        custom_data=pulumi.get(__response__, 'custom_data'),
+        fail_health_check_on_staging_failure=pulumi.get(__response__, 'fail_health_check_on_staging_failure'),
+        host_pool_references=pulumi.get(__response__, 'host_pool_references'),
         id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        key_vault_url=pulumi.get(__response__, 'key_vault_url'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
+        package_lookback_url=pulumi.get(__response__, 'package_lookback_url'),
+        package_owner_name=pulumi.get(__response__, 'package_owner_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

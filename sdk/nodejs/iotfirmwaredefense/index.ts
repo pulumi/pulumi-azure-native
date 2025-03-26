@@ -32,10 +32,12 @@ export * from "../types/enums/iotfirmwaredefense";
 // Export sub-modules:
 import * as v20230208preview from "./v20230208preview";
 import * as v20240110 from "./v20240110";
+import * as v20250401preview from "./v20250401preview";
 
 export {
     v20230208preview,
     v20240110,
+    v20250401preview,
 };
 
 const _module = {

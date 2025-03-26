@@ -112,7 +112,7 @@ export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20240501preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql:StartStopManagedInstanceSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230801:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20240501preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql:StartStopManagedInstanceSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StartStopManagedInstanceSchedule.__pulumiType, name, resourceInputs, opts);
     }

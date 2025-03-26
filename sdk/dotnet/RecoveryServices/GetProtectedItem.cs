@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// call the GetItemOperationResult API.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// call the GetItemOperationResult API.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// call the GetItemOperationResult API.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());

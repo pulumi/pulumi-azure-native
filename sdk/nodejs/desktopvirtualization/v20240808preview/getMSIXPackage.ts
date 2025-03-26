@@ -39,7 +39,7 @@ export interface GetMSIXPackageArgs {
  */
 export interface GetMSIXPackageResult {
     /**
-     * User friendly Name to be displayed in the portal. 
+     * User friendly Name to be displayed in the portal.
      */
     readonly displayName?: string;
     /**
@@ -51,7 +51,7 @@ export interface GetMSIXPackageResult {
      */
     readonly imagePath?: string;
     /**
-     * Make this version of the package the active one across the hostpool. 
+     * Make this version of the package the active one across the hostpool.
      */
     readonly isActive?: boolean;
     /**
@@ -59,7 +59,7 @@ export interface GetMSIXPackageResult {
      */
     readonly isRegularRegistration?: boolean;
     /**
-     * Date Package was last updated, found in the appxmanifest.xml. 
+     * Date Package was last updated, found in the appxmanifest.xml.
      */
     readonly lastUpdated?: string;
     /**
@@ -67,23 +67,23 @@ export interface GetMSIXPackageResult {
      */
     readonly name: string;
     /**
-     * List of package applications. 
+     * List of package applications.
      */
     readonly packageApplications?: outputs.desktopvirtualization.v20240808preview.MsixPackageApplicationsResponse[];
     /**
-     * List of package dependencies. 
+     * List of package dependencies.
      */
     readonly packageDependencies?: outputs.desktopvirtualization.v20240808preview.MsixPackageDependenciesResponse[];
     /**
-     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
      */
     readonly packageFamilyName?: string;
     /**
-     * Package Name from appxmanifest.xml. 
+     * Package Name from appxmanifest.xml.
      */
     readonly packageName?: string;
     /**
-     * Relative Path to the package inside the image. 
+     * Relative Path to the package inside the image.
      */
     readonly packageRelativePath?: string;
     /**
@@ -95,7 +95,7 @@ export interface GetMSIXPackageResult {
      */
     readonly type: string;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml.
      */
     readonly version?: string;
 }

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a workspace instance.
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a workspace instance.
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a workspace instance.
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

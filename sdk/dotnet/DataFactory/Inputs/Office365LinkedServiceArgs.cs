@@ -64,6 +64,24 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The service principal credential type for authentication.'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. If not specified, 'ServicePrincipalKey' is in use. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalCredentialType")]
+        public Input<object>? ServicePrincipalCredentialType { get; set; }
+
+        /// <summary>
+        /// Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalEmbeddedCert")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCert { get; set; }
+
+        /// <summary>
+        /// Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalEmbeddedCertPassword")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCertPassword { get; set; }
+
+        /// <summary>
         /// Specify the application's client ID. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalId", required: true)]

@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20190101preview:TenantConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20221201preview:TenantConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20250401preview:TenantConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:portal:TenantConfiguration" },
                 },
             };

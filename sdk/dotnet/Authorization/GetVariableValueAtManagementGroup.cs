@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
         /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-12-01-preview.
         /// </summary>
         public static Task<GetVariableValueAtManagementGroupResult> InvokeAsync(GetVariableValueAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueAtManagementGroupResult>("azure-native:authorization:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
         /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-12-01-preview.
         /// </summary>
         public static Output<GetVariableValueAtManagementGroupResult> Invoke(GetVariableValueAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
         /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-12-01-preview.
         /// </summary>
         public static Output<GetVariableValueAtManagementGroupResult> Invoke(GetVariableValueAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());

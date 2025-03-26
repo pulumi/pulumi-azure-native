@@ -269,6 +269,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:BareMetalMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:BareMetalMachine" },
                 },
             };

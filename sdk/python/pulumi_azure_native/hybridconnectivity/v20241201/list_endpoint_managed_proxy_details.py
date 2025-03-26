@@ -74,7 +74,7 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
 
     :param str endpoint_name: The endpoint name.
     :param str hostname: The target host name.
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str service: The name of the service.
     :param Union[str, 'ServiceName'] service_name: The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     """
@@ -102,7 +102,7 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
 
     :param str endpoint_name: The endpoint name.
     :param str hostname: The target host name.
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str service: The name of the service.
     :param Union[str, 'ServiceName'] service_name: The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     """

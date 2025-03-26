@@ -94,12 +94,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// The port for the connection. Type: integer. Only used for V2.
         /// </summary>
         [Input("port")]

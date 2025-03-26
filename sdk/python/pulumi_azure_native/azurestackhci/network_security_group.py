@@ -121,7 +121,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         NetworkSecurityGroup resource.
         Azure REST API version: 2024-02-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         NetworkSecurityGroup resource.
         Azure REST API version: 2024-02-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityGroupArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +186,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["subnets"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:NetworkSecurityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:azurestackhci/v20250401preview:NetworkSecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityGroup, __self__).__init__(
             'azure-native:azurestackhci:NetworkSecurityGroup',

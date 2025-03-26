@@ -22,28 +22,54 @@ __all__ = ['PublicCloudConnectorArgs', 'PublicCloudConnector']
 @pulumi.input_type
 class PublicCloudConnectorArgs:
     def __init__(__self__, *,
+                 aws_cloud_profile: pulumi.Input['AwsCloudProfileArgs'],
+                 host_type: pulumi.Input[Union[str, 'HostType']],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['PublicCloudConnectorPropertiesArgs']] = None,
                  public_cloud_connector: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PublicCloudConnector resource.
+        :param pulumi.Input['AwsCloudProfileArgs'] aws_cloud_profile: Cloud profile for AWS.
+        :param pulumi.Input[Union[str, 'HostType']] host_type: Host cloud the public cloud connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['PublicCloudConnectorPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[str] public_cloud_connector: Represent public cloud connectors resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
+        pulumi.set(__self__, "host_type", host_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if public_cloud_connector is not None:
             pulumi.set(__self__, "public_cloud_connector", public_cloud_connector)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="awsCloudProfile")
+    def aws_cloud_profile(self) -> pulumi.Input['AwsCloudProfileArgs']:
+        """
+        Cloud profile for AWS.
+        """
+        return pulumi.get(self, "aws_cloud_profile")
+
+    @aws_cloud_profile.setter
+    def aws_cloud_profile(self, value: pulumi.Input['AwsCloudProfileArgs']):
+        pulumi.set(self, "aws_cloud_profile", value)
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> pulumi.Input[Union[str, 'HostType']]:
+        """
+        Host cloud the public cloud connector.
+        """
+        return pulumi.get(self, "host_type")
+
+    @host_type.setter
+    def host_type(self, value: pulumi.Input[Union[str, 'HostType']]):
+        pulumi.set(self, "host_type", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -68,18 +94,6 @@ class PublicCloudConnectorArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PublicCloudConnectorPropertiesArgs']]:
-        """
-        The resource-specific properties for this resource.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PublicCloudConnectorPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="publicCloudConnector")
@@ -111,8 +125,9 @@ class PublicCloudConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_cloud_profile: Optional[pulumi.Input[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']]] = None,
+                 host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['PublicCloudConnectorPropertiesArgs', 'PublicCloudConnectorPropertiesArgsDict']]] = None,
                  public_cloud_connector: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -122,8 +137,9 @@ class PublicCloudConnector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']] aws_cloud_profile: Cloud profile for AWS.
+        :param pulumi.Input[Union[str, 'HostType']] host_type: Host cloud the public cloud connector.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['PublicCloudConnectorPropertiesArgs', 'PublicCloudConnectorPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[str] public_cloud_connector: Represent public cloud connectors resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -152,8 +168,9 @@ class PublicCloudConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_cloud_profile: Optional[pulumi.Input[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']]] = None,
+                 host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['PublicCloudConnectorPropertiesArgs', 'PublicCloudConnectorPropertiesArgsDict']]] = None,
                  public_cloud_connector: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -166,14 +183,21 @@ class PublicCloudConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicCloudConnectorArgs.__new__(PublicCloudConnectorArgs)
 
+            if aws_cloud_profile is None and not opts.urn:
+                raise TypeError("Missing required property 'aws_cloud_profile'")
+            __props__.__dict__["aws_cloud_profile"] = aws_cloud_profile
+            if host_type is None and not opts.urn:
+                raise TypeError("Missing required property 'host_type'")
+            __props__.__dict__["host_type"] = host_type
             __props__.__dict__["location"] = location
-            __props__.__dict__["properties"] = properties
             __props__.__dict__["public_cloud_connector"] = public_cloud_connector
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["connector_primary_identifier"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity:PublicCloudConnector")])
@@ -200,13 +224,40 @@ class PublicCloudConnector(pulumi.CustomResource):
 
         __props__ = PublicCloudConnectorArgs.__new__(PublicCloudConnectorArgs)
 
+        __props__.__dict__["aws_cloud_profile"] = None
+        __props__.__dict__["connector_primary_identifier"] = None
+        __props__.__dict__["host_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PublicCloudConnector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsCloudProfile")
+    def aws_cloud_profile(self) -> pulumi.Output['outputs.AwsCloudProfileResponse']:
+        """
+        Cloud profile for AWS.
+        """
+        return pulumi.get(self, "aws_cloud_profile")
+
+    @property
+    @pulumi.getter(name="connectorPrimaryIdentifier")
+    def connector_primary_identifier(self) -> pulumi.Output[str]:
+        """
+        Connector primary identifier.
+        """
+        return pulumi.get(self, "connector_primary_identifier")
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> pulumi.Output[str]:
+        """
+        Host cloud the public cloud connector.
+        """
+        return pulumi.get(self, "host_type")
 
     @property
     @pulumi.getter
@@ -225,12 +276,12 @@ class PublicCloudConnector(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.PublicCloudConnectorPropertiesResponse']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The resource-specific properties for this resource.
+        The resource provisioning state.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="systemData")

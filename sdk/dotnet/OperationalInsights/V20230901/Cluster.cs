@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster" },
                 },
             };

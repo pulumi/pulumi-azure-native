@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * This operation retrieves a single variable, given its name and the  management group it was created at.
  * Azure REST API version: 2022-08-01-preview.
+ *
+ * Other available API versions: 2024-12-01-preview.
  */
 export function getVariableAtManagementGroup(args: GetVariableAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +60,8 @@ export interface GetVariableAtManagementGroupResult {
 /**
  * This operation retrieves a single variable, given its name and the  management group it was created at.
  * Azure REST API version: 2022-08-01-preview.
+ *
+ * Other available API versions: 2024-12-01-preview.
  */
 export function getVariableAtManagementGroupOutput(args: GetVariableAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

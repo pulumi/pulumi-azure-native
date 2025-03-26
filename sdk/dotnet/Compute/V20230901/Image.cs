@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.Compute.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:Image" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:Image" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:Image" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:Image" },
                     new global::Pulumi.Alias { Type = "azure-native:compute:Image" },
                 },
             };

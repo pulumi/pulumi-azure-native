@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20250101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Office365ProjectDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:Office365ProjectDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Office365ProjectDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:Office365ProjectDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:Office365ProjectDataConnector" },
                 },
             };

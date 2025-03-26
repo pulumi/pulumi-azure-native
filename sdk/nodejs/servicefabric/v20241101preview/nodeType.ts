@@ -126,7 +126,7 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly multiplePlacementGroups!: pulumi.Output<boolean | undefined>;
     /**
-     * Azure resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -174,15 +174,15 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.v20241101preview.SystemDataResponse>;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -230,7 +230,7 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly vmImageVersion!: pulumi.Output<string | undefined>;
     /**
-     * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+     * The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
      */
     public readonly vmInstanceCount!: pulumi.Output<number>;
     /**
@@ -289,7 +289,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
             resourceInputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
             resourceInputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
-            resourceInputs["dataDiskType"] = args ? args.dataDiskType : undefined;
+            resourceInputs["dataDiskType"] = (args ? args.dataDiskType : undefined) ?? "StandardSSD_LRS";
             resourceInputs["dscpConfigurationId"] = args ? args.dscpConfigurationId : undefined;
             resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
             resourceInputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
@@ -520,7 +520,7 @@ export interface NodeTypeArgs {
      */
     placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -548,7 +548,7 @@ export interface NodeTypeArgs {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -596,7 +596,7 @@ export interface NodeTypeArgs {
      */
     vmImageVersion?: pulumi.Input<string>;
     /**
-     * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+     * The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
      */
     vmInstanceCount: pulumi.Input<number>;
     /**

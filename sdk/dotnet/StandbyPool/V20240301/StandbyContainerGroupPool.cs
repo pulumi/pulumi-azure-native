@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.StandbyPool.V20240301
                 {
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20231201preview:StandbyContainerGroupPool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301preview:StandbyContainerGroupPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:standbypool/v20250301:StandbyContainerGroupPool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool:StandbyContainerGroupPool" },
                 },
             };

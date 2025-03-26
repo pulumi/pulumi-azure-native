@@ -154,7 +154,7 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
     Gets the managed instance's Start/Stop schedule.
     Azure REST API version: 2022-11-01-preview.
 
-    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -186,7 +186,7 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
     Gets the managed instance's Start/Stop schedule.
     Azure REST API version: 2022-11-01-preview.
 
-    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.

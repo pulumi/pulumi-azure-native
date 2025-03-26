@@ -212,7 +212,7 @@ class GetHostPoolResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -244,7 +244,7 @@ class GetHostPoolResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -252,7 +252,7 @@ class GetHostPoolResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -332,7 +332,7 @@ class GetHostPoolResult:
     @pulumi.getter
     def plan(self) -> Optional['outputs.PlanResponse']:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -372,7 +372,7 @@ class GetHostPoolResult:
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> Optional['outputs.RegistrationInfoResponse']:
         """
-        The registration info of HostPool. This is not returned on GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        The registration info of HostPool.
         """
         return pulumi.get(self, "registration_info")
 
@@ -396,7 +396,7 @@ class GetHostPoolResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 

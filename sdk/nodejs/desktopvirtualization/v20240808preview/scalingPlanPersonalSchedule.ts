@@ -250,7 +250,7 @@ export class ScalingPlanPersonalSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization:ScalingPlanPersonalSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20241101preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization:ScalingPlanPersonalSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlanPersonalSchedule.__pulumiType, name, resourceInputs, opts);
     }
@@ -263,7 +263,7 @@ export interface ScalingPlanPersonalScheduleArgs {
     /**
      * Set of days of the week on which this schedule is active.
      */
-    daysOfWeek: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.v20240808preview.DayOfWeek>[]>;
+    daysOfWeek: pulumi.Input<pulumi.Input<enums.desktopvirtualization.v20240808preview.DayOfWeek>[]>;
     /**
      * Action to be taken after a user disconnect during the off-peak period.
      */

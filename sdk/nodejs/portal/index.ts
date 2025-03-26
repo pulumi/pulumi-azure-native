@@ -79,12 +79,14 @@ import * as v20181001 from "./v20181001";
 import * as v20190101preview from "./v20190101preview";
 import * as v20200901preview from "./v20200901preview";
 import * as v20221201preview from "./v20221201preview";
+import * as v20250401preview from "./v20250401preview";
 
 export {
     v20181001,
     v20190101preview,
     v20200901preview,
     v20221201preview,
+    v20250401preview,
 };
 
 const _module = {

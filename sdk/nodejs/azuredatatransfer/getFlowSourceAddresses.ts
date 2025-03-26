@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Get the source addresses for the specified flow.
  * Azure REST API version: 2024-09-27.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getFlowSourceAddresses(args: GetFlowSourceAddressesArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceAddressesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +46,8 @@ export interface GetFlowSourceAddressesResult {
 /**
  * Get the source addresses for the specified flow.
  * Azure REST API version: 2024-09-27.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowSourceAddressesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

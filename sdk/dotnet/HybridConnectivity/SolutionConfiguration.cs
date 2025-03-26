@@ -17,16 +17,46 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public partial class SolutionConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The last time resources were inventoried
+        /// </summary>
+        [Output("lastSyncTime")]
+        public Output<string> LastSyncTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource-specific properties for this resource.
+        /// The resource provisioning state.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SolutionConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Solution settings
+        /// </summary>
+        [Output("solutionSettings")]
+        public Output<ImmutableDictionary<string, string>?> SolutionSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the solution
+        /// </summary>
+        [Output("solutionType")]
+        public Output<string> SolutionType { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of solution configurations
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The detailed message of status details
+        /// </summary>
+        [Output("statusDetails")]
+        public Output<string> StatusDetails { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -90,12 +120,6 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public sealed class SolutionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource-specific properties for this resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SolutionConfigurationPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
@@ -106,6 +130,24 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         [Input("solutionConfiguration")]
         public Input<string>? SolutionConfiguration { get; set; }
+
+        [Input("solutionSettings")]
+        private InputMap<string>? _solutionSettings;
+
+        /// <summary>
+        /// Solution settings
+        /// </summary>
+        public InputMap<string> SolutionSettings
+        {
+            get => _solutionSettings ?? (_solutionSettings = new InputMap<string>());
+            set => _solutionSettings = value;
+        }
+
+        /// <summary>
+        /// The type of the solution
+        /// </summary>
+        [Input("solutionType", required: true)]
+        public Input<string> SolutionType { get; set; } = null!;
 
         public SolutionConfigurationArgs()
         {

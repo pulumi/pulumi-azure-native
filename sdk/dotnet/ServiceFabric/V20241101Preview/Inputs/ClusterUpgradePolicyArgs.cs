@@ -50,6 +50,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
 
         public ClusterUpgradePolicyArgs()
         {
+            ForceRestart = false;
         }
         public static new ClusterUpgradePolicyArgs Empty => new ClusterUpgradePolicyArgs();
     }

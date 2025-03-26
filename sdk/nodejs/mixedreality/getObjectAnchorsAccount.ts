@@ -8,7 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve an Object Anchors Account.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  Retrieve an Object Anchors Account.
  * Azure REST API version: 2021-03-01-preview.
  */
 export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectAnchorsAccountResult> {
@@ -85,7 +91,13 @@ export interface GetObjectAnchorsAccountResult {
     readonly type: string;
 }
 /**
- * Retrieve an Object Anchors Account.
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  Retrieve an Object Anchors Account.
  * Azure REST API version: 2021-03-01-preview.
  */
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectAnchorsAccountResult> {

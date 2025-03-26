@@ -155,7 +155,7 @@ class Monitor(pulumi.CustomResource):
         Monitor resource.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +177,7 @@ class Monitor(pulumi.CustomResource):
         Monitor resource.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -222,7 +222,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20200701:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20200701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20210901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20211001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220505preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230201preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230501preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230601:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230615preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20231101preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240101preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240301:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240501preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240615preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20241001preview:Monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20200701:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20200701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20210901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20211001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220505preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230201preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230501preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230601:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230615preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20231101preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240101preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240301:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240501preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20240615preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20241001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20250115preview:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:elastic:Monitor',

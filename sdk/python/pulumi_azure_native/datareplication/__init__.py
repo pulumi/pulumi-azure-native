@@ -25,6 +25,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.datareplication.v20210216preview as __v20210216preview
     v20210216preview = __v20210216preview
+    import pulumi_azure_native.datareplication.v20240901 as __v20240901
+    v20240901 = __v20240901
 else:
     v20210216preview = _utilities.lazy_import('pulumi_azure_native.datareplication.v20210216preview')
+    v20240901 = _utilities.lazy_import('pulumi_azure_native.datareplication.v20240901')
 

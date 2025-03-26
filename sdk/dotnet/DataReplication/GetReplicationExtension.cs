@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the replication extension.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Task<GetReplicationExtensionResult> InvokeAsync(GetReplicationExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationExtensionResult>("azure-native:datareplication:getReplicationExtension", args ?? new GetReplicationExtensionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the replication extension.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetReplicationExtensionResult> Invoke(GetReplicationExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationExtensionResult>("azure-native:datareplication:getReplicationExtension", args ?? new GetReplicationExtensionInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the replication extension.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetReplicationExtensionResult> Invoke(GetReplicationExtensionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationExtensionResult>("azure-native:datareplication:getReplicationExtension", args ?? new GetReplicationExtensionInvokeArgs(), options.WithDefaults());
