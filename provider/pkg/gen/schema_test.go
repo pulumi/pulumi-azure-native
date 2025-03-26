@@ -580,7 +580,7 @@ Other available API versions: 2023-03-03, 2024-04-04. These can be accessed by g
 			moduleName:   "Authorization",
 			versioning: versioningStub{
 				getAllVersions: func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
-					return []openapi.ApiVersion{"2023-03-03", "2024-04-04"}
+					return []openapi.ApiVersion{"2021-01-01", "2023-03-03", "2024-04-04"}
 				},
 			},
 		}
@@ -590,7 +590,7 @@ Other available API versions: 2023-03-03, 2024-04-04. These can be accessed by g
 
 Uses Azure REST API version 2022-02-22. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
-Other available API versions: 2023-03-03, 2024-04-04. These can be accessed by generating a local SDK package using the CLI command `+"`"+`pulumi package add azure-native authorization [ApiVersion]`+"`"+`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+Other available API versions: 2021-01-01, 2023-03-03, 2024-04-04. These can be accessed by generating a local SDK package using the CLI command `+"`"+`pulumi package add azure-native authorization [ApiVersion]`+"`"+`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 Additional docs.`, strings.TrimSpace(desc))
 	})
