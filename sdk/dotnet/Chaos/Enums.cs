@@ -38,30 +38,62 @@ namespace Pulumi.AzureNative.Chaos
     }
 
     /// <summary>
-    /// String of the resource identity type.
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
-    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
     {
         private readonly string _value;
 
-        private ResourceIdentityType(string value)
+        private ManagedServiceIdentityType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
-        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
-        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
 
-        public static explicit operator string(ResourceIdentityType value) => value._value;
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
-        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Public Network Access Control for PrivateAccess resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessOption : IEquatable<PublicNetworkAccessOption>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessOption Enabled { get; } = new PublicNetworkAccessOption("Enabled");
+        public static PublicNetworkAccessOption Disabled { get; } = new PublicNetworkAccessOption("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessOption left, PublicNetworkAccessOption right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessOption left, PublicNetworkAccessOption right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessOption other && Equals(other);
+        public bool Equals(PublicNetworkAccessOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

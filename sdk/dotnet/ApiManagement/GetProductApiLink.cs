@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetProductApiLinkResult> InvokeAsync(GetProductApiLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProductApiLinkResult> Invoke(GetProductApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProductApiLinkResult> Invoke(GetProductApiLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string ApiId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.ApiManagement
         private GetProductApiLinkResult(
             string apiId,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.ApiManagement
             string type)
         {
             ApiId = apiId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Type = type;

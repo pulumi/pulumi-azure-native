@@ -24,6 +24,7 @@ class PrivateLinkServiceInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_approval: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']] = None,
+                 destination_ip_address: Optional[pulumi.Input[str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -38,6 +39,7 @@ class PrivateLinkServiceInitArgs:
         The set of arguments for constructing a PrivateLinkService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs'] auto_approval: The auto-approval list of the private link service.
+        :param pulumi.Input[str] destination_ip_address: The destination IP address of the private link service.
         :param pulumi.Input[bool] enable_proxy_protocol: Whether the private link service is enabled for proxy protocol or not.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
@@ -52,6 +54,8 @@ class PrivateLinkServiceInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_approval is not None:
             pulumi.set(__self__, "auto_approval", auto_approval)
+        if destination_ip_address is not None:
+            pulumi.set(__self__, "destination_ip_address", destination_ip_address)
         if enable_proxy_protocol is not None:
             pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
         if extended_location is not None:
@@ -96,6 +100,18 @@ class PrivateLinkServiceInitArgs:
     @auto_approval.setter
     def auto_approval(self, value: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']]):
         pulumi.set(self, "auto_approval", value)
+
+    @property
+    @pulumi.getter(name="destinationIPAddress")
+    def destination_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination IP address of the private link service.
+        """
+        return pulumi.get(self, "destination_ip_address")
+
+    @destination_ip_address.setter
+    def destination_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_ip_address", value)
 
     @property
     @pulumi.getter(name="enableProxyProtocol")
@@ -224,6 +240,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval: Optional[pulumi.Input[Union['PrivateLinkServicePropertiesAutoApprovalArgs', 'PrivateLinkServicePropertiesAutoApprovalArgsDict']]] = None,
+                 destination_ip_address: Optional[pulumi.Input[str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -239,13 +256,14 @@ class PrivateLinkService(pulumi.CustomResource):
         """
         Private link service resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PrivateLinkServicePropertiesAutoApprovalArgs', 'PrivateLinkServicePropertiesAutoApprovalArgsDict']] auto_approval: The auto-approval list of the private link service.
+        :param pulumi.Input[str] destination_ip_address: The destination IP address of the private link service.
         :param pulumi.Input[bool] enable_proxy_protocol: Whether the private link service is enabled for proxy protocol or not.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
@@ -267,9 +285,9 @@ class PrivateLinkService(pulumi.CustomResource):
         """
         Private link service resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkServiceInitArgs args: The arguments to use to populate this resource's properties.
@@ -287,6 +305,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval: Optional[pulumi.Input[Union['PrivateLinkServicePropertiesAutoApprovalArgs', 'PrivateLinkServicePropertiesAutoApprovalArgsDict']]] = None,
+                 destination_ip_address: Optional[pulumi.Input[str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -308,6 +327,7 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__ = PrivateLinkServiceInitArgs.__new__(PrivateLinkServiceInitArgs)
 
             __props__.__dict__["auto_approval"] = auto_approval
+            __props__.__dict__["destination_ip_address"] = destination_ip_address
             __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["fqdns"] = fqdns
@@ -322,6 +342,7 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["alias"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_interfaces"] = None
@@ -354,6 +375,8 @@ class PrivateLinkService(pulumi.CustomResource):
 
         __props__.__dict__["alias"] = None
         __props__.__dict__["auto_approval"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["destination_ip_address"] = None
         __props__.__dict__["enable_proxy_protocol"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
@@ -385,6 +408,22 @@ class PrivateLinkService(pulumi.CustomResource):
         The auto-approval list of the private link service.
         """
         return pulumi.get(self, "auto_approval")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="destinationIPAddress")
+    def destination_ip_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        The destination IP address of the private link service.
+        """
+        return pulumi.get(self, "destination_ip_address")
 
     @property
     @pulumi.getter(name="enableProxyProtocol")

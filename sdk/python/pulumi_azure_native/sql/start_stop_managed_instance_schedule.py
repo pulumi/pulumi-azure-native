@@ -139,9 +139,9 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         """
         Managed instance's Start/Stop schedule.
 
-        Uses Azure REST API version 2022-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,9 +161,9 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         """
         Managed instance's Start/Stop schedule.
 
-        Uses Azure REST API version 2022-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param StartStopManagedInstanceScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -211,6 +211,7 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
             if time_zone_id is None:
                 time_zone_id = 'UTC'
             __props__.__dict__["time_zone_id"] = time_zone_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["next_execution_time"] = None
             __props__.__dict__["next_run_action"] = None
@@ -240,6 +241,7 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
 
         __props__ = StartStopManagedInstanceScheduleArgs.__new__(StartStopManagedInstanceScheduleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["next_execution_time"] = None
@@ -249,6 +251,14 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         __props__.__dict__["time_zone_id"] = None
         __props__.__dict__["type"] = None
         return StartStopManagedInstanceSchedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

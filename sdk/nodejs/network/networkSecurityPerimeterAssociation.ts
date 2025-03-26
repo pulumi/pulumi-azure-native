@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The NSP resource association resource
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
      * Access mode on the association.
      */
     public readonly accessMode!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies if there are provisioning issues
      */
@@ -102,12 +106,14 @@ export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessMode"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -118,7 +124,7 @@ export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20210201preview:NspAssociation" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230701preview:NspAssociation" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230801preview:NspAssociation" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network:NspAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterAssociation.__pulumiType, name, resourceInputs, opts);
     }

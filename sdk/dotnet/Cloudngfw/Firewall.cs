@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Cloudngfw
     /// <summary>
     /// PaloAltoNetworks Firewall
     /// 
-    /// Uses Azure REST API version 2023-09-01.
+    /// Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
-    /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudngfw:Firewall")]
     public partial class Firewall : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         [Output("associatedRulestack")]
         public Output<Outputs.RulestackDetailsResponse?> AssociatedRulestack { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// DNS settings for Firewall
@@ -48,6 +54,12 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         [Output("isPanoramaManaged")]
         public Output<string?> IsPanoramaManaged { get; private set; } = null!;
+
+        /// <summary>
+        /// Strata Cloud Managed: Default is False. Default will be CloudSec managed
+        /// </summary>
+        [Output("isStrataCloudManaged")]
+        public Output<string?> IsStrataCloudManaged { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -96,6 +108,12 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+        /// </summary>
+        [Output("strataCloudManagerConfig")]
+        public Output<Outputs.StrataCloudManagerConfigResponse?> StrataCloudManagerConfig { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -214,6 +232,12 @@ namespace Pulumi.AzureNative.Cloudngfw
         public InputUnion<string, Pulumi.AzureNative.Cloudngfw.BooleanEnum>? IsPanoramaManaged { get; set; }
 
         /// <summary>
+        /// Strata Cloud Managed: Default is False. Default will be CloudSec managed
+        /// </summary>
+        [Input("isStrataCloudManaged")]
+        public InputUnion<string, Pulumi.AzureNative.Cloudngfw.BooleanEnum>? IsStrataCloudManaged { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -254,6 +278,12 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+        /// </summary>
+        [Input("strataCloudManagerConfig")]
+        public Input<Inputs.StrataCloudManagerConfigArgs>? StrataCloudManagerConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

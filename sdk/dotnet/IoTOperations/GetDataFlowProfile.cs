@@ -9,35 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.IoTOperations
 {
-    public static class GetDataFlowProfile
+    public static class GetDataflowProfile
     {
         /// <summary>
-        /// Get a DataFlowProfileResource
+        /// Get a DataflowProfileResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
+        /// 
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Task<GetDataFlowProfileResult> InvokeAsync(GetDataFlowProfileArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowProfileResult>("azure-native:iotoperations:getDataFlowProfile", args ?? new GetDataFlowProfileArgs(), options.WithDefaults());
+        public static Task<GetDataflowProfileResult> InvokeAsync(GetDataflowProfileArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataflowProfileResult>("azure-native:iotoperations:getDataflowProfile", args ?? new GetDataflowProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a DataFlowProfileResource
+        /// Get a DataflowProfileResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
+        /// 
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetDataFlowProfileResult> Invoke(GetDataFlowProfileInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowProfileResult>("azure-native:iotoperations:getDataFlowProfile", args ?? new GetDataFlowProfileInvokeArgs(), options.WithDefaults());
+        public static Output<GetDataflowProfileResult> Invoke(GetDataflowProfileInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataflowProfileResult>("azure-native:iotoperations:getDataflowProfile", args ?? new GetDataflowProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a DataFlowProfileResource
+        /// Get a DataflowProfileResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
+        /// 
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
-        public static Output<GetDataFlowProfileResult> Invoke(GetDataFlowProfileInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowProfileResult>("azure-native:iotoperations:getDataFlowProfile", args ?? new GetDataFlowProfileInvokeArgs(), options.WithDefaults());
+        public static Output<GetDataflowProfileResult> Invoke(GetDataflowProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataflowProfileResult>("azure-native:iotoperations:getDataflowProfile", args ?? new GetDataflowProfileInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetDataFlowProfileArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataflowProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Instance dataflowProfile resource
@@ -57,13 +63,13 @@ namespace Pulumi.AzureNative.IoTOperations
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetDataFlowProfileArgs()
+        public GetDataflowProfileArgs()
         {
         }
-        public static new GetDataFlowProfileArgs Empty => new GetDataFlowProfileArgs();
+        public static new GetDataflowProfileArgs Empty => new GetDataflowProfileArgs();
     }
 
-    public sealed class GetDataFlowProfileInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataflowProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Instance dataflowProfile resource
@@ -83,16 +89,20 @@ namespace Pulumi.AzureNative.IoTOperations
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetDataFlowProfileInvokeArgs()
+        public GetDataflowProfileInvokeArgs()
         {
         }
-        public static new GetDataFlowProfileInvokeArgs Empty => new GetDataFlowProfileInvokeArgs();
+        public static new GetDataflowProfileInvokeArgs Empty => new GetDataflowProfileInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetDataFlowProfileResult
+    public sealed class GetDataflowProfileResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Edge location of the resource.
         /// </summary>
@@ -108,7 +118,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.DataFlowProfilePropertiesResponse Properties;
+        public readonly Outputs.DataflowProfilePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -119,19 +129,22 @@ namespace Pulumi.AzureNative.IoTOperations
         public readonly string Type;
 
         [OutputConstructor]
-        private GetDataFlowProfileResult(
+        private GetDataflowProfileResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
 
             string name,
 
-            Outputs.DataFlowProfilePropertiesResponse properties,
+            Outputs.DataflowProfilePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Name = name;

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     /// <summary>
     /// A class represent an AppComplianceAutomation webhook resource.
     /// 
-    /// Uses Azure REST API version 2024-06-27.
+    /// Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// content type
         /// </summary>

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// A alert associated with SAP monitor.
     /// 
-    /// Uses Azure REST API version 2024-02-01-preview.
+    /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:Alert")]
     public partial class Alert : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         [Output("alertRuleResourceId")]
         public Output<string> AlertRuleResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Defines the alert instance errors.

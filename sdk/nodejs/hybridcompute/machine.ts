@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Describes a hybrid machine.
  *
- * Uses Azure REST API version 2022-12-27. In version 1.x of the Azure Native provider, it used API version 2020-08-02.
+ * Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2022-12-27.
  *
- * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+ * Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Machine extends pulumi.CustomResource {
     /**
@@ -58,6 +58,10 @@ export class Machine extends pulumi.CustomResource {
      */
     public /*out*/ readonly agentVersion!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Public Key that the client provides to be used during initial resource onboarding
      */
     public readonly clientPublicKey!: pulumi.Output<string | undefined>;
@@ -94,9 +98,17 @@ export class Machine extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.hybridcompute.IdentityResponse | undefined>;
     /**
+     * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
      * The time of the last status change.
      */
     public /*out*/ readonly lastStatusChange!: pulumi.Output<string>;
+    /**
+     * Specifies the License related properties for a machine.
+     */
+    public readonly licenseProfile!: pulumi.Output<outputs.hybridcompute.LicenseProfileMachineInstanceViewResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -117,6 +129,14 @@ export class Machine extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Information about the network the machine is on.
+     */
+    public /*out*/ readonly networkProfile!: pulumi.Output<outputs.hybridcompute.NetworkProfileResponse>;
+    /**
+     * The edition of the Operating System.
+     */
+    public /*out*/ readonly osEdition!: pulumi.Output<string>;
     /**
      * The Operating System running on the hybrid machine.
      */
@@ -198,8 +218,11 @@ export class Machine extends pulumi.CustomResource {
             }
             resourceInputs["agentUpgrade"] = args ? args.agentUpgrade : undefined;
             resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
+            resourceInputs["expand"] = args ? args.expand : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["licenseProfile"] = args ? args.licenseProfile : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["locationData"] = args ? args.locationData : undefined;
             resourceInputs["machineName"] = args ? args.machineName : undefined;
@@ -215,6 +238,7 @@ export class Machine extends pulumi.CustomResource {
             resourceInputs["adFqdn"] = undefined /*out*/;
             resourceInputs["agentConfiguration"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudMetadata"] = undefined /*out*/;
             resourceInputs["detectedProperties"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -224,6 +248,8 @@ export class Machine extends pulumi.CustomResource {
             resourceInputs["lastStatusChange"] = undefined /*out*/;
             resourceInputs["machineFqdn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["osEdition"] = undefined /*out*/;
             resourceInputs["osName"] = undefined /*out*/;
             resourceInputs["osSku"] = undefined /*out*/;
             resourceInputs["osVersion"] = undefined /*out*/;
@@ -238,6 +264,7 @@ export class Machine extends pulumi.CustomResource {
             resourceInputs["agentConfiguration"] = undefined /*out*/;
             resourceInputs["agentUpgrade"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientPublicKey"] = undefined /*out*/;
             resourceInputs["cloudMetadata"] = undefined /*out*/;
             resourceInputs["detectedProperties"] = undefined /*out*/;
@@ -247,12 +274,16 @@ export class Machine extends pulumi.CustomResource {
             resourceInputs["errorDetails"] = undefined /*out*/;
             resourceInputs["extensions"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["lastStatusChange"] = undefined /*out*/;
+            resourceInputs["licenseProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["locationData"] = undefined /*out*/;
             resourceInputs["machineFqdn"] = undefined /*out*/;
             resourceInputs["mssqlDiscovered"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["osEdition"] = undefined /*out*/;
             resourceInputs["osName"] = undefined /*out*/;
             resourceInputs["osProfile"] = undefined /*out*/;
             resourceInputs["osSku"] = undefined /*out*/;
@@ -290,6 +321,10 @@ export interface MachineArgs {
      */
     clientPublicKey?: pulumi.Input<string>;
     /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
      * Machine Extensions information (deprecated field)
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.MachineExtensionInstanceViewArgs>[]>;
@@ -297,6 +332,14 @@ export interface MachineArgs {
      * Identity for the resource.
      */
     identity?: pulumi.Input<inputs.hybridcompute.IdentityArgs>;
+    /**
+     * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+     */
+    kind?: pulumi.Input<string | enums.hybridcompute.ArcKindEnum>;
+    /**
+     * Specifies the License related properties for a machine.
+     */
+    licenseProfile?: pulumi.Input<inputs.hybridcompute.LicenseProfileMachineInstanceViewArgs>;
     /**
      * The geo-location where the resource lives
      */

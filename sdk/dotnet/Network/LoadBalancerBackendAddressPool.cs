@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Pool of backend IP addresses.
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// An array of references to IP addresses defined in network interfaces.
         /// </summary>
@@ -84,6 +90,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend address synchronous mode for the backend pool
+        /// </summary>
+        [Output("syncMode")]
+        public Output<string?> SyncMode { get; private set; } = null!;
 
         /// <summary>
         /// An array of gateway load balancer tunnel interfaces.
@@ -228,6 +240,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Backend address synchronous mode for the backend pool
+        /// </summary>
+        [Input("syncMode")]
+        public InputUnion<string, Pulumi.AzureNative.Network.SyncMode>? SyncMode { get; set; }
 
         [Input("tunnelInterfaces")]
         private InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>? _tunnelInterfaces;

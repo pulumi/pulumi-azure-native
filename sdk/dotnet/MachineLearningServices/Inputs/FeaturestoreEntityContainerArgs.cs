@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Dto object representing feature entity
+    /// DTO object representing feature entity
     /// </summary>
     public sealed class FeaturestoreEntityContainerArgs : global::Pulumi.ResourceArgs
     {

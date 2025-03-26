@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a Asset
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2024-09-01-preview, 2024-11-01.
+ * Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,33 +38,41 @@ export interface GetAssetArgs {
  */
 export interface GetAssetResult {
     /**
-     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
      */
-    readonly assetEndpointProfileUri: string;
-    /**
-     * Resource path to asset type (model) definition.
-     */
-    readonly assetType?: string;
+    readonly assetEndpointProfileRef: string;
     /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */
     readonly attributes?: any;
     /**
-     * Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+     * The Azure API version of the resource.
      */
-    readonly dataPoints?: outputs.deviceregistry.DataPointResponse[];
+    readonly azureApiVersion: string;
     /**
-     * Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+     * Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
      */
-    readonly defaultDataPointsConfiguration?: string;
+    readonly datasets?: outputs.deviceregistry.DatasetResponse[];
+    /**
+     * Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
+     */
+    readonly defaultDatasetsConfiguration?: string;
     /**
      * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
     readonly defaultEventsConfiguration?: string;
     /**
+     * Object that describes the default topic information for the asset.
+     */
+    readonly defaultTopic?: outputs.deviceregistry.TopicResponse;
+    /**
      * Human-readable description of the asset.
      */
     readonly description?: string;
+    /**
+     * Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+     */
+    readonly discoveredAssetRefs?: string[];
     /**
      * Human-readable display name.
      */
@@ -94,7 +102,7 @@ export interface GetAssetResult {
      */
     readonly hardwareRevision?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -161,9 +169,9 @@ export interface GetAssetResult {
 /**
  * Get a Asset
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2024-09-01-preview, 2024-11-01.
+ * Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

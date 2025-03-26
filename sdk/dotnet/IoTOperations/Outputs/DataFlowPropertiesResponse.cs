@@ -11,41 +11,34 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlow Resource properties
+    /// Dataflow Resource properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowPropertiesResponse
+    public sealed class DataflowPropertiesResponse
     {
         /// <summary>
-        /// Mode for DataFlow. Optional; defaults to Enabled.
+        /// Mode for Dataflow. Optional; defaults to Enabled.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
         /// List of operations including source and destination references as well as transformation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataFlowOperationResponse> Operations;
-        /// <summary>
-        /// Reference to the DataflowProfile CR.
-        /// </summary>
-        public readonly string ProfileRef;
+        public readonly ImmutableArray<Outputs.DataflowOperationResponse> Operations;
         /// <summary>
         /// The status of the last operation.
         /// </summary>
         public readonly string ProvisioningState;
 
         [OutputConstructor]
-        private DataFlowPropertiesResponse(
+        private DataflowPropertiesResponse(
             string? mode,
 
-            ImmutableArray<Outputs.DataFlowOperationResponse> operations,
-
-            string profileRef,
+            ImmutableArray<Outputs.DataflowOperationResponse> operations,
 
             string provisioningState)
         {
             Mode = mode;
             Operations = operations;
-            ProfileRef = profileRef;
             ProvisioningState = provisioningState;
         }
     }

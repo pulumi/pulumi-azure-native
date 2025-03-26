@@ -26,7 +26,10 @@ class GetEventHubDataConnectionResult:
     """
     Class representing an event hub data connection.
     """
-    def __init__(__self__, compression=None, consumer_group=None, data_format=None, database_routing=None, event_hub_resource_id=None, event_system_properties=None, id=None, kind=None, location=None, managed_identity_object_id=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, retrieval_start_date=None, table_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, compression=None, consumer_group=None, data_format=None, database_routing=None, event_hub_resource_id=None, event_system_properties=None, id=None, kind=None, location=None, managed_identity_object_id=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, retrieval_start_date=None, table_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if compression and not isinstance(compression, str):
             raise TypeError("Expected argument 'compression' to be a str")
         pulumi.set(__self__, "compression", compression)
@@ -78,6 +81,14 @@ class GetEventHubDataConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -223,6 +234,7 @@ class AwaitableGetEventHubDataConnectionResult(GetEventHubDataConnectionResult):
         if False:
             yield self
         return GetEventHubDataConnectionResult(
+            azure_api_version=self.azure_api_version,
             compression=self.compression,
             consumer_group=self.consumer_group,
             data_format=self.data_format,
@@ -250,13 +262,13 @@ def get_event_hub_data_connection(cluster_name: Optional[str] = None,
     """
     Returns a data connection.
 
-    Uses Azure REST API version 2022-12-29.
+    Uses Azure REST API version 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -267,6 +279,7 @@ def get_event_hub_data_connection(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getEventHubDataConnection', __args__, opts=opts, typ=GetEventHubDataConnectionResult).value
 
     return AwaitableGetEventHubDataConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         compression=pulumi.get(__ret__, 'compression'),
         consumer_group=pulumi.get(__ret__, 'consumer_group'),
         data_format=pulumi.get(__ret__, 'data_format'),
@@ -292,13 +305,13 @@ def get_event_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str
     """
     Returns a data connection.
 
-    Uses Azure REST API version 2022-12-29.
+    Uses Azure REST API version 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -308,6 +321,7 @@ def get_event_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getEventHubDataConnection', __args__, opts=opts, typ=GetEventHubDataConnectionResult)
     return __ret__.apply(lambda __response__: GetEventHubDataConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         compression=pulumi.get(__response__, 'compression'),
         consumer_group=pulumi.get(__response__, 'consumer_group'),
         data_format=pulumi.get(__response__, 'data_format'),

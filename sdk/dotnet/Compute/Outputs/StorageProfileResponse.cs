@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class StorageProfileResponse
     {
         /// <summary>
+        /// Specifies whether the regional disks should be aligned/moved to the VM zone. This is applicable only for VMs with placement property set. Please note that this change is irreversible. Minimum api-version: 2024-11-01.
+        /// </summary>
+        public readonly bool? AlignRegionalDisksToVMZone;
+        /// <summary>
         /// Specifies the parameters that are used to add a data disk to a virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public readonly ImmutableArray<Outputs.DataDiskResponse> DataDisks;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private StorageProfileResponse(
+            bool? alignRegionalDisksToVMZone,
+
             ImmutableArray<Outputs.DataDiskResponse> dataDisks,
 
             string? diskControllerType,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             Outputs.OSDiskResponse? osDisk)
         {
+            AlignRegionalDisksToVMZone = alignRegionalDisksToVMZone;
             DataDisks = dataDisks;
             DiskControllerType = diskControllerType;
             ImageReference = imageReference;

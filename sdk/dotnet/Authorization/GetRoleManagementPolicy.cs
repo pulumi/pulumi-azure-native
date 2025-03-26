@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRoleManagementPolicyResult> InvokeAsync(GetRoleManagementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyResult>("azure-native:authorization:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure-native:authorization:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure-native:authorization:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetRoleManagementPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The role management policy description.
         /// </summary>
         public readonly string? Description;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetRoleManagementPolicyResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             EffectiveRules = effectiveRules;

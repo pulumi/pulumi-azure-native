@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Replication protection Cluster.
  *
- * Uses Azure REST API version 2024-02-01.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
  *
- * Other available API versions: 2024-04-01, 2024-10-01.
+ * Other available API versions: 2024-02-01, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ReplicationProtectionCluster extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ReplicationProtectionCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationProtectionCluster.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the protection cluster.
      */
@@ -83,9 +87,11 @@ export class ReplicationProtectionCluster extends pulumi.CustomResource {
             resourceInputs["replicationProtectionClusterName"] = args ? args.replicationProtectionClusterName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -36,6 +36,10 @@ export interface GetEnterprisePolicyArgs {
  */
 export interface GetEnterprisePolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The encryption settings for a configuration store.
      */
     readonly encryption?: outputs.powerplatform.PropertiesResponseEncryption;

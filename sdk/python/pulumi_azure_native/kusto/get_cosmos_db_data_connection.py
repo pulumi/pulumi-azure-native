@@ -26,7 +26,10 @@ class GetCosmosDbDataConnectionResult:
     """
     Class representing a CosmosDb data connection.
     """
-    def __init__(__self__, cosmos_db_account_resource_id=None, cosmos_db_container=None, cosmos_db_database=None, id=None, kind=None, location=None, managed_identity_object_id=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, retrieval_start_date=None, table_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, cosmos_db_account_resource_id=None, cosmos_db_container=None, cosmos_db_database=None, id=None, kind=None, location=None, managed_identity_object_id=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, retrieval_start_date=None, table_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cosmos_db_account_resource_id and not isinstance(cosmos_db_account_resource_id, str):
             raise TypeError("Expected argument 'cosmos_db_account_resource_id' to be a str")
         pulumi.set(__self__, "cosmos_db_account_resource_id", cosmos_db_account_resource_id)
@@ -69,6 +72,14 @@ class GetCosmosDbDataConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cosmosDbAccountResourceId")
@@ -190,6 +201,7 @@ class AwaitableGetCosmosDbDataConnectionResult(GetCosmosDbDataConnectionResult):
         if False:
             yield self
         return GetCosmosDbDataConnectionResult(
+            azure_api_version=self.azure_api_version,
             cosmos_db_account_resource_id=self.cosmos_db_account_resource_id,
             cosmos_db_container=self.cosmos_db_container,
             cosmos_db_database=self.cosmos_db_database,
@@ -214,13 +226,13 @@ def get_cosmos_db_data_connection(cluster_name: Optional[str] = None,
     """
     Returns a data connection.
 
-    Uses Azure REST API version 2022-12-29.
+    Uses Azure REST API version 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -231,6 +243,7 @@ def get_cosmos_db_data_connection(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getCosmosDbDataConnection', __args__, opts=opts, typ=GetCosmosDbDataConnectionResult).value
 
     return AwaitableGetCosmosDbDataConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cosmos_db_account_resource_id=pulumi.get(__ret__, 'cosmos_db_account_resource_id'),
         cosmos_db_container=pulumi.get(__ret__, 'cosmos_db_container'),
         cosmos_db_database=pulumi.get(__ret__, 'cosmos_db_database'),
@@ -253,13 +266,13 @@ def get_cosmos_db_data_connection_output(cluster_name: Optional[pulumi.Input[str
     """
     Returns a data connection.
 
-    Uses Azure REST API version 2022-12-29.
+    Uses Azure REST API version 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -269,6 +282,7 @@ def get_cosmos_db_data_connection_output(cluster_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getCosmosDbDataConnection', __args__, opts=opts, typ=GetCosmosDbDataConnectionResult)
     return __ret__.apply(lambda __response__: GetCosmosDbDataConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cosmos_db_account_resource_id=pulumi.get(__response__, 'cosmos_db_account_resource_id'),
         cosmos_db_container=pulumi.get(__response__, 'cosmos_db_container'),
         cosmos_db_database=pulumi.get(__response__, 'cosmos_db_database'),

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Features
     public sealed class GetSubscriptionFeatureRegistrationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure resource Id.
         /// </summary>
         public readonly string Id;
@@ -97,6 +101,8 @@ namespace Pulumi.AzureNative.Features
 
         [OutputConstructor]
         private GetSubscriptionFeatureRegistrationResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.Features
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

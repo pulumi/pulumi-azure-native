@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// </summary>
         public readonly string? AppliedScopeType;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully-qualified identifier of the benefit under applicable benefit list.
         /// </summary>
         public readonly string BenefitResourceId;
@@ -182,6 +186,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         private GetDiscountResult(
             string? appliedScopeType,
 
+            string azureApiVersion,
+
             string benefitResourceId,
 
             string billingAccountResourceId,
@@ -229,6 +235,7 @@ namespace Pulumi.AzureNative.BillingBenefits
             string type)
         {
             AppliedScopeType = appliedScopeType;
+            AzureApiVersion = azureApiVersion;
             BenefitResourceId = benefitResourceId;
             BillingAccountResourceId = billingAccountResourceId;
             BillingProfileResourceId = billingProfileResourceId;

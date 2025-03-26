@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// An API collection as represented by Defender for APIs.
     /// 
-    /// Uses Azure REST API version 2022-11-20-preview.
+    /// Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:APICollection")]
     public partial class APICollection : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("additionalData")]
         public Output<ImmutableDictionary<string, string>?> AdditionalData { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The display name of the Azure API Management API.
@@ -68,6 +74,8 @@ namespace Pulumi.AzureNative.Security
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20221120preview:APICollection" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20231115:APICollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20231115:APICollectionByAzureApiManagementService" },
+                    new global::Pulumi.Alias { Type = "azure-native:security:APICollectionByAzureApiManagementService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

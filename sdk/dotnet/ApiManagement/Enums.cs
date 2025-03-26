@@ -41,6 +41,47 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
+    /// Name of the Sku.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApiGatewaySkuType : IEquatable<ApiGatewaySkuType>
+    {
+        private readonly string _value;
+
+        private ApiGatewaySkuType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard SKU of the API gateway.
+        /// </summary>
+        public static ApiGatewaySkuType Standard { get; } = new ApiGatewaySkuType("Standard");
+        /// <summary>
+        /// Standard SKU of the API gateway to be used in Workspaces.
+        /// </summary>
+        public static ApiGatewaySkuType WorkspaceGatewayStandard { get; } = new ApiGatewaySkuType("WorkspaceGatewayStandard");
+        /// <summary>
+        /// Premium SKU of the API gateway to be used in Workspaces.
+        /// </summary>
+        public static ApiGatewaySkuType WorkspaceGatewayPremium { get; } = new ApiGatewaySkuType("WorkspaceGatewayPremium");
+
+        public static bool operator ==(ApiGatewaySkuType left, ApiGatewaySkuType right) => left.Equals(right);
+        public static bool operator !=(ApiGatewaySkuType left, ApiGatewaySkuType right) => !left.Equals(right);
+
+        public static explicit operator string(ApiGatewaySkuType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApiGatewaySkuType other && Equals(other);
+        public bool Equals(ApiGatewaySkuType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of API.
     /// </summary>
     [EnumType]
@@ -854,6 +895,76 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeyType other && Equals(other);
         public bool Equals(KeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether default diagnostic should be enabled for Large Language Models or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct LlmDiagnosticSettings : IEquatable<LlmDiagnosticSettings>
+    {
+        private readonly string _value;
+
+        private LlmDiagnosticSettings(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default LLM logs are enabled.
+        /// </summary>
+        public static LlmDiagnosticSettings Enabled { get; } = new LlmDiagnosticSettings("enabled");
+        /// <summary>
+        /// Default LLM logs are disabled.
+        /// </summary>
+        public static LlmDiagnosticSettings Disabled { get; } = new LlmDiagnosticSettings("disabled");
+
+        public static bool operator ==(LlmDiagnosticSettings left, LlmDiagnosticSettings right) => left.Equals(right);
+        public static bool operator !=(LlmDiagnosticSettings left, LlmDiagnosticSettings right) => !left.Equals(right);
+
+        public static explicit operator string(LlmDiagnosticSettings value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LlmDiagnosticSettings other && Equals(other);
+        public bool Equals(LlmDiagnosticSettings other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies which message should be logged. Currently there is only 'all' option.
+    /// </summary>
+    [EnumType]
+    public readonly struct LlmMessageLogTypes : IEquatable<LlmMessageLogTypes>
+    {
+        private readonly string _value;
+
+        private LlmMessageLogTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Log all messages.
+        /// </summary>
+        public static LlmMessageLogTypes All { get; } = new LlmMessageLogTypes("all");
+
+        public static bool operator ==(LlmMessageLogTypes left, LlmMessageLogTypes right) => left.Equals(right);
+        public static bool operator !=(LlmMessageLogTypes left, LlmMessageLogTypes right) => !left.Equals(right);
+
+        public static explicit operator string(LlmMessageLogTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LlmMessageLogTypes other && Equals(other);
+        public bool Equals(LlmMessageLogTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

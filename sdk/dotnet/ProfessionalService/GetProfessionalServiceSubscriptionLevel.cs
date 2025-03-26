@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ProfessionalService
     public sealed class GetProfessionalServiceSubscriptionLevelResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource uri
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.ProfessionalService
 
         [OutputConstructor]
         private GetProfessionalServiceSubscriptionLevelResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.ProfessionalService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the Security ML Analytics Settings.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getAnomalySecurityMLAnalyticsSettings(args: GetAnomalySecurityMLAnalyticsSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalySecurityMLAnalyticsSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +48,10 @@ export interface GetAnomalySecurityMLAnalyticsSettingsResult {
      * The anomaly version of the AnomalySecurityMLAnalyticsSettings.
      */
     readonly anomalyVersion: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The customizable observations of the AnomalySecurityMLAnalyticsSettings.
      */
@@ -125,7 +129,7 @@ export interface GetAnomalySecurityMLAnalyticsSettingsResult {
 /**
  * Gets the Security ML Analytics Settings.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getAnomalySecurityMLAnalyticsSettingsOutput(args: GetAnomalySecurityMLAnalyticsSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomalySecurityMLAnalyticsSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -27,13 +27,16 @@ class GetDiskPoolResult:
     """
     Response for Disk Pool request.
     """
-    def __init__(__self__, additional_capabilities=None, availability_zones=None, disks=None, id=None, location=None, managed_by=None, managed_by_extended=None, name=None, provisioning_state=None, status=None, subnet_id=None, system_data=None, tags=None, tier=None, type=None):
+    def __init__(__self__, additional_capabilities=None, availability_zones=None, azure_api_version=None, disks=None, id=None, location=None, managed_by=None, managed_by_extended=None, name=None, provisioning_state=None, status=None, subnet_id=None, system_data=None, tags=None, tier=None, type=None):
         if additional_capabilities and not isinstance(additional_capabilities, list):
             raise TypeError("Expected argument 'additional_capabilities' to be a list")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disks and not isinstance(disks, list):
             raise TypeError("Expected argument 'disks' to be a list")
         pulumi.set(__self__, "disks", disks)
@@ -89,6 +92,14 @@ class GetDiskPoolResult:
         Logical zone for Disk Pool resource; example: ["1"].
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -203,6 +214,7 @@ class AwaitableGetDiskPoolResult(GetDiskPoolResult):
         return GetDiskPoolResult(
             additional_capabilities=self.additional_capabilities,
             availability_zones=self.availability_zones,
+            azure_api_version=self.azure_api_version,
             disks=self.disks,
             id=self.id,
             location=self.location,
@@ -226,8 +238,6 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-08-01.
 
-    Other available API versions: 2020-03-15-preview.
-
 
     :param str disk_pool_name: The name of the Disk Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -241,6 +251,7 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
     return AwaitableGetDiskPoolResult(
         additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disks=pulumi.get(__ret__, 'disks'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -262,8 +273,6 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2021-08-01.
 
-    Other available API versions: 2020-03-15-preview.
-
 
     :param str disk_pool_name: The name of the Disk Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -276,6 +285,7 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetDiskPoolResult(
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
         availability_zones=pulumi.get(__response__, 'availability_zones'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disks=pulumi.get(__response__, 'disks'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

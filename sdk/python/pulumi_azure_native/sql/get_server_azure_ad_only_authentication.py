@@ -26,10 +26,13 @@ class GetServerAzureADOnlyAuthenticationResult:
     """
     Azure Active Directory only authentication.
     """
-    def __init__(__self__, azure_ad_only_authentication=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_ad_only_authentication=None, azure_api_version=None, id=None, name=None, type=None):
         if azure_ad_only_authentication and not isinstance(azure_ad_only_authentication, bool):
             raise TypeError("Expected argument 'azure_ad_only_authentication' to be a bool")
         pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +50,14 @@ class GetServerAzureADOnlyAuthenticationResult:
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -80,6 +91,7 @@ class AwaitableGetServerAzureADOnlyAuthenticationResult(GetServerAzureADOnlyAuth
             yield self
         return GetServerAzureADOnlyAuthenticationResult(
             azure_ad_only_authentication=self.azure_ad_only_authentication,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             type=self.type)
@@ -92,9 +104,9 @@ def get_server_azure_ad_only_authentication(authentication_name: Optional[str] =
     """
     Gets a specific Azure Active Directory only authentication property.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.
@@ -110,6 +122,7 @@ def get_server_azure_ad_only_authentication(authentication_name: Optional[str] =
 
     return AwaitableGetServerAzureADOnlyAuthenticationResult(
         azure_ad_only_authentication=pulumi.get(__ret__, 'azure_ad_only_authentication'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
@@ -120,9 +133,9 @@ def get_server_azure_ad_only_authentication_output(authentication_name: Optional
     """
     Gets a specific Azure Active Directory only authentication property.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.
@@ -137,6 +150,7 @@ def get_server_azure_ad_only_authentication_output(authentication_name: Optional
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getServerAzureADOnlyAuthentication', __args__, opts=opts, typ=GetServerAzureADOnlyAuthenticationResult)
     return __ret__.apply(lambda __response__: GetServerAzureADOnlyAuthenticationResult(
         azure_ad_only_authentication=pulumi.get(__response__, 'azure_ad_only_authentication'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         type=pulumi.get(__response__, 'type')))

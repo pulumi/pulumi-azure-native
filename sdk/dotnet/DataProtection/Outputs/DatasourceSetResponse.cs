@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string? ResourceName;
         /// <summary>
+        /// Properties specific to data source set
+        /// </summary>
+        public readonly Outputs.DefaultResourcePropertiesResponse? ResourceProperties;
+        /// <summary>
         /// Resource Type of Datasource.
         /// </summary>
         public readonly string? ResourceType;
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             string? resourceName,
 
+            Outputs.DefaultResourcePropertiesResponse? resourceProperties,
+
             string? resourceType,
 
             string? resourceUri)
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
             ResourceID = resourceID;
             ResourceLocation = resourceLocation;
             ResourceName = resourceName;
+            ResourceProperties = resourceProperties;
             ResourceType = resourceType;
             ResourceUri = resourceUri;
         }

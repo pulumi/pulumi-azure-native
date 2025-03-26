@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
  *
- * Uses Azure REST API version 2024-03-03.
+ * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
  */
 export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResourc
         return obj['__pulumiType'] === GalleryInVMAccessControlProfileVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
      */
@@ -125,12 +129,14 @@ export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResourc
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetLocations"] = args ? args.targetLocations : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publishedDate"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultAccess"] = undefined /*out*/;
             resourceInputs["excludeFromLatest"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

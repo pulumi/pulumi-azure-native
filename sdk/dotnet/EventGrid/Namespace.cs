@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// Namespace resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview.
+    /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Identity information for the Namespace resource.
         /// </summary>
@@ -32,7 +38,10 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<ImmutableArray<Outputs.InboundIpRuleResponse>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        /// This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+        /// property is not specified explicitly by the user, its default value depends on the following conditions:
+        ///     a. For Availability Zones enabled regions - The default property value would be true.
+        ///     b. For non-Availability Zones enabled regions - The default property value would be false.
         /// Once specified, this property cannot be updated.
         /// </summary>
         [Output("isZoneRedundant")]
@@ -56,6 +65,9 @@ namespace Pulumi.AzureNative.EventGrid
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
@@ -79,7 +91,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<Outputs.NamespaceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to the namespace resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -180,7 +192,10 @@ namespace Pulumi.AzureNative.EventGrid
         }
 
         /// <summary>
-        /// Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        /// This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+        /// property is not specified explicitly by the user, its default value depends on the following conditions:
+        ///     a. For Availability Zones enabled regions - The default property value would be true.
+        ///     b. For non-Availability Zones enabled regions - The default property value would be false.
         /// Once specified, this property cannot be updated.
         /// </summary>
         [Input("isZoneRedundant")]
@@ -206,6 +221,10 @@ namespace Pulumi.AzureNative.EventGrid
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
         {
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
@@ -248,6 +267,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("topicSpacesConfiguration")]
         public Input<Inputs.TopicSpacesConfigurationArgs>? TopicSpacesConfiguration { get; set; }
+
+        /// <summary>
+        /// Topics configuration information for the namespace resource
+        /// </summary>
+        [Input("topicsConfiguration")]
+        public Input<Inputs.TopicsConfigurationArgs>? TopicsConfiguration { get; set; }
 
         public NamespaceArgs()
         {

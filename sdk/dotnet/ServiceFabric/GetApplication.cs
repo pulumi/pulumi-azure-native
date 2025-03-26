@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetApplicationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -151,6 +149,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetApplicationResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedIdentityResponse? identity,
@@ -175,6 +175,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

@@ -120,6 +120,8 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
 
     Uses Azure REST API version 2018-11-01.
 
+    Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.
@@ -153,6 +155,8 @@ def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[
     Gets the send key name and value for a Hybrid Connection.
 
     Uses Azure REST API version 2018-11-01.
+
+    Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: The name of the web app.

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a SqlCollector
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlCollectorOperation(args: GetSqlCollectorOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +47,10 @@ export interface GetSqlCollectorOperationResult {
      */
     readonly agentProperties?: outputs.migrate.CollectorAgentPropertiesBaseResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets the Timestamp when collector was created.
      */
     readonly createdTimestamp: string;
@@ -55,7 +59,7 @@ export interface GetSqlCollectorOperationResult {
      */
     readonly discoverySiteId?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -82,9 +86,9 @@ export interface GetSqlCollectorOperationResult {
 /**
  * Get a SqlCollector
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlCollectorOperationOutput(args: GetSqlCollectorOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

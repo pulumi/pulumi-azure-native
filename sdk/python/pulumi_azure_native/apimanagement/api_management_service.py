@@ -450,9 +450,9 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -490,9 +490,9 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ApiManagementServiceArgs args: The arguments to use to populate this resource's properties.
@@ -584,6 +584,7 @@ class ApiManagementService(pulumi.CustomResource):
                 virtual_network_type = 'None'
             __props__.__dict__["virtual_network_type"] = virtual_network_type
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at_utc"] = None
             __props__.__dict__["developer_portal_url"] = None
             __props__.__dict__["etag"] = None
@@ -627,6 +628,7 @@ class ApiManagementService(pulumi.CustomResource):
 
         __props__.__dict__["additional_locations"] = None
         __props__.__dict__["api_version_constraint"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["certificates"] = None
         __props__.__dict__["created_at_utc"] = None
         __props__.__dict__["custom_properties"] = None
@@ -681,6 +683,14 @@ class ApiManagementService(pulumi.CustomResource):
         Control Plane Apis version constraint for the API Management service.
         """
         return pulumi.get(self, "api_version_constraint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Rule Collection Group resource.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
  *
- * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResourc
         return obj['__pulumiType'] === FirewallPolicyRuleCollectionGroupDraft.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -89,9 +93,11 @@ export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResourc
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
             resourceInputs["ruleCollections"] = args ? args.ruleCollections : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["ruleCollections"] = undefined /*out*/;

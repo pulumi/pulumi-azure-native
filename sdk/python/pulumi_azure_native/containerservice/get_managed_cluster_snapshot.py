@@ -27,7 +27,10 @@ class GetManagedClusterSnapshotResult:
     """
     A managed cluster snapshot resource.
     """
-    def __init__(__self__, creation_data=None, id=None, location=None, managed_cluster_properties_read_only=None, name=None, snapshot_type=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_data=None, id=None, location=None, managed_cluster_properties_read_only=None, name=None, snapshot_type=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -57,6 +60,14 @@ class GetManagedClusterSnapshotResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> Optional['outputs.CreationDataResponse']:
         """
@@ -68,7 +79,7 @@ class GetManagedClusterSnapshotResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -135,6 +146,7 @@ class AwaitableGetManagedClusterSnapshotResult(GetManagedClusterSnapshotResult):
         if False:
             yield self
         return GetManagedClusterSnapshotResult(
+            azure_api_version=self.azure_api_version,
             creation_data=self.creation_data,
             id=self.id,
             location=self.location,
@@ -152,9 +164,9 @@ def get_managed_cluster_snapshot(resource_group_name: Optional[str] = None,
     """
     A managed cluster snapshot resource.
 
-    Uses Azure REST API version 2023-05-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-02-preview, 2023-10-02-preview, 2023-11-02-preview, 2024-01-02-preview, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2024-10-02-preview.
+    Other available API versions: 2022-02-02-preview, 2022-03-02-preview, 2022-04-02-preview, 2022-05-02-preview, 2022-06-02-preview, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-02-preview, 2022-10-02-preview, 2022-11-02-preview, 2023-01-02-preview, 2023-02-02-preview, 2023-03-02-preview, 2023-04-02-preview, 2023-05-02-preview, 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-02-preview, 2023-10-02-preview, 2023-11-02-preview, 2024-01-02-preview, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -167,6 +179,7 @@ def get_managed_cluster_snapshot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice:getManagedClusterSnapshot', __args__, opts=opts, typ=GetManagedClusterSnapshotResult).value
 
     return AwaitableGetManagedClusterSnapshotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_data=pulumi.get(__ret__, 'creation_data'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -182,9 +195,9 @@ def get_managed_cluster_snapshot_output(resource_group_name: Optional[pulumi.Inp
     """
     A managed cluster snapshot resource.
 
-    Uses Azure REST API version 2023-05-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-02-preview, 2023-10-02-preview, 2023-11-02-preview, 2024-01-02-preview, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2024-10-02-preview.
+    Other available API versions: 2022-02-02-preview, 2022-03-02-preview, 2022-04-02-preview, 2022-05-02-preview, 2022-06-02-preview, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-02-preview, 2022-10-02-preview, 2022-11-02-preview, 2023-01-02-preview, 2023-02-02-preview, 2023-03-02-preview, 2023-04-02-preview, 2023-05-02-preview, 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-02-preview, 2023-10-02-preview, 2023-11-02-preview, 2024-01-02-preview, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -196,6 +209,7 @@ def get_managed_cluster_snapshot_output(resource_group_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getManagedClusterSnapshot', __args__, opts=opts, typ=GetManagedClusterSnapshotResult)
     return __ret__.apply(lambda __response__: GetManagedClusterSnapshotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_data=pulumi.get(__response__, 'creation_data'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

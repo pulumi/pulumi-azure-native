@@ -18,11 +18,3 @@ from .get_fleet_tier import *
 from .get_fleetspace import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.databasefleetmanager.v20250201preview as __v20250201preview
-    v20250201preview = __v20250201preview
-else:
-    v20250201preview = _utilities.lazy_import('pulumi_azure_native.databasefleetmanager.v20250201preview')
-

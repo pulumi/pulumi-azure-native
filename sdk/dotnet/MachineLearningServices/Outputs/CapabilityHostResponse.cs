@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// List of Thread storage connections.
+        /// </summary>
+        public readonly ImmutableArray<string> ThreadStorageConnections;
+        /// <summary>
         /// List of VectorStore connections.
         /// </summary>
         public readonly ImmutableArray<string> VectorStoreConnections;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableArray<string> threadStorageConnections,
+
             ImmutableArray<string> vectorStoreConnections)
         {
             AiServicesConnections = aiServicesConnections;
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             ProvisioningState = provisioningState;
             StorageConnections = storageConnections;
             Tags = tags;
+            ThreadStorageConnections = threadStorageConnections;
             VectorStoreConnections = vectorStoreConnections;
         }
     }

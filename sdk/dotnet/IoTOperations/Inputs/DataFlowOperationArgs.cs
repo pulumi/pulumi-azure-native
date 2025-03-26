@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlow Operation properties. NOTE - One only method is allowed to be used for one entry.
+    /// Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
     /// </summary>
-    public sealed class DataFlowOperationArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowOperationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Transformation configuration.
+        /// Built In Transformation configuration.
         /// </summary>
         [Input("builtInTransformationSettings")]
-        public Input<Inputs.DataFlowBuiltInTransformationArgs>? BuiltInTransformationSettings { get; set; }
+        public Input<Inputs.DataflowBuiltInTransformationSettingsArgs>? BuiltInTransformationSettings { get; set; }
 
         /// <summary>
         /// Destination configuration.
         /// </summary>
-        [Input("destinationSettings", required: true)]
-        public Input<Inputs.DataFlowDestinationOperationArgs> DestinationSettings { get; set; } = null!;
+        [Input("destinationSettings")]
+        public Input<Inputs.DataflowDestinationOperationSettingsArgs>? DestinationSettings { get; set; }
 
         /// <summary>
         /// Optional user provided name of the transformation.
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// <summary>
         /// Source configuration.
         /// </summary>
-        [Input("sourceSettings", required: true)]
-        public Input<Inputs.DataFlowSourceOperationArgs> SourceSettings { get; set; } = null!;
+        [Input("sourceSettings")]
+        public Input<Inputs.DataflowSourceOperationSettingsArgs>? SourceSettings { get; set; }
 
-        public DataFlowOperationArgs()
+        public DataflowOperationArgs()
         {
         }
-        public static new DataFlowOperationArgs Empty => new DataFlowOperationArgs();
+        public static new DataflowOperationArgs Empty => new DataflowOperationArgs();
     }
 }

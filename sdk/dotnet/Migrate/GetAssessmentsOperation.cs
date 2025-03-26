@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a Assessment
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAssessmentsOperationResult> InvokeAsync(GetAssessmentsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsOperationResult>("azure-native:migrate:getAssessmentsOperation", args ?? new GetAssessmentsOperationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a Assessment
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAssessmentsOperationResult> Invoke(GetAssessmentsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsOperationResult>("azure-native:migrate:getAssessmentsOperation", args ?? new GetAssessmentsOperationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a Assessment
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAssessmentsOperationResult> Invoke(GetAssessmentsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsOperationResult>("azure-native:migrate:getAssessmentsOperation", args ?? new GetAssessmentsOperationInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.Migrate
         /// Assessment type of the assessment.
         /// </summary>
         public readonly string AssessmentType;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Gets or sets the azure storage type. Premium, Standard etc.
         /// </summary>
@@ -314,6 +318,8 @@ namespace Pulumi.AzureNative.Migrate
 
             string assessmentType,
 
+            string azureApiVersion,
+
             ImmutableArray<string> azureDiskTypes,
 
             string? azureHybridUseBenefit,
@@ -404,6 +410,7 @@ namespace Pulumi.AzureNative.Migrate
         {
             AssessmentErrorSummary = assessmentErrorSummary;
             AssessmentType = assessmentType;
+            AzureApiVersion = azureApiVersion;
             AzureDiskTypes = azureDiskTypes;
             AzureHybridUseBenefit = azureHybridUseBenefit;
             AzureLocation = azureLocation;

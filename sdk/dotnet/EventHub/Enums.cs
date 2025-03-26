@@ -67,6 +67,37 @@ namespace Pulumi.AzureNative.EventHub
     }
 
     /// <summary>
+    /// Type of Azure Active Directory Managed Identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct CaptureIdentityType : IEquatable<CaptureIdentityType>
+    {
+        private readonly string _value;
+
+        private CaptureIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CaptureIdentityType SystemAssigned { get; } = new CaptureIdentityType("SystemAssigned");
+        public static CaptureIdentityType UserAssigned { get; } = new CaptureIdentityType("UserAssigned");
+
+        public static bool operator ==(CaptureIdentityType left, CaptureIdentityType right) => left.Equals(right);
+        public static bool operator !=(CaptureIdentityType left, CaptureIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(CaptureIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CaptureIdentityType other && Equals(other);
+        public bool Equals(CaptureIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enumerates the possible values for cleanup policy
     /// </summary>
     [EnumType]

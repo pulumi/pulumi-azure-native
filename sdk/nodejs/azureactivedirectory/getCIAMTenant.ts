@@ -36,6 +36,10 @@ export interface GetCIAMTenantArgs {
  */
 export interface GetCIAMTenantResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The type of billing. Will be MAU for all new customers. Cannot be changed if value is 'MAU'. Learn more about Azure AD for customers billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
      */
     readonly billingType: string;

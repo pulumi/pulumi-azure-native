@@ -27,7 +27,10 @@ class GetVendorResult:
     """
     Vendor resource.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, skus=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, provisioning_state=None, skus=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetVendorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetVendorResult(GetVendorResult):
         if False:
             yield self
         return GetVendorResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -126,6 +138,7 @@ def get_vendor(vendor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:getVendor', __args__, opts=opts, typ=GetVendorResult).value
 
     return AwaitableGetVendorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -147,6 +160,7 @@ def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getVendor', __args__, opts=opts, typ=GetVendorResult)
     return __ret__.apply(lambda __response__: GetVendorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

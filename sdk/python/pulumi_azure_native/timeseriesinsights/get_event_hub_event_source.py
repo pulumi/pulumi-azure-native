@@ -27,7 +27,10 @@ class GetEventHubEventSourceResult:
     """
     An event source that receives its data from an Azure EventHub.
     """
-    def __init__(__self__, consumer_group_name=None, creation_time=None, event_hub_name=None, event_source_resource_id=None, id=None, key_name=None, kind=None, local_timestamp=None, location=None, name=None, provisioning_state=None, service_bus_namespace=None, tags=None, time=None, timestamp_property_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, consumer_group_name=None, creation_time=None, event_hub_name=None, event_source_resource_id=None, id=None, key_name=None, kind=None, local_timestamp=None, location=None, name=None, provisioning_state=None, service_bus_namespace=None, tags=None, time=None, timestamp_property_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if consumer_group_name and not isinstance(consumer_group_name, str):
             raise TypeError("Expected argument 'consumer_group_name' to be a str")
         pulumi.set(__self__, "consumer_group_name", consumer_group_name)
@@ -76,6 +79,14 @@ class GetEventHubEventSourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -213,6 +224,7 @@ class AwaitableGetEventHubEventSourceResult(GetEventHubEventSourceResult):
         if False:
             yield self
         return GetEventHubEventSourceResult(
+            azure_api_version=self.azure_api_version,
             consumer_group_name=self.consumer_group_name,
             creation_time=self.creation_time,
             event_hub_name=self.event_hub_name,
@@ -253,6 +265,7 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights:getEventHubEventSource', __args__, opts=opts, typ=GetEventHubEventSourceResult).value
 
     return AwaitableGetEventHubEventSourceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         consumer_group_name=pulumi.get(__ret__, 'consumer_group_name'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
@@ -290,6 +303,7 @@ def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights:getEventHubEventSource', __args__, opts=opts, typ=GetEventHubEventSourceResult)
     return __ret__.apply(lambda __response__: GetEventHubEventSourceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         consumer_group_name=pulumi.get(__response__, 'consumer_group_name'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         event_hub_name=pulumi.get(__response__, 'event_hub_name'),

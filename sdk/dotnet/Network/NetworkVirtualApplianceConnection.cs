@@ -12,30 +12,18 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// NetworkVirtualApplianceConnection resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
     /// 
-    /// Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualApplianceConnection")]
     public partial class NetworkVirtualApplianceConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Network Virtual Appliance ASN.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("asn")]
-        public Output<double?> Asn { get; private set; } = null!;
-
-        /// <summary>
-        /// List of bgpPeerAddresses for the NVA instances
-        /// </summary>
-        [Output("bgpPeerAddress")]
-        public Output<ImmutableArray<string>> BgpPeerAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// Enable internet security.
-        /// </summary>
-        [Output("enableInternetSecurity")]
-        public Output<bool?> EnableInternetSecurity { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -44,22 +32,10 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the NetworkVirtualApplianceConnection resource.
+        /// Properties of the express route connection.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
-        /// </summary>
-        [Output("routingConfiguration")]
-        public Output<Outputs.RoutingConfigurationResponse?> RoutingConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique identifier for the connection.
-        /// </summary>
-        [Output("tunnelIdentifier")]
-        public Output<double?> TunnelIdentifier { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.NetworkVirtualApplianceConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,34 +92,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class NetworkVirtualApplianceConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Network Virtual Appliance ASN.
-        /// </summary>
-        [Input("asn")]
-        public Input<double>? Asn { get; set; }
-
-        [Input("bgpPeerAddress")]
-        private InputList<string>? _bgpPeerAddress;
-
-        /// <summary>
-        /// List of bgpPeerAddresses for the NVA instances
-        /// </summary>
-        public InputList<string> BgpPeerAddress
-        {
-            get => _bgpPeerAddress ?? (_bgpPeerAddress = new InputList<string>());
-            set => _bgpPeerAddress = value;
-        }
-
-        /// <summary>
         /// The name of the NVA connection.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
-
-        /// <summary>
-        /// Enable internet security.
-        /// </summary>
-        [Input("enableInternetSecurity")]
-        public Input<bool>? EnableInternetSecurity { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -164,22 +116,16 @@ namespace Pulumi.AzureNative.Network
         public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
 
         /// <summary>
+        /// Properties of the express route connection.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.NetworkVirtualApplianceConnectionPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
-        /// </summary>
-        [Input("routingConfiguration")]
-        public Input<Inputs.RoutingConfigurationArgs>? RoutingConfiguration { get; set; }
-
-        /// <summary>
-        /// Unique identifier for the connection.
-        /// </summary>
-        [Input("tunnelIdentifier")]
-        public Input<double>? TunnelIdentifier { get; set; }
 
         public NetworkVirtualApplianceConnectionArgs()
         {

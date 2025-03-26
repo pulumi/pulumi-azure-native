@@ -27,7 +27,10 @@ class GetEnvironmentResult:
     """
     Environment entity.
     """
-    def __init__(__self__, custom_properties=None, description=None, id=None, kind=None, name=None, onboarding=None, server=None, system_data=None, title=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_properties=None, description=None, id=None, kind=None, name=None, onboarding=None, server=None, system_data=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_properties and not isinstance(custom_properties, dict):
             raise TypeError("Expected argument 'custom_properties' to be a dict")
         pulumi.set(__self__, "custom_properties", custom_properties)
@@ -58,6 +61,14 @@ class GetEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customProperties")
@@ -146,6 +157,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         if False:
             yield self
         return GetEnvironmentResult(
+            azure_api_version=self.azure_api_version,
             custom_properties=self.custom_properties,
             description=self.description,
             id=self.id,
@@ -166,9 +178,9 @@ def get_environment(environment_name: Optional[str] = None,
     """
     Returns details of the environment.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: The name of the environment.
@@ -185,6 +197,7 @@ def get_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apicenter:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_properties=pulumi.get(__ret__, 'custom_properties'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -203,9 +216,9 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
     """
     Returns details of the environment.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: The name of the environment.
@@ -221,6 +234,7 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_properties=pulumi.get(__response__, 'custom_properties'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

@@ -27,7 +27,10 @@ class GetImportPipelineResult:
     """
     An object that represents an import pipeline for a container registry.
     """
-    def __init__(__self__, id=None, identity=None, location=None, name=None, options=None, provisioning_state=None, source=None, system_data=None, trigger=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, name=None, options=None, provisioning_state=None, source=None, system_data=None, trigger=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,14 @@ class GetImportPipelineResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetImportPipelineResult(GetImportPipelineResult):
         if False:
             yield self
         return GetImportPipelineResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -167,7 +179,7 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str import_pipeline_name: The name of the import pipeline.
@@ -182,6 +194,7 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getImportPipeline', __args__, opts=opts, typ=GetImportPipelineResult).value
 
     return AwaitableGetImportPipelineResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
@@ -201,7 +214,7 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
 
     Uses Azure REST API version 2023-01-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str import_pipeline_name: The name of the import pipeline.
@@ -215,6 +228,7 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getImportPipeline', __args__, opts=opts, typ=GetImportPipelineResult)
     return __ret__.apply(lambda __response__: GetImportPipelineResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),

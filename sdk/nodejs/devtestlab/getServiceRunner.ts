@@ -41,6 +41,10 @@ export interface GetServiceRunnerArgs {
  */
 export interface GetServiceRunnerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The identifier of the resource.
      */
     readonly id: string;

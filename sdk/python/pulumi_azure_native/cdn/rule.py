@@ -169,9 +169,9 @@ class Rule(pulumi.CustomResource):
         """
         Friendly Rules name mapping to the any Rules or secret related information.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +193,9 @@ class Rule(pulumi.CustomResource):
         """
         Friendly Rules name mapping to the any Rules or secret related information.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -249,6 +249,7 @@ class Rule(pulumi.CustomResource):
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -279,6 +280,7 @@ class Rule(pulumi.CustomResource):
         __props__ = RuleArgs.__new__(RuleArgs)
 
         __props__.__dict__["actions"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["conditions"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["match_processing_behavior"] = None
@@ -297,6 +299,14 @@ class Rule(pulumi.CustomResource):
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

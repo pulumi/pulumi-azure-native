@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetPrivateCloud
     {
         /// <summary>
-        /// A private cloud resource
+        /// Get a PrivateCloud
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private cloud resource
+        /// Get a PrivateCloud
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private cloud resource
+        /// Get a PrivateCloud
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
@@ -92,9 +92,17 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly Outputs.AvailabilityPropertiesResponse? Availability;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An ExpressRoute Circuit
         /// </summary>
         public readonly Outputs.CircuitResponse? Circuit;
+        /// <summary>
+        /// The type of DNS zone to use.
+        /// </summary>
+        public readonly string? DnsZoneType;
         /// <summary>
         /// Customer managed key encryption, can be enabled or disabled
         /// </summary>
@@ -104,17 +112,24 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly Outputs.EndpointsResponse Endpoints;
         /// <summary>
+        /// Array of additional networks noncontiguous with networkBlock. Networks must be
+        /// unique and non-overlapping across VNet in your subscription, on-premise, and
+        /// this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+        /// (A.B.C.D/X).
+        /// </summary>
+        public readonly ImmutableArray<string> ExtendedNetworkBlocks;
+        /// <summary>
         /// Array of cloud link IDs from other clouds that connect to this one
         /// </summary>
         public readonly ImmutableArray<string> ExternalCloudLinks;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the private cloud, if configured.
+        /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.PrivateCloudIdentityResponse? Identity;
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
         /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
@@ -124,7 +139,7 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? Internet;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -136,15 +151,18 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ManagementNetwork;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        /// The block of addresses should be unique across VNet in your subscription as
+        /// well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+        /// A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
         public readonly string NetworkBlock;
         /// <summary>
-        /// Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        /// Flag to indicate whether the private cloud has the quota for provisioned NSX
+        /// Public IP count raised from 64 to 1024
         /// </summary>
         public readonly string NsxPublicIpQuotaRaised;
         /// <summary>
@@ -164,19 +182,24 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        /// A secondary expressRoute circuit from a separate AZ. Only present in a
+        /// stretched private cloud
         /// </summary>
         public readonly Outputs.CircuitResponse? SecondaryCircuit;
         /// <summary>
-        /// The private cloud SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -188,6 +211,10 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? VcenterPassword;
         /// <summary>
+        /// Azure resource ID of the virtual network
+        /// </summary>
+        public readonly string? VirtualNetworkId;
+        /// <summary>
         /// Used for live migration of virtual machines
         /// </summary>
         public readonly string VmotionNetwork;
@@ -196,17 +223,23 @@ namespace Pulumi.AzureNative.AVS
         private GetPrivateCloudResult(
             Outputs.AvailabilityPropertiesResponse? availability,
 
+            string azureApiVersion,
+
             Outputs.CircuitResponse? circuit,
+
+            string? dnsZoneType,
 
             Outputs.EncryptionResponse? encryption,
 
             Outputs.EndpointsResponse endpoints,
 
+            ImmutableArray<string> extendedNetworkBlocks,
+
             ImmutableArray<string> externalCloudLinks,
 
             string id,
 
-            Outputs.PrivateCloudIdentityResponse? identity,
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
 
             ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
 
@@ -236,6 +269,8 @@ namespace Pulumi.AzureNative.AVS
 
             Outputs.SkuResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -244,12 +279,17 @@ namespace Pulumi.AzureNative.AVS
 
             string? vcenterPassword,
 
+            string? virtualNetworkId,
+
             string vmotionNetwork)
         {
             Availability = availability;
+            AzureApiVersion = azureApiVersion;
             Circuit = circuit;
+            DnsZoneType = dnsZoneType;
             Encryption = encryption;
             Endpoints = endpoints;
+            ExtendedNetworkBlocks = extendedNetworkBlocks;
             ExternalCloudLinks = externalCloudLinks;
             Id = id;
             Identity = identity;
@@ -267,10 +307,12 @@ namespace Pulumi.AzureNative.AVS
             ProvisioningState = provisioningState;
             SecondaryCircuit = secondaryCircuit;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VcenterCertificateThumbprint = vcenterCertificateThumbprint;
             VcenterPassword = vcenterPassword;
+            VirtualNetworkId = virtualNetworkId;
             VmotionNetwork = vmotionNetwork;
         }
     }

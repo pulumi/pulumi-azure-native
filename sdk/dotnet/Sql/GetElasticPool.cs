@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an elastic pool.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an elastic pool.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an elastic pool.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
@@ -100,11 +100,23 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetElasticPoolResult
     {
         /// <summary>
+        /// Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
+        /// </summary>
+        public readonly int? AutoPauseDelay;
+        /// <summary>
+        /// Specifies the availability zone the pool's primary replica is pinned to.
+        /// </summary>
+        public readonly string? AvailabilityZone;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the elastic pool (ISO8601 format).
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
-        /// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        /// The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         /// </summary>
         public readonly int? HighAvailabilityReplicaCount;
         /// <summary>
@@ -144,6 +156,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly Outputs.ElasticPoolPerDatabaseSettingsResponse? PerDatabaseSettings;
         /// <summary>
+        /// Type of enclave requested on the elastic pool.
+        /// </summary>
+        public readonly string? PreferredEnclaveType;
+        /// <summary>
         /// The elastic pool SKU.
         /// 
         /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
@@ -172,6 +188,12 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetElasticPoolResult(
+            int? autoPauseDelay,
+
+            string? availabilityZone,
+
+            string azureApiVersion,
+
             string creationDate,
 
             int? highAvailabilityReplicaCount,
@@ -194,6 +216,8 @@ namespace Pulumi.AzureNative.Sql
 
             Outputs.ElasticPoolPerDatabaseSettingsResponse? perDatabaseSettings,
 
+            string? preferredEnclaveType,
+
             Outputs.SkuResponse? sku,
 
             string state,
@@ -204,6 +228,9 @@ namespace Pulumi.AzureNative.Sql
 
             bool? zoneRedundant)
         {
+            AutoPauseDelay = autoPauseDelay;
+            AvailabilityZone = availabilityZone;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;
@@ -215,6 +242,7 @@ namespace Pulumi.AzureNative.Sql
             MinCapacity = minCapacity;
             Name = name;
             PerDatabaseSettings = perDatabaseSettings;
+            PreferredEnclaveType = preferredEnclaveType;
             Sku = sku;
             State = state;
             Tags = tags;

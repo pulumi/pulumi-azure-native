@@ -374,9 +374,9 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
         """
         Represents a ScalingPlanPooledSchedule definition.
 
-        Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -410,9 +410,9 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
         """
         Represents a ScalingPlanPooledSchedule definition.
 
-        Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanPooledScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -482,10 +482,11 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scaling_plan_name'")
             __props__.__dict__["scaling_plan_name"] = scaling_plan_name
             __props__.__dict__["scaling_plan_schedule_name"] = scaling_plan_schedule_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ScalingPlanPooledSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ScalingPlanPooledSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlanPooledSchedule, __self__).__init__(
             'azure-native:desktopvirtualization:ScalingPlanPooledSchedule',
@@ -509,6 +510,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
 
         __props__ = ScalingPlanPooledScheduleArgs.__new__(ScalingPlanPooledScheduleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["days_of_week"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["off_peak_load_balancing_algorithm"] = None
@@ -530,6 +532,14 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ScalingPlanPooledSchedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="daysOfWeek")
@@ -679,7 +689,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

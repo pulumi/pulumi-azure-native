@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Volume name
         /// </summary>
         public readonly string? VolumeName;
+        /// <summary>
+        /// ResourceId used to identify the Volume
+        /// </summary>
+        public readonly string? VolumeResourceId;
 
         [OutputConstructor]
         private VolumeBackupsResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             bool? policyEnabled,
 
-            string? volumeName)
+            string? volumeName,
+
+            string? volumeResourceId)
         {
             BackupsCount = backupsCount;
             PolicyEnabled = policyEnabled;
             VolumeName = volumeName;
+            VolumeResourceId = volumeResourceId;
         }
     }
 }

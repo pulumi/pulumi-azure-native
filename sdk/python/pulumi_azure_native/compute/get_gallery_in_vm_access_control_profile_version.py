@@ -27,7 +27,10 @@ class GetGalleryInVMAccessControlProfileVersionResult:
     """
     Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
     """
-    def __init__(__self__, default_access=None, exclude_from_latest=None, id=None, location=None, mode=None, name=None, provisioning_state=None, published_date=None, replication_status=None, rules=None, tags=None, target_locations=None, type=None):
+    def __init__(__self__, azure_api_version=None, default_access=None, exclude_from_latest=None, id=None, location=None, mode=None, name=None, provisioning_state=None, published_date=None, replication_status=None, rules=None, tags=None, target_locations=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_access and not isinstance(default_access, str):
             raise TypeError("Expected argument 'default_access' to be a str")
         pulumi.set(__self__, "default_access", default_access)
@@ -67,6 +70,14 @@ class GetGalleryInVMAccessControlProfileVersionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultAccess")
@@ -179,6 +190,7 @@ class AwaitableGetGalleryInVMAccessControlProfileVersionResult(GetGalleryInVMAcc
         if False:
             yield self
         return GetGalleryInVMAccessControlProfileVersionResult(
+            azure_api_version=self.azure_api_version,
             default_access=self.default_access,
             exclude_from_latest=self.exclude_from_latest,
             id=self.id,
@@ -219,6 +231,7 @@ def get_gallery_in_vm_access_control_profile_version(gallery_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGalleryInVMAccessControlProfileVersion', __args__, opts=opts, typ=GetGalleryInVMAccessControlProfileVersionResult).value
 
     return AwaitableGetGalleryInVMAccessControlProfileVersionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_access=pulumi.get(__ret__, 'default_access'),
         exclude_from_latest=pulumi.get(__ret__, 'exclude_from_latest'),
         id=pulumi.get(__ret__, 'id'),
@@ -256,6 +269,7 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getGalleryInVMAccessControlProfileVersion', __args__, opts=opts, typ=GetGalleryInVMAccessControlProfileVersionResult)
     return __ret__.apply(lambda __response__: GetGalleryInVMAccessControlProfileVersionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_access=pulumi.get(__response__, 'default_access'),
         exclude_from_latest=pulumi.get(__response__, 'exclude_from_latest'),
         id=pulumi.get(__response__, 'id'),

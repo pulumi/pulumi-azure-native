@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +52,10 @@ export interface GetDeviceArgs {
  * An device resource belonging to a device group resource.
  */
 export interface GetDeviceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * SKU of the chip
      */
@@ -100,9 +104,9 @@ export interface GetDeviceResult {
 /**
  * Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

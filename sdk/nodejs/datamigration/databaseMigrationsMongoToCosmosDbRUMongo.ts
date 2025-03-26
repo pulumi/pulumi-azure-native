@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Database Migration Resource for Mongo to CosmosDb.
  *
- * Uses Azure REST API version 2023-07-15-preview.
+ * Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-15-preview.
  */
 export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResou
         return obj['__pulumiType'] === DatabaseMigrationsMongoToCosmosDbRUMongo.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of Mongo Collections to be migrated.
      */
@@ -136,6 +140,7 @@ export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResou
             resourceInputs["sourceMongoConnection"] = args ? args.sourceMongoConnection : undefined;
             resourceInputs["targetMongoConnection"] = args ? args.targetMongoConnection : undefined;
             resourceInputs["targetResourceName"] = args ? args.targetResourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endedOn"] = undefined /*out*/;
             resourceInputs["migrationFailureError"] = undefined /*out*/;
             resourceInputs["migrationStatus"] = undefined /*out*/;
@@ -145,6 +150,7 @@ export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResou
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collectionList"] = undefined /*out*/;
             resourceInputs["endedOn"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

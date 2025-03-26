@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EventHub
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// 
-    /// Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

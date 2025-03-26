@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * GlobalRulestack prefixList
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrefixListGlobalRulestack extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class PrefixListGlobalRulestack extends pulumi.CustomResource {
      * comment for this object
      */
     public readonly auditComment!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * prefix description
      */
@@ -96,12 +100,14 @@ export class PrefixListGlobalRulestack extends pulumi.CustomResource {
             resourceInputs["globalRulestackName"] = args ? args.globalRulestackName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["prefixList"] = args ? args.prefixList : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["auditComment"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

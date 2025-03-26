@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A object that represents a SuppressionList record.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview.
+    /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview.
+    /// Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionListAddress")]
     public partial class SuppressionListAddress : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The location where the SuppressionListAddress data is stored at rest. This value is inherited from the parent Domains resource.
         /// </summary>

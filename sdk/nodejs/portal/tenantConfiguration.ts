@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The tenant configuration resource definition.
  *
- * Uses Azure REST API version 2020-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-09-01-preview.
+ * Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class TenantConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TenantConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -71,10 +75,12 @@ export class TenantConfiguration extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

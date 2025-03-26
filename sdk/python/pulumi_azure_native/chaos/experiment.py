@@ -25,7 +25,7 @@ class ExperimentArgs:
                  properties: pulumi.Input['ExperimentPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  experiment_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ExperimentIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -33,7 +33,7 @@ class ExperimentArgs:
         :param pulumi.Input['ExperimentPropertiesArgs'] properties: The properties of the experiment resource.
         :param pulumi.Input[str] resource_group_name: String that represents an Azure resource group.
         :param pulumi.Input[str] experiment_name: String that represents a Experiment resource name.
-        :param pulumi.Input['ResourceIdentityArgs'] identity: The identity of the experiment resource.
+        :param pulumi.Input['ExperimentIdentityArgs'] identity: The identity of the experiment resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -86,14 +86,14 @@ class ExperimentArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ExperimentIdentityArgs']]:
         """
         The identity of the experiment resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ExperimentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -127,7 +127,7 @@ class Experiment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['ExperimentPropertiesArgs', 'ExperimentPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -136,14 +136,14 @@ class Experiment(pulumi.CustomResource):
         """
         Model that represents a Experiment resource.
 
-        Uses Azure REST API version 2023-04-15-preview. In version 1.x of the Azure Native provider, it used API version 2021-09-15-preview.
+        Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-15-preview.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] experiment_name: String that represents a Experiment resource name.
-        :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The identity of the experiment resource.
+        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']] identity: The identity of the experiment resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ExperimentPropertiesArgs', 'ExperimentPropertiesArgsDict']] properties: The properties of the experiment resource.
         :param pulumi.Input[str] resource_group_name: String that represents an Azure resource group.
@@ -158,9 +158,9 @@ class Experiment(pulumi.CustomResource):
         """
         Model that represents a Experiment resource.
 
-        Uses Azure REST API version 2023-04-15-preview. In version 1.x of the Azure Native provider, it used API version 2021-09-15-preview.
+        Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-15-preview.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class Experiment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['ExperimentPropertiesArgs', 'ExperimentPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -202,6 +202,7 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -229,6 +230,7 @@ class Experiment(pulumi.CustomResource):
 
         __props__ = ExperimentArgs.__new__(ExperimentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -239,8 +241,16 @@ class Experiment(pulumi.CustomResource):
         return Experiment(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ExperimentIdentityResponse']]:
         """
         The identity of the experiment resource.
         """
@@ -274,7 +284,7 @@ class Experiment(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata of the experiment resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

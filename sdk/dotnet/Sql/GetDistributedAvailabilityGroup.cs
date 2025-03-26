@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a distributed availability group info.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDistributedAvailabilityGroupResult> InvokeAsync(GetDistributedAvailabilityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributedAvailabilityGroupResult>("azure-native:sql:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a distributed availability group info.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDistributedAvailabilityGroupResult> Invoke(GetDistributedAvailabilityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributedAvailabilityGroupResult>("azure-native:sql:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a distributed availability group info.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDistributedAvailabilityGroupResult> Invoke(GetDistributedAvailabilityGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributedAvailabilityGroupResult>("azure-native:sql:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupInvokeArgs(), options.WithDefaults());
@@ -100,53 +100,61 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetDistributedAvailabilityGroupResult
     {
         /// <summary>
-        /// The distributed availability group id
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Databases in the distributed availability group
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributedAvailabilityGroupDatabaseResponse> Databases;
+        /// <summary>
+        /// ID of the distributed availability group
         /// </summary>
         public readonly string DistributedAvailabilityGroupId;
+        /// <summary>
+        /// Name of the distributed availability group
+        /// </summary>
+        public readonly string DistributedAvailabilityGroupName;
+        /// <summary>
+        /// The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
+        /// </summary>
+        public readonly string? FailoverMode;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The last hardened lsn
+        /// Managed instance side availability group name
         /// </summary>
-        public readonly string LastHardenedLsn;
+        public readonly string? InstanceAvailabilityGroupName;
         /// <summary>
-        /// The link state
+        /// Managed instance side link role
         /// </summary>
-        public readonly string LinkState;
+        public readonly string? InstanceLinkRole;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The primary availability group name
+        /// SQL server side availability group name
         /// </summary>
-        public readonly string? PrimaryAvailabilityGroupName;
+        public readonly string? PartnerAvailabilityGroupName;
         /// <summary>
-        /// The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+        /// SQL server side endpoint - IP or DNS resolvable name
+        /// </summary>
+        public readonly string? PartnerEndpoint;
+        /// <summary>
+        /// SQL server side link role
+        /// </summary>
+        public readonly string PartnerLinkRole;
+        /// <summary>
+        /// Replication mode of the link
         /// </summary>
         public readonly string? ReplicationMode;
         /// <summary>
-        /// The secondary availability group name
+        /// Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
         /// </summary>
-        public readonly string? SecondaryAvailabilityGroupName;
-        /// <summary>
-        /// The source endpoint
-        /// </summary>
-        public readonly string? SourceEndpoint;
-        /// <summary>
-        /// The source replica id
-        /// </summary>
-        public readonly string SourceReplicaId;
-        /// <summary>
-        /// The name of the target database
-        /// </summary>
-        public readonly string? TargetDatabase;
-        /// <summary>
-        /// The target replica id
-        /// </summary>
-        public readonly string TargetReplicaId;
+        public readonly string? SeedingMode;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -154,44 +162,50 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetDistributedAvailabilityGroupResult(
+            string azureApiVersion,
+
+            ImmutableArray<Outputs.DistributedAvailabilityGroupDatabaseResponse> databases,
+
             string distributedAvailabilityGroupId,
+
+            string distributedAvailabilityGroupName,
+
+            string? failoverMode,
 
             string id,
 
-            string lastHardenedLsn,
+            string? instanceAvailabilityGroupName,
 
-            string linkState,
+            string? instanceLinkRole,
 
             string name,
 
-            string? primaryAvailabilityGroupName,
+            string? partnerAvailabilityGroupName,
+
+            string? partnerEndpoint,
+
+            string partnerLinkRole,
 
             string? replicationMode,
 
-            string? secondaryAvailabilityGroupName,
-
-            string? sourceEndpoint,
-
-            string sourceReplicaId,
-
-            string? targetDatabase,
-
-            string targetReplicaId,
+            string? seedingMode,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
+            Databases = databases;
             DistributedAvailabilityGroupId = distributedAvailabilityGroupId;
+            DistributedAvailabilityGroupName = distributedAvailabilityGroupName;
+            FailoverMode = failoverMode;
             Id = id;
-            LastHardenedLsn = lastHardenedLsn;
-            LinkState = linkState;
+            InstanceAvailabilityGroupName = instanceAvailabilityGroupName;
+            InstanceLinkRole = instanceLinkRole;
             Name = name;
-            PrimaryAvailabilityGroupName = primaryAvailabilityGroupName;
+            PartnerAvailabilityGroupName = partnerAvailabilityGroupName;
+            PartnerEndpoint = partnerEndpoint;
+            PartnerLinkRole = partnerLinkRole;
             ReplicationMode = replicationMode;
-            SecondaryAvailabilityGroupName = secondaryAvailabilityGroupName;
-            SourceEndpoint = sourceEndpoint;
-            SourceReplicaId = sourceReplicaId;
-            TargetDatabase = targetDatabase;
-            TargetReplicaId = targetReplicaId;
+            SeedingMode = seedingMode;
             Type = type;
         }
     }

@@ -8,20 +8,22 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a DataFlowEndpointResource
+ * Get a DataflowEndpointResource
  *
- * Uses Azure REST API version 2024-07-01-preview.
+ * Uses Azure REST API version 2024-11-01.
+ *
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getDataFlowEndpoint(args: GetDataFlowEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowEndpointResult> {
+export function getDataflowEndpoint(args: GetDataflowEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataflowEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:iotoperations:getDataFlowEndpoint", {
+    return pulumi.runtime.invoke("azure-native:iotoperations:getDataflowEndpoint", {
         "dataflowEndpointName": args.dataflowEndpointName,
         "instanceName": args.instanceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetDataFlowEndpointArgs {
+export interface GetDataflowEndpointArgs {
     /**
      * Name of Instance dataflowEndpoint resource
      */
@@ -39,7 +41,11 @@ export interface GetDataFlowEndpointArgs {
 /**
  * Instance dataflowEndpoint resource
  */
-export interface GetDataFlowEndpointResult {
+export interface GetDataflowEndpointResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Edge location of the resource.
      */
@@ -55,7 +61,7 @@ export interface GetDataFlowEndpointResult {
     /**
      * The resource-specific properties for this resource.
      */
-    readonly properties: outputs.iotoperations.DataFlowEndpointPropertiesResponse;
+    readonly properties: outputs.iotoperations.DataflowEndpointPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -66,20 +72,22 @@ export interface GetDataFlowEndpointResult {
     readonly type: string;
 }
 /**
- * Get a DataFlowEndpointResource
+ * Get a DataflowEndpointResource
  *
- * Uses Azure REST API version 2024-07-01-preview.
+ * Uses Azure REST API version 2024-11-01.
+ *
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getDataFlowEndpointOutput(args: GetDataFlowEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataFlowEndpointResult> {
+export function getDataflowEndpointOutput(args: GetDataflowEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataflowEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataFlowEndpoint", {
+    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataflowEndpoint", {
         "dataflowEndpointName": args.dataflowEndpointName,
         "instanceName": args.instanceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetDataFlowEndpointOutputArgs {
+export interface GetDataflowEndpointOutputArgs {
     /**
      * Name of Instance dataflowEndpoint resource
      */

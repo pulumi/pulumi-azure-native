@@ -27,10 +27,13 @@ class GetADCCatalogResult:
     """
     Azure Data Catalog.
     """
-    def __init__(__self__, admins=None, enable_automatic_unit_adjustment=None, etag=None, id=None, location=None, name=None, sku=None, successfully_provisioned=None, tags=None, type=None, units=None, users=None):
+    def __init__(__self__, admins=None, azure_api_version=None, enable_automatic_unit_adjustment=None, etag=None, id=None, location=None, name=None, sku=None, successfully_provisioned=None, tags=None, type=None, units=None, users=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
         pulumi.set(__self__, "admins", admins)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if enable_automatic_unit_adjustment and not isinstance(enable_automatic_unit_adjustment, bool):
             raise TypeError("Expected argument 'enable_automatic_unit_adjustment' to be a bool")
         pulumi.set(__self__, "enable_automatic_unit_adjustment", enable_automatic_unit_adjustment)
@@ -72,6 +75,14 @@ class GetADCCatalogResult:
         Azure data catalog admin list.
         """
         return pulumi.get(self, "admins")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableAutomaticUnitAdjustment")
@@ -169,6 +180,7 @@ class AwaitableGetADCCatalogResult(GetADCCatalogResult):
             yield self
         return GetADCCatalogResult(
             admins=self.admins,
+            azure_api_version=self.azure_api_version,
             enable_automatic_unit_adjustment=self.enable_automatic_unit_adjustment,
             etag=self.etag,
             id=self.id,
@@ -202,6 +214,7 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
 
     return AwaitableGetADCCatalogResult(
         admins=pulumi.get(__ret__, 'admins'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         enable_automatic_unit_adjustment=pulumi.get(__ret__, 'enable_automatic_unit_adjustment'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -232,6 +245,7 @@ def get_adc_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:datacatalog:getADCCatalog', __args__, opts=opts, typ=GetADCCatalogResult)
     return __ret__.apply(lambda __response__: GetADCCatalogResult(
         admins=pulumi.get(__response__, 'admins'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         enable_automatic_unit_adjustment=pulumi.get(__response__, 'enable_automatic_unit_adjustment'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

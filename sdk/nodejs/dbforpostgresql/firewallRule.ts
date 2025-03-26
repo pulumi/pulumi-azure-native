@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a server firewall rule.
  *
- * Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+ * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
  *
- * Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FirewallRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The end IP address of the server firewall rule. Must be IPv4 format.
      */
@@ -90,10 +94,12 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endIpAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["startIpAddress"] = undefined /*out*/;
@@ -101,7 +107,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210601:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210601preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20220120preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20220308preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20221201:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230301preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230601preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20231201preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20240301preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20240801:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20241101preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20200214preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210601:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210601preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20220120preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20220308preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20221108:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20221201:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230301preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230302preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230601preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20231201preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20240301preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20240801:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20241101preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

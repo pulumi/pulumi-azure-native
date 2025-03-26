@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Model that represents a Capability resource.
  *
- * Uses Azure REST API version 2023-04-15-preview. In version 1.x of the Azure Native provider, it used API version 2021-09-15-preview.
+ * Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-15-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+ * Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Capability extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Capability extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -50,7 +54,7 @@ export class Capability extends pulumi.CustomResource {
      */
     public /*out*/ readonly properties!: pulumi.Output<outputs.chaos.CapabilityPropertiesResponse>;
     /**
-     * The standard system metadata of a resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.chaos.SystemDataResponse>;
     /**
@@ -90,11 +94,13 @@ export class Capability extends pulumi.CustomResource {
             resourceInputs["parentResourceType"] = args ? args.parentResourceType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

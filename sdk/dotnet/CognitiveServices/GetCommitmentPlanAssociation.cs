@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Gets the association of the Cognitive Services commitment plan.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+        /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCommitmentPlanAssociationResult> InvokeAsync(GetCommitmentPlanAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanAssociationResult>("azure-native:cognitiveservices:getCommitmentPlanAssociation", args ?? new GetCommitmentPlanAssociationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Gets the association of the Cognitive Services commitment plan.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+        /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCommitmentPlanAssociationResult> Invoke(GetCommitmentPlanAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanAssociationResult>("azure-native:cognitiveservices:getCommitmentPlanAssociation", args ?? new GetCommitmentPlanAssociationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Gets the association of the Cognitive Services commitment plan.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+        /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCommitmentPlanAssociationResult> Invoke(GetCommitmentPlanAssociationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanAssociationResult>("azure-native:cognitiveservices:getCommitmentPlanAssociation", args ?? new GetCommitmentPlanAssociationInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -120,6 +124,10 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -127,6 +135,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         [OutputConstructor]
         private GetCommitmentPlanAssociationResult(
             string? accountId,
+
+            string azureApiVersion,
 
             string etag,
 
@@ -136,13 +146,17 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

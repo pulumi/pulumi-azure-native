@@ -27,7 +27,10 @@ class GetKafkaConnectorTopicMapResult:
     """
     MQ kafkaConnector/topicMap resource
     """
-    def __init__(__self__, batching=None, compression=None, copy_mqtt_properties=None, extended_location=None, id=None, kafka_connector_ref=None, location=None, name=None, partition_key_property=None, partition_strategy=None, provisioning_state=None, routes=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, batching=None, compression=None, copy_mqtt_properties=None, extended_location=None, id=None, kafka_connector_ref=None, location=None, name=None, partition_key_property=None, partition_strategy=None, provisioning_state=None, routes=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if batching and not isinstance(batching, dict):
             raise TypeError("Expected argument 'batching' to be a dict")
         pulumi.set(__self__, "batching", batching)
@@ -73,6 +76,14 @@ class GetKafkaConnectorTopicMapResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -201,6 +212,7 @@ class AwaitableGetKafkaConnectorTopicMapResult(GetKafkaConnectorTopicMapResult):
         if False:
             yield self
         return GetKafkaConnectorTopicMapResult(
+            azure_api_version=self.azure_api_version,
             batching=self.batching,
             compression=self.compression,
             copy_mqtt_properties=self.copy_mqtt_properties,
@@ -243,6 +255,7 @@ def get_kafka_connector_topic_map(kafka_connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsmq:getKafkaConnectorTopicMap', __args__, opts=opts, typ=GetKafkaConnectorTopicMapResult).value
 
     return AwaitableGetKafkaConnectorTopicMapResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         batching=pulumi.get(__ret__, 'batching'),
         compression=pulumi.get(__ret__, 'compression'),
         copy_mqtt_properties=pulumi.get(__ret__, 'copy_mqtt_properties'),
@@ -282,6 +295,7 @@ def get_kafka_connector_topic_map_output(kafka_connector_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getKafkaConnectorTopicMap', __args__, opts=opts, typ=GetKafkaConnectorTopicMapResult)
     return __ret__.apply(lambda __response__: GetKafkaConnectorTopicMapResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         batching=pulumi.get(__response__, 'batching'),
         compression=pulumi.get(__response__, 'compression'),
         copy_mqtt_properties=pulumi.get(__response__, 'copy_mqtt_properties'),

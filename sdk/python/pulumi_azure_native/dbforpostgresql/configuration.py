@@ -117,9 +117,9 @@ class Configuration(pulumi.CustomResource):
         """
         Represents a Configuration.
 
-        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +138,9 @@ class Configuration(pulumi.CustomResource):
         """
         Represents a Configuration.
 
-        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -181,6 +181,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["value"] = value
             __props__.__dict__["allowed_values"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_type"] = None
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
@@ -192,7 +193,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unit"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbforpostgresql:Configuration',
@@ -217,6 +218,7 @@ class Configuration(pulumi.CustomResource):
         __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
         __props__.__dict__["allowed_values"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_type"] = None
         __props__.__dict__["default_value"] = None
         __props__.__dict__["description"] = None
@@ -239,6 +241,14 @@ class Configuration(pulumi.CustomResource):
         Allowed values of the configuration.
         """
         return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataType")

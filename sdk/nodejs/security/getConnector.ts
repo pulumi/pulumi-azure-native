@@ -35,6 +35,10 @@ export interface GetConnectorResult {
      */
     readonly authenticationDetails?: outputs.security.AwAssumeRoleAuthenticationDetailsPropertiesResponse | outputs.security.AwsCredsAuthenticationDetailsPropertiesResponse | outputs.security.GcpCredentialsDetailsPropertiesResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
      */
     readonly hybridComputeSettings?: outputs.security.HybridComputeSettingsPropertiesResponse;

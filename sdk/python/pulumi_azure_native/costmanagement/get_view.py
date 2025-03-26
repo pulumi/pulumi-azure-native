@@ -27,10 +27,13 @@ class GetViewResult:
     """
     States and configurations of Cost Analysis.
     """
-    def __init__(__self__, accumulated=None, chart=None, created_on=None, currency=None, data_set=None, date_range=None, display_name=None, e_tag=None, id=None, include_monetary_commitment=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
+    def __init__(__self__, accumulated=None, azure_api_version=None, chart=None, created_on=None, currency=None, data_set=None, date_range=None, display_name=None, e_tag=None, id=None, include_monetary_commitment=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
         if accumulated and not isinstance(accumulated, str):
             raise TypeError("Expected argument 'accumulated' to be a str")
         pulumi.set(__self__, "accumulated", accumulated)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if chart and not isinstance(chart, str):
             raise TypeError("Expected argument 'chart' to be a str")
         pulumi.set(__self__, "chart", chart)
@@ -93,6 +96,14 @@ class GetViewResult:
         Show costs accumulated over time.
         """
         return pulumi.get(self, "accumulated")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -246,6 +257,7 @@ class AwaitableGetViewResult(GetViewResult):
             yield self
         return GetViewResult(
             accumulated=self.accumulated,
+            azure_api_version=self.azure_api_version,
             chart=self.chart,
             created_on=self.created_on,
             currency=self.currency,
@@ -271,9 +283,9 @@ def get_view(view_name: Optional[str] = None,
     """
     Gets the view by view name.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-08-01.
 
-    Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+    Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str view_name: View name
@@ -285,6 +297,7 @@ def get_view(view_name: Optional[str] = None,
 
     return AwaitableGetViewResult(
         accumulated=pulumi.get(__ret__, 'accumulated'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         chart=pulumi.get(__ret__, 'chart'),
         created_on=pulumi.get(__ret__, 'created_on'),
         currency=pulumi.get(__ret__, 'currency'),
@@ -308,9 +321,9 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the view by view name.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-08-01.
 
-    Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+    Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str view_name: View name
@@ -321,6 +334,7 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getView', __args__, opts=opts, typ=GetViewResult)
     return __ret__.apply(lambda __response__: GetViewResult(
         accumulated=pulumi.get(__response__, 'accumulated'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         chart=pulumi.get(__response__, 'chart'),
         created_on=pulumi.get(__response__, 'created_on'),
         currency=pulumi.get(__response__, 'currency'),

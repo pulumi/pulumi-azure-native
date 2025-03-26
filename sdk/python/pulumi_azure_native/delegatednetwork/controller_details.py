@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ControllerDetailsInitArgs', 'ControllerDetails']
 
@@ -21,18 +22,24 @@ class ControllerDetailsInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
+                 purpose: Optional[pulumi.Input[Union[str, 'ControllerPurpose']]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ControllerDetails resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'ControllerPurpose']] purpose: The purpose of the dnc controller resource.
         :param pulumi.Input[str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if purpose is None:
+            purpose = 'prod'
+        if purpose is not None:
+            pulumi.set(__self__, "purpose", purpose)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
@@ -61,6 +68,18 @@ class ControllerDetailsInitArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def purpose(self) -> Optional[pulumi.Input[Union[str, 'ControllerPurpose']]]:
+        """
+        The purpose of the dnc controller resource.
+        """
+        return pulumi.get(self, "purpose")
+
+    @purpose.setter
+    def purpose(self, value: Optional[pulumi.Input[Union[str, 'ControllerPurpose']]]):
+        pulumi.set(self, "purpose", value)
 
     @property
     @pulumi.getter(name="resourceName")
@@ -93,6 +112,7 @@ class ControllerDetails(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 purpose: Optional[pulumi.Input[Union[str, 'ControllerPurpose']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -100,13 +120,14 @@ class ControllerDetails(pulumi.CustomResource):
         """
         Represents an instance of a DNC controller.
 
-        Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
+        Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
-        Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'ControllerPurpose']] purpose: The purpose of the dnc controller resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -120,9 +141,9 @@ class ControllerDetails(pulumi.CustomResource):
         """
         Represents an instance of a DNC controller.
 
-        Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
+        Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
-        Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ControllerDetailsInitArgs args: The arguments to use to populate this resource's properties.
@@ -140,6 +161,7 @@ class ControllerDetails(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 purpose: Optional[pulumi.Input[Union[str, 'ControllerPurpose']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -153,11 +175,15 @@ class ControllerDetails(pulumi.CustomResource):
             __props__ = ControllerDetailsInitArgs.__new__(ControllerDetailsInitArgs)
 
             __props__.__dict__["location"] = location
+            if purpose is None:
+                purpose = 'prod'
+            __props__.__dict__["purpose"] = purpose
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["dnc_app_id"] = None
             __props__.__dict__["dnc_endpoint"] = None
             __props__.__dict__["dnc_tenant_id"] = None
@@ -189,16 +215,26 @@ class ControllerDetails(pulumi.CustomResource):
 
         __props__ = ControllerDetailsInitArgs.__new__(ControllerDetailsInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dnc_app_id"] = None
         __props__.__dict__["dnc_endpoint"] = None
         __props__.__dict__["dnc_tenant_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["purpose"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ControllerDetails(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dncAppId")
@@ -247,6 +283,14 @@ class ControllerDetails(pulumi.CustomResource):
         The current state of dnc controller resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def purpose(self) -> pulumi.Output[Optional[str]]:
+        """
+        The purpose of the dnc controller resource.
+        """
+        return pulumi.get(self, "purpose")
 
     @property
     @pulumi.getter(name="resourceGuid")

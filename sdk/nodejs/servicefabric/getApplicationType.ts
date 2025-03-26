@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
  *
  * Uses Azure REST API version 2024-11-01-preview.
- *
- * Other available API versions: 2021-06-01.
  */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetApplicationTypeArgs {
  * The application type name resource
  */
 export interface GetApplicationTypeResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -75,8 +77,6 @@ export interface GetApplicationTypeResult {
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
  *
  * Uses Azure REST API version 2024-11-01-preview.
- *
- * Other available API versions: 2021-06-01.
  */
 export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

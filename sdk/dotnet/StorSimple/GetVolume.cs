@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public readonly ImmutableArray<string> AccessControlRecordIds;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The IDs of the backup policies, in which this volume is part of.
         /// </summary>
         public readonly ImmutableArray<string> BackupPolicyIds;
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNative.StorSimple
         private GetVolumeResult(
             ImmutableArray<string> accessControlRecordIds,
 
+            string azureApiVersion,
+
             ImmutableArray<string> backupPolicyIds,
 
             string backupStatus,
@@ -199,6 +205,7 @@ namespace Pulumi.AzureNative.StorSimple
             string volumeType)
         {
             AccessControlRecordIds = accessControlRecordIds;
+            AzureApiVersion = azureApiVersion;
             BackupPolicyIds = backupPolicyIds;
             BackupStatus = backupStatus;
             Id = id;

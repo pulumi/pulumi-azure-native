@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Change data capture resource type.
  *
- * Uses Azure REST API version 2018-06-01.
+ * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
  */
 export class ChangeDataCapture extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class ChangeDataCapture extends pulumi.CustomResource {
      * A boolean to determine if the vnet configuration needs to be overwritten.
      */
     public readonly allowVNetOverride!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The description of the change data capture.
      */
@@ -116,11 +120,13 @@ export class ChangeDataCapture extends pulumi.CustomResource {
             resourceInputs["sourceConnectionsInfo"] = args ? args.sourceConnectionsInfo : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["targetConnectionsInfo"] = args ? args.targetConnectionsInfo : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowVNetOverride"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["folder"] = undefined /*out*/;

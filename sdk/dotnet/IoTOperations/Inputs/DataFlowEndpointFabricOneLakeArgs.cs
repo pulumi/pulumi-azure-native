@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Microsoft Fabric endpoint properties
     /// </summary>
-    public sealed class DataFlowEndpointFabricOneLakeArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointFabricOneLakeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only one authentication property is allowed per entry.
+        /// </summary>
+        [Input("authentication", required: true)]
+        public Input<Inputs.DataflowEndpointFabricOneLakeAuthenticationArgs> Authentication { get; set; } = null!;
+
         /// <summary>
         /// Batching configuration.
         /// </summary>
@@ -31,17 +37,17 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// Names of the workspace and lakehouse.
         /// </summary>
         [Input("names", required: true)]
-        public Input<Inputs.DataFlowEndpointFabricOneLakeNamesArgs> Names { get; set; } = null!;
+        public Input<Inputs.DataflowEndpointFabricOneLakeNamesArgs> Names { get; set; } = null!;
 
         /// <summary>
         /// Type of location of the data in the workspace. Can be either tables or files.
         /// </summary>
         [Input("oneLakePathType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataFlowEndpointFabricPathType> OneLakePathType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataflowEndpointFabricPathType> OneLakePathType { get; set; } = null!;
 
-        public DataFlowEndpointFabricOneLakeArgs()
+        public DataflowEndpointFabricOneLakeArgs()
         {
         }
-        public static new DataFlowEndpointFabricOneLakeArgs Empty => new DataFlowEndpointFabricOneLakeArgs();
+        public static new DataflowEndpointFabricOneLakeArgs Empty => new DataflowEndpointFabricOneLakeArgs();
     }
 }

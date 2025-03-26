@@ -40,6 +40,10 @@ export interface GetPimRoleEligibilityScheduleResult {
      */
     readonly approvalId: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
     readonly condition?: string;

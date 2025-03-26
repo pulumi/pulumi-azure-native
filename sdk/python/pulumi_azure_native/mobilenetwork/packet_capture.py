@@ -157,9 +157,9 @@ class PacketCapture(pulumi.CustomResource):
         """
         Packet capture session resource.
 
-        Uses Azure REST API version 2023-06-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
-        Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,9 +180,9 @@ class PacketCapture(pulumi.CustomResource):
         """
         Packet capture session resource.
 
-        Uses Azure REST API version 2023-06-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
-        Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.
@@ -232,8 +232,10 @@ class PacketCapture(pulumi.CustomResource):
             if total_bytes_per_session is None:
                 total_bytes_per_session = 67108864
             __props__.__dict__["total_bytes_per_session"] = total_bytes_per_session
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["capture_start_time"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["output_files"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["reason"] = None
             __props__.__dict__["status"] = None
@@ -263,10 +265,12 @@ class PacketCapture(pulumi.CustomResource):
 
         __props__ = PacketCaptureArgs.__new__(PacketCaptureArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bytes_to_capture_per_packet"] = None
         __props__.__dict__["capture_start_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_interfaces"] = None
+        __props__.__dict__["output_files"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["reason"] = None
         __props__.__dict__["status"] = None
@@ -275,6 +279,14 @@ class PacketCapture(pulumi.CustomResource):
         __props__.__dict__["total_bytes_per_session"] = None
         __props__.__dict__["type"] = None
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bytesToCapturePerPacket")
@@ -307,6 +319,14 @@ class PacketCapture(pulumi.CustomResource):
         List of network interfaces to capture on.
         """
         return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of output files of a packet capture session.
+        """
+        return pulumi.get(self, "output_files")
 
     @property
     @pulumi.getter(name="provisioningState")

@@ -10,37 +10,39 @@ import * as utilities from "../utilities";
 /**
  * Define the Database resource.
  *
- * Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Uses Azure REST API version 2024-09-01.
  */
-export class SAPDatabaseInstance extends pulumi.CustomResource {
+export class SapDatabaseInstance extends pulumi.CustomResource {
     /**
-     * Get an existing SAPDatabaseInstance resource's state with the given name, ID, and optional extra
+     * Get an existing SapDatabaseInstance resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SAPDatabaseInstance {
-        return new SAPDatabaseInstance(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SapDatabaseInstance {
+        return new SapDatabaseInstance(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:workloads:SAPDatabaseInstance';
+    public static readonly __pulumiType = 'azure-native:workloads:SapDatabaseInstance';
 
     /**
-     * Returns true if the given object is an instance of SAPDatabaseInstance.  This is designed to work even
+     * Returns true if the given object is an instance of SapDatabaseInstance.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is SAPDatabaseInstance {
+    public static isInstance(obj: any): obj is SapDatabaseInstance {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === SAPDatabaseInstance.__pulumiType;
+        return obj['__pulumiType'] === SapDatabaseInstance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Database SID name.
      */
@@ -99,13 +101,13 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
     public /*out*/ readonly vmDetails!: pulumi.Output<outputs.workloads.DatabaseVmDetailsResponse[]>;
 
     /**
-     * Create a SAPDatabaseInstance resource with the given unique name, arguments, and options.
+     * Create a SapDatabaseInstance resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SAPDatabaseInstanceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SapDatabaseInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -120,6 +122,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseSid"] = undefined /*out*/;
             resourceInputs["databaseType"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmDetails"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseSid"] = undefined /*out*/;
             resourceInputs["databaseType"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
@@ -149,16 +153,16 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["vmDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20221101preview:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20240901:SAPDatabaseInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20221101preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SapDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20240901:SapDatabaseInstance" }, { type: "azure-native:workloads:SAPDatabaseInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SAPDatabaseInstance.__pulumiType, name, resourceInputs, opts);
+        super(SapDatabaseInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a SAPDatabaseInstance resource.
+ * The set of arguments for constructing a SapDatabaseInstance resource.
  */
-export interface SAPDatabaseInstanceArgs {
+export interface SapDatabaseInstanceArgs {
     /**
      * Database resource name string modeled as parameter for auto generation to work correctly.
      */

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.LabServices
     /// <summary>
     /// User of a lab that can register for and use virtual machines within the lab.
     /// 
-    /// Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
+    /// Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
-    /// Other available API versions: 2018-10-15, 2023-06-07.
+    /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:User")]
     public partial class User : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("additionalUsageQuota")]
         public Output<string?> AdditionalUsageQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Display name of the user, for example user's full name.
@@ -68,6 +74,12 @@ namespace Pulumi.AzureNative.LabServices
         public Output<string> RegistrationState { get; private set; } = null!;
 
         /// <summary>
+        /// Error details of last operation done on lab plan.
+        /// </summary>
+        [Output("resourceOperationError")]
+        public Output<Outputs.ResourceOperationErrorResponse> ResourceOperationError { get; private set; } = null!;
+
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
         [Output("systemData")]
@@ -110,6 +122,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:User" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:User" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:User" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:User" },

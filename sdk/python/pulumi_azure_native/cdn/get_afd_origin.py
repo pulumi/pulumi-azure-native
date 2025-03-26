@@ -27,7 +27,10 @@ class GetAFDOriginResult:
     """
     Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, azure_origin=None, deployment_status=None, enabled_state=None, enforce_certificate_name_check=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_group_name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
+    def __init__(__self__, azure_api_version=None, azure_origin=None, deployment_status=None, enabled_state=None, enforce_certificate_name_check=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_group_name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_origin and not isinstance(azure_origin, dict):
             raise TypeError("Expected argument 'azure_origin' to be a dict")
         pulumi.set(__self__, "azure_origin", azure_origin)
@@ -79,6 +82,14 @@ class GetAFDOriginResult:
         if weight and not isinstance(weight, int):
             raise TypeError("Expected argument 'weight' to be a int")
         pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureOrigin")
@@ -220,6 +231,7 @@ class AwaitableGetAFDOriginResult(GetAFDOriginResult):
         if False:
             yield self
         return GetAFDOriginResult(
+            azure_api_version=self.azure_api_version,
             azure_origin=self.azure_origin,
             deployment_status=self.deployment_status,
             enabled_state=self.enabled_state,
@@ -247,9 +259,9 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
     """
     Gets an existing origin within an origin group.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
@@ -266,6 +278,7 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getAFDOrigin', __args__, opts=opts, typ=GetAFDOriginResult).value
 
     return AwaitableGetAFDOriginResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_origin=pulumi.get(__ret__, 'azure_origin'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         enabled_state=pulumi.get(__ret__, 'enabled_state'),
@@ -291,9 +304,9 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an existing origin within an origin group.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
@@ -309,6 +322,7 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDOrigin', __args__, opts=opts, typ=GetAFDOriginResult)
     return __ret__.apply(lambda __response__: GetAFDOriginResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_origin=pulumi.get(__response__, 'azure_origin'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         enabled_state=pulumi.get(__response__, 'enabled_state'),

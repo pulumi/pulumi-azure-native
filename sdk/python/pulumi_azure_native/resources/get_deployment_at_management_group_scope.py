@@ -27,7 +27,10 @@ class GetDeploymentAtManagementGroupScopeResult:
     """
     Deployment information.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetDeploymentAtManagementGroupScopeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetDeploymentAtManagementGroupScopeResult(GetDeploymentAtManageme
         if False:
             yield self
         return GetDeploymentAtManagementGroupScopeResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -116,9 +128,9 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
     """
     Gets a deployment.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str deployment_name: The name of the deployment.
@@ -131,6 +143,7 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getDeploymentAtManagementGroupScope', __args__, opts=opts, typ=GetDeploymentAtManagementGroupScopeResult).value
 
     return AwaitableGetDeploymentAtManagementGroupScopeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -143,9 +156,9 @@ def get_deployment_at_management_group_scope_output(deployment_name: Optional[pu
     """
     Gets a deployment.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str deployment_name: The name of the deployment.
@@ -157,6 +170,7 @@ def get_deployment_at_management_group_scope_output(deployment_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getDeploymentAtManagementGroupScope', __args__, opts=opts, typ=GetDeploymentAtManagementGroupScopeResult)
     return __ret__.apply(lambda __response__: GetDeploymentAtManagementGroupScopeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

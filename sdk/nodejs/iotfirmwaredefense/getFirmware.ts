@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get firmware.
  *
- * Uses Azure REST API version 2023-02-08-preview.
+ * Uses Azure REST API version 2024-01-10.
  *
- * Other available API versions: 2024-01-10, 2025-04-01-preview.
+ * Other available API versions: 2023-02-08-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFirmware(args: GetFirmwareArgs, opts?: pulumi.InvokeOptions): Promise<GetFirmwareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetFirmwareArgs {
  */
 export interface GetFirmwareResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * User-specified description of the firmware.
      */
     readonly description?: string;
@@ -55,7 +59,7 @@ export interface GetFirmwareResult {
      */
     readonly fileSize?: number;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -77,7 +81,7 @@ export interface GetFirmwareResult {
     /**
      * A list of errors or other messages generated during firmware analysis
      */
-    readonly statusMessages?: any[];
+    readonly statusMessages?: outputs.iotfirmwaredefense.StatusMessageResponse[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -98,9 +102,9 @@ export interface GetFirmwareResult {
 /**
  * Get firmware.
  *
- * Uses Azure REST API version 2023-02-08-preview.
+ * Uses Azure REST API version 2024-01-10.
  *
- * Other available API versions: 2024-01-10, 2025-04-01-preview.
+ * Other available API versions: 2023-02-08-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFirmwareOutput(args: GetFirmwareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirmwareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

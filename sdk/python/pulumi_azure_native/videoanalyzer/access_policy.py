@@ -119,7 +119,7 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Access policies help define the authentication rules, and control access to specific video resources.
 
-        Uses Azure REST API version 2021-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-05-01-preview.
+        Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Access policies help define the authentication rules, and control access to specific video resources.
 
-        Uses Azure REST API version 2021-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-05-01-preview.
+        Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +178,7 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["role"] = role
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -206,6 +207,7 @@ class AccessPolicy(pulumi.CustomResource):
         __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
         __props__.__dict__["authentication"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role"] = None
         __props__.__dict__["system_data"] = None
@@ -219,6 +221,14 @@ class AccessPolicy(pulumi.CustomResource):
         Authentication method to be used when validating client API access.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

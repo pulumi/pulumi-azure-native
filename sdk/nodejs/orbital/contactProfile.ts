@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
  *
- * Uses Azure REST API version 2022-11-01.
- *
- * Other available API versions: 2022-03-01.
+ * Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
  */
 export class ContactProfile extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class ContactProfile extends pulumi.CustomResource {
      * Auto-tracking configuration.
      */
     public readonly autoTrackingConfiguration!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
@@ -121,11 +123,13 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thirdPartyConfigurations"] = args ? args.thirdPartyConfigurations : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["autoTrackingConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eventHubUri"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

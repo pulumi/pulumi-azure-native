@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+    /// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions. 
     /// </summary>
     [OutputType]
     public sealed class AutomationRuleSetResponse

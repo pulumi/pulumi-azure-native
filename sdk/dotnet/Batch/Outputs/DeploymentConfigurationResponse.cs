@@ -13,22 +13,11 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class DeploymentConfigurationResponse
     {
-        /// <summary>
-        /// This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
-        /// </summary>
-        public readonly Outputs.CloudServiceConfigurationResponse? CloudServiceConfiguration;
-        /// <summary>
-        /// This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.
-        /// </summary>
         public readonly Outputs.VirtualMachineConfigurationResponse? VirtualMachineConfiguration;
 
         [OutputConstructor]
-        private DeploymentConfigurationResponse(
-            Outputs.CloudServiceConfigurationResponse? cloudServiceConfiguration,
-
-            Outputs.VirtualMachineConfigurationResponse? virtualMachineConfiguration)
+        private DeploymentConfigurationResponse(Outputs.VirtualMachineConfigurationResponse? virtualMachineConfiguration)
         {
-            CloudServiceConfiguration = cloudServiceConfiguration;
             VirtualMachineConfiguration = virtualMachineConfiguration;
         }
     }

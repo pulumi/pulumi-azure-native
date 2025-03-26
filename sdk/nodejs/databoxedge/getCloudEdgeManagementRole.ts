@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a specific role by name.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  */
 export function getCloudEdgeManagementRole(args: GetCloudEdgeManagementRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEdgeManagementRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetCloudEdgeManagementRoleArgs {
  * By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
  */
 export interface GetCloudEdgeManagementRoleResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Edge Profile of the resource
      */
@@ -79,7 +83,7 @@ export interface GetCloudEdgeManagementRoleResult {
 /**
  * Gets a specific role by name.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  */
 export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

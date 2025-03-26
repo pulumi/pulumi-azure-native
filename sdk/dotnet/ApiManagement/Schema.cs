@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Schema Contract details.
     /// 
-    /// Uses Azure REST API version 2021-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+    /// Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Schema")]
     public partial class Schema : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Free-form schema entity description.
         /// </summary>
@@ -76,13 +82,21 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Schema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Schema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:Schema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GlobalSchema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

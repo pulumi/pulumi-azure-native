@@ -28,6 +28,7 @@ class ConnectedRegistryArgs:
                  resource_group_name: pulumi.Input[str],
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
+                 garbage_collection: Optional[pulumi.Input['GarbageCollectionPropertiesArgs']] = None,
                  logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None,
                  notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -38,6 +39,7 @@ class ConnectedRegistryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
+        :param pulumi.Input['GarbageCollectionPropertiesArgs'] garbage_collection: The garbage collection properties of the connected registry.
         :param pulumi.Input['LoggingPropertiesArgs'] logging: The logging properties of the connected registry.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
         """
@@ -49,6 +51,8 @@ class ConnectedRegistryArgs:
             pulumi.set(__self__, "client_token_ids", client_token_ids)
         if connected_registry_name is not None:
             pulumi.set(__self__, "connected_registry_name", connected_registry_name)
+        if garbage_collection is not None:
+            pulumi.set(__self__, "garbage_collection", garbage_collection)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if notifications_list is not None:
@@ -127,6 +131,18 @@ class ConnectedRegistryArgs:
         pulumi.set(self, "connected_registry_name", value)
 
     @property
+    @pulumi.getter(name="garbageCollection")
+    def garbage_collection(self) -> Optional[pulumi.Input['GarbageCollectionPropertiesArgs']]:
+        """
+        The garbage collection properties of the connected registry.
+        """
+        return pulumi.get(self, "garbage_collection")
+
+    @garbage_collection.setter
+    def garbage_collection(self, value: Optional[pulumi.Input['GarbageCollectionPropertiesArgs']]):
+        pulumi.set(self, "garbage_collection", value)
+
+    @property
     @pulumi.getter
     def logging(self) -> Optional[pulumi.Input['LoggingPropertiesArgs']]:
         """
@@ -158,6 +174,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
+                 garbage_collection: Optional[pulumi.Input[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
                  notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -168,14 +185,15 @@ class ConnectedRegistry(pulumi.CustomResource):
         """
         An object that represents a connected registry for a container registry.
 
-        Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
+        :param pulumi.Input[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']] garbage_collection: The garbage collection properties of the connected registry.
         :param pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']] logging: The logging properties of the connected registry.
         :param pulumi.Input[Union[str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
@@ -192,9 +210,9 @@ class ConnectedRegistry(pulumi.CustomResource):
         """
         An object that represents a connected registry for a container registry.
 
-        Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConnectedRegistryArgs args: The arguments to use to populate this resource's properties.
@@ -213,6 +231,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
+                 garbage_collection: Optional[pulumi.Input[Union['GarbageCollectionPropertiesArgs', 'GarbageCollectionPropertiesArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
                  notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -230,6 +249,7 @@ class ConnectedRegistry(pulumi.CustomResource):
 
             __props__.__dict__["client_token_ids"] = client_token_ids
             __props__.__dict__["connected_registry_name"] = connected_registry_name
+            __props__.__dict__["garbage_collection"] = garbage_collection
             __props__.__dict__["logging"] = logging
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
@@ -245,6 +265,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["activation"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["connection_state"] = None
             __props__.__dict__["last_activity_time"] = None
             __props__.__dict__["login_server"] = None
@@ -279,8 +300,10 @@ class ConnectedRegistry(pulumi.CustomResource):
         __props__ = ConnectedRegistryArgs.__new__(ConnectedRegistryArgs)
 
         __props__.__dict__["activation"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_token_ids"] = None
         __props__.__dict__["connection_state"] = None
+        __props__.__dict__["garbage_collection"] = None
         __props__.__dict__["last_activity_time"] = None
         __props__.__dict__["logging"] = None
         __props__.__dict__["login_server"] = None
@@ -304,6 +327,14 @@ class ConnectedRegistry(pulumi.CustomResource):
         return pulumi.get(self, "activation")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="clientTokenIds")
     def client_token_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -318,6 +349,14 @@ class ConnectedRegistry(pulumi.CustomResource):
         The current connection state of the connected registry.
         """
         return pulumi.get(self, "connection_state")
+
+    @property
+    @pulumi.getter(name="garbageCollection")
+    def garbage_collection(self) -> pulumi.Output[Optional['outputs.GarbageCollectionPropertiesResponse']]:
+        """
+        The garbage collection properties of the connected registry.
+        """
+        return pulumi.get(self, "garbage_collection")
 
     @property
     @pulumi.getter(name="lastActivityTime")

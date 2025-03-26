@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a setting.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// </summary>
         public static Task<GetEyesOnResult> InvokeAsync(GetEyesOnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a setting.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// </summary>
         public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a setting.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// </summary>
         public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetEyesOnResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetEyesOnResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             IsEnabled = isEnabled;

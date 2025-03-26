@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     /// <summary>
     /// AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
     /// 
-    /// Uses Azure REST API version 2023-04-06.
+    /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-06.
     /// 
-    /// Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+    /// Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance")]
     public partial class AzureBareMetalStorageInstance : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the AzureBareMetaStorageInstance unique ID.
         /// </summary>
         [Output("azureBareMetalStorageInstanceUniqueIdentifier")]
         public Output<string?> AzureBareMetalStorageInstanceUniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of Azure Bare Metal Storage Instance, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AzureBareMetalStorageInstanceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -44,7 +56,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         public Output<Outputs.StoragePropertiesResponse?> StorageProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -114,7 +126,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     public sealed class AzureBareMetalStorageInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the AzureBareMetalStorage on Azure instance.
+        /// Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         /// </summary>
         [Input("azureBareMetalStorageInstanceName")]
         public Input<string>? AzureBareMetalStorageInstanceName { get; set; }
@@ -124,6 +136,12 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         /// </summary>
         [Input("azureBareMetalStorageInstanceUniqueIdentifier")]
         public Input<string>? AzureBareMetalStorageInstanceUniqueIdentifier { get; set; }
+
+        /// <summary>
+        /// The identity of Azure Bare Metal Storage Instance, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AzureBareMetalStorageInstanceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

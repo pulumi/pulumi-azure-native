@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// <summary>
     /// MQ mqttBridgeConnector resource
     /// 
-    /// Uses Azure REST API version 2023-10-04-preview.
+    /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:MqttBridgeConnector")]
     public partial class MqttBridgeConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The number of instances to deploy for a bridge rollout.
         /// </summary>

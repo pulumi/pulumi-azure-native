@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.StorSimple
     /// <summary>
     /// The bandwidth setting.
     /// 
-    /// Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+    /// Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:BandwidthSetting")]
     public partial class BandwidthSetting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>

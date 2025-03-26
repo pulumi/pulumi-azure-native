@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetTestBaseAccountFileUploadUrlResult',
@@ -63,23 +64,26 @@ class AwaitableGetTestBaseAccountFileUploadUrlResult(GetTestBaseAccountFileUploa
 
 def get_test_base_account_file_upload_url(blob_name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
+                                          resource_type: Optional[Union[str, 'FileUploadResourceType']] = None,
                                           test_base_account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestBaseAccountFileUploadUrlResult:
     """
     Gets the file upload URL of a Test Base Account.
 
-    Uses Azure REST API version 2022-04-01-preview.
+    Uses Azure REST API version 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str blob_name: The custom file name of the uploaded blob.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param Union[str, 'FileUploadResourceType'] resource_type: Resource type for file uploading.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
     __args__['blobName'] = blob_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceType'] = resource_type
     __args__['testBaseAccountName'] = test_base_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:testbase:getTestBaseAccountFileUploadUrl', __args__, opts=opts, typ=GetTestBaseAccountFileUploadUrlResult).value
@@ -89,23 +93,26 @@ def get_test_base_account_file_upload_url(blob_name: Optional[str] = None,
         upload_url=pulumi.get(__ret__, 'upload_url'))
 def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_type: Optional[pulumi.Input[Optional[Union[str, 'FileUploadResourceType']]]] = None,
                                                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
     """
     Gets the file upload URL of a Test Base Account.
 
-    Uses Azure REST API version 2022-04-01-preview.
+    Uses Azure REST API version 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str blob_name: The custom file name of the uploaded blob.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param Union[str, 'FileUploadResourceType'] resource_type: Resource type for file uploading.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
     __args__['blobName'] = blob_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceType'] = resource_type
     __args__['testBaseAccountName'] = test_base_account_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getTestBaseAccountFileUploadUrl', __args__, opts=opts, typ=GetTestBaseAccountFileUploadUrlResult)

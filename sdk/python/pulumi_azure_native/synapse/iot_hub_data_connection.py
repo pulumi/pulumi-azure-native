@@ -267,7 +267,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         """
         Class representing an iot hub data connection.
 
-        Uses Azure REST API version 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,7 +296,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         """
         Class representing an iot hub data connection.
 
-        Uses Azure REST API version 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -366,11 +366,12 @@ class IotHubDataConnection(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubDataConnection, __self__).__init__(
             'azure-native:synapse:IotHubDataConnection',
@@ -394,6 +395,7 @@ class IotHubDataConnection(pulumi.CustomResource):
 
         __props__ = IotHubDataConnectionArgs.__new__(IotHubDataConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
         __props__.__dict__["event_system_properties"] = None
@@ -408,6 +410,14 @@ class IotHubDataConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return IotHubDataConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consumerGroup")

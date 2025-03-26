@@ -256,7 +256,7 @@ class AzureBareMetalInstance(pulumi.CustomResource):
         """
         AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
 
-        Uses Azure REST API version 2024-08-01-preview.
+        Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,7 +283,7 @@ class AzureBareMetalInstance(pulumi.CustomResource):
         """
         AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
 
-        Uses Azure REST API version 2024-08-01-preview.
+        Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AzureBareMetalInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -337,6 +337,7 @@ class AzureBareMetalInstance(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -365,6 +366,7 @@ class AzureBareMetalInstance(pulumi.CustomResource):
 
         __props__ = AzureBareMetalInstanceArgs.__new__(AzureBareMetalInstanceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_bare_metal_instance_id"] = None
         __props__.__dict__["hardware_profile"] = None
         __props__.__dict__["hw_revision"] = None
@@ -381,6 +383,14 @@ class AzureBareMetalInstance(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AzureBareMetalInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureBareMetalInstanceId")

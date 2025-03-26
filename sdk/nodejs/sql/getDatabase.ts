@@ -10,14 +10,16 @@ import * as utilities from "../utilities";
 /**
  * Gets a database.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getDatabase", {
         "databaseName": args.databaseName,
+        "expand": args.expand,
+        "filter": args.filter,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -28,6 +30,14 @@ export interface GetDatabaseArgs {
      * The name of the database.
      */
     databaseName: string;
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: string;
+    /**
+     * An OData filter expression that filters elements in the collection.
+     */
+    filter?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -46,6 +56,14 @@ export interface GetDatabaseResult {
      * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
      */
     readonly autoPauseDelay?: number;
+    /**
+     * Specifies the availability zone the database is pinned to.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Collation of the metadata catalog.
      */
@@ -87,6 +105,14 @@ export interface GetDatabaseResult {
      */
     readonly elasticPoolId?: string;
     /**
+     * The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+     */
+    readonly encryptionProtector?: string;
+    /**
+     * The flag to enable or disable auto rotation of database encryption protector AKV key.
+     */
+    readonly encryptionProtectorAutoRotation?: boolean;
+    /**
      * Failover Group resource identifier that this database belongs to.
      */
     readonly failoverGroupId: string;
@@ -95,7 +121,15 @@ export interface GetDatabaseResult {
      */
     readonly federatedClientId?: string;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
+     * Specifies the behavior when monthly free limits are exhausted for the free database.
+     * 
+     * AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
+     * 
+     * BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
+     */
+    readonly freeLimitExhaustionBehavior?: string;
+    /**
+     * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     readonly highAvailabilityReplicaCount?: number;
     /**
@@ -114,6 +148,10 @@ export interface GetDatabaseResult {
      * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
      */
     readonly isLedgerOn?: boolean;
+    /**
+     * The resource ids of the user assigned identities to use
+     */
+    readonly keys?: {[key: string]: outputs.sql.DatabaseKeyResponse};
     /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */
@@ -135,6 +173,16 @@ export interface GetDatabaseResult {
      */
     readonly managedBy: string;
     /**
+     * Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+     * 
+     * This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+     * 
+     * When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+     * 
+     * To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+     */
+    readonly manualCutover?: boolean;
+    /**
      * The max log size for this database.
      */
     readonly maxLogSizeBytes: number;
@@ -155,6 +203,20 @@ export interface GetDatabaseResult {
      */
     readonly pausedDate: string;
     /**
+     * To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+     * 
+     * This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+     * 
+     * This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+     * 
+     * When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+     */
+    readonly performCutover?: boolean;
+    /**
+     * Type of enclave requested on the database i.e. Default or VBS enclaves.
+     */
+    readonly preferredEnclaveType?: string;
+    /**
      * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     readonly readScale?: string;
@@ -171,7 +233,7 @@ export interface GetDatabaseResult {
      */
     readonly resumedDate: string;
     /**
-     * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+     * The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
      */
     readonly secondaryType?: string;
     /**
@@ -201,6 +263,10 @@ export interface GetDatabaseResult {
      */
     readonly type: string;
     /**
+     * Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
+     */
+    readonly useFreeLimit?: boolean;
+    /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
     readonly zoneRedundant?: boolean;
@@ -208,14 +274,16 @@ export interface GetDatabaseResult {
 /**
  * Gets a database.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getDatabase", {
         "databaseName": args.databaseName,
+        "expand": args.expand,
+        "filter": args.filter,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -226,6 +294,14 @@ export interface GetDatabaseOutputArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * An OData filter expression that filters elements in the collection.
+     */
+    filter?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

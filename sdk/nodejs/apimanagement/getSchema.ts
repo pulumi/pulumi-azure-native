@@ -38,6 +38,10 @@ export interface GetSchemaArgs {
  */
 export interface GetSchemaResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Free-form schema entity description.
      */
     readonly description?: string;

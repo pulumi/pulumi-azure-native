@@ -27,13 +27,16 @@ class GetGroupsOperationResult:
     """
     Group resource.
     """
-    def __init__(__self__, are_assessments_running=None, assessments=None, created_timestamp=None, group_status=None, group_type=None, id=None, machine_count=None, name=None, provisioning_state=None, supported_assessment_types=None, system_data=None, type=None, updated_timestamp=None):
+    def __init__(__self__, are_assessments_running=None, assessments=None, azure_api_version=None, created_timestamp=None, group_status=None, group_type=None, id=None, machine_count=None, name=None, provisioning_state=None, supported_assessment_types=None, system_data=None, type=None, updated_timestamp=None):
         if are_assessments_running and not isinstance(are_assessments_running, bool):
             raise TypeError("Expected argument 'are_assessments_running' to be a bool")
         pulumi.set(__self__, "are_assessments_running", are_assessments_running)
         if assessments and not isinstance(assessments, list):
             raise TypeError("Expected argument 'assessments' to be a list")
         pulumi.set(__self__, "assessments", assessments)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -85,6 +88,14 @@ class GetGroupsOperationResult:
         return pulumi.get(self, "assessments")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> str:
         """
@@ -112,7 +123,7 @@ class GetGroupsOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -181,6 +192,7 @@ class AwaitableGetGroupsOperationResult(GetGroupsOperationResult):
         return GetGroupsOperationResult(
             are_assessments_running=self.are_assessments_running,
             assessments=self.assessments,
+            azure_api_version=self.azure_api_version,
             created_timestamp=self.created_timestamp,
             group_status=self.group_status,
             group_type=self.group_type,
@@ -201,9 +213,9 @@ def get_groups_operation(group_name: Optional[str] = None,
     """
     Get a Group
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_name: Group ARM name
@@ -220,6 +232,7 @@ def get_groups_operation(group_name: Optional[str] = None,
     return AwaitableGetGroupsOperationResult(
         are_assessments_running=pulumi.get(__ret__, 'are_assessments_running'),
         assessments=pulumi.get(__ret__, 'assessments'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         group_status=pulumi.get(__ret__, 'group_status'),
         group_type=pulumi.get(__ret__, 'group_type'),
@@ -238,9 +251,9 @@ def get_groups_operation_output(group_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Group
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_name: Group ARM name
@@ -256,6 +269,7 @@ def get_groups_operation_output(group_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetGroupsOperationResult(
         are_assessments_running=pulumi.get(__response__, 'are_assessments_running'),
         assessments=pulumi.get(__response__, 'assessments'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         group_status=pulumi.get(__response__, 'group_status'),
         group_type=pulumi.get(__response__, 'group_type'),

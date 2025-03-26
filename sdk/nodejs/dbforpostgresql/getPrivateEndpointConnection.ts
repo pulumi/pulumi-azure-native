@@ -8,40 +8,44 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets private endpoint connection.
+ * Gets a private endpoint connection.
  *
- * Uses Azure REST API version 2022-11-08.
+ * Uses Azure REST API version 2024-08-01.
  *
- * Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql:getPrivateEndpointConnection", {
-        "clusterName": args.clusterName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the cluster.
-     */
-    clusterName: string;
-    /**
-     * The name of the private endpoint connection associated with the cluster.
+     * The name of the private endpoint connection.
      */
     privateEndpointConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * The name of the server.
+     */
+    serverName: string;
 }
 
 /**
  * The private endpoint connection resource.
  */
 export interface GetPrivateEndpointConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The group ids for the private endpoint resource.
      */
@@ -76,32 +80,32 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Gets private endpoint connection.
+ * Gets a private endpoint connection.
  *
- * Uses Azure REST API version 2022-11-08.
+ * Uses Azure REST API version 2024-08-01.
  *
- * Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql:getPrivateEndpointConnection", {
-        "clusterName": args.clusterName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the cluster.
-     */
-    clusterName: pulumi.Input<string>;
-    /**
-     * The name of the private endpoint connection associated with the cluster.
+     * The name of the private endpoint connection.
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
 }

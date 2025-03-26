@@ -27,10 +27,13 @@ class GetProjectCatalogResult:
     """
     Represents a catalog.
     """
-    def __init__(__self__, ado_git=None, connection_state=None, git_hub=None, id=None, last_connection_time=None, last_sync_stats=None, last_sync_time=None, name=None, provisioning_state=None, sync_state=None, sync_type=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, ado_git=None, azure_api_version=None, connection_state=None, git_hub=None, id=None, last_connection_time=None, last_sync_stats=None, last_sync_time=None, name=None, provisioning_state=None, sync_state=None, sync_type=None, system_data=None, tags=None, type=None):
         if ado_git and not isinstance(ado_git, dict):
             raise TypeError("Expected argument 'ado_git' to be a dict")
         pulumi.set(__self__, "ado_git", ado_git)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_state and not isinstance(connection_state, str):
             raise TypeError("Expected argument 'connection_state' to be a str")
         pulumi.set(__self__, "connection_state", connection_state)
@@ -78,6 +81,14 @@ class GetProjectCatalogResult:
         Properties for an Azure DevOps catalog type.
         """
         return pulumi.get(self, "ado_git")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionState")
@@ -191,6 +202,7 @@ class AwaitableGetProjectCatalogResult(GetProjectCatalogResult):
             yield self
         return GetProjectCatalogResult(
             ado_git=self.ado_git,
+            azure_api_version=self.azure_api_version,
             connection_state=self.connection_state,
             git_hub=self.git_hub,
             id=self.id,
@@ -215,7 +227,7 @@ def get_project_catalog(catalog_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: The name of the Catalog.
@@ -231,6 +243,7 @@ def get_project_catalog(catalog_name: Optional[str] = None,
 
     return AwaitableGetProjectCatalogResult(
         ado_git=pulumi.get(__ret__, 'ado_git'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_state=pulumi.get(__ret__, 'connection_state'),
         git_hub=pulumi.get(__ret__, 'git_hub'),
         id=pulumi.get(__ret__, 'id'),
@@ -253,7 +266,7 @@ def get_project_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: The name of the Catalog.
@@ -268,6 +281,7 @@ def get_project_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectCatalog', __args__, opts=opts, typ=GetProjectCatalogResult)
     return __ret__.apply(lambda __response__: GetProjectCatalogResult(
         ado_git=pulumi.get(__response__, 'ado_git'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_state=pulumi.get(__response__, 'connection_state'),
         git_hub=pulumi.get(__response__, 'git_hub'),
         id=pulumi.get(__response__, 'id'),

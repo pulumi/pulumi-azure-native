@@ -41,6 +41,10 @@ export interface GetCustomApiArgs {
  */
 export interface GetCustomApiResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ETag
      */
     readonly etag?: string;

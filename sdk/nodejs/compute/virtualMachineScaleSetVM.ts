@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Describes a virtual machine scale set virtual machine.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -50,9 +50,17 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
+    /**
+     * Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
@@ -114,6 +122,10 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Specifies the resilient VM deletion status for the virtual machine.
+     */
+    public readonly resilientVMDeletionStatus!: pulumi.Output<string | undefined>;
+    /**
      * The virtual machine child extension resources.
      */
     public /*out*/ readonly resources!: pulumi.Output<outputs.compute.VirtualMachineExtensionResponse[]>;
@@ -134,11 +146,15 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
@@ -180,12 +196,15 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["osProfile"] = args ? args.osProfile : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["protectionPolicy"] = args ? args.protectionPolicy : undefined;
+            resourceInputs["resilientVMDeletionStatus"] = args ? args.resilientVMDeletionStatus : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["latestModelApplied"] = undefined /*out*/;
             resourceInputs["modelDefinitionApplied"] = undefined /*out*/;
@@ -193,13 +212,16 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         } else {
             resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["availabilitySet"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
@@ -215,11 +237,13 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["protectionPolicy"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resilientVMDeletionStatus"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userData"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
@@ -289,6 +313,10 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     protectionPolicy?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProtectionPolicyArgs>;
     /**
+     * Specifies the resilient VM deletion status for the virtual machine.
+     */
+    resilientVMDeletionStatus?: pulumi.Input<string | enums.compute.ResilientVMDeletionStatus>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -305,7 +333,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
     userData?: pulumi.Input<string>;
     /**

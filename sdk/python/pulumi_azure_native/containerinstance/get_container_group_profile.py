@@ -27,7 +27,10 @@ class GetContainerGroupProfileResult:
     """
     A container group profile.
     """
-    def __init__(__self__, confidential_compute_properties=None, containers=None, diagnostics=None, encryption_properties=None, extensions=None, id=None, image_registry_credentials=None, init_containers=None, ip_address=None, location=None, name=None, os_type=None, priority=None, restart_policy=None, revision=None, sku=None, tags=None, type=None, volumes=None, zones=None):
+    def __init__(__self__, azure_api_version=None, confidential_compute_properties=None, containers=None, diagnostics=None, encryption_properties=None, extensions=None, id=None, image_registry_credentials=None, init_containers=None, ip_address=None, location=None, name=None, os_type=None, priority=None, restart_policy=None, revision=None, sku=None, tags=None, type=None, volumes=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if confidential_compute_properties and not isinstance(confidential_compute_properties, dict):
             raise TypeError("Expected argument 'confidential_compute_properties' to be a dict")
         pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
@@ -88,6 +91,14 @@ class GetContainerGroupProfileResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="confidentialComputeProperties")
@@ -259,6 +270,7 @@ class AwaitableGetContainerGroupProfileResult(GetContainerGroupProfileResult):
         if False:
             yield self
         return GetContainerGroupProfileResult(
+            azure_api_version=self.azure_api_version,
             confidential_compute_properties=self.confidential_compute_properties,
             containers=self.containers,
             diagnostics=self.diagnostics,
@@ -300,6 +312,7 @@ def get_container_group_profile(container_group_profile_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:containerinstance:getContainerGroupProfile', __args__, opts=opts, typ=GetContainerGroupProfileResult).value
 
     return AwaitableGetContainerGroupProfileResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         confidential_compute_properties=pulumi.get(__ret__, 'confidential_compute_properties'),
         containers=pulumi.get(__ret__, 'containers'),
         diagnostics=pulumi.get(__ret__, 'diagnostics'),
@@ -338,6 +351,7 @@ def get_container_group_profile_output(container_group_profile_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerinstance:getContainerGroupProfile', __args__, opts=opts, typ=GetContainerGroupProfileResult)
     return __ret__.apply(lambda __response__: GetContainerGroupProfileResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         confidential_compute_properties=pulumi.get(__response__, 'confidential_compute_properties'),
         containers=pulumi.get(__response__, 'containers'),
         diagnostics=pulumi.get(__response__, 'diagnostics'),

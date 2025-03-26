@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.Advisor
         /// </summary>
         public readonly string AssessmentId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Assessment Type Description.
         /// </summary>
         public readonly string Description;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Advisor
         private GetAssessmentResult(
             string assessmentId,
 
+            string azureApiVersion,
+
             string description,
 
             string id,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.Advisor
             string workloadName)
         {
             AssessmentId = assessmentId;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Locale = locale;

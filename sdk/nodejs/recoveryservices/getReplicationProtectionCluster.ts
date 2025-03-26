@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of an ASR replication protection cluster.
  *
- * Uses Azure REST API version 2024-02-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-04-01, 2024-10-01.
+ * Other available API versions: 2024-02-01, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getReplicationProtectionCluster(args: GetReplicationProtectionClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +53,10 @@ export interface GetReplicationProtectionClusterArgs {
  */
 export interface GetReplicationProtectionClusterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The protection cluster Id.
      */
     readonly id: string;
@@ -72,9 +76,9 @@ export interface GetReplicationProtectionClusterResult {
 /**
  * Gets the details of an ASR replication protection cluster.
  *
- * Uses Azure REST API version 2024-02-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-04-01, 2024-10-01.
+ * Other available API versions: 2024-02-01, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

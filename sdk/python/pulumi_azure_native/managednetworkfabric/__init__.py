@@ -53,14 +53,3 @@ from .network_to_network_interconnect import *
 from .route_policy import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managednetworkfabric.v20230201preview as __v20230201preview
-    v20230201preview = __v20230201preview
-    import pulumi_azure_native.managednetworkfabric.v20230615 as __v20230615
-    v20230615 = __v20230615
-else:
-    v20230201preview = _utilities.lazy_import('pulumi_azure_native.managednetworkfabric.v20230201preview')
-    v20230615 = _utilities.lazy_import('pulumi_azure_native.managednetworkfabric.v20230615')
-

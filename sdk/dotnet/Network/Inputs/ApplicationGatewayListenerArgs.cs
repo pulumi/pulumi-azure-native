@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("frontendPort")]
         public Input<Inputs.SubResourceArgs>? FrontendPort { get; set; }
 
+        [Input("hostNames")]
+        private InputList<string>? _hostNames;
+
+        /// <summary>
+        /// List of Server Name Indications(SNI) for TLS Multi-site Listener that allows special wildcard characters as well.
+        /// </summary>
+        public InputList<string> HostNames
+        {
+            get => _hostNames ?? (_hostNames = new InputList<string>());
+            set => _hostNames = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>

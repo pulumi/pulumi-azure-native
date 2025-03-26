@@ -20,14 +20,3 @@ from .storage_sync_service import *
 from .sync_group import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storagesync.v20220601 as __v20220601
-    v20220601 = __v20220601
-    import pulumi_azure_native.storagesync.v20220901 as __v20220901
-    v20220901 = __v20220901
-else:
-    v20220601 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20220601')
-    v20220901 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20220901')
-

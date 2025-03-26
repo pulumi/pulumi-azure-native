@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Sql.Inputs
         /// <summary>
         /// The resource ID of the credential to use to connect to the output destination.
         /// </summary>
-        [Input("credential", required: true)]
-        public Input<string> Credential { get; set; } = null!;
+        [Input("credential")]
+        public Input<string>? Credential { get; set; }
 
         /// <summary>
         /// The output destination database.

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get an order item.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOrderItem(args: GetOrderItemArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,11 +45,19 @@ export interface GetOrderItemResult {
     /**
      * Represents shipping and return address for order item.
      */
-    readonly addressDetails: outputs.edgeorder.AddressDetailsResponse;
+    readonly addressDetails?: outputs.edgeorder.AddressDetailsResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Msi identity of the resource
+     */
+    readonly identity?: outputs.edgeorder.ResourceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -67,11 +75,15 @@ export interface GetOrderItemResult {
      */
     readonly orderItemDetails: outputs.edgeorder.OrderItemDetailsResponse;
     /**
+     * Provisioning state
+     */
+    readonly provisioningState: string;
+    /**
      * Start time of order item.
      */
     readonly startTime: string;
     /**
-     * Represents resource creation and update time.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.edgeorder.SystemDataResponse;
     /**
@@ -86,9 +98,9 @@ export interface GetOrderItemResult {
 /**
  * Get an order item.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOrderItemOutput(args: GetOrderItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

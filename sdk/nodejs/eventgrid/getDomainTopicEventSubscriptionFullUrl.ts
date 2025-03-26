@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Get the full endpoint URL for a nested event subscription for domain topic.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDomainTopicEventSubscriptionFullUrl(args: GetDomainTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +41,7 @@ export interface GetDomainTopicEventSubscriptionFullUrlArgs {
 }
 
 /**
- * Full endpoint url of an event subscription
+ * Full endpoint URL of an event subscription
  */
 export interface GetDomainTopicEventSubscriptionFullUrlResult {
     /**
@@ -52,9 +52,9 @@ export interface GetDomainTopicEventSubscriptionFullUrlResult {
 /**
  * Get the full endpoint URL for a nested event subscription for domain topic.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDomainTopicEventSubscriptionFullUrlOutput(args: GetDomainTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

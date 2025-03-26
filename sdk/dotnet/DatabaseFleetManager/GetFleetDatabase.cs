@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
     public sealed class GetFleetDatabaseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
 
         [OutputConstructor]
         private GetFleetDatabaseResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

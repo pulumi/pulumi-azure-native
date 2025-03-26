@@ -68,9 +68,9 @@ def get_project_inherited_settings(project_name: Optional[str] = None,
     """
     Gets applicable inherited settings for this project.
 
-    Uses Azure REST API version 2024-05-01-preview.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str project_name: The name of the project.
@@ -91,9 +91,9 @@ def get_project_inherited_settings_output(project_name: Optional[pulumi.Input[st
     """
     Gets applicable inherited settings for this project.
 
-    Uses Azure REST API version 2024-05-01-preview.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str project_name: The name of the project.

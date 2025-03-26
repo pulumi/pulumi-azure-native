@@ -10,20 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzurePlaywrightService
 {
     /// <summary>
-    /// An account resource
+    /// A Playwright service account resource.
     /// 
-    /// Uses Azure REST API version 2023-10-01-preview.
+    /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+    /// Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azureplaywrightservice:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The Playwright testing dashboard URI for the account resource.
         /// </summary>
         [Output("dashboardUri")]
         public Output<string> DashboardUri { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        /// </summary>
+        [Output("localAuth")]
+        public Output<string?> LocalAuth { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -132,16 +144,22 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of account.
+        /// </summary>
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        /// </summary>
+        [Input("localAuth")]
+        public InputUnion<string, Pulumi.AzureNative.AzurePlaywrightService.EnablementStatus>? LocalAuth { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of account
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
@@ -181,8 +199,9 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
 
         public AccountArgs()
         {
+            LocalAuth = "Disabled";
             RegionalAffinity = "Enabled";
-            Reporting = "Disabled";
+            Reporting = "Enabled";
             ScalableExecution = "Enabled";
         }
         public static new AccountArgs Empty => new AccountArgs();

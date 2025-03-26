@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Alert processing rule object containing target scopes, conditions and scheduling logic.
  *
- * Uses Azure REST API version 2021-08-08.
+ * Uses Azure REST API version 2021-08-08. In version 2.x of the Azure Native provider, it used API version 2021-08-08.
+ *
+ * Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AlertProcessingRuleByName extends pulumi.CustomResource {
     /**
@@ -39,6 +41,10 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertProcessingRuleByName.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -83,10 +89,12 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.alertsmanagement.alertProcessingRulePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -95,7 +103,7 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement:ActionRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertProcessingRuleByName.__pulumiType, name, resourceInputs, opts);
     }

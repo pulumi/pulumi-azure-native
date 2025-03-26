@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// Get the resource and its properties.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSignalRResult> InvokeAsync(GetSignalRArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-native:signalrservice:getSignalR", args ?? new GetSignalRArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// Get the resource and its properties.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSignalRResult> Invoke(GetSignalRInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// Get the resource and its properties.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSignalRResult> Invoke(GetSignalRInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.SignalRService
     [OutputType]
     public sealed class GetSignalRResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
         /// </summary>
@@ -125,7 +129,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string HostNamePrefix;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -133,7 +137,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
-        /// The kind of the service, it can be SignalR or RawWebSockets
+        /// The kind of the service
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -141,11 +145,11 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly Outputs.LiveTraceConfigurationResponse? LiveTraceConfiguration;
         /// <summary>
-        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -171,9 +175,21 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly int PublicPort;
         /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        /// </summary>
+        public readonly string? RegionEndpointEnabled;
+        /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
         /// </summary>
         public readonly Outputs.ResourceLogConfigurationResponse? ResourceLogConfiguration;
+        /// <summary>
+        /// Stop or start the resource.  Default to "False".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        public readonly string? ResourceStopped;
         /// <summary>
         /// The publicly accessible port of the resource which is designed for customer server side usage.
         /// </summary>
@@ -191,11 +207,11 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -203,7 +219,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly Outputs.SignalRTlsSettingsResponse? Tls;
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -217,6 +233,8 @@ namespace Pulumi.AzureNative.SignalRService
 
         [OutputConstructor]
         private GetSignalRResult(
+            string azureApiVersion,
+
             Outputs.SignalRCorsSettingsResponse? cors,
 
             bool? disableAadAuth,
@@ -239,7 +257,7 @@ namespace Pulumi.AzureNative.SignalRService
 
             Outputs.LiveTraceConfigurationResponse? liveTraceConfiguration,
 
-            string? location,
+            string location,
 
             string name,
 
@@ -253,7 +271,11 @@ namespace Pulumi.AzureNative.SignalRService
 
             int publicPort,
 
+            string? regionEndpointEnabled,
+
             Outputs.ResourceLogConfigurationResponse? resourceLogConfiguration,
+
+            string? resourceStopped,
 
             int serverPort,
 
@@ -275,6 +297,7 @@ namespace Pulumi.AzureNative.SignalRService
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             Cors = cors;
             DisableAadAuth = disableAadAuth;
             DisableLocalAuth = disableLocalAuth;
@@ -293,7 +316,9 @@ namespace Pulumi.AzureNative.SignalRService
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             PublicPort = publicPort;
+            RegionEndpointEnabled = regionEndpointEnabled;
             ResourceLogConfiguration = resourceLogConfiguration;
+            ResourceStopped = resourceStopped;
             ServerPort = serverPort;
             Serverless = serverless;
             SharedPrivateLinkResources = sharedPrivateLinkResources;

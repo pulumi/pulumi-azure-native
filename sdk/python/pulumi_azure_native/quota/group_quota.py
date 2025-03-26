@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['GroupQuotaArgs', 'GroupQuota']
@@ -24,12 +23,11 @@ class GroupQuotaArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[str],
                  group_quota_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['GroupQuotasEntityBaseArgs']] = None):
+                 properties: Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GroupQuota resource.
         :param pulumi.Input[str] management_group_id: Management Group Id.
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-        :param pulumi.Input['GroupQuotasEntityBaseArgs'] properties: Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         """
         pulumi.set(__self__, "management_group_id", management_group_id)
         if group_quota_name is not None:
@@ -63,14 +61,11 @@ class GroupQuotaArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['GroupQuotasEntityBaseArgs']]:
-        """
-        Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        """
+    def properties(self) -> Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['GroupQuotasEntityBaseArgs']]):
+    def properties(self, value: Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -81,20 +76,19 @@ class GroupQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_quota_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityBaseArgs', 'GroupQuotasEntityBaseArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         :param pulumi.Input[str] management_group_id: Management Group Id.
-        :param pulumi.Input[Union['GroupQuotasEntityBaseArgs', 'GroupQuotasEntityBaseArgsDict']] properties: Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         """
         ...
     @overload
@@ -105,9 +99,9 @@ class GroupQuota(pulumi.CustomResource):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GroupQuotaArgs args: The arguments to use to populate this resource's properties.
@@ -126,7 +120,7 @@ class GroupQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_quota_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityBaseArgs', 'GroupQuotasEntityBaseArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -141,6 +135,7 @@ class GroupQuota(pulumi.CustomResource):
                 raise TypeError("Missing required property 'management_group_id'")
             __props__.__dict__["management_group_id"] = management_group_id
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -168,11 +163,20 @@ class GroupQuota(pulumi.CustomResource):
 
         __props__ = GroupQuotaArgs.__new__(GroupQuotaArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return GroupQuota(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -184,10 +188,7 @@ class GroupQuota(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.GroupQuotasEntityBaseResponse']:
-        """
-        Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        """
+    def properties(self) -> pulumi.Output['outputs.GroupQuotasEntityResponseProperties']:
         return pulumi.get(self, "properties")
 
     @property

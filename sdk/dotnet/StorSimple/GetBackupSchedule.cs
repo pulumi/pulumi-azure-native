@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.StorSimple
     public sealed class GetBackupScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The type of backup which needs to be taken.
         /// </summary>
         public readonly string BackupType;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.StorSimple
 
         [OutputConstructor]
         private GetBackupScheduleResult(
+            string azureApiVersion,
+
             string backupType,
 
             string id,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.StorSimple
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BackupType = backupType;
             Id = id;
             Kind = kind;

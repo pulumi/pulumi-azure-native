@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Purview
     /// <summary>
     /// The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
     /// 
-    /// Uses Azure REST API version 2021-12-01.
+    /// Uses Azure REST API version 2024-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
     /// 
-    /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+    /// Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:KafkaConfiguration")]
     public partial class KafkaConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Consumer group for hook event hub.
         /// </summary>
@@ -26,7 +32,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> ConsumerGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Credentials to access event hub.
+        /// Credentials to access the event streaming service attached to the purview account.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.CredentialsResponse?> Credentials { get; private set; } = null!;
@@ -140,7 +146,7 @@ namespace Pulumi.AzureNative.Purview
         public Input<string>? ConsumerGroup { get; set; }
 
         /// <summary>
-        /// Credentials to access event hub.
+        /// Credentials to access the event streaming service attached to the purview account.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.CredentialsArgs>? Credentials { get; set; }

@@ -25,9 +25,21 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string ConnectionId;
         /// <summary>
+        /// The URI to the customer managed key for this flow
+        /// </summary>
+        public readonly string? CustomerManagedKeyVaultUri;
+        /// <summary>
         /// Transfer Storage Blobs or Tables
         /// </summary>
         public readonly string? DataType;
+        /// <summary>
+        /// The destination endpoint ports of the stream
+        /// </summary>
+        public readonly ImmutableArray<double> DestinationEndpointPorts;
+        /// <summary>
+        /// The destination endpoints of the stream
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationEndpoints;
         /// <summary>
         /// Dataflow GUID associated with this flow
         /// </summary>
@@ -57,9 +69,17 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The messaging options for this flow
+        /// </summary>
+        public readonly Outputs.MessagingOptionsResponse? MessagingOptions;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The passphrase used for SRT streams
+        /// </summary>
+        public readonly string? Passphrase;
         /// <summary>
         /// The policies for this flow
         /// </summary>
@@ -77,6 +97,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? ServiceBusQueueId;
         /// <summary>
+        /// The source IP address and CIDR ranges of the stream
+        /// </summary>
+        public readonly Outputs.StreamSourceAddressesResponse? SourceAddresses;
+        /// <summary>
         /// Status of the current flow
         /// </summary>
         public readonly string? Status;
@@ -92,6 +116,18 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// Storage Container Name
         /// </summary>
         public readonly string? StorageContainerName;
+        /// <summary>
+        /// The flow stream identifier
+        /// </summary>
+        public readonly string? StreamId;
+        /// <summary>
+        /// The latency of the stream in milliseconds
+        /// </summary>
+        public readonly double? StreamLatency;
+        /// <summary>
+        /// The protocol of the stream
+        /// </summary>
+        public readonly string? StreamProtocol;
         /// <summary>
         /// Subscription ID of the pending flow.
         /// </summary>
@@ -115,7 +151,13 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             string connectionId,
 
+            string? customerManagedKeyVaultUri,
+
             string? dataType,
+
+            ImmutableArray<double> destinationEndpointPorts,
+
+            ImmutableArray<string> destinationEndpoints,
 
             string flowId,
 
@@ -131,7 +173,11 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             string location,
 
+            Outputs.MessagingOptionsResponse? messagingOptions,
+
             string name,
+
+            string? passphrase,
 
             ImmutableArray<string> policies,
 
@@ -141,6 +187,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             string? serviceBusQueueId,
 
+            Outputs.StreamSourceAddressesResponse? sourceAddresses,
+
             string? status,
 
             string? storageAccountId,
@@ -148,6 +196,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
             string? storageAccountName,
 
             string? storageContainerName,
+
+            string? streamId,
+
+            double? streamLatency,
+
+            string? streamProtocol,
 
             string subscriptionId,
 
@@ -159,7 +213,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         {
             Connection = connection;
             ConnectionId = connectionId;
+            CustomerManagedKeyVaultUri = customerManagedKeyVaultUri;
             DataType = dataType;
+            DestinationEndpointPorts = destinationEndpointPorts;
+            DestinationEndpoints = destinationEndpoints;
             FlowId = flowId;
             FlowType = flowType;
             Id = id;
@@ -167,15 +224,21 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
             LinkStatus = linkStatus;
             LinkedFlowId = linkedFlowId;
             Location = location;
+            MessagingOptions = messagingOptions;
             Name = name;
+            Passphrase = passphrase;
             Policies = policies;
             ProvisioningState = provisioningState;
             Schema = schema;
             ServiceBusQueueId = serviceBusQueueId;
+            SourceAddresses = sourceAddresses;
             Status = status;
             StorageAccountId = storageAccountId;
             StorageAccountName = storageAccountName;
             StorageContainerName = storageContainerName;
+            StreamId = streamId;
+            StreamLatency = streamLatency;
+            StreamProtocol = streamProtocol;
             SubscriptionId = subscriptionId;
             SystemData = systemData;
             Tags = tags;

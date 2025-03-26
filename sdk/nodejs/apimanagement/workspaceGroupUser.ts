@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * User details.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkspaceGroupUser extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceGroupUser.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Email address.
      */
@@ -110,6 +114,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;

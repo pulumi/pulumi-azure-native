@@ -21,19 +21,20 @@ __all__ = ['ProductArgs', 'Product']
 class ProductArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[str],
-                 description: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  product_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Product resource.
         :param pulumi.Input[str] catalog_name: Name of catalog
-        :param pulumi.Input[str] description: Description of the product
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] description: Description of the product
         :param pulumi.Input[str] product_name: Name of product.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if product_name is not None:
             pulumi.set(__self__, "product_name", product_name)
 
@@ -50,18 +51,6 @@ class ProductArgs:
         pulumi.set(self, "catalog_name", value)
 
     @property
-    @pulumi.getter
-    def description(self) -> pulumi.Input[str]:
-        """
-        Description of the product
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -72,6 +61,18 @@ class ProductArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the product
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="productName")
@@ -99,9 +100,9 @@ class Product(pulumi.CustomResource):
         """
         An product resource belonging to a catalog resource.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        Other available API versions: 2024-04-01.
+        Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +120,9 @@ class Product(pulumi.CustomResource):
         """
         An product resource belonging to a catalog resource.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        Other available API versions: 2024-04-01.
+        Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.
@@ -154,13 +155,12 @@ class Product(pulumi.CustomResource):
             if catalog_name is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
-            if description is None and not opts.urn:
-                raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["product_name"] = product_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -189,6 +189,7 @@ class Product(pulumi.CustomResource):
 
         __props__ = ProductArgs.__new__(ProductArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -197,8 +198,16 @@ class Product(pulumi.CustomResource):
         return Product(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the product
         """

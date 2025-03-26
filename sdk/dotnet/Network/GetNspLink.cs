@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified NSP link resource.
         /// 
-        /// Uses Azure REST API version 2021-02-01-preview.
+        /// Uses Azure REST API version 2023-08-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNspLinkResult> InvokeAsync(GetNspLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspLinkResult>("azure-native:network:getNspLink", args ?? new GetNspLinkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified NSP link resource.
         /// 
-        /// Uses Azure REST API version 2021-02-01-preview.
+        /// Uses Azure REST API version 2023-08-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNspLinkResult> Invoke(GetNspLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspLinkResult>("azure-native:network:getNspLink", args ?? new GetNspLinkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified NSP link resource.
         /// 
-        /// Uses Azure REST API version 2021-02-01-preview.
+        /// Uses Azure REST API version 2023-08-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNspLinkResult> Invoke(GetNspLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspLinkResult>("azure-native:network:getNspLink", args ?? new GetNspLinkInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? AutoApprovedRemotePerimeterResourceId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
         /// </summary>
         public readonly string? Description;
@@ -116,7 +120,7 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         /// </summary>
         public readonly ImmutableArray<string> LocalInboundProfiles;
         /// <summary>
@@ -132,7 +136,7 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         /// </summary>
         public readonly ImmutableArray<string> RemoteInboundProfiles;
         /// <summary>
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNative.Network
         [OutputConstructor]
         private GetNspLinkResult(
             string? autoApprovedRemotePerimeterResourceId,
+
+            string azureApiVersion,
 
             string? description,
 
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AutoApprovedRemotePerimeterResourceId = autoApprovedRemotePerimeterResourceId;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

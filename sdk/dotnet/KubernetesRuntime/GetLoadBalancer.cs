@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a LoadBalancer
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:kubernetesruntime:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a LoadBalancer
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:kubernetesruntime:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a LoadBalancer
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:kubernetesruntime:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// </summary>
         public readonly string AdvertiseMode;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.
         /// </summary>
         public readonly ImmutableArray<string> BgpPeers;
@@ -130,6 +128,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
 
             string advertiseMode,
 
+            string azureApiVersion,
+
             ImmutableArray<string> bgpPeers,
 
             string id,
@@ -146,6 +146,7 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         {
             Addresses = addresses;
             AdvertiseMode = advertiseMode;
+            AzureApiVersion = azureApiVersion;
             BgpPeers = bgpPeers;
             Id = id;
             Name = name;

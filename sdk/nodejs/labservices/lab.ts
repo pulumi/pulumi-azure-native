@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The lab resource.
  *
- * Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
+ * Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class Lab extends pulumi.CustomResource {
      */
     public readonly autoShutdownProfile!: pulumi.Output<outputs.labservices.AutoShutdownProfileResponse>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
      */
     public readonly connectionProfile!: pulumi.Output<outputs.labservices.ConnectionProfileResponse>;
@@ -73,6 +77,10 @@ export class Lab extends pulumi.CustomResource {
      * Current provisioning state of the lab.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Error details of last operation done on lab.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * The lab user list management profile.
      */
@@ -145,13 +153,16 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["autoShutdownProfile"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionProfile"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["labPlanId"] = undefined /*out*/;
@@ -159,6 +170,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["rosterProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -169,7 +181,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachineProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:Lab" }, { type: "azure-native:labservices/v20211115preview:Lab" }, { type: "azure-native:labservices/v20220801:Lab" }, { type: "azure-native:labservices/v20230607:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:Lab" }, { type: "azure-native:labservices/v20211001preview:Lab" }, { type: "azure-native:labservices/v20211115preview:Lab" }, { type: "azure-native:labservices/v20220801:Lab" }, { type: "azure-native:labservices/v20230607:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);
     }

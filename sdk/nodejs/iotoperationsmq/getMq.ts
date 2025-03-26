@@ -36,6 +36,10 @@ export interface GetMqArgs {
  */
 export interface GetMqResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Extended Location
      */
     readonly extendedLocation: outputs.iotoperationsmq.ExtendedLocationPropertyResponse;

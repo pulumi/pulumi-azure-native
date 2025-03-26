@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.PowerBI
     public sealed class GetWorkspaceCollectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource id
         /// </summary>
         public readonly string? Id;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNative.PowerBI
 
         [OutputConstructor]
         private GetWorkspaceCollectionResult(
+            string azureApiVersion,
+
             string? id,
 
             string? location,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.PowerBI
 
             string? type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

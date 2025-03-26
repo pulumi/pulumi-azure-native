@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     /// Gets or sets the PrometheusOS provider properties.
     /// </summary>
     [OutputType]
-    public sealed class PrometheusOSProviderInstancePropertiesResponse
+    public sealed class PrometheusOsProviderInstancePropertiesResponse
     {
         /// <summary>
         /// URL of the Node Exporter endpoint
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         public readonly string? SslPreference;
 
         [OutputConstructor]
-        private PrometheusOSProviderInstancePropertiesResponse(
+        private PrometheusOsProviderInstancePropertiesResponse(
             string? prometheusUrl,
 
             string providerType,

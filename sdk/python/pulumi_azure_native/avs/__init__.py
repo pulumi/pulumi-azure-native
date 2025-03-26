@@ -47,26 +47,3 @@ from .workload_network_segment import *
 from .workload_network_vm_group import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.avs.v20200320 as __v20200320
-    v20200320 = __v20200320
-    import pulumi_azure_native.avs.v20210101preview as __v20210101preview
-    v20210101preview = __v20210101preview
-    import pulumi_azure_native.avs.v20210601 as __v20210601
-    v20210601 = __v20210601
-    import pulumi_azure_native.avs.v20220501 as __v20220501
-    v20220501 = __v20220501
-    import pulumi_azure_native.avs.v20230301 as __v20230301
-    v20230301 = __v20230301
-    import pulumi_azure_native.avs.v20230901 as __v20230901
-    v20230901 = __v20230901
-else:
-    v20200320 = _utilities.lazy_import('pulumi_azure_native.avs.v20200320')
-    v20210101preview = _utilities.lazy_import('pulumi_azure_native.avs.v20210101preview')
-    v20210601 = _utilities.lazy_import('pulumi_azure_native.avs.v20210601')
-    v20220501 = _utilities.lazy_import('pulumi_azure_native.avs.v20220501')
-    v20230301 = _utilities.lazy_import('pulumi_azure_native.avs.v20230301')
-    v20230901 = _utilities.lazy_import('pulumi_azure_native.avs.v20230901')
-

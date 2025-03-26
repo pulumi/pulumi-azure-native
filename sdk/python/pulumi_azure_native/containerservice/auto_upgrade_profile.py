@@ -158,7 +158,7 @@ class AutoUpgradeProfile(pulumi.CustomResource):
         """
         The AutoUpgradeProfile resource.
 
-        Uses Azure REST API version 2024-05-02-preview.
+        Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +182,7 @@ class AutoUpgradeProfile(pulumi.CustomResource):
         """
         The AutoUpgradeProfile resource.
 
-        Uses Azure REST API version 2024-05-02-preview.
+        Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-02-preview.
 
         :param str resource_name: The name of the resource.
         :param AutoUpgradeProfileArgs args: The arguments to use to populate this resource's properties.
@@ -228,6 +228,7 @@ class AutoUpgradeProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["update_strategy_id"] = update_strategy_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -257,6 +258,7 @@ class AutoUpgradeProfile(pulumi.CustomResource):
 
         __props__ = AutoUpgradeProfileArgs.__new__(AutoUpgradeProfileArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["channel"] = None
         __props__.__dict__["disabled"] = None
         __props__.__dict__["e_tag"] = None
@@ -267,6 +269,14 @@ class AutoUpgradeProfile(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["update_strategy_id"] = None
         return AutoUpgradeProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

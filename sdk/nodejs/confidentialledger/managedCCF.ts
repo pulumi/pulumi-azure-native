@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Managed CCF. Contains the properties of Managed CCF Resource.
  *
- * Uses Azure REST API version 2023-01-26-preview.
+ * Uses Azure REST API version 2023-06-28-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-26-preview.
  *
- * Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+ * Other available API versions: 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ManagedCCF extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ManagedCCF extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedCCF.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -85,10 +89,12 @@ export class ManagedCCF extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

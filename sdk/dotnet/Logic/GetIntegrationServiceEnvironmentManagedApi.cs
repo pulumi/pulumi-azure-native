@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public readonly Outputs.ApiResourceDefinitionsResponse ApiDefinitions;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The backend service.
         /// </summary>
         public readonly Outputs.ApiResourceBackendServiceResponse BackendService;
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNative.Logic
 
             Outputs.ApiResourceDefinitionsResponse apiDefinitions,
 
+            string azureApiVersion,
+
             Outputs.ApiResourceBackendServiceResponse backendService,
 
             ImmutableArray<string> capabilities,
@@ -206,6 +212,7 @@ namespace Pulumi.AzureNative.Logic
         {
             ApiDefinitionUrl = apiDefinitionUrl;
             ApiDefinitions = apiDefinitions;
+            AzureApiVersion = azureApiVersion;
             BackendService = backendService;
             Capabilities = capabilities;
             Category = category;

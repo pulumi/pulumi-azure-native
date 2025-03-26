@@ -121,7 +121,7 @@ def list_workflow_callback_url(key_type: Optional[Union[str, 'KeyType']] = None,
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2016-06-01, 2018-07-01-preview.
+    Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union[str, 'KeyType'] key_type: The key type.
@@ -154,7 +154,7 @@ def list_workflow_callback_url_output(key_type: Optional[pulumi.Input[Optional[U
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2016-06-01, 2018-07-01-preview.
+    Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union[str, 'KeyType'] key_type: The key type.

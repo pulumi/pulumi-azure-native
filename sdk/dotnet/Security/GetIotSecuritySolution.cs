@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-08-01.
         /// 
-        /// Other available API versions: 2017-08-01-preview.
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-08-01.
         /// 
-        /// Other available API versions: 2017-08-01-preview.
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIotSecuritySolutionResult> Invoke(GetIotSecuritySolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Security
         /// 
         /// Uses Azure REST API version 2019-08-01.
         /// 
-        /// Other available API versions: 2017-08-01-preview.
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIotSecuritySolutionResult> Invoke(GetIotSecuritySolutionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithDefaults());
@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Security
         /// List of resources that were automatically discovered as relevant to the security solution.
         /// </summary>
         public readonly ImmutableArray<string> AutoDiscoveredResources;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Disabled data sources. Disabling these data sources compromises the system.
         /// </summary>
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Security
 
             ImmutableArray<string> autoDiscoveredResources,
 
+            string azureApiVersion,
+
             ImmutableArray<string> disabledDataSources,
 
             string displayName,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.Security
         {
             AdditionalWorkspaces = additionalWorkspaces;
             AutoDiscoveredResources = autoDiscoveredResources;
+            AzureApiVersion = azureApiVersion;
             DisabledDataSources = disabledDataSources;
             DisplayName = displayName;
             Export = export;

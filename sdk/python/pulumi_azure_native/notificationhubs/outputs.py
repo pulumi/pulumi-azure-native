@@ -17,22 +17,15 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AdmCredentialPropertiesResponse',
     'AdmCredentialResponse',
-    'ApnsCredentialPropertiesResponse',
     'ApnsCredentialResponse',
-    'BaiduCredentialPropertiesResponse',
     'BaiduCredentialResponse',
-    'BrowserCredentialPropertiesResponse',
     'BrowserCredentialResponse',
-    'GcmCredentialPropertiesResponse',
+    'FcmV1CredentialResponse',
     'GcmCredentialResponse',
     'IpRuleResponse',
-    'MpnsCredentialPropertiesResponse',
     'MpnsCredentialResponse',
-    'NamespacePropertiesResponse',
     'NetworkAclsResponse',
-    'NotificationHubPropertiesResponse',
     'PnsCredentialsResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResourceResponse',
@@ -42,14 +35,12 @@ __all__ = [
     'SharedAccessAuthorizationRulePropertiesResponse',
     'SkuResponse',
     'SystemDataResponse',
-    'WnsCredentialPropertiesResponse',
     'WnsCredentialResponse',
-    'XiaomiCredentialPropertiesResponse',
     'XiaomiCredentialResponse',
 ]
 
 @pulumi.output_type
-class AdmCredentialPropertiesResponse(dict):
+class AdmCredentialResponse(dict):
     """
     Description of a NotificationHub AdmCredential.
     """
@@ -64,14 +55,14 @@ class AdmCredentialPropertiesResponse(dict):
             suggest = "client_secret"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AdmCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AdmCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AdmCredentialPropertiesResponse.__key_warning(key)
+        AdmCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AdmCredentialPropertiesResponse.__key_warning(key)
+        AdmCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -114,29 +105,7 @@ class AdmCredentialPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class AdmCredentialResponse(dict):
-    """
-    Description of a NotificationHub AdmCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.AdmCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub AdmCredential.
-        :param 'AdmCredentialPropertiesResponse' properties: Description of a NotificationHub AdmCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.AdmCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class ApnsCredentialPropertiesResponse(dict):
+class ApnsCredentialResponse(dict):
     """
     Description of a NotificationHub ApnsCredential.
     """
@@ -155,14 +124,14 @@ class ApnsCredentialPropertiesResponse(dict):
             suggest = "key_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApnsCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApnsCredentialPropertiesResponse.__key_warning(key)
+        ApnsCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApnsCredentialPropertiesResponse.__key_warning(key)
+        ApnsCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -273,29 +242,7 @@ class ApnsCredentialPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ApnsCredentialResponse(dict):
-    """
-    Description of a NotificationHub ApnsCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.ApnsCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub ApnsCredential.
-        :param 'ApnsCredentialPropertiesResponse' properties: Description of a NotificationHub ApnsCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.ApnsCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class BaiduCredentialPropertiesResponse(dict):
+class BaiduCredentialResponse(dict):
     """
     Description of a NotificationHub BaiduCredential.
     """
@@ -310,14 +257,14 @@ class BaiduCredentialPropertiesResponse(dict):
             suggest = "baidu_secret_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BaiduCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BaiduCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BaiduCredentialPropertiesResponse.__key_warning(key)
+        BaiduCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BaiduCredentialPropertiesResponse.__key_warning(key)
+        BaiduCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -360,29 +307,7 @@ class BaiduCredentialPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class BaiduCredentialResponse(dict):
-    """
-    Description of a NotificationHub BaiduCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.BaiduCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub BaiduCredential.
-        :param 'BaiduCredentialPropertiesResponse' properties: Description of a NotificationHub BaiduCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.BaiduCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class BrowserCredentialPropertiesResponse(dict):
+class BrowserCredentialResponse(dict):
     """
     Description of a NotificationHub BrowserCredential.
     """
@@ -395,14 +320,14 @@ class BrowserCredentialPropertiesResponse(dict):
             suggest = "vapid_public_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BrowserCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BrowserCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BrowserCredentialPropertiesResponse.__key_warning(key)
+        BrowserCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BrowserCredentialPropertiesResponse.__key_warning(key)
+        BrowserCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -445,29 +370,72 @@ class BrowserCredentialPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class BrowserCredentialResponse(dict):
+class FcmV1CredentialResponse(dict):
     """
-    Description of a NotificationHub BrowserCredential.
+    Description of a NotificationHub FcmV1Credential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientEmail":
+            suggest = "client_email"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FcmV1CredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FcmV1CredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FcmV1CredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 properties: 'outputs.BrowserCredentialPropertiesResponse'):
+                 client_email: str,
+                 private_key: str,
+                 project_id: str):
         """
-        Description of a NotificationHub BrowserCredential.
-        :param 'BrowserCredentialPropertiesResponse' properties: Description of a NotificationHub BrowserCredential.
+        Description of a NotificationHub FcmV1Credential.
+        :param str client_email: Gets or sets client email.
+        :param str private_key: Gets or sets private key.
+        :param str project_id: Gets or sets project id.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "project_id", project_id)
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.BrowserCredentialPropertiesResponse':
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> str:
         """
-        Description of a NotificationHub BrowserCredential.
+        Gets or sets client email.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "client_email")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        Gets or sets private key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        Gets or sets project id.
+        """
+        return pulumi.get(self, "project_id")
 
 
 @pulumi.output_type
-class GcmCredentialPropertiesResponse(dict):
+class GcmCredentialResponse(dict):
     """
     Description of a NotificationHub GcmCredential.
     """
@@ -480,14 +448,14 @@ class GcmCredentialPropertiesResponse(dict):
             suggest = "gcm_endpoint"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GcmCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GcmCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GcmCredentialPropertiesResponse.__key_warning(key)
+        GcmCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GcmCredentialPropertiesResponse.__key_warning(key)
+        GcmCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -517,28 +485,6 @@ class GcmCredentialPropertiesResponse(dict):
         Gets or sets the GCM endpoint.
         """
         return pulumi.get(self, "gcm_endpoint")
-
-
-@pulumi.output_type
-class GcmCredentialResponse(dict):
-    """
-    Description of a NotificationHub GcmCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.GcmCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub GcmCredential.
-        :param 'GcmCredentialPropertiesResponse' properties: Description of a NotificationHub GcmCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.GcmCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -592,7 +538,7 @@ class IpRuleResponse(dict):
 
 
 @pulumi.output_type
-class MpnsCredentialPropertiesResponse(dict):
+class MpnsCredentialResponse(dict):
     """
     Description of a NotificationHub MpnsCredential.
     """
@@ -605,14 +551,14 @@ class MpnsCredentialPropertiesResponse(dict):
             suggest = "mpns_certificate"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MpnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MpnsCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MpnsCredentialPropertiesResponse.__key_warning(key)
+        MpnsCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MpnsCredentialPropertiesResponse.__key_warning(key)
+        MpnsCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -652,320 +598,6 @@ class MpnsCredentialPropertiesResponse(dict):
         Gets or sets the MPNS certificate Thumbprint
         """
         return pulumi.get(self, "thumbprint")
-
-
-@pulumi.output_type
-class MpnsCredentialResponse(dict):
-    """
-    Description of a NotificationHub MpnsCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.MpnsCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub MpnsCredential.
-        :param 'MpnsCredentialPropertiesResponse' properties: Description of a NotificationHub MpnsCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.MpnsCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class NamespacePropertiesResponse(dict):
-    """
-    Represents namespace properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "metricId":
-            suggest = "metric_id"
-        elif key == "privateEndpointConnections":
-            suggest = "private_endpoint_connections"
-        elif key == "serviceBusEndpoint":
-            suggest = "service_bus_endpoint"
-        elif key == "subscriptionId":
-            suggest = "subscription_id"
-        elif key == "updatedAt":
-            suggest = "updated_at"
-        elif key == "dataCenter":
-            suggest = "data_center"
-        elif key == "namespaceType":
-            suggest = "namespace_type"
-        elif key == "networkAcls":
-            suggest = "network_acls"
-        elif key == "pnsCredentials":
-            suggest = "pns_credentials"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "publicNetworkAccess":
-            suggest = "public_network_access"
-        elif key == "replicationRegion":
-            suggest = "replication_region"
-        elif key == "scaleUnit":
-            suggest = "scale_unit"
-        elif key == "zoneRedundancy":
-            suggest = "zone_redundancy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NamespacePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NamespacePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: str,
-                 critical: bool,
-                 enabled: bool,
-                 metric_id: str,
-                 name: str,
-                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResourceResponse'],
-                 region: str,
-                 service_bus_endpoint: str,
-                 subscription_id: str,
-                 updated_at: str,
-                 data_center: Optional[str] = None,
-                 namespace_type: Optional[str] = None,
-                 network_acls: Optional['outputs.NetworkAclsResponse'] = None,
-                 pns_credentials: Optional['outputs.PnsCredentialsResponse'] = None,
-                 provisioning_state: Optional[str] = None,
-                 public_network_access: Optional[str] = None,
-                 replication_region: Optional[str] = None,
-                 scale_unit: Optional[str] = None,
-                 status: Optional[str] = None,
-                 zone_redundancy: Optional[str] = None):
-        """
-        Represents namespace properties.
-        :param str created_at: Time when the namespace was created.
-        :param bool critical: Gets or sets whether or not the namespace is set as Critical.
-        :param bool enabled: Gets or sets whether or not the namespace is currently enabled.
-        :param str metric_id: Azure Insights Metrics id.
-        :param str name: Name of the Notification Hubs namespace. This is immutable property, set automatically 
-               by the service when the namespace is created.
-        :param Sequence['PrivateEndpointConnectionResourceResponse'] private_endpoint_connections: Private Endpoint Connections for namespace
-        :param str region: Region. The value is always set to the same value as Namespace.Location, so we are deprecating
-               this property.
-        :param str service_bus_endpoint: Gets or sets endpoint you can use to perform NotificationHub
-               operations.
-        :param str subscription_id: Namespace subscription id.
-        :param str updated_at: Time when the namespace was updated.
-        :param str data_center: Deprecated.
-        :param str namespace_type: Defines values for NamespaceType.
-        :param 'NetworkAclsResponse' network_acls: A collection of network authorization rules.
-        :param 'PnsCredentialsResponse' pns_credentials: Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        :param str provisioning_state: Defines values for OperationProvisioningState.
-        :param str public_network_access: Type of public network access.
-        :param str replication_region: Allowed replication region
-        :param str scale_unit: Gets or sets scaleUnit where the namespace gets created
-        :param str status: Namespace status.
-        :param str zone_redundancy: Namespace SKU name.
-        """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "critical", critical)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "metric_id", metric_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "updated_at", updated_at)
-        if data_center is not None:
-            pulumi.set(__self__, "data_center", data_center)
-        if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
-        if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
-        if pns_credentials is not None:
-            pulumi.set(__self__, "pns_credentials", pns_credentials)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if replication_region is not None:
-            pulumi.set(__self__, "replication_region", replication_region)
-        if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
-        """
-        Time when the namespace was created.
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter
-    def critical(self) -> bool:
-        """
-        Gets or sets whether or not the namespace is set as Critical.
-        """
-        return pulumi.get(self, "critical")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        Gets or sets whether or not the namespace is currently enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="metricId")
-    def metric_id(self) -> str:
-        """
-        Azure Insights Metrics id.
-        """
-        return pulumi.get(self, "metric_id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the Notification Hubs namespace. This is immutable property, set automatically 
-        by the service when the namespace is created.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResourceResponse']:
-        """
-        Private Endpoint Connections for namespace
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter
-    def region(self) -> str:
-        """
-        Region. The value is always set to the same value as Namespace.Location, so we are deprecating
-        this property.
-        """
-        return pulumi.get(self, "region")
-
-    @property
-    @pulumi.getter(name="serviceBusEndpoint")
-    def service_bus_endpoint(self) -> str:
-        """
-        Gets or sets endpoint you can use to perform NotificationHub
-        operations.
-        """
-        return pulumi.get(self, "service_bus_endpoint")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        Namespace subscription id.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @property
-    @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
-        """
-        Time when the namespace was updated.
-        """
-        return pulumi.get(self, "updated_at")
-
-    @property
-    @pulumi.getter(name="dataCenter")
-    def data_center(self) -> Optional[str]:
-        """
-        Deprecated.
-        """
-        return pulumi.get(self, "data_center")
-
-    @property
-    @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> Optional[str]:
-        """
-        Defines values for NamespaceType.
-        """
-        return pulumi.get(self, "namespace_type")
-
-    @property
-    @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional['outputs.NetworkAclsResponse']:
-        """
-        A collection of network authorization rules.
-        """
-        return pulumi.get(self, "network_acls")
-
-    @property
-    @pulumi.getter(name="pnsCredentials")
-    def pns_credentials(self) -> Optional['outputs.PnsCredentialsResponse']:
-        """
-        Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        """
-        return pulumi.get(self, "pns_credentials")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Defines values for OperationProvisioningState.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        Type of public network access.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @property
-    @pulumi.getter(name="replicationRegion")
-    def replication_region(self) -> Optional[str]:
-        """
-        Allowed replication region
-        """
-        return pulumi.get(self, "replication_region")
-
-    @property
-    @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[str]:
-        """
-        Gets or sets scaleUnit where the namespace gets created
-        """
-        return pulumi.get(self, "scale_unit")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        Namespace status.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="zoneRedundancy")
-    def zone_redundancy(self) -> Optional[str]:
-        """
-        Namespace SKU name.
-        """
-        return pulumi.get(self, "zone_redundancy")
 
 
 @pulumi.output_type
@@ -1023,192 +655,6 @@ class NetworkAclsResponse(dict):
 
 
 @pulumi.output_type
-class NotificationHubPropertiesResponse(dict):
-    """
-    NotificationHub properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "authorizationRules":
-            suggest = "authorization_rules"
-        elif key == "dailyMaxActiveDevices":
-            suggest = "daily_max_active_devices"
-        elif key == "admCredential":
-            suggest = "adm_credential"
-        elif key == "apnsCredential":
-            suggest = "apns_credential"
-        elif key == "baiduCredential":
-            suggest = "baidu_credential"
-        elif key == "browserCredential":
-            suggest = "browser_credential"
-        elif key == "gcmCredential":
-            suggest = "gcm_credential"
-        elif key == "mpnsCredential":
-            suggest = "mpns_credential"
-        elif key == "registrationTtl":
-            suggest = "registration_ttl"
-        elif key == "wnsCredential":
-            suggest = "wns_credential"
-        elif key == "xiaomiCredential":
-            suggest = "xiaomi_credential"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NotificationHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NotificationHubPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NotificationHubPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 authorization_rules: Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse'],
-                 daily_max_active_devices: float,
-                 adm_credential: Optional['outputs.AdmCredentialResponse'] = None,
-                 apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
-                 baidu_credential: Optional['outputs.BaiduCredentialResponse'] = None,
-                 browser_credential: Optional['outputs.BrowserCredentialResponse'] = None,
-                 gcm_credential: Optional['outputs.GcmCredentialResponse'] = None,
-                 mpns_credential: Optional['outputs.MpnsCredentialResponse'] = None,
-                 name: Optional[str] = None,
-                 registration_ttl: Optional[str] = None,
-                 wns_credential: Optional['outputs.WnsCredentialResponse'] = None,
-                 xiaomi_credential: Optional['outputs.XiaomiCredentialResponse'] = None):
-        """
-        NotificationHub properties.
-        :param Sequence['SharedAccessAuthorizationRulePropertiesResponse'] authorization_rules: Gets or sets the AuthorizationRules of the created NotificationHub
-        :param 'AdmCredentialResponse' adm_credential: Description of a NotificationHub AdmCredential.
-        :param 'ApnsCredentialResponse' apns_credential: Description of a NotificationHub ApnsCredential.
-        :param 'BaiduCredentialResponse' baidu_credential: Description of a NotificationHub BaiduCredential.
-        :param 'BrowserCredentialResponse' browser_credential: Description of a NotificationHub BrowserCredential.
-        :param 'GcmCredentialResponse' gcm_credential: Description of a NotificationHub GcmCredential.
-        :param 'MpnsCredentialResponse' mpns_credential: Description of a NotificationHub MpnsCredential.
-        :param str name: Gets or sets the NotificationHub name.
-        :param str registration_ttl: Gets or sets the RegistrationTtl of the created NotificationHub
-        :param 'WnsCredentialResponse' wns_credential: Description of a NotificationHub WnsCredential.
-        :param 'XiaomiCredentialResponse' xiaomi_credential: Description of a NotificationHub XiaomiCredential.
-        """
-        pulumi.set(__self__, "authorization_rules", authorization_rules)
-        pulumi.set(__self__, "daily_max_active_devices", daily_max_active_devices)
-        if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
-        if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
-        if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
-        if browser_credential is not None:
-            pulumi.set(__self__, "browser_credential", browser_credential)
-        if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
-        if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if registration_ttl is not None:
-            pulumi.set(__self__, "registration_ttl", registration_ttl)
-        if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
-        if xiaomi_credential is not None:
-            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
-
-    @property
-    @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']:
-        """
-        Gets or sets the AuthorizationRules of the created NotificationHub
-        """
-        return pulumi.get(self, "authorization_rules")
-
-    @property
-    @pulumi.getter(name="dailyMaxActiveDevices")
-    def daily_max_active_devices(self) -> float:
-        return pulumi.get(self, "daily_max_active_devices")
-
-    @property
-    @pulumi.getter(name="admCredential")
-    def adm_credential(self) -> Optional['outputs.AdmCredentialResponse']:
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        return pulumi.get(self, "adm_credential")
-
-    @property
-    @pulumi.getter(name="apnsCredential")
-    def apns_credential(self) -> Optional['outputs.ApnsCredentialResponse']:
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        return pulumi.get(self, "apns_credential")
-
-    @property
-    @pulumi.getter(name="baiduCredential")
-    def baidu_credential(self) -> Optional['outputs.BaiduCredentialResponse']:
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        return pulumi.get(self, "baidu_credential")
-
-    @property
-    @pulumi.getter(name="browserCredential")
-    def browser_credential(self) -> Optional['outputs.BrowserCredentialResponse']:
-        """
-        Description of a NotificationHub BrowserCredential.
-        """
-        return pulumi.get(self, "browser_credential")
-
-    @property
-    @pulumi.getter(name="gcmCredential")
-    def gcm_credential(self) -> Optional['outputs.GcmCredentialResponse']:
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        return pulumi.get(self, "gcm_credential")
-
-    @property
-    @pulumi.getter(name="mpnsCredential")
-    def mpns_credential(self) -> Optional['outputs.MpnsCredentialResponse']:
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        return pulumi.get(self, "mpns_credential")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Gets or sets the NotificationHub name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="registrationTtl")
-    def registration_ttl(self) -> Optional[str]:
-        """
-        Gets or sets the RegistrationTtl of the created NotificationHub
-        """
-        return pulumi.get(self, "registration_ttl")
-
-    @property
-    @pulumi.getter(name="wnsCredential")
-    def wns_credential(self) -> Optional['outputs.WnsCredentialResponse']:
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        return pulumi.get(self, "wns_credential")
-
-    @property
-    @pulumi.getter(name="xiaomiCredential")
-    def xiaomi_credential(self) -> Optional['outputs.XiaomiCredentialResponse']:
-        """
-        Description of a NotificationHub XiaomiCredential.
-        """
-        return pulumi.get(self, "xiaomi_credential")
-
-
-@pulumi.output_type
 class PnsCredentialsResponse(dict):
     """
     Collection of Notification Hub or Notification Hub Namespace PNS credentials.
@@ -1224,6 +670,8 @@ class PnsCredentialsResponse(dict):
             suggest = "baidu_credential"
         elif key == "browserCredential":
             suggest = "browser_credential"
+        elif key == "fcmV1Credential":
+            suggest = "fcm_v1_credential"
         elif key == "gcmCredential":
             suggest = "gcm_credential"
         elif key == "mpnsCredential":
@@ -1249,6 +697,7 @@ class PnsCredentialsResponse(dict):
                  apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
                  baidu_credential: Optional['outputs.BaiduCredentialResponse'] = None,
                  browser_credential: Optional['outputs.BrowserCredentialResponse'] = None,
+                 fcm_v1_credential: Optional['outputs.FcmV1CredentialResponse'] = None,
                  gcm_credential: Optional['outputs.GcmCredentialResponse'] = None,
                  mpns_credential: Optional['outputs.MpnsCredentialResponse'] = None,
                  wns_credential: Optional['outputs.WnsCredentialResponse'] = None,
@@ -1259,6 +708,7 @@ class PnsCredentialsResponse(dict):
         :param 'ApnsCredentialResponse' apns_credential: Description of a NotificationHub ApnsCredential.
         :param 'BaiduCredentialResponse' baidu_credential: Description of a NotificationHub BaiduCredential.
         :param 'BrowserCredentialResponse' browser_credential: Description of a NotificationHub BrowserCredential.
+        :param 'FcmV1CredentialResponse' fcm_v1_credential: Description of a NotificationHub FcmV1Credential.
         :param 'GcmCredentialResponse' gcm_credential: Description of a NotificationHub GcmCredential.
         :param 'MpnsCredentialResponse' mpns_credential: Description of a NotificationHub MpnsCredential.
         :param 'WnsCredentialResponse' wns_credential: Description of a NotificationHub WnsCredential.
@@ -1272,6 +722,8 @@ class PnsCredentialsResponse(dict):
             pulumi.set(__self__, "baidu_credential", baidu_credential)
         if browser_credential is not None:
             pulumi.set(__self__, "browser_credential", browser_credential)
+        if fcm_v1_credential is not None:
+            pulumi.set(__self__, "fcm_v1_credential", fcm_v1_credential)
         if gcm_credential is not None:
             pulumi.set(__self__, "gcm_credential", gcm_credential)
         if mpns_credential is not None:
@@ -1312,6 +764,14 @@ class PnsCredentialsResponse(dict):
         Description of a NotificationHub BrowserCredential.
         """
         return pulumi.get(self, "browser_credential")
+
+    @property
+    @pulumi.getter(name="fcmV1Credential")
+    def fcm_v1_credential(self) -> Optional['outputs.FcmV1CredentialResponse']:
+        """
+        Description of a NotificationHub FcmV1Credential.
+        """
+        return pulumi.get(self, "fcm_v1_credential")
 
     @property
     @pulumi.getter(name="gcmCredential")
@@ -1943,7 +1403,7 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class WnsCredentialPropertiesResponse(dict):
+class WnsCredentialResponse(dict):
     """
     Description of a NotificationHub WnsCredential.
     """
@@ -1962,14 +1422,14 @@ class WnsCredentialPropertiesResponse(dict):
             suggest = "wns_certificate"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WnsCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WnsCredentialPropertiesResponse.__key_warning(key)
+        WnsCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WnsCredentialPropertiesResponse.__key_warning(key)
+        WnsCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2039,31 +1499,9 @@ class WnsCredentialPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class WnsCredentialResponse(dict):
+class XiaomiCredentialResponse(dict):
     """
-    Description of a NotificationHub WnsCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.WnsCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub WnsCredential.
-        :param 'WnsCredentialPropertiesResponse' properties: Description of a NotificationHub WnsCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.WnsCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class XiaomiCredentialPropertiesResponse(dict):
-    """
-    Description of a NotificationHub XiaomiCredentialProperties.
+    Description of a NotificationHub XiaomiCredential.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2072,21 +1510,21 @@ class XiaomiCredentialPropertiesResponse(dict):
             suggest = "app_secret"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in XiaomiCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in XiaomiCredentialResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        XiaomiCredentialPropertiesResponse.__key_warning(key)
+        XiaomiCredentialResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        XiaomiCredentialPropertiesResponse.__key_warning(key)
+        XiaomiCredentialResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  app_secret: Optional[str] = None,
                  endpoint: Optional[str] = None):
         """
-        Description of a NotificationHub XiaomiCredentialProperties.
+        Description of a NotificationHub XiaomiCredential.
         :param str app_secret: Gets or sets app secret.
         :param str endpoint: Gets or sets xiaomi service endpoint.
         """
@@ -2110,27 +1548,5 @@ class XiaomiCredentialPropertiesResponse(dict):
         Gets or sets xiaomi service endpoint.
         """
         return pulumi.get(self, "endpoint")
-
-
-@pulumi.output_type
-class XiaomiCredentialResponse(dict):
-    """
-    Description of a NotificationHub XiaomiCredential.
-    """
-    def __init__(__self__, *,
-                 properties: 'outputs.XiaomiCredentialPropertiesResponse'):
-        """
-        Description of a NotificationHub XiaomiCredential.
-        :param 'XiaomiCredentialPropertiesResponse' properties: Description of a NotificationHub XiaomiCredentialProperties.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.XiaomiCredentialPropertiesResponse':
-        """
-        Description of a NotificationHub XiaomiCredentialProperties.
-        """
-        return pulumi.get(self, "properties")
 
 

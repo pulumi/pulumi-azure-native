@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a Watcher
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:databasewatcher:getWatcher", args ?? new GetWatcherArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a Watcher
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:databasewatcher:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a Watcher
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:databasewatcher:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
@@ -88,11 +88,19 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     public sealed class GetWatcherResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The data store for collected monitoring data.
         /// </summary>
         public readonly Outputs.DatastoreResponse? Datastore;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        /// </summary>
+        public readonly string? DefaultAlertRuleIdentityResourceId;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -130,7 +138,11 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
         [OutputConstructor]
         private GetWatcherResult(
+            string azureApiVersion,
+
             Outputs.DatastoreResponse? datastore,
+
+            string? defaultAlertRuleIdentityResourceId,
 
             string id,
 
@@ -150,7 +162,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Datastore = datastore;
+            DefaultAlertRuleIdentityResourceId = defaultAlertRuleIdentityResourceId;
             Id = id;
             Identity = identity;
             Location = location;

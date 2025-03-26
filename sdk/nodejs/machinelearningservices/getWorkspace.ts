@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified machine learning workspace.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,11 @@ export interface GetWorkspaceResult {
      * ARM id of the application insights associated with this workspace.
      */
     readonly applicationInsights?: string;
+    readonly associatedWorkspaces?: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * ARM id of the container registry associated with this workspace.
      */
@@ -57,10 +62,15 @@ export interface GetWorkspaceResult {
      * Url for the discovery service to identify regional endpoints for machine learning experimentation services
      */
     readonly discoveryUrl?: string;
+    readonly enableDataIsolation?: boolean;
     /**
      * The encryption settings of Azure ML workspace.
      */
     readonly encryption?: outputs.machinelearningservices.EncryptionPropertyResponse;
+    /**
+     * Settings for feature store type workspace.
+     */
+    readonly featureStoreSettings?: outputs.machinelearningservices.FeatureStoreSettingsResponse;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -69,6 +79,7 @@ export interface GetWorkspaceResult {
      * The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
      */
     readonly hbiWorkspace?: boolean;
+    readonly hubResourceId?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -85,10 +96,15 @@ export interface GetWorkspaceResult {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     readonly keyVault?: string;
+    readonly kind?: string;
     /**
      * Specifies the location of the resource.
      */
     readonly location?: string;
+    /**
+     * Managed Network settings for a machine learning workspace.
+     */
+    readonly managedNetwork?: outputs.machinelearningservices.ManagedNetworkSettingsResponse;
     /**
      * The URI associated with this workspace that machine learning flow must point at to set up tracking.
      */
@@ -121,6 +137,10 @@ export interface GetWorkspaceResult {
      * Whether requests from Public Network are allowed.
      */
     readonly publicNetworkAccess?: string;
+    /**
+     * Settings for serverless compute created in the workspace
+     */
+    readonly serverlessComputeSettings?: outputs.machinelearningservices.ServerlessComputeSettingsResponse;
     /**
      * The service managed resource settings.
      */
@@ -166,6 +186,10 @@ export interface GetWorkspaceResult {
      */
     readonly v1LegacyMode?: boolean;
     /**
+     * WorkspaceHub's configuration object.
+     */
+    readonly workspaceHubConfig?: outputs.machinelearningservices.WorkspaceHubConfigResponse;
+    /**
      * The immutable id associated with this workspace.
      */
     readonly workspaceId: string;
@@ -173,9 +197,9 @@ export interface GetWorkspaceResult {
 /**
  * Gets the properties of the specified machine learning workspace.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

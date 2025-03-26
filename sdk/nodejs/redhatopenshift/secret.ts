@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Secret represents a secret.
  *
- * Uses Azure REST API version 2022-09-04.
+ * Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+ * Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Secret extends pulumi.CustomResource {
         return obj['__pulumiType'] === Secret.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -79,10 +83,12 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["secretResources"] = args ? args.secretResources : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["secretResources"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

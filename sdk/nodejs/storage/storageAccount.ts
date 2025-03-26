@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The storage account.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -46,11 +46,15 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+     * If customer initiated account migration is in progress, the value will be true else it will be null.
+     */
+    public /*out*/ readonly accountMigrationInProgress!: pulumi.Output<boolean>;
+    /**
+     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
      */
     public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
     /**
-     * Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+     * Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
      */
     public readonly allowCrossTenantReplication!: pulumi.Output<boolean | undefined>;
     /**
@@ -61,6 +65,10 @@ export class StorageAccount extends pulumi.CustomResource {
      * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
      */
     public readonly allowedCopyScope!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Provides the identity based authentication settings for Azure Files.
      */
@@ -85,6 +93,10 @@ export class StorageAccount extends pulumi.CustomResource {
      * Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
      */
     public readonly dnsEndpointType!: pulumi.Output<string | undefined>;
+    /**
+     * Enables extended group support with local users feature, if set to true
+     */
+    public readonly enableExtendedGroups!: pulumi.Output<boolean | undefined>;
     /**
      * Allows https traffic only to storage service if sets to true.
      */
@@ -129,6 +141,10 @@ export class StorageAccount extends pulumi.CustomResource {
      * Enables Secure File Transfer Protocol, if set to true
      */
     public readonly isSftpEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * This property will be set to true or false on an event of ongoing migration. Default value is null.
+     */
+    public /*out*/ readonly isSkuConversionBlocked!: pulumi.Output<boolean>;
     /**
      * Storage account keys creation time.
      */
@@ -182,7 +198,7 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -256,6 +272,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
             resourceInputs["defaultToOAuthAuthentication"] = args ? args.defaultToOAuthAuthentication : undefined;
             resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
+            resourceInputs["enableExtendedGroups"] = args ? args.enableExtendedGroups : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["enableNfsV3"] = args ? args.enableNfsV3 : undefined;
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.storage.encryptionArgsProvideDefaults) : undefined) : undefined;
@@ -277,10 +294,13 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["sasPolicy"] = args ? (args.sasPolicy ? pulumi.output(args.sasPolicy).apply(inputs.storage.sasPolicyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountMigrationInProgress"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobRestoreStatus"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["failoverInProgress"] = undefined /*out*/;
             resourceInputs["geoReplicationStats"] = undefined /*out*/;
+            resourceInputs["isSkuConversionBlocked"] = undefined /*out*/;
             resourceInputs["keyCreationTime"] = undefined /*out*/;
             resourceInputs["lastGeoFailoverTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -296,16 +316,19 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessTier"] = undefined /*out*/;
+            resourceInputs["accountMigrationInProgress"] = undefined /*out*/;
             resourceInputs["allowBlobPublicAccess"] = undefined /*out*/;
             resourceInputs["allowCrossTenantReplication"] = undefined /*out*/;
             resourceInputs["allowSharedKeyAccess"] = undefined /*out*/;
             resourceInputs["allowedCopyScope"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureFilesIdentityBasedAuthentication"] = undefined /*out*/;
             resourceInputs["blobRestoreStatus"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["customDomain"] = undefined /*out*/;
             resourceInputs["defaultToOAuthAuthentication"] = undefined /*out*/;
             resourceInputs["dnsEndpointType"] = undefined /*out*/;
+            resourceInputs["enableExtendedGroups"] = undefined /*out*/;
             resourceInputs["enableHttpsTrafficOnly"] = undefined /*out*/;
             resourceInputs["enableNfsV3"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
@@ -317,6 +340,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["isHnsEnabled"] = undefined /*out*/;
             resourceInputs["isLocalUserEnabled"] = undefined /*out*/;
             resourceInputs["isSftpEnabled"] = undefined /*out*/;
+            resourceInputs["isSkuConversionBlocked"] = undefined /*out*/;
             resourceInputs["keyCreationTime"] = undefined /*out*/;
             resourceInputs["keyPolicy"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -362,11 +386,11 @@ export interface StorageAccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
      */
     allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
-     * Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+     * Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
      */
     allowCrossTenantReplication?: pulumi.Input<boolean>;
     /**
@@ -393,6 +417,10 @@ export interface StorageAccountArgs {
      * Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
      */
     dnsEndpointType?: pulumi.Input<string | enums.storage.DnsEndpointType>;
+    /**
+     * Enables extended group support with local users feature, if set to true
+     */
+    enableExtendedGroups?: pulumi.Input<boolean>;
     /**
      * Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
      */
@@ -454,7 +482,7 @@ export interface StorageAccountArgs {
      */
     networkRuleSet?: pulumi.Input<inputs.storage.NetworkRuleSetArgs>;
     /**
-     * Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
      */
     publicNetworkAccess?: pulumi.Input<string | enums.storage.PublicNetworkAccess>;
     /**

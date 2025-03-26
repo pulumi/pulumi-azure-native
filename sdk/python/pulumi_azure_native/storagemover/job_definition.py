@@ -216,9 +216,9 @@ class JobDefinition(pulumi.CustomResource):
         """
         The Job Definition resource.
 
-        Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2022-07-01-preview.
+        Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,9 +243,9 @@ class JobDefinition(pulumi.CustomResource):
         """
         The Job Definition resource.
 
-        Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2022-07-01-preview.
+        Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -306,6 +306,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["target_name"] = target_name
             __props__.__dict__["target_subpath"] = target_subpath
             __props__.__dict__["agent_resource_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["latest_job_run_name"] = None
             __props__.__dict__["latest_job_run_resource_id"] = None
             __props__.__dict__["latest_job_run_status"] = None
@@ -341,6 +342,7 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__.__dict__["agent_name"] = None
         __props__.__dict__["agent_resource_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["copy_mode"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["latest_job_run_name"] = None
@@ -373,6 +375,14 @@ class JobDefinition(pulumi.CustomResource):
         Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
         """
         return pulumi.get(self, "agent_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="copyMode")
@@ -458,7 +468,7 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

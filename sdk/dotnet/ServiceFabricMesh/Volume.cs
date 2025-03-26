@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// <summary>
     /// This type describes a volume resource.
     /// 
-    /// Uses Azure REST API version 2018-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
+    /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// This type describes a volume provided by an Azure Files file share.
         /// </summary>

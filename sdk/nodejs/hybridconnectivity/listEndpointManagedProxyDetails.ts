@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Fetches the managed proxy details
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,7 +35,7 @@ export interface ListEndpointManagedProxyDetailsArgs {
      */
     hostname?: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
     /**
@@ -64,9 +64,9 @@ export interface ListEndpointManagedProxyDetailsResult {
 /**
  * Fetches the managed proxy details
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface ListEndpointManagedProxyDetailsOutputArgs {
      */
     hostname?: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Addons
     public sealed class GetSupportPlanTypeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
         /// </summary>
         public readonly string Id;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.Addons
 
         [OutputConstructor]
         private GetSupportPlanTypeResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNative.Addons
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

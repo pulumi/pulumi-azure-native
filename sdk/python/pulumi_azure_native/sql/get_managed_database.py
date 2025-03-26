@@ -26,7 +26,10 @@ class GetManagedDatabaseResult:
     """
     A managed database resource.
     """
-    def __init__(__self__, catalog_collation=None, collation=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, location=None, name=None, status=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, catalog_collation=None, collation=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, is_ledger_on=None, location=None, name=None, status=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
         pulumi.set(__self__, "catalog_collation", catalog_collation)
@@ -48,6 +51,9 @@ class GetManagedDatabaseResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_ledger_on and not isinstance(is_ledger_on, bool):
+            raise TypeError("Expected argument 'is_ledger_on' to be a bool")
+        pulumi.set(__self__, "is_ledger_on", is_ledger_on)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -63,6 +69,14 @@ class GetManagedDatabaseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -121,6 +135,14 @@ class GetManagedDatabaseResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isLedgerOn")
+    def is_ledger_on(self) -> Optional[bool]:
+        """
+        Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        """
+        return pulumi.get(self, "is_ledger_on")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -167,6 +189,7 @@ class AwaitableGetManagedDatabaseResult(GetManagedDatabaseResult):
         if False:
             yield self
         return GetManagedDatabaseResult(
+            azure_api_version=self.azure_api_version,
             catalog_collation=self.catalog_collation,
             collation=self.collation,
             creation_date=self.creation_date,
@@ -174,6 +197,7 @@ class AwaitableGetManagedDatabaseResult(GetManagedDatabaseResult):
             earliest_restore_point=self.earliest_restore_point,
             failover_group_id=self.failover_group_id,
             id=self.id,
+            is_ledger_on=self.is_ledger_on,
             location=self.location,
             name=self.name,
             status=self.status,
@@ -188,9 +212,9 @@ def get_managed_database(database_name: Optional[str] = None,
     """
     Gets a managed database.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database.
@@ -205,6 +229,7 @@ def get_managed_database(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult).value
 
     return AwaitableGetManagedDatabaseResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         catalog_collation=pulumi.get(__ret__, 'catalog_collation'),
         collation=pulumi.get(__ret__, 'collation'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
@@ -212,6 +237,7 @@ def get_managed_database(database_name: Optional[str] = None,
         earliest_restore_point=pulumi.get(__ret__, 'earliest_restore_point'),
         failover_group_id=pulumi.get(__ret__, 'failover_group_id'),
         id=pulumi.get(__ret__, 'id'),
+        is_ledger_on=pulumi.get(__ret__, 'is_ledger_on'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
@@ -224,9 +250,9 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a managed database.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database.
@@ -240,6 +266,7 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult)
     return __ret__.apply(lambda __response__: GetManagedDatabaseResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         catalog_collation=pulumi.get(__response__, 'catalog_collation'),
         collation=pulumi.get(__response__, 'collation'),
         creation_date=pulumi.get(__response__, 'creation_date'),
@@ -247,6 +274,7 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
         earliest_restore_point=pulumi.get(__response__, 'earliest_restore_point'),
         failover_group_id=pulumi.get(__response__, 'failover_group_id'),
         id=pulumi.get(__response__, 'id'),
+        is_ledger_on=pulumi.get(__response__, 'is_ledger_on'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),

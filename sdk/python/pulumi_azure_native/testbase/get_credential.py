@@ -27,7 +27,10 @@ class GetCredentialResult:
     """
     The test base credential resource.
     """
-    def __init__(__self__, credential_type=None, display_name=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, credential_type=None, display_name=None, id=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credential_type and not isinstance(credential_type, str):
             raise TypeError("Expected argument 'credential_type' to be a str")
         pulumi.set(__self__, "credential_type", credential_type)
@@ -46,6 +49,14 @@ class GetCredentialResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="credentialType")
@@ -102,6 +113,7 @@ class AwaitableGetCredentialResult(GetCredentialResult):
         if False:
             yield self
         return GetCredentialResult(
+            azure_api_version=self.azure_api_version,
             credential_type=self.credential_type,
             display_name=self.display_name,
             id=self.id,
@@ -132,6 +144,7 @@ def get_credential(credential_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase:getCredential', __args__, opts=opts, typ=GetCredentialResult).value
 
     return AwaitableGetCredentialResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credential_type=pulumi.get(__ret__, 'credential_type'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -159,6 +172,7 @@ def get_credential_output(credential_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getCredential', __args__, opts=opts, typ=GetCredentialResult)
     return __ret__.apply(lambda __response__: GetCredentialResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credential_type=pulumi.get(__response__, 'credential_type'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

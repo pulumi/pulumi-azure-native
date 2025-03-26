@@ -27,7 +27,10 @@ class GetGroupQuotaResult:
     """
     Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetGroupQuotaResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -62,10 +73,7 @@ class GetGroupQuotaResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GroupQuotasEntityBaseResponse':
-        """
-        Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        """
+    def properties(self) -> 'outputs.GroupQuotasEntityResponseProperties':
         return pulumi.get(self, "properties")
 
     @property
@@ -91,6 +99,7 @@ class AwaitableGetGroupQuotaResult(GetGroupQuotaResult):
         if False:
             yield self
         return GetGroupQuotaResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -104,9 +113,9 @@ def get_group_quota(group_quota_name: Optional[str] = None,
     """
     Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-03-01.
 
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+    Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -119,6 +128,7 @@ def get_group_quota(group_quota_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:quota:getGroupQuota', __args__, opts=opts, typ=GetGroupQuotaResult).value
 
     return AwaitableGetGroupQuotaResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -130,9 +140,9 @@ def get_group_quota_output(group_quota_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-03-01.
 
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+    Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -144,6 +154,7 @@ def get_group_quota_output(group_quota_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:quota:getGroupQuota', __args__, opts=opts, typ=GetGroupQuotaResult)
     return __ret__.apply(lambda __response__: GetGroupQuotaResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

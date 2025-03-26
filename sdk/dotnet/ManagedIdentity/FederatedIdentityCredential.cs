@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ManagedIdentity
     /// <summary>
     /// Describes a federated identity credential.
     /// 
-    /// Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2022-01-31-preview.
+    /// Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
     /// 
-    /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+    /// Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity:FederatedIdentityCredential")]
     public partial class FederatedIdentityCredential : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// </summary>
         [Output("audiences")]
         public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the issuer to be trusted.

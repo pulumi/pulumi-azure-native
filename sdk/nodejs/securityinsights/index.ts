@@ -250,6 +250,11 @@ export const getMDATPDataConnector: typeof import("./getMDATPDataConnector").get
 export const getMDATPDataConnectorOutput: typeof import("./getMDATPDataConnector").getMDATPDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getMDATPDataConnector","getMDATPDataConnectorOutput"], () => require("./getMDATPDataConnector"));
 
+export { GetMSTIDataConnectorArgs, GetMSTIDataConnectorResult, GetMSTIDataConnectorOutputArgs } from "./getMSTIDataConnector";
+export const getMSTIDataConnector: typeof import("./getMSTIDataConnector").getMSTIDataConnector = null as any;
+export const getMSTIDataConnectorOutput: typeof import("./getMSTIDataConnector").getMSTIDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getMSTIDataConnector","getMSTIDataConnectorOutput"], () => require("./getMSTIDataConnector"));
+
 export { GetMetadataArgs, GetMetadataResult, GetMetadataOutputArgs } from "./getMetadata";
 export const getMetadata: typeof import("./getMetadata").getMetadata = null as any;
 export const getMetadataOutput: typeof import("./getMetadata").getMetadataOutput = null as any;
@@ -264,6 +269,16 @@ export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeData
 export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
 export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
+
+export { GetPremiumMicrosoftDefenderForThreatIntelligenceArgs, GetPremiumMicrosoftDefenderForThreatIntelligenceResult, GetPremiumMicrosoftDefenderForThreatIntelligenceOutputArgs } from "./getPremiumMicrosoftDefenderForThreatIntelligence";
+export const getPremiumMicrosoftDefenderForThreatIntelligence: typeof import("./getPremiumMicrosoftDefenderForThreatIntelligence").getPremiumMicrosoftDefenderForThreatIntelligence = null as any;
+export const getPremiumMicrosoftDefenderForThreatIntelligenceOutput: typeof import("./getPremiumMicrosoftDefenderForThreatIntelligence").getPremiumMicrosoftDefenderForThreatIntelligenceOutput = null as any;
+utilities.lazyLoad(exports, ["getPremiumMicrosoftDefenderForThreatIntelligence","getPremiumMicrosoftDefenderForThreatIntelligenceOutput"], () => require("./getPremiumMicrosoftDefenderForThreatIntelligence"));
+
+export { GetRestApiPollerDataConnectorArgs, GetRestApiPollerDataConnectorResult, GetRestApiPollerDataConnectorOutputArgs } from "./getRestApiPollerDataConnector";
+export const getRestApiPollerDataConnector: typeof import("./getRestApiPollerDataConnector").getRestApiPollerDataConnector = null as any;
+export const getRestApiPollerDataConnectorOutput: typeof import("./getRestApiPollerDataConnector").getRestApiPollerDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getRestApiPollerDataConnector","getRestApiPollerDataConnectorOutput"], () => require("./getRestApiPollerDataConnector"));
 
 export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
 export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
@@ -405,10 +420,25 @@ export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecu
 export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
 utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
 
+export { MSTIDataConnectorArgs } from "./mstidataConnector";
+export type MSTIDataConnector = import("./mstidataConnector").MSTIDataConnector;
+export const MSTIDataConnector: typeof import("./mstidataConnector").MSTIDataConnector = null as any;
+utilities.lazyLoad(exports, ["MSTIDataConnector"], () => require("./mstidataConnector"));
+
 export { OfficeDataConnectorArgs } from "./officeDataConnector";
 export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
 utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
+
+export { PremiumMicrosoftDefenderForThreatIntelligenceArgs } from "./premiumMicrosoftDefenderForThreatIntelligence";
+export type PremiumMicrosoftDefenderForThreatIntelligence = import("./premiumMicrosoftDefenderForThreatIntelligence").PremiumMicrosoftDefenderForThreatIntelligence;
+export const PremiumMicrosoftDefenderForThreatIntelligence: typeof import("./premiumMicrosoftDefenderForThreatIntelligence").PremiumMicrosoftDefenderForThreatIntelligence = null as any;
+utilities.lazyLoad(exports, ["PremiumMicrosoftDefenderForThreatIntelligence"], () => require("./premiumMicrosoftDefenderForThreatIntelligence"));
+
+export { RestApiPollerDataConnectorArgs } from "./restApiPollerDataConnector";
+export type RestApiPollerDataConnector = import("./restApiPollerDataConnector").RestApiPollerDataConnector;
+export const RestApiPollerDataConnector: typeof import("./restApiPollerDataConnector").RestApiPollerDataConnector = null as any;
+utilities.lazyLoad(exports, ["RestApiPollerDataConnector"], () => require("./restApiPollerDataConnector"));
 
 export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
 export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
@@ -479,79 +509,6 @@ utilities.lazyLoad(exports, ["WorkspaceManagerMember"], () => require("./workspa
 // Export enums:
 export * from "../types/enums/securityinsights";
 
-// Export sub-modules:
-import * as v20190101preview from "./v20190101preview";
-import * as v20210301preview from "./v20210301preview";
-import * as v20210401 from "./v20210401";
-import * as v20210901preview from "./v20210901preview";
-import * as v20211001preview from "./v20211001preview";
-import * as v20220101preview from "./v20220101preview";
-import * as v20220401preview from "./v20220401preview";
-import * as v20220501preview from "./v20220501preview";
-import * as v20220601preview from "./v20220601preview";
-import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
-import * as v20220901preview from "./v20220901preview";
-import * as v20221001preview from "./v20221001preview";
-import * as v20221101preview from "./v20221101preview";
-import * as v20221201preview from "./v20221201preview";
-import * as v20230201 from "./v20230201";
-import * as v20230201preview from "./v20230201preview";
-import * as v20230301preview from "./v20230301preview";
-import * as v20230401preview from "./v20230401preview";
-import * as v20230501preview from "./v20230501preview";
-import * as v20230601preview from "./v20230601preview";
-import * as v20230701preview from "./v20230701preview";
-import * as v20230801preview from "./v20230801preview";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231001preview from "./v20231001preview";
-import * as v20231101 from "./v20231101";
-import * as v20231201preview from "./v20231201preview";
-import * as v20240101preview from "./v20240101preview";
-import * as v20240301 from "./v20240301";
-import * as v20240401preview from "./v20240401preview";
-import * as v20240901 from "./v20240901";
-import * as v20241001preview from "./v20241001preview";
-import * as v20250101preview from "./v20250101preview";
-import * as v20250301 from "./v20250301";
-
-export {
-    v20190101preview,
-    v20210301preview,
-    v20210401,
-    v20210901preview,
-    v20211001preview,
-    v20220101preview,
-    v20220401preview,
-    v20220501preview,
-    v20220601preview,
-    v20220701preview,
-    v20220801preview,
-    v20220901preview,
-    v20221001preview,
-    v20221101preview,
-    v20221201preview,
-    v20230201,
-    v20230201preview,
-    v20230301preview,
-    v20230401preview,
-    v20230501preview,
-    v20230601preview,
-    v20230701preview,
-    v20230801preview,
-    v20230901preview,
-    v20231001preview,
-    v20231101,
-    v20231201preview,
-    v20240101preview,
-    v20240301,
-    v20240401preview,
-    v20240901,
-    v20241001preview,
-    v20250101preview,
-    v20250301,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -612,12 +569,18 @@ const _module = {
                 return new MCASDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MDATPDataConnector":
                 return new MDATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:MSTIDataConnector":
+                return new MSTIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Metadata":
                 return new Metadata(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule":
                 return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:OfficeDataConnector":
                 return new OfficeDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence":
+                return new PremiumMicrosoftDefenderForThreatIntelligence(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:RestApiPollerDataConnector":
+                return new RestApiPollerDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ScheduledAlertRule":
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SentinelOnboardingState":

@@ -27,7 +27,10 @@ class GetKafkaConnectorResult:
     """
     MQ kafkaConnector resource
     """
-    def __init__(__self__, client_id_prefix=None, extended_location=None, id=None, image=None, instances=None, kafka_connection=None, local_broker_connection=None, location=None, log_level=None, name=None, node_tolerations=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, client_id_prefix=None, extended_location=None, id=None, image=None, instances=None, kafka_connection=None, local_broker_connection=None, location=None, log_level=None, name=None, node_tolerations=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_id_prefix and not isinstance(client_id_prefix, str):
             raise TypeError("Expected argument 'client_id_prefix' to be a str")
         pulumi.set(__self__, "client_id_prefix", client_id_prefix)
@@ -73,6 +76,14 @@ class GetKafkaConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientIdPrefix")
@@ -201,6 +212,7 @@ class AwaitableGetKafkaConnectorResult(GetKafkaConnectorResult):
         if False:
             yield self
         return GetKafkaConnectorResult(
+            azure_api_version=self.azure_api_version,
             client_id_prefix=self.client_id_prefix,
             extended_location=self.extended_location,
             id=self.id,
@@ -240,6 +252,7 @@ def get_kafka_connector(kafka_connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsmq:getKafkaConnector', __args__, opts=opts, typ=GetKafkaConnectorResult).value
 
     return AwaitableGetKafkaConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_id_prefix=pulumi.get(__ret__, 'client_id_prefix'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -276,6 +289,7 @@ def get_kafka_connector_output(kafka_connector_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getKafkaConnector', __args__, opts=opts, typ=GetKafkaConnectorResult)
     return __ret__.apply(lambda __response__: GetKafkaConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_id_prefix=pulumi.get(__response__, 'client_id_prefix'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

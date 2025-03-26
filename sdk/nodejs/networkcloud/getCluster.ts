@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided cluster.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,13 +39,21 @@ export interface GetClusterResult {
      */
     readonly aggregatorOrSingleRackDefinition: outputs.networkcloud.RackDefinitionResponse;
     /**
-     * The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+     * The settings for the log analytics workspace used for output of logs from this cluster.
+     */
+    readonly analyticsOutputSettings?: outputs.networkcloud.AnalyticsOutputSettingsResponse;
+    /**
+     * Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
      */
     readonly analyticsWorkspaceId?: string;
     /**
      * The list of cluster runtime version upgrades available for this cluster.
      */
     readonly availableUpgradeVersions: outputs.networkcloud.ClusterAvailableUpgradeVersionResponse[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The capacity supported by this cluster.
      */
@@ -83,6 +91,10 @@ export interface GetClusterResult {
      */
     readonly clusterVersion: string;
     /**
+     * The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+     */
+    readonly commandOutputSettings?: outputs.networkcloud.CommandOutputSettingsResponse;
+    /**
      * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
      */
     readonly computeDeploymentThreshold?: outputs.networkcloud.ValidationThresholdResponse;
@@ -100,6 +112,10 @@ export interface GetClusterResult {
      */
     readonly detailedStatusMessage: string;
     /**
+     * Resource ETag.
+     */
+    readonly etag: string;
+    /**
      * The extended location of the cluster manager associated with the cluster.
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
@@ -111,6 +127,10 @@ export interface GetClusterResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The identity for the resource.
+     */
+    readonly identity?: outputs.networkcloud.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -144,6 +164,10 @@ export interface GetClusterResult {
      */
     readonly secretArchive?: outputs.networkcloud.ClusterSecretArchiveResponse;
     /**
+     * The settings for the secret archive used to hold credentials for the cluster.
+     */
+    readonly secretArchiveSettings?: outputs.networkcloud.SecretArchiveSettingsResponse;
+    /**
      * The support end date of the runtime version of the cluster.
      */
     readonly supportExpiryDate: string;
@@ -164,6 +188,10 @@ export interface GetClusterResult {
      */
     readonly updateStrategy?: outputs.networkcloud.ClusterUpdateStrategyResponse;
     /**
+     * The settings for how security vulnerability scanning is applied to the cluster.
+     */
+    readonly vulnerabilityScanningSettings?: outputs.networkcloud.VulnerabilityScanningSettingsResponse;
+    /**
      * The list of workload resource IDs that are hosted within this cluster.
      */
     readonly workloadResourceIds: string[];
@@ -171,9 +199,9 @@ export interface GetClusterResult {
 /**
  * Get properties of the provided cluster.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

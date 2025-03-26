@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class BlobContainer extends pulumi.CustomResource {
         return obj['__pulumiType'] === BlobContainer.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Default the container to use specified encryption scope for all writes.
      */
@@ -157,6 +161,7 @@ export class BlobContainer extends pulumi.CustomResource {
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["publicAccess"] = args ? args.publicAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deleted"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -173,6 +178,7 @@ export class BlobContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultEncryptionScope"] = undefined /*out*/;
             resourceInputs["deleted"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;

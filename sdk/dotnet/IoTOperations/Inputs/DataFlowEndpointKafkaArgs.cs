@@ -13,19 +13,31 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Kafka endpoint properties
     /// </summary>
-    public sealed class DataFlowEndpointKafkaArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointKafkaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only authentication property is allowed per entry.
+        /// </summary>
+        [Input("authentication", required: true)]
+        public Input<Inputs.DataflowEndpointKafkaAuthenticationArgs> Authentication { get; set; } = null!;
+
         /// <summary>
         /// Batching configuration.
         /// </summary>
         [Input("batching")]
-        public Input<Inputs.DataFlowEndpointKafkaBatchingArgs>? Batching { get; set; }
+        public Input<Inputs.DataflowEndpointKafkaBatchingArgs>? Batching { get; set; }
+
+        /// <summary>
+        /// Cloud event mapping config.
+        /// </summary>
+        [Input("cloudEventAttributes")]
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.CloudEventAttributeType>? CloudEventAttributes { get; set; }
 
         /// <summary>
         /// Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         /// </summary>
         [Input("compression")]
-        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataFlowEndpointKafkaCompression>? Compression { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataflowEndpointKafkaCompression>? Compression { get; set; }
 
         /// <summary>
         /// Consumer group ID.
@@ -42,34 +54,34 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// <summary>
         /// Kafka endpoint host.
         /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
+        [Input("host", required: true)]
+        public Input<string> Host { get; set; } = null!;
 
         /// <summary>
         /// Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         /// </summary>
         [Input("kafkaAcks")]
-        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataFlowEndpointKafkaAcks>? KafkaAcks { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataflowEndpointKafkaAcks>? KafkaAcks { get; set; }
 
         /// <summary>
         /// Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
         /// </summary>
         [Input("partitionStrategy")]
-        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataFlowEndpointKafkaPartitionStrategy>? PartitionStrategy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataflowEndpointKafkaPartitionStrategy>? PartitionStrategy { get; set; }
 
         /// <summary>
         /// TLS configuration.
         /// </summary>
-        [Input("tls", required: true)]
-        public Input<Inputs.TlsPropertiesArgs> Tls { get; set; } = null!;
+        [Input("tls")]
+        public Input<Inputs.TlsPropertiesArgs>? Tls { get; set; }
 
-        public DataFlowEndpointKafkaArgs()
+        public DataflowEndpointKafkaArgs()
         {
             Compression = "None";
-            CopyMqttProperties = "Disabled";
+            CopyMqttProperties = "Enabled";
             KafkaAcks = "All";
             PartitionStrategy = "Default";
         }
-        public static new DataFlowEndpointKafkaArgs Empty => new DataFlowEndpointKafkaArgs();
+        public static new DataflowEndpointKafkaArgs Empty => new DataflowEndpointKafkaArgs();
     }
 }

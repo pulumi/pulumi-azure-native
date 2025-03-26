@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
-        public readonly string TargetResourceName;
+        public readonly string? TargetResourceName;
 
         [OutputConstructor]
         private VirtualNetworkResourceSettingsResponse(
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? targetResourceGroupName,
 
-            string targetResourceName)
+            string? targetResourceName)
         {
             AddressSpace = addressSpace;
             DnsServers = dnsServers;

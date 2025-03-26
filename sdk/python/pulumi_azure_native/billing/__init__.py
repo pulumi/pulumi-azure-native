@@ -21,17 +21,3 @@ from .invoice_section import *
 from .list_billing_account_invoice_sections_by_create_subscription_permission import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.billing.v20191001preview as __v20191001preview
-    v20191001preview = __v20191001preview
-    import pulumi_azure_native.billing.v20200501 as __v20200501
-    v20200501 = __v20200501
-    import pulumi_azure_native.billing.v20240401 as __v20240401
-    v20240401 = __v20240401
-else:
-    v20191001preview = _utilities.lazy_import('pulumi_azure_native.billing.v20191001preview')
-    v20200501 = _utilities.lazy_import('pulumi_azure_native.billing.v20200501')
-    v20240401 = _utilities.lazy_import('pulumi_azure_native.billing.v20240401')
-

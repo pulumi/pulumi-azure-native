@@ -168,9 +168,9 @@ class Schedule(pulumi.CustomResource):
         """
         Schedule for automatically turning virtual machines in a lab on and off at specified times.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
+        Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2023-06-07.
+        Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,9 +192,9 @@ class Schedule(pulumi.CustomResource):
         """
         Schedule for automatically turning virtual machines in a lab on and off at specified times.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
+        Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2023-06-07.
+        Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -244,8 +244,10 @@ class Schedule(pulumi.CustomResource):
             if time_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone_id'")
             __props__.__dict__["time_zone_id"] = time_zone_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20220801:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20230607:Schedule")])
@@ -272,16 +274,26 @@ class Schedule(pulumi.CustomResource):
 
         __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notes"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["recurrence_pattern"] = None
+        __props__.__dict__["resource_operation_error"] = None
         __props__.__dict__["start_at"] = None
         __props__.__dict__["stop_at"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["time_zone_id"] = None
         __props__.__dict__["type"] = None
         return Schedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -314,6 +326,14 @@ class Schedule(pulumi.CustomResource):
         The recurrence pattern of the scheduled actions.
         """
         return pulumi.get(self, "recurrence_pattern")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> pulumi.Output['outputs.ResourceOperationErrorResponse']:
+        """
+        Error details of last operation done on schedule.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="startAt")

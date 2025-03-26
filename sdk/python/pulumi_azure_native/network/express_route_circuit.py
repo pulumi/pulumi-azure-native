@@ -29,6 +29,7 @@ class ExpressRouteCircuitArgs:
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 enable_direct_port_rate_limit: Optional[pulumi.Input[bool]] = None,
                  express_route_port: Optional[pulumi.Input['SubResourceArgs']] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  global_reach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -51,6 +52,7 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
+        :param pulumi.Input[bool] enable_direct_port_rate_limit: Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
         :param pulumi.Input['SubResourceArgs'] express_route_port: The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[bool] global_reach_enabled: Flag denoting global reach status.
@@ -78,6 +80,8 @@ class ExpressRouteCircuitArgs:
             pulumi.set(__self__, "circuit_name", circuit_name)
         if circuit_provisioning_state is not None:
             pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
+        if enable_direct_port_rate_limit is not None:
+            pulumi.set(__self__, "enable_direct_port_rate_limit", enable_direct_port_rate_limit)
         if express_route_port is not None:
             pulumi.set(__self__, "express_route_port", express_route_port)
         if gateway_manager_etag is not None:
@@ -187,6 +191,18 @@ class ExpressRouteCircuitArgs:
     @circuit_provisioning_state.setter
     def circuit_provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "circuit_provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="enableDirectPortRateLimit")
+    def enable_direct_port_rate_limit(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
+        """
+        return pulumi.get(self, "enable_direct_port_rate_limit")
+
+    @enable_direct_port_rate_limit.setter
+    def enable_direct_port_rate_limit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_direct_port_rate_limit", value)
 
     @property
     @pulumi.getter(name="expressRoutePort")
@@ -345,6 +361,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 enable_direct_port_rate_limit: Optional[pulumi.Input[bool]] = None,
                  express_route_port: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  global_reach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -362,9 +379,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         """
         ExpressRouteCircuit resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,6 +392,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
+        :param pulumi.Input[bool] enable_direct_port_rate_limit: Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] express_route_port: The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[bool] global_reach_enabled: Flag denoting global reach status.
@@ -399,9 +417,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         """
         ExpressRouteCircuit resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.
@@ -424,6 +442,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 enable_direct_port_rate_limit: Optional[pulumi.Input[bool]] = None,
                  express_route_port: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  global_reach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -452,6 +471,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
             __props__.__dict__["circuit_name"] = circuit_name
             __props__.__dict__["circuit_provisioning_state"] = circuit_provisioning_state
+            __props__.__dict__["enable_direct_port_rate_limit"] = enable_direct_port_rate_limit
             __props__.__dict__["express_route_port"] = express_route_port
             __props__.__dict__["gateway_manager_etag"] = gateway_manager_etag
             __props__.__dict__["global_reach_enabled"] = global_reach_enabled
@@ -468,6 +488,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["authorization_status"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -501,8 +522,10 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__.__dict__["authorization_key"] = None
         __props__.__dict__["authorization_status"] = None
         __props__.__dict__["authorizations"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bandwidth_in_gbps"] = None
         __props__.__dict__["circuit_provisioning_state"] = None
+        __props__.__dict__["enable_direct_port_rate_limit"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["express_route_port"] = None
         __props__.__dict__["gateway_manager_etag"] = None
@@ -554,6 +577,14 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         return pulumi.get(self, "authorizations")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bandwidthInGbps")
     def bandwidth_in_gbps(self) -> pulumi.Output[Optional[float]]:
         """
@@ -568,6 +599,14 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         The CircuitProvisioningState state of the resource.
         """
         return pulumi.get(self, "circuit_provisioning_state")
+
+    @property
+    @pulumi.getter(name="enableDirectPortRateLimit")
+    def enable_direct_port_rate_limit(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
+        """
+        return pulumi.get(self, "enable_direct_port_rate_limit")
 
     @property
     @pulumi.getter

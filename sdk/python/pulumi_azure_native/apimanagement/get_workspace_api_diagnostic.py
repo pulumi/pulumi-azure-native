@@ -27,10 +27,13 @@ class GetWorkspaceApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, metrics=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
+    def __init__(__self__, always_log=None, azure_api_version=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, large_language_model=None, log_client_ip=None, logger_id=None, metrics=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend and not isinstance(backend, dict):
             raise TypeError("Expected argument 'backend' to be a dict")
         pulumi.set(__self__, "backend", backend)
@@ -43,6 +46,9 @@ class GetWorkspaceApiDiagnosticResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if large_language_model and not isinstance(large_language_model, dict):
+            raise TypeError("Expected argument 'large_language_model' to be a dict")
+        pulumi.set(__self__, "large_language_model", large_language_model)
         if log_client_ip and not isinstance(log_client_ip, bool):
             raise TypeError("Expected argument 'log_client_ip' to be a bool")
         pulumi.set(__self__, "log_client_ip", log_client_ip)
@@ -77,6 +83,14 @@ class GetWorkspaceApiDiagnosticResult:
         return pulumi.get(self, "always_log")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def backend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
         """
@@ -107,6 +121,14 @@ class GetWorkspaceApiDiagnosticResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="largeLanguageModel")
+    def large_language_model(self) -> Optional['outputs.LLMDiagnosticSettingsResponse']:
+        """
+        Large Language Models diagnostic settings
+        """
+        return pulumi.get(self, "large_language_model")
 
     @property
     @pulumi.getter(name="logClientIp")
@@ -180,10 +202,12 @@ class AwaitableGetWorkspaceApiDiagnosticResult(GetWorkspaceApiDiagnosticResult):
             yield self
         return GetWorkspaceApiDiagnosticResult(
             always_log=self.always_log,
+            azure_api_version=self.azure_api_version,
             backend=self.backend,
             frontend=self.frontend,
             http_correlation_protocol=self.http_correlation_protocol,
             id=self.id,
+            large_language_model=self.large_language_model,
             log_client_ip=self.log_client_ip,
             logger_id=self.logger_id,
             metrics=self.metrics,
@@ -203,9 +227,9 @@ def get_workspace_api_diagnostic(api_id: Optional[str] = None,
     """
     Gets the details of the Diagnostic for an API specified by its identifier.
 
-    Uses Azure REST API version 2023-09-01-preview.
+    Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -225,10 +249,12 @@ def get_workspace_api_diagnostic(api_id: Optional[str] = None,
 
     return AwaitableGetWorkspaceApiDiagnosticResult(
         always_log=pulumi.get(__ret__, 'always_log'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend=pulumi.get(__ret__, 'backend'),
         frontend=pulumi.get(__ret__, 'frontend'),
         http_correlation_protocol=pulumi.get(__ret__, 'http_correlation_protocol'),
         id=pulumi.get(__ret__, 'id'),
+        large_language_model=pulumi.get(__ret__, 'large_language_model'),
         log_client_ip=pulumi.get(__ret__, 'log_client_ip'),
         logger_id=pulumi.get(__ret__, 'logger_id'),
         metrics=pulumi.get(__ret__, 'metrics'),
@@ -246,9 +272,9 @@ def get_workspace_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = No
     """
     Gets the details of the Diagnostic for an API specified by its identifier.
 
-    Uses Azure REST API version 2023-09-01-preview.
+    Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -267,10 +293,12 @@ def get_workspace_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceApiDiagnostic', __args__, opts=opts, typ=GetWorkspaceApiDiagnosticResult)
     return __ret__.apply(lambda __response__: GetWorkspaceApiDiagnosticResult(
         always_log=pulumi.get(__response__, 'always_log'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend=pulumi.get(__response__, 'backend'),
         frontend=pulumi.get(__response__, 'frontend'),
         http_correlation_protocol=pulumi.get(__response__, 'http_correlation_protocol'),
         id=pulumi.get(__response__, 'id'),
+        large_language_model=pulumi.get(__response__, 'large_language_model'),
         log_client_ip=pulumi.get(__response__, 'log_client_ip'),
         logger_id=pulumi.get(__response__, 'logger_id'),
         metrics=pulumi.get(__response__, 'metrics'),

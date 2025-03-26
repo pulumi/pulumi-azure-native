@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the connected registry.
         /// 
-        /// Uses Azure REST API version 2023-01-01-preview.
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the connected registry.
         /// 
-        /// Uses Azure REST API version 2023-01-01-preview.
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the connected registry.
         /// 
-        /// Uses Azure REST API version 2023-01-01-preview.
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly Outputs.ActivationPropertiesResponse Activation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         /// </summary>
         public readonly ImmutableArray<string> ClientTokenIds;
@@ -111,6 +115,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The current connection state of the connected registry.
         /// </summary>
         public readonly string ConnectionState;
+        /// <summary>
+        /// The garbage collection properties of the connected registry.
+        /// </summary>
+        public readonly Outputs.GarbageCollectionPropertiesResponse? GarbageCollection;
         /// <summary>
         /// The resource ID.
         /// </summary>
@@ -168,9 +176,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private GetConnectedRegistryResult(
             Outputs.ActivationPropertiesResponse activation,
 
+            string azureApiVersion,
+
             ImmutableArray<string> clientTokenIds,
 
             string connectionState,
+
+            Outputs.GarbageCollectionPropertiesResponse? garbageCollection,
 
             string id,
 
@@ -199,8 +211,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string version)
         {
             Activation = activation;
+            AzureApiVersion = azureApiVersion;
             ClientTokenIds = clientTokenIds;
             ConnectionState = connectionState;
+            GarbageCollection = garbageCollection;
             Id = id;
             LastActivityTime = lastActivityTime;
             Logging = logging;

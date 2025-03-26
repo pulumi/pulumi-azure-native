@@ -27,7 +27,10 @@ class GetEncryptionScopeResult:
     """
     The Encryption Scope resource.
     """
-    def __init__(__self__, creation_time=None, id=None, key_vault_properties=None, last_modified_time=None, name=None, require_infrastructure_encryption=None, source=None, state=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, id=None, key_vault_properties=None, last_modified_time=None, name=None, require_infrastructure_encryption=None, source=None, state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -55,6 +58,14 @@ class GetEncryptionScopeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -135,6 +146,7 @@ class AwaitableGetEncryptionScopeResult(GetEncryptionScopeResult):
         if False:
             yield self
         return GetEncryptionScopeResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             id=self.id,
             key_vault_properties=self.key_vault_properties,
@@ -153,9 +165,9 @@ def get_encryption_scope(account_name: Optional[str] = None,
     """
     Returns the properties for the specified encryption scope.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -170,6 +182,7 @@ def get_encryption_scope(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult).value
 
     return AwaitableGetEncryptionScopeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         id=pulumi.get(__ret__, 'id'),
         key_vault_properties=pulumi.get(__ret__, 'key_vault_properties'),
@@ -186,9 +199,9 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
     """
     Returns the properties for the specified encryption scope.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -202,6 +215,7 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult)
     return __ret__.apply(lambda __response__: GetEncryptionScopeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         id=pulumi.get(__response__, 'id'),
         key_vault_properties=pulumi.get(__response__, 'key_vault_properties'),

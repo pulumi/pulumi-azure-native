@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication Sasl properties
+    /// DataflowEndpoint Authentication Sasl properties
     /// </summary>
-    public sealed class DataFlowEndpointAuthenticationSaslArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointAuthenticationSaslArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
         /// </summary>
         [Input("saslType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataFlowEndpointAuthenticationSaslType> SaslType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataflowEndpointAuthenticationSaslType> SaslType { get; set; } = null!;
 
         /// <summary>
         /// Token secret name.
         /// </summary>
-        [Input("tokenSecretRef", required: true)]
-        public Input<string> TokenSecretRef { get; set; } = null!;
+        [Input("secretRef", required: true)]
+        public Input<string> SecretRef { get; set; } = null!;
 
-        public DataFlowEndpointAuthenticationSaslArgs()
+        public DataflowEndpointAuthenticationSaslArgs()
         {
         }
-        public static new DataFlowEndpointAuthenticationSaslArgs Empty => new DataFlowEndpointAuthenticationSaslArgs();
+        public static new DataflowEndpointAuthenticationSaslArgs Empty => new DataflowEndpointAuthenticationSaslArgs();
     }
 }

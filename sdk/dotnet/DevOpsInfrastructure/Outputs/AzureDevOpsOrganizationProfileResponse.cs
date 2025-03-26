@@ -25,15 +25,22 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// The list of Azure DevOps organizations the pool should be present in.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationResponse> Organizations;
+        /// <summary>
+        /// The type of permission which determines which accounts are admins on the Azure DevOps pool.
+        /// </summary>
+        public readonly Outputs.AzureDevOpsPermissionProfileResponse? PermissionProfile;
 
         [OutputConstructor]
         private AzureDevOpsOrganizationProfileResponse(
             string kind,
 
-            ImmutableArray<Outputs.OrganizationResponse> organizations)
+            ImmutableArray<Outputs.OrganizationResponse> organizations,
+
+            Outputs.AzureDevOpsPermissionProfileResponse? permissionProfile)
         {
             Kind = kind;
             Organizations = organizations;
+            PermissionProfile = permissionProfile;
         }
     }
 }

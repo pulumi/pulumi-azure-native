@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Represents a ApplicationGroup definition.
     /// 
-    /// Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+    /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
     /// 
-    /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("applicationGroupType")]
         public Output<string> ApplicationGroupType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Is cloud pc resource.
@@ -59,7 +65,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -68,7 +74,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -91,11 +97,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [Output("plan")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean representing whether the applicationGroup is show in the feed.
+        /// </summary>
+        [Output("showInFeed")]
+        public Output<bool?> ShowInFeed { get; private set; } = null!;
+
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -160,6 +172,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ApplicationGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ApplicationGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ApplicationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ApplicationGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ApplicationGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ApplicationGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ApplicationGroup" },
@@ -226,7 +239,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -251,6 +264,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Boolean representing whether the applicationGroup is show in the feed.
+        /// </summary>
+        [Input("showInFeed")]
+        public Input<bool>? ShowInFeed { get; set; }
 
         [Input("sku")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }

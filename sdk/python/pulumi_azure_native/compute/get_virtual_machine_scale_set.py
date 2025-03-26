@@ -27,19 +27,25 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, constrained_maximum_capacity=None, do_not_run_extensions_on_overprovisioned_vms=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, priority_mix_policy=None, provisioning_state=None, proximity_placement_group=None, scale_in_policy=None, single_placement_group=None, sku=None, spot_restore_policy=None, tags=None, time_created=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, azure_api_version=None, constrained_maximum_capacity=None, do_not_run_extensions_on_overprovisioned_vms=None, etag=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, priority_mix_policy=None, provisioning_state=None, proximity_placement_group=None, resiliency_policy=None, scale_in_policy=None, scheduled_events_policy=None, single_placement_group=None, sku=None, sku_profile=None, spot_restore_policy=None, tags=None, time_created=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zonal_platform_fault_domain_align_mode=None, zone_balance=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if automatic_repairs_policy and not isinstance(automatic_repairs_policy, dict):
             raise TypeError("Expected argument 'automatic_repairs_policy' to be a dict")
         pulumi.set(__self__, "automatic_repairs_policy", automatic_repairs_policy)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if constrained_maximum_capacity and not isinstance(constrained_maximum_capacity, bool):
             raise TypeError("Expected argument 'constrained_maximum_capacity' to be a bool")
         pulumi.set(__self__, "constrained_maximum_capacity", constrained_maximum_capacity)
         if do_not_run_extensions_on_overprovisioned_vms and not isinstance(do_not_run_extensions_on_overprovisioned_vms, bool):
             raise TypeError("Expected argument 'do_not_run_extensions_on_overprovisioned_vms' to be a bool")
         pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_vms", do_not_run_extensions_on_overprovisioned_vms)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -79,15 +85,24 @@ class GetVirtualMachineScaleSetResult:
         if proximity_placement_group and not isinstance(proximity_placement_group, dict):
             raise TypeError("Expected argument 'proximity_placement_group' to be a dict")
         pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if resiliency_policy and not isinstance(resiliency_policy, dict):
+            raise TypeError("Expected argument 'resiliency_policy' to be a dict")
+        pulumi.set(__self__, "resiliency_policy", resiliency_policy)
         if scale_in_policy and not isinstance(scale_in_policy, dict):
             raise TypeError("Expected argument 'scale_in_policy' to be a dict")
         pulumi.set(__self__, "scale_in_policy", scale_in_policy)
+        if scheduled_events_policy and not isinstance(scheduled_events_policy, dict):
+            raise TypeError("Expected argument 'scheduled_events_policy' to be a dict")
+        pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if single_placement_group and not isinstance(single_placement_group, bool):
             raise TypeError("Expected argument 'single_placement_group' to be a bool")
         pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if sku_profile and not isinstance(sku_profile, dict):
+            raise TypeError("Expected argument 'sku_profile' to be a dict")
+        pulumi.set(__self__, "sku_profile", sku_profile)
         if spot_restore_policy and not isinstance(spot_restore_policy, dict):
             raise TypeError("Expected argument 'spot_restore_policy' to be a dict")
         pulumi.set(__self__, "spot_restore_policy", spot_restore_policy)
@@ -109,6 +124,9 @@ class GetVirtualMachineScaleSetResult:
         if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
             raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
         pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+        if zonal_platform_fault_domain_align_mode and not isinstance(zonal_platform_fault_domain_align_mode, str):
+            raise TypeError("Expected argument 'zonal_platform_fault_domain_align_mode' to be a str")
+        pulumi.set(__self__, "zonal_platform_fault_domain_align_mode", zonal_platform_fault_domain_align_mode)
         if zone_balance and not isinstance(zone_balance, bool):
             raise TypeError("Expected argument 'zone_balance' to be a bool")
         pulumi.set(__self__, "zone_balance", zone_balance)
@@ -133,6 +151,14 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "automatic_repairs_policy")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="constrainedMaximumCapacity")
     def constrained_maximum_capacity(self) -> Optional[bool]:
         """
@@ -147,6 +173,14 @@ class GetVirtualMachineScaleSetResult:
         When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_vms")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Etag is property returned in Create/Update/Get response of the VMSS, so that customer can supply it in the header to ensure optimistic updates
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -253,12 +287,28 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "proximity_placement_group")
 
     @property
+    @pulumi.getter(name="resiliencyPolicy")
+    def resiliency_policy(self) -> Optional['outputs.ResiliencyPolicyResponse']:
+        """
+        Policy for Resiliency
+        """
+        return pulumi.get(self, "resiliency_policy")
+
+    @property
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> Optional['outputs.ScaleInPolicyResponse']:
         """
         Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         """
         return pulumi.get(self, "scale_in_policy")
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional['outputs.ScheduledEventsPolicyResponse']:
+        """
+        The ScheduledEventsPolicy.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
@@ -275,6 +325,14 @@ class GetVirtualMachineScaleSetResult:
         The virtual machine scale set sku.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="skuProfile")
+    def sku_profile(self) -> Optional['outputs.SkuProfileResponse']:
+        """
+        Specifies the sku profile for the virtual machine scale set.
+        """
+        return pulumi.get(self, "sku_profile")
 
     @property
     @pulumi.getter(name="spotRestorePolicy")
@@ -333,6 +391,14 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "virtual_machine_profile")
 
     @property
+    @pulumi.getter(name="zonalPlatformFaultDomainAlignMode")
+    def zonal_platform_fault_domain_align_mode(self) -> Optional[str]:
+        """
+        Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+        """
+        return pulumi.get(self, "zonal_platform_fault_domain_align_mode")
+
+    @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[bool]:
         """
@@ -344,7 +410,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
         """
-        The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        The virtual machine scale set zones.
         """
         return pulumi.get(self, "zones")
 
@@ -357,8 +423,10 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         return GetVirtualMachineScaleSetResult(
             additional_capabilities=self.additional_capabilities,
             automatic_repairs_policy=self.automatic_repairs_policy,
+            azure_api_version=self.azure_api_version,
             constrained_maximum_capacity=self.constrained_maximum_capacity,
             do_not_run_extensions_on_overprovisioned_vms=self.do_not_run_extensions_on_overprovisioned_vms,
+            etag=self.etag,
             extended_location=self.extended_location,
             host_group=self.host_group,
             id=self.id,
@@ -372,9 +440,12 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             priority_mix_policy=self.priority_mix_policy,
             provisioning_state=self.provisioning_state,
             proximity_placement_group=self.proximity_placement_group,
+            resiliency_policy=self.resiliency_policy,
             scale_in_policy=self.scale_in_policy,
+            scheduled_events_policy=self.scheduled_events_policy,
             single_placement_group=self.single_placement_group,
             sku=self.sku,
+            sku_profile=self.sku_profile,
             spot_restore_policy=self.spot_restore_policy,
             tags=self.tags,
             time_created=self.time_created,
@@ -382,6 +453,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             unique_id=self.unique_id,
             upgrade_policy=self.upgrade_policy,
             virtual_machine_profile=self.virtual_machine_profile,
+            zonal_platform_fault_domain_align_mode=self.zonal_platform_fault_domain_align_mode,
             zone_balance=self.zone_balance,
             zones=self.zones)
 
@@ -393,9 +465,9 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
     """
     Display information about a virtual machine scale set.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -412,8 +484,10 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
     return AwaitableGetVirtualMachineScaleSetResult(
         additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
         automatic_repairs_policy=pulumi.get(__ret__, 'automatic_repairs_policy'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         constrained_maximum_capacity=pulumi.get(__ret__, 'constrained_maximum_capacity'),
         do_not_run_extensions_on_overprovisioned_vms=pulumi.get(__ret__, 'do_not_run_extensions_on_overprovisioned_vms'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         host_group=pulumi.get(__ret__, 'host_group'),
         id=pulumi.get(__ret__, 'id'),
@@ -427,9 +501,12 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
         priority_mix_policy=pulumi.get(__ret__, 'priority_mix_policy'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         proximity_placement_group=pulumi.get(__ret__, 'proximity_placement_group'),
+        resiliency_policy=pulumi.get(__ret__, 'resiliency_policy'),
         scale_in_policy=pulumi.get(__ret__, 'scale_in_policy'),
+        scheduled_events_policy=pulumi.get(__ret__, 'scheduled_events_policy'),
         single_placement_group=pulumi.get(__ret__, 'single_placement_group'),
         sku=pulumi.get(__ret__, 'sku'),
+        sku_profile=pulumi.get(__ret__, 'sku_profile'),
         spot_restore_policy=pulumi.get(__ret__, 'spot_restore_policy'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
@@ -437,6 +514,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
         unique_id=pulumi.get(__ret__, 'unique_id'),
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         virtual_machine_profile=pulumi.get(__ret__, 'virtual_machine_profile'),
+        zonal_platform_fault_domain_align_mode=pulumi.get(__ret__, 'zonal_platform_fault_domain_align_mode'),
         zone_balance=pulumi.get(__ret__, 'zone_balance'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
@@ -446,9 +524,9 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
     """
     Display information about a virtual machine scale set.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -464,8 +542,10 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
     return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetResult(
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
         automatic_repairs_policy=pulumi.get(__response__, 'automatic_repairs_policy'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         constrained_maximum_capacity=pulumi.get(__response__, 'constrained_maximum_capacity'),
         do_not_run_extensions_on_overprovisioned_vms=pulumi.get(__response__, 'do_not_run_extensions_on_overprovisioned_vms'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         host_group=pulumi.get(__response__, 'host_group'),
         id=pulumi.get(__response__, 'id'),
@@ -479,9 +559,12 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
         priority_mix_policy=pulumi.get(__response__, 'priority_mix_policy'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
+        resiliency_policy=pulumi.get(__response__, 'resiliency_policy'),
         scale_in_policy=pulumi.get(__response__, 'scale_in_policy'),
+        scheduled_events_policy=pulumi.get(__response__, 'scheduled_events_policy'),
         single_placement_group=pulumi.get(__response__, 'single_placement_group'),
         sku=pulumi.get(__response__, 'sku'),
+        sku_profile=pulumi.get(__response__, 'sku_profile'),
         spot_restore_policy=pulumi.get(__response__, 'spot_restore_policy'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
@@ -489,5 +572,6 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
         unique_id=pulumi.get(__response__, 'unique_id'),
         upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
         virtual_machine_profile=pulumi.get(__response__, 'virtual_machine_profile'),
+        zonal_platform_fault_domain_align_mode=pulumi.get(__response__, 'zonal_platform_fault_domain_align_mode'),
         zone_balance=pulumi.get(__response__, 'zone_balance'),
         zones=pulumi.get(__response__, 'zones')))

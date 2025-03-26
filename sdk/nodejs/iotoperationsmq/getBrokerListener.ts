@@ -54,6 +54,10 @@ export interface GetBrokerListenerResult {
      */
     readonly authorizationEnabled?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The k8s cr/resource reference of mq/broker.
      */
     readonly brokerRef: string;

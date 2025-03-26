@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Authorization
         /// Get role definition by ID (GUID).
         /// 
         /// Uses Azure REST API version 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Authorization
         /// Get role definition by ID (GUID).
         /// 
         /// Uses Azure REST API version 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Authorization
         /// Get role definition by ID (GUID).
         /// 
         /// Uses Azure REST API version 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -86,6 +92,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Id of the user who created the assignment
         /// </summary>
         public readonly string CreatedBy;
@@ -134,6 +144,8 @@ namespace Pulumi.AzureNative.Authorization
         private GetRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
 
+            string azureApiVersion,
+
             string createdBy,
 
             string createdOn,
@@ -157,6 +169,7 @@ namespace Pulumi.AzureNative.Authorization
             string updatedOn)
         {
             AssignableScopes = assignableScopes;
+            AzureApiVersion = azureApiVersion;
             CreatedBy = createdBy;
             CreatedOn = createdOn;
             Description = description;

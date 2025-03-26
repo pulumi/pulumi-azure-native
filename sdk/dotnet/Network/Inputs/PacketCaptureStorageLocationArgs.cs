@@ -16,13 +16,19 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class PacketCaptureStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
+        /// This path is invalid if 'Continuous Capture' is provided with 'true' or 'false'. A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
 
         /// <summary>
-        /// The ID of the storage account to save the packet capture session. Required if no local file path is provided.
+        /// This path is valid if 'Continuous Capture' is provided with 'true' or 'false' and required if no storage ID is provided, otherwise optional. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures.
+        /// </summary>
+        [Input("localPath")]
+        public Input<string>? LocalPath { get; set; }
+
+        /// <summary>
+        /// The ID of the storage account to save the packet capture session. Required if no localPath or filePath is provided.
         /// </summary>
         [Input("storageId")]
         public Input<string>? StorageId { get; set; }

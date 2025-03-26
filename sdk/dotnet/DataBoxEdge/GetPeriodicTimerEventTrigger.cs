@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Get a specific trigger by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Task<GetPeriodicTimerEventTriggerResult> InvokeAsync(GetPeriodicTimerEventTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Get a specific trigger by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetPeriodicTimerEventTriggerResult> Invoke(GetPeriodicTimerEventTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Get a specific trigger by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetPeriodicTimerEventTriggerResult> Invoke(GetPeriodicTimerEventTriggerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeriodicTimerEventTriggerResult>("azure-native:databoxedge:getPeriodicTimerEventTrigger", args ?? new GetPeriodicTimerEventTriggerInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetPeriodicTimerEventTriggerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         /// </summary>
         public readonly string? CustomContextTag;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetPeriodicTimerEventTriggerResult(
+            string azureApiVersion,
+
             string? customContextTag,
 
             string id,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomContextTag = customContextTag;
             Id = id;
             Kind = kind;

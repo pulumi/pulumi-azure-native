@@ -136,7 +136,7 @@ class Pricing(pulumi.CustomResource):
         """
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
 
-        Uses Azure REST API version 2024-01-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class Pricing(pulumi.CustomResource):
         """
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
 
-        Uses Azure REST API version 2024-01-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param PricingArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +198,7 @@ class Pricing(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope_id'")
             __props__.__dict__["scope_id"] = scope_id
             __props__.__dict__["sub_plan"] = sub_plan
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deprecated"] = None
             __props__.__dict__["enablement_time"] = None
             __props__.__dict__["free_trial_remaining_time"] = None
@@ -231,6 +232,7 @@ class Pricing(pulumi.CustomResource):
 
         __props__ = PricingArgs.__new__(PricingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["deprecated"] = None
         __props__.__dict__["enablement_time"] = None
         __props__.__dict__["enforce"] = None
@@ -245,6 +247,14 @@ class Pricing(pulumi.CustomResource):
         __props__.__dict__["sub_plan"] = None
         __props__.__dict__["type"] = None
         return Pricing(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

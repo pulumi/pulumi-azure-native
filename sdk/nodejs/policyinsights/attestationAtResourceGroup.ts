@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An attestation resource.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AttestationAtResourceGroup extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
      * The time the evidence was assessed
      */
     public readonly assessmentDate!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Comments describing why this attestation was created.
      */
@@ -126,6 +130,7 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -133,6 +138,7 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assessmentDate"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["comments"] = undefined /*out*/;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["evidence"] = undefined /*out*/;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  *
- * Uses Azure REST API version 2023-03-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedClusterApplicationTypeVersion(args: GetManagedClusterApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterApplicationTypeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +52,10 @@ export interface GetManagedClusterApplicationTypeVersionResult {
      */
     readonly appPackageUrl: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure resource identifier.
      */
     readonly id: string;
@@ -83,9 +87,9 @@ export interface GetManagedClusterApplicationTypeVersionResult {
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  *
- * Uses Azure REST API version 2023-03-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedClusterApplicationTypeVersionOutput(args: GetManagedClusterApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterApplicationTypeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

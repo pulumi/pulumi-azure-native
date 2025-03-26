@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Instance of StaticCidr resource.
         /// 
-        /// Uses Azure REST API version 2024-01-01-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStaticCidrResult> InvokeAsync(GetStaticCidrArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticCidrResult>("azure-native:network:getStaticCidr", args ?? new GetStaticCidrArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Instance of StaticCidr resource.
         /// 
-        /// Uses Azure REST API version 2024-01-01-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStaticCidrResult> Invoke(GetStaticCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticCidrResult>("azure-native:network:getStaticCidr", args ?? new GetStaticCidrInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Instance of StaticCidr resource.
         /// 
-        /// Uses Azure REST API version 2024-01-01-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStaticCidrResult> Invoke(GetStaticCidrInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticCidrResult>("azure-native:network:getStaticCidr", args ?? new GetStaticCidrInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetStaticCidrResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetStaticCidrResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

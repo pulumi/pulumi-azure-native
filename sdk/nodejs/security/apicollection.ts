@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * An API collection as represented by Defender for APIs.
  *
- * Uses Azure REST API version 2022-11-20-preview.
+ * Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
  */
 export class APICollection extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class APICollection extends pulumi.CustomResource {
      * Additional data regarding the API collection.
      */
     public /*out*/ readonly additionalData!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The display name of the Azure API Management API.
      */
@@ -74,17 +78,19 @@ export class APICollection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20221120preview:APICollection" }, { type: "azure-native:security/v20231115:APICollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20221120preview:APICollection" }, { type: "azure-native:security/v20231115:APICollection" }, { type: "azure-native:security/v20231115:APICollectionByAzureApiManagementService" }, { type: "azure-native:security:APICollectionByAzureApiManagementService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(APICollection.__pulumiType, name, resourceInputs, opts);
     }

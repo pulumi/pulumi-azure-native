@@ -6,10 +6,15 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'AlwaysEncryptedEnclaveType',
+    'AuthMetadataLookupModes',
     'AutoExecuteStatus',
+    'AvailabilityZoneType',
+    'BackupStorageAccessTier',
     'BackupStorageRedundancy',
     'BlobAuditingPolicyState',
     'CatalogCollationType',
+    'ClientClassificationSource',
     'CreateMode',
     'DataMaskingState',
     'DatabaseIdentityType',
@@ -17,41 +22,54 @@ __all__ = [
     'DatabaseReadScale',
     'DayOfWeek',
     'ElasticPoolLicenseType',
+    'FailoverGroupDatabasesSecondaryType',
+    'FailoverModeType',
+    'FreeLimitExhaustionBehavior',
     'GeoBackupPolicyState',
+    'HybridSecondaryUsage',
     'IdentityType',
     'InstancePoolLicenseType',
+    'JobAgentIdentityType',
     'JobScheduleType',
     'JobStepActionSource',
     'JobStepActionType',
     'JobStepOutputType',
     'JobTargetGroupMembershipType',
     'JobTargetType',
+    'LinkRole',
     'ManagedDatabaseCreateMode',
     'ManagedInstanceAdministratorType',
+    'ManagedInstanceDatabaseFormat',
     'ManagedInstanceLicenseType',
     'ManagedInstanceProxyOverride',
     'ManagedServerCreateMode',
+    'MinimalTlsVersion',
+    'PricingModel',
     'PrincipalType',
     'PrivateLinkServiceConnectionStateStatus',
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
     'ReplicationLinkType',
-    'ReplicationMode',
+    'ReplicationModeType',
     'SampleName',
+    'SecondaryInstanceType',
     'SecondaryType',
     'SecurityAlertPolicyEmailAccountAdmins',
     'SecurityAlertPolicyState',
     'SecurityAlertPolicyUseServerDefault',
     'SecurityAlertsPolicyState',
+    'SeedingModeType',
     'SensitivityLabelRank',
     'ServerKeyType',
     'ServerNetworkAccessFlag',
+    'ServerPublicNetworkAccessFlag',
     'ServicePrincipalType',
     'SqlVulnerabilityAssessmentState',
     'SyncConflictResolutionPolicy',
     'SyncDirection',
     'SyncMemberDbType',
     'TransparentDataEncryptionState',
+    'TrustScope',
 ]
 
 
@@ -62,6 +80,23 @@ class AdministratorType(str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+class AlwaysEncryptedEnclaveType(str, Enum):
+    """
+    Type of enclave requested on the elastic pool.
+    """
+    DEFAULT = "Default"
+    VBS = "VBS"
+
+
+class AuthMetadataLookupModes(str, Enum):
+    """
+    The managed instance's authentication metadata lookup mode.
+    """
+    AZURE_AD = "AzureAD"
+    PAIRED = "Paired"
+    WINDOWS = "Windows"
+
+
 class AutoExecuteStatus(str, Enum):
     """
     Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
@@ -69,6 +104,24 @@ class AutoExecuteStatus(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     DEFAULT = "Default"
+
+
+class AvailabilityZoneType(str, Enum):
+    """
+    Specifies the availability zone the pool's primary replica is pinned to.
+    """
+    NO_PREFERENCE = "NoPreference"
+    ONE = "1"
+    TWO = "2"
+    THREE = "3"
+
+
+class BackupStorageAccessTier(str, Enum):
+    """
+    The BackupStorageAccessTier for the LTR backups
+    """
+    HOT = "Hot"
+    ARCHIVE = "Archive"
 
 
 class BackupStorageRedundancy(str, Enum):
@@ -95,6 +148,13 @@ class CatalogCollationType(str, Enum):
     """
     DATABAS_E_DEFAULT = "DATABASE_DEFAULT"
     SQ_L_LATIN1_GENERAL_CP1_C_I_AS = "SQL_Latin1_General_CP1_CI_AS"
+
+
+class ClientClassificationSource(str, Enum):
+    NONE = "None"
+    NATIVE = "Native"
+    RECOMMENDED = "Recommended"
+    MIP = "MIP"
 
 
 class CreateMode(str, Enum):
@@ -182,12 +242,48 @@ class ElasticPoolLicenseType(str, Enum):
     BASE_PRICE = "BasePrice"
 
 
+class FailoverGroupDatabasesSecondaryType(str, Enum):
+    """
+    Databases secondary type on partner server.
+    """
+    GEO = "Geo"
+    STANDBY = "Standby"
+
+
+class FailoverModeType(str, Enum):
+    """
+    The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
+    """
+    NONE = "None"
+    MANUAL = "Manual"
+
+
+class FreeLimitExhaustionBehavior(str, Enum):
+    """
+    Specifies the behavior when monthly free limits are exhausted for the free database.
+    
+    AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
+    
+    BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
+    """
+    AUTO_PAUSE = "AutoPause"
+    BILL_OVER_USAGE = "BillOverUsage"
+
+
 class GeoBackupPolicyState(str, Enum):
     """
     The state of the geo backup policy.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class HybridSecondaryUsage(str, Enum):
+    """
+    Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+    """
+    ACTIVE = "Active"
+    PASSIVE = "Passive"
 
 
 class IdentityType(str, Enum):
@@ -206,6 +302,16 @@ class InstancePoolLicenseType(str, Enum):
     """
     LICENSE_INCLUDED = "LicenseIncluded"
     BASE_PRICE = "BasePrice"
+
+
+class JobAgentIdentityType(str, Enum):
+    """
+    The job agent identity type
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssignedUserAssigned"
 
 
 class JobScheduleType(str, Enum):
@@ -256,6 +362,14 @@ class JobTargetType(str, Enum):
     SQL_SERVER = "SqlServer"
 
 
+class LinkRole(str, Enum):
+    """
+    Managed instance side link role
+    """
+    PRIMARY = "Primary"
+    SECONDARY = "Secondary"
+
+
 class ManagedDatabaseCreateMode(str, Enum):
     """
     Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
@@ -272,6 +386,14 @@ class ManagedInstanceAdministratorType(str, Enum):
     Type of the managed instance administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
+class ManagedInstanceDatabaseFormat(str, Enum):
+    """
+    Specifies the internal format of instance databases specific to the SQL engine version.
+    """
+    ALWAYS_UP_TO_DATE = "AlwaysUpToDate"
+    SQL_SERVER2022 = "SQLServer2022"
 
 
 class ManagedInstanceLicenseType(str, Enum):
@@ -301,6 +423,25 @@ class ManagedServerCreateMode(str, Enum):
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+
+
+class MinimalTlsVersion(str, Enum):
+    """
+    Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
+    """
+    NONE = "None"
+    MINIMAL_TLS_VERSION_1_0 = "1.0"
+    MINIMAL_TLS_VERSION_1_1 = "1.1"
+    MINIMAL_TLS_VERSION_1_2 = "1.2"
+    MINIMAL_TLS_VERSION_1_3 = "1.3"
+
+
+class PricingModel(str, Enum):
+    """
+    Pricing model of Managed Instance.
+    """
+    REGULAR = "Regular"
+    FREEMIUM = "Freemium"
 
 
 class PrincipalType(str, Enum):
@@ -347,9 +488,9 @@ class ReplicationLinkType(str, Enum):
     STANDBY = "STANDBY"
 
 
-class ReplicationMode(str, Enum):
+class ReplicationModeType(str, Enum):
     """
-    The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+    Replication mode of the link
     """
     ASYNC_ = "Async"
     SYNC = "Sync"
@@ -364,12 +505,21 @@ class SampleName(str, Enum):
     WIDE_WORLD_IMPORTERS_FULL = "WideWorldImportersFull"
 
 
+class SecondaryInstanceType(str, Enum):
+    """
+    Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+    """
+    GEO = "Geo"
+    STANDBY = "Standby"
+
+
 class SecondaryType(str, Enum):
     """
-    The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+    The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
     """
     GEO = "Geo"
     NAMED = "Named"
+    STANDBY = "Standby"
 
 
 class SecurityAlertPolicyEmailAccountAdmins(str, Enum):
@@ -405,6 +555,14 @@ class SecurityAlertsPolicyState(str, Enum):
     DISABLED = "Disabled"
 
 
+class SeedingModeType(str, Enum):
+    """
+    Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
+    """
+    AUTOMATIC = "Automatic"
+    MANUAL = "Manual"
+
+
 class SensitivityLabelRank(str, Enum):
     NONE = "None"
     LOW = "Low"
@@ -427,6 +585,15 @@ class ServerNetworkAccessFlag(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ServerPublicNetworkAccessFlag(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class ServicePrincipalType(str, Enum):
@@ -476,3 +643,8 @@ class TransparentDataEncryptionState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class TrustScope(str, Enum):
+    GLOBAL_TRANSACTIONS = "GlobalTransactions"
+    SERVICE_BROKER = "ServiceBroker"

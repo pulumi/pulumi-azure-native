@@ -81,9 +81,9 @@ def list_access_role_binding_name(organization_name: Optional[str] = None,
     """
     Details of the role binding names returned on successful response
 
-    Uses Azure REST API version 2024-02-13.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-07-01.
+    Other available API versions: 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name
@@ -108,9 +108,9 @@ def list_access_role_binding_name_output(organization_name: Optional[pulumi.Inpu
     """
     Details of the role binding names returned on successful response
 
-    Uses Azure REST API version 2024-02-13.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-07-01.
+    Other available API versions: 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name

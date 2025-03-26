@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a CertificateObjectGlobalRulestackResource
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificateObjectGlobalRulestack(args: GetCertificateObjectGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateObjectGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetCertificateObjectGlobalRulestackResult {
      * comment for this object
      */
     readonly auditComment?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * use certificate self signed
      */
@@ -81,9 +85,9 @@ export interface GetCertificateObjectGlobalRulestackResult {
 /**
  * Get a CertificateObjectGlobalRulestackResource
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificateObjectGlobalRulestackOutput(args: GetCertificateObjectGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateObjectGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

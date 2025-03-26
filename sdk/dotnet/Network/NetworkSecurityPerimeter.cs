@@ -12,30 +12,18 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The Network Security Perimeter resource
     /// 
-    /// Uses Azure REST API version 2021-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+    /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
     /// 
-    /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+    /// Other available API versions: 2021-02-01-preview, 2021-03-01-preview, 2023-07-01-preview, 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeter")]
     public partial class NetworkSecurityPerimeter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A description of the network security perimeter.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the network security perimeter.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -48,6 +36,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// perimeter guid of the network security perimeter.
+        /// </summary>
+        [Output("perimeterGuid")]
+        public Output<string> PerimeterGuid { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the scope assignment resource.
@@ -121,18 +115,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class NetworkSecurityPerimeterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the network security perimeter.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A friendly name for the network security perimeter.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -143,12 +125,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the network security perimeter.

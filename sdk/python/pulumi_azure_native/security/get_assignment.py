@@ -27,7 +27,7 @@ class GetAssignmentResult:
     """
     Security Assignment on a resource group over a given scope
     """
-    def __init__(__self__, additional_data=None, assigned_component=None, assigned_standard=None, description=None, display_name=None, effect=None, etag=None, expires_on=None, id=None, kind=None, location=None, metadata=None, name=None, scope=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, additional_data=None, assigned_component=None, assigned_standard=None, azure_api_version=None, description=None, display_name=None, effect=None, etag=None, expires_on=None, id=None, kind=None, location=None, metadata=None, name=None, scope=None, system_data=None, tags=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
@@ -37,6 +37,9 @@ class GetAssignmentResult:
         if assigned_standard and not isinstance(assigned_standard, dict):
             raise TypeError("Expected argument 'assigned_standard' to be a dict")
         pulumi.set(__self__, "assigned_standard", assigned_standard)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -103,6 +106,14 @@ class GetAssignmentResult:
         Standard item with key as applied to this standard assignment over the given scope
         """
         return pulumi.get(self, "assigned_standard")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -226,6 +237,7 @@ class AwaitableGetAssignmentResult(GetAssignmentResult):
             additional_data=self.additional_data,
             assigned_component=self.assigned_component,
             assigned_standard=self.assigned_standard,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             effect=self.effect,
@@ -264,6 +276,7 @@ def get_assignment(assignment_id: Optional[str] = None,
         additional_data=pulumi.get(__ret__, 'additional_data'),
         assigned_component=pulumi.get(__ret__, 'assigned_component'),
         assigned_standard=pulumi.get(__ret__, 'assigned_standard'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         effect=pulumi.get(__ret__, 'effect'),
@@ -299,6 +312,7 @@ def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
         additional_data=pulumi.get(__response__, 'additional_data'),
         assigned_component=pulumi.get(__response__, 'assigned_component'),
         assigned_standard=pulumi.get(__response__, 'assigned_standard'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         effect=pulumi.get(__response__, 'effect'),

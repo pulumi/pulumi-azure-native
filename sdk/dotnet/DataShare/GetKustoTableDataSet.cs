@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetKustoTableDataSetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Unique id for identifying a data set resource
         /// </summary>
         public readonly string DataSetId;
@@ -149,6 +153,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetKustoTableDataSetResult(
+            string azureApiVersion,
+
             string dataSetId,
 
             string id,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataSetId = dataSetId;
             Id = id;
             Kind = kind;

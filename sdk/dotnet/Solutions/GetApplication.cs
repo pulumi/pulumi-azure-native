@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Solutions
         /// The  read-only authorizations property that is retrieved from the application package.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The managed application billing details.
         /// </summary>
@@ -200,6 +204,8 @@ namespace Pulumi.AzureNative.Solutions
 
             ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
 
+            string azureApiVersion,
+
             Outputs.ApplicationBillingDetailsDefinitionResponse billingDetails,
 
             Outputs.ApplicationClientDetailsResponse createdBy,
@@ -249,6 +255,7 @@ namespace Pulumi.AzureNative.Solutions
             ApplicationDefinitionId = applicationDefinitionId;
             Artifacts = artifacts;
             Authorizations = authorizations;
+            AzureApiVersion = azureApiVersion;
             BillingDetails = billingDetails;
             CreatedBy = createdBy;
             CustomerSupport = customerSupport;

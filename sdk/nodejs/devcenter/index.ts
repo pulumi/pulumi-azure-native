@@ -224,33 +224,6 @@ utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 // Export enums:
 export * from "../types/enums/devcenter";
 
-// Export sub-modules:
-import * as v20221111preview from "./v20221111preview";
-import * as v20230401 from "./v20230401";
-import * as v20230801preview from "./v20230801preview";
-import * as v20231001preview from "./v20231001preview";
-import * as v20240201 from "./v20240201";
-import * as v20240501preview from "./v20240501preview";
-import * as v20240601preview from "./v20240601preview";
-import * as v20240701preview from "./v20240701preview";
-import * as v20240801preview from "./v20240801preview";
-import * as v20241001preview from "./v20241001preview";
-import * as v20250201 from "./v20250201";
-
-export {
-    v20221111preview,
-    v20230401,
-    v20230801preview,
-    v20231001preview,
-    v20240201,
-    v20240501preview,
-    v20240601preview,
-    v20240701preview,
-    v20240801preview,
-    v20241001preview,
-    v20250201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

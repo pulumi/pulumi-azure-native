@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.ContainerInstance
     /// <summary>
     /// A container group.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+    /// Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The properties for confidential container group
         /// </summary>
         [Output("confidentialComputeProperties")]
         public Output<Outputs.ConfidentialComputePropertiesResponse?> ConfidentialComputeProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference container group profile properties.
+        /// </summary>
+        [Output("containerGroupProfile")]
+        public Output<Outputs.ContainerGroupProfileReferenceDefinitionResponse?> ContainerGroupProfile { get; private set; } = null!;
 
         /// <summary>
         /// The containers within the container group.
@@ -86,6 +98,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<Outputs.IpAddressResponse?> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The flag indicating whether the container group is created by standby pool.
+        /// </summary>
+        [Output("isCreatedFromStandbyPool")]
+        public Output<bool> IsCreatedFromStandbyPool { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -101,7 +119,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Output("osType")]
-        public Output<string> OsType { get; private set; } = null!;
+        public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
         /// The priority of the container group.
@@ -129,6 +147,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference standby pool profile properties.
+        /// </summary>
+        [Output("standbyPoolProfile")]
+        public Output<Outputs.StandbyPoolProfileDefinitionResponse?> StandbyPoolProfile { get; private set; } = null!;
 
         /// <summary>
         /// The subnet resource IDs for a container group.
@@ -242,6 +266,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         [Input("containerGroupName")]
         public Input<string>? ContainerGroupName { get; set; }
 
+        /// <summary>
+        /// The reference container group profile properties.
+        /// </summary>
+        [Input("containerGroupProfile")]
+        public Input<Inputs.ContainerGroupProfileReferenceDefinitionArgs>? ContainerGroupProfile { get; set; }
+
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerArgs>? _containers;
 
@@ -329,8 +359,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
-        [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.OperatingSystemTypes> OsType { get; set; } = null!;
+        [Input("osType")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The priority of the container group.
@@ -339,7 +369,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupPriority>? Priority { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -358,6 +388,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Input("sku")]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupSku>? Sku { get; set; }
+
+        /// <summary>
+        /// The reference standby pool profile properties.
+        /// </summary>
+        [Input("standbyPoolProfile")]
+        public Input<Inputs.StandbyPoolProfileDefinitionArgs>? StandbyPoolProfile { get; set; }
 
         [Input("subnetIds")]
         private InputList<Inputs.ContainerGroupSubnetIdArgs>? _subnetIds;

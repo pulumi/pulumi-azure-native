@@ -12,13 +12,23 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// Define the SAP Application Server Instance resource.
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
-    /// 
-    /// Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+    /// Uses Azure REST API version 2024-09-01.
     /// </summary>
-    [AzureNativeResourceType("azure-native:workloads:SAPApplicationServerInstance")]
-    public partial class SAPApplicationServerInstance : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:workloads:SapApplicationServerInstance")]
+    public partial class SapApplicationServerInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Application server instance dispatcher status.
+        /// </summary>
+        [Output("dispatcherStatus")]
+        public Output<string> DispatcherStatus { get; private set; } = null!;
+
         /// <summary>
         /// Defines the Application Instance errors.
         /// </summary>
@@ -62,7 +72,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> InstanceNo { get; private set; } = null!;
 
         /// <summary>
-        ///  Application server instance SAP IP Address.
+        /// Application server instance SAP IP Address.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -74,7 +84,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> KernelPatch { get; private set; } = null!;
 
         /// <summary>
-        ///  Application server instance SAP Kernel Version.
+        /// Application server instance SAP Kernel Version.
         /// </summary>
         [Output("kernelVersion")]
         public Output<string> KernelVersion { get; private set; } = null!;
@@ -141,19 +151,19 @@ namespace Pulumi.AzureNative.Workloads
 
 
         /// <summary>
-        /// Create a SAPApplicationServerInstance resource with the given unique name, arguments, and options.
+        /// Create a SapApplicationServerInstance resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SAPApplicationServerInstance(string name, SAPApplicationServerInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:SAPApplicationServerInstance", name, args ?? new SAPApplicationServerInstanceArgs(), MakeResourceOptions(options, ""))
+        public SapApplicationServerInstance(string name, SapApplicationServerInstanceArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:workloads:SapApplicationServerInstance", name, args ?? new SapApplicationServerInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private SAPApplicationServerInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:SAPApplicationServerInstance", name, null, MakeResourceOptions(options, id))
+        private SapApplicationServerInstance(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:workloads:SapApplicationServerInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,10 +175,14 @@ namespace Pulumi.AzureNative.Workloads
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPApplicationServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapApplicationServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapApplicationServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPApplicationServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:SAPApplicationServerInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,20 +191,20 @@ namespace Pulumi.AzureNative.Workloads
             return merged;
         }
         /// <summary>
-        /// Get an existing SAPApplicationServerInstance resource's state with the given name, ID, and optional extra
+        /// Get an existing SapApplicationServerInstance resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SAPApplicationServerInstance Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static SapApplicationServerInstance Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SAPApplicationServerInstance(name, id, options);
+            return new SapApplicationServerInstance(name, id, options);
         }
     }
 
-    public sealed class SAPApplicationServerInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapApplicationServerInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of SAP Application Server instance resource.
@@ -228,9 +242,9 @@ namespace Pulumi.AzureNative.Workloads
             set => _tags = value;
         }
 
-        public SAPApplicationServerInstanceArgs()
+        public SapApplicationServerInstanceArgs()
         {
         }
-        public static new SAPApplicationServerInstanceArgs Empty => new SAPApplicationServerInstanceArgs();
+        public static new SapApplicationServerInstanceArgs Empty => new SapApplicationServerInstanceArgs();
     }
 }

@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
-    /// Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+    /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ImportCollector")]
     public partial class ImportCollector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
 
@@ -54,10 +60,16 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

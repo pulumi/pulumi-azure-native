@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualMachine GET method.
         /// 
-        /// Uses Azure REST API version 2022-05-21-preview.
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualMachine GET method.
         /// 
-        /// Uses Azure REST API version 2022-05-21-preview.
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualMachine GET method.
         /// 
-        /// Uses Azure REST API version 2022-05-21-preview.
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ScVmm
         /// Availability Sets in vm.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachinePropertiesResponseAvailabilitySets> AvailabilitySets;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Type of checkpoint supported for the vm.
         /// </summary>
@@ -196,6 +200,8 @@ namespace Pulumi.AzureNative.ScVmm
         private GetVirtualMachineResult(
             ImmutableArray<Outputs.VirtualMachinePropertiesResponseAvailabilitySets> availabilitySets,
 
+            string azureApiVersion,
+
             string? checkpointType,
 
             ImmutableArray<Outputs.CheckpointResponse> checkpoints,
@@ -247,6 +253,7 @@ namespace Pulumi.AzureNative.ScVmm
             string? vmmServerId)
         {
             AvailabilitySets = availabilitySets;
+            AzureApiVersion = azureApiVersion;
             CheckpointType = checkpointType;
             Checkpoints = checkpoints;
             CloudId = cloudId;

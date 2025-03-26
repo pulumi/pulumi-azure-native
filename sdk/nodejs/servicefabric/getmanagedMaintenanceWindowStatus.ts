@@ -7,19 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  *
- * Uses Azure REST API version 2023-07-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getmanagedMaintenanceWindowStatus(args: GetmanagedMaintenanceWindowStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedMaintenanceWindowStatusResult> {
+export function getManagedMaintenanceWindowStatus(args: GetManagedMaintenanceWindowStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedMaintenanceWindowStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:servicefabric:getmanagedMaintenanceWindowStatus", {
+    return pulumi.runtime.invoke("azure-native:servicefabric:getManagedMaintenanceWindowStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmanagedMaintenanceWindowStatusArgs {
+export interface GetManagedMaintenanceWindowStatusArgs {
     /**
      * The name of the cluster resource.
      */
@@ -33,7 +33,7 @@ export interface GetmanagedMaintenanceWindowStatusArgs {
 /**
  * Describes the maintenance window status of the Service Fabric Managed Cluster.
  */
-export interface GetmanagedMaintenanceWindowStatusResult {
+export interface GetManagedMaintenanceWindowStatusResult {
     /**
      * If updates can be applied.
      */
@@ -66,19 +66,19 @@ export interface GetmanagedMaintenanceWindowStatusResult {
 /**
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  *
- * Uses Azure REST API version 2023-07-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getmanagedMaintenanceWindowStatusOutput(args: GetmanagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetmanagedMaintenanceWindowStatusResult> {
+export function getManagedMaintenanceWindowStatusOutput(args: GetManagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedMaintenanceWindowStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric:getmanagedMaintenanceWindowStatus", {
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric:getManagedMaintenanceWindowStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmanagedMaintenanceWindowStatusOutputArgs {
+export interface GetManagedMaintenanceWindowStatusOutputArgs {
     /**
      * The name of the cluster resource.
      */

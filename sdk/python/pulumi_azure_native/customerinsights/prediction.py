@@ -298,7 +298,7 @@ class Prediction(pulumi.CustomResource):
         """
         The prediction resource format.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,7 +328,7 @@ class Prediction(pulumi.CustomResource):
         """
         The prediction resource format.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param PredictionArgs args: The arguments to use to populate this resource's properties.
@@ -404,6 +404,7 @@ class Prediction(pulumi.CustomResource):
             if score_label is None and not opts.urn:
                 raise TypeError("Missing required property 'score_label'")
             __props__.__dict__["score_label"] = score_label
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_generated_entities"] = None
@@ -434,6 +435,7 @@ class Prediction(pulumi.CustomResource):
         __props__ = PredictionArgs.__new__(PredictionArgs)
 
         __props__.__dict__["auto_analyze"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["grades"] = None
@@ -461,6 +463,14 @@ class Prediction(pulumi.CustomResource):
         Whether do auto analyze.
         """
         return pulumi.get(self, "auto_analyze")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

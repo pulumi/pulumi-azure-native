@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ * Describes a Shared Private Link Resource managed by the search service.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-08-01.
+ * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -42,11 +42,15 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+     * Describes the properties of a Shared Private Link Resource managed by the search service.
      */
     public readonly properties!: pulumi.Output<outputs.search.SharedPrivateLinkResourcePropertiesResponse>;
     /**
@@ -75,9 +79,11 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["searchServiceName"] = args ? args.searchServiceName : undefined;
             resourceInputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -94,7 +100,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
  */
 export interface SharedPrivateLinkResourceArgs {
     /**
-     * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+     * Describes the properties of a Shared Private Link Resource managed by the search service.
      */
     properties?: pulumi.Input<inputs.search.SharedPrivateLinkResourcePropertiesArgs>;
     /**
@@ -102,11 +108,11 @@ export interface SharedPrivateLinkResourceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
     /**
-     * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+     * The name of the shared private link resource managed by the search service within the specified resource group.
      */
     sharedPrivateLinkResourceName?: pulumi.Input<string>;
 }

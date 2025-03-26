@@ -22,9 +22,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  Retrieve a Spatial Anchors Account.
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithDefaults());
@@ -40,9 +40,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  Retrieve a Spatial Anchors Account.
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  Retrieve a Spatial Anchors Account.
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());
@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.MixedReality
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNative.MixedReality
 
             string accountId,
 
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.MixedReality
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Kind = kind;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets all deployments for a remediation at resource scope.
  *
- * Uses Azure REST API version 2021-10-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listRemediationDeploymentsAtResource(args: ListRemediationDeploymentsAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,9 +54,9 @@ export interface ListRemediationDeploymentsAtResourceResult {
 /**
  * Gets all deployments for a remediation at resource scope.
  *
- * Uses Azure REST API version 2021-10-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listRemediationDeploymentsAtResourceOutput(args: ListRemediationDeploymentsAtResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemediationDeploymentsAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

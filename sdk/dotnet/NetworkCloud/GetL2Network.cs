@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided layer 2 (L2) network.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetL2NetworkResult> InvokeAsync(GetL2NetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided layer 2 (L2) network.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided layer 2 (L2) network.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AssociatedResourceIds;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the Network Cloud cluster this L2 network is associated with.
         /// </summary>
         public readonly string ClusterId;
@@ -103,6 +107,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The descriptive message about the current detailed status.
         /// </summary>
         public readonly string DetailedStatusMessage;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -160,11 +168,15 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetL2NetworkResult(
             ImmutableArray<string> associatedResourceIds,
 
+            string azureApiVersion,
+
             string clusterId,
 
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -193,9 +205,11 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<string> virtualMachinesAssociatedIds)
         {
             AssociatedResourceIds = associatedResourceIds;
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
             HybridAksPluginType = hybridAksPluginType;

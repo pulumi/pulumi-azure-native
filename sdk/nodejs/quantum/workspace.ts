@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The resource proxy definition object for quantum workspace.
+ * The resource proxy definition object for Quantum Workspace.
  *
- * Uses Azure REST API version 2022-01-10-preview. In version 1.x of the Azure Native provider, it used API version 2019-11-04-preview.
+ * Uses Azure REST API version 2023-11-13-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-10-preview.
  *
- * Other available API versions: 2023-11-13-preview.
+ * Other available API versions: 2022-01-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -42,13 +42,13 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * The URI of the workspace endpoint.
+     * The Azure API version of the resource.
      */
-    public /*out*/ readonly endpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Managed Identity information.
+     * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.quantum.QuantumWorkspaceResponseIdentity | undefined>;
+    public readonly identity!: pulumi.Output<outputs.quantum.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -58,19 +58,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of Providers selected for this Workspace
+     * Gets or sets the properties. Define quantum workspace's specific properties.
      */
-    public readonly providers!: pulumi.Output<outputs.quantum.ProviderResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.quantum.WorkspaceResourcePropertiesResponse>;
     /**
-     * Provisioning status field
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * ARM Resource Id of the storage account associated with this workspace.
-     */
-    public readonly storageAccount!: pulumi.Output<string | undefined>;
-    /**
-     * System metadata
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.quantum.SystemDataResponse>;
     /**
@@ -81,10 +73,6 @@ export class Workspace extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Whether the current workspace is ready to accept Jobs.
-     */
-    public /*out*/ readonly usable!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -102,29 +90,23 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["endpointUri"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["usable"] = undefined /*out*/;
         } else {
-            resourceInputs["endpointUri"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["providers"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["storageAccount"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["usable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:quantum/v20191104preview:Workspace" }, { type: "azure-native:quantum/v20220110preview:Workspace" }, { type: "azure-native:quantum/v20231113preview:Workspace" }] };
@@ -138,25 +120,21 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
-     * Managed Identity information.
+     * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.quantum.QuantumWorkspaceIdentityArgs>;
+    identity?: pulumi.Input<inputs.quantum.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * List of Providers selected for this Workspace
+     * Gets or sets the properties. Define quantum workspace's specific properties.
      */
-    providers?: pulumi.Input<pulumi.Input<inputs.quantum.ProviderArgs>[]>;
+    properties?: pulumi.Input<inputs.quantum.WorkspaceResourcePropertiesArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * ARM Resource Id of the storage account associated with this workspace.
-     */
-    storageAccount?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -169,9 +169,9 @@ class AFDCustomDomain(pulumi.CustomResource):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +193,9 @@ class AFDCustomDomain(pulumi.CustomResource):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AFDCustomDomainArgs args: The arguments to use to populate this resource's properties.
@@ -243,6 +243,7 @@ class AFDCustomDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tls_settings"] = tls_settings
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["domain_validation_state"] = None
             __props__.__dict__["name"] = None
@@ -274,6 +275,7 @@ class AFDCustomDomain(pulumi.CustomResource):
 
         __props__ = AFDCustomDomainArgs.__new__(AFDCustomDomainArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_dns_zone"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["domain_validation_state"] = None
@@ -288,6 +290,14 @@ class AFDCustomDomain(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["validation_properties"] = None
         return AFDCustomDomain(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureDnsZone")

@@ -27,10 +27,13 @@ class GetServerDetailsResult:
     """
     Represents an instance of an Analysis Services resource.
     """
-    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, id=None, ip_v4_firewall_settings=None, location=None, managed_mode=None, name=None, provisioning_state=None, querypool_connection_mode=None, server_full_name=None, server_monitor_mode=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, as_administrators=None, azure_api_version=None, backup_blob_container_uri=None, gateway_details=None, id=None, ip_v4_firewall_settings=None, location=None, managed_mode=None, name=None, provisioning_state=None, querypool_connection_mode=None, server_full_name=None, server_monitor_mode=None, sku=None, state=None, tags=None, type=None):
         if as_administrators and not isinstance(as_administrators, dict):
             raise TypeError("Expected argument 'as_administrators' to be a dict")
         pulumi.set(__self__, "as_administrators", as_administrators)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup_blob_container_uri and not isinstance(backup_blob_container_uri, str):
             raise TypeError("Expected argument 'backup_blob_container_uri' to be a str")
         pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
@@ -84,6 +87,14 @@ class GetServerDetailsResult:
         A collection of AS server administrators
         """
         return pulumi.get(self, "as_administrators")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupBlobContainerUri")
@@ -213,6 +224,7 @@ class AwaitableGetServerDetailsResult(GetServerDetailsResult):
             yield self
         return GetServerDetailsResult(
             as_administrators=self.as_administrators,
+            azure_api_version=self.azure_api_version,
             backup_blob_container_uri=self.backup_blob_container_uri,
             gateway_details=self.gateway_details,
             id=self.id,
@@ -238,8 +250,6 @@ def get_server_details(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2017-08-01.
 
-    Other available API versions: 2017-08-01-beta.
-
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
@@ -252,6 +262,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerDetailsResult(
         as_administrators=pulumi.get(__ret__, 'as_administrators'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup_blob_container_uri=pulumi.get(__ret__, 'backup_blob_container_uri'),
         gateway_details=pulumi.get(__ret__, 'gateway_details'),
         id=pulumi.get(__ret__, 'id'),
@@ -275,8 +286,6 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
 
     Uses Azure REST API version 2017-08-01.
 
-    Other available API versions: 2017-08-01-beta.
-
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
@@ -288,6 +297,7 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:analysisservices:getServerDetails', __args__, opts=opts, typ=GetServerDetailsResult)
     return __ret__.apply(lambda __response__: GetServerDetailsResult(
         as_administrators=pulumi.get(__response__, 'as_administrators'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup_blob_container_uri=pulumi.get(__response__, 'backup_blob_container_uri'),
         gateway_details=pulumi.get(__response__, 'gateway_details'),
         id=pulumi.get(__response__, 'id'),

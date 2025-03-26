@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// A common class for general resource information.
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource
@@ -42,6 +42,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("allowVirtualWanTraffic")]
         public Output<bool?> AllowVirtualWanTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Autoscale configuration for virutal network gateway
+        /// </summary>
+        [Output("autoScaleConfiguration")]
+        public Output<Outputs.VirtualNetworkGatewayAutoScaleConfigurationResponse?> AutoScaleConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Virtual network gateway's BGP speaker settings.
@@ -110,6 +122,12 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> GatewayType { get; private set; } = null!;
 
         /// <summary>
+        /// The identity of the virtual network gateway, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The IP address allocated by the gateway to which dns requests can be sent.
         /// </summary>
         [Output("inboundDnsForwardingEndpoint")]
@@ -144,6 +162,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        /// </summary>
+        [Output("resiliencyModel")]
+        public Output<string?> ResiliencyModel { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the virtual network gateway resource.
@@ -325,6 +349,12 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? AllowVirtualWanTraffic { get; set; }
 
         /// <summary>
+        /// Autoscale configuration for virutal network gateway
+        /// </summary>
+        [Input("autoScaleConfiguration")]
+        public Input<Inputs.VirtualNetworkGatewayAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
+
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
@@ -390,6 +420,12 @@ namespace Pulumi.AzureNative.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The identity of the virtual network gateway, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         [Input("ipConfigurations")]
         private InputList<Inputs.VirtualNetworkGatewayIPConfigurationArgs>? _ipConfigurations;
 
@@ -420,6 +456,12 @@ namespace Pulumi.AzureNative.Network
             get => _natRules ?? (_natRules = new InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>());
             set => _natRules = value;
         }
+
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        /// </summary>
+        [Input("resiliencyModel")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ResiliencyModel>? ResiliencyModel { get; set; }
 
         /// <summary>
         /// The name of the resource group.

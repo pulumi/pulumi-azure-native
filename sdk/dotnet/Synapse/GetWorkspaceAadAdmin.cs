@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceAadAdminResult> InvokeAsync(GetWorkspaceAadAdminArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceAadAdminResult>("azure-native:synapse:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceAadAdminResult> Invoke(GetWorkspaceAadAdminInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceAadAdminResult>("azure-native:synapse:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceAadAdminResult> Invoke(GetWorkspaceAadAdminInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceAadAdminResult>("azure-native:synapse:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string? AdministratorType;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Synapse
         private GetWorkspaceAadAdminResult(
             string? administratorType,
 
+            string azureApiVersion,
+
             string id,
 
             string? login,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNative.Synapse
             string type)
         {
             AdministratorType = administratorType;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Login = login;
             Name = name;

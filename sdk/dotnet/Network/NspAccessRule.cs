@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The NSP access rule resource
     /// 
-    /// Uses Azure REST API version 2021-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+    /// Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspAccessRule")]
     public partial class NspAccessRule : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("addressPrefixes")]
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Direction that specifies whether the access rules is inbound/outbound.
@@ -72,6 +78,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Inbound rules service tag names.
+        /// </summary>
+        [Output("serviceTags")]
+        public Output<ImmutableArray<string>> ServiceTags { get; private set; } = null!;
 
         /// <summary>
         /// List of subscription ids
@@ -238,6 +250,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("serviceTags")]
+        private InputList<string>? _serviceTags;
+
+        /// <summary>
+        /// Inbound rules service tag names.
+        /// </summary>
+        public InputList<string> ServiceTags
+        {
+            get => _serviceTags ?? (_serviceTags = new InputList<string>());
+            set => _serviceTags = value;
+        }
 
         [Input("subscriptions")]
         private InputList<Inputs.SubscriptionIdArgs>? _subscriptions;

@@ -27,10 +27,13 @@ class GetKustoPoolAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
     """
-    def __init__(__self__, attached_database_names=None, database_name=None, default_principals_modification_kind=None, id=None, kusto_pool_resource_id=None, location=None, name=None, provisioning_state=None, system_data=None, table_level_sharing_properties=None, type=None):
+    def __init__(__self__, attached_database_names=None, azure_api_version=None, database_name=None, default_principals_modification_kind=None, id=None, kusto_pool_resource_id=None, location=None, name=None, provisioning_state=None, system_data=None, table_level_sharing_properties=None, type=None):
         if attached_database_names and not isinstance(attached_database_names, list):
             raise TypeError("Expected argument 'attached_database_names' to be a list")
         pulumi.set(__self__, "attached_database_names", attached_database_names)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
@@ -69,6 +72,14 @@ class GetKustoPoolAttachedDatabaseConfigurationResult:
         The list of databases from the clusterResourceId which are currently attached to the kusto pool.
         """
         return pulumi.get(self, "attached_database_names")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -158,6 +169,7 @@ class AwaitableGetKustoPoolAttachedDatabaseConfigurationResult(GetKustoPoolAttac
             yield self
         return GetKustoPoolAttachedDatabaseConfigurationResult(
             attached_database_names=self.attached_database_names,
+            azure_api_version=self.azure_api_version,
             database_name=self.database_name,
             default_principals_modification_kind=self.default_principals_modification_kind,
             id=self.id,
@@ -196,6 +208,7 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
 
     return AwaitableGetKustoPoolAttachedDatabaseConfigurationResult(
         attached_database_names=pulumi.get(__ret__, 'attached_database_names'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         database_name=pulumi.get(__ret__, 'database_name'),
         default_principals_modification_kind=pulumi.get(__ret__, 'default_principals_modification_kind'),
         id=pulumi.get(__ret__, 'id'),
@@ -231,6 +244,7 @@ def get_kusto_pool_attached_database_configuration_output(attached_database_conf
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetKustoPoolAttachedDatabaseConfigurationResult)
     return __ret__.apply(lambda __response__: GetKustoPoolAttachedDatabaseConfigurationResult(
         attached_database_names=pulumi.get(__response__, 'attached_database_names'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         database_name=pulumi.get(__response__, 'database_name'),
         default_principals_modification_kind=pulumi.get(__response__, 'default_principals_modification_kind'),
         id=pulumi.get(__response__, 'id'),

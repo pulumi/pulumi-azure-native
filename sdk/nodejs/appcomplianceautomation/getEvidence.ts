@@ -36,6 +36,10 @@ export interface GetEvidenceArgs {
  */
 export interface GetEvidenceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Control id.
      */
     readonly controlId?: string;

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Data Manager For Agriculture ARM Resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  */
 export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataManagerForAgricultureResource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Identity for the resource.
      */
@@ -105,6 +109,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sensorIntegration"] = args ? args.sensorIntegration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceUri"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -125,7 +131,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20210901preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20230601preview:DataManagerForAgricultureResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20200512preview:FarmBeatsModel" }, { type: "azure-native:agfoodplatform/v20210901preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20210901preview:FarmBeatsModel" }, { type: "azure-native:agfoodplatform/v20230601preview:DataManagerForAgricultureResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataManagerForAgricultureResource.__pulumiType, name, resourceInputs, opts);
     }

@@ -318,7 +318,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         """
         Represents Anomaly Security ML Analytics Settings
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2022-05-01-preview.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -350,7 +350,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         """
         Represents Anomaly Security ML Analytics Settings
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2022-05-01-preview.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param AnomalySecurityMLAnalyticsSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -428,6 +428,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
@@ -459,6 +460,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
 
         __props__.__dict__["anomaly_settings_version"] = None
         __props__.__dict__["anomaly_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["customizable_observations"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -493,6 +495,14 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         The anomaly version of the AnomalySecurityMLAnalyticsSettings.
         """
         return pulumi.get(self, "anomaly_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customizableObservations")

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Batch
     /// <summary>
     /// An application package which represents a particular version of an application.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+    /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:ApplicationPackage")]
     public partial class ApplicationPackage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The ETag of the resource, used for concurrency statements.
         /// </summary>
@@ -60,6 +66,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("storageUrlExpiry")]
         public Output<string> StorageUrlExpiry { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -151,6 +163,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The version of the application.

@@ -36,6 +36,10 @@ export interface GetSecretSyncArgs {
  */
 export interface GetSecretSyncResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The complex type of the extended location.
      */
     readonly extendedLocation?: outputs.secretsynccontroller.AzureResourceManagerCommonTypesExtendedLocationResponse;

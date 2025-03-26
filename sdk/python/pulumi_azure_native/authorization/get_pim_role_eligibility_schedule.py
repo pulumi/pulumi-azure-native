@@ -27,10 +27,13 @@ class GetPimRoleEligibilityScheduleResult:
     """
     Role Eligibility schedule request
     """
-    def __init__(__self__, approval_id=None, condition=None, condition_version=None, created_on=None, expanded_properties=None, id=None, justification=None, name=None, principal_id=None, principal_type=None, request_type=None, requestor_id=None, role_definition_id=None, schedule_info=None, scope=None, status=None, target_role_eligibility_schedule_id=None, target_role_eligibility_schedule_instance_id=None, ticket_info=None, type=None):
+    def __init__(__self__, approval_id=None, azure_api_version=None, condition=None, condition_version=None, created_on=None, expanded_properties=None, id=None, justification=None, name=None, principal_id=None, principal_type=None, request_type=None, requestor_id=None, role_definition_id=None, schedule_info=None, scope=None, status=None, target_role_eligibility_schedule_id=None, target_role_eligibility_schedule_instance_id=None, ticket_info=None, type=None):
         if approval_id and not isinstance(approval_id, str):
             raise TypeError("Expected argument 'approval_id' to be a str")
         pulumi.set(__self__, "approval_id", approval_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if condition and not isinstance(condition, str):
             raise TypeError("Expected argument 'condition' to be a str")
         pulumi.set(__self__, "condition", condition)
@@ -96,6 +99,14 @@ class GetPimRoleEligibilityScheduleResult:
         The approvalId of the role eligibility schedule request.
         """
         return pulumi.get(self, "approval_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -257,6 +268,7 @@ class AwaitableGetPimRoleEligibilityScheduleResult(GetPimRoleEligibilitySchedule
             yield self
         return GetPimRoleEligibilityScheduleResult(
             approval_id=self.approval_id,
+            azure_api_version=self.azure_api_version,
             condition=self.condition,
             condition_version=self.condition_version,
             created_on=self.created_on,
@@ -298,6 +310,7 @@ def get_pim_role_eligibility_schedule(role_eligibility_schedule_request_name: Op
 
     return AwaitableGetPimRoleEligibilityScheduleResult(
         approval_id=pulumi.get(__ret__, 'approval_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         condition=pulumi.get(__ret__, 'condition'),
         condition_version=pulumi.get(__ret__, 'condition_version'),
         created_on=pulumi.get(__ret__, 'created_on'),
@@ -336,6 +349,7 @@ def get_pim_role_eligibility_schedule_output(role_eligibility_schedule_request_n
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPimRoleEligibilitySchedule', __args__, opts=opts, typ=GetPimRoleEligibilityScheduleResult)
     return __ret__.apply(lambda __response__: GetPimRoleEligibilityScheduleResult(
         approval_id=pulumi.get(__response__, 'approval_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         condition=pulumi.get(__response__, 'condition'),
         condition_version=pulumi.get(__response__, 'condition_version'),
         created_on=pulumi.get(__response__, 'created_on'),

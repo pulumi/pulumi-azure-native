@@ -28,10 +28,40 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         public InputUnion<string, Pulumi.AzureNative.Elastic.MonitoringStatus>? MonitoringStatus { get; set; }
 
         /// <summary>
+        /// Plan details of the monitor resource.
+        /// </summary>
+        [Input("planDetails")]
+        public Input<Inputs.PlanDetailsArgs>? PlanDetails { get; set; }
+
+        /// <summary>
         /// Provisioning state of the monitor resource.
         /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.Elastic.ProvisioningState>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Status of Azure Subscription where Marketplace SaaS is located.
+        /// </summary>
+        [Input("saaSAzureSubscriptionStatus")]
+        public Input<string>? SaaSAzureSubscriptionStatus { get; set; }
+
+        /// <summary>
+        /// A unique identifier associated with the campaign.
+        /// </summary>
+        [Input("sourceCampaignId")]
+        public Input<string>? SourceCampaignId { get; set; }
+
+        /// <summary>
+        /// Name of the marketing campaign.
+        /// </summary>
+        [Input("sourceCampaignName")]
+        public Input<string>? SourceCampaignName { get; set; }
+
+        /// <summary>
+        /// State of the Azure Subscription containing the monitor resource
+        /// </summary>
+        [Input("subscriptionState")]
+        public Input<string>? SubscriptionState { get; set; }
 
         /// <summary>
         /// User information.

@@ -102,9 +102,9 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
         """
         REST model used to encapsulate Private Link properties for tracked resources.
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,9 +122,9 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
         """
         REST model used to encapsulate Private Link properties for tracked resources.
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionControllerArgs args: The arguments to use to populate this resource's properties.
@@ -162,13 +162,14 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20230606:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:PrivateEndpointConnectionController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20200707:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20230606:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionController, __self__).__init__(
             'azure-native:offazure:PrivateEndpointConnectionController',
@@ -192,6 +193,7 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionControllerArgs.__new__(PrivateEndpointConnectionControllerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
@@ -200,6 +202,14 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnectionController(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")

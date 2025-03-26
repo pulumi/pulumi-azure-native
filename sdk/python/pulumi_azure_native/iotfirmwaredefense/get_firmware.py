@@ -27,7 +27,10 @@ class GetFirmwareResult:
     """
     Firmware definition
     """
-    def __init__(__self__, description=None, file_name=None, file_size=None, id=None, model=None, name=None, provisioning_state=None, status=None, status_messages=None, system_data=None, type=None, vendor=None, version=None):
+    def __init__(__self__, azure_api_version=None, description=None, file_name=None, file_size=None, id=None, model=None, name=None, provisioning_state=None, status=None, status_messages=None, system_data=None, type=None, vendor=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -69,6 +72,14 @@ class GetFirmwareResult:
         pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -96,7 +107,7 @@ class GetFirmwareResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -134,7 +145,7 @@ class GetFirmwareResult:
 
     @property
     @pulumi.getter(name="statusMessages")
-    def status_messages(self) -> Optional[Sequence[Any]]:
+    def status_messages(self) -> Optional[Sequence['outputs.StatusMessageResponse']]:
         """
         A list of errors or other messages generated during firmware analysis
         """
@@ -179,6 +190,7 @@ class AwaitableGetFirmwareResult(GetFirmwareResult):
         if False:
             yield self
         return GetFirmwareResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             file_name=self.file_name,
             file_size=self.file_size,
@@ -201,9 +213,9 @@ def get_firmware(firmware_id: Optional[str] = None,
     """
     Get firmware.
 
-    Uses Azure REST API version 2023-02-08-preview.
+    Uses Azure REST API version 2024-01-10.
 
-    Other available API versions: 2024-01-10, 2025-04-01-preview.
+    Other available API versions: 2023-02-08-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str firmware_id: The id of the firmware.
@@ -218,6 +230,7 @@ def get_firmware(firmware_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotfirmwaredefense:getFirmware', __args__, opts=opts, typ=GetFirmwareResult).value
 
     return AwaitableGetFirmwareResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         file_name=pulumi.get(__ret__, 'file_name'),
         file_size=pulumi.get(__ret__, 'file_size'),
@@ -238,9 +251,9 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[str]] = None,
     """
     Get firmware.
 
-    Uses Azure REST API version 2023-02-08-preview.
+    Uses Azure REST API version 2024-01-10.
 
-    Other available API versions: 2024-01-10, 2025-04-01-preview.
+    Other available API versions: 2023-02-08-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str firmware_id: The id of the firmware.
@@ -254,6 +267,7 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotfirmwaredefense:getFirmware', __args__, opts=opts, typ=GetFirmwareResult)
     return __ret__.apply(lambda __response__: GetFirmwareResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         file_name=pulumi.get(__response__, 'file_name'),
         file_size=pulumi.get(__response__, 'file_size'),

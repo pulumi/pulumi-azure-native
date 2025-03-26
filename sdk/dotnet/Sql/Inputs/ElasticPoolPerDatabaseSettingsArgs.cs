@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Sql.Inputs
     public sealed class ElasticPoolPerDatabaseSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Auto Pause Delay for per database within pool
+        /// </summary>
+        [Input("autoPauseDelay")]
+        public Input<int>? AutoPauseDelay { get; set; }
+
+        /// <summary>
         /// The maximum capacity any one database can consume.
         /// </summary>
         [Input("maxCapacity")]

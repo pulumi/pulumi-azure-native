@@ -12,25 +12,25 @@ namespace Pulumi.AzureNative.DataProtection
     public static class GetResourceGuard
     {
         /// <summary>
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetResourceGuardResult> InvokeAsync(GetResourceGuardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetResourceGuardResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Optional ETag.
         /// </summary>
         public readonly string? ETag;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.DataProtection
 
         [OutputConstructor]
         private GetResourceGuardResult(
+            string azureApiVersion,
+
             string? eTag,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DataProtection
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Location = location;

@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetActionRequestResult:
-    def __init__(__self__, creation_date=None, id=None, name=None, pre_release_access_request_spec=None, provisioning_state=None, request_type=None, status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_date=None, id=None, name=None, pre_release_access_request_spec=None, provisioning_state=None, request_type=None, status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -52,6 +55,14 @@ class GetActionRequestResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -120,6 +131,7 @@ class AwaitableGetActionRequestResult(GetActionRequestResult):
         if False:
             yield self
         return GetActionRequestResult(
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             id=self.id,
             name=self.name,
@@ -152,6 +164,7 @@ def get_action_request(action_request_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase:getActionRequest', __args__, opts=opts, typ=GetActionRequestResult).value
 
     return AwaitableGetActionRequestResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -181,6 +194,7 @@ def get_action_request_output(action_request_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getActionRequest', __args__, opts=opts, typ=GetActionRequestResult)
     return __ret__.apply(lambda __response__: GetActionRequestResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

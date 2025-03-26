@@ -9,14 +9,3 @@ from .employee import *
 from .get_employee import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.contoso.v20211001preview as __v20211001preview
-    v20211001preview = __v20211001preview
-    import pulumi_azure_native.contoso.v20211101 as __v20211101
-    v20211101 = __v20211101
-else:
-    v20211001preview = _utilities.lazy_import('pulumi_azure_native.contoso.v20211001preview')
-    v20211101 = _utilities.lazy_import('pulumi_azure_native.contoso.v20211101')
-

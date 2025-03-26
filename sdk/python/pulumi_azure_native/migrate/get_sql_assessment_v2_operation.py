@@ -27,13 +27,16 @@ class GetSqlAssessmentV2OperationResult:
     """
     SQL Assessment REST resource.
     """
-    def __init__(__self__, assessment_type=None, async_commit_mode_intent=None, azure_location=None, azure_offer_code=None, azure_offer_code_for_vm=None, azure_security_offering_type=None, azure_sql_database_settings=None, azure_sql_managed_instance_settings=None, azure_sql_vm_settings=None, confidence_rating_in_percentage=None, created_timestamp=None, currency=None, disaster_recovery_location=None, discount_percentage=None, ea_subscription_id=None, enable_hadr_assessment=None, entity_uptime=None, environment_type=None, group_type=None, id=None, is_internet_access_available=None, multi_subnet_intent=None, name=None, optimization_logic=None, os_license=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, reserved_instance=None, reserved_instance_for_vm=None, scaling_factor=None, schema_version=None, sizing_criterion=None, sql_server_license=None, stage=None, status=None, system_data=None, time_range=None, type=None, updated_timestamp=None):
+    def __init__(__self__, assessment_type=None, async_commit_mode_intent=None, azure_api_version=None, azure_location=None, azure_offer_code=None, azure_offer_code_for_vm=None, azure_security_offering_type=None, azure_sql_database_settings=None, azure_sql_managed_instance_settings=None, azure_sql_vm_settings=None, confidence_rating_in_percentage=None, created_timestamp=None, currency=None, disaster_recovery_location=None, discount_percentage=None, ea_subscription_id=None, enable_hadr_assessment=None, entity_uptime=None, environment_type=None, group_type=None, id=None, is_internet_access_available=None, multi_subnet_intent=None, name=None, optimization_logic=None, os_license=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, reserved_instance=None, reserved_instance_for_vm=None, scaling_factor=None, schema_version=None, sizing_criterion=None, sql_server_license=None, stage=None, status=None, system_data=None, time_range=None, type=None, updated_timestamp=None):
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
         if async_commit_mode_intent and not isinstance(async_commit_mode_intent, str):
             raise TypeError("Expected argument 'async_commit_mode_intent' to be a str")
         pulumi.set(__self__, "async_commit_mode_intent", async_commit_mode_intent)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_location and not isinstance(azure_location, str):
             raise TypeError("Expected argument 'azure_location' to be a str")
         pulumi.set(__self__, "azure_location", azure_location)
@@ -170,6 +173,14 @@ class GetSqlAssessmentV2OperationResult:
         Gets or sets user preference indicating intent of async commit mode.
         """
         return pulumi.get(self, "async_commit_mode_intent")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureLocation")
@@ -313,7 +324,7 @@ class GetSqlAssessmentV2OperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -505,6 +516,7 @@ class AwaitableGetSqlAssessmentV2OperationResult(GetSqlAssessmentV2OperationResu
         return GetSqlAssessmentV2OperationResult(
             assessment_type=self.assessment_type,
             async_commit_mode_intent=self.async_commit_mode_intent,
+            azure_api_version=self.azure_api_version,
             azure_location=self.azure_location,
             azure_offer_code=self.azure_offer_code,
             azure_offer_code_for_vm=self.azure_offer_code_for_vm,
@@ -555,9 +567,9 @@ def get_sql_assessment_v2_operation(assessment_name: Optional[str] = None,
     """
     Get a SqlAssessmentV2
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: SQL Assessment arm name.
@@ -576,6 +588,7 @@ def get_sql_assessment_v2_operation(assessment_name: Optional[str] = None,
     return AwaitableGetSqlAssessmentV2OperationResult(
         assessment_type=pulumi.get(__ret__, 'assessment_type'),
         async_commit_mode_intent=pulumi.get(__ret__, 'async_commit_mode_intent'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_location=pulumi.get(__ret__, 'azure_location'),
         azure_offer_code=pulumi.get(__ret__, 'azure_offer_code'),
         azure_offer_code_for_vm=pulumi.get(__ret__, 'azure_offer_code_for_vm'),
@@ -624,9 +637,9 @@ def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Inpu
     """
     Get a SqlAssessmentV2
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: SQL Assessment arm name.
@@ -644,6 +657,7 @@ def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Inpu
     return __ret__.apply(lambda __response__: GetSqlAssessmentV2OperationResult(
         assessment_type=pulumi.get(__response__, 'assessment_type'),
         async_commit_mode_intent=pulumi.get(__response__, 'async_commit_mode_intent'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_location=pulumi.get(__response__, 'azure_location'),
         azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
         azure_offer_code_for_vm=pulumi.get(__response__, 'azure_offer_code_for_vm'),

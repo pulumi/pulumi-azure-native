@@ -27,10 +27,13 @@ class GetClusterResult:
     """
     The top level Log Analytics cluster resource container.
     """
-    def __init__(__self__, associated_workspaces=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, id=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, associated_workspaces=None, azure_api_version=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, id=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
         if associated_workspaces and not isinstance(associated_workspaces, list):
             raise TypeError("Expected argument 'associated_workspaces' to be a list")
         pulumi.set(__self__, "associated_workspaces", associated_workspaces)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if billing_type and not isinstance(billing_type, str):
             raise TypeError("Expected argument 'billing_type' to be a str")
         pulumi.set(__self__, "billing_type", billing_type)
@@ -89,6 +92,14 @@ class GetClusterResult:
         return pulumi.get(self, "associated_workspaces")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="billingType")
     def billing_type(self) -> Optional[str]:
         """
@@ -130,9 +141,9 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        The identity of the resource.
+        Resource's identity.
         """
         return pulumi.get(self, "identity")
 
@@ -224,6 +235,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             yield self
         return GetClusterResult(
             associated_workspaces=self.associated_workspaces,
+            azure_api_version=self.azure_api_version,
             billing_type=self.billing_type,
             capacity_reservation_properties=self.capacity_reservation_properties,
             cluster_id=self.cluster_id,
@@ -248,9 +260,9 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     Gets a Log Analytics cluster instance.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
+    Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.
@@ -264,6 +276,7 @@ def get_cluster(cluster_name: Optional[str] = None,
 
     return AwaitableGetClusterResult(
         associated_workspaces=pulumi.get(__ret__, 'associated_workspaces'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         billing_type=pulumi.get(__ret__, 'billing_type'),
         capacity_reservation_properties=pulumi.get(__ret__, 'capacity_reservation_properties'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
@@ -286,9 +299,9 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Log Analytics cluster instance.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
+    Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.
@@ -301,6 +314,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         associated_workspaces=pulumi.get(__response__, 'associated_workspaces'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         billing_type=pulumi.get(__response__, 'billing_type'),
         capacity_reservation_properties=pulumi.get(__response__, 'capacity_reservation_properties'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),

@@ -27,7 +27,10 @@ class GetVirtualMachineInstanceResult:
     """
     Define the virtualMachineInstance.
     """
-    def __init__(__self__, extended_location=None, hardware_profile=None, id=None, infrastructure_profile=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_uid=None, security_profile=None, statuses=None, storage_profile=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, hardware_profile=None, id=None, infrastructure_profile=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_uid=None, security_profile=None, statuses=None, storage_profile=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -76,6 +79,14 @@ class GetVirtualMachineInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -212,6 +223,7 @@ class AwaitableGetVirtualMachineInstanceResult(GetVirtualMachineInstanceResult):
         if False:
             yield self
         return GetVirtualMachineInstanceResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             hardware_profile=self.hardware_profile,
             id=self.id,
@@ -235,9 +247,9 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
     """
     Retrieves information about a virtual machine instance.
 
-    Uses Azure REST API version 2023-03-01-preview.
+    Uses Azure REST API version 2023-12-01.
 
-    Other available API versions: 2023-10-01, 2023-12-01.
+    Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -248,6 +260,7 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult).value
 
     return AwaitableGetVirtualMachineInstanceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
         id=pulumi.get(__ret__, 'id'),
@@ -269,9 +282,9 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
     """
     Retrieves information about a virtual machine instance.
 
-    Uses Azure REST API version 2023-03-01-preview.
+    Uses Azure REST API version 2023-12-01.
 
-    Other available API versions: 2023-10-01, 2023-12-01.
+    Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -281,6 +294,7 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineInstanceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         hardware_profile=pulumi.get(__response__, 'hardware_profile'),
         id=pulumi.get(__response__, 'id'),

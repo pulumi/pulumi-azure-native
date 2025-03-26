@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.SerialConsole
     public sealed class GetSerialPortResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.SerialConsole
 
         [OutputConstructor]
         private GetSerialPortResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.SerialConsole
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             State = state;

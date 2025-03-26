@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AlertType;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Any comment regarding the rule
         /// </summary>
         public readonly string? Comment;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.Security
         private GetAlertsSuppressionRuleResult(
             string alertType,
 
+            string azureApiVersion,
+
             string? comment,
 
             string? expirationDateUtc,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AlertType = alertType;
+            AzureApiVersion = azureApiVersion;
             Comment = comment;
             ExpirationDateUtc = expirationDateUtc;
             Id = id;

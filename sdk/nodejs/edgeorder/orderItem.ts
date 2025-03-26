@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents order item resource.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OrderItem extends pulumi.CustomResource {
     /**
@@ -44,7 +44,15 @@ export class OrderItem extends pulumi.CustomResource {
     /**
      * Represents shipping and return address for order item.
      */
-    public readonly addressDetails!: pulumi.Output<outputs.edgeorder.AddressDetailsResponse>;
+    public readonly addressDetails!: pulumi.Output<outputs.edgeorder.AddressDetailsResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Msi identity of the resource
+     */
+    public readonly identity!: pulumi.Output<outputs.edgeorder.ResourceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -62,11 +70,15 @@ export class OrderItem extends pulumi.CustomResource {
      */
     public readonly orderItemDetails!: pulumi.Output<outputs.edgeorder.OrderItemDetailsResponse>;
     /**
+     * Provisioning state
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
      * Start time of order item.
      */
     public /*out*/ readonly startTime!: pulumi.Output<string>;
     /**
-     * Represents resource creation and update time.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.edgeorder.SystemDataResponse>;
     /**
@@ -89,9 +101,6 @@ export class OrderItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressDetails'");
-            }
             if ((!args || args.orderId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'orderId'");
             }
@@ -102,29 +111,35 @@ export class OrderItem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addressDetails"] = args ? args.addressDetails : undefined;
+            resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.edgeorder.resourceIdentityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["orderId"] = args ? args.orderId : undefined;
-            resourceInputs["orderItemDetails"] = args ? args.orderItemDetails : undefined;
+            resourceInputs["orderItemDetails"] = args ? (args.orderItemDetails ? pulumi.output(args.orderItemDetails).apply(inputs.edgeorder.orderItemDetailsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["orderItemName"] = args ? args.orderItemName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["addressDetails"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["orderId"] = undefined /*out*/;
             resourceInputs["orderItemDetails"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItem" }, { type: "azure-native:edgeorder/v20220501preview:OrderItem" }, { type: "azure-native:edgeorder/v20240201:OrderItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItemByName" }, { type: "azure-native:edgeorder/v20220501preview:OrderItem" }, { type: "azure-native:edgeorder/v20240201:OrderItem" }, { type: "azure-native:edgeorder:OrderItemByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrderItem.__pulumiType, name, resourceInputs, opts);
     }
@@ -137,7 +152,11 @@ export interface OrderItemArgs {
     /**
      * Represents shipping and return address for order item.
      */
-    addressDetails: pulumi.Input<inputs.edgeorder.AddressDetailsArgs>;
+    addressDetails?: pulumi.Input<inputs.edgeorder.AddressDetailsArgs>;
+    /**
+     * Msi identity of the resource
+     */
+    identity?: pulumi.Input<inputs.edgeorder.ResourceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

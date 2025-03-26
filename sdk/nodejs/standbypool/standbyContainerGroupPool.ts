@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A StandbyContainerGroupPoolResource.
  *
- * Uses Azure REST API version 2023-12-01-preview.
+ * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
+ * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StandbyContainerGroupPool extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandbyContainerGroupPool.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies container group properties of standby container group pools.
      */
@@ -100,11 +104,13 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["standbyContainerGroupPoolName"] = args ? args.standbyContainerGroupPoolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerGroupProperties"] = undefined /*out*/;
             resourceInputs["elasticityProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

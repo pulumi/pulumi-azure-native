@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
         /// 
-        /// Uses Azure REST API version 2022-03-30-preview.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListSqlMigrationServiceMonitoringDataResult> InvokeAsync(ListSqlMigrationServiceMonitoringDataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
         /// 
-        /// Uses Azure REST API version 2022-03-30-preview.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
         /// 
-        /// Uses Azure REST API version 2022-03-30-preview.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());

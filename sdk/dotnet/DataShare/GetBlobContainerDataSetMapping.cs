@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetBlobContainerDataSetMappingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// BLOB Container name.
         /// </summary>
         public readonly string ContainerName;
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetBlobContainerDataSetMappingResult(
+            string azureApiVersion,
+
             string containerName,
 
             string dataSetId,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ContainerName = containerName;
             DataSetId = dataSetId;
             DataSetMappingStatus = dataSetMappingStatus;

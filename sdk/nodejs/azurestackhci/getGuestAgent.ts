@@ -10,32 +10,22 @@ import * as utilities from "../utilities";
 /**
  * Implements GuestAgent GET method.
  *
- * Uses Azure REST API version 2022-12-15-preview.
+ * Uses Azure REST API version 2025-02-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getGuestAgent", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
+        "resourceUri": args.resourceUri,
     }, opts);
 }
 
 export interface GetGuestAgentArgs {
     /**
-     * Name of the GuestAgent.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
-    name: string;
-    /**
-     * The name of the resource group. The name is case insensitive.
-     */
-    resourceGroupName: string;
-    /**
-     * Name of the vm.
-     */
-    virtualMachineName: string;
+    resourceUri: string;
 }
 
 /**
@@ -43,15 +33,15 @@ export interface GetGuestAgentArgs {
  */
 export interface GetGuestAgentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Username / Password Credentials to provision guest agent.
      */
     readonly credentials?: outputs.azurestackhci.GuestCredentialResponse;
     /**
-     * HTTP Proxy configuration for the VM.
-     */
-    readonly httpProxyConfig?: outputs.azurestackhci.HttpProxyConfigurationResponse;
-    /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -63,7 +53,7 @@ export interface GetGuestAgentResult {
      */
     readonly provisioningAction?: string;
     /**
-     * The provisioning state.
+     * Provisioning state of the virtual machine instance.
      */
     readonly provisioningState: string;
     /**
@@ -82,30 +72,20 @@ export interface GetGuestAgentResult {
 /**
  * Implements GuestAgent GET method.
  *
- * Uses Azure REST API version 2022-12-15-preview.
+ * Uses Azure REST API version 2025-02-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getGuestAgent", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
+        "resourceUri": args.resourceUri,
     }, opts);
 }
 
 export interface GetGuestAgentOutputArgs {
     /**
-     * Name of the GuestAgent.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
-    name: pulumi.Input<string>;
-    /**
-     * The name of the resource group. The name is case insensitive.
-     */
-    resourceGroupName: pulumi.Input<string>;
-    /**
-     * Name of the vm.
-     */
-    virtualMachineName: pulumi.Input<string>;
+    resourceUri: pulumi.Input<string>;
 }

@@ -49,23 +49,6 @@ utilities.lazyLoad(exports, ["TrafficControllerInterface"], () => require("./tra
 // Export enums:
 export * from "../types/enums/servicenetworking";
 
-// Export sub-modules:
-import * as v20221001preview from "./v20221001preview";
-import * as v20230501preview from "./v20230501preview";
-import * as v20231101 from "./v20231101";
-import * as v20240501preview from "./v20240501preview";
-import * as v20250101 from "./v20250101";
-import * as v20250301preview from "./v20250301preview";
-
-export {
-    v20221001preview,
-    v20230501preview,
-    v20231101,
-    v20240501preview,
-    v20250101,
-    v20250301preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.CustomerInsights
     public sealed class GetConnectorMappingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The connector mapping name
         /// </summary>
         public readonly string ConnectorMappingName;
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNative.CustomerInsights
 
         [OutputConstructor]
         private GetConnectorMappingResult(
+            string azureApiVersion,
+
             string connectorMappingName,
 
             string connectorName,
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectorMappingName = connectorMappingName;
             ConnectorName = connectorName;
             ConnectorType = connectorType;

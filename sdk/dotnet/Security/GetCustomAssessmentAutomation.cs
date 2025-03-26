@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? AssessmentKey;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// GZip encoded KQL query representing the assessment automation results required.
         /// </summary>
         public readonly string? CompressedQuery;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.Security
         private GetCustomAssessmentAutomationResult(
             string? assessmentKey,
 
+            string azureApiVersion,
+
             string? compressedQuery,
 
             string? description,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AssessmentKey = assessmentKey;
+            AzureApiVersion = azureApiVersion;
             CompressedQuery = compressedQuery;
             Description = description;
             DisplayName = displayName;

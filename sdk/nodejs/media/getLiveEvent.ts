@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-11-01.
  *
- * Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+ * Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetLiveEventArgs {
  * The live event.
  */
 export interface GetLiveEventResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The creation time for the live event
      */
@@ -124,7 +128,7 @@ export interface GetLiveEventResult {
  *
  * Uses Azure REST API version 2022-11-01.
  *
- * Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+ * Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

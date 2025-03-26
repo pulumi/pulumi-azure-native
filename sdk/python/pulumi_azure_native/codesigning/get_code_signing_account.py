@@ -27,10 +27,13 @@ class GetCodeSigningAccountResult:
     """
     Trusted signing account resource.
     """
-    def __init__(__self__, account_uri=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_uri=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if account_uri and not isinstance(account_uri, str):
             raise TypeError("Expected argument 'account_uri' to be a str")
         pulumi.set(__self__, "account_uri", account_uri)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -63,6 +66,14 @@ class GetCodeSigningAccountResult:
         The URI of the trusted signing account which is used during signing files.
         """
         return pulumi.get(self, "account_uri")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetCodeSigningAccountResult(GetCodeSigningAccountResult):
             yield self
         return GetCodeSigningAccountResult(
             account_uri=self.account_uri,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -152,9 +164,9 @@ def get_code_signing_account(account_name: Optional[str] = None,
     """
     Get a trusted Signing Account.
 
-    Uses Azure REST API version 2024-02-05-preview.
+    Uses Azure REST API version 2024-09-30-preview.
 
-    Other available API versions: 2024-09-30-preview.
+    Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Trusted Signing account name.
@@ -168,6 +180,7 @@ def get_code_signing_account(account_name: Optional[str] = None,
 
     return AwaitableGetCodeSigningAccountResult(
         account_uri=pulumi.get(__ret__, 'account_uri'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -182,9 +195,9 @@ def get_code_signing_account_output(account_name: Optional[pulumi.Input[str]] = 
     """
     Get a trusted Signing Account.
 
-    Uses Azure REST API version 2024-02-05-preview.
+    Uses Azure REST API version 2024-09-30-preview.
 
-    Other available API versions: 2024-09-30-preview.
+    Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Trusted Signing account name.
@@ -197,6 +210,7 @@ def get_code_signing_account_output(account_name: Optional[pulumi.Input[str]] = 
     __ret__ = pulumi.runtime.invoke_output('azure-native:codesigning:getCodeSigningAccount', __args__, opts=opts, typ=GetCodeSigningAccountResult)
     return __ret__.apply(lambda __response__: GetCodeSigningAccountResult(
         account_uri=pulumi.get(__response__, 'account_uri'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

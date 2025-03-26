@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// The policy set definition.
     /// 
-    /// Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
-    /// Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
+    /// Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicySetDefinitionAtManagementGroup")]
     public partial class PolicySetDefinitionAtManagementGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The policy set definition description.
         /// </summary>
@@ -62,7 +68,7 @@ namespace Pulumi.AzureNative.Authorization
         public Output<ImmutableArray<Outputs.PolicyDefinitionReferenceResponse>> PolicyDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        /// The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
         [Output("policyType")]
         public Output<string?> PolicyType { get; private set; } = null!;
@@ -78,6 +84,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The policy set definition version in #.#.# format.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of available versions for this policy set definition.
+        /// </summary>
+        [Output("versions")]
+        public Output<ImmutableArray<string>> Versions { get; private set; } = null!;
 
 
         /// <summary>
@@ -207,10 +225,28 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? PolicySetDefinitionName { get; set; }
 
         /// <summary>
-        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        /// The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
         [Input("policyType")]
         public InputUnion<string, Pulumi.AzureNative.Authorization.PolicyType>? PolicyType { get; set; }
+
+        /// <summary>
+        /// The policy set definition version in #.#.# format.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        [Input("versions")]
+        private InputList<string>? _versions;
+
+        /// <summary>
+        /// A list of available versions for this policy set definition.
+        /// </summary>
+        public InputList<string> Versions
+        {
+            get => _versions ?? (_versions = new InputList<string>());
+            set => _versions = value;
+        }
 
         public PolicySetDefinitionAtManagementGroupArgs()
         {

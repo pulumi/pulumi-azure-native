@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a Group
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGroupsOperation(args: GetGroupsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +51,10 @@ export interface GetGroupsOperationResult {
      */
     readonly assessments: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Time when this group was created. Date-Time represented in ISO-8601 format.
      */
     readonly createdTimestamp: string;
@@ -63,7 +67,7 @@ export interface GetGroupsOperationResult {
      */
     readonly groupType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -98,9 +102,9 @@ export interface GetGroupsOperationResult {
 /**
  * Get a Group
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGroupsOperationOutput(args: GetGroupsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

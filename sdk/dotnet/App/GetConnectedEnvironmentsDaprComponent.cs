@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr Component.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConnectedEnvironmentsDaprComponentResult> InvokeAsync(GetConnectedEnvironmentsDaprComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr Component.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr Component.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetConnectedEnvironmentsDaprComponentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Component type
         /// </summary>
         public readonly string? ComponentType;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetConnectedEnvironmentsDaprComponentResult(
+            string azureApiVersion,
+
             string? componentType,
 
             string id,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.App
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             ComponentType = componentType;
             Id = id;
             IgnoreErrors = ignoreErrors;

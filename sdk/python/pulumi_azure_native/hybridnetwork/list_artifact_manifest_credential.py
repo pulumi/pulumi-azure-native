@@ -57,9 +57,9 @@ def list_artifact_manifest_credential(artifact_manifest_name: Optional[str] = No
     """
     List credential for publishing artifacts defined in artifact manifest.
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str artifact_manifest_name: The name of the artifact manifest.
@@ -85,9 +85,9 @@ def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pu
     """
     List credential for publishing artifacts defined in artifact manifest.
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str artifact_manifest_name: The name of the artifact manifest.

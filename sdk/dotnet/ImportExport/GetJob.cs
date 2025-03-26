@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ImportExport
     public sealed class GetJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the resource identifier of the job.
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.ImportExport
 
         [OutputConstructor]
         private GetJobResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityDetailsResponse? identity,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.ImportExport
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

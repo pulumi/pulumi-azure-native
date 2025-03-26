@@ -27,10 +27,13 @@ class GetArchiveVersionResult:
     """
     An object that represents an export pipeline for a container registry.
     """
-    def __init__(__self__, archive_version_error_message=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, archive_version_error_message=None, azure_api_version=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if archive_version_error_message and not isinstance(archive_version_error_message, str):
             raise TypeError("Expected argument 'archive_version_error_message' to be a str")
         pulumi.set(__self__, "archive_version_error_message", archive_version_error_message)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetArchiveVersionResult:
         The detailed error message for the archive version in the case of failure.
         """
         return pulumi.get(self, "archive_version_error_message")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetArchiveVersionResult(GetArchiveVersionResult):
             yield self
         return GetArchiveVersionResult(
             archive_version_error_message=self.archive_version_error_message,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -119,9 +131,9 @@ def get_archive_version(archive_name: Optional[str] = None,
     """
     Gets the properties of the archive version.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str archive_name: The name of the archive resource.
@@ -141,6 +153,7 @@ def get_archive_version(archive_name: Optional[str] = None,
 
     return AwaitableGetArchiveVersionResult(
         archive_version_error_message=pulumi.get(__ret__, 'archive_version_error_message'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -155,9 +168,9 @@ def get_archive_version_output(archive_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the archive version.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str archive_name: The name of the archive resource.
@@ -176,6 +189,7 @@ def get_archive_version_output(archive_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getArchiveVersion', __args__, opts=opts, typ=GetArchiveVersionResult)
     return __ret__.apply(lambda __response__: GetArchiveVersionResult(
         archive_version_error_message=pulumi.get(__response__, 'archive_version_error_message'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

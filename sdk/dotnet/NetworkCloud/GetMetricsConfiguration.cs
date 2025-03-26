@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get metrics configuration of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMetricsConfigurationResult> InvokeAsync(GetMetricsConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricsConfigurationResult>("azure-native:networkcloud:getMetricsConfiguration", args ?? new GetMetricsConfigurationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get metrics configuration of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMetricsConfigurationResult> Invoke(GetMetricsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsConfigurationResult>("azure-native:networkcloud:getMetricsConfiguration", args ?? new GetMetricsConfigurationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get metrics configuration of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMetricsConfigurationResult> Invoke(GetMetricsConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsConfigurationResult>("azure-native:networkcloud:getMetricsConfiguration", args ?? new GetMetricsConfigurationInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetMetricsConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The interval in minutes by which metrics will be collected.
         /// </summary>
         public readonly double CollectionInterval;
@@ -119,6 +123,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
         /// </summary>
         public readonly ImmutableArray<string> EnabledMetrics;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -154,6 +162,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
         [OutputConstructor]
         private GetMetricsConfigurationResult(
+            string azureApiVersion,
+
             double collectionInterval,
 
             string detailedStatus,
@@ -163,6 +173,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<string> disabledMetrics,
 
             ImmutableArray<string> enabledMetrics,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -180,11 +192,13 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CollectionInterval = collectionInterval;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
             DisabledMetrics = disabledMetrics;
             EnabledMetrics = enabledMetrics;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

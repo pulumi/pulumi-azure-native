@@ -66,9 +66,9 @@ def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] =
     """
     Lists the available Service Providers for creating Connection Settings
 
-    Uses Azure REST API version 2022-09-15.
+    Uses Azure REST API version 2023-09-15-preview.
 
-    Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2023-09-15-preview.
+    Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -81,9 +81,9 @@ def list_bot_connection_service_providers_output(opts: Optional[Union[pulumi.Inv
     """
     Lists the available Service Providers for creating Connection Settings
 
-    Uses Azure REST API version 2022-09-15.
+    Uses Azure REST API version 2023-09-15-preview.
 
-    Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2023-09-15-preview.
+    Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

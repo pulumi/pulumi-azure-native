@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Response for ElasticSan request.
  *
- * Uses Azure REST API version 2021-11-20-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-20-preview.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ElasticSan extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class ElasticSan extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Base size of the Elastic San appliance in TiB.
      */
     public readonly baseSizeTiB!: pulumi.Output<number>;
@@ -54,27 +58,35 @@ export class ElasticSan extends pulumi.CustomResource {
      */
     public readonly extendedCapacitySizeTiB!: pulumi.Output<number>;
     /**
-     * The geo-location where the resource lives.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Azure resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The list of Private Endpoint Connections.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.elasticsan.PrivateEndpointConnectionResponse[]>;
     /**
      * State of the operation on the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * resource sku
      */
     public readonly sku!: pulumi.Output<outputs.elasticsan.SkuResponse>;
     /**
-     * Resource metadata required by ARM RPC
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -94,7 +106,7 @@ export class ElasticSan extends pulumi.CustomResource {
      */
     public /*out*/ readonly totalVolumeSizeGiB!: pulumi.Output<number>;
     /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -130,10 +142,13 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
             resourceInputs["extendedCapacitySizeTiB"] = args ? args.extendedCapacitySizeTiB : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalIops"] = undefined /*out*/;
@@ -144,11 +159,14 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["baseSizeTiB"] = undefined /*out*/;
             resourceInputs["extendedCapacitySizeTiB"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -187,9 +205,13 @@ export interface ElasticSanArgs {
      */
     extendedCapacitySizeTiB: pulumi.Input<number>;
     /**
-     * The geo-location where the resource lives.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.elasticsan.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -199,7 +221,7 @@ export interface ElasticSanArgs {
      */
     sku: pulumi.Input<inputs.elasticsan.SkuArgs>;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

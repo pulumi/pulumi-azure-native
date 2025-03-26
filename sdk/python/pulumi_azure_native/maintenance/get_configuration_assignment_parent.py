@@ -27,7 +27,13 @@ class GetConfigurationAssignmentParentResult:
     """
     Configuration Assignment
     """
-    def __init__(__self__, id=None, location=None, maintenance_configuration_id=None, name=None, resource_id=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, filter=None, id=None, location=None, maintenance_configuration_id=None, name=None, resource_id=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if filter and not isinstance(filter, dict):
+            raise TypeError("Expected argument 'filter' to be a dict")
+        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +55,22 @@ class GetConfigurationAssignmentParentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.ConfigurationAssignmentFilterPropertiesResponse']:
+        """
+        Properties of the configuration assignment
+        """
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -113,6 +135,8 @@ class AwaitableGetConfigurationAssignmentParentResult(GetConfigurationAssignment
         if False:
             yield self
         return GetConfigurationAssignmentParentResult(
+            azure_api_version=self.azure_api_version,
+            filter=self.filter,
             id=self.id,
             location=self.location,
             maintenance_configuration_id=self.maintenance_configuration_id,
@@ -131,11 +155,11 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
                                         resource_type: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentParentResult:
     """
-    Get configuration for resource.
+    Get configuration assignment for resource..
 
-    Uses Azure REST API version 2022-11-01-preview.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -158,6 +182,8 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:maintenance:getConfigurationAssignmentParent', __args__, opts=opts, typ=GetConfigurationAssignmentParentResult).value
 
     return AwaitableGetConfigurationAssignmentParentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         maintenance_configuration_id=pulumi.get(__ret__, 'maintenance_configuration_id'),
@@ -174,11 +200,11 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
                                                resource_type: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentParentResult]:
     """
-    Get configuration for resource.
+    Get configuration assignment for resource..
 
-    Uses Azure REST API version 2022-11-01-preview.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -200,6 +226,8 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getConfigurationAssignmentParent', __args__, opts=opts, typ=GetConfigurationAssignmentParentResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentParentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),

@@ -27,10 +27,13 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource.
     """
-    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, encryption=None, etag=None, extended_location=None, flow_logs=None, flow_timeout_in_minutes=None, id=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
+    def __init__(__self__, address_space=None, azure_api_version=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, encryption=None, etag=None, extended_location=None, flow_logs=None, flow_timeout_in_minutes=None, id=None, ip_allocations=None, location=None, name=None, private_endpoint_v_net_policies=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         pulumi.set(__self__, "address_space", address_space)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bgp_communities and not isinstance(bgp_communities, dict):
             raise TypeError("Expected argument 'bgp_communities' to be a dict")
         pulumi.set(__self__, "bgp_communities", bgp_communities)
@@ -73,6 +76,9 @@ class GetVirtualNetworkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_v_net_policies and not isinstance(private_endpoint_v_net_policies, str):
+            raise TypeError("Expected argument 'private_endpoint_v_net_policies' to be a str")
+        pulumi.set(__self__, "private_endpoint_v_net_policies", private_endpoint_v_net_policies)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -99,6 +105,14 @@ class GetVirtualNetworkResult:
         The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         """
         return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpCommunities")
@@ -213,6 +227,14 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointVNetPolicies")
+    def private_endpoint_v_net_policies(self) -> Optional[str]:
+        """
+        Private Endpoint VNet Policies.
+        """
+        return pulumi.get(self, "private_endpoint_v_net_policies")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -268,6 +290,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             yield self
         return GetVirtualNetworkResult(
             address_space=self.address_space,
+            azure_api_version=self.azure_api_version,
             bgp_communities=self.bgp_communities,
             ddos_protection_plan=self.ddos_protection_plan,
             dhcp_options=self.dhcp_options,
@@ -282,6 +305,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             ip_allocations=self.ip_allocations,
             location=self.location,
             name=self.name,
+            private_endpoint_v_net_policies=self.private_endpoint_v_net_policies,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
             subnets=self.subnets,
@@ -297,9 +321,9 @@ def get_virtual_network(expand: Optional[str] = None,
     """
     Gets the specified virtual network by resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -315,6 +339,7 @@ def get_virtual_network(expand: Optional[str] = None,
 
     return AwaitableGetVirtualNetworkResult(
         address_space=pulumi.get(__ret__, 'address_space'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bgp_communities=pulumi.get(__ret__, 'bgp_communities'),
         ddos_protection_plan=pulumi.get(__ret__, 'ddos_protection_plan'),
         dhcp_options=pulumi.get(__ret__, 'dhcp_options'),
@@ -329,6 +354,7 @@ def get_virtual_network(expand: Optional[str] = None,
         ip_allocations=pulumi.get(__ret__, 'ip_allocations'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        private_endpoint_v_net_policies=pulumi.get(__ret__, 'private_endpoint_v_net_policies'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         subnets=pulumi.get(__ret__, 'subnets'),
@@ -342,9 +368,9 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     """
     Gets the specified virtual network by resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -359,6 +385,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
         address_space=pulumi.get(__response__, 'address_space'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bgp_communities=pulumi.get(__response__, 'bgp_communities'),
         ddos_protection_plan=pulumi.get(__response__, 'ddos_protection_plan'),
         dhcp_options=pulumi.get(__response__, 'dhcp_options'),
@@ -373,6 +400,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
         ip_allocations=pulumi.get(__response__, 'ip_allocations'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        private_endpoint_v_net_policies=pulumi.get(__response__, 'private_endpoint_v_net_policies'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),
         subnets=pulumi.get(__response__, 'subnets'),

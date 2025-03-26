@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// Route Policy Statement properties..
+    /// Route Policy Statement properties.
     /// </summary>
     [OutputType]
     public sealed class RoutePolicyStatementPropertiesResponse

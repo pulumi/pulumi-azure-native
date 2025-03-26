@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided virtual machine.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetVirtualMachineResult {
      */
     readonly availabilityZone: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID of the bare metal machine that hosts the virtual machine.
      */
     readonly bareMetalMachineId: string;
@@ -59,6 +63,10 @@ export interface GetVirtualMachineResult {
      */
     readonly clusterId: string;
     /**
+     * The extended location to use for creation of a VM console resource.
+     */
+    readonly consoleExtendedLocation?: outputs.networkcloud.ExtendedLocationResponse;
+    /**
      * The number of CPU cores in the virtual machine.
      */
     readonly cpuCores: number;
@@ -70,6 +78,10 @@ export interface GetVirtualMachineResult {
      * The descriptive message about the current detailed status.
      */
     readonly detailedStatusMessage: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -87,7 +99,7 @@ export interface GetVirtualMachineResult {
      */
     readonly location: string;
     /**
-     * The memory size of the virtual machine in GB.
+     * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
     readonly memorySizeGB: number;
     /**
@@ -162,9 +174,9 @@ export interface GetVirtualMachineResult {
 /**
  * Get properties of the provided virtual machine.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

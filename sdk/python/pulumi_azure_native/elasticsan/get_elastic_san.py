@@ -27,10 +27,13 @@ class GetElasticSanResult:
     """
     Response for ElasticSan request.
     """
-    def __init__(__self__, availability_zones=None, base_size_ti_b=None, extended_capacity_size_ti_b=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, total_iops=None, total_m_bps=None, total_size_ti_b=None, total_volume_size_gi_b=None, type=None, volume_group_count=None):
+    def __init__(__self__, availability_zones=None, azure_api_version=None, base_size_ti_b=None, extended_capacity_size_ti_b=None, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, total_iops=None, total_m_bps=None, total_size_ti_b=None, total_volume_size_gi_b=None, type=None, volume_group_count=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if base_size_ti_b and not isinstance(base_size_ti_b, float):
             raise TypeError("Expected argument 'base_size_ti_b' to be a float")
         pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
@@ -46,9 +49,15 @@ class GetElasticSanResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -86,6 +95,14 @@ class GetElasticSanResult:
         return pulumi.get(self, "availability_zones")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="baseSizeTiB")
     def base_size_ti_b(self) -> float:
         """
@@ -105,15 +122,15 @@ class GetElasticSanResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        The geo-location where the resource lives.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -121,9 +138,17 @@ class GetElasticSanResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The list of Private Endpoint Connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -132,6 +157,14 @@ class GetElasticSanResult:
         State of the operation on the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -145,7 +178,7 @@ class GetElasticSanResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource metadata required by ARM RPC
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -153,7 +186,7 @@ class GetElasticSanResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -193,7 +226,7 @@ class GetElasticSanResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -213,12 +246,15 @@ class AwaitableGetElasticSanResult(GetElasticSanResult):
             yield self
         return GetElasticSanResult(
             availability_zones=self.availability_zones,
+            azure_api_version=self.azure_api_version,
             base_size_ti_b=self.base_size_ti_b,
             extended_capacity_size_ti_b=self.extended_capacity_size_ti_b,
             id=self.id,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -236,9 +272,9 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
     """
     Get a ElasticSan.
 
-    Uses Azure REST API version 2021-11-20-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -252,12 +288,15 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
 
     return AwaitableGetElasticSanResult(
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         base_size_ti_b=pulumi.get(__ret__, 'base_size_ti_b'),
         extended_capacity_size_ti_b=pulumi.get(__ret__, 'extended_capacity_size_ti_b'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -273,9 +312,9 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     """
     Get a ElasticSan.
 
-    Uses Azure REST API version 2021-11-20-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -288,12 +327,15 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan:getElasticSan', __args__, opts=opts, typ=GetElasticSanResult)
     return __ret__.apply(lambda __response__: GetElasticSanResult(
         availability_zones=pulumi.get(__response__, 'availability_zones'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         base_size_ti_b=pulumi.get(__response__, 'base_size_ti_b'),
         extended_capacity_size_ti_b=pulumi.get(__response__, 'extended_capacity_size_ti_b'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

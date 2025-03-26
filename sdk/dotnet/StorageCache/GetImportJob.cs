@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// Returns an import job.
         /// 
         /// Uses Azure REST API version 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetImportJobResult> InvokeAsync(GetImportJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportJobResult>("azure-native:storagecache:getImportJob", args ?? new GetImportJobArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// Returns an import job.
         /// 
         /// Uses Azure REST API version 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetImportJobResult> Invoke(GetImportJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportJobResult>("azure-native:storagecache:getImportJob", args ?? new GetImportJobInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// Returns an import job.
         /// 
         /// Uses Azure REST API version 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetImportJobResult> Invoke(GetImportJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportJobResult>("azure-native:storagecache:getImportJob", args ?? new GetImportJobInvokeArgs(), options.WithDefaults());
@@ -93,6 +99,10 @@ namespace Pulumi.AzureNative.StorageCache
     [OutputType]
     public sealed class GetImportJobResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// A recent and frequently updated rate of total files, directories, and symlinks imported per second.
         /// </summary>
@@ -176,6 +186,8 @@ namespace Pulumi.AzureNative.StorageCache
 
         [OutputConstructor]
         private GetImportJobResult(
+            string azureApiVersion,
+
             double blobsImportedPerSecond,
 
             double blobsWalkedPerSecond,
@@ -216,6 +228,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlobsImportedPerSecond = blobsImportedPerSecond;
             BlobsWalkedPerSecond = blobsWalkedPerSecond;
             ConflictResolutionMode = conflictResolutionMode;

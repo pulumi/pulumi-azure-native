@@ -12,18 +12,36 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// A pool of Virtual Machines.
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the number of provisioned Dev Boxes in this pool.
+        /// </summary>
+        [Output("devBoxCount")]
+        public Output<int> DevBoxCount { get; private set; } = null!;
+
+        /// <summary>
         /// Name of a Dev Box definition in parent Project of this Pool
         /// </summary>
         [Output("devBoxDefinitionName")]
         public Output<string> DevBoxDefinitionName { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the pool.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
@@ -56,6 +74,12 @@ namespace Pulumi.AzureNative.DevCenter
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The regions of the managed virtual network (required when managedNetworkType is Managed).
+        /// </summary>
+        [Output("managedVirtualNetworkRegions")]
+        public Output<ImmutableArray<string>> ManagedVirtualNetworkRegions { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -72,6 +96,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+        /// </summary>
+        [Output("singleSignOnStatus")]
+        public Output<string?> SingleSignOnStatus { get; private set; } = null!;
 
         /// <summary>
         /// Stop on disconnect configuration settings for Dev Boxes created in this pool.
@@ -96,6 +126,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+        /// </summary>
+        [Output("virtualNetworkType")]
+        public Output<string?> VirtualNetworkType { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,6 +203,12 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> DevBoxDefinitionName { get; set; } = null!;
 
         /// <summary>
+        /// The display name of the pool.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
         /// </summary>
         [Input("licenseType", required: true)]
@@ -183,6 +225,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("managedVirtualNetworkRegions")]
+        private InputList<string>? _managedVirtualNetworkRegions;
+
+        /// <summary>
+        /// The regions of the managed virtual network (required when managedNetworkType is Managed).
+        /// </summary>
+        public InputList<string> ManagedVirtualNetworkRegions
+        {
+            get => _managedVirtualNetworkRegions ?? (_managedVirtualNetworkRegions = new InputList<string>());
+            set => _managedVirtualNetworkRegions = value;
+        }
 
         /// <summary>
         /// Name of a Network Connection in parent Project of this Pool
@@ -209,6 +263,12 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+        /// </summary>
+        [Input("singleSignOnStatus")]
+        public InputUnion<string, Pulumi.AzureNative.DevCenter.SingleSignOnStatus>? SingleSignOnStatus { get; set; }
+
+        /// <summary>
         /// Stop on disconnect configuration settings for Dev Boxes created in this pool.
         /// </summary>
         [Input("stopOnDisconnect")]
@@ -225,6 +285,12 @@ namespace Pulumi.AzureNative.DevCenter
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+        /// </summary>
+        [Input("virtualNetworkType")]
+        public InputUnion<string, Pulumi.AzureNative.DevCenter.VirtualNetworkType>? VirtualNetworkType { get; set; }
 
         public PoolArgs()
         {

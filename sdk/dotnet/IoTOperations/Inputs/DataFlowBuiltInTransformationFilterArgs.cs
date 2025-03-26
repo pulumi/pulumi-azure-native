@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlow BuiltIn Transformation filter properties
+    /// Dataflow BuiltIn Transformation filter properties
     /// </summary>
-    public sealed class DataFlowBuiltInTransformationFilterArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowBuiltInTransformationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user provided optional description of the filter.
@@ -45,10 +45,10 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.IoTOperations.FilterType>? Type { get; set; }
 
-        public DataFlowBuiltInTransformationFilterArgs()
+        public DataflowBuiltInTransformationFilterArgs()
         {
             Type = "Filter";
         }
-        public static new DataFlowBuiltInTransformationFilterArgs Empty => new DataFlowBuiltInTransformationFilterArgs();
+        public static new DataflowBuiltInTransformationFilterArgs Empty => new DataflowBuiltInTransformationFilterArgs();
     }
 }

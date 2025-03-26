@@ -11,19 +11,19 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlow Operation properties. NOTE - One only method is allowed to be used for one entry.
+    /// Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
     /// </summary>
     [OutputType]
-    public sealed class DataFlowOperationResponse
+    public sealed class DataflowOperationResponse
     {
         /// <summary>
-        /// Transformation configuration.
+        /// Built In Transformation configuration.
         /// </summary>
-        public readonly Outputs.DataFlowBuiltInTransformationResponse? BuiltInTransformationSettings;
+        public readonly Outputs.DataflowBuiltInTransformationSettingsResponse? BuiltInTransformationSettings;
         /// <summary>
         /// Destination configuration.
         /// </summary>
-        public readonly Outputs.DataFlowDestinationOperationResponse DestinationSettings;
+        public readonly Outputs.DataflowDestinationOperationSettingsResponse? DestinationSettings;
         /// <summary>
         /// Optional user provided name of the transformation.
         /// </summary>
@@ -35,19 +35,19 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Source configuration.
         /// </summary>
-        public readonly Outputs.DataFlowSourceOperationResponse SourceSettings;
+        public readonly Outputs.DataflowSourceOperationSettingsResponse? SourceSettings;
 
         [OutputConstructor]
-        private DataFlowOperationResponse(
-            Outputs.DataFlowBuiltInTransformationResponse? builtInTransformationSettings,
+        private DataflowOperationResponse(
+            Outputs.DataflowBuiltInTransformationSettingsResponse? builtInTransformationSettings,
 
-            Outputs.DataFlowDestinationOperationResponse destinationSettings,
+            Outputs.DataflowDestinationOperationSettingsResponse? destinationSettings,
 
             string? name,
 
             string operationType,
 
-            Outputs.DataFlowSourceOperationResponse sourceSettings)
+            Outputs.DataflowSourceOperationSettingsResponse? sourceSettings)
         {
             BuiltInTransformationSettings = builtInTransformationSettings;
             DestinationSettings = destinationSettings;

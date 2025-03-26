@@ -27,10 +27,13 @@ class GetRuleResult:
     """
     Description of Rule Resource.
     """
-    def __init__(__self__, action=None, correlation_filter=None, filter_type=None, id=None, location=None, name=None, sql_filter=None, system_data=None, type=None):
+    def __init__(__self__, action=None, azure_api_version=None, correlation_filter=None, filter_type=None, id=None, location=None, name=None, sql_filter=None, system_data=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if correlation_filter and not isinstance(correlation_filter, dict):
             raise TypeError("Expected argument 'correlation_filter' to be a dict")
         pulumi.set(__self__, "correlation_filter", correlation_filter)
@@ -63,6 +66,14 @@ class GetRuleResult:
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="correlationFilter")
@@ -136,6 +147,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             yield self
         return GetRuleResult(
             action=self.action,
+            azure_api_version=self.azure_api_version,
             correlation_filter=self.correlation_filter,
             filter_type=self.filter_type,
             id=self.id,
@@ -155,13 +167,13 @@ def get_rule(namespace_name: Optional[str] = None,
     """
     Retrieves the description for the specified rule.
 
-    Uses Azure REST API version 2022-01-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The rule name.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
@@ -177,6 +189,7 @@ def get_rule(namespace_name: Optional[str] = None,
 
     return AwaitableGetRuleResult(
         action=pulumi.get(__ret__, 'action'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         correlation_filter=pulumi.get(__ret__, 'correlation_filter'),
         filter_type=pulumi.get(__ret__, 'filter_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -194,13 +207,13 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the description for the specified rule.
 
-    Uses Azure REST API version 2022-01-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The rule name.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
@@ -215,6 +228,7 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getRule', __args__, opts=opts, typ=GetRuleResult)
     return __ret__.apply(lambda __response__: GetRuleResult(
         action=pulumi.get(__response__, 'action'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         correlation_filter=pulumi.get(__response__, 'correlation_filter'),
         filter_type=pulumi.get(__response__, 'filter_type'),
         id=pulumi.get(__response__, 'id'),

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
  *
- * Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-01-01-preview.
+ * Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
  */
 export class CloudConnection extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class CloudConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The cloud connector which discovered the remote resource.
      */
@@ -106,12 +110,14 @@ export class CloudConnection extends pulumi.CustomResource {
             resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudConnector"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

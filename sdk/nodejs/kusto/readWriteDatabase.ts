@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing a read write database.
  *
- * Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
  */
 export class ReadWriteDatabase extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
     public readonly hotCachePeriod!: pulumi.Output<string | undefined>;
@@ -47,6 +51,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
      * Indicates whether the database is followed.
      */
     public /*out*/ readonly isFollowed!: pulumi.Output<boolean>;
+    /**
+     * KeyVault properties for the database encryption.
+     */
+    public readonly keyVaultProperties!: pulumi.Output<outputs.kusto.KeyVaultPropertiesResponse | undefined>;
     /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
@@ -72,6 +80,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
      * The statistics of the database.
      */
     public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
+    /**
+     * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+     */
+    public /*out*/ readonly suspensionDetails!: pulumi.Output<outputs.kusto.SuspensionDetailsResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -101,28 +113,34 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
+            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             resourceInputs["kind"] = "ReadWrite";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isFollowed"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hotCachePeriod"] = undefined /*out*/;
             resourceInputs["isFollowed"] = undefined /*out*/;
+            resourceInputs["keyVaultProperties"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190121:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190515:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190907:ReadWriteDatabase" }, { type: "azure-native:kusto/v20191109:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200215:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200614:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200918:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210101:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210827:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220201:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220707:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221111:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221229:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230502:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230815:ReadWriteDatabase" }, { type: "azure-native:kusto/v20240413:ReadWriteDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20180907preview:Database" }, { type: "azure-native:kusto/v20180907preview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190121:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190515:Database" }, { type: "azure-native:kusto/v20190515:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadWriteDatabase" }, { type: "azure-native:kusto/v20191109:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200215:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200614:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200918:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210101:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210827:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220201:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220707:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221111:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221229:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230502:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230502:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230815:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230815:ReadWriteDatabase" }, { type: "azure-native:kusto/v20240413:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20240413:ReadWriteDatabase" }, { type: "azure-native:kusto:ReadOnlyFollowingDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadWriteDatabase.__pulumiType, name, resourceInputs, opts);
     }
@@ -149,6 +167,10 @@ export interface ReadWriteDatabaseArgs {
      */
     hotCachePeriod?: pulumi.Input<string>;
     /**
+     * KeyVault properties for the database encryption.
+     */
+    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
+    /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
      */
@@ -158,7 +180,7 @@ export interface ReadWriteDatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

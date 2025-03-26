@@ -27,7 +27,10 @@ class GetDeviceResult:
     """
     Device resource.
     """
-    def __init__(__self__, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
@@ -58,6 +61,14 @@ class GetDeviceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deviceType")
@@ -146,6 +157,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         if False:
             yield self
         return GetDeviceResult(
+            azure_api_version=self.azure_api_version,
             device_type=self.device_type,
             id=self.id,
             location=self.location,
@@ -177,6 +189,7 @@ def get_device(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         device_type=pulumi.get(__ret__, 'device_type'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -205,6 +218,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getDevice', __args__, opts=opts, typ=GetDeviceResult)
     return __ret__.apply(lambda __response__: GetDeviceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         device_type=pulumi.get(__response__, 'device_type'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

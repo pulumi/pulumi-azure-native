@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified interface endpoint by resource group.
         /// 
         /// Uses Azure REST API version 2019-02-01.
+        /// 
+        /// Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInterfaceEndpointResult> InvokeAsync(GetInterfaceEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified interface endpoint by resource group.
         /// 
         /// Uses Azure REST API version 2019-02-01.
+        /// 
+        /// Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified interface endpoint by resource group.
         /// 
         /// Uses Azure REST API version 2019-02-01.
+        /// 
+        /// Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetInterfaceEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A reference to the service being brought into the virtual network.
         /// </summary>
         public readonly Outputs.EndpointServiceResponse? EndpointService;
@@ -144,6 +154,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetInterfaceEndpointResult(
+            string azureApiVersion,
+
             Outputs.EndpointServiceResponse? endpointService,
 
             string? etag,
@@ -168,6 +180,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndpointService = endpointService;
             Etag = etag;
             Fqdn = fqdn;

@@ -104,9 +104,9 @@ def list_static_site_build_app_settings(environment_name: Optional[str] = None,
     """
     Description for Gets the application settings of a static site build.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: The stage site identifier.
@@ -133,9 +133,9 @@ def list_static_site_build_app_settings_output(environment_name: Optional[pulumi
     """
     Description for Gets the application settings of a static site build.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: The stage site identifier.

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// NIC type - PublicNic, PrivateNic, or AdditionalNic.
+        /// </summary>
+        public readonly string NicType;
+        /// <summary>
         /// Private IP address.
         /// </summary>
         public readonly string PrivateIpAddress;
@@ -39,12 +43,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string name,
 
+            string nicType,
+
             string privateIpAddress,
 
             string publicIpAddress)
         {
             InstanceName = instanceName;
             Name = name;
+            NicType = nicType;
             PrivateIpAddress = privateIpAddress;
             PublicIpAddress = publicIpAddress;
         }

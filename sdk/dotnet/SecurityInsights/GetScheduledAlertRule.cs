@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the alert rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetScheduledAlertRuleResult> InvokeAsync(GetScheduledAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the alert rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetScheduledAlertRuleResult> Invoke(GetScheduledAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the alert rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetScheduledAlertRuleResult> Invoke(GetScheduledAlertRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleInvokeArgs(), options.WithDefaults());
@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The Name of the alert rule template used to create this rule.
         /// </summary>
         public readonly string? AlertRuleTemplateName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Dictionary of string key-value pairs of columns to be attached to the alert
         /// </summary>
@@ -209,6 +213,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? alertRuleTemplateName,
 
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? customDetails,
 
             string? description,
@@ -261,6 +267,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         {
             AlertDetailsOverride = alertDetailsOverride;
             AlertRuleTemplateName = alertRuleTemplateName;
+            AzureApiVersion = azureApiVersion;
             CustomDetails = customDetails;
             Description = description;
             DisplayName = displayName;

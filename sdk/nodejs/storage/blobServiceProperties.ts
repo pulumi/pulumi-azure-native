@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The properties of a storage account’s Blob service.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class BlobServiceProperties extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class BlobServiceProperties extends pulumi.CustomResource {
      * Deprecated in favor of isVersioningEnabled property.
      */
     public readonly automaticSnapshotPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The blob service properties for change feed events.
      */
@@ -119,11 +123,13 @@ export class BlobServiceProperties extends pulumi.CustomResource {
             resourceInputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePolicy"] = args ? args.restorePolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["automaticSnapshotPolicyEnabled"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changeFeed"] = undefined /*out*/;
             resourceInputs["containerDeleteRetentionPolicy"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;

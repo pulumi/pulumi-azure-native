@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns the specific pipeline group instance.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPipelineGroup(args: GetPipelineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,11 +38,11 @@ export interface GetPipelineGroupArgs {
  */
 export interface GetPipelineGroupResult {
     /**
-     * The exporters specified for a pipeline group instance.
+     * The Azure API version of the resource.
      */
-    readonly exporters: outputs.monitor.ExporterResponse[];
+    readonly azureApiVersion: string;
     /**
-     * The extended location for given pipeline group.
+     * The complex type of the extended location.
      */
     readonly extendedLocation?: outputs.monitor.AzureResourceManagerCommonTypesExtendedLocationResponse;
     /**
@@ -58,29 +58,9 @@ export interface GetPipelineGroupResult {
      */
     readonly name: string;
     /**
-     * Networking configurations for the pipeline group instance.
+     * The resource-specific properties for this resource.
      */
-    readonly networkingConfigurations?: outputs.monitor.NetworkingConfigurationResponse[];
-    /**
-     * The processors specified for a pipeline group instance.
-     */
-    readonly processors: outputs.monitor.ProcessorResponse[];
-    /**
-     * The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
-     */
-    readonly provisioningState: string;
-    /**
-     * The receivers specified for a pipeline group instance.
-     */
-    readonly receivers: outputs.monitor.ReceiverResponse[];
-    /**
-     * Defines the amount of replicas of the pipeline group instance.
-     */
-    readonly replicas?: number;
-    /**
-     * The service section for a given pipeline group instance.
-     */
-    readonly service: outputs.monitor.ServiceResponse;
+    readonly properties: outputs.monitor.PipelineGroupPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -97,9 +77,9 @@ export interface GetPipelineGroupResult {
 /**
  * Returns the specific pipeline group instance.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a SharedPrivateLinkResource
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a SharedPrivateLinkResource
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a SharedPrivateLinkResource
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     public sealed class GetSharedPrivateLinkResourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         /// </summary>
         public readonly string? DnsZone;
@@ -108,7 +112,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
         [OutputConstructor]
         private GetSharedPrivateLinkResourceResult(
+            string azureApiVersion,
+
             string? dnsZone,
 
             string groupId,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DnsZone = dnsZone;
             GroupId = groupId;
             Id = id;

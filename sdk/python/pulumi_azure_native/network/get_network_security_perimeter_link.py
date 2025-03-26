@@ -26,10 +26,13 @@ class GetNetworkSecurityPerimeterLinkResult:
     """
     The network security perimeter link resource
     """
-    def __init__(__self__, auto_approved_remote_perimeter_resource_id=None, description=None, etag=None, id=None, local_inbound_profiles=None, local_outbound_profiles=None, name=None, provisioning_state=None, remote_inbound_profiles=None, remote_outbound_profiles=None, remote_perimeter_guid=None, remote_perimeter_location=None, status=None, type=None):
+    def __init__(__self__, auto_approved_remote_perimeter_resource_id=None, azure_api_version=None, description=None, etag=None, id=None, local_inbound_profiles=None, local_outbound_profiles=None, name=None, provisioning_state=None, remote_inbound_profiles=None, remote_outbound_profiles=None, remote_perimeter_guid=None, remote_perimeter_location=None, status=None, type=None):
         if auto_approved_remote_perimeter_resource_id and not isinstance(auto_approved_remote_perimeter_resource_id, str):
             raise TypeError("Expected argument 'auto_approved_remote_perimeter_resource_id' to be a str")
         pulumi.set(__self__, "auto_approved_remote_perimeter_resource_id", auto_approved_remote_perimeter_resource_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -77,6 +80,14 @@ class GetNetworkSecurityPerimeterLinkResult:
         Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
         """
         return pulumi.get(self, "auto_approved_remote_perimeter_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetNetworkSecurityPerimeterLinkResult(GetNetworkSecurityPerimeter
             yield self
         return GetNetworkSecurityPerimeterLinkResult(
             auto_approved_remote_perimeter_resource_id=self.auto_approved_remote_perimeter_resource_id,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
@@ -228,6 +240,7 @@ def get_network_security_perimeter_link(link_name: Optional[str] = None,
 
     return AwaitableGetNetworkSecurityPerimeterLinkResult(
         auto_approved_remote_perimeter_resource_id=pulumi.get(__ret__, 'auto_approved_remote_perimeter_resource_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -263,6 +276,7 @@ def get_network_security_perimeter_link_output(link_name: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkSecurityPerimeterLink', __args__, opts=opts, typ=GetNetworkSecurityPerimeterLinkResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityPerimeterLinkResult(
         auto_approved_remote_perimeter_resource_id=pulumi.get(__response__, 'auto_approved_remote_perimeter_resource_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

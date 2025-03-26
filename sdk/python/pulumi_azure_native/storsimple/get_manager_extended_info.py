@@ -26,10 +26,13 @@ class GetManagerExtendedInfoResult:
     """
     The extended info of the manager.
     """
-    def __init__(__self__, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, id=None, integrity_key=None, kind=None, name=None, portal_certificate_thumbprint=None, type=None, version=None):
+    def __init__(__self__, algorithm=None, azure_api_version=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, id=None, integrity_key=None, kind=None, name=None, portal_certificate_thumbprint=None, type=None, version=None):
         if algorithm and not isinstance(algorithm, str):
             raise TypeError("Expected argument 'algorithm' to be a str")
         pulumi.set(__self__, "algorithm", algorithm)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption_key and not isinstance(encryption_key, str):
             raise TypeError("Expected argument 'encryption_key' to be a str")
         pulumi.set(__self__, "encryption_key", encryption_key)
@@ -68,6 +71,14 @@ class GetManagerExtendedInfoResult:
         Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
         """
         return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="encryptionKey")
@@ -157,6 +168,7 @@ class AwaitableGetManagerExtendedInfoResult(GetManagerExtendedInfoResult):
             yield self
         return GetManagerExtendedInfoResult(
             algorithm=self.algorithm,
+            azure_api_version=self.azure_api_version,
             encryption_key=self.encryption_key,
             encryption_key_thumbprint=self.encryption_key_thumbprint,
             etag=self.etag,
@@ -189,6 +201,7 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
 
     return AwaitableGetManagerExtendedInfoResult(
         algorithm=pulumi.get(__ret__, 'algorithm'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption_key=pulumi.get(__ret__, 'encryption_key'),
         encryption_key_thumbprint=pulumi.get(__ret__, 'encryption_key_thumbprint'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -218,6 +231,7 @@ def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getManagerExtendedInfo', __args__, opts=opts, typ=GetManagerExtendedInfoResult)
     return __ret__.apply(lambda __response__: GetManagerExtendedInfoResult(
         algorithm=pulumi.get(__response__, 'algorithm'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption_key=pulumi.get(__response__, 'encryption_key'),
         encryption_key_thumbprint=pulumi.get(__response__, 'encryption_key_thumbprint'),
         etag=pulumi.get(__response__, 'etag'),

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetKubernetesRoleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Host OS supported by the Kubernetes role.
         /// </summary>
         public readonly string HostPlatform;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetKubernetesRoleResult(
+            string azureApiVersion,
+
             string hostPlatform,
 
             string hostPlatformType,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             HostPlatform = hostPlatform;
             HostPlatformType = hostPlatformType;
             Id = id;

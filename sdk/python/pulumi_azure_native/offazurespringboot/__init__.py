@@ -14,14 +14,3 @@ from .springbootserver import *
 from .springbootsite import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.offazurespringboot.v20230101preview as __v20230101preview
-    v20230101preview = __v20230101preview
-    import pulumi_azure_native.offazurespringboot.v20240401preview as __v20240401preview
-    v20240401preview = __v20240401preview
-else:
-    v20230101preview = _utilities.lazy_import('pulumi_azure_native.offazurespringboot.v20230101preview')
-    v20240401preview = _utilities.lazy_import('pulumi_azure_native.offazurespringboot.v20240401preview')
-

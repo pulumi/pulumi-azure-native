@@ -33,6 +33,10 @@ export interface GetJobCollectionArgs {
 
 export interface GetJobCollectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets the job collection resource identifier.
      */
     readonly id: string;

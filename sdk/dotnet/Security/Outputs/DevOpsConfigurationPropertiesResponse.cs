@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string? AutoDiscovery;
         /// <summary>
+        /// List of capabilities assigned to the DevOps configuration during the discovery process.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DevOpsCapabilityResponse> Capabilities;
+        /// <summary>
         /// The provisioning state of the resource.
         /// 
         /// Pending - Provisioning pending.
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             string? autoDiscovery,
 
+            ImmutableArray<Outputs.DevOpsCapabilityResponse> capabilities,
+
             string? provisioningState,
 
             string provisioningStatusMessage,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         {
             Authorization = authorization;
             AutoDiscovery = autoDiscovery;
+            Capabilities = capabilities;
             ProvisioningState = provisioningState;
             ProvisioningStatusMessage = provisioningStatusMessage;
             ProvisioningStatusUpdateTimeUtc = provisioningStatusUpdateTimeUtc;

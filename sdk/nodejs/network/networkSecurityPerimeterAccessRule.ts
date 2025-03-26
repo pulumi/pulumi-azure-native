@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The NSP access rule resource
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
      * Inbound address prefixes (IPv4/IPv6)
      */
     public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Direction that specifies whether the access rules is inbound/outbound.
      */
@@ -126,12 +130,14 @@ export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
             resourceInputs["serviceTags"] = args ? args.serviceTags : undefined;
             resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkSecurityPerimeters"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["addressPrefixes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
             resourceInputs["emailAddresses"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainNames"] = undefined /*out*/;
@@ -146,7 +152,7 @@ export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20210201preview:NspAccessRule" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230701preview:NspAccessRule" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230801preview:NspAccessRule" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network:NspAccessRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterAccessRule.__pulumiType, name, resourceInputs, opts);
     }

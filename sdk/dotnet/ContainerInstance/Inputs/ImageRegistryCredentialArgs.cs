@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The reference for the private registry password.
-        /// </summary>
-        [Input("passwordReference")]
-        public Input<string>? PasswordReference { get; set; }
-
-        /// <summary>
         /// The Docker image registry server without a protocol such as "http" and "https".
         /// </summary>
         [Input("server", required: true)]

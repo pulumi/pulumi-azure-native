@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The private endpoint connection resource.
  *
- * Uses Azure REST API version 2022-08-31-preview.
+ * Uses Azure REST API version 2024-06-30-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-31-preview.
  *
- * Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+ * Other available API versions: 2022-08-31-preview, 2023-12-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
         return obj['__pulumiType'] === CloudHsmClusterPrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Modified whenever there is a change in the state of private endpoint connection.
      */
@@ -98,6 +102,7 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
             resourceInputs["peConnectionName"] = args ? args.peConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -106,6 +111,7 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -127,7 +133,7 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
  */
 export interface CloudHsmClusterPrivateEndpointConnectionArgs {
     /**
-     * The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+     * The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
      */
     cloudHsmClusterName: pulumi.Input<string>;
     /**

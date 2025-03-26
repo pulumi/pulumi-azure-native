@@ -36,6 +36,10 @@ export interface GetFactoryArgs {
  */
 export interface GetFactoryResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Time the factory was created in ISO8601 format.
      */
     readonly createTime: string;

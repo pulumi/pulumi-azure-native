@@ -27,10 +27,13 @@ class GetAzureADAdministratorResult:
     """
     Represents a Administrator.
     """
-    def __init__(__self__, administrator_type=None, id=None, identity_resource_id=None, login=None, name=None, sid=None, system_data=None, tenant_id=None, type=None):
+    def __init__(__self__, administrator_type=None, azure_api_version=None, id=None, identity_resource_id=None, login=None, name=None, sid=None, system_data=None, tenant_id=None, type=None):
         if administrator_type and not isinstance(administrator_type, str):
             raise TypeError("Expected argument 'administrator_type' to be a str")
         pulumi.set(__self__, "administrator_type", administrator_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -65,10 +68,18 @@ class GetAzureADAdministratorResult:
         return pulumi.get(self, "administrator_type")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -108,7 +119,7 @@ class GetAzureADAdministratorResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -136,6 +147,7 @@ class AwaitableGetAzureADAdministratorResult(GetAzureADAdministratorResult):
             yield self
         return GetAzureADAdministratorResult(
             administrator_type=self.administrator_type,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity_resource_id=self.identity_resource_id,
             login=self.login,
@@ -153,9 +165,9 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
     """
     Gets information about an azure ad administrator.
 
-    Uses Azure REST API version 2022-01-01.
+    Uses Azure REST API version 2023-12-30.
 
-    Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.
@@ -171,6 +183,7 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
 
     return AwaitableGetAzureADAdministratorResult(
         administrator_type=pulumi.get(__ret__, 'administrator_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity_resource_id=pulumi.get(__ret__, 'identity_resource_id'),
         login=pulumi.get(__ret__, 'login'),
@@ -186,9 +199,9 @@ def get_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[
     """
     Gets information about an azure ad administrator.
 
-    Uses Azure REST API version 2022-01-01.
+    Uses Azure REST API version 2023-12-30.
 
-    Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.
@@ -203,6 +216,7 @@ def get_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbformysql:getAzureADAdministrator', __args__, opts=opts, typ=GetAzureADAdministratorResult)
     return __ret__.apply(lambda __response__: GetAzureADAdministratorResult(
         administrator_type=pulumi.get(__response__, 'administrator_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity_resource_id=pulumi.get(__response__, 'identity_resource_id'),
         login=pulumi.get(__response__, 'login'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Schema for Application properties.
  *
- * Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+ * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
- * Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Application extends pulumi.CustomResource {
      * Resource Type of Application.
      */
     public readonly applicationType!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Command Line Arguments for Application.
      */
@@ -102,7 +106,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly showInPortal!: pulumi.Output<boolean | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -144,6 +148,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["msixPackageFamilyName"] = args ? args.msixPackageFamilyName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["iconContent"] = undefined /*out*/;
             resourceInputs["iconHash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -152,6 +157,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["commandLineArguments"] = undefined /*out*/;
             resourceInputs["commandLineSetting"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -170,7 +176,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20190123preview:Application" }, { type: "azure-native:desktopvirtualization/v20190924preview:Application" }, { type: "azure-native:desktopvirtualization/v20191210preview:Application" }, { type: "azure-native:desktopvirtualization/v20200921preview:Application" }, { type: "azure-native:desktopvirtualization/v20201019preview:Application" }, { type: "azure-native:desktopvirtualization/v20201102preview:Application" }, { type: "azure-native:desktopvirtualization/v20201110preview:Application" }, { type: "azure-native:desktopvirtualization/v20210114preview:Application" }, { type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-native:desktopvirtualization/v20210309preview:Application" }, { type: "azure-native:desktopvirtualization/v20210401preview:Application" }, { type: "azure-native:desktopvirtualization/v20210712:Application" }, { type: "azure-native:desktopvirtualization/v20210903preview:Application" }, { type: "azure-native:desktopvirtualization/v20220210preview:Application" }, { type: "azure-native:desktopvirtualization/v20220401preview:Application" }, { type: "azure-native:desktopvirtualization/v20220909:Application" }, { type: "azure-native:desktopvirtualization/v20221014preview:Application" }, { type: "azure-native:desktopvirtualization/v20230905:Application" }, { type: "azure-native:desktopvirtualization/v20231004preview:Application" }, { type: "azure-native:desktopvirtualization/v20231101preview:Application" }, { type: "azure-native:desktopvirtualization/v20240116preview:Application" }, { type: "azure-native:desktopvirtualization/v20240306preview:Application" }, { type: "azure-native:desktopvirtualization/v20240403:Application" }, { type: "azure-native:desktopvirtualization/v20240408preview:Application" }, { type: "azure-native:desktopvirtualization/v20240808preview:Application" }, { type: "azure-native:desktopvirtualization/v20241101preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20190123preview:Application" }, { type: "azure-native:desktopvirtualization/v20190924preview:Application" }, { type: "azure-native:desktopvirtualization/v20191210preview:Application" }, { type: "azure-native:desktopvirtualization/v20200921preview:Application" }, { type: "azure-native:desktopvirtualization/v20201019preview:Application" }, { type: "azure-native:desktopvirtualization/v20201102preview:Application" }, { type: "azure-native:desktopvirtualization/v20201110preview:Application" }, { type: "azure-native:desktopvirtualization/v20210114preview:Application" }, { type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-native:desktopvirtualization/v20210309preview:Application" }, { type: "azure-native:desktopvirtualization/v20210401preview:Application" }, { type: "azure-native:desktopvirtualization/v20210712:Application" }, { type: "azure-native:desktopvirtualization/v20210903preview:Application" }, { type: "azure-native:desktopvirtualization/v20220210preview:Application" }, { type: "azure-native:desktopvirtualization/v20220401preview:Application" }, { type: "azure-native:desktopvirtualization/v20220909:Application" }, { type: "azure-native:desktopvirtualization/v20221014preview:Application" }, { type: "azure-native:desktopvirtualization/v20230707preview:Application" }, { type: "azure-native:desktopvirtualization/v20230905:Application" }, { type: "azure-native:desktopvirtualization/v20231004preview:Application" }, { type: "azure-native:desktopvirtualization/v20231101preview:Application" }, { type: "azure-native:desktopvirtualization/v20240116preview:Application" }, { type: "azure-native:desktopvirtualization/v20240306preview:Application" }, { type: "azure-native:desktopvirtualization/v20240403:Application" }, { type: "azure-native:desktopvirtualization/v20240408preview:Application" }, { type: "azure-native:desktopvirtualization/v20240808preview:Application" }, { type: "azure-native:desktopvirtualization/v20241101preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

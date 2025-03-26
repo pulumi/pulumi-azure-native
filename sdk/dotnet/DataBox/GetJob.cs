@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// Gets information about the specified job.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-03-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+        /// Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// Gets information about the specified job.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-03-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+        /// Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// Gets information about the specified job.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-03-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+        /// Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -100,9 +100,21 @@ namespace Pulumi.AzureNative.DataBox
     public sealed class GetJobResult
     {
         /// <summary>
+        /// Flag to indicate if all devices associated with the job are lost.
+        /// </summary>
+        public readonly bool AllDevicesLost;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Reason for cancellation.
         /// </summary>
         public readonly string CancellationReason;
+        /// <summary>
+        /// Name of the stage where delay might be present.
+        /// </summary>
+        public readonly string DelayedStage;
         /// <summary>
         /// Delivery Info of Job.
         /// </summary>
@@ -194,7 +206,13 @@ namespace Pulumi.AzureNative.DataBox
 
         [OutputConstructor]
         private GetJobResult(
+            bool allDevicesLost,
+
+            string azureApiVersion,
+
             string cancellationReason,
+
+            string delayedStage,
 
             Outputs.JobDeliveryInfoResponse? deliveryInfo,
 
@@ -240,7 +258,10 @@ namespace Pulumi.AzureNative.DataBox
 
             string type)
         {
+            AllDevicesLost = allDevicesLost;
+            AzureApiVersion = azureApiVersion;
             CancellationReason = cancellationReason;
+            DelayedStage = delayedStage;
             DeliveryInfo = deliveryInfo;
             DeliveryType = deliveryType;
             Details = details;

@@ -27,10 +27,13 @@ class GetApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, metrics=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
+    def __init__(__self__, always_log=None, azure_api_version=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, metrics=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend and not isinstance(backend, dict):
             raise TypeError("Expected argument 'backend' to be a dict")
         pulumi.set(__self__, "backend", backend)
@@ -75,6 +78,14 @@ class GetApiDiagnosticResult:
         Specifies for what type of messages sampling settings should not apply.
         """
         return pulumi.get(self, "always_log")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -180,6 +191,7 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
             yield self
         return GetApiDiagnosticResult(
             always_log=self.always_log,
+            azure_api_version=self.azure_api_version,
             backend=self.backend,
             frontend=self.frontend,
             http_correlation_protocol=self.http_correlation_protocol,
@@ -202,9 +214,9 @@ def get_api_diagnostic(api_id: Optional[str] = None,
     """
     Gets the details of the Diagnostic for an API specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -222,6 +234,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
 
     return AwaitableGetApiDiagnosticResult(
         always_log=pulumi.get(__ret__, 'always_log'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend=pulumi.get(__ret__, 'backend'),
         frontend=pulumi.get(__ret__, 'frontend'),
         http_correlation_protocol=pulumi.get(__ret__, 'http_correlation_protocol'),
@@ -242,9 +255,9 @@ def get_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the Diagnostic for an API specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -261,6 +274,7 @@ def get_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiDiagnostic', __args__, opts=opts, typ=GetApiDiagnosticResult)
     return __ret__.apply(lambda __response__: GetApiDiagnosticResult(
         always_log=pulumi.get(__response__, 'always_log'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend=pulumi.get(__response__, 'backend'),
         frontend=pulumi.get(__response__, 'frontend'),
         http_correlation_protocol=pulumi.get(__response__, 'http_correlation_protocol'),

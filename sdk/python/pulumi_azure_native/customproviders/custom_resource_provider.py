@@ -154,7 +154,7 @@ class CustomResourceProvider(pulumi.CustomResource):
         """
         A manifest file that defines the custom resource provider resources.
 
-        Uses Azure REST API version 2018-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
+        Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +175,7 @@ class CustomResourceProvider(pulumi.CustomResource):
         """
         A manifest file that defines the custom resource provider resources.
 
-        Uses Azure REST API version 2018-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
+        Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomResourceProviderArgs args: The arguments to use to populate this resource's properties.
@@ -217,6 +217,7 @@ class CustomResourceProvider(pulumi.CustomResource):
             __props__.__dict__["resource_types"] = resource_types
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validations"] = validations
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -245,6 +246,7 @@ class CustomResourceProvider(pulumi.CustomResource):
         __props__ = CustomResourceProviderArgs.__new__(CustomResourceProviderArgs)
 
         __props__.__dict__["actions"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -261,6 +263,14 @@ class CustomResourceProvider(pulumi.CustomResource):
         A list of actions that the custom resource provider implements.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

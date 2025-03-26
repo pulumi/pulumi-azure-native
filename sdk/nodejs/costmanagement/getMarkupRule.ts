@@ -41,6 +41,10 @@ export interface GetMarkupRuleArgs {
  */
 export interface GetMarkupRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Customer information for the markup rule.
      */
     readonly customerDetails: outputs.costmanagement.CustomerMetadataResponse;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Get a watchlist, without its watchlist items.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Get a watchlist, without its watchlist items.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Get a watchlist, without its watchlist items.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetWatchlistResult
     {
         /// <summary>
-        /// The content type of the raw content. For now, only text/csv is valid
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// The content type of the raw content. Example : text/csv or text/tsv
         /// </summary>
         public readonly string? ContentType;
         /// <summary>
@@ -148,7 +152,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of lines in a csv content to skip before the header
+        /// The number of lines in a csv/tsv content to skip before the header
         /// </summary>
         public readonly int? NumberOfLinesToSkip;
         /// <summary>
@@ -156,15 +160,21 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Provider;
         /// <summary>
-        /// The raw content that represents to watchlist items to create. Example : This line will be skipped
-        /// header1,header2
-        /// value1,value2
+        /// Describes provisioning state
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
         /// </summary>
         public readonly string? RawContent;
         /// <summary>
-        /// The source of the watchlist
+        /// The filename of the watchlist, called 'source'
         /// </summary>
-        public readonly string Source;
+        public readonly string? Source;
+        /// <summary>
+        /// The sourceType of the watchlist
+        /// </summary>
+        public readonly string? SourceType;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -204,6 +214,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetWatchlistResult(
+            string azureApiVersion,
+
             string? contentType,
 
             string? created,
@@ -232,9 +244,13 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string provider,
 
+            string provisioningState,
+
             string? rawContent,
 
-            string source,
+            string? source,
+
+            string? sourceType,
 
             Outputs.SystemDataResponse systemData,
 
@@ -254,6 +270,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? watchlistType)
         {
+            AzureApiVersion = azureApiVersion;
             ContentType = contentType;
             Created = created;
             CreatedBy = createdBy;
@@ -268,8 +285,10 @@ namespace Pulumi.AzureNative.SecurityInsights
             Name = name;
             NumberOfLinesToSkip = numberOfLinesToSkip;
             Provider = provider;
+            ProvisioningState = provisioningState;
             RawContent = rawContent;
             Source = source;
+            SourceType = sourceType;
             SystemData = systemData;
             TenantId = tenantId;
             Type = type;

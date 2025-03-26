@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Returns a database.
  *
- * Uses Azure REST API version 2022-12-29.
+ * Uses Azure REST API version 2024-04-13.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,7 +31,7 @@ export interface GetReadOnlyFollowingDatabaseArgs {
      */
     databaseName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -44,6 +44,10 @@ export interface GetReadOnlyFollowingDatabaseResult {
      * The name of the attached database configuration cluster
      */
     readonly attachedDatabaseConfigurationName: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The origin of the following setup.
      */
@@ -94,6 +98,10 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly statistics: outputs.kusto.DatabaseStatisticsResponse;
     /**
+     * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+     */
+    readonly suspensionDetails: outputs.kusto.SuspensionDetailsResponse;
+    /**
      * Table level sharing specifications
      */
     readonly tableLevelSharingProperties: outputs.kusto.TableLevelSharingPropertiesResponse;
@@ -105,7 +113,7 @@ export interface GetReadOnlyFollowingDatabaseResult {
 /**
  * Returns a database.
  *
- * Uses Azure REST API version 2022-12-29.
+ * Uses Azure REST API version 2024-04-13.
  */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -126,7 +134,7 @@ export interface GetReadOnlyFollowingDatabaseOutputArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

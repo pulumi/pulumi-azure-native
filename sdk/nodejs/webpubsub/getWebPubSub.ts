@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get the resource and its properties.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions
 
 export interface GetWebPubSubArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -37,6 +37,10 @@ export interface GetWebPubSubArgs {
  * A class represent a resource.
  */
 export interface GetWebPubSubResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * DisableLocalAuth
      * Enable or disable aad auth
@@ -62,7 +66,7 @@ export interface GetWebPubSubResult {
      */
     readonly hostNamePrefix: string;
     /**
-     * Fully qualified resource Id for the resource.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -70,15 +74,19 @@ export interface GetWebPubSubResult {
      */
     readonly identity?: outputs.webpubsub.ManagedIdentityResponse;
     /**
+     * The kind of the service
+     */
+    readonly kind?: string;
+    /**
      * Live trace configuration of a Microsoft.SignalRService resource.
      */
     readonly liveTraceConfiguration?: outputs.webpubsub.LiveTraceConfigurationResponse;
     /**
-     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -104,9 +112,21 @@ export interface GetWebPubSubResult {
      */
     readonly publicPort: number;
     /**
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     * This property is replica specific. Disable the regional endpoint without replica is not allowed.
+     */
+    readonly regionEndpointEnabled?: string;
+    /**
      * Resource log configuration of a Microsoft.SignalRService resource.
      */
     readonly resourceLogConfiguration?: outputs.webpubsub.ResourceLogConfigurationResponse;
+    /**
+     * Stop or start the resource.  Default to "False".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    readonly resourceStopped?: string;
     /**
      * The publicly accessible port of the resource which is designed for customer server side usage.
      */
@@ -120,11 +140,15 @@ export interface GetWebPubSubResult {
      */
     readonly sku?: outputs.webpubsub.ResourceSkuResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * SocketIO settings for the resource
+     */
+    readonly socketIO?: outputs.webpubsub.WebPubSubSocketIOSettingsResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.webpubsub.SystemDataResponse;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -132,7 +156,7 @@ export interface GetWebPubSubResult {
      */
     readonly tls?: outputs.webpubsub.WebPubSubTlsSettingsResponse;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -143,9 +167,9 @@ export interface GetWebPubSubResult {
 /**
  * Get the resource and its properties.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -157,7 +181,7 @@ export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.I
 
 export interface GetWebPubSubOutputArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

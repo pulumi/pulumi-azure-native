@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     public sealed class GetCIAMTenantResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The type of billing. Will be MAU for all new customers. Cannot be changed if value is 'MAU'. Learn more about Azure AD for customers billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
         /// </summary>
         public readonly string BillingType;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
         [OutputConstructor]
         private GetCIAMTenantResult(
+            string azureApiVersion,
+
             string billingType,
 
             Outputs.CreateCIAMTenantPropertiesResponse createTenantProperties,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BillingType = billingType;
             CreateTenantProperties = createTenantProperties;
             DomainName = domainName;

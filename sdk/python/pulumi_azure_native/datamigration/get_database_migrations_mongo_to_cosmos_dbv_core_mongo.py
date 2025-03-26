@@ -27,7 +27,10 @@ class GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult:
     """
     Database Migration Resource for Mongo to CosmosDb.
     """
-    def __init__(__self__, collection_list=None, ended_on=None, id=None, kind=None, migration_failure_error=None, migration_operation_id=None, migration_service=None, migration_status=None, name=None, provisioning_error=None, provisioning_state=None, scope=None, source_mongo_connection=None, started_on=None, system_data=None, target_mongo_connection=None, type=None):
+    def __init__(__self__, azure_api_version=None, collection_list=None, ended_on=None, id=None, kind=None, migration_failure_error=None, migration_operation_id=None, migration_service=None, migration_status=None, name=None, provisioning_error=None, provisioning_state=None, scope=None, source_mongo_connection=None, started_on=None, system_data=None, target_mongo_connection=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if collection_list and not isinstance(collection_list, list):
             raise TypeError("Expected argument 'collection_list' to be a list")
         pulumi.set(__self__, "collection_list", collection_list)
@@ -79,6 +82,14 @@ class GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="collectionList")
@@ -224,6 +235,7 @@ class AwaitableGetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult(GetDatabaseM
         if False:
             yield self
         return GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult(
+            azure_api_version=self.azure_api_version,
             collection_list=self.collection_list,
             ended_on=self.ended_on,
             id=self.id,
@@ -265,6 +277,7 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo(migration_name: Optio
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbvCoreMongo', __args__, opts=opts, typ=GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult).value
 
     return AwaitableGetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         collection_list=pulumi.get(__ret__, 'collection_list'),
         ended_on=pulumi.get(__ret__, 'ended_on'),
         id=pulumi.get(__ret__, 'id'),
@@ -303,6 +316,7 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo_output(migration_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbvCoreMongo', __args__, opts=opts, typ=GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult)
     return __ret__.apply(lambda __response__: GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         collection_list=pulumi.get(__response__, 'collection_list'),
         ended_on=pulumi.get(__response__, 'ended_on'),
         id=pulumi.get(__response__, 'id'),

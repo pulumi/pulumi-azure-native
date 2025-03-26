@@ -25,18 +25,27 @@ __all__ = [
 @pulumi.output_type
 class GetIpExtendedCommunityResult:
     """
-    The IpExtendedCommunity resource definition.
+    The IP Extended Community resource definition.
     """
-    def __init__(__self__, action=None, annotation=None, id=None, location=None, name=None, provisioning_state=None, route_targets=None, system_data=None, tags=None, type=None):
-        if action and not isinstance(action, str):
-            raise TypeError("Expected argument 'action' to be a str")
-        pulumi.set(__self__, "action", action)
+    def __init__(__self__, administrative_state=None, annotation=None, azure_api_version=None, configuration_state=None, id=None, ip_extended_community_rules=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if administrative_state and not isinstance(administrative_state, str):
+            raise TypeError("Expected argument 'administrative_state' to be a str")
+        pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_extended_community_rules and not isinstance(ip_extended_community_rules, list):
+            raise TypeError("Expected argument 'ip_extended_community_rules' to be a list")
+        pulumi.set(__self__, "ip_extended_community_rules", ip_extended_community_rules)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -46,9 +55,6 @@ class GetIpExtendedCommunityResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if route_targets and not isinstance(route_targets, list):
-            raise TypeError("Expected argument 'route_targets' to be a list")
-        pulumi.set(__self__, "route_targets", route_targets)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -60,12 +66,12 @@ class GetIpExtendedCommunityResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter
-    def action(self) -> str:
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> str:
         """
-        Action to be taken on the configuration. Example: Permit | Deny.
+        Administrative state of the resource.
         """
-        return pulumi.get(self, "action")
+        return pulumi.get(self, "administrative_state")
 
     @property
     @pulumi.getter
@@ -76,12 +82,36 @@ class GetIpExtendedCommunityResult:
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipExtendedCommunityRules")
+    def ip_extended_community_rules(self) -> Sequence['outputs.IpExtendedCommunityRuleResponse']:
+        """
+        List of IP Extended Community Rules.
+        """
+        return pulumi.get(self, "ip_extended_community_rules")
 
     @property
     @pulumi.getter
@@ -103,17 +133,9 @@ class GetIpExtendedCommunityResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="routeTargets")
-    def route_targets(self) -> Sequence[str]:
-        """
-        Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-        """
-        return pulumi.get(self, "route_targets")
 
     @property
     @pulumi.getter(name="systemData")
@@ -146,13 +168,15 @@ class AwaitableGetIpExtendedCommunityResult(GetIpExtendedCommunityResult):
         if False:
             yield self
         return GetIpExtendedCommunityResult(
-            action=self.action,
+            administrative_state=self.administrative_state,
             annotation=self.annotation,
+            azure_api_version=self.azure_api_version,
+            configuration_state=self.configuration_state,
             id=self.id,
+            ip_extended_community_rules=self.ip_extended_community_rules,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            route_targets=self.route_targets,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -164,12 +188,12 @@ def get_ip_extended_community(ip_extended_community_name: Optional[str] = None,
     """
     Implements IP Extended Community GET method.
 
-    Uses Azure REST API version 2023-02-01-preview.
+    Uses Azure REST API version 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str ip_extended_community_name: Name of the IP Extended Community
+    :param str ip_extended_community_name: Name of the IP Extended Community.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -179,13 +203,15 @@ def get_ip_extended_community(ip_extended_community_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getIpExtendedCommunity', __args__, opts=opts, typ=GetIpExtendedCommunityResult).value
 
     return AwaitableGetIpExtendedCommunityResult(
-        action=pulumi.get(__ret__, 'action'),
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         id=pulumi.get(__ret__, 'id'),
+        ip_extended_community_rules=pulumi.get(__ret__, 'ip_extended_community_rules'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        route_targets=pulumi.get(__ret__, 'route_targets'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -195,12 +221,12 @@ def get_ip_extended_community_output(ip_extended_community_name: Optional[pulumi
     """
     Implements IP Extended Community GET method.
 
-    Uses Azure REST API version 2023-02-01-preview.
+    Uses Azure REST API version 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str ip_extended_community_name: Name of the IP Extended Community
+    :param str ip_extended_community_name: Name of the IP Extended Community.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -209,13 +235,15 @@ def get_ip_extended_community_output(ip_extended_community_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getIpExtendedCommunity', __args__, opts=opts, typ=GetIpExtendedCommunityResult)
     return __ret__.apply(lambda __response__: GetIpExtendedCommunityResult(
-        action=pulumi.get(__response__, 'action'),
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         id=pulumi.get(__response__, 'id'),
+        ip_extended_community_rules=pulumi.get(__response__, 'ip_extended_community_rules'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        route_targets=pulumi.get(__response__, 'route_targets'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

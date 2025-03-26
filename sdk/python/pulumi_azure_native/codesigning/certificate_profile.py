@@ -22,9 +22,9 @@ __all__ = ['CertificateProfileArgs', 'CertificateProfile']
 class CertificateProfileArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
+                 identity_validation_id: pulumi.Input[str],
                  profile_type: pulumi.Input[Union[str, 'ProfileType']],
                  resource_group_name: pulumi.Input[str],
-                 identity_validation_id: Optional[pulumi.Input[str]] = None,
                  include_city: Optional[pulumi.Input[bool]] = None,
                  include_country: Optional[pulumi.Input[bool]] = None,
                  include_postal_code: Optional[pulumi.Input[bool]] = None,
@@ -34,9 +34,9 @@ class CertificateProfileArgs:
         """
         The set of arguments for constructing a CertificateProfile resource.
         :param pulumi.Input[str] account_name: Trusted Signing account name.
+        :param pulumi.Input[str] identity_validation_id: Identity validation id used for the certificate subject name.
         :param pulumi.Input[Union[str, 'ProfileType']] profile_type: Profile type of the certificate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] identity_validation_id: Identity validation id used for the certificate subject name.
         :param pulumi.Input[bool] include_city: Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
         :param pulumi.Input[bool] include_country: Whether to include C in the certificate subject name. Applicable only for private trust, private trust ci profile types
         :param pulumi.Input[bool] include_postal_code: Whether to include PC in the certificate subject name.
@@ -45,10 +45,9 @@ class CertificateProfileArgs:
         :param pulumi.Input[str] profile_name: Certificate profile name.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "identity_validation_id", identity_validation_id)
         pulumi.set(__self__, "profile_type", profile_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if identity_validation_id is not None:
-            pulumi.set(__self__, "identity_validation_id", identity_validation_id)
         if include_city is None:
             include_city = False
         if include_city is not None:
@@ -85,6 +84,18 @@ class CertificateProfileArgs:
         pulumi.set(self, "account_name", value)
 
     @property
+    @pulumi.getter(name="identityValidationId")
+    def identity_validation_id(self) -> pulumi.Input[str]:
+        """
+        Identity validation id used for the certificate subject name.
+        """
+        return pulumi.get(self, "identity_validation_id")
+
+    @identity_validation_id.setter
+    def identity_validation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_validation_id", value)
+
+    @property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> pulumi.Input[Union[str, 'ProfileType']]:
         """
@@ -107,18 +118,6 @@ class CertificateProfileArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="identityValidationId")
-    def identity_validation_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identity validation id used for the certificate subject name.
-        """
-        return pulumi.get(self, "identity_validation_id")
-
-    @identity_validation_id.setter
-    def identity_validation_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "identity_validation_id", value)
 
     @property
     @pulumi.getter(name="includeCity")
@@ -212,9 +211,9 @@ class CertificateProfile(pulumi.CustomResource):
         """
         Certificate profile resource.
 
-        Uses Azure REST API version 2024-02-05-preview.
+        Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
-        Other available API versions: 2024-09-30-preview.
+        Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,9 +237,9 @@ class CertificateProfile(pulumi.CustomResource):
         """
         Certificate profile resource.
 
-        Uses Azure REST API version 2024-02-05-preview.
+        Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
-        Other available API versions: 2024-09-30-preview.
+        Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CertificateProfileArgs args: The arguments to use to populate this resource's properties.
@@ -279,6 +278,8 @@ class CertificateProfile(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if identity_validation_id is None and not opts.urn:
+                raise TypeError("Missing required property 'identity_validation_id'")
             __props__.__dict__["identity_validation_id"] = identity_validation_id
             if include_city is None:
                 include_city = False
@@ -302,18 +303,10 @@ class CertificateProfile(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["city"] = None
-            __props__.__dict__["common_name"] = None
-            __props__.__dict__["country"] = None
-            __props__.__dict__["enhanced_key_usage"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["organization"] = None
-            __props__.__dict__["organization_unit"] = None
-            __props__.__dict__["postal_code"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["state"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["street_address"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CertificateProfile"), pulumi.Alias(type_="azure-native:codesigning/v20240930preview:CertificateProfile")])
@@ -340,10 +333,7 @@ class CertificateProfile(pulumi.CustomResource):
 
         __props__ = CertificateProfileArgs.__new__(CertificateProfileArgs)
 
-        __props__.__dict__["city"] = None
-        __props__.__dict__["common_name"] = None
-        __props__.__dict__["country"] = None
-        __props__.__dict__["enhanced_key_usage"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity_validation_id"] = None
         __props__.__dict__["include_city"] = None
         __props__.__dict__["include_country"] = None
@@ -351,53 +341,24 @@ class CertificateProfile(pulumi.CustomResource):
         __props__.__dict__["include_state"] = None
         __props__.__dict__["include_street_address"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["organization"] = None
-        __props__.__dict__["organization_unit"] = None
-        __props__.__dict__["postal_code"] = None
         __props__.__dict__["profile_type"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["state"] = None
         __props__.__dict__["status"] = None
-        __props__.__dict__["street_address"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CertificateProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def city(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        Used as L in the certificate subject name.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "city")
-
-    @property
-    @pulumi.getter(name="commonName")
-    def common_name(self) -> pulumi.Output[str]:
-        """
-        Used as CN in the certificate subject name.
-        """
-        return pulumi.get(self, "common_name")
-
-    @property
-    @pulumi.getter
-    def country(self) -> pulumi.Output[str]:
-        """
-        Used as C in the certificate subject name.
-        """
-        return pulumi.get(self, "country")
-
-    @property
-    @pulumi.getter(name="enhancedKeyUsage")
-    def enhanced_key_usage(self) -> pulumi.Output[str]:
-        """
-        Enhanced key usage of the certificate.
-        """
-        return pulumi.get(self, "enhanced_key_usage")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="identityValidationId")
-    def identity_validation_id(self) -> pulumi.Output[Optional[str]]:
+    def identity_validation_id(self) -> pulumi.Output[str]:
         """
         Identity validation id used for the certificate subject name.
         """
@@ -452,30 +413,6 @@ class CertificateProfile(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def organization(self) -> pulumi.Output[str]:
-        """
-        Used as O in the certificate subject name.
-        """
-        return pulumi.get(self, "organization")
-
-    @property
-    @pulumi.getter(name="organizationUnit")
-    def organization_unit(self) -> pulumi.Output[str]:
-        """
-        Used as OU in the private trust certificate subject name.
-        """
-        return pulumi.get(self, "organization_unit")
-
-    @property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> pulumi.Output[str]:
-        """
-        Used as PC in the certificate subject name.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> pulumi.Output[str]:
         """
@@ -493,27 +430,11 @@ class CertificateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
-        """
-        Used as S in the certificate subject name.
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
         Status of the certificate profile.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="streetAddress")
-    def street_address(self) -> pulumi.Output[str]:
-        """
-        Used as STREET in the certificate subject name.
-        """
-        return pulumi.get(self, "street_address")
 
     @property
     @pulumi.getter(name="systemData")

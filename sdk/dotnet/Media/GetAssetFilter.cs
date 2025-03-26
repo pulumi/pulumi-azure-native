@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of an Asset Filter associated with the specified Asset.
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of an Asset Filter associated with the specified Asset.
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of an Asset Filter associated with the specified Asset.
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
@@ -106,6 +112,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetAssetFilterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The first quality.
         /// </summary>
         public readonly Outputs.FirstQualityResponse? FirstQuality;
@@ -136,6 +146,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetAssetFilterResult(
+            string azureApiVersion,
+
             Outputs.FirstQualityResponse? firstQuality,
 
             string id,
@@ -150,6 +162,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             FirstQuality = firstQuality;
             Id = id;
             Name = name;

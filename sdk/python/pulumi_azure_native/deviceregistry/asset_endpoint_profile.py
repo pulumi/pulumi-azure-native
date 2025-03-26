@@ -22,27 +22,30 @@ __all__ = ['AssetEndpointProfileArgs', 'AssetEndpointProfile']
 @pulumi.input_type
 class AssetEndpointProfileArgs:
     def __init__(__self__, *,
+                 endpoint_profile_type: pulumi.Input[str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[str],
                  target_address: pulumi.Input[str],
                  additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input['AuthenticationArgs']] = None,
+                 discovered_asset_endpoint_profile_ref: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transport_authentication: Optional[pulumi.Input['TransportAuthenticationArgs']] = None,
-                 user_authentication: Optional[pulumi.Input['UserAuthenticationArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AssetEndpointProfile resource.
+        :param pulumi.Input[str] endpoint_profile_type: Defines the configuration for the connector type that is being used with the endpoint profile.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
         :param pulumi.Input[str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
+        :param pulumi.Input['AuthenticationArgs'] authentication: Defines the client authentication mechanism to the server.
+        :param pulumi.Input[str] discovered_asset_endpoint_profile_ref: Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input['TransportAuthenticationArgs'] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        :param pulumi.Input['UserAuthenticationArgs'] user_authentication: Defines the client authentication mechanism to the server.
         """
+        pulumi.set(__self__, "endpoint_profile_type", endpoint_profile_type)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_address", target_address)
@@ -50,14 +53,26 @@ class AssetEndpointProfileArgs:
             pulumi.set(__self__, "additional_configuration", additional_configuration)
         if asset_endpoint_profile_name is not None:
             pulumi.set(__self__, "asset_endpoint_profile_name", asset_endpoint_profile_name)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if discovered_asset_endpoint_profile_ref is not None:
+            pulumi.set(__self__, "discovered_asset_endpoint_profile_ref", discovered_asset_endpoint_profile_ref)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if transport_authentication is not None:
-            pulumi.set(__self__, "transport_authentication", transport_authentication)
-        if user_authentication is not None:
-            pulumi.set(__self__, "user_authentication", user_authentication)
+
+    @property
+    @pulumi.getter(name="endpointProfileType")
+    def endpoint_profile_type(self) -> pulumi.Input[str]:
+        """
+        Defines the configuration for the connector type that is being used with the endpoint profile.
+        """
+        return pulumi.get(self, "endpoint_profile_type")
+
+    @endpoint_profile_type.setter
+    def endpoint_profile_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_profile_type", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -121,6 +136,30 @@ class AssetEndpointProfileArgs:
 
     @property
     @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['AuthenticationArgs']]:
+        """
+        Defines the client authentication mechanism to the server.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['AuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="discoveredAssetEndpointProfileRef")
+    def discovered_asset_endpoint_profile_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+        """
+        return pulumi.get(self, "discovered_asset_endpoint_profile_ref")
+
+    @discovered_asset_endpoint_profile_ref.setter
+    def discovered_asset_endpoint_profile_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "discovered_asset_endpoint_profile_ref", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -143,30 +182,6 @@ class AssetEndpointProfileArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="transportAuthentication")
-    def transport_authentication(self) -> Optional[pulumi.Input['TransportAuthenticationArgs']]:
-        """
-        Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        """
-        return pulumi.get(self, "transport_authentication")
-
-    @transport_authentication.setter
-    def transport_authentication(self, value: Optional[pulumi.Input['TransportAuthenticationArgs']]):
-        pulumi.set(self, "transport_authentication", value)
-
-    @property
-    @pulumi.getter(name="userAuthentication")
-    def user_authentication(self) -> Optional[pulumi.Input['UserAuthenticationArgs']]:
-        """
-        Defines the client authentication mechanism to the server.
-        """
-        return pulumi.get(self, "user_authentication")
-
-    @user_authentication.setter
-    def user_authentication(self, value: Optional[pulumi.Input['UserAuthenticationArgs']]):
-        pulumi.set(self, "user_authentication", value)
-
 
 class AssetEndpointProfile(pulumi.CustomResource):
     @overload
@@ -175,32 +190,34 @@ class AssetEndpointProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[Union['AuthenticationArgs', 'AuthenticationArgsDict']]] = None,
+                 discovered_asset_endpoint_profile_ref: Optional[pulumi.Input[str]] = None,
+                 endpoint_profile_type: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None,
-                 transport_authentication: Optional[pulumi.Input[Union['TransportAuthenticationArgs', 'TransportAuthenticationArgsDict']]] = None,
-                 user_authentication: Optional[pulumi.Input[Union['UserAuthenticationArgs', 'UserAuthenticationArgsDict']]] = None,
                  __props__=None):
         """
         Asset Endpoint Profile definition.
 
-        Uses Azure REST API version 2023-11-01-preview.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2024-11-01.
+        Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
+        :param pulumi.Input[Union['AuthenticationArgs', 'AuthenticationArgsDict']] authentication: Defines the client authentication mechanism to the server.
+        :param pulumi.Input[str] discovered_asset_endpoint_profile_ref: Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+        :param pulumi.Input[str] endpoint_profile_type: Defines the configuration for the connector type that is being used with the endpoint profile.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
-        :param pulumi.Input[Union['TransportAuthenticationArgs', 'TransportAuthenticationArgsDict']] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        :param pulumi.Input[Union['UserAuthenticationArgs', 'UserAuthenticationArgsDict']] user_authentication: Defines the client authentication mechanism to the server.
         """
         ...
     @overload
@@ -211,9 +228,9 @@ class AssetEndpointProfile(pulumi.CustomResource):
         """
         Asset Endpoint Profile definition.
 
-        Uses Azure REST API version 2023-11-01-preview.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2024-11-01.
+        Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.
@@ -232,13 +249,14 @@ class AssetEndpointProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[Union['AuthenticationArgs', 'AuthenticationArgsDict']]] = None,
+                 discovered_asset_endpoint_profile_ref: Optional[pulumi.Input[str]] = None,
+                 endpoint_profile_type: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None,
-                 transport_authentication: Optional[pulumi.Input[Union['TransportAuthenticationArgs', 'TransportAuthenticationArgsDict']]] = None,
-                 user_authentication: Optional[pulumi.Input[Union['UserAuthenticationArgs', 'UserAuthenticationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,6 +268,11 @@ class AssetEndpointProfile(pulumi.CustomResource):
 
             __props__.__dict__["additional_configuration"] = additional_configuration
             __props__.__dict__["asset_endpoint_profile_name"] = asset_endpoint_profile_name
+            __props__.__dict__["authentication"] = authentication
+            __props__.__dict__["discovered_asset_endpoint_profile_ref"] = discovered_asset_endpoint_profile_ref
+            if endpoint_profile_type is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_profile_type'")
+            __props__.__dict__["endpoint_profile_type"] = endpoint_profile_type
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
@@ -261,10 +284,10 @@ class AssetEndpointProfile(pulumi.CustomResource):
             if target_address is None and not opts.urn:
                 raise TypeError("Missing required property 'target_address'")
             __props__.__dict__["target_address"] = target_address
-            __props__.__dict__["transport_authentication"] = transport_authentication
-            __props__.__dict__["user_authentication"] = user_authentication
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
@@ -293,16 +316,19 @@ class AssetEndpointProfile(pulumi.CustomResource):
         __props__ = AssetEndpointProfileArgs.__new__(AssetEndpointProfileArgs)
 
         __props__.__dict__["additional_configuration"] = None
+        __props__.__dict__["authentication"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["discovered_asset_endpoint_profile_ref"] = None
+        __props__.__dict__["endpoint_profile_type"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_address"] = None
-        __props__.__dict__["transport_authentication"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_authentication"] = None
         __props__.__dict__["uuid"] = None
         return AssetEndpointProfile(resource_name, opts=opts, __props__=__props__)
 
@@ -313,6 +339,38 @@ class AssetEndpointProfile(pulumi.CustomResource):
         Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Output[Optional['outputs.AuthenticationResponse']]:
+        """
+        Defines the client authentication mechanism to the server.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="discoveredAssetEndpointProfileRef")
+    def discovered_asset_endpoint_profile_ref(self) -> pulumi.Output[Optional[str]]:
+        """
+        Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+        """
+        return pulumi.get(self, "discovered_asset_endpoint_profile_ref")
+
+    @property
+    @pulumi.getter(name="endpointProfileType")
+    def endpoint_profile_type(self) -> pulumi.Output[str]:
+        """
+        Defines the configuration for the connector type that is being used with the endpoint profile.
+        """
+        return pulumi.get(self, "endpoint_profile_type")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -347,6 +405,14 @@ class AssetEndpointProfile(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output['outputs.AssetEndpointProfileStatusResponse']:
+        """
+        Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
+        """
+        return pulumi.get(self, "status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
@@ -371,28 +437,12 @@ class AssetEndpointProfile(pulumi.CustomResource):
         return pulumi.get(self, "target_address")
 
     @property
-    @pulumi.getter(name="transportAuthentication")
-    def transport_authentication(self) -> pulumi.Output[Optional['outputs.TransportAuthenticationResponse']]:
-        """
-        Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        """
-        return pulumi.get(self, "transport_authentication")
-
-    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAuthentication")
-    def user_authentication(self) -> pulumi.Output[Optional['outputs.UserAuthenticationResponse']]:
-        """
-        Defines the client authentication mechanism to the server.
-        """
-        return pulumi.get(self, "user_authentication")
 
     @property
     @pulumi.getter

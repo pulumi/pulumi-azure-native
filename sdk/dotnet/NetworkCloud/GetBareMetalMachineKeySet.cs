@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get bare metal machine key set of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBareMetalMachineKeySetResult> InvokeAsync(GetBareMetalMachineKeySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get bare metal machine key set of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get bare metal machine key set of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetBareMetalMachineKeySetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
         /// </summary>
         public readonly string AzureGroupId;
@@ -111,6 +115,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The descriptive message about the current detailed status.
         /// </summary>
         public readonly string DetailedStatusMessage;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The date and time after which the users in this key set will be removed from the bare metal machines.
         /// </summary>
@@ -174,11 +182,15 @@ namespace Pulumi.AzureNative.NetworkCloud
 
         [OutputConstructor]
         private GetBareMetalMachineKeySetResult(
+            string azureApiVersion,
+
             string azureGroupId,
 
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             string expiration,
 
@@ -210,9 +222,11 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableArray<Outputs.KeySetUserStatusResponse> userListStatus)
         {
+            AzureApiVersion = azureApiVersion;
             AzureGroupId = azureGroupId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             Expiration = expiration;
             ExtendedLocation = extendedLocation;
             Id = id;

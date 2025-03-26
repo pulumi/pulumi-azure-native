@@ -26,13 +26,16 @@ class GetServerAzureADAdministratorResult:
     """
     Azure Active Directory administrator.
     """
-    def __init__(__self__, administrator_type=None, azure_ad_only_authentication=None, id=None, login=None, name=None, sid=None, tenant_id=None, type=None):
+    def __init__(__self__, administrator_type=None, azure_ad_only_authentication=None, azure_api_version=None, id=None, login=None, name=None, sid=None, tenant_id=None, type=None):
         if administrator_type and not isinstance(administrator_type, str):
             raise TypeError("Expected argument 'administrator_type' to be a str")
         pulumi.set(__self__, "administrator_type", administrator_type)
         if azure_ad_only_authentication and not isinstance(azure_ad_only_authentication, bool):
             raise TypeError("Expected argument 'azure_ad_only_authentication' to be a bool")
         pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,7 +57,7 @@ class GetServerAzureADAdministratorResult:
 
     @property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> str:
+    def administrator_type(self) -> Optional[str]:
         """
         Type of the sever administrator.
         """
@@ -67,6 +70,14 @@ class GetServerAzureADAdministratorResult:
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetServerAzureADAdministratorResult(GetServerAzureADAdministrator
         return GetServerAzureADAdministratorResult(
             administrator_type=self.administrator_type,
             azure_ad_only_authentication=self.azure_ad_only_authentication,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             login=self.login,
             name=self.name,
@@ -140,9 +152,9 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
     """
     Gets a Azure Active Directory administrator.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str administrator_name: The name of server active directory administrator.
@@ -159,6 +171,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
     return AwaitableGetServerAzureADAdministratorResult(
         administrator_type=pulumi.get(__ret__, 'administrator_type'),
         azure_ad_only_authentication=pulumi.get(__ret__, 'azure_ad_only_authentication'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         login=pulumi.get(__ret__, 'login'),
         name=pulumi.get(__ret__, 'name'),
@@ -172,9 +185,9 @@ def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi
     """
     Gets a Azure Active Directory administrator.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str administrator_name: The name of server active directory administrator.
@@ -190,6 +203,7 @@ def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi
     return __ret__.apply(lambda __response__: GetServerAzureADAdministratorResult(
         administrator_type=pulumi.get(__response__, 'administrator_type'),
         azure_ad_only_authentication=pulumi.get(__response__, 'azure_ad_only_authentication'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         login=pulumi.get(__response__, 'login'),
         name=pulumi.get(__response__, 'name'),

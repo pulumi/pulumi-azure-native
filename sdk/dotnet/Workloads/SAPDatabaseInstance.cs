@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// Define the Database resource.
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
-    /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Uses Azure REST API version 2024-09-01.
     /// </summary>
-    [AzureNativeResourceType("azure-native:workloads:SAPDatabaseInstance")]
-    public partial class SAPDatabaseInstance : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:workloads:SapDatabaseInstance")]
+    public partial class SapDatabaseInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Database SID name.
         /// </summary>
@@ -105,19 +109,19 @@ namespace Pulumi.AzureNative.Workloads
 
 
         /// <summary>
-        /// Create a SAPDatabaseInstance resource with the given unique name, arguments, and options.
+        /// Create a SapDatabaseInstance resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SAPDatabaseInstance(string name, SAPDatabaseInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:SAPDatabaseInstance", name, args ?? new SAPDatabaseInstanceArgs(), MakeResourceOptions(options, ""))
+        public SapDatabaseInstance(string name, SapDatabaseInstanceArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:workloads:SapDatabaseInstance", name, args ?? new SapDatabaseInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private SAPDatabaseInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:SAPDatabaseInstance", name, null, MakeResourceOptions(options, id))
+        private SapDatabaseInstance(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:workloads:SapDatabaseInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -128,11 +132,14 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPDatabaseInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPDatabaseInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SAPDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:SAPDatabaseInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,20 +148,20 @@ namespace Pulumi.AzureNative.Workloads
             return merged;
         }
         /// <summary>
-        /// Get an existing SAPDatabaseInstance resource's state with the given name, ID, and optional extra
+        /// Get an existing SapDatabaseInstance resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SAPDatabaseInstance Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static SapDatabaseInstance Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SAPDatabaseInstance(name, id, options);
+            return new SapDatabaseInstance(name, id, options);
         }
     }
 
-    public sealed class SAPDatabaseInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapDatabaseInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database resource name string modeled as parameter for auto generation to work correctly.
@@ -192,9 +199,9 @@ namespace Pulumi.AzureNative.Workloads
             set => _tags = value;
         }
 
-        public SAPDatabaseInstanceArgs()
+        public SapDatabaseInstanceArgs()
         {
         }
-        public static new SAPDatabaseInstanceArgs Empty => new SAPDatabaseInstanceArgs();
+        public static new SapDatabaseInstanceArgs Empty => new SapDatabaseInstanceArgs();
     }
 }

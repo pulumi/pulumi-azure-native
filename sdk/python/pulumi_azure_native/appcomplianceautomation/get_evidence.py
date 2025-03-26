@@ -27,7 +27,10 @@ class GetEvidenceResult:
     """
     A class represent an AppComplianceAutomation evidence resource.
     """
-    def __init__(__self__, control_id=None, evidence_type=None, extra_data=None, file_path=None, id=None, name=None, provisioning_state=None, responsibility_id=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, control_id=None, evidence_type=None, extra_data=None, file_path=None, id=None, name=None, provisioning_state=None, responsibility_id=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if control_id and not isinstance(control_id, str):
             raise TypeError("Expected argument 'control_id' to be a str")
         pulumi.set(__self__, "control_id", control_id)
@@ -58,6 +61,14 @@ class GetEvidenceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="controlId")
@@ -146,6 +157,7 @@ class AwaitableGetEvidenceResult(GetEvidenceResult):
         if False:
             yield self
         return GetEvidenceResult(
+            azure_api_version=self.azure_api_version,
             control_id=self.control_id,
             evidence_type=self.evidence_type,
             extra_data=self.extra_data,
@@ -177,6 +189,7 @@ def get_evidence(evidence_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appcomplianceautomation:getEvidence', __args__, opts=opts, typ=GetEvidenceResult).value
 
     return AwaitableGetEvidenceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         control_id=pulumi.get(__ret__, 'control_id'),
         evidence_type=pulumi.get(__ret__, 'evidence_type'),
         extra_data=pulumi.get(__ret__, 'extra_data'),
@@ -205,6 +218,7 @@ def get_evidence_output(evidence_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:getEvidence', __args__, opts=opts, typ=GetEvidenceResult)
     return __ret__.apply(lambda __response__: GetEvidenceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         control_id=pulumi.get(__response__, 'control_id'),
         evidence_type=pulumi.get(__response__, 'evidence_type'),
         extra_data=pulumi.get(__response__, 'extra_data'),

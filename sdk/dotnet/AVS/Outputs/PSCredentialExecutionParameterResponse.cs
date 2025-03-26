@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The type of execution parameter
+        /// script execution parameter type
         /// Expected value is 'Credential'.
         /// </summary>
         public readonly string Type;

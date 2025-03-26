@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
  * virtual machines and/or Hybrid AKS clusters.
  *
- * Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+ * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CloudServicesNetwork extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource ID of the Network Cloud cluster this cloud services network is associated with.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -72,6 +76,10 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
      * The full list of additional and default egress endpoints that are currently enabled.
      */
     public /*out*/ readonly enabledEgressEndpoints!: pulumi.Output<outputs.networkcloud.EgressEndpointResponse[]>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -138,10 +146,12 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["enabledEgressEndpoints"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
             resourceInputs["interfaceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -152,11 +162,13 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalEgressEndpoints"] = undefined /*out*/;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["enableDefaultEgressEndpoints"] = undefined /*out*/;
             resourceInputs["enabledEgressEndpoints"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
             resourceInputs["interfaceName"] = undefined /*out*/;

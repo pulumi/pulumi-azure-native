@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a specific Smart Detector alert rule.
  *
  * Uses Azure REST API version 2021-04-01.
+ *
+ * Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +46,10 @@ export interface GetSmartDetectorAlertRuleResult {
      * The alert rule actions.
      */
     readonly actionGroups: outputs.alertsmanagement.ActionGroupsInformationResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The alert rule description.
      */
@@ -97,6 +103,8 @@ export interface GetSmartDetectorAlertRuleResult {
  * Get a specific Smart Detector alert rule.
  *
  * Uses Azure REST API version 2021-04-01.
+ *
+ * Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

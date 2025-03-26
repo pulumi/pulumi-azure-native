@@ -27,10 +27,13 @@ class GetCustomRecommendationResult:
     """
     Custom Recommendation
     """
-    def __init__(__self__, assessment_key=None, cloud_providers=None, description=None, display_name=None, id=None, name=None, query=None, remediation_description=None, security_issue=None, severity=None, system_data=None, type=None):
+    def __init__(__self__, assessment_key=None, azure_api_version=None, cloud_providers=None, description=None, display_name=None, id=None, name=None, query=None, remediation_description=None, security_issue=None, severity=None, system_data=None, type=None):
         if assessment_key and not isinstance(assessment_key, str):
             raise TypeError("Expected argument 'assessment_key' to be a str")
         pulumi.set(__self__, "assessment_key", assessment_key)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_providers and not isinstance(cloud_providers, list):
             raise TypeError("Expected argument 'cloud_providers' to be a list")
         pulumi.set(__self__, "cloud_providers", cloud_providers)
@@ -72,6 +75,14 @@ class GetCustomRecommendationResult:
         The assessment metadata key used when an assessment is generated for this Recommendation.
         """
         return pulumi.get(self, "assessment_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudProviders")
@@ -169,6 +180,7 @@ class AwaitableGetCustomRecommendationResult(GetCustomRecommendationResult):
             yield self
         return GetCustomRecommendationResult(
             assessment_key=self.assessment_key,
+            azure_api_version=self.azure_api_version,
             cloud_providers=self.cloud_providers,
             description=self.description,
             display_name=self.display_name,
@@ -202,6 +214,7 @@ def get_custom_recommendation(custom_recommendation_name: Optional[str] = None,
 
     return AwaitableGetCustomRecommendationResult(
         assessment_key=pulumi.get(__ret__, 'assessment_key'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_providers=pulumi.get(__ret__, 'cloud_providers'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -232,6 +245,7 @@ def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getCustomRecommendation', __args__, opts=opts, typ=GetCustomRecommendationResult)
     return __ret__.apply(lambda __response__: GetCustomRecommendationResult(
         assessment_key=pulumi.get(__response__, 'assessment_key'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_providers=pulumi.get(__response__, 'cloud_providers'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

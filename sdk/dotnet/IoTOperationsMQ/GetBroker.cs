@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         public readonly Outputs.ContainerImageResponse AuthImage;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The details of Broker Docker Image.
         /// </summary>
         public readonly Outputs.ContainerImageResponse BrokerImage;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         private GetBrokerResult(
             Outputs.ContainerImageResponse authImage,
 
+            string azureApiVersion,
+
             Outputs.ContainerImageResponse brokerImage,
 
             Outputs.NodeTolerationsResponse? brokerNodeTolerations,
@@ -217,6 +223,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
             string type)
         {
             AuthImage = authImage;
+            AzureApiVersion = azureApiVersion;
             BrokerImage = brokerImage;
             BrokerNodeTolerations = brokerNodeTolerations;
             Cardinality = cardinality;

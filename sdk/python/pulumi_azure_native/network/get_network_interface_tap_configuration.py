@@ -27,7 +27,10 @@ class GetNetworkInterfaceTapConfigurationResult:
     """
     Tap configuration in a Network Interface.
     """
-    def __init__(__self__, etag=None, id=None, name=None, provisioning_state=None, type=None, virtual_network_tap=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, name=None, provisioning_state=None, type=None, virtual_network_tap=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -46,6 +49,14 @@ class GetNetworkInterfaceTapConfigurationResult:
         if virtual_network_tap and not isinstance(virtual_network_tap, dict):
             raise TypeError("Expected argument 'virtual_network_tap' to be a dict")
         pulumi.set(__self__, "virtual_network_tap", virtual_network_tap)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetNetworkInterfaceTapConfigurationResult(GetNetworkInterfaceTapC
         if False:
             yield self
         return GetNetworkInterfaceTapConfigurationResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -117,9 +129,9 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
     """
     Get the specified tap configuration on a network interface.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_interface_name: The name of the network interface.
@@ -134,6 +146,7 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkInterfaceTapConfiguration', __args__, opts=opts, typ=GetNetworkInterfaceTapConfigurationResult).value
 
     return AwaitableGetNetworkInterfaceTapConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -147,9 +160,9 @@ def get_network_interface_tap_configuration_output(network_interface_name: Optio
     """
     Get the specified tap configuration on a network interface.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_interface_name: The name of the network interface.
@@ -163,6 +176,7 @@ def get_network_interface_tap_configuration_output(network_interface_name: Optio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkInterfaceTapConfiguration', __args__, opts=opts, typ=GetNetworkInterfaceTapConfigurationResult)
     return __ret__.apply(lambda __response__: GetNetworkInterfaceTapConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

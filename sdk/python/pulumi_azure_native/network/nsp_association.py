@@ -204,9 +204,9 @@ class NspAssociation(pulumi.CustomResource):
         """
         The NSP resource association resource
 
-        Uses Azure REST API version 2021-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,9 +230,9 @@ class NspAssociation(pulumi.CustomResource):
         """
         The NSP resource association resource
 
-        Uses Azure REST API version 2021-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NspAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -282,6 +282,7 @@ class NspAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["has_provisioning_issues"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -310,6 +311,7 @@ class NspAssociation(pulumi.CustomResource):
         __props__ = NspAssociationArgs.__new__(NspAssociationArgs)
 
         __props__.__dict__["access_mode"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["has_provisioning_issues"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -327,6 +329,14 @@ class NspAssociation(pulumi.CustomResource):
         Access mode on the association.
         """
         return pulumi.get(self, "access_mode")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hasProvisioningIssues")

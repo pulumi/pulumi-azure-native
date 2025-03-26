@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description of a namespace resource.
  *
- * Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly alternateName!: pulumi.Output<string | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The time the namespace was created
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -77,6 +81,10 @@ export class Namespace extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    public readonly premiumMessagingPartitions!: pulumi.Output<number | undefined>;
     /**
      * List of private endpoint connections.
      */
@@ -143,12 +151,14 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["premiumMessagingPartitions"] = args ? args.premiumMessagingPartitions : undefined;
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -160,6 +170,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["alternateName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
@@ -168,6 +179,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["premiumMessagingPartitions"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
@@ -220,6 +232,10 @@ export interface NamespaceArgs {
      */
     namespaceName?: pulumi.Input<string>;
     /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    premiumMessagingPartitions?: pulumi.Input<number>;
+    /**
      * List of private endpoint connections.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
@@ -229,7 +245,7 @@ export interface NamespaceArgs {
      */
     publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccess>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

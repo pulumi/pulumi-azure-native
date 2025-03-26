@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
@@ -124,6 +124,14 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIPConfigurations;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        /// </summary>
+        public readonly bool? DefaultOutboundAccess;
+        /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.DelegationResponse> Delegations;
@@ -147,6 +155,10 @@ namespace Pulumi.AzureNative.Network
         /// An array of references to the network interface IP configurations using subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
+        /// <summary>
+        /// A list of IPAM Pools for allocating IP address prefixes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> IpamPoolPrefixAllocations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -200,6 +212,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
         /// <summary>
+        /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        /// </summary>
+        public readonly string? SharingScope;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string? Type;
@@ -212,6 +228,10 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIPConfigurations,
 
+            string azureApiVersion,
+
+            bool? defaultOutboundAccess,
+
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
             string etag,
@@ -223,6 +243,8 @@ namespace Pulumi.AzureNative.Network
             ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
 
             ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
+
+            ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> ipamPoolPrefixAllocations,
 
             string? name,
 
@@ -250,17 +272,22 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
 
+            string? sharingScope,
+
             string? type)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
             ApplicationGatewayIPConfigurations = applicationGatewayIPConfigurations;
+            AzureApiVersion = azureApiVersion;
+            DefaultOutboundAccess = defaultOutboundAccess;
             Delegations = delegations;
             Etag = etag;
             Id = id;
             IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;
+            IpamPoolPrefixAllocations = ipamPoolPrefixAllocations;
             Name = name;
             NatGateway = natGateway;
             NetworkSecurityGroup = networkSecurityGroup;
@@ -274,6 +301,7 @@ namespace Pulumi.AzureNative.Network
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
+            SharingScope = sharingScope;
             Type = type;
         }
     }

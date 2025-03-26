@@ -27,7 +27,10 @@ class GetManagedNetworkGroupResult:
     """
     The Managed Network Group resource
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, management_groups=None, name=None, provisioning_state=None, subnets=None, subscriptions=None, type=None, virtual_networks=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, kind=None, location=None, management_groups=None, name=None, provisioning_state=None, subnets=None, subscriptions=None, type=None, virtual_networks=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -61,6 +64,14 @@ class GetManagedNetworkGroupResult:
         if virtual_networks and not isinstance(virtual_networks, list):
             raise TypeError("Expected argument 'virtual_networks' to be a list")
         pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetManagedNetworkGroupResult(GetManagedNetworkGroupResult):
         if False:
             yield self
         return GetManagedNetworkGroupResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
@@ -192,6 +204,7 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetwork:getManagedNetworkGroup', __args__, opts=opts, typ=GetManagedNetworkGroupResult).value
 
     return AwaitableGetManagedNetworkGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -224,6 +237,7 @@ def get_managed_network_group_output(managed_network_group_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork:getManagedNetworkGroup', __args__, opts=opts, typ=GetManagedNetworkGroupResult)
     return __ret__.apply(lambda __response__: GetManagedNetworkGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

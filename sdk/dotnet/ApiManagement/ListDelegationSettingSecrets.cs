@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the secret validation key of the DelegationSettings.
         /// 
         /// Uses Azure REST API version 2021-08-01.
+        /// 
+        /// Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the secret validation key of the DelegationSettings.
         /// 
         /// Uses Azure REST API version 2021-08-01.
+        /// 
+        /// Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the secret validation key of the DelegationSettings.
         /// 
         /// Uses Azure REST API version 2021-08-01.
+        /// 
+        /// Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());

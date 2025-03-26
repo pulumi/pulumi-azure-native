@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Describes a Run Command
  *
- * Uses Azure REST API version 2023-10-03-preview.
+ * Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-03-preview.
  *
- * Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+ * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MachineRunCommand extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class MachineRunCommand extends pulumi.CustomResource {
      * Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete.
      */
     public readonly asyncExecution!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
      */
@@ -147,6 +151,7 @@ export class MachineRunCommand extends pulumi.CustomResource {
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -154,6 +159,7 @@ export class MachineRunCommand extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["asyncExecution"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorBlobManagedIdentity"] = undefined /*out*/;
             resourceInputs["errorBlobUri"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

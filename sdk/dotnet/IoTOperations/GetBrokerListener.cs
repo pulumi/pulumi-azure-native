@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Get a BrokerListenerResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+        /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBrokerListenerResult> InvokeAsync(GetBrokerListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerListenerResult>("azure-native:iotoperations:getBrokerListener", args ?? new GetBrokerListenerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Get a BrokerListenerResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+        /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBrokerListenerResult> Invoke(GetBrokerListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerListenerResult>("azure-native:iotoperations:getBrokerListener", args ?? new GetBrokerListenerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Get a BrokerListenerResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+        /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBrokerListenerResult> Invoke(GetBrokerListenerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerListenerResult>("azure-native:iotoperations:getBrokerListener", args ?? new GetBrokerListenerInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.IoTOperations
     public sealed class GetBrokerListenerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Edge location of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.IoTOperations
 
         [OutputConstructor]
         private GetBrokerListenerResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.IoTOperations
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Name = name;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Implements NetworkToNetworkInterconnects GET method.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkToNetworkInterconnect(args: GetNetworkToNetworkInterconnectArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkToNetworkInterconnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,11 +25,11 @@ export function getNetworkToNetworkInterconnect(args: GetNetworkToNetworkInterco
 
 export interface GetNetworkToNetworkInterconnectArgs {
     /**
-     * Name of the NetworkFabric.
+     * Name of the Network Fabric.
      */
     networkFabricName: string;
     /**
-     * Name of the NetworkToNetworkInterconnect
+     * Name of the Network to Network Interconnect.
      */
     networkToNetworkInterconnectName: string;
     /**
@@ -39,29 +39,49 @@ export interface GetNetworkToNetworkInterconnectArgs {
 }
 
 /**
- * The NetworkToNetworkInterconnect resource definition.
+ * The Network To Network Interconnect resource definition.
  */
 export interface GetNetworkToNetworkInterconnectResult {
     /**
-     * Gets the administrativeState of the resource. Example -Enabled/Disabled
+     * Administrative state of the resource.
      */
     readonly administrativeState: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
+     * Egress Acl. ARM resource ID of Access Control Lists.
+     */
+    readonly egressAclId?: string;
+    /**
+     * Export Route Policy configuration.
+     */
+    readonly exportRoutePolicy?: outputs.managednetworkfabric.ExportRoutePolicyInformationResponse;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
+     * Import Route Policy configuration.
+     */
+    readonly importRoutePolicy?: outputs.managednetworkfabric.ImportRoutePolicyInformationResponse;
+    /**
+     * Ingress Acl. ARM resource ID of Access Control Lists.
+     */
+    readonly ingressAclId?: string;
+    /**
      * Configuration to use NNI for Infrastructure Management. Example: True/False.
      */
-    readonly isManagementType: string;
+    readonly isManagementType?: string;
     /**
-     * Common properties for Layer2Configuration.
+     * Common properties for Layer2 Configuration.
      */
     readonly layer2Configuration?: outputs.managednetworkfabric.Layer2ConfigurationResponse;
-    /**
-     * Common properties for Layer3Configuration.
-     */
-    readonly layer3Configuration?: outputs.managednetworkfabric.Layer3ConfigurationResponse;
     /**
      * The name of the resource
      */
@@ -71,7 +91,15 @@ export interface GetNetworkToNetworkInterconnectResult {
      */
     readonly nniType?: string;
     /**
-     * Gets the provisioning state of the resource.
+     * NPB Static Route Configuration properties.
+     */
+    readonly npbStaticRouteConfiguration?: outputs.managednetworkfabric.NpbStaticRouteConfigurationResponse;
+    /**
+     * Common properties for Layer3Configuration.
+     */
+    readonly optionBLayer3Configuration?: outputs.managednetworkfabric.NetworkToNetworkInterconnectPropertiesResponseOptionBLayer3Configuration;
+    /**
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -83,16 +111,16 @@ export interface GetNetworkToNetworkInterconnectResult {
      */
     readonly type: string;
     /**
-     * Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+     * Based on this option layer3 parameters are mandatory. Example: True/False
      */
     readonly useOptionB: string;
 }
 /**
  * Implements NetworkToNetworkInterconnects GET method.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,11 +133,11 @@ export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkI
 
 export interface GetNetworkToNetworkInterconnectOutputArgs {
     /**
-     * Name of the NetworkFabric.
+     * Name of the Network Fabric.
      */
     networkFabricName: pulumi.Input<string>;
     /**
-     * Name of the NetworkToNetworkInterconnect
+     * Name of the Network to Network Interconnect.
      */
     networkToNetworkInterconnectName: pulumi.Input<string>;
     /**

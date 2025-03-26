@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a specified share.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +60,10 @@ export interface GetFileShareResult {
      */
     readonly accessTierStatus: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Indicates whether the share was deleted.
      */
     readonly deleted: boolean;
@@ -76,9 +80,17 @@ export interface GetFileShareResult {
      */
     readonly etag: string;
     /**
+     * File Share Paid Bursting properties.
+     */
+    readonly fileSharePaidBursting?: outputs.storage.FileSharePropertiesResponseFileSharePaidBursting;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The calculated burst IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    readonly includedBurstIops: number;
     /**
      * Returns the date and time the share was last modified.
      */
@@ -96,6 +108,10 @@ export interface GetFileShareResult {
      */
     readonly leaseStatus: string;
     /**
+     * The calculated maximum burst credits for the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    readonly maxBurstCreditsForIops: number;
+    /**
      * A name-value pair to associate with the share as metadata.
      */
     readonly metadata?: {[key: string]: string};
@@ -103,6 +119,26 @@ export interface GetFileShareResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Returns the next allowed provisioned bandwidth downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    readonly nextAllowedProvisionedBandwidthDowngradeTime: string;
+    /**
+     * Returns the next allowed provisioned IOPS downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    readonly nextAllowedProvisionedIopsDowngradeTime: string;
+    /**
+     * Returns the next allowed provisioned storage size downgrade time for the share. This property is only for file shares created under Files Provisioned v1 SSD and Files Provisioned v2 account type
+     */
+    readonly nextAllowedQuotaDowngradeTime: string;
+    /**
+     * The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+     */
+    readonly provisionedBandwidthMibps?: number;
+    /**
+     * The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+     */
+    readonly provisionedIops?: number;
     /**
      * Remaining retention days for share that was soft deleted.
      */
@@ -112,7 +148,7 @@ export interface GetFileShareResult {
      */
     readonly rootSquash?: string;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+     * The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
      */
     readonly shareQuota?: number;
     /**
@@ -139,9 +175,9 @@ export interface GetFileShareResult {
 /**
  * Gets properties of a specified share.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

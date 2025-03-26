@@ -17,27 +17,27 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class CorsPolicyResponse
     {
         /// <summary>
-        /// allow credential or not
+        /// Specifies whether the resource allows credentials
         /// </summary>
         public readonly bool? AllowCredentials;
         /// <summary>
-        /// allowed HTTP headers
+        /// Specifies the content for the access-control-allow-headers header
         /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
-        /// allowed HTTP methods
+        /// Specifies the content for the access-control-allow-methods header
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
-        /// allowed origins
+        /// Specifies the content for the access-control-allow-origins header
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>
-        /// expose HTTP headers 
+        /// Specifies the content for the access-control-expose-headers header 
         /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
         /// <summary>
-        /// max time client can cache the result
+        /// Specifies the content for the access-control-max-age header
         /// </summary>
         public readonly int? MaxAge;
 

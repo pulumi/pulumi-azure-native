@@ -70,7 +70,7 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[s
 
     Uses Azure REST API version 2023-05-15-preview.
 
-    Other available API versions: 2024-10-23.
+    Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -93,7 +93,7 @@ def list_automation_account_deleted_runbooks_output(automation_account_name: Opt
 
     Uses Azure REST API version 2023-05-15-preview.
 
-    Other available API versions: 2024-10-23.
+    Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.

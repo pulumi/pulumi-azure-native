@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// <summary>
     /// The service resource.
     /// 
-    /// Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
-    /// 
-    /// Other available API versions: 2021-06-01.
+    /// Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -82,6 +86,7 @@ namespace Pulumi.AzureNative.ServiceFabric
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:Service" },
@@ -91,16 +96,26 @@ namespace Pulumi.AzureNative.ServiceFabric
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230701preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230701preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230901preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230901preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231101preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231101preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240901preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240901preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20241101preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric:ManagedClusterService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

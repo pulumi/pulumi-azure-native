@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class ListAccessEnvironmentsResult:
     """
-    List environments success response
+    Details of the environments returned on successful response
     """
     def __init__(__self__, data=None, kind=None, metadata=None):
         if data and not isinstance(data, list):
@@ -42,7 +42,7 @@ class ListAccessEnvironmentsResult:
     @pulumi.getter
     def data(self) -> Optional[Sequence['outputs.EnvironmentRecordResponse']]:
         """
-        Data of the environments list
+        Environment list data
         """
         return pulumi.get(self, "data")
 
@@ -58,7 +58,7 @@ class ListAccessEnvironmentsResult:
     @pulumi.getter
     def metadata(self) -> Optional['outputs.ConfluentListMetadataResponse']:
         """
-        Metadata of the list
+        Metadata of the  environment list
         """
         return pulumi.get(self, "metadata")
 
@@ -79,11 +79,11 @@ def list_access_environments(organization_name: Optional[str] = None,
                              search_filters: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessEnvironmentsResult:
     """
-    List environments success response
+    Details of the environments returned on successful response
 
-    Uses Azure REST API version 2023-08-22.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-02-13, 2024-07-01.
+    Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name
@@ -106,11 +106,11 @@ def list_access_environments_output(organization_name: Optional[pulumi.Input[str
                                     search_filters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessEnvironmentsResult]:
     """
-    List environments success response
+    Details of the environments returned on successful response
 
-    Uses Azure REST API version 2023-08-22.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-02-13, 2024-07-01.
+    Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name

@@ -27,7 +27,10 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, purview_configuration=None, repo_configuration=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, purview_configuration=None, repo_configuration=None, tags=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
@@ -73,6 +76,14 @@ class GetFactoryResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createTime")
@@ -201,6 +212,7 @@ class AwaitableGetFactoryResult(GetFactoryResult):
         if False:
             yield self
         return GetFactoryResult(
+            azure_api_version=self.azure_api_version,
             create_time=self.create_time,
             e_tag=self.e_tag,
             encryption=self.encryption,
@@ -237,6 +249,7 @@ def get_factory(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory:getFactory', __args__, opts=opts, typ=GetFactoryResult).value
 
     return AwaitableGetFactoryResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         create_time=pulumi.get(__ret__, 'create_time'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         encryption=pulumi.get(__ret__, 'encryption'),
@@ -270,6 +283,7 @@ def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getFactory', __args__, opts=opts, typ=GetFactoryResult)
     return __ret__.apply(lambda __response__: GetFactoryResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         create_time=pulumi.get(__response__, 'create_time'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         encryption=pulumi.get(__response__, 'encryption'),

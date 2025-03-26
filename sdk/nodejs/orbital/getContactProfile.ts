@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Gets the specified contact Profile in a specified resource group.
  *
  * Uses Azure REST API version 2022-11-01.
- *
- * Other available API versions: 2022-03-01.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetContactProfileResult {
      * Auto-tracking configuration.
      */
     readonly autoTrackingConfiguration?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
@@ -94,8 +96,6 @@ export interface GetContactProfileResult {
  * Gets the specified contact Profile in a specified resource group.
  *
  * Uses Azure REST API version 2022-11-01.
- *
- * Other available API versions: 2022-03-01.
  */
 export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

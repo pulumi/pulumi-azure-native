@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a data connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Task<GetCosmosDbDataConnectionResult> InvokeAsync(GetCosmosDbDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCosmosDbDataConnectionResult>("azure-native:kusto:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a data connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a data connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Kusto
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -105,6 +105,10 @@ namespace Pulumi.AzureNative.Kusto
     [OutputType]
     public sealed class GetCosmosDbDataConnectionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The resource ID of the Cosmos DB account used to create the data connection.
         /// </summary>
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetCosmosDbDataConnectionResult(
+            string azureApiVersion,
+
             string cosmosDbAccountResourceId,
 
             string cosmosDbContainer,
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CosmosDbAccountResourceId = cosmosDbAccountResourceId;
             CosmosDbContainer = cosmosDbContainer;
             CosmosDbDatabase = cosmosDbDatabase;

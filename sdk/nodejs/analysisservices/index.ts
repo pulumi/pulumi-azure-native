@@ -24,15 +24,6 @@ utilities.lazyLoad(exports, ["ServerDetails"], () => require("./serverDetails"))
 // Export enums:
 export * from "../types/enums/analysisservices";
 
-// Export sub-modules:
-import * as v20170801 from "./v20170801";
-import * as v20170801beta from "./v20170801beta";
-
-export {
-    v20170801,
-    v20170801beta,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

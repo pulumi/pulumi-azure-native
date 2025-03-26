@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        [Input("encryptedKeyForSecureFields")]
+        public Input<string>? EncryptedKeyForSecureFields { get; set; }
+
+        /// <summary>
         /// Setting to set the source server read only
         /// </summary>
         [Input("makeSourceServerReadOnly")]

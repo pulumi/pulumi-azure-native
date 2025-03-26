@@ -16,38 +16,24 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AdmCredentialPropertiesArgs',
-    'AdmCredentialPropertiesArgsDict',
     'AdmCredentialArgs',
     'AdmCredentialArgsDict',
-    'ApnsCredentialPropertiesArgs',
-    'ApnsCredentialPropertiesArgsDict',
     'ApnsCredentialArgs',
     'ApnsCredentialArgsDict',
-    'BaiduCredentialPropertiesArgs',
-    'BaiduCredentialPropertiesArgsDict',
     'BaiduCredentialArgs',
     'BaiduCredentialArgsDict',
-    'BrowserCredentialPropertiesArgs',
-    'BrowserCredentialPropertiesArgsDict',
     'BrowserCredentialArgs',
     'BrowserCredentialArgsDict',
-    'GcmCredentialPropertiesArgs',
-    'GcmCredentialPropertiesArgsDict',
+    'FcmV1CredentialArgs',
+    'FcmV1CredentialArgsDict',
     'GcmCredentialArgs',
     'GcmCredentialArgsDict',
     'IpRuleArgs',
     'IpRuleArgsDict',
-    'MpnsCredentialPropertiesArgs',
-    'MpnsCredentialPropertiesArgsDict',
     'MpnsCredentialArgs',
     'MpnsCredentialArgsDict',
-    'NamespacePropertiesArgs',
-    'NamespacePropertiesArgsDict',
     'NetworkAclsArgs',
     'NetworkAclsArgsDict',
-    'NotificationHubPropertiesArgs',
-    'NotificationHubPropertiesArgsDict',
     'PnsCredentialsArgs',
     'PnsCredentialsArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
@@ -56,16 +42,10 @@ __all__ = [
     'PublicInternetAuthorizationRuleArgsDict',
     'RemotePrivateLinkServiceConnectionStateArgs',
     'RemotePrivateLinkServiceConnectionStateArgsDict',
-    'SharedAccessAuthorizationRulePropertiesArgs',
-    'SharedAccessAuthorizationRulePropertiesArgsDict',
     'SkuArgs',
     'SkuArgsDict',
-    'WnsCredentialPropertiesArgs',
-    'WnsCredentialPropertiesArgsDict',
     'WnsCredentialArgs',
     'WnsCredentialArgsDict',
-    'XiaomiCredentialPropertiesArgs',
-    'XiaomiCredentialPropertiesArgsDict',
     'XiaomiCredentialArgs',
     'XiaomiCredentialArgsDict',
 ]
@@ -73,7 +53,7 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
-    class AdmCredentialPropertiesArgsDict(TypedDict):
+    class AdmCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub AdmCredential.
         """
@@ -90,10 +70,10 @@ if not MYPY:
         Gets or sets the credential secret access key.
         """
 elif False:
-    AdmCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    AdmCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class AdmCredentialPropertiesArgs:
+class AdmCredentialArgs:
     def __init__(__self__, *,
                  auth_token_url: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -146,42 +126,7 @@ class AdmCredentialPropertiesArgs:
 
 
 if not MYPY:
-    class AdmCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        properties: pulumi.Input['AdmCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-elif False:
-    AdmCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AdmCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['AdmCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub AdmCredential.
-        :param pulumi.Input['AdmCredentialPropertiesArgs'] properties: Description of a NotificationHub AdmCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['AdmCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['AdmCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-if not MYPY:
-    class ApnsCredentialPropertiesArgsDict(TypedDict):
+    class ApnsCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub ApnsCredential.
         """
@@ -221,10 +166,10 @@ if not MYPY:
         developer account
         """
 elif False:
-    ApnsCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    ApnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class ApnsCredentialPropertiesArgs:
+class ApnsCredentialArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  apns_certificate: Optional[pulumi.Input[str]] = None,
@@ -365,42 +310,7 @@ class ApnsCredentialPropertiesArgs:
 
 
 if not MYPY:
-    class ApnsCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        properties: pulumi.Input['ApnsCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-elif False:
-    ApnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ApnsCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['ApnsCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub ApnsCredential.
-        :param pulumi.Input['ApnsCredentialPropertiesArgs'] properties: Description of a NotificationHub ApnsCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['ApnsCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['ApnsCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-if not MYPY:
-    class BaiduCredentialPropertiesArgsDict(TypedDict):
+    class BaiduCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub BaiduCredential.
         """
@@ -417,10 +327,10 @@ if not MYPY:
         Gets or sets baidu Secret Key
         """
 elif False:
-    BaiduCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    BaiduCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class BaiduCredentialPropertiesArgs:
+class BaiduCredentialArgs:
     def __init__(__self__, *,
                  baidu_api_key: pulumi.Input[str],
                  baidu_end_point: pulumi.Input[str],
@@ -473,42 +383,7 @@ class BaiduCredentialPropertiesArgs:
 
 
 if not MYPY:
-    class BaiduCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        properties: pulumi.Input['BaiduCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-elif False:
-    BaiduCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BaiduCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['BaiduCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub BaiduCredential.
-        :param pulumi.Input['BaiduCredentialPropertiesArgs'] properties: Description of a NotificationHub BaiduCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['BaiduCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['BaiduCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-if not MYPY:
-    class BrowserCredentialPropertiesArgsDict(TypedDict):
+    class BrowserCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub BrowserCredential.
         """
@@ -525,10 +400,10 @@ if not MYPY:
         Gets or sets VAPID public key.
         """
 elif False:
-    BrowserCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    BrowserCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class BrowserCredentialPropertiesArgs:
+class BrowserCredentialArgs:
     def __init__(__self__, *,
                  subject: pulumi.Input[str],
                  vapid_private_key: pulumi.Input[str],
@@ -581,42 +456,80 @@ class BrowserCredentialPropertiesArgs:
 
 
 if not MYPY:
-    class BrowserCredentialArgsDict(TypedDict):
+    class FcmV1CredentialArgsDict(TypedDict):
         """
-        Description of a NotificationHub BrowserCredential.
+        Description of a NotificationHub FcmV1Credential.
         """
-        properties: pulumi.Input['BrowserCredentialPropertiesArgsDict']
+        client_email: pulumi.Input[str]
         """
-        Description of a NotificationHub BrowserCredential.
+        Gets or sets client email.
+        """
+        private_key: pulumi.Input[str]
+        """
+        Gets or sets private key.
+        """
+        project_id: pulumi.Input[str]
+        """
+        Gets or sets project id.
         """
 elif False:
-    BrowserCredentialArgsDict: TypeAlias = Mapping[str, Any]
+    FcmV1CredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class BrowserCredentialArgs:
+class FcmV1CredentialArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['BrowserCredentialPropertiesArgs']):
+                 client_email: pulumi.Input[str],
+                 private_key: pulumi.Input[str],
+                 project_id: pulumi.Input[str]):
         """
-        Description of a NotificationHub BrowserCredential.
-        :param pulumi.Input['BrowserCredentialPropertiesArgs'] properties: Description of a NotificationHub BrowserCredential.
+        Description of a NotificationHub FcmV1Credential.
+        :param pulumi.Input[str] client_email: Gets or sets client email.
+        :param pulumi.Input[str] private_key: Gets or sets private key.
+        :param pulumi.Input[str] project_id: Gets or sets project id.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "project_id", project_id)
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['BrowserCredentialPropertiesArgs']:
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> pulumi.Input[str]:
         """
-        Description of a NotificationHub BrowserCredential.
+        Gets or sets client email.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "client_email")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['BrowserCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
+    @client_email.setter
+    def client_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Input[str]:
+        """
+        Gets or sets private key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        Gets or sets project id.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
 
 
 if not MYPY:
-    class GcmCredentialPropertiesArgsDict(TypedDict):
+    class GcmCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub GcmCredential.
         """
@@ -629,10 +542,10 @@ if not MYPY:
         Gets or sets the GCM endpoint.
         """
 elif False:
-    GcmCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    GcmCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class GcmCredentialPropertiesArgs:
+class GcmCredentialArgs:
     def __init__(__self__, *,
                  google_api_key: pulumi.Input[str],
                  gcm_endpoint: Optional[pulumi.Input[str]] = None):
@@ -668,41 +581,6 @@ class GcmCredentialPropertiesArgs:
     @gcm_endpoint.setter
     def gcm_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gcm_endpoint", value)
-
-
-if not MYPY:
-    class GcmCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        properties: pulumi.Input['GcmCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-elif False:
-    GcmCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GcmCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['GcmCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub GcmCredential.
-        :param pulumi.Input['GcmCredentialPropertiesArgs'] properties: Description of a NotificationHub GcmCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['GcmCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['GcmCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -760,7 +638,7 @@ class IpRuleArgs:
 
 
 if not MYPY:
-    class MpnsCredentialPropertiesArgsDict(TypedDict):
+    class MpnsCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub MpnsCredential.
         """
@@ -777,10 +655,10 @@ if not MYPY:
         Gets or sets the MPNS certificate Thumbprint
         """
 elif False:
-    MpnsCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    MpnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class MpnsCredentialPropertiesArgs:
+class MpnsCredentialArgs:
     def __init__(__self__, *,
                  certificate_key: pulumi.Input[str],
                  mpns_certificate: pulumi.Input[str],
@@ -830,257 +708,6 @@ class MpnsCredentialPropertiesArgs:
     @thumbprint.setter
     def thumbprint(self, value: pulumi.Input[str]):
         pulumi.set(self, "thumbprint", value)
-
-
-if not MYPY:
-    class MpnsCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        properties: pulumi.Input['MpnsCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-elif False:
-    MpnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class MpnsCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['MpnsCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub MpnsCredential.
-        :param pulumi.Input['MpnsCredentialPropertiesArgs'] properties: Description of a NotificationHub MpnsCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['MpnsCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['MpnsCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-if not MYPY:
-    class NamespacePropertiesArgsDict(TypedDict):
-        """
-        Represents namespace properties.
-        """
-        data_center: NotRequired[pulumi.Input[str]]
-        """
-        Deprecated.
-        """
-        namespace_type: NotRequired[pulumi.Input[Union[str, 'NamespaceType']]]
-        """
-        Defines values for NamespaceType.
-        """
-        network_acls: NotRequired[pulumi.Input['NetworkAclsArgsDict']]
-        """
-        A collection of network authorization rules.
-        """
-        pns_credentials: NotRequired[pulumi.Input['PnsCredentialsArgsDict']]
-        """
-        Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[str, 'OperationProvisioningState']]]
-        """
-        Defines values for OperationProvisioningState.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
-        """
-        Type of public network access.
-        """
-        replication_region: NotRequired[pulumi.Input[Union[str, 'ReplicationRegion']]]
-        """
-        Allowed replication region
-        """
-        scale_unit: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets scaleUnit where the namespace gets created
-        """
-        status: NotRequired[pulumi.Input[Union[str, 'NamespaceStatus']]]
-        """
-        Namespace status.
-        """
-        zone_redundancy: NotRequired[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]]
-        """
-        Namespace SKU name.
-        """
-elif False:
-    NamespacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NamespacePropertiesArgs:
-    def __init__(__self__, *,
-                 data_center: Optional[pulumi.Input[str]] = None,
-                 namespace_type: Optional[pulumi.Input[Union[str, 'NamespaceType']]] = None,
-                 network_acls: Optional[pulumi.Input['NetworkAclsArgs']] = None,
-                 pns_credentials: Optional[pulumi.Input['PnsCredentialsArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'OperationProvisioningState']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 replication_region: Optional[pulumi.Input[Union[str, 'ReplicationRegion']]] = None,
-                 scale_unit: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'NamespaceStatus']]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]] = None):
-        """
-        Represents namespace properties.
-        :param pulumi.Input[str] data_center: Deprecated.
-        :param pulumi.Input[Union[str, 'NamespaceType']] namespace_type: Defines values for NamespaceType.
-        :param pulumi.Input['NetworkAclsArgs'] network_acls: A collection of network authorization rules.
-        :param pulumi.Input['PnsCredentialsArgs'] pns_credentials: Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        :param pulumi.Input[Union[str, 'OperationProvisioningState']] provisioning_state: Defines values for OperationProvisioningState.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Type of public network access.
-        :param pulumi.Input[Union[str, 'ReplicationRegion']] replication_region: Allowed replication region
-        :param pulumi.Input[str] scale_unit: Gets or sets scaleUnit where the namespace gets created
-        :param pulumi.Input[Union[str, 'NamespaceStatus']] status: Namespace status.
-        :param pulumi.Input[Union[str, 'ZoneRedundancyPreference']] zone_redundancy: Namespace SKU name.
-        """
-        if data_center is not None:
-            pulumi.set(__self__, "data_center", data_center)
-        if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
-        if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
-        if pns_credentials is not None:
-            pulumi.set(__self__, "pns_credentials", pns_credentials)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if replication_region is not None:
-            pulumi.set(__self__, "replication_region", replication_region)
-        if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
-
-    @property
-    @pulumi.getter(name="dataCenter")
-    def data_center(self) -> Optional[pulumi.Input[str]]:
-        """
-        Deprecated.
-        """
-        return pulumi.get(self, "data_center")
-
-    @data_center.setter
-    def data_center(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_center", value)
-
-    @property
-    @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> Optional[pulumi.Input[Union[str, 'NamespaceType']]]:
-        """
-        Defines values for NamespaceType.
-        """
-        return pulumi.get(self, "namespace_type")
-
-    @namespace_type.setter
-    def namespace_type(self, value: Optional[pulumi.Input[Union[str, 'NamespaceType']]]):
-        pulumi.set(self, "namespace_type", value)
-
-    @property
-    @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['NetworkAclsArgs']]:
-        """
-        A collection of network authorization rules.
-        """
-        return pulumi.get(self, "network_acls")
-
-    @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['NetworkAclsArgs']]):
-        pulumi.set(self, "network_acls", value)
-
-    @property
-    @pulumi.getter(name="pnsCredentials")
-    def pns_credentials(self) -> Optional[pulumi.Input['PnsCredentialsArgs']]:
-        """
-        Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        """
-        return pulumi.get(self, "pns_credentials")
-
-    @pns_credentials.setter
-    def pns_credentials(self, value: Optional[pulumi.Input['PnsCredentialsArgs']]):
-        pulumi.set(self, "pns_credentials", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'OperationProvisioningState']]]:
-        """
-        Defines values for OperationProvisioningState.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'OperationProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
-        """
-        Type of public network access.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
-        pulumi.set(self, "public_network_access", value)
-
-    @property
-    @pulumi.getter(name="replicationRegion")
-    def replication_region(self) -> Optional[pulumi.Input[Union[str, 'ReplicationRegion']]]:
-        """
-        Allowed replication region
-        """
-        return pulumi.get(self, "replication_region")
-
-    @replication_region.setter
-    def replication_region(self, value: Optional[pulumi.Input[Union[str, 'ReplicationRegion']]]):
-        pulumi.set(self, "replication_region", value)
-
-    @property
-    @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets scaleUnit where the namespace gets created
-        """
-        return pulumi.get(self, "scale_unit")
-
-    @scale_unit.setter
-    def scale_unit(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scale_unit", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'NamespaceStatus']]]:
-        """
-        Namespace status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'NamespaceStatus']]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="zoneRedundancy")
-    def zone_redundancy(self) -> Optional[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]]:
-        """
-        Namespace SKU name.
-        """
-        return pulumi.get(self, "zone_redundancy")
-
-    @zone_redundancy.setter
-    def zone_redundancy(self, value: Optional[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]]):
-        pulumi.set(self, "zone_redundancy", value)
 
 
 if not MYPY:
@@ -1140,222 +767,6 @@ class NetworkAclsArgs:
 
 
 if not MYPY:
-    class NotificationHubPropertiesArgsDict(TypedDict):
-        """
-        NotificationHub properties.
-        """
-        adm_credential: NotRequired[pulumi.Input['AdmCredentialArgsDict']]
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        apns_credential: NotRequired[pulumi.Input['ApnsCredentialArgsDict']]
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        baidu_credential: NotRequired[pulumi.Input['BaiduCredentialArgsDict']]
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        browser_credential: NotRequired[pulumi.Input['BrowserCredentialArgsDict']]
-        """
-        Description of a NotificationHub BrowserCredential.
-        """
-        gcm_credential: NotRequired[pulumi.Input['GcmCredentialArgsDict']]
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        mpns_credential: NotRequired[pulumi.Input['MpnsCredentialArgsDict']]
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the NotificationHub name.
-        """
-        registration_ttl: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the RegistrationTtl of the created NotificationHub
-        """
-        wns_credential: NotRequired[pulumi.Input['WnsCredentialArgsDict']]
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        xiaomi_credential: NotRequired[pulumi.Input['XiaomiCredentialArgsDict']]
-        """
-        Description of a NotificationHub XiaomiCredential.
-        """
-elif False:
-    NotificationHubPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NotificationHubPropertiesArgs:
-    def __init__(__self__, *,
-                 adm_credential: Optional[pulumi.Input['AdmCredentialArgs']] = None,
-                 apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
-                 baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
-                 browser_credential: Optional[pulumi.Input['BrowserCredentialArgs']] = None,
-                 gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
-                 mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 registration_ttl: Optional[pulumi.Input[str]] = None,
-                 wns_credential: Optional[pulumi.Input['WnsCredentialArgs']] = None,
-                 xiaomi_credential: Optional[pulumi.Input['XiaomiCredentialArgs']] = None):
-        """
-        NotificationHub properties.
-        :param pulumi.Input['AdmCredentialArgs'] adm_credential: Description of a NotificationHub AdmCredential.
-        :param pulumi.Input['ApnsCredentialArgs'] apns_credential: Description of a NotificationHub ApnsCredential.
-        :param pulumi.Input['BaiduCredentialArgs'] baidu_credential: Description of a NotificationHub BaiduCredential.
-        :param pulumi.Input['BrowserCredentialArgs'] browser_credential: Description of a NotificationHub BrowserCredential.
-        :param pulumi.Input['GcmCredentialArgs'] gcm_credential: Description of a NotificationHub GcmCredential.
-        :param pulumi.Input['MpnsCredentialArgs'] mpns_credential: Description of a NotificationHub MpnsCredential.
-        :param pulumi.Input[str] name: Gets or sets the NotificationHub name.
-        :param pulumi.Input[str] registration_ttl: Gets or sets the RegistrationTtl of the created NotificationHub
-        :param pulumi.Input['WnsCredentialArgs'] wns_credential: Description of a NotificationHub WnsCredential.
-        :param pulumi.Input['XiaomiCredentialArgs'] xiaomi_credential: Description of a NotificationHub XiaomiCredential.
-        """
-        if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
-        if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
-        if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
-        if browser_credential is not None:
-            pulumi.set(__self__, "browser_credential", browser_credential)
-        if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
-        if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if registration_ttl is not None:
-            pulumi.set(__self__, "registration_ttl", registration_ttl)
-        if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
-        if xiaomi_credential is not None:
-            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
-
-    @property
-    @pulumi.getter(name="admCredential")
-    def adm_credential(self) -> Optional[pulumi.Input['AdmCredentialArgs']]:
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        return pulumi.get(self, "adm_credential")
-
-    @adm_credential.setter
-    def adm_credential(self, value: Optional[pulumi.Input['AdmCredentialArgs']]):
-        pulumi.set(self, "adm_credential", value)
-
-    @property
-    @pulumi.getter(name="apnsCredential")
-    def apns_credential(self) -> Optional[pulumi.Input['ApnsCredentialArgs']]:
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        return pulumi.get(self, "apns_credential")
-
-    @apns_credential.setter
-    def apns_credential(self, value: Optional[pulumi.Input['ApnsCredentialArgs']]):
-        pulumi.set(self, "apns_credential", value)
-
-    @property
-    @pulumi.getter(name="baiduCredential")
-    def baidu_credential(self) -> Optional[pulumi.Input['BaiduCredentialArgs']]:
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        return pulumi.get(self, "baidu_credential")
-
-    @baidu_credential.setter
-    def baidu_credential(self, value: Optional[pulumi.Input['BaiduCredentialArgs']]):
-        pulumi.set(self, "baidu_credential", value)
-
-    @property
-    @pulumi.getter(name="browserCredential")
-    def browser_credential(self) -> Optional[pulumi.Input['BrowserCredentialArgs']]:
-        """
-        Description of a NotificationHub BrowserCredential.
-        """
-        return pulumi.get(self, "browser_credential")
-
-    @browser_credential.setter
-    def browser_credential(self, value: Optional[pulumi.Input['BrowserCredentialArgs']]):
-        pulumi.set(self, "browser_credential", value)
-
-    @property
-    @pulumi.getter(name="gcmCredential")
-    def gcm_credential(self) -> Optional[pulumi.Input['GcmCredentialArgs']]:
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        return pulumi.get(self, "gcm_credential")
-
-    @gcm_credential.setter
-    def gcm_credential(self, value: Optional[pulumi.Input['GcmCredentialArgs']]):
-        pulumi.set(self, "gcm_credential", value)
-
-    @property
-    @pulumi.getter(name="mpnsCredential")
-    def mpns_credential(self) -> Optional[pulumi.Input['MpnsCredentialArgs']]:
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        return pulumi.get(self, "mpns_credential")
-
-    @mpns_credential.setter
-    def mpns_credential(self, value: Optional[pulumi.Input['MpnsCredentialArgs']]):
-        pulumi.set(self, "mpns_credential", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the NotificationHub name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="registrationTtl")
-    def registration_ttl(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the RegistrationTtl of the created NotificationHub
-        """
-        return pulumi.get(self, "registration_ttl")
-
-    @registration_ttl.setter
-    def registration_ttl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "registration_ttl", value)
-
-    @property
-    @pulumi.getter(name="wnsCredential")
-    def wns_credential(self) -> Optional[pulumi.Input['WnsCredentialArgs']]:
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        return pulumi.get(self, "wns_credential")
-
-    @wns_credential.setter
-    def wns_credential(self, value: Optional[pulumi.Input['WnsCredentialArgs']]):
-        pulumi.set(self, "wns_credential", value)
-
-    @property
-    @pulumi.getter(name="xiaomiCredential")
-    def xiaomi_credential(self) -> Optional[pulumi.Input['XiaomiCredentialArgs']]:
-        """
-        Description of a NotificationHub XiaomiCredential.
-        """
-        return pulumi.get(self, "xiaomi_credential")
-
-    @xiaomi_credential.setter
-    def xiaomi_credential(self, value: Optional[pulumi.Input['XiaomiCredentialArgs']]):
-        pulumi.set(self, "xiaomi_credential", value)
-
-
-if not MYPY:
     class PnsCredentialsArgsDict(TypedDict):
         """
         Collection of Notification Hub or Notification Hub Namespace PNS credentials.
@@ -1375,6 +786,10 @@ if not MYPY:
         browser_credential: NotRequired[pulumi.Input['BrowserCredentialArgsDict']]
         """
         Description of a NotificationHub BrowserCredential.
+        """
+        fcm_v1_credential: NotRequired[pulumi.Input['FcmV1CredentialArgsDict']]
+        """
+        Description of a NotificationHub FcmV1Credential.
         """
         gcm_credential: NotRequired[pulumi.Input['GcmCredentialArgsDict']]
         """
@@ -1402,6 +817,7 @@ class PnsCredentialsArgs:
                  apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
                  baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
                  browser_credential: Optional[pulumi.Input['BrowserCredentialArgs']] = None,
+                 fcm_v1_credential: Optional[pulumi.Input['FcmV1CredentialArgs']] = None,
                  gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
                  mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
                  wns_credential: Optional[pulumi.Input['WnsCredentialArgs']] = None,
@@ -1412,6 +828,7 @@ class PnsCredentialsArgs:
         :param pulumi.Input['ApnsCredentialArgs'] apns_credential: Description of a NotificationHub ApnsCredential.
         :param pulumi.Input['BaiduCredentialArgs'] baidu_credential: Description of a NotificationHub BaiduCredential.
         :param pulumi.Input['BrowserCredentialArgs'] browser_credential: Description of a NotificationHub BrowserCredential.
+        :param pulumi.Input['FcmV1CredentialArgs'] fcm_v1_credential: Description of a NotificationHub FcmV1Credential.
         :param pulumi.Input['GcmCredentialArgs'] gcm_credential: Description of a NotificationHub GcmCredential.
         :param pulumi.Input['MpnsCredentialArgs'] mpns_credential: Description of a NotificationHub MpnsCredential.
         :param pulumi.Input['WnsCredentialArgs'] wns_credential: Description of a NotificationHub WnsCredential.
@@ -1425,6 +842,8 @@ class PnsCredentialsArgs:
             pulumi.set(__self__, "baidu_credential", baidu_credential)
         if browser_credential is not None:
             pulumi.set(__self__, "browser_credential", browser_credential)
+        if fcm_v1_credential is not None:
+            pulumi.set(__self__, "fcm_v1_credential", fcm_v1_credential)
         if gcm_credential is not None:
             pulumi.set(__self__, "gcm_credential", gcm_credential)
         if mpns_credential is not None:
@@ -1481,6 +900,18 @@ class PnsCredentialsArgs:
     @browser_credential.setter
     def browser_credential(self, value: Optional[pulumi.Input['BrowserCredentialArgs']]):
         pulumi.set(self, "browser_credential", value)
+
+    @property
+    @pulumi.getter(name="fcmV1Credential")
+    def fcm_v1_credential(self) -> Optional[pulumi.Input['FcmV1CredentialArgs']]:
+        """
+        Description of a NotificationHub FcmV1Credential.
+        """
+        return pulumi.get(self, "fcm_v1_credential")
+
+    @fcm_v1_credential.setter
+    def fcm_v1_credential(self, value: Optional[pulumi.Input['FcmV1CredentialArgs']]):
+        pulumi.set(self, "fcm_v1_credential", value)
 
     @property
     @pulumi.getter(name="gcmCredential")
@@ -1659,87 +1090,6 @@ class RemotePrivateLinkServiceConnectionStateArgs:
 
 
 if not MYPY:
-    class SharedAccessAuthorizationRulePropertiesArgsDict(TypedDict):
-        """
-        SharedAccessAuthorizationRule properties.
-        """
-        rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]
-        """
-        Gets or sets the rights associated with the rule.
-        """
-        primary_key: NotRequired[pulumi.Input[str]]
-        """
-        Gets a base64-encoded 256-bit primary key for signing and
-        validating the SAS token.
-        """
-        secondary_key: NotRequired[pulumi.Input[str]]
-        """
-        Gets a base64-encoded 256-bit primary key for signing and
-        validating the SAS token.
-        """
-elif False:
-    SharedAccessAuthorizationRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SharedAccessAuthorizationRulePropertiesArgs:
-    def __init__(__self__, *,
-                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
-                 primary_key: Optional[pulumi.Input[str]] = None,
-                 secondary_key: Optional[pulumi.Input[str]] = None):
-        """
-        SharedAccessAuthorizationRule properties.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: Gets or sets the rights associated with the rule.
-        :param pulumi.Input[str] primary_key: Gets a base64-encoded 256-bit primary key for signing and
-               validating the SAS token.
-        :param pulumi.Input[str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
-               validating the SAS token.
-        """
-        pulumi.set(__self__, "rights", rights)
-        if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
-        if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
-
-    @property
-    @pulumi.getter
-    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
-        """
-        Gets or sets the rights associated with the rule.
-        """
-        return pulumi.get(self, "rights")
-
-    @rights.setter
-    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
-        pulumi.set(self, "rights", value)
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a base64-encoded 256-bit primary key for signing and
-        validating the SAS token.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_key", value)
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a base64-encoded 256-bit primary key for signing and
-        validating the SAS token.
-        """
-        return pulumi.get(self, "secondary_key")
-
-    @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secondary_key", value)
-
-
-if not MYPY:
     class SkuArgsDict(TypedDict):
         """
         The Sku description for a namespace
@@ -1855,7 +1205,7 @@ class SkuArgs:
 
 
 if not MYPY:
-    class WnsCredentialPropertiesArgsDict(TypedDict):
+    class WnsCredentialArgsDict(TypedDict):
         """
         Description of a NotificationHub WnsCredential.
         """
@@ -1880,10 +1230,10 @@ if not MYPY:
         Gets or sets the WNS Certificate.
         """
 elif False:
-    WnsCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    WnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class WnsCredentialPropertiesArgs:
+class WnsCredentialArgs:
     def __init__(__self__, *,
                  certificate_key: Optional[pulumi.Input[str]] = None,
                  package_sid: Optional[pulumi.Input[str]] = None,
@@ -1971,44 +1321,9 @@ class WnsCredentialPropertiesArgs:
 
 
 if not MYPY:
-    class WnsCredentialArgsDict(TypedDict):
+    class XiaomiCredentialArgsDict(TypedDict):
         """
-        Description of a NotificationHub WnsCredential.
-        """
-        properties: pulumi.Input['WnsCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-elif False:
-    WnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class WnsCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['WnsCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub WnsCredential.
-        :param pulumi.Input['WnsCredentialPropertiesArgs'] properties: Description of a NotificationHub WnsCredential.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['WnsCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['WnsCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-if not MYPY:
-    class XiaomiCredentialPropertiesArgsDict(TypedDict):
-        """
-        Description of a NotificationHub XiaomiCredentialProperties.
+        Description of a NotificationHub XiaomiCredential.
         """
         app_secret: NotRequired[pulumi.Input[str]]
         """
@@ -2019,15 +1334,15 @@ if not MYPY:
         Gets or sets xiaomi service endpoint.
         """
 elif False:
-    XiaomiCredentialPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    XiaomiCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class XiaomiCredentialPropertiesArgs:
+class XiaomiCredentialArgs:
     def __init__(__self__, *,
                  app_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None):
         """
-        Description of a NotificationHub XiaomiCredentialProperties.
+        Description of a NotificationHub XiaomiCredential.
         :param pulumi.Input[str] app_secret: Gets or sets app secret.
         :param pulumi.Input[str] endpoint: Gets or sets xiaomi service endpoint.
         """
@@ -2059,40 +1374,5 @@ class XiaomiCredentialPropertiesArgs:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
-
-
-if not MYPY:
-    class XiaomiCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub XiaomiCredential.
-        """
-        properties: pulumi.Input['XiaomiCredentialPropertiesArgsDict']
-        """
-        Description of a NotificationHub XiaomiCredentialProperties.
-        """
-elif False:
-    XiaomiCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class XiaomiCredentialArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['XiaomiCredentialPropertiesArgs']):
-        """
-        Description of a NotificationHub XiaomiCredential.
-        :param pulumi.Input['XiaomiCredentialPropertiesArgs'] properties: Description of a NotificationHub XiaomiCredentialProperties.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['XiaomiCredentialPropertiesArgs']:
-        """
-        Description of a NotificationHub XiaomiCredentialProperties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['XiaomiCredentialPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
 

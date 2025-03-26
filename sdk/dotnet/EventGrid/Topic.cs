@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// EventGrid Topic
     /// 
-    /// Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
+    /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
     /// 
-    /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Data Residency Boundary of the resource.
         /// </summary>
@@ -36,6 +42,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        [Output("eventTypeInfo")]
+        public Output<Outputs.EventTypeInfoResponse?> EventTypeInfo { get; private set; } = null!;
 
         /// <summary>
         /// Identity information for the resource.
@@ -74,11 +87,20 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this topic
+        /// </summary>
+        [Output("minimumTlsVersionAllowed")]
+        public Output<string?> MinimumTlsVersionAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
@@ -96,7 +118,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Topic resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -195,6 +217,13 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
+        /// Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        [Input("eventTypeInfo")]
+        public Input<Inputs.EventTypeInfoArgs>? EventTypeInfo { get; set; }
+
+        /// <summary>
         /// Identity information for the resource.
         /// </summary>
         [Input("identity")]
@@ -229,6 +258,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this topic
+        /// </summary>
+        [Input("minimumTlsVersionAllowed")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.TlsVersion>? MinimumTlsVersionAllowed { get; set; }
 
         /// <summary>
         /// This determines if traffic is allowed over public network. By default it is enabled. 

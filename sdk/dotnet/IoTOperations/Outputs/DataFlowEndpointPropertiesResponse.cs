@@ -11,23 +11,19 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
+    /// DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointPropertiesResponse
+    public sealed class DataflowEndpointPropertiesResponse
     {
-        /// <summary>
-        /// Authentication configuration.
-        /// </summary>
-        public readonly Outputs.DataFlowEndpointAuthenticationResponse Authentication;
         /// <summary>
         /// Azure Data Explorer endpoint.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointDataExplorerResponse? DataExplorerSettings;
+        public readonly Outputs.DataflowEndpointDataExplorerResponse? DataExplorerSettings;
         /// <summary>
         /// Azure Data Lake endpoint.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointDataLakeStorageResponse? DataLakeStorageSettings;
+        public readonly Outputs.DataflowEndpointDataLakeStorageResponse? DataLakeStorageSettings;
         /// <summary>
         /// Endpoint Type.
         /// </summary>
@@ -35,45 +31,42 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Microsoft Fabric endpoint.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointFabricOneLakeResponse? FabricOneLakeSettings;
+        public readonly Outputs.DataflowEndpointFabricOneLakeResponse? FabricOneLakeSettings;
         /// <summary>
         /// Kafka endpoint.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointKafkaResponse? KafkaSettings;
+        public readonly Outputs.DataflowEndpointKafkaResponse? KafkaSettings;
         /// <summary>
         /// Local persistent volume endpoint.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointLocalStorageResponse? LocalStorageSettings;
+        public readonly Outputs.DataflowEndpointLocalStorageResponse? LocalStorageSettings;
         /// <summary>
         /// Broker endpoint.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointMqttResponse? MqttSettings;
+        public readonly Outputs.DataflowEndpointMqttResponse? MqttSettings;
         /// <summary>
         /// The status of the last operation.
         /// </summary>
         public readonly string ProvisioningState;
 
         [OutputConstructor]
-        private DataFlowEndpointPropertiesResponse(
-            Outputs.DataFlowEndpointAuthenticationResponse authentication,
+        private DataflowEndpointPropertiesResponse(
+            Outputs.DataflowEndpointDataExplorerResponse? dataExplorerSettings,
 
-            Outputs.DataFlowEndpointDataExplorerResponse? dataExplorerSettings,
-
-            Outputs.DataFlowEndpointDataLakeStorageResponse? dataLakeStorageSettings,
+            Outputs.DataflowEndpointDataLakeStorageResponse? dataLakeStorageSettings,
 
             string endpointType,
 
-            Outputs.DataFlowEndpointFabricOneLakeResponse? fabricOneLakeSettings,
+            Outputs.DataflowEndpointFabricOneLakeResponse? fabricOneLakeSettings,
 
-            Outputs.DataFlowEndpointKafkaResponse? kafkaSettings,
+            Outputs.DataflowEndpointKafkaResponse? kafkaSettings,
 
-            Outputs.DataFlowEndpointLocalStorageResponse? localStorageSettings,
+            Outputs.DataflowEndpointLocalStorageResponse? localStorageSettings,
 
-            Outputs.DataFlowEndpointMqttResponse? mqttSettings,
+            Outputs.DataflowEndpointMqttResponse? mqttSettings,
 
             string provisioningState)
         {
-            Authentication = authentication;
             DataExplorerSettings = dataExplorerSettings;
             DataLakeStorageSettings = dataLakeStorageSettings;
             EndpointType = endpointType;

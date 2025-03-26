@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
-        /// 
-        /// Other available API versions: 2021-06-15-preview.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
-        /// 
-        /// Other available API versions: 2021-06-15-preview.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
-        /// 
-        /// Other available API versions: 2021-06-15-preview.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class GetFluidRelayServerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// All encryption configuration for a resource.
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse? Encryption;
@@ -138,6 +136,8 @@ namespace Pulumi.AzureNative.FluidRelay
 
         [OutputConstructor]
         private GetFluidRelayServerResult(
+            string azureApiVersion,
+
             Outputs.EncryptionPropertiesResponse? encryption,
 
             Outputs.FluidRelayEndpointsResponse fluidRelayEndpoints,
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.FluidRelay
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Encryption = encryption;
             FluidRelayEndpoints = fluidRelayEndpoints;
             FrsTenantId = frsTenantId;

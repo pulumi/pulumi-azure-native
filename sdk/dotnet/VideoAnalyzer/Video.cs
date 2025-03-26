@@ -12,9 +12,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// <summary>
     /// Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
     /// 
-    /// Uses Azure REST API version 2021-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-05-01-preview.
-    /// 
-    /// Other available API versions: 2021-05-01-preview.
+    /// Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:Video")]
     public partial class Video : global::Pulumi.CustomResource
@@ -24,6 +22,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         [Output("archival")]
         public Output<Outputs.VideoArchivalResponse?> Archival { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Set of URLs to the video content.

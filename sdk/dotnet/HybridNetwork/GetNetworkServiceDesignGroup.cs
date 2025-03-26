@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about the specified networkServiceDesign group.
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkServiceDesignGroupResult> InvokeAsync(GetNetworkServiceDesignGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about the specified networkServiceDesign group.
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkServiceDesignGroupResult> Invoke(GetNetworkServiceDesignGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about the specified networkServiceDesign group.
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkServiceDesignGroupResult> Invoke(GetNetworkServiceDesignGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetNetworkServiceDesignGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetNetworkServiceDesignGroupResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetDataConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
         public readonly string ETag;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
         [OutputConstructor]
         private GetDataConnectorResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

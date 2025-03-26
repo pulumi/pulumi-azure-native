@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
  * Return the gateway status of the specified Analysis Services server instance.
  *
  * Uses Azure REST API version 2017-08-01.
- *
- * Other available API versions: 2017-08-01-beta.
  */
 export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListServerGatewayStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,8 +41,6 @@ export interface ListServerGatewayStatusResult {
  * Return the gateway status of the specified Analysis Services server instance.
  *
  * Uses Azure REST API version 2017-08-01.
- *
- * Other available API versions: 2017-08-01-beta.
  */
 export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServerGatewayStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

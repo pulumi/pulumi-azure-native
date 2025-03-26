@@ -27,10 +27,13 @@ class GetBrokerResult:
     """
     MQ broker resource
     """
-    def __init__(__self__, auth_image=None, broker_image=None, broker_node_tolerations=None, cardinality=None, diagnostics=None, disk_backed_message_buffer_settings=None, encrypt_internal_traffic=None, extended_location=None, health_manager_image=None, health_manager_node_tolerations=None, id=None, internal_certs=None, location=None, memory_profile=None, mode=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auth_image=None, azure_api_version=None, broker_image=None, broker_node_tolerations=None, cardinality=None, diagnostics=None, disk_backed_message_buffer_settings=None, encrypt_internal_traffic=None, extended_location=None, health_manager_image=None, health_manager_node_tolerations=None, id=None, internal_certs=None, location=None, memory_profile=None, mode=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if auth_image and not isinstance(auth_image, dict):
             raise TypeError("Expected argument 'auth_image' to be a dict")
         pulumi.set(__self__, "auth_image", auth_image)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if broker_image and not isinstance(broker_image, dict):
             raise TypeError("Expected argument 'broker_image' to be a dict")
         pulumi.set(__self__, "broker_image", broker_image)
@@ -96,6 +99,14 @@ class GetBrokerResult:
         The details of Authentication Docker Image.
         """
         return pulumi.get(self, "auth_image")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="brokerImage")
@@ -257,6 +268,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             yield self
         return GetBrokerResult(
             auth_image=self.auth_image,
+            azure_api_version=self.azure_api_version,
             broker_image=self.broker_image,
             broker_node_tolerations=self.broker_node_tolerations,
             cardinality=self.cardinality,
@@ -301,6 +313,7 @@ def get_broker(broker_name: Optional[str] = None,
 
     return AwaitableGetBrokerResult(
         auth_image=pulumi.get(__ret__, 'auth_image'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         broker_image=pulumi.get(__ret__, 'broker_image'),
         broker_node_tolerations=pulumi.get(__ret__, 'broker_node_tolerations'),
         cardinality=pulumi.get(__ret__, 'cardinality'),
@@ -342,6 +355,7 @@ def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getBroker', __args__, opts=opts, typ=GetBrokerResult)
     return __ret__.apply(lambda __response__: GetBrokerResult(
         auth_image=pulumi.get(__response__, 'auth_image'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         broker_image=pulumi.get(__response__, 'broker_image'),
         broker_node_tolerations=pulumi.get(__response__, 'broker_node_tolerations'),
         cardinality=pulumi.get(__response__, 'cardinality'),

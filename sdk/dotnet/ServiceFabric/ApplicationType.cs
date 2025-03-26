@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// <summary>
     /// The application type name resource
     /// 
-    /// Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
-    /// 
-    /// Other available API versions: 2021-06-01.
+    /// Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ApplicationType")]
     public partial class ApplicationType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -82,6 +86,7 @@ namespace Pulumi.AzureNative.ServiceFabric
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:ApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:ApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ApplicationType" },
@@ -92,15 +97,25 @@ namespace Pulumi.AzureNative.ServiceFabric
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:ApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:ApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230701preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230701preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230901preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230901preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231101preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231101preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240901preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240901preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20241101preview:ApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric:ManagedClusterApplicationType" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

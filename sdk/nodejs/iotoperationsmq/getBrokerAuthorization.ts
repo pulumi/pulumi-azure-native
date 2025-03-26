@@ -50,6 +50,10 @@ export interface GetBrokerAuthorizationResult {
      */
     readonly authorizationPolicies: outputs.iotoperationsmq.AuthorizationConfigResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Extended Location
      */
     readonly extendedLocation: outputs.iotoperationsmq.ExtendedLocationPropertyResponse;

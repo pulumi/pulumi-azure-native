@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string AccountName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Customer-initiated diagnostic log collection storage properties
         /// </summary>
         public readonly Outputs.DiagnosticStoragePropertiesResponse? DiagnosticStorageProperties;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         private GetInstanceResult(
             string accountName,
 
+            string azureApiVersion,
+
             Outputs.DiagnosticStoragePropertiesResponse? diagnosticStorageProperties,
 
             bool? enableDiagnostics,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
             string type)
         {
             AccountName = accountName;
+            AzureApiVersion = azureApiVersion;
             DiagnosticStorageProperties = diagnosticStorageProperties;
             EnableDiagnostics = enableDiagnostics;
             Id = id;

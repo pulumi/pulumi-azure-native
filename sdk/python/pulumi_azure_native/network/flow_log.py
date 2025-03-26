@@ -27,10 +27,12 @@ class FlowLogArgs:
                  storage_id: pulumi.Input[str],
                  target_resource_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled_filtering_criteria: Optional[pulumi.Input[str]] = None,
                  flow_analytics_configuration: Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']] = None,
                  flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input['FlowLogFormatParametersArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['RetentionPolicyParametersArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -41,10 +43,12 @@ class FlowLogArgs:
         :param pulumi.Input[str] storage_id: ID of the storage account which is used to store the flow log.
         :param pulumi.Input[str] target_resource_id: ID of network security group to which flow log will be applied.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
+        :param pulumi.Input[str] enabled_filtering_criteria: Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
         :param pulumi.Input['TrafficAnalyticsPropertiesArgs'] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
         :param pulumi.Input[str] flow_log_name: The name of the flow log.
         :param pulumi.Input['FlowLogFormatParametersArgs'] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: FlowLog resource Managed Identity
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['RetentionPolicyParametersArgs'] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -55,6 +59,8 @@ class FlowLogArgs:
         pulumi.set(__self__, "target_resource_id", target_resource_id)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if enabled_filtering_criteria is not None:
+            pulumi.set(__self__, "enabled_filtering_criteria", enabled_filtering_criteria)
         if flow_analytics_configuration is not None:
             pulumi.set(__self__, "flow_analytics_configuration", flow_analytics_configuration)
         if flow_log_name is not None:
@@ -63,6 +69,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "format", format)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if retention_policy is not None:
@@ -131,6 +139,18 @@ class FlowLogArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="enabledFilteringCriteria")
+    def enabled_filtering_criteria(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+        """
+        return pulumi.get(self, "enabled_filtering_criteria")
+
+    @enabled_filtering_criteria.setter
+    def enabled_filtering_criteria(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled_filtering_criteria", value)
+
+    @property
     @pulumi.getter(name="flowAnalyticsConfiguration")
     def flow_analytics_configuration(self) -> Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']]:
         """
@@ -180,6 +200,18 @@ class FlowLogArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        FlowLog resource Managed Identity
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Resource location.
@@ -221,10 +253,12 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled_filtering_criteria: Optional[pulumi.Input[str]] = None,
                  flow_analytics_configuration: Optional[pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
                  flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -236,17 +270,19 @@ class FlowLog(pulumi.CustomResource):
         """
         A flow log resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
+        :param pulumi.Input[str] enabled_filtering_criteria: Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
         :param pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
         :param pulumi.Input[str] flow_log_name: The name of the flow log.
         :param pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: FlowLog resource Managed Identity
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -264,9 +300,9 @@ class FlowLog(pulumi.CustomResource):
         """
         A flow log resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.
@@ -284,10 +320,12 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled_filtering_criteria: Optional[pulumi.Input[str]] = None,
                  flow_analytics_configuration: Optional[pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
                  flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -305,10 +343,12 @@ class FlowLog(pulumi.CustomResource):
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["enabled_filtering_criteria"] = enabled_filtering_criteria
             __props__.__dict__["flow_analytics_configuration"] = flow_analytics_configuration
             __props__.__dict__["flow_log_name"] = flow_log_name
             __props__.__dict__["format"] = format
             __props__.__dict__["id"] = id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
@@ -324,6 +364,7 @@ class FlowLog(pulumi.CustomResource):
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
             __props__.__dict__["target_resource_id"] = target_resource_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -353,10 +394,13 @@ class FlowLog(pulumi.CustomResource):
 
         __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["enabled"] = None
+        __props__.__dict__["enabled_filtering_criteria"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["flow_analytics_configuration"] = None
         __props__.__dict__["format"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -369,12 +413,28 @@ class FlowLog(pulumi.CustomResource):
         return FlowLog(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag to enable/disable flow logging.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="enabledFilteringCriteria")
+    def enabled_filtering_criteria(self) -> pulumi.Output[Optional[str]]:
+        """
+        Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+        """
+        return pulumi.get(self, "enabled_filtering_criteria")
 
     @property
     @pulumi.getter
@@ -399,6 +459,14 @@ class FlowLog(pulumi.CustomResource):
         Parameters that define the flow log format.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        FlowLog resource Managed Identity
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

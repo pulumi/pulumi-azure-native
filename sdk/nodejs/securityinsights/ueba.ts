@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Settings with single toggle.
  *
- * Uses Azure REST API version 2023-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  */
 export class Ueba extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Ueba extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ueba.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The relevant data sources that enriched by ueba
      */
@@ -90,11 +94,13 @@ export class Ueba extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settingsName"] = args ? args.settingsName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -103,7 +109,7 @@ export class Ueba extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Ueba" }, { type: "azure-native:securityinsights/v20210301preview:Ueba" }, { type: "azure-native:securityinsights/v20210901preview:Ueba" }, { type: "azure-native:securityinsights/v20211001preview:Ueba" }, { type: "azure-native:securityinsights/v20220101preview:Ueba" }, { type: "azure-native:securityinsights/v20220401preview:Ueba" }, { type: "azure-native:securityinsights/v20220501preview:Ueba" }, { type: "azure-native:securityinsights/v20220601preview:Ueba" }, { type: "azure-native:securityinsights/v20220701preview:Ueba" }, { type: "azure-native:securityinsights/v20220801preview:Ueba" }, { type: "azure-native:securityinsights/v20220901preview:Ueba" }, { type: "azure-native:securityinsights/v20221001preview:Ueba" }, { type: "azure-native:securityinsights/v20221101preview:Ueba" }, { type: "azure-native:securityinsights/v20221201preview:Ueba" }, { type: "azure-native:securityinsights/v20230201preview:Ueba" }, { type: "azure-native:securityinsights/v20230301preview:Ueba" }, { type: "azure-native:securityinsights/v20230401preview:Ueba" }, { type: "azure-native:securityinsights/v20230501preview:Ueba" }, { type: "azure-native:securityinsights/v20230601preview:Ueba" }, { type: "azure-native:securityinsights/v20230701preview:Ueba" }, { type: "azure-native:securityinsights/v20230801preview:Ueba" }, { type: "azure-native:securityinsights/v20230901preview:Ueba" }, { type: "azure-native:securityinsights/v20231001preview:Ueba" }, { type: "azure-native:securityinsights/v20231201preview:Ueba" }, { type: "azure-native:securityinsights/v20240101preview:Ueba" }, { type: "azure-native:securityinsights/v20240401preview:Ueba" }, { type: "azure-native:securityinsights/v20241001preview:Ueba" }, { type: "azure-native:securityinsights/v20250101preview:Ueba" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IPSyncer" }, { type: "azure-native:securityinsights/v20190101preview:Ueba" }, { type: "azure-native:securityinsights/v20210301preview:Anomalies" }, { type: "azure-native:securityinsights/v20210301preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210301preview:EyesOn" }, { type: "azure-native:securityinsights/v20210301preview:Ueba" }, { type: "azure-native:securityinsights/v20210901preview:Ueba" }, { type: "azure-native:securityinsights/v20211001preview:Ueba" }, { type: "azure-native:securityinsights/v20220101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220101preview:Ueba" }, { type: "azure-native:securityinsights/v20220401preview:Ueba" }, { type: "azure-native:securityinsights/v20220501preview:Ueba" }, { type: "azure-native:securityinsights/v20220601preview:Ueba" }, { type: "azure-native:securityinsights/v20220701preview:Ueba" }, { type: "azure-native:securityinsights/v20220801preview:Ueba" }, { type: "azure-native:securityinsights/v20220901preview:Ueba" }, { type: "azure-native:securityinsights/v20221001preview:Ueba" }, { type: "azure-native:securityinsights/v20221101preview:Ueba" }, { type: "azure-native:securityinsights/v20221201preview:Ueba" }, { type: "azure-native:securityinsights/v20230201preview:Ueba" }, { type: "azure-native:securityinsights/v20230301preview:Ueba" }, { type: "azure-native:securityinsights/v20230401preview:Ueba" }, { type: "azure-native:securityinsights/v20230501preview:Ueba" }, { type: "azure-native:securityinsights/v20230601preview:Anomalies" }, { type: "azure-native:securityinsights/v20230601preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230601preview:EyesOn" }, { type: "azure-native:securityinsights/v20230601preview:Ueba" }, { type: "azure-native:securityinsights/v20230701preview:Anomalies" }, { type: "azure-native:securityinsights/v20230701preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230701preview:EyesOn" }, { type: "azure-native:securityinsights/v20230701preview:Ueba" }, { type: "azure-native:securityinsights/v20230801preview:Anomalies" }, { type: "azure-native:securityinsights/v20230801preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230801preview:EyesOn" }, { type: "azure-native:securityinsights/v20230801preview:Ueba" }, { type: "azure-native:securityinsights/v20230901preview:Anomalies" }, { type: "azure-native:securityinsights/v20230901preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230901preview:EyesOn" }, { type: "azure-native:securityinsights/v20230901preview:Ueba" }, { type: "azure-native:securityinsights/v20231001preview:Anomalies" }, { type: "azure-native:securityinsights/v20231001preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20231001preview:EyesOn" }, { type: "azure-native:securityinsights/v20231001preview:Ueba" }, { type: "azure-native:securityinsights/v20231201preview:Anomalies" }, { type: "azure-native:securityinsights/v20231201preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20231201preview:EyesOn" }, { type: "azure-native:securityinsights/v20231201preview:Ueba" }, { type: "azure-native:securityinsights/v20240101preview:Anomalies" }, { type: "azure-native:securityinsights/v20240101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20240101preview:EyesOn" }, { type: "azure-native:securityinsights/v20240101preview:Ueba" }, { type: "azure-native:securityinsights/v20240401preview:Anomalies" }, { type: "azure-native:securityinsights/v20240401preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20240401preview:EyesOn" }, { type: "azure-native:securityinsights/v20240401preview:Ueba" }, { type: "azure-native:securityinsights/v20241001preview:Anomalies" }, { type: "azure-native:securityinsights/v20241001preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20241001preview:EyesOn" }, { type: "azure-native:securityinsights/v20241001preview:Ueba" }, { type: "azure-native:securityinsights/v20250101preview:Ueba" }, { type: "azure-native:securityinsights:Anomalies" }, { type: "azure-native:securityinsights:EntityAnalytics" }, { type: "azure-native:securityinsights:EyesOn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ueba.__pulumiType, name, resourceInputs, opts);
     }

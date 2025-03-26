@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Active Directory administrator.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2014-04-01, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
@@ -44,11 +44,15 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
      * Type of the sever administrator.
      */
-    public readonly administratorType!: pulumi.Output<string>;
+    public readonly administratorType!: pulumi.Output<string | undefined>;
     /**
      * Azure Active Directory only Authentication enabled.
      */
     public /*out*/ readonly azureADOnlyAuthentication!: pulumi.Output<boolean>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Login name of the server administrator.
      */
@@ -81,9 +85,6 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.administratorType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administratorType'");
-            }
             if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
@@ -104,11 +105,13 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             resourceInputs["sid"] = args ? args.sid : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["administratorType"] = undefined /*out*/;
             resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["login"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sid"] = undefined /*out*/;
@@ -133,7 +136,7 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * Type of the sever administrator.
      */
-    administratorType: pulumi.Input<string | enums.sql.AdministratorType>;
+    administratorType?: pulumi.Input<string | enums.sql.AdministratorType>;
     /**
      * Login name of the server administrator.
      */

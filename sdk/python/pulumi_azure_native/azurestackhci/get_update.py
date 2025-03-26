@@ -27,13 +27,16 @@ class GetUpdateResult:
     """
     Update details
     """
-    def __init__(__self__, additional_properties=None, availability_type=None, description=None, display_name=None, health_check_date=None, id=None, installed_date=None, location=None, name=None, notify_message=None, package_path=None, package_size_in_mb=None, package_type=None, prerequisites=None, progress_percentage=None, provisioning_state=None, publisher=None, release_link=None, state=None, system_data=None, type=None, version=None):
+    def __init__(__self__, additional_properties=None, availability_type=None, azure_api_version=None, description=None, display_name=None, health_check_date=None, id=None, installed_date=None, location=None, min_sbe_version_required=None, name=None, notify_message=None, package_path=None, package_size_in_mb=None, package_type=None, prerequisites=None, progress_percentage=None, provisioning_state=None, publisher=None, release_link=None, state=None, system_data=None, type=None, version=None):
         if additional_properties and not isinstance(additional_properties, str):
             raise TypeError("Expected argument 'additional_properties' to be a str")
         pulumi.set(__self__, "additional_properties", additional_properties)
         if availability_type and not isinstance(availability_type, str):
             raise TypeError("Expected argument 'availability_type' to be a str")
         pulumi.set(__self__, "availability_type", availability_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -52,6 +55,9 @@ class GetUpdateResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if min_sbe_version_required and not isinstance(min_sbe_version_required, str):
+            raise TypeError("Expected argument 'min_sbe_version_required' to be a str")
+        pulumi.set(__self__, "min_sbe_version_required", min_sbe_version_required)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -112,6 +118,14 @@ class GetUpdateResult:
         return pulumi.get(self, "availability_type")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -158,6 +172,14 @@ class GetUpdateResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="minSbeVersionRequired")
+    def min_sbe_version_required(self) -> Optional[str]:
+        """
+        Minimum Sbe Version of the update.
+        """
+        return pulumi.get(self, "min_sbe_version_required")
 
     @property
     @pulumi.getter
@@ -280,12 +302,14 @@ class AwaitableGetUpdateResult(GetUpdateResult):
         return GetUpdateResult(
             additional_properties=self.additional_properties,
             availability_type=self.availability_type,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             health_check_date=self.health_check_date,
             id=self.id,
             installed_date=self.installed_date,
             location=self.location,
+            min_sbe_version_required=self.min_sbe_version_required,
             name=self.name,
             notify_message=self.notify_message,
             package_path=self.package_path,
@@ -309,9 +333,9 @@ def get_update(cluster_name: Optional[str] = None,
     """
     Get specified Update
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the cluster.
@@ -328,12 +352,14 @@ def get_update(cluster_name: Optional[str] = None,
     return AwaitableGetUpdateResult(
         additional_properties=pulumi.get(__ret__, 'additional_properties'),
         availability_type=pulumi.get(__ret__, 'availability_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         health_check_date=pulumi.get(__ret__, 'health_check_date'),
         id=pulumi.get(__ret__, 'id'),
         installed_date=pulumi.get(__ret__, 'installed_date'),
         location=pulumi.get(__ret__, 'location'),
+        min_sbe_version_required=pulumi.get(__ret__, 'min_sbe_version_required'),
         name=pulumi.get(__ret__, 'name'),
         notify_message=pulumi.get(__ret__, 'notify_message'),
         package_path=pulumi.get(__ret__, 'package_path'),
@@ -355,9 +381,9 @@ def get_update_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Get specified Update
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the cluster.
@@ -373,12 +399,14 @@ def get_update_output(cluster_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetUpdateResult(
         additional_properties=pulumi.get(__response__, 'additional_properties'),
         availability_type=pulumi.get(__response__, 'availability_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         health_check_date=pulumi.get(__response__, 'health_check_date'),
         id=pulumi.get(__response__, 'id'),
         installed_date=pulumi.get(__response__, 'installed_date'),
         location=pulumi.get(__response__, 'location'),
+        min_sbe_version_required=pulumi.get(__response__, 'min_sbe_version_required'),
         name=pulumi.get(__response__, 'name'),
         notify_message=pulumi.get(__response__, 'notify_message'),
         package_path=pulumi.get(__response__, 'package_path'),

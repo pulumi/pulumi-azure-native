@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A class representing a Domains resource.
  *
- * Uses Azure REST API version 2023-03-31. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
+ * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
  *
- * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  *
  * Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
  */
@@ -43,6 +43,10 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The location where the Domains resource data is stored at rest.
      */
@@ -123,6 +127,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userEngagementTracking"] = args ? args.userEngagementTracking : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;
             resourceInputs["mailFromSenderDomain"] = undefined /*out*/;
@@ -133,6 +138,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["verificationRecords"] = undefined /*out*/;
             resourceInputs["verificationStates"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["domainManagement"] = undefined /*out*/;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The port to send the scoring requests to, within the inference server container.
         /// </summary>
         public readonly Outputs.RouteResponse? ScoringRoute;
+        /// <summary>
+        /// The route to check the startup of the application in the container.
+        /// </summary>
+        public readonly Outputs.RouteResponse? StartupRoute;
 
         [OutputConstructor]
         private InferenceContainerPropertiesResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.RouteResponse? readinessRoute,
 
-            Outputs.RouteResponse? scoringRoute)
+            Outputs.RouteResponse? scoringRoute,
+
+            Outputs.RouteResponse? startupRoute)
         {
             LivenessRoute = livenessRoute;
             ReadinessRoute = readinessRoute;
             ScoringRoute = scoringRoute;
+            StartupRoute = startupRoute;
         }
     }
 }

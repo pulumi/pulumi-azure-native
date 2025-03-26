@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// <summary>
     /// Discovered Asset Endpoint Profile definition.
     /// 
-    /// Uses Azure REST API version 2024-09-01-preview.
+    /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:DiscoveredAssetEndpointProfile")]
     public partial class DiscoveredAssetEndpointProfile : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         [Output("additionalConfiguration")]
         public Output<string?> AdditionalConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Identifier used to detect changes in the asset endpoint profile.

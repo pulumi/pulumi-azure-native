@@ -46,6 +46,10 @@ export interface GetGalleryInVMAccessControlProfileVersionArgs {
  */
 export interface GetGalleryInVMAccessControlProfileVersionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
      */
     readonly defaultAccess: string;

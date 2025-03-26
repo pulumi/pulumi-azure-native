@@ -25,6 +25,7 @@ class ObjectReplicationPolicyArgs:
                  destination_account: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  source_account: pulumi.Input[str],
+                 metrics: Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']] = None,
                  object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]] = None):
         """
@@ -33,6 +34,7 @@ class ObjectReplicationPolicyArgs:
         :param pulumi.Input[str] destination_account: Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] source_account: Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        :param pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs'] metrics: Optional. The object replication policy metrics feature options.
         :param pulumi.Input[str] object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]] rules: The storage account object replication rules.
         """
@@ -40,6 +42,8 @@ class ObjectReplicationPolicyArgs:
         pulumi.set(__self__, "destination_account", destination_account)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_account", source_account)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
         if object_replication_policy_id is not None:
             pulumi.set(__self__, "object_replication_policy_id", object_replication_policy_id)
         if rules is not None:
@@ -94,6 +98,18 @@ class ObjectReplicationPolicyArgs:
         pulumi.set(self, "source_account", value)
 
     @property
+    @pulumi.getter
+    def metrics(self) -> Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']]:
+        """
+        Optional. The object replication policy metrics feature options.
+        """
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']]):
+        pulumi.set(self, "metrics", value)
+
+    @property
     @pulumi.getter(name="objectReplicationPolicyId")
     def object_replication_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -125,6 +141,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  destination_account: Optional[pulumi.Input[str]] = None,
+                 metrics: Optional[pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
                  object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
@@ -133,14 +150,15 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] destination_account: Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        :param pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']] metrics: Optional. The object replication policy metrics feature options.
         :param pulumi.Input[str] object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]] rules: The storage account object replication rules.
@@ -155,9 +173,9 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ObjectReplicationPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -176,6 +194,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  destination_account: Optional[pulumi.Input[str]] = None,
+                 metrics: Optional[pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
                  object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
@@ -195,6 +214,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             if destination_account is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_account'")
             __props__.__dict__["destination_account"] = destination_account
+            __props__.__dict__["metrics"] = metrics
             __props__.__dict__["object_replication_policy_id"] = object_replication_policy_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -203,6 +223,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             if source_account is None and not opts.urn:
                 raise TypeError("Missing required property 'source_account'")
             __props__.__dict__["source_account"] = source_account
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["enabled_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_id"] = None
@@ -231,14 +252,24 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
         __props__ = ObjectReplicationPolicyArgs.__new__(ObjectReplicationPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["destination_account"] = None
         __props__.__dict__["enabled_time"] = None
+        __props__.__dict__["metrics"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_id"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["source_account"] = None
         __props__.__dict__["type"] = None
         return ObjectReplicationPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="destinationAccount")
@@ -255,6 +286,14 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         Indicates when the policy is enabled on the source account.
         """
         return pulumi.get(self, "enabled_time")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> pulumi.Output[Optional['outputs.ObjectReplicationPolicyPropertiesResponseMetrics']]:
+        """
+        Optional. The object replication policy metrics feature options.
+        """
+        return pulumi.get(self, "metrics")
 
     @property
     @pulumi.getter

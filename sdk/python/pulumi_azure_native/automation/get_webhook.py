@@ -27,7 +27,10 @@ class GetWebhookResult:
     """
     Definition of the webhook type.
     """
-    def __init__(__self__, creation_time=None, description=None, expiry_time=None, id=None, is_enabled=None, last_invoked_time=None, last_modified_by=None, last_modified_time=None, name=None, parameters=None, run_on=None, runbook=None, type=None, uri=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, expiry_time=None, id=None, is_enabled=None, last_invoked_time=None, last_modified_by=None, last_modified_time=None, name=None, parameters=None, run_on=None, runbook=None, system_data=None, type=None, uri=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -64,12 +67,23 @@ class GetWebhookResult:
         if runbook and not isinstance(runbook, dict):
             raise TypeError("Expected argument 'runbook' to be a dict")
         pulumi.set(__self__, "runbook", runbook)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
         if uri and not isinstance(uri, str):
             raise TypeError("Expected argument 'uri' to be a str")
         pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -99,7 +113,7 @@ class GetWebhookResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -168,10 +182,18 @@ class GetWebhookResult:
         return pulumi.get(self, "runbook")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -190,6 +212,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
         if False:
             yield self
         return GetWebhookResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             expiry_time=self.expiry_time,
@@ -202,6 +225,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             parameters=self.parameters,
             run_on=self.run_on,
             runbook=self.runbook,
+            system_data=self.system_data,
             type=self.type,
             uri=self.uri)
 
@@ -213,9 +237,9 @@ def get_webhook(automation_account_name: Optional[str] = None,
     """
     Retrieve the webhook identified by webhook name.
 
-    Uses Azure REST API version 2015-10-31.
+    Uses Azure REST API version 2023-05-15-preview.
 
-    Other available API versions: 2023-05-15-preview, 2024-10-23.
+    Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -230,6 +254,7 @@ def get_webhook(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getWebhook', __args__, opts=opts, typ=GetWebhookResult).value
 
     return AwaitableGetWebhookResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         expiry_time=pulumi.get(__ret__, 'expiry_time'),
@@ -242,6 +267,7 @@ def get_webhook(automation_account_name: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         run_on=pulumi.get(__ret__, 'run_on'),
         runbook=pulumi.get(__ret__, 'runbook'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
 def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = None,
@@ -251,9 +277,9 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     """
     Retrieve the webhook identified by webhook name.
 
-    Uses Azure REST API version 2015-10-31.
+    Uses Azure REST API version 2023-05-15-preview.
 
-    Other available API versions: 2023-05-15-preview, 2024-10-23.
+    Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -267,6 +293,7 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getWebhook', __args__, opts=opts, typ=GetWebhookResult)
     return __ret__.apply(lambda __response__: GetWebhookResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         expiry_time=pulumi.get(__response__, 'expiry_time'),
@@ -279,5 +306,6 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
         parameters=pulumi.get(__response__, 'parameters'),
         run_on=pulumi.get(__response__, 'run_on'),
         runbook=pulumi.get(__response__, 'runbook'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         uri=pulumi.get(__response__, 'uri')))

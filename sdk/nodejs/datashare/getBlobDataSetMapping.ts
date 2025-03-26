@@ -46,6 +46,10 @@ export interface GetBlobDataSetMappingArgs {
  */
 export interface GetBlobDataSetMappingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Container that has the file path.
      */
     readonly containerName: string;

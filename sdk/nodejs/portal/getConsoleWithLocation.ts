@@ -36,6 +36,10 @@ export interface GetConsoleWithLocationArgs {
  */
 export interface GetConsoleWithLocationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Cloud shell console properties.
      */
     readonly properties: outputs.portal.ConsolePropertiesResponse;

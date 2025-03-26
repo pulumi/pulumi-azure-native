@@ -27,7 +27,10 @@ class GetCloudServiceResult:
     """
     Describes the cloud service.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetCloudServiceResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetCloudServiceResult(GetCloudServiceResult):
         if False:
             yield self
         return GetCloudServiceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -142,7 +154,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-09-04.
 
-    Other available API versions: 2024-11-04.
+    Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cloud_service_name: Name of the cloud service.
@@ -155,6 +167,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getCloudService', __args__, opts=opts, typ=GetCloudServiceResult).value
 
     return AwaitableGetCloudServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -171,7 +184,7 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
 
     Uses Azure REST API version 2022-09-04.
 
-    Other available API versions: 2024-11-04.
+    Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cloud_service_name: Name of the cloud service.
@@ -183,6 +196,7 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getCloudService', __args__, opts=opts, typ=GetCloudServiceResult)
     return __ret__.apply(lambda __response__: GetCloudServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

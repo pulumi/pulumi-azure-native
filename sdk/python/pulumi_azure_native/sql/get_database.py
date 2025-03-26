@@ -27,10 +27,16 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, federated_client_id=None, high_availability_replica_count=None, id=None, identity=None, is_infra_encryption_enabled=None, is_ledger_on=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, availability_zone=None, azure_api_version=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, encryption_protector=None, encryption_protector_auto_rotation=None, failover_group_id=None, federated_client_id=None, free_limit_exhaustion_behavior=None, high_availability_replica_count=None, id=None, identity=None, is_infra_encryption_enabled=None, is_ledger_on=None, keys=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, manual_cutover=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, perform_cutover=None, preferred_enclave_type=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, use_free_limit=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError("Expected argument 'availability_zone' to be a str")
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
         pulumi.set(__self__, "catalog_collation", catalog_collation)
@@ -61,12 +67,21 @@ class GetDatabaseResult:
         if elastic_pool_id and not isinstance(elastic_pool_id, str):
             raise TypeError("Expected argument 'elastic_pool_id' to be a str")
         pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+        if encryption_protector and not isinstance(encryption_protector, str):
+            raise TypeError("Expected argument 'encryption_protector' to be a str")
+        pulumi.set(__self__, "encryption_protector", encryption_protector)
+        if encryption_protector_auto_rotation and not isinstance(encryption_protector_auto_rotation, bool):
+            raise TypeError("Expected argument 'encryption_protector_auto_rotation' to be a bool")
+        pulumi.set(__self__, "encryption_protector_auto_rotation", encryption_protector_auto_rotation)
         if failover_group_id and not isinstance(failover_group_id, str):
             raise TypeError("Expected argument 'failover_group_id' to be a str")
         pulumi.set(__self__, "failover_group_id", failover_group_id)
         if federated_client_id and not isinstance(federated_client_id, str):
             raise TypeError("Expected argument 'federated_client_id' to be a str")
         pulumi.set(__self__, "federated_client_id", federated_client_id)
+        if free_limit_exhaustion_behavior and not isinstance(free_limit_exhaustion_behavior, str):
+            raise TypeError("Expected argument 'free_limit_exhaustion_behavior' to be a str")
+        pulumi.set(__self__, "free_limit_exhaustion_behavior", free_limit_exhaustion_behavior)
         if high_availability_replica_count and not isinstance(high_availability_replica_count, int):
             raise TypeError("Expected argument 'high_availability_replica_count' to be a int")
         pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
@@ -82,6 +97,9 @@ class GetDatabaseResult:
         if is_ledger_on and not isinstance(is_ledger_on, bool):
             raise TypeError("Expected argument 'is_ledger_on' to be a bool")
         pulumi.set(__self__, "is_ledger_on", is_ledger_on)
+        if keys and not isinstance(keys, dict):
+            raise TypeError("Expected argument 'keys' to be a dict")
+        pulumi.set(__self__, "keys", keys)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -97,6 +115,9 @@ class GetDatabaseResult:
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
+        if manual_cutover and not isinstance(manual_cutover, bool):
+            raise TypeError("Expected argument 'manual_cutover' to be a bool")
+        pulumi.set(__self__, "manual_cutover", manual_cutover)
         if max_log_size_bytes and not isinstance(max_log_size_bytes, float):
             raise TypeError("Expected argument 'max_log_size_bytes' to be a float")
         pulumi.set(__self__, "max_log_size_bytes", max_log_size_bytes)
@@ -112,6 +133,12 @@ class GetDatabaseResult:
         if paused_date and not isinstance(paused_date, str):
             raise TypeError("Expected argument 'paused_date' to be a str")
         pulumi.set(__self__, "paused_date", paused_date)
+        if perform_cutover and not isinstance(perform_cutover, bool):
+            raise TypeError("Expected argument 'perform_cutover' to be a bool")
+        pulumi.set(__self__, "perform_cutover", perform_cutover)
+        if preferred_enclave_type and not isinstance(preferred_enclave_type, str):
+            raise TypeError("Expected argument 'preferred_enclave_type' to be a str")
+        pulumi.set(__self__, "preferred_enclave_type", preferred_enclave_type)
         if read_scale and not isinstance(read_scale, str):
             raise TypeError("Expected argument 'read_scale' to be a str")
         pulumi.set(__self__, "read_scale", read_scale)
@@ -139,6 +166,9 @@ class GetDatabaseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_free_limit and not isinstance(use_free_limit, bool):
+            raise TypeError("Expected argument 'use_free_limit' to be a bool")
+        pulumi.set(__self__, "use_free_limit", use_free_limit)
         if zone_redundant and not isinstance(zone_redundant, bool):
             raise TypeError("Expected argument 'zone_redundant' to be a bool")
         pulumi.set(__self__, "zone_redundant", zone_redundant)
@@ -150,6 +180,22 @@ class GetDatabaseResult:
         Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         """
         return pulumi.get(self, "auto_pause_delay")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        Specifies the availability zone the database is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -232,6 +278,22 @@ class GetDatabaseResult:
         return pulumi.get(self, "elastic_pool_id")
 
     @property
+    @pulumi.getter(name="encryptionProtector")
+    def encryption_protector(self) -> Optional[str]:
+        """
+        The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+        """
+        return pulumi.get(self, "encryption_protector")
+
+    @property
+    @pulumi.getter(name="encryptionProtectorAutoRotation")
+    def encryption_protector_auto_rotation(self) -> Optional[bool]:
+        """
+        The flag to enable or disable auto rotation of database encryption protector AKV key.
+        """
+        return pulumi.get(self, "encryption_protector_auto_rotation")
+
+    @property
     @pulumi.getter(name="failoverGroupId")
     def failover_group_id(self) -> str:
         """
@@ -248,10 +310,22 @@ class GetDatabaseResult:
         return pulumi.get(self, "federated_client_id")
 
     @property
+    @pulumi.getter(name="freeLimitExhaustionBehavior")
+    def free_limit_exhaustion_behavior(self) -> Optional[str]:
+        """
+        Specifies the behavior when monthly free limits are exhausted for the free database.
+        
+        AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
+        
+        BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
+        """
+        return pulumi.get(self, "free_limit_exhaustion_behavior")
+
+    @property
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> Optional[int]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
+        The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -286,6 +360,14 @@ class GetDatabaseResult:
         Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         """
         return pulumi.get(self, "is_ledger_on")
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Mapping[str, 'outputs.DatabaseKeyResponse']]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "keys")
 
     @property
     @pulumi.getter
@@ -328,6 +410,20 @@ class GetDatabaseResult:
         return pulumi.get(self, "managed_by")
 
     @property
+    @pulumi.getter(name="manualCutover")
+    def manual_cutover(self) -> Optional[bool]:
+        """
+        Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+        
+        This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+        
+        When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+        
+        To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+        """
+        return pulumi.get(self, "manual_cutover")
+
+    @property
     @pulumi.getter(name="maxLogSizeBytes")
     def max_log_size_bytes(self) -> float:
         """
@@ -368,6 +464,28 @@ class GetDatabaseResult:
         return pulumi.get(self, "paused_date")
 
     @property
+    @pulumi.getter(name="performCutover")
+    def perform_cutover(self) -> Optional[bool]:
+        """
+        To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+        
+        This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+        
+        This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+        
+        When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        """
+        return pulumi.get(self, "perform_cutover")
+
+    @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> Optional[str]:
+        """
+        Type of enclave requested on the database i.e. Default or VBS enclaves.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
+
+    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> Optional[str]:
         """
@@ -403,7 +521,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="secondaryType")
     def secondary_type(self) -> Optional[str]:
         """
-        The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         """
         return pulumi.get(self, "secondary_type")
 
@@ -450,6 +568,14 @@ class GetDatabaseResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="useFreeLimit")
+    def use_free_limit(self) -> Optional[bool]:
+        """
+        Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
+        """
+        return pulumi.get(self, "use_free_limit")
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[bool]:
         """
@@ -465,6 +591,8 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             yield self
         return GetDatabaseResult(
             auto_pause_delay=self.auto_pause_delay,
+            availability_zone=self.availability_zone,
+            azure_api_version=self.azure_api_version,
             catalog_collation=self.catalog_collation,
             collation=self.collation,
             creation_date=self.creation_date,
@@ -475,23 +603,30 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             default_secondary_location=self.default_secondary_location,
             earliest_restore_date=self.earliest_restore_date,
             elastic_pool_id=self.elastic_pool_id,
+            encryption_protector=self.encryption_protector,
+            encryption_protector_auto_rotation=self.encryption_protector_auto_rotation,
             failover_group_id=self.failover_group_id,
             federated_client_id=self.federated_client_id,
+            free_limit_exhaustion_behavior=self.free_limit_exhaustion_behavior,
             high_availability_replica_count=self.high_availability_replica_count,
             id=self.id,
             identity=self.identity,
             is_infra_encryption_enabled=self.is_infra_encryption_enabled,
             is_ledger_on=self.is_ledger_on,
+            keys=self.keys,
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
             maintenance_configuration_id=self.maintenance_configuration_id,
             managed_by=self.managed_by,
+            manual_cutover=self.manual_cutover,
             max_log_size_bytes=self.max_log_size_bytes,
             max_size_bytes=self.max_size_bytes,
             min_capacity=self.min_capacity,
             name=self.name,
             paused_date=self.paused_date,
+            perform_cutover=self.perform_cutover,
+            preferred_enclave_type=self.preferred_enclave_type,
             read_scale=self.read_scale,
             requested_backup_storage_redundancy=self.requested_backup_storage_redundancy,
             requested_service_objective_name=self.requested_service_objective_name,
@@ -501,27 +636,34 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             status=self.status,
             tags=self.tags,
             type=self.type,
+            use_free_limit=self.use_free_limit,
             zone_redundant=self.zone_redundant)
 
 
 def get_database(database_name: Optional[str] = None,
+                 expand: Optional[str] = None,
+                 filter: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  server_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets a database.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database.
+    :param str expand: The child resources to include in the response.
+    :param str filter: An OData filter expression that filters elements in the collection.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
+    __args__['expand'] = expand
+    __args__['filter'] = filter
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -529,6 +671,8 @@ def get_database(database_name: Optional[str] = None,
 
     return AwaitableGetDatabaseResult(
         auto_pause_delay=pulumi.get(__ret__, 'auto_pause_delay'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         catalog_collation=pulumi.get(__ret__, 'catalog_collation'),
         collation=pulumi.get(__ret__, 'collation'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
@@ -539,23 +683,30 @@ def get_database(database_name: Optional[str] = None,
         default_secondary_location=pulumi.get(__ret__, 'default_secondary_location'),
         earliest_restore_date=pulumi.get(__ret__, 'earliest_restore_date'),
         elastic_pool_id=pulumi.get(__ret__, 'elastic_pool_id'),
+        encryption_protector=pulumi.get(__ret__, 'encryption_protector'),
+        encryption_protector_auto_rotation=pulumi.get(__ret__, 'encryption_protector_auto_rotation'),
         failover_group_id=pulumi.get(__ret__, 'failover_group_id'),
         federated_client_id=pulumi.get(__ret__, 'federated_client_id'),
+        free_limit_exhaustion_behavior=pulumi.get(__ret__, 'free_limit_exhaustion_behavior'),
         high_availability_replica_count=pulumi.get(__ret__, 'high_availability_replica_count'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         is_infra_encryption_enabled=pulumi.get(__ret__, 'is_infra_encryption_enabled'),
         is_ledger_on=pulumi.get(__ret__, 'is_ledger_on'),
+        keys=pulumi.get(__ret__, 'keys'),
         kind=pulumi.get(__ret__, 'kind'),
         license_type=pulumi.get(__ret__, 'license_type'),
         location=pulumi.get(__ret__, 'location'),
         maintenance_configuration_id=pulumi.get(__ret__, 'maintenance_configuration_id'),
         managed_by=pulumi.get(__ret__, 'managed_by'),
+        manual_cutover=pulumi.get(__ret__, 'manual_cutover'),
         max_log_size_bytes=pulumi.get(__ret__, 'max_log_size_bytes'),
         max_size_bytes=pulumi.get(__ret__, 'max_size_bytes'),
         min_capacity=pulumi.get(__ret__, 'min_capacity'),
         name=pulumi.get(__ret__, 'name'),
         paused_date=pulumi.get(__ret__, 'paused_date'),
+        perform_cutover=pulumi.get(__ret__, 'perform_cutover'),
+        preferred_enclave_type=pulumi.get(__ret__, 'preferred_enclave_type'),
         read_scale=pulumi.get(__ret__, 'read_scale'),
         requested_backup_storage_redundancy=pulumi.get(__ret__, 'requested_backup_storage_redundancy'),
         requested_service_objective_name=pulumi.get(__ret__, 'requested_service_objective_name'),
@@ -565,31 +716,40 @@ def get_database(database_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
+        use_free_limit=pulumi.get(__ret__, 'use_free_limit'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
+                        expand: Optional[pulumi.Input[Optional[str]]] = None,
+                        filter: Optional[pulumi.Input[Optional[str]]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         server_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets a database.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database.
+    :param str expand: The child resources to include in the response.
+    :param str filter: An OData filter expression that filters elements in the collection.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
+    __args__['expand'] = expand
+    __args__['filter'] = filter
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         auto_pause_delay=pulumi.get(__response__, 'auto_pause_delay'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         catalog_collation=pulumi.get(__response__, 'catalog_collation'),
         collation=pulumi.get(__response__, 'collation'),
         creation_date=pulumi.get(__response__, 'creation_date'),
@@ -600,23 +760,30 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
         default_secondary_location=pulumi.get(__response__, 'default_secondary_location'),
         earliest_restore_date=pulumi.get(__response__, 'earliest_restore_date'),
         elastic_pool_id=pulumi.get(__response__, 'elastic_pool_id'),
+        encryption_protector=pulumi.get(__response__, 'encryption_protector'),
+        encryption_protector_auto_rotation=pulumi.get(__response__, 'encryption_protector_auto_rotation'),
         failover_group_id=pulumi.get(__response__, 'failover_group_id'),
         federated_client_id=pulumi.get(__response__, 'federated_client_id'),
+        free_limit_exhaustion_behavior=pulumi.get(__response__, 'free_limit_exhaustion_behavior'),
         high_availability_replica_count=pulumi.get(__response__, 'high_availability_replica_count'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         is_infra_encryption_enabled=pulumi.get(__response__, 'is_infra_encryption_enabled'),
         is_ledger_on=pulumi.get(__response__, 'is_ledger_on'),
+        keys=pulumi.get(__response__, 'keys'),
         kind=pulumi.get(__response__, 'kind'),
         license_type=pulumi.get(__response__, 'license_type'),
         location=pulumi.get(__response__, 'location'),
         maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),
         managed_by=pulumi.get(__response__, 'managed_by'),
+        manual_cutover=pulumi.get(__response__, 'manual_cutover'),
         max_log_size_bytes=pulumi.get(__response__, 'max_log_size_bytes'),
         max_size_bytes=pulumi.get(__response__, 'max_size_bytes'),
         min_capacity=pulumi.get(__response__, 'min_capacity'),
         name=pulumi.get(__response__, 'name'),
         paused_date=pulumi.get(__response__, 'paused_date'),
+        perform_cutover=pulumi.get(__response__, 'perform_cutover'),
+        preferred_enclave_type=pulumi.get(__response__, 'preferred_enclave_type'),
         read_scale=pulumi.get(__response__, 'read_scale'),
         requested_backup_storage_redundancy=pulumi.get(__response__, 'requested_backup_storage_redundancy'),
         requested_service_objective_name=pulumi.get(__response__, 'requested_service_objective_name'),
@@ -626,4 +793,5 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
+        use_free_limit=pulumi.get(__response__, 'use_free_limit'),
         zone_redundant=pulumi.get(__response__, 'zone_redundant')))

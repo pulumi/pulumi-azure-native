@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// <summary>
     /// Packet core control plane resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
     /// 
-    /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreControlPlane")]
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         /// </summary>
         [Output("controlPlaneAccessInterface")]
         public Output<Outputs.InterfacePropertiesResponse> ControlPlaneAccessInterface { get; private set; } = null!;
+
+        /// <summary>
+        /// The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+        /// </summary>
+        [Output("controlPlaneAccessVirtualIpv4Addresses")]
+        public Output<ImmutableArray<string>> ControlPlaneAccessVirtualIpv4Addresses { get; private set; } = null!;
 
         /// <summary>
         /// The core network technology generation (5G core or EPC / 4G core).
@@ -36,6 +48,18 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("diagnosticsUpload")]
         public Output<Outputs.DiagnosticsUploadConfigurationResponse?> DiagnosticsUpload { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for sending packet core events to an Azure Event Hub.
+        /// </summary>
+        [Output("eventHub")]
+        public Output<Outputs.EventHubConfigurationResponse?> EventHub { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the secret containing private keys and keyIds for SUPI concealment.
+        /// </summary>
+        [Output("homeNetworkPrivateKeysProvisioning")]
+        public Output<Outputs.HomeNetworkPrivateKeysProvisioningResponse> HomeNetworkPrivateKeysProvisioning { get; private set; } = null!;
 
         /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
@@ -98,6 +122,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> RollbackVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Signaling configuration for the packet core.
+        /// </summary>
+        [Output("signaling")]
+        public Output<Outputs.SignalingConfigurationResponse?> Signaling { get; private set; } = null!;
+
+        /// <summary>
         /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
         /// </summary>
         [Output("sites")]
@@ -132,6 +162,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("ueMtu")]
         public Output<int?> UeMtu { get; private set; } = null!;
+
+        /// <summary>
+        /// The user consent configuration for the packet core.
+        /// </summary>
+        [Output("userConsent")]
+        public Output<Outputs.UserConsentConfigurationResponse?> UserConsent { get; private set; } = null!;
 
         /// <summary>
         /// The desired version of the packet core software.
@@ -200,6 +236,18 @@ namespace Pulumi.AzureNative.MobileNetwork
         [Input("controlPlaneAccessInterface", required: true)]
         public Input<Inputs.InterfacePropertiesArgs> ControlPlaneAccessInterface { get; set; } = null!;
 
+        [Input("controlPlaneAccessVirtualIpv4Addresses")]
+        private InputList<string>? _controlPlaneAccessVirtualIpv4Addresses;
+
+        /// <summary>
+        /// The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+        /// </summary>
+        public InputList<string> ControlPlaneAccessVirtualIpv4Addresses
+        {
+            get => _controlPlaneAccessVirtualIpv4Addresses ?? (_controlPlaneAccessVirtualIpv4Addresses = new InputList<string>());
+            set => _controlPlaneAccessVirtualIpv4Addresses = value;
+        }
+
         /// <summary>
         /// The core network technology generation (5G core or EPC / 4G core).
         /// </summary>
@@ -211,6 +259,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Input("diagnosticsUpload")]
         public Input<Inputs.DiagnosticsUploadConfigurationArgs>? DiagnosticsUpload { get; set; }
+
+        /// <summary>
+        /// Configuration for sending packet core events to an Azure Event Hub.
+        /// </summary>
+        [Input("eventHub")]
+        public Input<Inputs.EventHubConfigurationArgs>? EventHub { get; set; }
 
         /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
@@ -260,6 +314,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Signaling configuration for the packet core.
+        /// </summary>
+        [Input("signaling")]
+        public Input<Inputs.SignalingConfigurationArgs>? Signaling { get; set; }
+
         [Input("sites", required: true)]
         private InputList<Inputs.SiteResourceIdArgs>? _sites;
 
@@ -295,6 +355,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Input("ueMtu")]
         public Input<int>? UeMtu { get; set; }
+
+        /// <summary>
+        /// The user consent configuration for the packet core.
+        /// </summary>
+        [Input("userConsent")]
+        public Input<Inputs.UserConsentConfigurationArgs>? UserConsent { get; set; }
 
         /// <summary>
         /// The desired version of the packet core software.

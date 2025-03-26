@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse
     {
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        public readonly string? EncryptedKeyForSecureFields;
+        /// <summary>
         /// Setting to set the source server read only
         /// </summary>
         public readonly bool? MakeSourceServerReadOnly;
@@ -43,6 +47,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(
+            string? encryptedKeyForSecureFields,
+
             bool? makeSourceServerReadOnly,
 
             ImmutableDictionary<string, string>? optionalAgentSettings,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             Outputs.MySqlConnectionInfoResponse targetConnectionInfo)
         {
+            EncryptedKeyForSecureFields = encryptedKeyForSecureFields;
             MakeSourceServerReadOnly = makeSourceServerReadOnly;
             OptionalAgentSettings = optionalAgentSettings;
             SelectedDatabases = selectedDatabases;

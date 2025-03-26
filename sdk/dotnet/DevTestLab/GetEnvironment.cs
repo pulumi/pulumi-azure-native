@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? ArmTemplateDisplayName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creator of the environment.
         /// </summary>
         public readonly string CreatedByUser;
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNative.DevTestLab
         private GetEnvironmentResult(
             string? armTemplateDisplayName,
 
+            string azureApiVersion,
+
             string createdByUser,
 
             Outputs.EnvironmentDeploymentPropertiesResponse? deploymentProperties,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.DevTestLab
             string uniqueIdentifier)
         {
             ArmTemplateDisplayName = armTemplateDisplayName;
+            AzureApiVersion = azureApiVersion;
             CreatedByUser = createdByUser;
             DeploymentProperties = deploymentProperties;
             Id = id;

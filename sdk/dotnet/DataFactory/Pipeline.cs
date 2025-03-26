@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataFactory
     /// <summary>
     /// Pipeline resource type.
     /// 
-    /// Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
+    /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         [Output("annotations")]
         public Output<ImmutableArray<object>> Annotations { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The max number of concurrent runs for the pipeline.

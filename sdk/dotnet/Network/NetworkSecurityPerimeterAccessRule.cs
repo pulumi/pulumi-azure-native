@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The NSP access rule resource
     /// 
-    /// Uses Azure REST API version 2024-06-01-preview.
+    /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterAccessRule")]
     public partial class NetworkSecurityPerimeterAccessRule : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("addressPrefixes")]
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Direction that specifies whether the access rules is inbound/outbound.
@@ -121,9 +127,13 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspAccessRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// <summary>
         /// Option 1 - Automatic TLS server certificate management with cert-manager.
         /// </summary>
-        [Input("automatic")]
-        public Input<Inputs.AutomaticCertMethodArgs>? Automatic { get; set; }
+        [Input("certManagerCertificateSpec")]
+        public Input<Inputs.CertManagerCertificateSpecArgs>? CertManagerCertificateSpec { get; set; }
 
         /// <summary>
         /// Option 2 - Manual TLS server certificate management through a defined secret.

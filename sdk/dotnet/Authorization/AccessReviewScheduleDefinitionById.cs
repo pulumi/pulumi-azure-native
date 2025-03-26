@@ -12,22 +12,24 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// Access Review Schedule Definition.
     /// 
-    /// Uses Azure REST API version 2021-12-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+    /// Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
+    /// 
+    /// Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The role assignment state eligible/active to review
-        /// </summary>
-        [Output("assignmentState")]
-        public Output<string> AssignmentState { get; private set; } = null!;
-
-        /// <summary>
         /// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         /// </summary>
         [Output("autoApplyDecisionsEnabled")]
         public Output<bool?> AutoApplyDecisionsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// This is the collection of backup reviewers.
@@ -66,48 +68,6 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The DateTime when the review is scheduled to end. Required if type is endDate
-        /// </summary>
-        [Output("endDate")]
-        public Output<string?> EndDate { get; private set; } = null!;
-
-        /// <summary>
-        /// This is used to indicate the resource id(s) to exclude
-        /// </summary>
-        [Output("excludeResourceId")]
-        public Output<string?> ExcludeResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// This is used to indicate the role definition id(s) to exclude
-        /// </summary>
-        [Output("excludeRoleDefinitionId")]
-        public Output<string?> ExcludeRoleDefinitionId { get; private set; } = null!;
-
-        /// <summary>
-        /// Flag to indicate whether to expand nested memberships or not.
-        /// </summary>
-        [Output("expandNestedMemberships")]
-        public Output<bool?> ExpandNestedMemberships { get; private set; } = null!;
-
-        /// <summary>
-        /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-        /// </summary>
-        [Output("inactiveDuration")]
-        public Output<string?> InactiveDuration { get; private set; } = null!;
-
-        /// <summary>
-        /// Flag to indicate whether to expand nested memberships or not.
-        /// </summary>
-        [Output("includeAccessBelowResource")]
-        public Output<bool?> IncludeAccessBelowResource { get; private set; } = null!;
-
-        /// <summary>
-        /// Flag to indicate whether to expand nested memberships or not.
-        /// </summary>
-        [Output("includeInheritedAccess")]
-        public Output<bool?> IncludeInheritedAccess { get; private set; } = null!;
-
-        /// <summary>
         /// The duration in days for an instance.
         /// </summary>
         [Output("instanceDurationInDays")]
@@ -144,12 +104,6 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of times to repeat the access review. Required and must be positive if type is numbered.
-        /// </summary>
-        [Output("numberOfOccurrences")]
-        public Output<int?> NumberOfOccurrences { get; private set; } = null!;
-
-        /// <summary>
         /// The identity id
         /// </summary>
         [Output("principalId")]
@@ -162,10 +116,16 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> PrincipalName { get; private set; } = null!;
 
         /// <summary>
-        /// The identity type user/servicePrincipal to review
+        /// The identity type : user/servicePrincipal
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
+
+        /// <summary>
+        /// Access Review schedule definition recurrence range.
+        /// </summary>
+        [Output("range")]
+        public Output<Outputs.AccessReviewRecurrenceRangeResponse?> Range { get; private set; } = null!;
 
         /// <summary>
         /// Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
@@ -186,12 +146,6 @@ namespace Pulumi.AzureNative.Authorization
         public Output<bool?> ReminderNotificationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId in which this review is getting created
-        /// </summary>
-        [Output("resourceId")]
-        public Output<string> ResourceId { get; private set; } = null!;
-
-        /// <summary>
         /// This is the collection of reviewers.
         /// </summary>
         [Output("reviewers")]
@@ -204,16 +158,10 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> ReviewersType { get; private set; } = null!;
 
         /// <summary>
-        /// This is used to indicate the role being reviewed
+        /// This is used to define what to include in scope of the review. The scope definition includes the resourceId and roleDefinitionId.
         /// </summary>
-        [Output("roleDefinitionId")]
-        public Output<string> RoleDefinitionId { get; private set; } = null!;
-
-        /// <summary>
-        /// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        /// </summary>
-        [Output("startDate")]
-        public Output<string?> StartDate { get; private set; } = null!;
+        [Output("scope")]
+        public Output<Outputs.AccessReviewScopeResponse> Scope { get; private set; } = null!;
 
         /// <summary>
         /// This read-only field specifies the status of an accessReview.
@@ -335,12 +283,6 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The DateTime when the review is scheduled to end. Required if type is endDate
-        /// </summary>
-        [Input("endDate")]
-        public Input<string>? EndDate { get; set; }
-
-        /// <summary>
         /// This is used to indicate the resource id(s) to exclude
         /// </summary>
         [Input("excludeResourceId")]
@@ -413,10 +355,10 @@ namespace Pulumi.AzureNative.Authorization
         public Input<bool>? MailNotificationsEnabled { get; set; }
 
         /// <summary>
-        /// The number of times to repeat the access review. Required and must be positive if type is numbered.
+        /// Access Review schedule definition recurrence range.
         /// </summary>
-        [Input("numberOfOccurrences")]
-        public Input<int>? NumberOfOccurrences { get; set; }
+        [Input("range")]
+        public Input<Inputs.AccessReviewRecurrenceRangeArgs>? Range { get; set; }
 
         /// <summary>
         /// Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
@@ -455,16 +397,10 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? ScheduleDefinitionId { get; set; }
 
         /// <summary>
-        /// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        /// </summary>
-        [Input("startDate")]
-        public Input<string>? StartDate { get; set; }
-
-        /// <summary>
-        /// The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        /// The recurrence type : weekly, monthly, etc.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.AccessReviewRecurrenceRangeType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.AccessReviewRecurrencePatternType>? Type { get; set; }
 
         public AccessReviewScheduleDefinitionByIdArgs()
         {

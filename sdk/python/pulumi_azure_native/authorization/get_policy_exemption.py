@@ -27,10 +27,13 @@ class GetPolicyExemptionResult:
     """
     The policy exemption.
     """
-    def __init__(__self__, assignment_scope_validation=None, description=None, display_name=None, exemption_category=None, expires_on=None, id=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, resource_selectors=None, system_data=None, type=None):
+    def __init__(__self__, assignment_scope_validation=None, azure_api_version=None, description=None, display_name=None, exemption_category=None, expires_on=None, id=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, resource_selectors=None, system_data=None, type=None):
         if assignment_scope_validation and not isinstance(assignment_scope_validation, str):
             raise TypeError("Expected argument 'assignment_scope_validation' to be a str")
         pulumi.set(__self__, "assignment_scope_validation", assignment_scope_validation)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -75,6 +78,14 @@ class GetPolicyExemptionResult:
         The option whether validate the exemption is at or under the assignment scope.
         """
         return pulumi.get(self, "assignment_scope_validation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -180,6 +191,7 @@ class AwaitableGetPolicyExemptionResult(GetPolicyExemptionResult):
             yield self
         return GetPolicyExemptionResult(
             assignment_scope_validation=self.assignment_scope_validation,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             exemption_category=self.exemption_category,
@@ -202,7 +214,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-07-01-preview.
 
-    Other available API versions: 2024-12-01-preview.
+    Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.
@@ -216,6 +228,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
 
     return AwaitableGetPolicyExemptionResult(
         assignment_scope_validation=pulumi.get(__ret__, 'assignment_scope_validation'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         exemption_category=pulumi.get(__ret__, 'exemption_category'),
@@ -236,7 +249,7 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
 
     Uses Azure REST API version 2022-07-01-preview.
 
-    Other available API versions: 2024-12-01-preview.
+    Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.
@@ -249,6 +262,7 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicyExemption', __args__, opts=opts, typ=GetPolicyExemptionResult)
     return __ret__.apply(lambda __response__: GetPolicyExemptionResult(
         assignment_scope_validation=pulumi.get(__response__, 'assignment_scope_validation'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         exemption_category=pulumi.get(__response__, 'exemption_category'),

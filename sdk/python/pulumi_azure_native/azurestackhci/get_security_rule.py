@@ -27,10 +27,13 @@ class GetSecurityRuleResult:
     """
     Security Rule resource.
     """
-    def __init__(__self__, access=None, description=None, destination_address_prefixes=None, destination_port_ranges=None, direction=None, extended_location=None, id=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefixes=None, source_port_ranges=None, system_data=None, type=None):
+    def __init__(__self__, access=None, azure_api_version=None, description=None, destination_address_prefixes=None, destination_port_ranges=None, direction=None, extended_location=None, id=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefixes=None, source_port_ranges=None, system_data=None, type=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -81,6 +84,14 @@ class GetSecurityRuleResult:
         The network traffic is allowed or denied.
         """
         return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -202,6 +213,7 @@ class AwaitableGetSecurityRuleResult(GetSecurityRuleResult):
             yield self
         return GetSecurityRuleResult(
             access=self.access,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             destination_address_prefixes=self.destination_address_prefixes,
             destination_port_ranges=self.destination_port_ranges,
@@ -225,9 +237,9 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
     """
     Gets the specified security rule.
 
-    Uses Azure REST API version 2024-02-01-preview.
+    Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_security_group_name: Name of the network security group
@@ -243,6 +255,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
 
     return AwaitableGetSecurityRuleResult(
         access=pulumi.get(__ret__, 'access'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         destination_address_prefixes=pulumi.get(__ret__, 'destination_address_prefixes'),
         destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
@@ -264,9 +277,9 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
     """
     Gets the specified security rule.
 
-    Uses Azure REST API version 2024-02-01-preview.
+    Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_security_group_name: Name of the network security group
@@ -281,6 +294,7 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getSecurityRule', __args__, opts=opts, typ=GetSecurityRuleResult)
     return __ret__.apply(lambda __response__: GetSecurityRuleResult(
         access=pulumi.get(__response__, 'access'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         destination_address_prefixes=pulumi.get(__response__, 'destination_address_prefixes'),
         destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),

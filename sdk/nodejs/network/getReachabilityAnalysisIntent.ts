@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Configuration information or intent on which to do the analysis on.
  *
- * Uses Azure REST API version 2024-01-01-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getReachabilityAnalysisIntent(args: GetReachabilityAnalysisIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetReachabilityAnalysisIntentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +48,10 @@ export interface GetReachabilityAnalysisIntentArgs {
  */
 export interface GetReachabilityAnalysisIntentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -71,9 +75,9 @@ export interface GetReachabilityAnalysisIntentResult {
 /**
  * Configuration information or intent on which to do the analysis on.
  *
- * Uses Azure REST API version 2024-01-01-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getReachabilityAnalysisIntentOutput(args: GetReachabilityAnalysisIntentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReachabilityAnalysisIntentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

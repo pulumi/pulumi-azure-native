@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a PreRulesResource
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPreRule(args: GetPreRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPreRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +49,10 @@ export interface GetPreRuleResult {
      * rule comment
      */
     readonly auditComment?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * rule category
      */
@@ -134,9 +138,9 @@ export interface GetPreRuleResult {
 /**
  * Get a PreRulesResource
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

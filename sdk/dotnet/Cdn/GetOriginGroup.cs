@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing origin group within an endpoint.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing origin group within an endpoint.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing origin group within an endpoint.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetOriginGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
         /// </summary>
         public readonly Outputs.HealthProbeParametersResponse? HealthProbeSettings;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetOriginGroupResult(
+            string azureApiVersion,
+
             Outputs.HealthProbeParametersResponse? healthProbeSettings,
 
             string id,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             HealthProbeSettings = healthProbeSettings;
             Id = id;
             Name = name;

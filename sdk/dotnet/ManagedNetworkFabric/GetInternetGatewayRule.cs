@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         private GetInternetGatewayRuleResult(
             string? annotation,
 
+            string azureApiVersion,
+
             string id,
 
             ImmutableArray<string> internetGatewayIds,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
             string type)
         {
             Annotation = annotation;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             InternetGatewayIds = internetGatewayIds;
             Location = location;

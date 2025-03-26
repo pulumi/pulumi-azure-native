@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.Inputs
     public sealed class ResourceMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Account Id. For example - the AWS account id.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
+        /// <summary>
         /// Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
         /// </summary>
         [Input("resourceId", required: true)]
@@ -28,28 +34,16 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.Inputs
         public Input<string>? ResourceKind { get; set; }
 
         /// <summary>
-        /// Resource name.
+        /// Resource Origin.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceOrigin")]
+        public InputUnion<string, Pulumi.AzureNative.AppComplianceAutomation.ResourceOrigin>? ResourceOrigin { get; set; }
 
         /// <summary>
-        /// Resource type.
+        /// Resource type. e.g. "Microsoft.Compute/virtualMachines"
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource's tag type.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public ResourceMetadataArgs()
         {

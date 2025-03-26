@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Custom authentication configuration.
         /// </summary>
-        public readonly Outputs.BrokerAuthenticatorMethodCustomResponse? Custom;
+        public readonly Outputs.BrokerAuthenticatorMethodCustomResponse? CustomSettings;
         /// <summary>
         /// Custom authentication configuration.
         /// </summary>
@@ -27,26 +27,26 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// ServiceAccountToken authentication configuration.
         /// </summary>
-        public readonly Outputs.BrokerAuthenticatorMethodSatResponse? ServiceAccountToken;
+        public readonly Outputs.BrokerAuthenticatorMethodSatResponse? ServiceAccountTokenSettings;
         /// <summary>
         /// X.509 authentication configuration.
         /// </summary>
-        public readonly Outputs.BrokerAuthenticatorMethodX509Response? X509Credentials;
+        public readonly Outputs.BrokerAuthenticatorMethodX509Response? X509Settings;
 
         [OutputConstructor]
         private BrokerAuthenticatorMethodsResponse(
-            Outputs.BrokerAuthenticatorMethodCustomResponse? custom,
+            Outputs.BrokerAuthenticatorMethodCustomResponse? customSettings,
 
             string method,
 
-            Outputs.BrokerAuthenticatorMethodSatResponse? serviceAccountToken,
+            Outputs.BrokerAuthenticatorMethodSatResponse? serviceAccountTokenSettings,
 
-            Outputs.BrokerAuthenticatorMethodX509Response? x509Credentials)
+            Outputs.BrokerAuthenticatorMethodX509Response? x509Settings)
         {
-            Custom = custom;
+            CustomSettings = customSettings;
             Method = method;
-            ServiceAccountToken = serviceAccountToken;
-            X509Credentials = x509Credentials;
+            ServiceAccountTokenSettings = serviceAccountTokenSettings;
+            X509Settings = x509Settings;
         }
     }
 }

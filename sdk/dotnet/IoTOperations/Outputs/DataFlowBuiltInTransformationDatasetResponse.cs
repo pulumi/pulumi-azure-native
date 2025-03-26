@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlow BuiltIn Transformation dataset properties
+    /// Dataflow BuiltIn Transformation dataset properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowBuiltInTransformationDatasetResponse
+    public sealed class DataflowBuiltInTransformationDatasetResponse
     {
         /// <summary>
         /// A user provided optional description of the dataset.
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string? SchemaRef;
 
         [OutputConstructor]
-        private DataFlowBuiltInTransformationDatasetResponse(
+        private DataflowBuiltInTransformationDatasetResponse(
             string? description,
 
             string? expression,

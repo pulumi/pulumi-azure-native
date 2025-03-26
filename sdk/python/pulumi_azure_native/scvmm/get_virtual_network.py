@@ -27,7 +27,10 @@ class GetVirtualNetworkResult:
     """
     The VirtualNetworks resource definition.
     """
-    def __init__(__self__, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, network_name=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, network_name=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -64,6 +67,14 @@ class GetVirtualNetworkResult:
         if vmm_server_id and not isinstance(vmm_server_id, str):
             raise TypeError("Expected argument 'vmm_server_id' to be a str")
         pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -168,6 +179,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         if False:
             yield self
         return GetVirtualNetworkResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             inventory_item_id=self.inventory_item_id,
@@ -188,9 +200,9 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     """
     Implements VirtualNetwork GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -203,6 +215,7 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         inventory_item_id=pulumi.get(__ret__, 'inventory_item_id'),
@@ -221,9 +234,9 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Implements VirtualNetwork GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -235,6 +248,7 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),

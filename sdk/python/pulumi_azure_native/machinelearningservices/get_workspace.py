@@ -27,13 +27,19 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, location=None, ml_flow_tracking_uri=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, public_network_access=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, storage_hns_enabled=None, system_data=None, tags=None, tenant_id=None, type=None, v1_legacy_mode=None, workspace_id=None):
+    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, associated_workspaces=None, azure_api_version=None, container_registry=None, description=None, discovery_url=None, enable_data_isolation=None, encryption=None, feature_store_settings=None, friendly_name=None, hbi_workspace=None, hub_resource_id=None, id=None, identity=None, image_build_compute=None, key_vault=None, kind=None, location=None, managed_network=None, ml_flow_tracking_uri=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, public_network_access=None, serverless_compute_settings=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, storage_hns_enabled=None, system_data=None, tags=None, tenant_id=None, type=None, v1_legacy_mode=None, workspace_hub_config=None, workspace_id=None):
         if allow_public_access_when_behind_vnet and not isinstance(allow_public_access_when_behind_vnet, bool):
             raise TypeError("Expected argument 'allow_public_access_when_behind_vnet' to be a bool")
         pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
         if application_insights and not isinstance(application_insights, str):
             raise TypeError("Expected argument 'application_insights' to be a str")
         pulumi.set(__self__, "application_insights", application_insights)
+        if associated_workspaces and not isinstance(associated_workspaces, list):
+            raise TypeError("Expected argument 'associated_workspaces' to be a list")
+        pulumi.set(__self__, "associated_workspaces", associated_workspaces)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container_registry and not isinstance(container_registry, str):
             raise TypeError("Expected argument 'container_registry' to be a str")
         pulumi.set(__self__, "container_registry", container_registry)
@@ -43,15 +49,24 @@ class GetWorkspaceResult:
         if discovery_url and not isinstance(discovery_url, str):
             raise TypeError("Expected argument 'discovery_url' to be a str")
         pulumi.set(__self__, "discovery_url", discovery_url)
+        if enable_data_isolation and not isinstance(enable_data_isolation, bool):
+            raise TypeError("Expected argument 'enable_data_isolation' to be a bool")
+        pulumi.set(__self__, "enable_data_isolation", enable_data_isolation)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if feature_store_settings and not isinstance(feature_store_settings, dict):
+            raise TypeError("Expected argument 'feature_store_settings' to be a dict")
+        pulumi.set(__self__, "feature_store_settings", feature_store_settings)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
         if hbi_workspace and not isinstance(hbi_workspace, bool):
             raise TypeError("Expected argument 'hbi_workspace' to be a bool")
         pulumi.set(__self__, "hbi_workspace", hbi_workspace)
+        if hub_resource_id and not isinstance(hub_resource_id, str):
+            raise TypeError("Expected argument 'hub_resource_id' to be a str")
+        pulumi.set(__self__, "hub_resource_id", hub_resource_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,9 +79,15 @@ class GetWorkspaceResult:
         if key_vault and not isinstance(key_vault, str):
             raise TypeError("Expected argument 'key_vault' to be a str")
         pulumi.set(__self__, "key_vault", key_vault)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_network and not isinstance(managed_network, dict):
+            raise TypeError("Expected argument 'managed_network' to be a dict")
+        pulumi.set(__self__, "managed_network", managed_network)
         if ml_flow_tracking_uri and not isinstance(ml_flow_tracking_uri, str):
             raise TypeError("Expected argument 'ml_flow_tracking_uri' to be a str")
         pulumi.set(__self__, "ml_flow_tracking_uri", ml_flow_tracking_uri)
@@ -91,6 +112,9 @@ class GetWorkspaceResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if serverless_compute_settings and not isinstance(serverless_compute_settings, dict):
+            raise TypeError("Expected argument 'serverless_compute_settings' to be a dict")
+        pulumi.set(__self__, "serverless_compute_settings", serverless_compute_settings)
         if service_managed_resources_settings and not isinstance(service_managed_resources_settings, dict):
             raise TypeError("Expected argument 'service_managed_resources_settings' to be a dict")
         pulumi.set(__self__, "service_managed_resources_settings", service_managed_resources_settings)
@@ -124,6 +148,9 @@ class GetWorkspaceResult:
         if v1_legacy_mode and not isinstance(v1_legacy_mode, bool):
             raise TypeError("Expected argument 'v1_legacy_mode' to be a bool")
         pulumi.set(__self__, "v1_legacy_mode", v1_legacy_mode)
+        if workspace_hub_config and not isinstance(workspace_hub_config, dict):
+            raise TypeError("Expected argument 'workspace_hub_config' to be a dict")
+        pulumi.set(__self__, "workspace_hub_config", workspace_hub_config)
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -143,6 +170,19 @@ class GetWorkspaceResult:
         ARM id of the application insights associated with this workspace.
         """
         return pulumi.get(self, "application_insights")
+
+    @property
+    @pulumi.getter(name="associatedWorkspaces")
+    def associated_workspaces(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "associated_workspaces")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="containerRegistry")
@@ -169,12 +209,25 @@ class GetWorkspaceResult:
         return pulumi.get(self, "discovery_url")
 
     @property
+    @pulumi.getter(name="enableDataIsolation")
+    def enable_data_isolation(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_data_isolation")
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.EncryptionPropertyResponse']:
         """
         The encryption settings of Azure ML workspace.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="featureStoreSettings")
+    def feature_store_settings(self) -> Optional['outputs.FeatureStoreSettingsResponse']:
+        """
+        Settings for feature store type workspace.
+        """
+        return pulumi.get(self, "feature_store_settings")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -191,6 +244,11 @@ class GetWorkspaceResult:
         The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         """
         return pulumi.get(self, "hbi_workspace")
+
+    @property
+    @pulumi.getter(name="hubResourceId")
+    def hub_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "hub_resource_id")
 
     @property
     @pulumi.getter
@@ -226,11 +284,24 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
+    def kind(self) -> Optional[str]:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedNetwork")
+    def managed_network(self) -> Optional['outputs.ManagedNetworkSettingsResponse']:
+        """
+        Managed Network settings for a machine learning workspace.
+        """
+        return pulumi.get(self, "managed_network")
 
     @property
     @pulumi.getter(name="mlFlowTrackingUri")
@@ -295,6 +366,14 @@ class GetWorkspaceResult:
         Whether requests from Public Network are allowed.
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="serverlessComputeSettings")
+    def serverless_compute_settings(self) -> Optional['outputs.ServerlessComputeSettingsResponse']:
+        """
+        Settings for serverless compute created in the workspace
+        """
+        return pulumi.get(self, "serverless_compute_settings")
 
     @property
     @pulumi.getter(name="serviceManagedResourcesSettings")
@@ -385,6 +464,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "v1_legacy_mode")
 
     @property
+    @pulumi.getter(name="workspaceHubConfig")
+    def workspace_hub_config(self) -> Optional['outputs.WorkspaceHubConfigResponse']:
+        """
+        WorkspaceHub's configuration object.
+        """
+        return pulumi.get(self, "workspace_hub_config")
+
+    @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> str:
         """
@@ -401,17 +488,24 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         return GetWorkspaceResult(
             allow_public_access_when_behind_vnet=self.allow_public_access_when_behind_vnet,
             application_insights=self.application_insights,
+            associated_workspaces=self.associated_workspaces,
+            azure_api_version=self.azure_api_version,
             container_registry=self.container_registry,
             description=self.description,
             discovery_url=self.discovery_url,
+            enable_data_isolation=self.enable_data_isolation,
             encryption=self.encryption,
+            feature_store_settings=self.feature_store_settings,
             friendly_name=self.friendly_name,
             hbi_workspace=self.hbi_workspace,
+            hub_resource_id=self.hub_resource_id,
             id=self.id,
             identity=self.identity,
             image_build_compute=self.image_build_compute,
             key_vault=self.key_vault,
+            kind=self.kind,
             location=self.location,
+            managed_network=self.managed_network,
             ml_flow_tracking_uri=self.ml_flow_tracking_uri,
             name=self.name,
             notebook_info=self.notebook_info,
@@ -420,6 +514,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             private_link_count=self.private_link_count,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
+            serverless_compute_settings=self.serverless_compute_settings,
             service_managed_resources_settings=self.service_managed_resources_settings,
             service_provisioned_resource_group=self.service_provisioned_resource_group,
             shared_private_link_resources=self.shared_private_link_resources,
@@ -431,6 +526,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             tenant_id=self.tenant_id,
             type=self.type,
             v1_legacy_mode=self.v1_legacy_mode,
+            workspace_hub_config=self.workspace_hub_config,
             workspace_id=self.workspace_id)
 
 
@@ -440,9 +536,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
     """
     Gets the properties of the specified machine learning workspace.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -457,17 +553,24 @@ def get_workspace(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceResult(
         allow_public_access_when_behind_vnet=pulumi.get(__ret__, 'allow_public_access_when_behind_vnet'),
         application_insights=pulumi.get(__ret__, 'application_insights'),
+        associated_workspaces=pulumi.get(__ret__, 'associated_workspaces'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container_registry=pulumi.get(__ret__, 'container_registry'),
         description=pulumi.get(__ret__, 'description'),
         discovery_url=pulumi.get(__ret__, 'discovery_url'),
+        enable_data_isolation=pulumi.get(__ret__, 'enable_data_isolation'),
         encryption=pulumi.get(__ret__, 'encryption'),
+        feature_store_settings=pulumi.get(__ret__, 'feature_store_settings'),
         friendly_name=pulumi.get(__ret__, 'friendly_name'),
         hbi_workspace=pulumi.get(__ret__, 'hbi_workspace'),
+        hub_resource_id=pulumi.get(__ret__, 'hub_resource_id'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         image_build_compute=pulumi.get(__ret__, 'image_build_compute'),
         key_vault=pulumi.get(__ret__, 'key_vault'),
+        kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        managed_network=pulumi.get(__ret__, 'managed_network'),
         ml_flow_tracking_uri=pulumi.get(__ret__, 'ml_flow_tracking_uri'),
         name=pulumi.get(__ret__, 'name'),
         notebook_info=pulumi.get(__ret__, 'notebook_info'),
@@ -476,6 +579,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         private_link_count=pulumi.get(__ret__, 'private_link_count'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        serverless_compute_settings=pulumi.get(__ret__, 'serverless_compute_settings'),
         service_managed_resources_settings=pulumi.get(__ret__, 'service_managed_resources_settings'),
         service_provisioned_resource_group=pulumi.get(__ret__, 'service_provisioned_resource_group'),
         shared_private_link_resources=pulumi.get(__ret__, 'shared_private_link_resources'),
@@ -487,6 +591,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'),
         v1_legacy_mode=pulumi.get(__ret__, 'v1_legacy_mode'),
+        workspace_hub_config=pulumi.get(__ret__, 'workspace_hub_config'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
@@ -494,9 +599,9 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Gets the properties of the specified machine learning workspace.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -510,17 +615,24 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         allow_public_access_when_behind_vnet=pulumi.get(__response__, 'allow_public_access_when_behind_vnet'),
         application_insights=pulumi.get(__response__, 'application_insights'),
+        associated_workspaces=pulumi.get(__response__, 'associated_workspaces'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container_registry=pulumi.get(__response__, 'container_registry'),
         description=pulumi.get(__response__, 'description'),
         discovery_url=pulumi.get(__response__, 'discovery_url'),
+        enable_data_isolation=pulumi.get(__response__, 'enable_data_isolation'),
         encryption=pulumi.get(__response__, 'encryption'),
+        feature_store_settings=pulumi.get(__response__, 'feature_store_settings'),
         friendly_name=pulumi.get(__response__, 'friendly_name'),
         hbi_workspace=pulumi.get(__response__, 'hbi_workspace'),
+        hub_resource_id=pulumi.get(__response__, 'hub_resource_id'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         image_build_compute=pulumi.get(__response__, 'image_build_compute'),
         key_vault=pulumi.get(__response__, 'key_vault'),
+        kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
+        managed_network=pulumi.get(__response__, 'managed_network'),
         ml_flow_tracking_uri=pulumi.get(__response__, 'ml_flow_tracking_uri'),
         name=pulumi.get(__response__, 'name'),
         notebook_info=pulumi.get(__response__, 'notebook_info'),
@@ -529,6 +641,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
         private_link_count=pulumi.get(__response__, 'private_link_count'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
+        serverless_compute_settings=pulumi.get(__response__, 'serverless_compute_settings'),
         service_managed_resources_settings=pulumi.get(__response__, 'service_managed_resources_settings'),
         service_provisioned_resource_group=pulumi.get(__response__, 'service_provisioned_resource_group'),
         shared_private_link_resources=pulumi.get(__response__, 'shared_private_link_resources'),
@@ -540,4 +653,5 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
         tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type'),
         v1_legacy_mode=pulumi.get(__response__, 'v1_legacy_mode'),
+        workspace_hub_config=pulumi.get(__response__, 'workspace_hub_config'),
         workspace_id=pulumi.get(__response__, 'workspace_id')))

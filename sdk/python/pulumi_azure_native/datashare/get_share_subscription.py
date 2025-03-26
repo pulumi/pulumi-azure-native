@@ -27,7 +27,10 @@ class GetShareSubscriptionResult:
     """
     A share subscription data transfer object.
     """
-    def __init__(__self__, created_at=None, expiration_date=None, id=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, source_share_location=None, system_data=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, expiration_date=None, id=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, source_share_location=None, system_data=None, type=None, user_email=None, user_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -85,6 +88,14 @@ class GetShareSubscriptionResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -245,6 +256,7 @@ class AwaitableGetShareSubscriptionResult(GetShareSubscriptionResult):
         if False:
             yield self
         return GetShareSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             expiration_date=self.expiration_date,
             id=self.id,
@@ -288,6 +300,7 @@ def get_share_subscription(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getShareSubscription', __args__, opts=opts, typ=GetShareSubscriptionResult).value
 
     return AwaitableGetShareSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         expiration_date=pulumi.get(__ret__, 'expiration_date'),
         id=pulumi.get(__ret__, 'id'),
@@ -328,6 +341,7 @@ def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getShareSubscription', __args__, opts=opts, typ=GetShareSubscriptionResult)
     return __ret__.apply(lambda __response__: GetShareSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         expiration_date=pulumi.get(__response__, 'expiration_date'),
         id=pulumi.get(__response__, 'id'),

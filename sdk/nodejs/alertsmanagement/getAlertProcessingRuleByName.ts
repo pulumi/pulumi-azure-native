@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get an alert processing rule by name.
  *
  * Uses Azure REST API version 2021-08-08.
+ *
+ * Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAlertProcessingRuleByName(args: GetAlertProcessingRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertProcessingRuleByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +37,10 @@ export interface GetAlertProcessingRuleByNameArgs {
  * Alert processing rule object containing target scopes, conditions and scheduling logic.
  */
 export interface GetAlertProcessingRuleByNameResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Azure resource Id
      */
@@ -68,6 +74,8 @@ export interface GetAlertProcessingRuleByNameResult {
  * Get an alert processing rule by name.
  *
  * Uses Azure REST API version 2021-08-08.
+ *
+ * Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

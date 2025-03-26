@@ -117,7 +117,7 @@ class Prefix(pulumi.CustomResource):
         """
         The peering service prefix class.
 
-        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class Prefix(pulumi.CustomResource):
         """
         The peering service prefix class.
 
-        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param PrefixArgs args: The arguments to use to populate this resource's properties.
@@ -176,6 +176,7 @@ class Prefix(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["error_message"] = None
             __props__.__dict__["events"] = None
             __props__.__dict__["learned_type"] = None
@@ -207,6 +208,7 @@ class Prefix(pulumi.CustomResource):
 
         __props__ = PrefixArgs.__new__(PrefixArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["error_message"] = None
         __props__.__dict__["events"] = None
         __props__.__dict__["learned_type"] = None
@@ -217,6 +219,14 @@ class Prefix(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return Prefix(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorMessage")

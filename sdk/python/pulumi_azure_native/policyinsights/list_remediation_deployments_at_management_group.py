@@ -70,9 +70,9 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     """
     Gets all deployments for a remediation at management group scope.
 
-    Uses Azure REST API version 2021-10-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2024-10-01.
+    Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str management_group_id: Management group ID.
@@ -99,9 +99,9 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
     """
     Gets all deployments for a remediation at management group scope.
 
-    Uses Azure REST API version 2021-10-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2024-10-01.
+    Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str management_group_id: Management group ID.

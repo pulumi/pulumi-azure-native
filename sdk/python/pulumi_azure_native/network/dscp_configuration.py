@@ -239,9 +239,9 @@ class DscpConfiguration(pulumi.CustomResource):
         """
         Differentiated Services Code Point configuration for any given network interface
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,9 +267,9 @@ class DscpConfiguration(pulumi.CustomResource):
         """
         Differentiated Services Code Point configuration for any given network interface
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DscpConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -322,6 +322,7 @@ class DscpConfiguration(pulumi.CustomResource):
             __props__.__dict__["source_port_ranges"] = source_port_ranges
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_network_interfaces"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -353,6 +354,7 @@ class DscpConfiguration(pulumi.CustomResource):
         __props__ = DscpConfigurationArgs.__new__(DscpConfigurationArgs)
 
         __props__.__dict__["associated_network_interfaces"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["destination_ip_ranges"] = None
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["etag"] = None
@@ -377,6 +379,14 @@ class DscpConfiguration(pulumi.CustomResource):
         Associated Network Interfaces to the DSCP Configuration.
         """
         return pulumi.get(self, "associated_network_interfaces")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="destinationIpRanges")

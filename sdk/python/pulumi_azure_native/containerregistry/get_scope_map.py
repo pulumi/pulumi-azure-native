@@ -27,10 +27,13 @@ class GetScopeMapResult:
     """
     An object that represents a scope map for a container registry.
     """
-    def __init__(__self__, actions=None, creation_date=None, description=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, actions=None, azure_api_version=None, creation_date=None, description=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -62,6 +65,14 @@ class GetScopeMapResult:
         repositories/repository-name/metadata/write
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -127,6 +138,7 @@ class AwaitableGetScopeMapResult(GetScopeMapResult):
             yield self
         return GetScopeMapResult(
             actions=self.actions,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             description=self.description,
             id=self.id,
@@ -143,9 +155,9 @@ def get_scope_map(registry_name: Optional[str] = None,
     """
     Gets the properties of the specified scope map.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.
@@ -161,6 +173,7 @@ def get_scope_map(registry_name: Optional[str] = None,
 
     return AwaitableGetScopeMapResult(
         actions=pulumi.get(__ret__, 'actions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -175,9 +188,9 @@ def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the specified scope map.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.
@@ -192,6 +205,7 @@ def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getScopeMap', __args__, opts=opts, typ=GetScopeMapResult)
     return __ret__.apply(lambda __response__: GetScopeMapResult(
         actions=pulumi.get(__response__, 'actions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

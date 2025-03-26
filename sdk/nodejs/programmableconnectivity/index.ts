@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["OperatorApiConnection"], () => require("./operator
 // Export enums:
 export * from "../types/enums/programmableconnectivity";
 
-// Export sub-modules:
-import * as v20240115preview from "./v20240115preview";
-
-export {
-    v20240115preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

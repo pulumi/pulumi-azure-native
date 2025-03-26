@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns Modeling resources for a given name.
  *
- * Uses Azure REST API version 2022-02-01.
+ * Uses Azure REST API version 2022-03-01-preview.
  *
- * Other available API versions: 2022-03-01-preview.
+ * Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getModeling(args: GetModelingArgs, opts?: pulumi.InvokeOptions): Promise<GetModelingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetModelingArgs {
  * Modeling resource details.
  */
 export interface GetModelingResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -74,9 +78,9 @@ export interface GetModelingResult {
 /**
  * Returns Modeling resources for a given name.
  *
- * Uses Azure REST API version 2022-02-01.
+ * Uses Azure REST API version 2022-03-01-preview.
  *
- * Other available API versions: 2022-03-01-preview.
+ * Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

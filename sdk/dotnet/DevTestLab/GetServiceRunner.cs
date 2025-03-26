@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetServiceRunnerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetServiceRunnerResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityPropertiesResponse? identity,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

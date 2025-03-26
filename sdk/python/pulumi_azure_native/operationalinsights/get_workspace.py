@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     The top level Workspace resource container.
     """
-    def __init__(__self__, created_date=None, customer_id=None, default_data_collection_rule_resource_id=None, etag=None, features=None, force_cmk_for_query=None, id=None, identity=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, system_data=None, tags=None, type=None, workspace_capping=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, customer_id=None, default_data_collection_rule_resource_id=None, etag=None, features=None, force_cmk_for_query=None, id=None, identity=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, system_data=None, tags=None, type=None, workspace_capping=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -91,6 +94,14 @@ class GetWorkspaceResult:
         if workspace_capping and not isinstance(workspace_capping, dict):
             raise TypeError("Expected argument 'workspace_capping' to be a dict")
         pulumi.set(__self__, "workspace_capping", workspace_capping)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -267,6 +278,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             customer_id=self.customer_id,
             default_data_collection_rule_resource_id=self.default_data_collection_rule_resource_id,
@@ -296,9 +308,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
     """
     Gets a workspace instance.
 
-    Uses Azure REST API version 2022-10-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
+    Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -311,6 +323,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         customer_id=pulumi.get(__ret__, 'customer_id'),
         default_data_collection_rule_resource_id=pulumi.get(__ret__, 'default_data_collection_rule_resource_id'),
@@ -338,9 +351,9 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Gets a workspace instance.
 
-    Uses Azure REST API version 2022-10-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
+    Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -352,6 +365,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         customer_id=pulumi.get(__response__, 'customer_id'),
         default_data_collection_rule_resource_id=pulumi.get(__response__, 'default_data_collection_rule_resource_id'),

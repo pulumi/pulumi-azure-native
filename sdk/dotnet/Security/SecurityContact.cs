@@ -12,24 +12,30 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     /// 
-    /// Uses Azure REST API version 2020-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
+    /// Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
     /// 
-    /// Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+    /// Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityContact")]
     public partial class SecurityContact : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines whether to send email notifications about new security alerts
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("alertNotifications")]
-        public Output<Outputs.SecurityContactPropertiesResponseAlertNotifications?> AlertNotifications { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         /// </summary>
         [Output("emails")]
         public Output<string?> Emails { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the security contact is enabled.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<bool?> IsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -42,6 +48,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("notificationsByRole")]
         public Output<Outputs.SecurityContactPropertiesResponseNotificationsByRole?> NotificationsByRole { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of sources types which evaluate the email notification.
+        /// </summary>
+        [Output("notificationsSources")]
+        public Output<ImmutableArray<Union<Outputs.NotificationsSourceAlertResponse, Outputs.NotificationsSourceAttackPathResponse>>> NotificationsSources { get; private set; } = null!;
 
         /// <summary>
         /// The security contact's phone number
@@ -107,22 +119,34 @@ namespace Pulumi.AzureNative.Security
     public sealed class SecurityContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines whether to send email notifications about new security alerts
-        /// </summary>
-        [Input("alertNotifications")]
-        public Input<Inputs.SecurityContactPropertiesAlertNotificationsArgs>? AlertNotifications { get; set; }
-
-        /// <summary>
         /// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         /// </summary>
         [Input("emails")]
         public Input<string>? Emails { get; set; }
 
         /// <summary>
+        /// Indicates whether the security contact is enabled.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
         /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         [Input("notificationsByRole")]
         public Input<Inputs.SecurityContactPropertiesNotificationsByRoleArgs>? NotificationsByRole { get; set; }
+
+        [Input("notificationsSources")]
+        private InputList<Union<Inputs.NotificationsSourceAlertArgs, Inputs.NotificationsSourceAttackPathArgs>>? _notificationsSources;
+
+        /// <summary>
+        /// A collection of sources types which evaluate the email notification.
+        /// </summary>
+        public InputList<Union<Inputs.NotificationsSourceAlertArgs, Inputs.NotificationsSourceAttackPathArgs>> NotificationsSources
+        {
+            get => _notificationsSources ?? (_notificationsSources = new InputList<Union<Inputs.NotificationsSourceAlertArgs, Inputs.NotificationsSourceAttackPathArgs>>());
+            set => _notificationsSources = value;
+        }
 
         /// <summary>
         /// The security contact's phone number

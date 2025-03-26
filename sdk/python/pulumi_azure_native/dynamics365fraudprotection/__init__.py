@@ -9,11 +9,3 @@ from .get_instance_details import *
 from .instance_details import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.dynamics365fraudprotection.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
-else:
-    v20210201preview = _utilities.lazy_import('pulumi_azure_native.dynamics365fraudprotection.v20210201preview')
-

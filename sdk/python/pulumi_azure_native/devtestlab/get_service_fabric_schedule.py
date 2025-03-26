@@ -27,7 +27,10 @@ class GetServiceFabricScheduleResult:
     """
     A schedule.
     """
-    def __init__(__self__, created_date=None, daily_recurrence=None, hourly_recurrence=None, id=None, location=None, name=None, notification_settings=None, provisioning_state=None, status=None, tags=None, target_resource_id=None, task_type=None, time_zone_id=None, type=None, unique_identifier=None, weekly_recurrence=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, daily_recurrence=None, hourly_recurrence=None, id=None, location=None, name=None, notification_settings=None, provisioning_state=None, status=None, tags=None, target_resource_id=None, task_type=None, time_zone_id=None, type=None, unique_identifier=None, weekly_recurrence=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -76,6 +79,14 @@ class GetServiceFabricScheduleResult:
         if weekly_recurrence and not isinstance(weekly_recurrence, dict):
             raise TypeError("Expected argument 'weekly_recurrence' to be a dict")
         pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -212,6 +223,7 @@ class AwaitableGetServiceFabricScheduleResult(GetServiceFabricScheduleResult):
         if False:
             yield self
         return GetServiceFabricScheduleResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             daily_recurrence=self.daily_recurrence,
             hourly_recurrence=self.hourly_recurrence,
@@ -261,6 +273,7 @@ def get_service_fabric_schedule(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getServiceFabricSchedule', __args__, opts=opts, typ=GetServiceFabricScheduleResult).value
 
     return AwaitableGetServiceFabricScheduleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         daily_recurrence=pulumi.get(__ret__, 'daily_recurrence'),
         hourly_recurrence=pulumi.get(__ret__, 'hourly_recurrence'),
@@ -307,6 +320,7 @@ def get_service_fabric_schedule_output(expand: Optional[pulumi.Input[Optional[st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getServiceFabricSchedule', __args__, opts=opts, typ=GetServiceFabricScheduleResult)
     return __ret__.apply(lambda __response__: GetServiceFabricScheduleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         daily_recurrence=pulumi.get(__response__, 'daily_recurrence'),
         hourly_recurrence=pulumi.get(__response__, 'hourly_recurrence'),

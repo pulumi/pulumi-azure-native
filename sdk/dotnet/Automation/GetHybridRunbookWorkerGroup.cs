@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve a hybrid runbook worker group.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetHybridRunbookWorkerGroupResult> InvokeAsync(GetHybridRunbookWorkerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridRunbookWorkerGroupResult>("azure-native:automation:getHybridRunbookWorkerGroup", args ?? new GetHybridRunbookWorkerGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve a hybrid runbook worker group.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHybridRunbookWorkerGroupResult> Invoke(GetHybridRunbookWorkerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerGroupResult>("azure-native:automation:getHybridRunbookWorkerGroup", args ?? new GetHybridRunbookWorkerGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve a hybrid runbook worker group.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHybridRunbookWorkerGroupResult> Invoke(GetHybridRunbookWorkerGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerGroupResult>("azure-native:automation:getHybridRunbookWorkerGroup", args ?? new GetHybridRunbookWorkerGroupInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetHybridRunbookWorkerGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Sets the credential of a worker group.
         /// </summary>
         public readonly Outputs.RunAsCredentialAssociationPropertyResponse? Credential;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetHybridRunbookWorkerGroupResult(
+            string azureApiVersion,
+
             Outputs.RunAsCredentialAssociationPropertyResponse? credential,
 
             string? groupType,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Automation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Credential = credential;
             GroupType = groupType;
             Id = id;

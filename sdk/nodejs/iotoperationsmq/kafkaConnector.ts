@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * MQ kafkaConnector resource
  *
- * Uses Azure REST API version 2023-10-04-preview.
+ * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
  */
 export class KafkaConnector extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class KafkaConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === KafkaConnector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The client id prefix of the dynamically generated client ids.
      */
@@ -132,11 +136,13 @@ export class KafkaConnector extends pulumi.CustomResource {
             resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientIdPrefix"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["image"] = undefined /*out*/;

@@ -36,6 +36,10 @@ export interface GetIntegrationServiceEnvironmentArgs {
  */
 export interface GetIntegrationServiceEnvironmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource id.
      */
     readonly id: string;

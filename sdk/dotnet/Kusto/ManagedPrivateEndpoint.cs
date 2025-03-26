@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Kusto
     /// <summary>
     /// Class representing a managed private endpoint.
     /// 
-    /// Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-08-27.
+    /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
     /// 
-    /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    /// Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The groupId in which the managed private endpoint is created.
         /// </summary>
@@ -160,7 +166,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? RequestMessage { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

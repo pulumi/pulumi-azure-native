@@ -24,6 +24,8 @@ __all__ = [
     'IpAllocationType',
     'KubernetesPluginType',
     'L3NetworkConfigurationIpamEnabled',
+    'ManagedServiceIdentitySelectorType',
+    'ManagedServiceIdentityType',
     'OsDiskCreateOption',
     'OsDiskDeleteOption',
     'RuntimeProtectionEnforcementLevel',
@@ -37,6 +39,7 @@ __all__ = [
     'VirtualMachinePlacementHintType',
     'VirtualMachineSchedulingExecution',
     'VirtualMachineVirtioInterfaceType',
+    'VulnerabilityScanningSettingsContainerScan',
 ]
 
 
@@ -118,6 +121,7 @@ class ClusterUpdateStrategyType(str, Enum):
     The mode of operation for runtime protection.
     """
     RACK = "Rack"
+    PAUSE_AFTER_RACK = "PauseAfterRack"
 
 
 class ConsoleEnabled(str, Enum):
@@ -198,11 +202,36 @@ class L3NetworkConfigurationIpamEnabled(str, Enum):
     FALSE = "False"
 
 
+class ManagedServiceIdentitySelectorType(str, Enum):
+    """
+    The type of managed identity that is being selected.
+    """
+    SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
+    USER_ASSIGNED_IDENTITY = "UserAssignedIdentity"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 class OsDiskCreateOption(str, Enum):
     """
     The strategy for creating the OS disk.
     """
     EPHEMERAL = "Ephemeral"
+    """
+    Utilize the local storage of the host machine.
+    """
+    PERSISTENT = "Persistent"
+    """
+    Utilize a storage appliance backed volume to host the disk.
+    """
 
 
 class OsDiskDeleteOption(str, Enum):
@@ -252,7 +281,17 @@ class VirtualMachineDeviceModelType(str, Enum):
     The type of the device model to use.
     """
     T1 = "T1"
+    """
+    Traditional and most compatible device virtualization interface.
+    """
     T2 = "T2"
+    """
+    Modern and enhanced device virtualization interface.
+    """
+    T3 = "T3"
+    """
+    Improved security and functionality (including TPM and secure boot support). Required for windows 11 and server 2025.
+    """
 
 
 class VirtualMachineIPAllocationMethod(str, Enum):
@@ -304,3 +343,11 @@ class VirtualMachineVirtioInterfaceType(str, Enum):
     """
     MODERN = "Modern"
     TRANSITIONAL = "Transitional"
+
+
+class VulnerabilityScanningSettingsContainerScan(str, Enum):
+    """
+    The mode selection for container vulnerability scanning.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get information about a guest configuration assignment
  *
- * Uses Azure REST API version 2022-01-25.
+ * Uses Azure REST API version 2024-04-05.
  *
- * Other available API versions: 2024-04-05.
+ * Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetGuestConfigurationAssignmentArgs {
  */
 export interface GetGuestConfigurationAssignmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ARM resource id of the guest configuration assignment.
      */
     readonly id: string;
@@ -70,9 +74,9 @@ export interface GetGuestConfigurationAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  *
- * Uses Azure REST API version 2022-01-25.
+ * Uses Azure REST API version 2024-04-05.
  *
- * Other available API versions: 2024-04-05.
+ * Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

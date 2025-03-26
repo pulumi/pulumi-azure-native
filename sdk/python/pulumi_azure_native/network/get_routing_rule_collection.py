@@ -27,10 +27,13 @@ class GetRoutingRuleCollectionResult:
     """
     Defines the routing rule collection.
     """
-    def __init__(__self__, applies_to=None, description=None, disable_bgp_route_propagation=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+    def __init__(__self__, applies_to=None, azure_api_version=None, description=None, disable_bgp_route_propagation=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if applies_to and not isinstance(applies_to, list):
             raise TypeError("Expected argument 'applies_to' to be a list")
         pulumi.set(__self__, "applies_to", applies_to)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -66,6 +69,14 @@ class GetRoutingRuleCollectionResult:
         Groups for configuration
         """
         return pulumi.get(self, "applies_to")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetRoutingRuleCollectionResult(GetRoutingRuleCollectionResult):
             yield self
         return GetRoutingRuleCollectionResult(
             applies_to=self.applies_to,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             disable_bgp_route_propagation=self.disable_bgp_route_propagation,
             etag=self.etag,
@@ -166,9 +178,9 @@ def get_routing_rule_collection(configuration_name: Optional[str] = None,
     """
     Gets a network manager routing configuration rule collection.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the network manager Routing Configuration.
@@ -186,6 +198,7 @@ def get_routing_rule_collection(configuration_name: Optional[str] = None,
 
     return AwaitableGetRoutingRuleCollectionResult(
         applies_to=pulumi.get(__ret__, 'applies_to'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         disable_bgp_route_propagation=pulumi.get(__ret__, 'disable_bgp_route_propagation'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -203,9 +216,9 @@ def get_routing_rule_collection_output(configuration_name: Optional[pulumi.Input
     """
     Gets a network manager routing configuration rule collection.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the network manager Routing Configuration.
@@ -222,6 +235,7 @@ def get_routing_rule_collection_output(configuration_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getRoutingRuleCollection', __args__, opts=opts, typ=GetRoutingRuleCollectionResult)
     return __ret__.apply(lambda __response__: GetRoutingRuleCollectionResult(
         applies_to=pulumi.get(__response__, 'applies_to'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         disable_bgp_route_propagation=pulumi.get(__response__, 'disable_bgp_route_propagation'),
         etag=pulumi.get(__response__, 'etag'),

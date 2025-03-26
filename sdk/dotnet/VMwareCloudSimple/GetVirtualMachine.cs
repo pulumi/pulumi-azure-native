@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// </summary>
         public readonly int AmountOfRam;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The list of Virtual Disks' Controllers
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualDiskControllerResponse> Controllers;
@@ -194,6 +198,8 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         private GetVirtualMachineResult(
             int amountOfRam,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.VirtualDiskControllerResponse> controllers,
 
             Outputs.GuestOSCustomizationResponse? customization,
@@ -247,6 +253,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
             string vmwaretools)
         {
             AmountOfRam = amountOfRam;
+            AzureApiVersion = azureApiVersion;
             Controllers = controllers;
             Customization = customization;
             Disks = disks;

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Media
         /// Gets a Transform.
         /// 
         /// Uses Azure REST API version 2022-07-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Media
         /// Gets a Transform.
         /// 
         /// Uses Azure REST API version 2022-07-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Media
         /// Gets a Transform.
         /// 
         /// Uses Azure REST API version 2022-07-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetTransformResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
         /// </summary>
         public readonly string Created;
@@ -128,6 +138,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetTransformResult(
+            string azureApiVersion,
+
             string created,
 
             string? description,
@@ -144,6 +156,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Created = created;
             Description = description;
             Id = id;

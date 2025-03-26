@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// Define the backup connection resource of virtual instance for SAP..
     /// 
-    /// Uses Azure REST API version 2023-10-01-preview.
+    /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ACSSBackupConnection")]
     public partial class ACSSBackupConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Information about the recovery services vault and backup policy used for backup.
         /// </summary>

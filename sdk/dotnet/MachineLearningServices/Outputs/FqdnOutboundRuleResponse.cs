@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         public readonly string? Category;
         public readonly string? Destination;
         /// <summary>
-        /// Status of a managed network Outbound Rule of a machine learning workspace.
+        /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
         public readonly string? Status;
         /// <summary>

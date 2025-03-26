@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
         /// 
-        /// Uses Azure REST API version 2024-11-01-preview.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetScalingPlanPersonalScheduleResult> InvokeAsync(GetScalingPlanPersonalScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
         /// 
-        /// Uses Azure REST API version 2024-11-01-preview.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
         /// 
-        /// Uses Azure REST API version 2024-11-01-preview.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetScalingPlanPersonalScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Set of days of the week on which this schedule is active.
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeek;
@@ -130,7 +134,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for off-peak period.
         /// </summary>
-        public readonly Outputs.TimeResponse OffPeakStartTime;
+        public readonly Outputs.TimeResponse? OffPeakStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
         /// </summary>
@@ -154,7 +158,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for peak period.
         /// </summary>
-        public readonly Outputs.TimeResponse PeakStartTime;
+        public readonly Outputs.TimeResponse? PeakStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the peak phase.
         /// </summary>
@@ -178,7 +182,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for ramp down period.
         /// </summary>
-        public readonly Outputs.TimeResponse RampDownStartTime;
+        public readonly Outputs.TimeResponse? RampDownStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
         /// </summary>
@@ -206,7 +210,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for ramp up period.
         /// </summary>
-        public readonly Outputs.TimeResponse RampUpStartTime;
+        public readonly Outputs.TimeResponse? RampUpStartTime;
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
         /// </summary>
@@ -222,6 +226,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [OutputConstructor]
         private GetScalingPlanPersonalScheduleResult(
+            string azureApiVersion,
+
             ImmutableArray<string> daysOfWeek,
 
             string id,
@@ -236,7 +242,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? offPeakMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse offPeakStartTime,
+            Outputs.TimeResponse? offPeakStartTime,
 
             string? offPeakStartVMOnConnect,
 
@@ -248,7 +254,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? peakMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse peakStartTime,
+            Outputs.TimeResponse? peakStartTime,
 
             string? peakStartVMOnConnect,
 
@@ -260,7 +266,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? rampDownMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse rampDownStartTime,
+            Outputs.TimeResponse? rampDownStartTime,
 
             string? rampDownStartVMOnConnect,
 
@@ -274,7 +280,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? rampUpMinutesToWaitOnLogoff,
 
-            Outputs.TimeResponse rampUpStartTime,
+            Outputs.TimeResponse? rampUpStartTime,
 
             string? rampUpStartVMOnConnect,
 
@@ -282,6 +288,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DaysOfWeek = daysOfWeek;
             Id = id;
             Name = name;

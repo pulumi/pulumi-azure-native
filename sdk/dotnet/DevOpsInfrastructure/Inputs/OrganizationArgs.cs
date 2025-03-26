@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
     public sealed class OrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines if the pool should have open access to all projects in this organization.
+        /// </summary>
+        [Input("openAccess")]
+        public Input<bool>? OpenAccess { get; set; }
+
+        /// <summary>
         /// How many machines can be created at maximum in this organization out of the maximumConcurrency of the pool.
         /// </summary>
         [Input("parallelism")]

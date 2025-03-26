@@ -27,7 +27,10 @@ class GetDataManagerForAgricultureResourceResult:
     """
     Data Manager For Agriculture ARM Resource.
     """
-    def __init__(__self__, id=None, identity=None, instance_uri=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sensor_integration=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, instance_uri=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sensor_integration=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,6 +67,14 @@ class GetDataManagerForAgricultureResourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetDataManagerForAgricultureResourceResult(GetDataManagerForAgric
         if False:
             yield self
         return GetDataManagerForAgricultureResourceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             instance_uri=self.instance_uri,
@@ -201,6 +213,7 @@ def get_data_manager_for_agriculture_resource(data_manager_for_agriculture_resou
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform:getDataManagerForAgricultureResource', __args__, opts=opts, typ=GetDataManagerForAgricultureResourceResult).value
 
     return AwaitableGetDataManagerForAgricultureResourceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         instance_uri=pulumi.get(__ret__, 'instance_uri'),
@@ -231,6 +244,7 @@ def get_data_manager_for_agriculture_resource_output(data_manager_for_agricultur
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getDataManagerForAgricultureResource', __args__, opts=opts, typ=GetDataManagerForAgricultureResourceResult)
     return __ret__.apply(lambda __response__: GetDataManagerForAgricultureResourceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         instance_uri=pulumi.get(__response__, 'instance_uri'),

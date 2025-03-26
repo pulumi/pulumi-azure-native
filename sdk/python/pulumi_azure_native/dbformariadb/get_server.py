@@ -27,10 +27,13 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, earliest_restore_date=None, fully_qualified_domain_name=None, id=None, location=None, master_server_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
+    def __init__(__self__, administrator_login=None, azure_api_version=None, earliest_restore_date=None, fully_qualified_domain_name=None, id=None, location=None, master_server_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if earliest_restore_date and not isinstance(earliest_restore_date, str):
             raise TypeError("Expected argument 'earliest_restore_date' to be a str")
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
@@ -93,6 +96,14 @@ class GetServerResult:
         The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         """
         return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
@@ -246,6 +257,7 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
+            azure_api_version=self.azure_api_version,
             earliest_restore_date=self.earliest_restore_date,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
@@ -274,8 +286,6 @@ def get_server(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
@@ -288,6 +298,7 @@ def get_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         earliest_restore_date=pulumi.get(__ret__, 'earliest_restore_date'),
         fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -314,8 +325,6 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
@@ -327,6 +336,7 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbformariadb:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         earliest_restore_date=pulumi.get(__response__, 'earliest_restore_date'),
         fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
         id=pulumi.get(__response__, 'id'),

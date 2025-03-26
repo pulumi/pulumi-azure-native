@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-06-01-preview.
  *
- * Other available API versions: 2024-09-01-preview.
+ * Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSuppressionListAddress(args: GetSuppressionListAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionListAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +52,10 @@ export interface GetSuppressionListAddressArgs {
  * A object that represents a SuppressionList record.
  */
 export interface GetSuppressionListAddressResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The location where the SuppressionListAddress data is stored at rest. This value is inherited from the parent Domains resource.
      */
@@ -98,7 +102,7 @@ export interface GetSuppressionListAddressResult {
  *
  * Uses Azure REST API version 2023-06-01-preview.
  *
- * Other available API versions: 2024-09-01-preview.
+ * Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSuppressionListAddressOutput(args: GetSuppressionListAddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionListAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

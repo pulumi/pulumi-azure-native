@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["Map"], () => require("./map"));
 // Export enums:
 export * from "../types/enums/dependencymap";
 
-// Export sub-modules:
-import * as v20250131preview from "./v20250131preview";
-
-export {
-    v20250131preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

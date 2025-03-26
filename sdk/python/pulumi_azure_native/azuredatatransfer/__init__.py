@@ -22,26 +22,3 @@ from .list_list_schema import *
 from .pipeline import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azuredatatransfer.v20231011preview as __v20231011preview
-    v20231011preview = __v20231011preview
-    import pulumi_azure_native.azuredatatransfer.v20240125 as __v20240125
-    v20240125 = __v20240125
-    import pulumi_azure_native.azuredatatransfer.v20240507 as __v20240507
-    v20240507 = __v20240507
-    import pulumi_azure_native.azuredatatransfer.v20240911 as __v20240911
-    v20240911 = __v20240911
-    import pulumi_azure_native.azuredatatransfer.v20240927 as __v20240927
-    v20240927 = __v20240927
-    import pulumi_azure_native.azuredatatransfer.v20250301preview as __v20250301preview
-    v20250301preview = __v20250301preview
-else:
-    v20231011preview = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20231011preview')
-    v20240125 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240125')
-    v20240507 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240507')
-    v20240911 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240911')
-    v20240927 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240927')
-    v20250301preview = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20250301preview')
-

@@ -43,7 +43,7 @@ class QueueArgs:
         """
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: A value that indicates whether this queue has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_time_to_live: ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -115,7 +115,7 @@ class QueueArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -356,9 +356,9 @@ class Queue(pulumi.CustomResource):
         """
         Description of queue Resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,7 +379,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
         :param pulumi.Input[bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         """
         ...
@@ -391,9 +391,9 @@ class Queue(pulumi.CustomResource):
         """
         Description of queue Resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.
@@ -462,6 +462,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
             __props__.__dict__["accessed_at"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["count_details"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["location"] = None
@@ -497,6 +498,7 @@ class Queue(pulumi.CustomResource):
 
         __props__.__dict__["accessed_at"] = None
         __props__.__dict__["auto_delete_on_idle"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["count_details"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["dead_lettering_on_message_expiration"] = None
@@ -538,6 +540,14 @@ class Queue(pulumi.CustomResource):
         ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="countDetails")

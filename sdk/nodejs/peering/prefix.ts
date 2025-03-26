@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The peering service prefix class.
  *
- * Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  */
 export class Prefix extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Prefix extends pulumi.CustomResource {
         return obj['__pulumiType'] === Prefix.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The error message for validation state
      */
@@ -98,6 +102,7 @@ export class Prefix extends pulumi.CustomResource {
             resourceInputs["prefix"] = args ? args.prefix : undefined;
             resourceInputs["prefixName"] = args ? args.prefixName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["events"] = undefined /*out*/;
             resourceInputs["learnedType"] = undefined /*out*/;
@@ -106,6 +111,7 @@ export class Prefix extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["events"] = undefined /*out*/;
             resourceInputs["learnedType"] = undefined /*out*/;

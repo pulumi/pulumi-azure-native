@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Dto object representing compute resource
+    /// DTO object representing compute resource
     /// </summary>
     public sealed class MaterializationComputeResourceArgs : global::Pulumi.ResourceArgs
     {

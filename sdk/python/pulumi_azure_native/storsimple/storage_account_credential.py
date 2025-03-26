@@ -151,7 +151,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
-        Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+        Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +172,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
-        Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+        Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +220,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ssl_status'")
             __props__.__dict__["ssl_status"] = ssl_status
             __props__.__dict__["storage_account_credential_name"] = storage_account_credential_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volumes_count"] = None
@@ -248,6 +249,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
         __props__.__dict__["access_key"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["end_point"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
@@ -263,6 +265,14 @@ class StorageAccountCredential(pulumi.CustomResource):
         The details of the storage account password.
         """
         return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endPoint")

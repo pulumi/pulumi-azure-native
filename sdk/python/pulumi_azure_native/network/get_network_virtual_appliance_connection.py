@@ -27,55 +27,27 @@ class GetNetworkVirtualApplianceConnectionResult:
     """
     NetworkVirtualApplianceConnection resource.
     """
-    def __init__(__self__, asn=None, bgp_peer_address=None, enable_internet_security=None, id=None, name=None, provisioning_state=None, routing_configuration=None, tunnel_identifier=None):
-        if asn and not isinstance(asn, float):
-            raise TypeError("Expected argument 'asn' to be a float")
-        pulumi.set(__self__, "asn", asn)
-        if bgp_peer_address and not isinstance(bgp_peer_address, list):
-            raise TypeError("Expected argument 'bgp_peer_address' to be a list")
-        pulumi.set(__self__, "bgp_peer_address", bgp_peer_address)
-        if enable_internet_security and not isinstance(enable_internet_security, bool):
-            raise TypeError("Expected argument 'enable_internet_security' to be a bool")
-        pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if routing_configuration and not isinstance(routing_configuration, dict):
-            raise TypeError("Expected argument 'routing_configuration' to be a dict")
-        pulumi.set(__self__, "routing_configuration", routing_configuration)
-        if tunnel_identifier and not isinstance(tunnel_identifier, float):
-            raise TypeError("Expected argument 'tunnel_identifier' to be a float")
-        pulumi.set(__self__, "tunnel_identifier", tunnel_identifier)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
 
     @property
-    @pulumi.getter
-    def asn(self) -> Optional[float]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        Network Virtual Appliance ASN.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "asn")
-
-    @property
-    @pulumi.getter(name="bgpPeerAddress")
-    def bgp_peer_address(self) -> Optional[Sequence[str]]:
-        """
-        List of bgpPeerAddresses for the NVA instances
-        """
-        return pulumi.get(self, "bgp_peer_address")
-
-    @property
-    @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[bool]:
-        """
-        Enable internet security.
-        """
-        return pulumi.get(self, "enable_internet_security")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -94,28 +66,12 @@ class GetNetworkVirtualApplianceConnectionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.NetworkVirtualApplianceConnectionPropertiesResponse':
         """
-        The provisioning state of the NetworkVirtualApplianceConnection resource.
+        Properties of the express route connection.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
-        """
-        The Routing Configuration indicating the associated and propagated route tables on this connection.
-        """
-        return pulumi.get(self, "routing_configuration")
-
-    @property
-    @pulumi.getter(name="tunnelIdentifier")
-    def tunnel_identifier(self) -> Optional[float]:
-        """
-        Unique identifier for the connection.
-        """
-        return pulumi.get(self, "tunnel_identifier")
+        return pulumi.get(self, "properties")
 
 
 class AwaitableGetNetworkVirtualApplianceConnectionResult(GetNetworkVirtualApplianceConnectionResult):
@@ -124,14 +80,10 @@ class AwaitableGetNetworkVirtualApplianceConnectionResult(GetNetworkVirtualAppli
         if False:
             yield self
         return GetNetworkVirtualApplianceConnectionResult(
-            asn=self.asn,
-            bgp_peer_address=self.bgp_peer_address,
-            enable_internet_security=self.enable_internet_security,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            routing_configuration=self.routing_configuration,
-            tunnel_identifier=self.tunnel_identifier)
+            properties=self.properties)
 
 
 def get_network_virtual_appliance_connection(connection_name: Optional[str] = None,
@@ -141,9 +93,9 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
     """
     Retrieves the details of specified NVA connection.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the NVA connection.
@@ -158,14 +110,10 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkVirtualApplianceConnection', __args__, opts=opts, typ=GetNetworkVirtualApplianceConnectionResult).value
 
     return AwaitableGetNetworkVirtualApplianceConnectionResult(
-        asn=pulumi.get(__ret__, 'asn'),
-        bgp_peer_address=pulumi.get(__ret__, 'bgp_peer_address'),
-        enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
-        tunnel_identifier=pulumi.get(__ret__, 'tunnel_identifier'))
+        properties=pulumi.get(__ret__, 'properties'))
 def get_network_virtual_appliance_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                                     network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -173,9 +121,9 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
     """
     Retrieves the details of specified NVA connection.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the NVA connection.
@@ -189,11 +137,7 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkVirtualApplianceConnection', __args__, opts=opts, typ=GetNetworkVirtualApplianceConnectionResult)
     return __ret__.apply(lambda __response__: GetNetworkVirtualApplianceConnectionResult(
-        asn=pulumi.get(__response__, 'asn'),
-        bgp_peer_address=pulumi.get(__response__, 'bgp_peer_address'),
-        enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
-        tunnel_identifier=pulumi.get(__response__, 'tunnel_identifier')))
+        properties=pulumi.get(__response__, 'properties')))

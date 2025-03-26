@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a configuration of server.
         /// 
-        /// Uses Azure REST API version 2022-01-01.
+        /// Uses Azure REST API version 2023-12-30.
         /// 
-        /// Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a configuration of server.
         /// 
-        /// Uses Azure REST API version 2022-01-01.
+        /// Uses Azure REST API version 2023-12-30.
         /// 
-        /// Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a configuration of server.
         /// 
-        /// Uses Azure REST API version 2022-01-01.
+        /// Uses Azure REST API version 2023-12-30.
         /// 
-        /// Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string AllowedValues;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Current value of the configuration.
         /// </summary>
         public readonly string? CurrentValue;
@@ -124,7 +128,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string DocumentationLink;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -148,7 +152,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -163,6 +167,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         [OutputConstructor]
         private GetConfigurationResult(
             string allowedValues,
+
+            string azureApiVersion,
 
             string? currentValue,
 
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.DBforMySQL
             string? value)
         {
             AllowedValues = allowedValues;
+            AzureApiVersion = azureApiVersion;
             CurrentValue = currentValue;
             DataType = dataType;
             DefaultValue = defaultValue;

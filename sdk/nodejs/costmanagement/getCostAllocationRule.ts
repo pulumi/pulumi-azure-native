@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  *
- * Uses Azure REST API version 2020-03-01-preview.
+ * Uses Azure REST API version 2024-08-01.
  *
- * Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+ * Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCostAllocationRule(args: GetCostAllocationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCostAllocationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +38,10 @@ export interface GetCostAllocationRuleArgs {
  */
 export interface GetCostAllocationRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure Resource Manager Id for the rule. This is a read ony value.
      */
     readonly id: string;
@@ -57,9 +61,9 @@ export interface GetCostAllocationRuleResult {
 /**
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  *
- * Uses Azure REST API version 2020-03-01-preview.
+ * Uses Azure REST API version 2024-08-01.
  *
- * Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+ * Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostAllocationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

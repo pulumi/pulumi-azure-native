@@ -18,35 +18,3 @@ from .private_atlase import *
 from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.maps.v20180501 as __v20180501
-    v20180501 = __v20180501
-    import pulumi_azure_native.maps.v20200201preview as __v20200201preview
-    v20200201preview = __v20200201preview
-    import pulumi_azure_native.maps.v20210201 as __v20210201
-    v20210201 = __v20210201
-    import pulumi_azure_native.maps.v20211201preview as __v20211201preview
-    v20211201preview = __v20211201preview
-    import pulumi_azure_native.maps.v20230601 as __v20230601
-    v20230601 = __v20230601
-    import pulumi_azure_native.maps.v20230801preview as __v20230801preview
-    v20230801preview = __v20230801preview
-    import pulumi_azure_native.maps.v20231201preview as __v20231201preview
-    v20231201preview = __v20231201preview
-    import pulumi_azure_native.maps.v20240101preview as __v20240101preview
-    v20240101preview = __v20240101preview
-    import pulumi_azure_native.maps.v20240701preview as __v20240701preview
-    v20240701preview = __v20240701preview
-else:
-    v20180501 = _utilities.lazy_import('pulumi_azure_native.maps.v20180501')
-    v20200201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20200201preview')
-    v20210201 = _utilities.lazy_import('pulumi_azure_native.maps.v20210201')
-    v20211201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20211201preview')
-    v20230601 = _utilities.lazy_import('pulumi_azure_native.maps.v20230601')
-    v20230801preview = _utilities.lazy_import('pulumi_azure_native.maps.v20230801preview')
-    v20231201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20231201preview')
-    v20240101preview = _utilities.lazy_import('pulumi_azure_native.maps.v20240101preview')
-    v20240701preview = _utilities.lazy_import('pulumi_azure_native.maps.v20240701preview')
-

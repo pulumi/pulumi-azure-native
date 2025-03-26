@@ -53,7 +53,7 @@ class AppServicePlanArgs:
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input['KubeEnvironmentProfileArgs'] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -224,7 +224,7 @@ class AppServicePlanArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -422,9 +422,9 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,7 +435,7 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -462,9 +462,9 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanArgs args: The arguments to use to populate this resource's properties.
@@ -546,6 +546,7 @@ class AppServicePlan(pulumi.CustomResource):
             if zone_redundant is None:
                 zone_redundant = False
             __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["geo_region"] = None
             __props__.__dict__["maximum_number_of_workers"] = None
             __props__.__dict__["number_of_sites"] = None
@@ -579,6 +580,7 @@ class AppServicePlan(pulumi.CustomResource):
 
         __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["elastic_scale_enabled"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["free_offer_expiration_time"] = None
@@ -610,6 +612,14 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["worker_tier_name"] = None
         __props__.__dict__["zone_redundant"] = None
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="elasticScaleEnabled")
@@ -679,7 +689,7 @@ class AppServicePlan(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// Flag that describes if we want to remove the data after 30 days.
         /// </summary>
         public readonly bool? ImmediatePurgeDataOn30Days;
+        /// <summary>
+        /// An indication if the specify workspace is limited to sentinel's unified billing model only.
+        /// </summary>
+        public readonly bool UnifiedSentinelBillingOnly;
 
         [OutputConstructor]
         private WorkspaceFeaturesResponse(
@@ -47,13 +51,16 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
             bool? enableLogAccessUsingOnlyResourcePermissions,
 
-            bool? immediatePurgeDataOn30Days)
+            bool? immediatePurgeDataOn30Days,
+
+            bool unifiedSentinelBillingOnly)
         {
             ClusterResourceId = clusterResourceId;
             DisableLocalAuth = disableLocalAuth;
             EnableDataExport = enableDataExport;
             EnableLogAccessUsingOnlyResourcePermissions = enableLogAccessUsingOnlyResourcePermissions;
             ImmediatePurgeDataOn30Days = immediatePurgeDataOn30Days;
+            UnifiedSentinelBillingOnly = unifiedSentinelBillingOnly;
         }
     }
 }

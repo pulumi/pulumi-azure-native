@@ -40,6 +40,10 @@ export interface GetCloudConnectorResult {
      */
     readonly accountId?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The cloud connector type.
      */
     readonly cloudType?: string;

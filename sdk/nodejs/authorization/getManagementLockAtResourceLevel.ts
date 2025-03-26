@@ -61,6 +61,10 @@ export interface GetManagementLockAtResourceLevelArgs {
  */
 export interface GetManagementLockAtResourceLevelResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID of the lock.
      */
     readonly id: string;

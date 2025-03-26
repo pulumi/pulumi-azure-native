@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     /// <summary>
     /// The DatabaseWatcherProviderHub resource.
     /// 
-    /// Uses Azure REST API version 2023-09-01-preview.
+    /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    /// Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The data store for collected monitoring data.
         /// </summary>
         [Output("datastore")]
         public Output<Outputs.DatastoreResponse?> Datastore { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        /// </summary>
+        [Output("defaultAlertRuleIdentityResourceId")]
+        public Output<string?> DefaultAlertRuleIdentityResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.
@@ -130,6 +142,12 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         [Input("datastore")]
         public Input<Inputs.DatastoreArgs>? Datastore { get; set; }
+
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        /// </summary>
+        [Input("defaultAlertRuleIdentityResourceId")]
+        public Input<string>? DefaultAlertRuleIdentityResourceId { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

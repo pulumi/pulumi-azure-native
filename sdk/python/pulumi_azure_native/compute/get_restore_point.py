@@ -27,7 +27,10 @@ class GetRestorePointResult:
     """
     Restore Point details.
     """
-    def __init__(__self__, consistency_mode=None, exclude_disks=None, id=None, instance_view=None, name=None, provisioning_state=None, source_metadata=None, source_restore_point=None, time_created=None, type=None):
+    def __init__(__self__, azure_api_version=None, consistency_mode=None, exclude_disks=None, id=None, instance_view=None, name=None, provisioning_state=None, source_metadata=None, source_restore_point=None, time_created=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if consistency_mode and not isinstance(consistency_mode, str):
             raise TypeError("Expected argument 'consistency_mode' to be a str")
         pulumi.set(__self__, "consistency_mode", consistency_mode)
@@ -58,6 +61,14 @@ class GetRestorePointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consistencyMode")
@@ -146,6 +157,7 @@ class AwaitableGetRestorePointResult(GetRestorePointResult):
         if False:
             yield self
         return GetRestorePointResult(
+            azure_api_version=self.azure_api_version,
             consistency_mode=self.consistency_mode,
             exclude_disks=self.exclude_disks,
             id=self.id,
@@ -166,9 +178,9 @@ def get_restore_point(expand: Optional[str] = None,
     """
     The operation to get the restore point.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
@@ -185,6 +197,7 @@ def get_restore_point(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getRestorePoint', __args__, opts=opts, typ=GetRestorePointResult).value
 
     return AwaitableGetRestorePointResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         consistency_mode=pulumi.get(__ret__, 'consistency_mode'),
         exclude_disks=pulumi.get(__ret__, 'exclude_disks'),
         id=pulumi.get(__ret__, 'id'),
@@ -203,9 +216,9 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     """
     The operation to get the restore point.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
@@ -221,6 +234,7 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getRestorePoint', __args__, opts=opts, typ=GetRestorePointResult)
     return __ret__.apply(lambda __response__: GetRestorePointResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         consistency_mode=pulumi.get(__response__, 'consistency_mode'),
         exclude_disks=pulumi.get(__response__, 'exclude_disks'),
         id=pulumi.get(__response__, 'id'),

@@ -41,6 +41,10 @@ export interface GetBandwidthSettingArgs {
  */
 export interface GetBandwidthSettingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;

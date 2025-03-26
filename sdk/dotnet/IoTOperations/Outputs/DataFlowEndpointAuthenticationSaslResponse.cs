@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication Sasl properties
+    /// DataflowEndpoint Authentication Sasl properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointAuthenticationSaslResponse
+    public sealed class DataflowEndpointAuthenticationSaslResponse
     {
         /// <summary>
         /// Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
@@ -23,16 +23,16 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Token secret name.
         /// </summary>
-        public readonly string TokenSecretRef;
+        public readonly string SecretRef;
 
         [OutputConstructor]
-        private DataFlowEndpointAuthenticationSaslResponse(
+        private DataflowEndpointAuthenticationSaslResponse(
             string saslType,
 
-            string tokenSecretRef)
+            string secretRef)
         {
             SaslType = saslType;
-            TokenSecretRef = tokenSecretRef;
+            SecretRef = secretRef;
         }
     }
 }

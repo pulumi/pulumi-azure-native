@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Security.Inputs
             set => _regions = value;
         }
 
+        /// <summary>
+        /// Scan interval in hours (value should be between 1-hour to 24-hours)
+        /// </summary>
+        [Input("scanInterval")]
+        public Input<double>? ScanInterval { get; set; }
+
         public AwsEnvironmentDataArgs()
         {
         }

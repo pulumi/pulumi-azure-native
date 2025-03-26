@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.AVS
     /// <summary>
     /// A private cloud resource
     /// 
-    /// Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-03-20.
+    /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PrivateCloud")]
     public partial class PrivateCloud : global::Pulumi.CustomResource
@@ -26,10 +26,22 @@ namespace Pulumi.AzureNative.AVS
         public Output<Outputs.AvailabilityPropertiesResponse?> Availability { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// An ExpressRoute Circuit
         /// </summary>
         [Output("circuit")]
         public Output<Outputs.CircuitResponse?> Circuit { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of DNS zone to use.
+        /// </summary>
+        [Output("dnsZoneType")]
+        public Output<string?> DnsZoneType { get; private set; } = null!;
 
         /// <summary>
         /// Customer managed key encryption, can be enabled or disabled
@@ -44,16 +56,25 @@ namespace Pulumi.AzureNative.AVS
         public Output<Outputs.EndpointsResponse> Endpoints { get; private set; } = null!;
 
         /// <summary>
+        /// Array of additional networks noncontiguous with networkBlock. Networks must be
+        /// unique and non-overlapping across VNet in your subscription, on-premise, and
+        /// this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+        /// (A.B.C.D/X).
+        /// </summary>
+        [Output("extendedNetworkBlocks")]
+        public Output<ImmutableArray<string>> ExtendedNetworkBlocks { get; private set; } = null!;
+
+        /// <summary>
         /// Array of cloud link IDs from other clouds that connect to this one
         /// </summary>
         [Output("externalCloudLinks")]
         public Output<ImmutableArray<string>> ExternalCloudLinks { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the private cloud, if configured.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.PrivateCloudIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// vCenter Single Sign On Identity Sources
@@ -68,7 +89,7 @@ namespace Pulumi.AzureNative.AVS
         public Output<string?> Internet { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -86,19 +107,22 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> ManagementNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        /// The block of addresses should be unique across VNet in your subscription as
+        /// well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+        /// A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
         [Output("networkBlock")]
         public Output<string> NetworkBlock { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        /// Flag to indicate whether the private cloud has the quota for provisioned NSX
+        /// Public IP count raised from 64 to 1024
         /// </summary>
         [Output("nsxPublicIpQuotaRaised")]
         public Output<string> NsxPublicIpQuotaRaised { get; private set; } = null!;
@@ -128,25 +152,32 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        /// A secondary expressRoute circuit from a separate AZ. Only present in a
+        /// stretched private cloud
         /// </summary>
         [Output("secondaryCircuit")]
         public Output<Outputs.CircuitResponse?> SecondaryCircuit { get; private set; } = null!;
 
         /// <summary>
-        /// The private cloud SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,6 +193,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("vcenterPassword")]
         public Output<string?> VcenterPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure resource ID of the virtual network
+        /// </summary>
+        [Output("virtualNetworkId")]
+        public Output<string?> VirtualNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// Used for live migration of virtual machines
@@ -232,16 +269,37 @@ namespace Pulumi.AzureNative.AVS
         public Input<Inputs.AvailabilityPropertiesArgs>? Availability { get; set; }
 
         /// <summary>
+        /// The type of DNS zone to use.
+        /// </summary>
+        [Input("dnsZoneType")]
+        public InputUnion<string, Pulumi.AzureNative.AVS.DnsZoneType>? DnsZoneType { get; set; }
+
+        /// <summary>
         /// Customer managed key encryption, can be enabled or disabled
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
+        [Input("extendedNetworkBlocks")]
+        private InputList<string>? _extendedNetworkBlocks;
+
         /// <summary>
-        /// The identity of the private cloud, if configured.
+        /// Array of additional networks noncontiguous with networkBlock. Networks must be
+        /// unique and non-overlapping across VNet in your subscription, on-premise, and
+        /// this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+        /// (A.B.C.D/X).
+        /// </summary>
+        public InputList<string> ExtendedNetworkBlocks
+        {
+            get => _extendedNetworkBlocks ?? (_extendedNetworkBlocks = new InputList<string>());
+            set => _extendedNetworkBlocks = value;
+        }
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.PrivateCloudIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         [Input("identitySources")]
         private InputList<Inputs.IdentitySourceArgs>? _identitySources;
@@ -262,7 +320,7 @@ namespace Pulumi.AzureNative.AVS
         public InputUnion<string, Pulumi.AzureNative.AVS.InternetEnum>? Internet { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -274,7 +332,9 @@ namespace Pulumi.AzureNative.AVS
         public Input<Inputs.ManagementClusterArgs> ManagementCluster { get; set; } = null!;
 
         /// <summary>
-        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        /// The block of addresses should be unique across VNet in your subscription as
+        /// well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+        /// A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
         [Input("networkBlock", required: true)]
         public Input<string> NetworkBlock { get; set; } = null!;
@@ -298,7 +358,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The private cloud SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
@@ -307,7 +367,7 @@ namespace Pulumi.AzureNative.AVS
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -320,6 +380,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Input("vcenterPassword")]
         public Input<string>? VcenterPassword { get; set; }
+
+        /// <summary>
+        /// Azure resource ID of the virtual network
+        /// </summary>
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public PrivateCloudArgs()
         {

@@ -26,7 +26,10 @@ class GetAccessControlRecordResult:
     """
     The access control record.
     """
-    def __init__(__self__, id=None, initiator_name=None, kind=None, name=None, type=None, volume_count=None):
+    def __init__(__self__, azure_api_version=None, id=None, initiator_name=None, kind=None, name=None, type=None, volume_count=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +48,14 @@ class GetAccessControlRecordResult:
         if volume_count and not isinstance(volume_count, int):
             raise TypeError("Expected argument 'volume_count' to be a int")
         pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
         if False:
             yield self
         return GetAccessControlRecordResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             initiator_name=self.initiator_name,
             kind=self.kind,
@@ -131,6 +143,7 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult).value
 
     return AwaitableGetAccessControlRecordResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         initiator_name=pulumi.get(__ret__, 'initiator_name'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -158,6 +171,7 @@ def get_access_control_record_output(access_control_record_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult)
     return __ret__.apply(lambda __response__: GetAccessControlRecordResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         initiator_name=pulumi.get(__response__, 'initiator_name'),
         kind=pulumi.get(__response__, 'kind'),

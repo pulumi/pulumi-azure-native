@@ -12,7 +12,9 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// Role definition.
     /// 
-    /// Uses Azure REST API version 2022-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+    /// Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+    /// 
+    /// Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleDefinition")]
     public partial class RoleDefinition : global::Pulumi.CustomResource
@@ -22,6 +24,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("assignableScopes")]
         public Output<ImmutableArray<string>> AssignableScopes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Id of the user who created the assignment

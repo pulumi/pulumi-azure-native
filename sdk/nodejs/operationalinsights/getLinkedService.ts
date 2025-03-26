@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a linked service instance.
  *
- * Uses Azure REST API version 2020-08-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
+ * Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetLinkedServiceArgs {
  * The top level Linked service resource container.
  */
 export interface GetLinkedServiceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -71,9 +75,9 @@ export interface GetLinkedServiceResult {
 /**
  * Gets a linked service instance.
  *
- * Uses Azure REST API version 2020-08-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
+ * Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

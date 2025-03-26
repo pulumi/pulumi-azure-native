@@ -29,7 +29,10 @@ class GetCloudEdgeManagementRoleResult:
     For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
     """
-    def __init__(__self__, edge_profile=None, id=None, kind=None, local_management_status=None, name=None, role_status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, edge_profile=None, id=None, kind=None, local_management_status=None, name=None, role_status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if edge_profile and not isinstance(edge_profile, dict):
             raise TypeError("Expected argument 'edge_profile' to be a dict")
         pulumi.set(__self__, "edge_profile", edge_profile)
@@ -54,6 +57,14 @@ class GetCloudEdgeManagementRoleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="edgeProfile")
@@ -127,6 +138,7 @@ class AwaitableGetCloudEdgeManagementRoleResult(GetCloudEdgeManagementRoleResult
         if False:
             yield self
         return GetCloudEdgeManagementRoleResult(
+            azure_api_version=self.azure_api_version,
             edge_profile=self.edge_profile,
             id=self.id,
             kind=self.kind,
@@ -144,7 +156,7 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
     """
     Gets a specific role by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -159,6 +171,7 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getCloudEdgeManagementRole', __args__, opts=opts, typ=GetCloudEdgeManagementRoleResult).value
 
     return AwaitableGetCloudEdgeManagementRoleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         edge_profile=pulumi.get(__ret__, 'edge_profile'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -174,7 +187,7 @@ def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str
     """
     Gets a specific role by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -188,6 +201,7 @@ def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getCloudEdgeManagementRole', __args__, opts=opts, typ=GetCloudEdgeManagementRoleResult)
     return __ret__.apply(lambda __response__: GetCloudEdgeManagementRoleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         edge_profile=pulumi.get(__response__, 'edge_profile'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

@@ -27,7 +27,10 @@ class GetMaintenanceConfigurationResult:
     """
     Information about the Maintenance Configuration resource.
     """
-    def __init__(__self__, id=None, name=None, scheduled_entries=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, scheduled_entries=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetMaintenanceConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
         if False:
             yield self
         return GetMaintenanceConfigurationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             scheduled_entries=self.scheduled_entries,
@@ -120,6 +132,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult).value
 
     return AwaitableGetMaintenanceConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         scheduled_entries=pulumi.get(__ret__, 'scheduled_entries'),
@@ -146,6 +159,7 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
     return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         scheduled_entries=pulumi.get(__response__, 'scheduled_entries'),

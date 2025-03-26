@@ -300,6 +300,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
             __props__.__dict__["target_role_eligibility_schedule_instance_id"] = target_role_eligibility_schedule_instance_id
             __props__.__dict__["ticket_info"] = ticket_info
             __props__.__dict__["approval_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["expanded_properties"] = None
             __props__.__dict__["name"] = None
@@ -333,6 +334,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         __props__ = PimRoleEligibilityScheduleArgs.__new__(PimRoleEligibilityScheduleArgs)
 
         __props__.__dict__["approval_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["condition"] = None
         __props__.__dict__["condition_version"] = None
         __props__.__dict__["created_on"] = None
@@ -360,6 +362,14 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         The approvalId of the role eligibility schedule request.
         """
         return pulumi.get(self, "approval_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

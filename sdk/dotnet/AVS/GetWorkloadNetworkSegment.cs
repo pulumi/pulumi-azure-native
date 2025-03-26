@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetWorkloadNetworkSegment
     {
         /// <summary>
-        /// NSX Segment
+        /// Get a WorkloadNetworkSegment
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX Segment
+        /// Get a WorkloadNetworkSegment
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkloadNetworkSegmentResult> Invoke(GetWorkloadNetworkSegmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkSegmentResult>("azure-native:avs:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX Segment
+        /// Get a WorkloadNetworkSegment
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkloadNetworkSegmentResult> Invoke(GetWorkloadNetworkSegmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkSegmentResult>("azure-native:avs:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// NSX Segment identifier. Generally the same as the Segment's display name
+        /// The ID of the NSX Segment
         /// </summary>
         [Input("segmentId", required: true)]
         public string SegmentId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// NSX Segment identifier. Generally the same as the Segment's display name
+        /// The ID of the NSX Segment
         /// </summary>
         [Input("segmentId", required: true)]
         public Input<string> SegmentId { get; set; } = null!;
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkSegmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gateway which to connect segment to.
         /// </summary>
         public readonly string? ConnectedGateway;
@@ -108,11 +112,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -136,12 +140,18 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly Outputs.WorkloadNetworkSegmentSubnetResponse? Subnet;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWorkloadNetworkSegmentResult(
+            string azureApiVersion,
+
             string? connectedGateway,
 
             string? displayName,
@@ -160,8 +170,11 @@ namespace Pulumi.AzureNative.AVS
 
             Outputs.WorkloadNetworkSegmentSubnetResponse? subnet,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectedGateway = connectedGateway;
             DisplayName = displayName;
             Id = id;
@@ -171,6 +184,7 @@ namespace Pulumi.AzureNative.AVS
             Revision = revision;
             Status = status;
             Subnet = subnet;
+            SystemData = systemData;
             Type = type;
         }
     }

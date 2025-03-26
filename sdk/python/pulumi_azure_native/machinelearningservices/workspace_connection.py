@@ -22,7 +22,7 @@ __all__ = ['WorkspaceConnectionArgs', 'WorkspaceConnection']
 @pulumi.input_type
 class WorkspaceConnectionArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']],
+                 properties: pulumi.Input[Union['AADAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'OAuth2AuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None):
@@ -40,11 +40,11 @@ class WorkspaceConnectionArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Union['AADAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'OAuth2AuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Union['AADAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'OAuth2AuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -90,14 +90,14 @@ class WorkspaceConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['PATAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['SASAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AADAuthTypeWorkspaceConnectionPropertiesArgs', 'AADAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccountKeyAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgsDict'], Union['CustomKeysWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgsDict'], Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['OAuth2AuthTypeWorkspaceConnectionPropertiesArgs', 'OAuth2AuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['PATAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['SASAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,9 +112,9 @@ class WorkspaceConnection(pulumi.CustomResource):
                  args: WorkspaceConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -132,7 +132,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['PATAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['SASAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AADAuthTypeWorkspaceConnectionPropertiesArgs', 'AADAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccountKeyAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgsDict'], Union['CustomKeysWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgsDict'], Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['OAuth2AuthTypeWorkspaceConnectionPropertiesArgs', 'OAuth2AuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['PATAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['SASAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -154,6 +154,7 @@ class WorkspaceConnection(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -181,11 +182,20 @@ class WorkspaceConnection(pulumi.CustomResource):
 
         __props__ = WorkspaceConnectionArgs.__new__(WorkspaceConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WorkspaceConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

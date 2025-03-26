@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Single item in a List or Get IpFilterRules operation
  *
- * Uses Azure REST API version 2018-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+ * Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
  */
 export class NamespaceIpFilterRule extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
      * The IP Filter Action
      */
     public readonly action!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * IP Filter name
      */
@@ -83,10 +87,12 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
             resourceInputs["ipMask"] = args ? args.ipMask : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;
             resourceInputs["ipMask"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

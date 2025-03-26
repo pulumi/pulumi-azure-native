@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// The VM Config Agent running on the virtual machine.
         /// </summary>
-        public readonly Outputs.VirtualMachineVMConfigAgentInstanceViewResponse? VmAgent;
+        public readonly Outputs.VirtualMachineConfigAgentInstanceViewResponse? VmAgent;
 
         [OutputConstructor]
-        private VirtualMachineInstanceViewResponse(Outputs.VirtualMachineVMConfigAgentInstanceViewResponse? vmAgent)
+        private VirtualMachineInstanceViewResponse(Outputs.VirtualMachineConfigAgentInstanceViewResponse? vmAgent)
         {
             VmAgent = vmAgent;
         }

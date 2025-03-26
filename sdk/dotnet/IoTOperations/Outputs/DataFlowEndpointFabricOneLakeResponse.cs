@@ -14,8 +14,12 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Microsoft Fabric endpoint properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointFabricOneLakeResponse
+    public sealed class DataflowEndpointFabricOneLakeResponse
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only one authentication property is allowed per entry.
+        /// </summary>
+        public readonly Outputs.DataflowEndpointFabricOneLakeAuthenticationResponse Authentication;
         /// <summary>
         /// Batching configuration.
         /// </summary>
@@ -27,22 +31,25 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Names of the workspace and lakehouse.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointFabricOneLakeNamesResponse Names;
+        public readonly Outputs.DataflowEndpointFabricOneLakeNamesResponse Names;
         /// <summary>
         /// Type of location of the data in the workspace. Can be either tables or files.
         /// </summary>
         public readonly string OneLakePathType;
 
         [OutputConstructor]
-        private DataFlowEndpointFabricOneLakeResponse(
+        private DataflowEndpointFabricOneLakeResponse(
+            Outputs.DataflowEndpointFabricOneLakeAuthenticationResponse authentication,
+
             Outputs.BatchingConfigurationResponse? batching,
 
             string host,
 
-            Outputs.DataFlowEndpointFabricOneLakeNamesResponse names,
+            Outputs.DataflowEndpointFabricOneLakeNamesResponse names,
 
             string oneLakePathType)
         {
+            Authentication = authentication;
             Batching = batching;
             Host = host;
             Names = names;

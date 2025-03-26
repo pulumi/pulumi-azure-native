@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * FirewallPolicy Resource.
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The parent firewall policy from which rules are inherited.
      */
@@ -93,6 +97,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * List of references to FirewallPolicyRuleCollectionGroups.
      */
     public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
+     * A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)
+     */
+    public /*out*/ readonly size!: pulumi.Output<string>;
     /**
      * The Firewall Policy SKU.
      */
@@ -157,14 +165,17 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
             resourceInputs["transportSecurity"] = args ? args.transportSecurity : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["childPolicies"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["firewalls"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["ruleCollectionGroups"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["basePolicy"] = undefined /*out*/;
             resourceInputs["childPolicies"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
@@ -178,6 +189,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["ruleCollectionGroups"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["snat"] = undefined /*out*/;
             resourceInputs["sql"] = undefined /*out*/;

@@ -27,7 +27,10 @@ class GetReportResult:
     """
     A report resource.
     """
-    def __init__(__self__, definition=None, delivery_info=None, format=None, id=None, name=None, schedule=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, definition=None, delivery_info=None, format=None, id=None, name=None, schedule=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
@@ -52,6 +55,14 @@ class GetReportResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetReportResult(GetReportResult):
         if False:
             yield self
         return GetReportResult(
+            azure_api_version=self.azure_api_version,
             definition=self.definition,
             delivery_info=self.delivery_info,
             format=self.format,
@@ -150,6 +162,7 @@ def get_report(report_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getReport', __args__, opts=opts, typ=GetReportResult).value
 
     return AwaitableGetReportResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         definition=pulumi.get(__ret__, 'definition'),
         delivery_info=pulumi.get(__ret__, 'delivery_info'),
         format=pulumi.get(__ret__, 'format'),
@@ -173,6 +186,7 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getReport', __args__, opts=opts, typ=GetReportResult)
     return __ret__.apply(lambda __response__: GetReportResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         definition=pulumi.get(__response__, 'definition'),
         delivery_info=pulumi.get(__response__, 'delivery_info'),
         format=pulumi.get(__response__, 'format'),

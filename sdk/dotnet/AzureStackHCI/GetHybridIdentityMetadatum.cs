@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetHybridIdentityMetadatumResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetHybridIdentityMetadatumResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse identity,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Name = name;

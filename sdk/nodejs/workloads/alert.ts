@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A alert associated with SAP monitor.
  *
- * Uses Azure REST API version 2024-02-01-preview.
+ * Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
  */
 export class Alert extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class Alert extends pulumi.CustomResource {
      * ID of the alert rule resource created.
      */
     public /*out*/ readonly alertRuleResourceId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Defines the alert instance errors.
      */
@@ -105,6 +109,7 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["alertRuleResourceId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -113,6 +118,7 @@ export class Alert extends pulumi.CustomResource {
         } else {
             resourceInputs["alertRuleProperties"] = undefined /*out*/;
             resourceInputs["alertRuleResourceId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["providerNames"] = undefined /*out*/;

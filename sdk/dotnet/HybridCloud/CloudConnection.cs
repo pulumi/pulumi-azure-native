@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.HybridCloud
     /// <summary>
     /// Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
     /// 
-    /// Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-01-01-preview.
+    /// Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcloud:CloudConnection")]
     public partial class CloudConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The cloud connector which discovered the remote resource.
         /// </summary>

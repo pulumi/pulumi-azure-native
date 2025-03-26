@@ -27,7 +27,10 @@ class GetArcAddonResult:
     """
     Arc Addon.
     """
-    def __init__(__self__, host_platform=None, host_platform_type=None, id=None, kind=None, name=None, provisioning_state=None, resource_group_name=None, resource_location=None, resource_name=None, subscription_id=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, host_platform=None, host_platform_type=None, id=None, kind=None, name=None, provisioning_state=None, resource_group_name=None, resource_location=None, resource_name=None, subscription_id=None, system_data=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if host_platform and not isinstance(host_platform, str):
             raise TypeError("Expected argument 'host_platform' to be a str")
         pulumi.set(__self__, "host_platform", host_platform)
@@ -67,6 +70,14 @@ class GetArcAddonResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hostPlatform")
@@ -180,6 +191,7 @@ class AwaitableGetArcAddonResult(GetArcAddonResult):
         if False:
             yield self
         return GetArcAddonResult(
+            azure_api_version=self.azure_api_version,
             host_platform=self.host_platform,
             host_platform_type=self.host_platform_type,
             id=self.id,
@@ -203,7 +215,7 @@ def get_arc_addon(addon_name: Optional[str] = None,
     """
     Gets a specific addon by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str addon_name: The addon name.
@@ -220,6 +232,7 @@ def get_arc_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getArcAddon', __args__, opts=opts, typ=GetArcAddonResult).value
 
     return AwaitableGetArcAddonResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         host_platform=pulumi.get(__ret__, 'host_platform'),
         host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -241,7 +254,7 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a specific addon by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str addon_name: The addon name.
@@ -257,6 +270,7 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getArcAddon', __args__, opts=opts, typ=GetArcAddonResult)
     return __ret__.apply(lambda __response__: GetArcAddonResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         host_platform=pulumi.get(__response__, 'host_platform'),
         host_platform_type=pulumi.get(__response__, 'host_platform_type'),
         id=pulumi.get(__response__, 'id'),

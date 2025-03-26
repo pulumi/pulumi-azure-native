@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Gets the Hybrid AKS provisioned cluster
  *
  * Uses Azure REST API version 2022-09-01-preview.
- *
- * Other available API versions: 2022-05-01-preview.
  */
 export function getProvisionedCluster(args: GetProvisionedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetProvisionedClusterArgs {
  * The provisionedClusters resource definition.
  */
 export interface GetProvisionedClusterResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly extendedLocation?: outputs.hybridcontainerservice.ProvisionedClustersResponseResponseExtendedLocation;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -72,8 +74,6 @@ export interface GetProvisionedClusterResult {
  * Gets the Hybrid AKS provisioned cluster
  *
  * Uses Azure REST API version 2022-09-01-preview.
- *
- * Other available API versions: 2022-05-01-preview.
  */
 export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProvisionedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

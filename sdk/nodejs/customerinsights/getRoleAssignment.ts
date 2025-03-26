@@ -45,6 +45,10 @@ export interface GetRoleAssignmentResult {
      */
     readonly assignmentName: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Widget types set for the assignment.
      */
     readonly conflationPolicies?: outputs.customerinsights.ResourceSetDescriptionResponse;

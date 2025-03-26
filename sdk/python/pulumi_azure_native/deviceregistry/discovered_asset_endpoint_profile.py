@@ -217,7 +217,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
         """
         Discovered Asset Endpoint Profile definition.
 
-        Uses Azure REST API version 2024-09-01-preview.
+        Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,7 +242,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
         """
         Discovered Asset Endpoint Profile definition.
 
-        Uses Azure REST API version 2024-09-01-preview.
+        Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.
@@ -302,6 +302,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -331,6 +332,7 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
         __props__ = DiscoveredAssetEndpointProfileArgs.__new__(DiscoveredAssetEndpointProfileArgs)
 
         __props__.__dict__["additional_configuration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["discovery_id"] = None
         __props__.__dict__["endpoint_profile_type"] = None
         __props__.__dict__["extended_location"] = None
@@ -352,6 +354,14 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
         Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoveryId")

@@ -49,15 +49,6 @@ utilities.lazyLoad(exports, ["TimeSeriesDatabaseConnection"], () => require("./t
 // Export enums:
 export * from "../types/enums/digitaltwins";
 
-// Export sub-modules:
-import * as v20201201 from "./v20201201";
-import * as v20230131 from "./v20230131";
-
-export {
-    v20201201,
-    v20230131,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

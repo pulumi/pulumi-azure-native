@@ -214,21 +214,6 @@ utilities.lazyLoad(exports, ["TableServiceProperties"], () => require("./tableSe
 // Export enums:
 export * from "../types/enums/storage";
 
-// Export sub-modules:
-import * as v20220901 from "./v20220901";
-import * as v20230101 from "./v20230101";
-import * as v20230401 from "./v20230401";
-import * as v20230501 from "./v20230501";
-import * as v20240101 from "./v20240101";
-
-export {
-    v20220901,
-    v20230101,
-    v20230401,
-    v20230501,
-    v20240101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

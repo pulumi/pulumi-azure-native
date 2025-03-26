@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication X509 properties
+    /// DataflowEndpoint Authentication X509 properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointAuthenticationX509Response
+    public sealed class DataflowEndpointAuthenticationX509Response
     {
         /// <summary>
         /// Secret reference of the X.509 certificate.
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string SecretRef;
 
         [OutputConstructor]
-        private DataFlowEndpointAuthenticationX509Response(string secretRef)
+        private DataflowEndpointAuthenticationX509Response(string secretRef)
         {
             SecretRef = secretRef;
         }

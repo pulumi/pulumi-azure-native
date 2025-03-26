@@ -27,7 +27,10 @@ class GetPrefixResult:
     """
     The peering service prefix class.
     """
-    def __init__(__self__, error_message=None, events=None, id=None, learned_type=None, name=None, peering_service_prefix_key=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, error_message=None, events=None, id=None, learned_type=None, name=None, peering_service_prefix_key=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if error_message and not isinstance(error_message, str):
             raise TypeError("Expected argument 'error_message' to be a str")
         pulumi.set(__self__, "error_message", error_message)
@@ -58,6 +61,14 @@ class GetPrefixResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -146,6 +157,7 @@ class AwaitableGetPrefixResult(GetPrefixResult):
         if False:
             yield self
         return GetPrefixResult(
+            azure_api_version=self.azure_api_version,
             error_message=self.error_message,
             events=self.events,
             id=self.id,
@@ -183,6 +195,7 @@ def get_prefix(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getPrefix', __args__, opts=opts, typ=GetPrefixResult).value
 
     return AwaitableGetPrefixResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         error_message=pulumi.get(__ret__, 'error_message'),
         events=pulumi.get(__ret__, 'events'),
         id=pulumi.get(__ret__, 'id'),
@@ -217,6 +230,7 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getPrefix', __args__, opts=opts, typ=GetPrefixResult)
     return __ret__.apply(lambda __response__: GetPrefixResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         error_message=pulumi.get(__response__, 'error_message'),
         events=pulumi.get(__response__, 'events'),
         id=pulumi.get(__response__, 'id'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the certificate specified by its identifier.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceCertificate(args: GetWorkspaceCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +48,10 @@ export interface GetWorkspaceCertificateArgs {
  */
 export interface GetWorkspaceCertificateResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
     readonly expirationDate: string;
@@ -79,9 +83,9 @@ export interface GetWorkspaceCertificateResult {
 /**
  * Gets the details of the certificate specified by its identifier.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

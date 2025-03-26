@@ -26,7 +26,10 @@ class GetWorkspaceApiVersionSetResult:
     """
     API Version Set Contract details.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -51,6 +54,14 @@ class GetWorkspaceApiVersionSetResult:
         if versioning_scheme and not isinstance(versioning_scheme, str):
             raise TypeError("Expected argument 'versioning_scheme' to be a str")
         pulumi.set(__self__, "versioning_scheme", versioning_scheme)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -123,6 +134,7 @@ class AwaitableGetWorkspaceApiVersionSetResult(GetWorkspaceApiVersionSetResult):
         if False:
             yield self
         return GetWorkspaceApiVersionSetResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -143,7 +155,7 @@ def get_workspace_api_version_set(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -160,6 +172,7 @@ def get_workspace_api_version_set(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceApiVersionSet', __args__, opts=opts, typ=GetWorkspaceApiVersionSetResult).value
 
     return AwaitableGetWorkspaceApiVersionSetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -178,7 +191,7 @@ def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.In
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -194,6 +207,7 @@ def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceApiVersionSet', __args__, opts=opts, typ=GetWorkspaceApiVersionSetResult)
     return __ret__.apply(lambda __response__: GetWorkspaceApiVersionSetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

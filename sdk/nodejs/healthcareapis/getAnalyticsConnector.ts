@@ -41,6 +41,10 @@ export interface GetAnalyticsConnectorArgs {
  */
 export interface GetAnalyticsConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Data destination configuration for Analytics Connector.
      */
     readonly dataDestinationConfiguration: outputs.healthcareapis.AnalyticsConnectorDataLakeDataDestinationResponse;

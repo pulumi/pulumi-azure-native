@@ -649,7 +649,11 @@ func handleResourceNameSpecialCases(resourceName, operationID, path string, majo
 
 		// Microsoft.NetApp
 		if strings.Contains(lowerPath, "/providers/microsoft.netapp/netappaccounts/") && strings.Contains(lowerPath, "/capacitypools/") {
-			resourceName, nameDisambiguation = newName("CapacityPool", resourceName)
+			if resourceName == "Pool" {
+				resourceName, nameDisambiguation = newName("", "CapacityPool")
+			} else {
+				resourceName, nameDisambiguation = newName("CapacityPool", resourceName)
+			}
 		}
 	}
 

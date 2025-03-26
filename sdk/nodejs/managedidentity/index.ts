@@ -20,31 +20,11 @@ export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity")
 export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
 utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
 
-export { ListUserAssignedIdentityAssociatedResourcesArgs, ListUserAssignedIdentityAssociatedResourcesResult, ListUserAssignedIdentityAssociatedResourcesOutputArgs } from "./listUserAssignedIdentityAssociatedResources";
-export const listUserAssignedIdentityAssociatedResources: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResources = null as any;
-export const listUserAssignedIdentityAssociatedResourcesOutput: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResourcesOutput = null as any;
-utilities.lazyLoad(exports, ["listUserAssignedIdentityAssociatedResources","listUserAssignedIdentityAssociatedResourcesOutput"], () => require("./listUserAssignedIdentityAssociatedResources"));
-
 export { UserAssignedIdentityArgs } from "./userAssignedIdentity";
 export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
 export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
 utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
 
-
-// Export sub-modules:
-import * as v20220131preview from "./v20220131preview";
-import * as v20230131 from "./v20230131";
-import * as v20230731preview from "./v20230731preview";
-import * as v20241130 from "./v20241130";
-import * as v20250131preview from "./v20250131preview";
-
-export {
-    v20220131preview,
-    v20230131,
-    v20230731preview,
-    v20241130,
-    v20250131preview,
-};
 
 const _module = {
     version: utilities.getVersion(),

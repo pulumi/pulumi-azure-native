@@ -39,6 +39,18 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.Inputs
             set => _fqdnAndIpAddressList = value;
         }
 
+        [Input("labels")]
+        private InputMap<string>? _labels;
+
+        /// <summary>
+        /// Resource labels
+        /// </summary>
+        public InputMap<string> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<string>());
+            set => _labels = value;
+        }
+
         /// <summary>
         /// The machine Id from ARM
         /// </summary>

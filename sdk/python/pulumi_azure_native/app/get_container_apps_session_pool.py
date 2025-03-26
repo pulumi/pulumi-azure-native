@@ -27,7 +27,10 @@ class GetContainerAppsSessionPoolResult:
     """
     Container App session pool.
     """
-    def __init__(__self__, container_type=None, custom_container_template=None, dynamic_pool_configuration=None, environment_id=None, id=None, location=None, name=None, node_count=None, pool_management_endpoint=None, pool_management_type=None, provisioning_state=None, scale_configuration=None, secrets=None, session_network_configuration=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, container_type=None, custom_container_template=None, dynamic_pool_configuration=None, environment_id=None, id=None, identity=None, location=None, managed_identity_settings=None, name=None, node_count=None, pool_management_endpoint=None, pool_management_type=None, provisioning_state=None, scale_configuration=None, secrets=None, session_network_configuration=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container_type and not isinstance(container_type, str):
             raise TypeError("Expected argument 'container_type' to be a str")
         pulumi.set(__self__, "container_type", container_type)
@@ -43,9 +46,15 @@ class GetContainerAppsSessionPoolResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_identity_settings and not isinstance(managed_identity_settings, list):
+            raise TypeError("Expected argument 'managed_identity_settings' to be a list")
+        pulumi.set(__self__, "managed_identity_settings", managed_identity_settings)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -79,6 +88,14 @@ class GetContainerAppsSessionPoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="containerType")
@@ -122,11 +139,27 @@ class GetContainerAppsSessionPoolResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedIdentitySettings")
+    def managed_identity_settings(self) -> Optional[Sequence['outputs.ManagedIdentitySettingResponse']]:
+        """
+        Optional settings for a Managed Identity that is assigned to the Session pool.
+        """
+        return pulumi.get(self, "managed_identity_settings")
 
     @property
     @pulumi.getter
@@ -223,12 +256,15 @@ class AwaitableGetContainerAppsSessionPoolResult(GetContainerAppsSessionPoolResu
         if False:
             yield self
         return GetContainerAppsSessionPoolResult(
+            azure_api_version=self.azure_api_version,
             container_type=self.container_type,
             custom_container_template=self.custom_container_template,
             dynamic_pool_configuration=self.dynamic_pool_configuration,
             environment_id=self.environment_id,
             id=self.id,
+            identity=self.identity,
             location=self.location,
+            managed_identity_settings=self.managed_identity_settings,
             name=self.name,
             node_count=self.node_count,
             pool_management_endpoint=self.pool_management_endpoint,
@@ -248,9 +284,9 @@ def get_container_apps_session_pool(resource_group_name: Optional[str] = None,
     """
     Container App session pool.
 
-    Uses Azure REST API version 2024-02-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -263,12 +299,15 @@ def get_container_apps_session_pool(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getContainerAppsSessionPool', __args__, opts=opts, typ=GetContainerAppsSessionPoolResult).value
 
     return AwaitableGetContainerAppsSessionPoolResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container_type=pulumi.get(__ret__, 'container_type'),
         custom_container_template=pulumi.get(__ret__, 'custom_container_template'),
         dynamic_pool_configuration=pulumi.get(__ret__, 'dynamic_pool_configuration'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
+        managed_identity_settings=pulumi.get(__ret__, 'managed_identity_settings'),
         name=pulumi.get(__ret__, 'name'),
         node_count=pulumi.get(__ret__, 'node_count'),
         pool_management_endpoint=pulumi.get(__ret__, 'pool_management_endpoint'),
@@ -286,9 +325,9 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
     """
     Container App session pool.
 
-    Uses Azure REST API version 2024-02-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -300,12 +339,15 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getContainerAppsSessionPool', __args__, opts=opts, typ=GetContainerAppsSessionPoolResult)
     return __ret__.apply(lambda __response__: GetContainerAppsSessionPoolResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container_type=pulumi.get(__response__, 'container_type'),
         custom_container_template=pulumi.get(__response__, 'custom_container_template'),
         dynamic_pool_configuration=pulumi.get(__response__, 'dynamic_pool_configuration'),
         environment_id=pulumi.get(__response__, 'environment_id'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
+        managed_identity_settings=pulumi.get(__response__, 'managed_identity_settings'),
         name=pulumi.get(__response__, 'name'),
         node_count=pulumi.get(__response__, 'node_count'),
         pool_management_endpoint=pulumi.get(__response__, 'pool_management_endpoint'),

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2025-03-01-preview.
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSqlServerLicenseResult> InvokeAsync(GetSqlServerLicenseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2025-03-01-preview.
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlServerLicenseResult> Invoke(GetSqlServerLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2025-03-01-preview.
+        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlServerLicenseResult> Invoke(GetSqlServerLicenseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.AzureArcData
     public sealed class GetSqlServerLicenseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         [OutputConstructor]
         private GetSqlServerLicenseResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.AzureArcData
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

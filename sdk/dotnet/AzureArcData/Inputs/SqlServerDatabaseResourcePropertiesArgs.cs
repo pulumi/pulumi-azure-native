@@ -19,6 +19,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<Inputs.SqlServerDatabaseResourcePropertiesBackupInformationArgs>? BackupInformation { get; set; }
 
         /// <summary>
+        /// The backup profile for the SQL server.
+        /// </summary>
+        [Input("backupPolicy")]
+        public Input<Inputs.BackupPolicyArgs>? BackupPolicy { get; set; }
+
+        /// <summary>
         /// Collation of the database.
         /// </summary>
         [Input("collationName")]
@@ -29,6 +35,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<int>? CompatibilityLevel { get; set; }
+
+        /// <summary>
+        /// Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        /// </summary>
+        [Input("createMode")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.DatabaseCreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Creation date of the database.
@@ -55,10 +67,22 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public InputUnion<string, Pulumi.AzureNative.AzureArcData.RecoveryMode>? RecoveryMode { get; set; }
 
         /// <summary>
+        /// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        /// </summary>
+        [Input("restorePointInTime")]
+        public Input<string>? RestorePointInTime { get; set; }
+
+        /// <summary>
         /// Size of the database.
         /// </summary>
         [Input("sizeMB")]
         public Input<double>? SizeMB { get; set; }
+
+        /// <summary>
+        /// The resource identifier of the source database associated with create operation of this database.
+        /// </summary>
+        [Input("sourceDatabaseId")]
+        public Input<string>? SourceDatabaseId { get; set; }
 
         /// <summary>
         /// Space left of the database.

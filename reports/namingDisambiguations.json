@@ -431,14 +431,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2017-08-15/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2017-08-15/netapp.json",
@@ -473,14 +473,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2021-04-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2021-04-01-preview/netapp.json",
@@ -529,14 +529,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2022-11-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2022-11-01-preview/netapp.json",
@@ -620,14 +620,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2023-05-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2023-05-01-preview/netapp.json",
@@ -711,14 +711,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2023-07-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2023-07-01-preview/netapp.json",
@@ -802,14 +802,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2023-11-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2023-11-01-preview/netapp.json",
@@ -893,14 +893,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-03-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-03-01-preview/netapp.json",
@@ -991,14 +991,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-05-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-05-01-preview/netapp.json",
@@ -1089,14 +1089,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-07-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-07-01-preview/netapp.json",
@@ -1187,14 +1187,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-09-01-preview/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-09-01-preview/netapp.json",
@@ -1285,14 +1285,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-05-01/netapp.json",
@@ -1327,14 +1327,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-06-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-06-01/netapp.json",
@@ -1369,14 +1369,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-07-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-07-01/netapp.json",
@@ -1411,14 +1411,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-08-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-08-01/netapp.json",
@@ -1453,14 +1453,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-10-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-10-01/netapp.json",
@@ -1495,14 +1495,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01/netapp.json",
@@ -1537,14 +1537,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-02-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-02-01/netapp.json",
@@ -1579,14 +1579,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-03-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-03-01/netapp.json",
@@ -1621,14 +1621,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-05-01/netapp.json",
@@ -1677,14 +1677,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-06-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-06-01/netapp.json",
@@ -1733,14 +1733,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-07-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-07-01/netapp.json",
@@ -1789,14 +1789,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-08-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-08-01/netapp.json",
@@ -1845,14 +1845,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-09-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-09-01/netapp.json",
@@ -1901,14 +1901,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-11-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-11-01/netapp.json",
@@ -1957,14 +1957,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-12-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-12-01/netapp.json",
@@ -2013,14 +2013,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-02-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-02-01/netapp.json",
@@ -2069,14 +2069,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-04-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-04-01/netapp.json",
@@ -2125,14 +2125,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-06-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-06-01/netapp.json",
@@ -2181,14 +2181,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-08-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-08-01/netapp.json",
@@ -2237,14 +2237,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-10-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2021-10-01/netapp.json",
@@ -2314,14 +2314,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-01-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-01-01/netapp.json",
@@ -2412,14 +2412,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-03-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-03-01/netapp.json",
@@ -2510,14 +2510,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-05-01/netapp.json",
@@ -2608,14 +2608,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-09-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-09-01/netapp.json",
@@ -2706,14 +2706,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-11-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-11-01/netapp.json",
@@ -2811,14 +2811,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-05-01/netapp.json",
@@ -2902,14 +2902,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-07-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-07-01/netapp.json",
@@ -2993,14 +2993,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-11-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-11-01/netapp.json",
@@ -3084,14 +3084,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-01-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-01-01/netapp.json",
@@ -3175,14 +3175,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-03-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-03-01/netapp.json",
@@ -3266,14 +3266,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-05-01/netapp.json",
@@ -3357,14 +3357,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json",
@@ -3448,14 +3448,14 @@
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
     "GeneratedName": "Pool",
-    "DisambiguatedName": "CapacityPoolPool"
+    "DisambiguatedName": "CapacityPool"
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",

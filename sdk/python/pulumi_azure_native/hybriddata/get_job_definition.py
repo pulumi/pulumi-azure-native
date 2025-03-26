@@ -27,7 +27,10 @@ class GetJobDefinitionResult:
     """
     Job Definition.
     """
-    def __init__(__self__, customer_secrets=None, data_service_input=None, data_sink_id=None, data_source_id=None, id=None, last_modified_time=None, name=None, run_location=None, schedules=None, state=None, type=None, user_confirmation=None):
+    def __init__(__self__, azure_api_version=None, customer_secrets=None, data_service_input=None, data_sink_id=None, data_source_id=None, id=None, last_modified_time=None, name=None, run_location=None, schedules=None, state=None, type=None, user_confirmation=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if customer_secrets and not isinstance(customer_secrets, list):
             raise TypeError("Expected argument 'customer_secrets' to be a list")
         pulumi.set(__self__, "customer_secrets", customer_secrets)
@@ -64,6 +67,14 @@ class GetJobDefinitionResult:
         if user_confirmation and not isinstance(user_confirmation, str):
             raise TypeError("Expected argument 'user_confirmation' to be a str")
         pulumi.set(__self__, "user_confirmation", user_confirmation)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerSecrets")
@@ -168,6 +179,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
         if False:
             yield self
         return GetJobDefinitionResult(
+            azure_api_version=self.azure_api_version,
             customer_secrets=self.customer_secrets,
             data_service_input=self.data_service_input,
             data_sink_id=self.data_sink_id,
@@ -207,6 +219,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybriddata:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         customer_secrets=pulumi.get(__ret__, 'customer_secrets'),
         data_service_input=pulumi.get(__ret__, 'data_service_input'),
         data_sink_id=pulumi.get(__ret__, 'data_sink_id'),
@@ -243,6 +256,7 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybriddata:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         customer_secrets=pulumi.get(__response__, 'customer_secrets'),
         data_service_input=pulumi.get(__response__, 'data_service_input'),
         data_sink_id=pulumi.get(__response__, 'data_sink_id'),

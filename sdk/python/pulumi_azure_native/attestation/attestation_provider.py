@@ -119,9 +119,7 @@ class AttestationProvider(pulumi.CustomResource):
         """
         Attestation service response message.
 
-        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,9 +138,7 @@ class AttestationProvider(pulumi.CustomResource):
         """
         Attestation service response message.
 
-        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param AttestationProviderArgs args: The arguments to use to populate this resource's properties.
@@ -183,6 +179,7 @@ class AttestationProvider(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["attest_uri"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["public_network_access"] = None
@@ -216,6 +213,7 @@ class AttestationProvider(pulumi.CustomResource):
         __props__ = AttestationProviderArgs.__new__(AttestationProviderArgs)
 
         __props__.__dict__["attest_uri"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
@@ -235,6 +233,14 @@ class AttestationProvider(pulumi.CustomResource):
         Gets the uri of attestation service
         """
         return pulumi.get(self, "attest_uri")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

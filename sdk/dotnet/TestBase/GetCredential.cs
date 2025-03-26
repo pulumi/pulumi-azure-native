@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.TestBase
     public sealed class GetCredentialResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Credential type.
         /// </summary>
         public readonly string CredentialType;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.TestBase
 
         [OutputConstructor]
         private GetCredentialResult(
+            string azureApiVersion,
+
             string credentialType,
 
             string displayName,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.TestBase
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CredentialType = credentialType;
             DisplayName = displayName;
             Id = id;

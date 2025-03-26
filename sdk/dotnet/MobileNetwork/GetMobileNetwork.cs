@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified mobile network.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMobileNetworkResult> InvokeAsync(GetMobileNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified mobile network.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMobileNetworkResult> Invoke(GetMobileNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified mobile network.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMobileNetworkResult> Invoke(GetMobileNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetMobileNetworkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -104,9 +112,13 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        /// The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
         /// </summary>
         public readonly Outputs.PlmnIdResponse PublicLandMobileNetworkIdentifier;
+        /// <summary>
+        /// A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PublicLandMobileNetworkResponse> PublicLandMobileNetworks;
         /// <summary>
         /// The mobile network resource identifier
         /// </summary>
@@ -126,7 +138,11 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetMobileNetworkResult(
+            string azureApiVersion,
+
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -136,6 +152,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             Outputs.PlmnIdResponse publicLandMobileNetworkIdentifier,
 
+            ImmutableArray<Outputs.PublicLandMobileNetworkResponse> publicLandMobileNetworks,
+
             string serviceKey,
 
             Outputs.SystemDataResponse systemData,
@@ -144,11 +162,14 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             PublicLandMobileNetworkIdentifier = publicLandMobileNetworkIdentifier;
+            PublicLandMobileNetworks = publicLandMobileNetworks;
             ServiceKey = serviceKey;
             SystemData = systemData;
             Tags = tags;

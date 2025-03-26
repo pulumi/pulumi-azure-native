@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a Kusto cluster.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a Kusto cluster.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a Kusto cluster.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Kusto
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -99,6 +99,14 @@ namespace Pulumi.AzureNative.Kusto
         /// The list of ips in the format of CIDR allowed to connect to the cluster.
         /// </summary>
         public readonly ImmutableArray<string> AllowedIpRangeList;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// List of callout policies for egress from Cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CalloutPolicyResponse> CalloutPolicies;
         /// <summary>
         /// The cluster data ingestion URI.
         /// </summary>
@@ -151,6 +159,10 @@ namespace Pulumi.AzureNative.Kusto
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Properties of the peer cluster involved in a migration to/from this cluster.
+        /// </summary>
+        public readonly Outputs.MigrationClusterPropertiesResponse MigrationCluster;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -216,6 +228,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly Outputs.VirtualNetworkConfigurationResponse? VirtualNetworkConfiguration;
         /// <summary>
+        /// Indicates whether the cluster is zonal or non-zonal.
+        /// </summary>
+        public readonly string ZoneStatus;
+        /// <summary>
         /// The availability zones of the cluster.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
@@ -227,6 +243,10 @@ namespace Pulumi.AzureNative.Kusto
             ImmutableArray<string> allowedFqdnList,
 
             ImmutableArray<string> allowedIpRangeList,
+
+            string azureApiVersion,
+
+            ImmutableArray<Outputs.CalloutPolicyResponse> calloutPolicies,
 
             string dataIngestionUri,
 
@@ -253,6 +273,8 @@ namespace Pulumi.AzureNative.Kusto
             Outputs.LanguageExtensionsListResponse? languageExtensions,
 
             string location,
+
+            Outputs.MigrationClusterPropertiesResponse migrationCluster,
 
             string name,
 
@@ -286,11 +308,15 @@ namespace Pulumi.AzureNative.Kusto
 
             Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration,
 
+            string zoneStatus,
+
             ImmutableArray<string> zones)
         {
             AcceptedAudiences = acceptedAudiences;
             AllowedFqdnList = allowedFqdnList;
             AllowedIpRangeList = allowedIpRangeList;
+            AzureApiVersion = azureApiVersion;
+            CalloutPolicies = calloutPolicies;
             DataIngestionUri = dataIngestionUri;
             EnableAutoStop = enableAutoStop;
             EnableDiskEncryption = enableDiskEncryption;
@@ -304,6 +330,7 @@ namespace Pulumi.AzureNative.Kusto
             KeyVaultProperties = keyVaultProperties;
             LanguageExtensions = languageExtensions;
             Location = location;
+            MigrationCluster = migrationCluster;
             Name = name;
             OptimizedAutoscale = optimizedAutoscale;
             PrivateEndpointConnections = privateEndpointConnections;
@@ -320,6 +347,7 @@ namespace Pulumi.AzureNative.Kusto
             Type = type;
             Uri = uri;
             VirtualNetworkConfiguration = virtualNetworkConfiguration;
+            ZoneStatus = zoneStatus;
             Zones = zones;
         }
     }

@@ -267,7 +267,7 @@ class DataLakeConnector(pulumi.CustomResource):
         """
         MQ dataLakeConnector resource
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,7 +295,7 @@ class DataLakeConnector(pulumi.CustomResource):
         """
         MQ dataLakeConnector resource
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param DataLakeConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -363,6 +363,7 @@ class DataLakeConnector(pulumi.CustomResource):
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -391,6 +392,7 @@ class DataLakeConnector(pulumi.CustomResource):
 
         __props__ = DataLakeConnectorArgs.__new__(DataLakeConnectorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["database_format"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["image"] = None
@@ -407,6 +409,14 @@ class DataLakeConnector(pulumi.CustomResource):
         __props__.__dict__["target"] = None
         __props__.__dict__["type"] = None
         return DataLakeConnector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseFormat")

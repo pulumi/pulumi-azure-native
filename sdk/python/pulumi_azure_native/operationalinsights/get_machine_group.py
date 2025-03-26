@@ -27,7 +27,10 @@ class GetMachineGroupResult:
     """
     A user-defined logical grouping of machines.
     """
-    def __init__(__self__, count=None, display_name=None, etag=None, group_type=None, id=None, kind=None, machines=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, count=None, display_name=None, etag=None, group_type=None, id=None, kind=None, machines=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if count and not isinstance(count, int):
             raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
@@ -55,6 +58,14 @@ class GetMachineGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetMachineGroupResult(GetMachineGroupResult):
         if False:
             yield self
         return GetMachineGroupResult(
+            azure_api_version=self.azure_api_version,
             count=self.count,
             display_name=self.display_name,
             etag=self.etag,
@@ -175,6 +187,7 @@ def get_machine_group(end_time: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getMachineGroup', __args__, opts=opts, typ=GetMachineGroupResult).value
 
     return AwaitableGetMachineGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         count=pulumi.get(__ret__, 'count'),
         display_name=pulumi.get(__ret__, 'display_name'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -211,6 +224,7 @@ def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getMachineGroup', __args__, opts=opts, typ=GetMachineGroupResult)
     return __ret__.apply(lambda __response__: GetMachineGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         count=pulumi.get(__response__, 'count'),
         display_name=pulumi.get(__response__, 'display_name'),
         etag=pulumi.get(__response__, 'etag'),

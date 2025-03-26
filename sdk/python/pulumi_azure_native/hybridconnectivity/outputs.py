@@ -17,7 +17,6 @@ from ._enums import *
 
 __all__ = [
     'AwsCloudProfileResponse',
-    'EndpointPropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -88,70 +87,6 @@ class AwsCloudProfileResponse(dict):
         Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
         """
         return pulumi.get(self, "is_organizational_account")
-
-
-@pulumi.output_type
-class EndpointPropertiesResponse(dict):
-    """
-    Endpoint details
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "resourceId":
-            suggest = "resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EndpointPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EndpointPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 type: str,
-                 resource_id: Optional[str] = None):
-        """
-        Endpoint details
-        :param str provisioning_state: The resource provisioning state.
-        :param str type: The type of endpoint.
-        :param str resource_id: The resource Id of the connectivity endpoint (optional).
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The resource provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of endpoint.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        The resource Id of the connectivity endpoint (optional).
-        """
-        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

@@ -27,7 +27,10 @@ class GetServiceResult:
     """
     The service entity.
     """
-    def __init__(__self__, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, name=None, provisioning_state=None, restore=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,9 @@ class GetServiceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if restore and not isinstance(restore, bool):
+            raise TypeError("Expected argument 'restore' to be a bool")
+        pulumi.set(__self__, "restore", restore)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -52,6 +58,14 @@ class GetServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -65,7 +79,7 @@ class GetServiceResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        The identity of the service.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -89,9 +103,17 @@ class GetServiceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The status of the last operation.
+        Provisioning state of the service.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[bool]:
+        """
+        Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        """
+        return pulumi.get(self, "restore")
 
     @property
     @pulumi.getter(name="systemData")
@@ -124,11 +146,13 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            restore=self.restore,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -138,15 +162,15 @@ def get_service(resource_group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Get service
+    Returns details of the service.
 
-    Uses Azure REST API version 2023-07-01-preview.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str service_name: Service name
+    :param str service_name: The name of Azure API Center service.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -155,11 +179,13 @@ def get_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apicenter:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        restore=pulumi.get(__ret__, 'restore'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -167,15 +193,15 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Get service
+    Returns details of the service.
 
-    Uses Azure REST API version 2023-07-01-preview.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str service_name: Service name
+    :param str service_name: The name of Azure API Center service.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -183,11 +209,13 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        restore=pulumi.get(__response__, 'restore'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

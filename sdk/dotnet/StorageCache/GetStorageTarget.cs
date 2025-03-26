@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Returns a Storage Target from a cache.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Returns a Storage Target from a cache.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Returns a Storage Target from a cache.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly int AllocationPercentage;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties when targetType is blobNfs.
         /// </summary>
         public readonly Outputs.BlobNfsTargetResponse? BlobNfs;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.StorageCache
         private GetStorageTargetResult(
             int allocationPercentage,
 
+            string azureApiVersion,
+
             Outputs.BlobNfsTargetResponse? blobNfs,
 
             Outputs.ClfsTargetResponse? clfs,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.StorageCache
             Outputs.UnknownTargetResponse? unknown)
         {
             AllocationPercentage = allocationPercentage;
+            AzureApiVersion = azureApiVersion;
             BlobNfs = blobNfs;
             Clfs = clfs;
             Id = id;

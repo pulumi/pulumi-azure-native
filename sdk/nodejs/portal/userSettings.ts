@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Response to get user settings
  *
- * Uses Azure REST API version 2018-10-01. In version 1.x of the Azure Native provider, it used API version 2018-10-01.
+ * Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
  */
 export class UserSettings extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class UserSettings extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The cloud shell user settings properties.
      */
     public readonly properties!: pulumi.Output<outputs.portal.UserPropertiesResponse>;
@@ -60,7 +64,9 @@ export class UserSettings extends pulumi.CustomResource {
             }
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["userSettingsName"] = args ? args.userSettingsName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

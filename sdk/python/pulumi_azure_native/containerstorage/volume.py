@@ -115,7 +115,7 @@ class Volume(pulumi.CustomResource):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
-        Uses Azure REST API version 2023-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-03-01-preview.
+        Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class Volume(pulumi.CustomResource):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
-        Uses Azure REST API version 2023-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-03-01-preview.
+        Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +178,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["volume_name"] = volume_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
@@ -208,6 +209,7 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["capacity_gi_b"] = None
         __props__.__dict__["labels"] = None
         __props__.__dict__["name"] = None
@@ -217,6 +219,14 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="capacityGiB")

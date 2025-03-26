@@ -27,7 +27,10 @@ class GetVirtualHubBgpConnectionResult:
     """
     Virtual Appliance Site resource.
     """
-    def __init__(__self__, connection_state=None, etag=None, hub_virtual_network_connection=None, id=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, connection_state=None, etag=None, hub_virtual_network_connection=None, id=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_state and not isinstance(connection_state, str):
             raise TypeError("Expected argument 'connection_state' to be a str")
         pulumi.set(__self__, "connection_state", connection_state)
@@ -55,6 +58,14 @@ class GetVirtualHubBgpConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionState")
@@ -135,6 +146,7 @@ class AwaitableGetVirtualHubBgpConnectionResult(GetVirtualHubBgpConnectionResult
         if False:
             yield self
         return GetVirtualHubBgpConnectionResult(
+            azure_api_version=self.azure_api_version,
             connection_state=self.connection_state,
             etag=self.etag,
             hub_virtual_network_connection=self.hub_virtual_network_connection,
@@ -153,9 +165,9 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
     """
     Retrieves the details of a Virtual Hub Bgp Connection.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the connection.
@@ -170,6 +182,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualHubBgpConnection', __args__, opts=opts, typ=GetVirtualHubBgpConnectionResult).value
 
     return AwaitableGetVirtualHubBgpConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_state=pulumi.get(__ret__, 'connection_state'),
         etag=pulumi.get(__ret__, 'etag'),
         hub_virtual_network_connection=pulumi.get(__ret__, 'hub_virtual_network_connection'),
@@ -186,9 +199,9 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
     """
     Retrieves the details of a Virtual Hub Bgp Connection.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the connection.
@@ -202,6 +215,7 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualHubBgpConnection', __args__, opts=opts, typ=GetVirtualHubBgpConnectionResult)
     return __ret__.apply(lambda __response__: GetVirtualHubBgpConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_state=pulumi.get(__response__, 'connection_state'),
         etag=pulumi.get(__response__, 'etag'),
         hub_virtual_network_connection=pulumi.get(__response__, 'hub_virtual_network_connection'),

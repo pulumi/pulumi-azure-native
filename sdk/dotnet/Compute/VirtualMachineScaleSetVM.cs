@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Describes a virtual machine scale set virtual machine.
     /// 
-    /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVM")]
     public partial class VirtualMachineScaleSetVM : global::Pulumi.CustomResource
@@ -32,10 +32,22 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.SubResourceResponse?> AvailabilitySet { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         /// </summary>
         [Output("diagnosticsProfile")]
         public Output<Outputs.DiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the hardware settings for the virtual machine.
@@ -128,6 +140,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the resilient VM deletion status for the virtual machine.
+        /// </summary>
+        [Output("resilientVMDeletionStatus")]
+        public Output<string?> ResilientVMDeletionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The virtual machine child extension resources.
         /// </summary>
         [Output("resources")]
@@ -158,13 +176,19 @@ namespace Pulumi.AzureNative.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
@@ -330,6 +354,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.VirtualMachineScaleSetVMProtectionPolicyArgs>? ProtectionPolicy { get; set; }
 
         /// <summary>
+        /// Specifies the resilient VM deletion status for the virtual machine.
+        /// </summary>
+        [Input("resilientVMDeletionStatus")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.ResilientVMDeletionStatus>? ResilientVMDeletionStatus { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -360,7 +390,7 @@ namespace Pulumi.AzureNative.Compute
         }
 
         /// <summary>
-        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }

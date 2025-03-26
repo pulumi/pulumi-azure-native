@@ -12,11 +12,3 @@ from .my_sql_server import *
 from .my_sql_site import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.mysqldiscovery.v20240930preview as __v20240930preview
-    v20240930preview = __v20240930preview
-else:
-    v20240930preview = _utilities.lazy_import('pulumi_azure_native.mysqldiscovery.v20240930preview')
-

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDeviceGroupResult> InvokeAsync(GetDeviceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceGroupResult>("azure-native:azuresphere:getDeviceGroup", args ?? new GetDeviceGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:azuresphere:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:azuresphere:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.AzureSphere
         /// </summary>
         public readonly string? AllowCrashDumpsCollection;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Description of the device group.
         /// </summary>
         public readonly string? Description;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.AzureSphere
         private GetDeviceGroupResult(
             string? allowCrashDumpsCollection,
 
+            string azureApiVersion,
+
             string? description,
 
             bool hasDeployment,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.AzureSphere
             string? updatePolicy)
         {
             AllowCrashDumpsCollection = allowCrashDumpsCollection;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             HasDeployment = hasDeployment;
             Id = id;

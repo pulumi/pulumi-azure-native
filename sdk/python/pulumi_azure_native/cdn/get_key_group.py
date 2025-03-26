@@ -27,7 +27,10 @@ class GetKeyGroupResult:
     """
     Contains a list of references of UrlSigningKey type secret objects.
     """
-    def __init__(__self__, deployment_status=None, id=None, key_references=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, deployment_status=None, id=None, key_references=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -49,6 +52,14 @@ class GetKeyGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentStatus")
@@ -110,6 +121,7 @@ class AwaitableGetKeyGroupResult(GetKeyGroupResult):
         if False:
             yield self
         return GetKeyGroupResult(
+            azure_api_version=self.azure_api_version,
             deployment_status=self.deployment_status,
             id=self.id,
             key_references=self.key_references,
@@ -126,14 +138,14 @@ def get_key_group(key_group_name: Optional[str] = None,
     """
     Gets an existing KeyGroup within a profile.
 
-    Uses Azure REST API version 2023-07-01-preview.
+    Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str key_group_name: Name of the KeyGroup under the profile.
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['keyGroupName'] = key_group_name
@@ -143,6 +155,7 @@ def get_key_group(key_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getKeyGroup', __args__, opts=opts, typ=GetKeyGroupResult).value
 
     return AwaitableGetKeyGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         id=pulumi.get(__ret__, 'id'),
         key_references=pulumi.get(__ret__, 'key_references'),
@@ -157,14 +170,14 @@ def get_key_group_output(key_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an existing KeyGroup within a profile.
 
-    Uses Azure REST API version 2023-07-01-preview.
+    Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str key_group_name: Name of the KeyGroup under the profile.
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['keyGroupName'] = key_group_name
@@ -173,6 +186,7 @@ def get_key_group_output(key_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getKeyGroup', __args__, opts=opts, typ=GetKeyGroupResult)
     return __ret__.apply(lambda __response__: GetKeyGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         id=pulumi.get(__response__, 'id'),
         key_references=pulumi.get(__response__, 'key_references'),

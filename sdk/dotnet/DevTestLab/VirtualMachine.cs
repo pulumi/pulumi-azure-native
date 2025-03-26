@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// A virtual machine.
     /// 
-    /// Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+    /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("artifacts")]
         public Output<ImmutableArray<Outputs.ArtifactInstallPropertiesResponse>> Artifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.

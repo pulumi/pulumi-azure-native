@@ -26,7 +26,10 @@ class GetPolicyResult:
     """
     A Policy.
     """
-    def __init__(__self__, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, id=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, id=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -69,6 +72,14 @@ class GetPolicyResult:
         if unique_identifier and not isinstance(unique_identifier, str):
             raise TypeError("Expected argument 'unique_identifier' to be a str")
         pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -189,6 +200,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         if False:
             yield self
         return GetPolicyResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             description=self.description,
             evaluator_type=self.evaluator_type,
@@ -233,6 +245,7 @@ def get_policy(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         description=pulumi.get(__ret__, 'description'),
         evaluator_type=pulumi.get(__ret__, 'evaluator_type'),
@@ -274,6 +287,7 @@ def get_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         description=pulumi.get(__response__, 'description'),
         evaluator_type=pulumi.get(__response__, 'evaluator_type'),

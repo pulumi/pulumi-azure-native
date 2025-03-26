@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// Represents a disaster recovery configuration.
     /// 
-    /// Uses Azure REST API version 2014-04-01. In version 1.x of the Azure Native provider, it used API version 2014-04-01.
+    /// Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DisasterRecoveryConfiguration")]
     public partial class DisasterRecoveryConfiguration : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("autoFailover")]
         public Output<string> AutoFailover { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// How aggressive the automatic failover should be.

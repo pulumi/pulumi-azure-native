@@ -6,7 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AppSku',
+    'NetworkAction',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'SystemAssignedServiceIdentityType',
 ]
 
@@ -20,6 +22,14 @@ class AppSku(str, Enum):
     ST2 = "ST2"
 
 
+class NetworkAction(str, Enum):
+    """
+    The default network action to apply.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
 class PrivateEndpointServiceConnectionStatus(str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -27,6 +37,14 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether requests from the public network are allowed.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SystemAssignedServiceIdentityType(str, Enum):

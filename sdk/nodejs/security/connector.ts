@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The connector setting
  *
- * Uses Azure REST API version 2020-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
+ * Uses Azure REST API version 2020-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
  */
 export class Connector extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly authenticationDetails!: pulumi.Output<outputs.security.AwAssumeRoleAuthenticationDetailsPropertiesResponse | outputs.security.AwsCredsAuthenticationDetailsPropertiesResponse | outputs.security.GcpCredentialsDetailsPropertiesResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
      */
     public readonly hybridComputeSettings!: pulumi.Output<outputs.security.HybridComputeSettingsPropertiesResponse | undefined>;
@@ -70,10 +74,12 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["authenticationDetails"] = args ? args.authenticationDetails : undefined;
             resourceInputs["connectorName"] = args ? args.connectorName : undefined;
             resourceInputs["hybridComputeSettings"] = args ? args.hybridComputeSettings : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationDetails"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hybridComputeSettings"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

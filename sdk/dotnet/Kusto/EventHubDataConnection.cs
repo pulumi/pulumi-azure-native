@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Kusto
     /// <summary>
     /// Class representing an event hub data connection.
     /// 
-    /// Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+    /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The event hub messages compression type
         /// </summary>
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventHubDataConnection" },
@@ -158,10 +165,25 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:CosmosDbDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:CosmosDbDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:CosmosDbDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:CosmosDbDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:CosmosDbDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:EventGridDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:IotHubDataConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -271,7 +293,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? MappingRuleName { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

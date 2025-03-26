@@ -26,7 +26,10 @@ class GetSchemaResult:
     """
     Schema Contract details.
     """
-    def __init__(__self__, description=None, id=None, name=None, schema_type=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, name=None, schema_type=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -45,6 +48,14 @@ class GetSchemaResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetSchemaResult(GetSchemaResult):
         if False:
             yield self
         return GetSchemaResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -131,6 +143,7 @@ def get_schema(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getSchema', __args__, opts=opts, typ=GetSchemaResult).value
 
     return AwaitableGetSchemaResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -158,6 +171,7 @@ def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getSchema', __args__, opts=opts, typ=GetSchemaResult)
     return __ret__.apply(lambda __response__: GetSchemaResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

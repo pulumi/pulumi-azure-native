@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a data connector definition.
  *
- * Uses Azure REST API version 2023-07-01-preview.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getCustomizableConnectorDefinition(args: GetCustomizableConnectorDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizableConnectorDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetCustomizableConnectorDefinitionArgs {
  * Connector definition for kind 'Customizable'.
  */
 export interface GetCustomizableConnectorDefinitionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The UiConfig for 'Customizable' connector definition kind.
      */
@@ -85,7 +89,7 @@ export interface GetCustomizableConnectorDefinitionResult {
 /**
  * Gets a data connector definition.
  *
- * Uses Azure REST API version 2023-07-01-preview.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

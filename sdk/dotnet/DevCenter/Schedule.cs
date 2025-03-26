@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents a Schedule to execute a task.
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The frequency of this scheduled task.
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -48,6 +60,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The target time to trigger the action. The format is HH:MM.
@@ -137,6 +155,12 @@ namespace Pulumi.AzureNative.DevCenter
         public InputUnion<string, Pulumi.AzureNative.DevCenter.ScheduledFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// Name of the pool.
         /// </summary>
         [Input("poolName", required: true)]
@@ -165,6 +189,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("state")]
         public InputUnion<string, Pulumi.AzureNative.DevCenter.ScheduleEnableStatus>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The target time to trigger the action. The format is HH:MM.

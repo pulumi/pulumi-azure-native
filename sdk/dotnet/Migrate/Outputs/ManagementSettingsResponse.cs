@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// Third Party Management Settings.
         /// </summary>
         public readonly Outputs.ThirdPartyManagementSettingsResponse ThirdPartyManagementSettings;
-        /// <summary>
-        /// vSphere Management Settings.
-        /// </summary>
-        public readonly Outputs.VsphereManagementSettingsResponse VsphereManagementSettings;
 
         [OutputConstructor]
         private ManagementSettingsResponse(
@@ -39,14 +35,11 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             Outputs.OtherManagementCostsSettingsResponse otherManagementCostsSettings,
 
-            Outputs.ThirdPartyManagementSettingsResponse thirdPartyManagementSettings,
-
-            Outputs.VsphereManagementSettingsResponse vsphereManagementSettings)
+            Outputs.ThirdPartyManagementSettingsResponse thirdPartyManagementSettings)
         {
             HypervVirtualizationManagementSettings = hypervVirtualizationManagementSettings;
             OtherManagementCostsSettings = otherManagementCostsSettings;
             ThirdPartyManagementSettings = thirdPartyManagementSettings;
-            VsphereManagementSettings = vsphereManagementSettings;
         }
     }
 }

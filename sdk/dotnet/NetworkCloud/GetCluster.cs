@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -92,13 +92,21 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.RackDefinitionResponse AggregatorOrSingleRackDefinition;
         /// <summary>
-        /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        /// The settings for the log analytics workspace used for output of logs from this cluster.
+        /// </summary>
+        public readonly Outputs.AnalyticsOutputSettingsResponse? AnalyticsOutputSettings;
+        /// <summary>
+        /// Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         /// </summary>
         public readonly string? AnalyticsWorkspaceId;
         /// <summary>
         /// The list of cluster runtime version upgrades available for this cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse> AvailableUpgradeVersions;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The capacity supported by this cluster.
         /// </summary>
@@ -136,6 +144,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string ClusterVersion;
         /// <summary>
+        /// The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        /// </summary>
+        public readonly Outputs.CommandOutputSettingsResponse? CommandOutputSettings;
+        /// <summary>
         /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         /// </summary>
         public readonly Outputs.ValidationThresholdResponse? ComputeDeploymentThreshold;
@@ -153,6 +165,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string DetailedStatusMessage;
         /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// The extended location of the cluster manager associated with the cluster.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -164,6 +180,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -197,6 +217,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ClusterSecretArchiveResponse? SecretArchive;
         /// <summary>
+        /// The settings for the secret archive used to hold credentials for the cluster.
+        /// </summary>
+        public readonly Outputs.SecretArchiveSettingsResponse? SecretArchiveSettings;
+        /// <summary>
         /// The support end date of the runtime version of the cluster.
         /// </summary>
         public readonly string SupportExpiryDate;
@@ -217,6 +241,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ClusterUpdateStrategyResponse? UpdateStrategy;
         /// <summary>
+        /// The settings for how security vulnerability scanning is applied to the cluster.
+        /// </summary>
+        public readonly Outputs.VulnerabilityScanningSettingsResponse? VulnerabilityScanningSettings;
+        /// <summary>
         /// The list of workload resource IDs that are hosted within this cluster.
         /// </summary>
         public readonly ImmutableArray<string> WorkloadResourceIds;
@@ -225,9 +253,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetClusterResult(
             Outputs.RackDefinitionResponse aggregatorOrSingleRackDefinition,
 
+            Outputs.AnalyticsOutputSettingsResponse? analyticsOutputSettings,
+
             string? analyticsWorkspaceId,
 
             ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse> availableUpgradeVersions,
+
+            string azureApiVersion,
 
             Outputs.ClusterCapacityResponse clusterCapacity,
 
@@ -247,6 +279,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string clusterVersion,
 
+            Outputs.CommandOutputSettingsResponse? commandOutputSettings,
+
             Outputs.ValidationThresholdResponse? computeDeploymentThreshold,
 
             ImmutableArray<Outputs.RackDefinitionResponse> computeRackDefinitions,
@@ -255,11 +289,15 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string detailedStatusMessage,
 
+            string etag,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             Outputs.ExtendedLocationResponse hybridAksExtendedLocation,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -277,6 +315,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             Outputs.ClusterSecretArchiveResponse? secretArchive,
 
+            Outputs.SecretArchiveSettingsResponse? secretArchiveSettings,
+
             string supportExpiryDate,
 
             Outputs.SystemDataResponse systemData,
@@ -287,11 +327,15 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             Outputs.ClusterUpdateStrategyResponse? updateStrategy,
 
+            Outputs.VulnerabilityScanningSettingsResponse? vulnerabilityScanningSettings,
+
             ImmutableArray<string> workloadResourceIds)
         {
             AggregatorOrSingleRackDefinition = aggregatorOrSingleRackDefinition;
+            AnalyticsOutputSettings = analyticsOutputSettings;
             AnalyticsWorkspaceId = analyticsWorkspaceId;
             AvailableUpgradeVersions = availableUpgradeVersions;
+            AzureApiVersion = azureApiVersion;
             ClusterCapacity = clusterCapacity;
             ClusterConnectionStatus = clusterConnectionStatus;
             ClusterExtendedLocation = clusterExtendedLocation;
@@ -301,13 +345,16 @@ namespace Pulumi.AzureNative.NetworkCloud
             ClusterServicePrincipal = clusterServicePrincipal;
             ClusterType = clusterType;
             ClusterVersion = clusterVersion;
+            CommandOutputSettings = commandOutputSettings;
             ComputeDeploymentThreshold = computeDeploymentThreshold;
             ComputeRackDefinitions = computeRackDefinitions;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             HybridAksExtendedLocation = hybridAksExtendedLocation;
             Id = id;
+            Identity = identity;
             Location = location;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             ManualActionCount = manualActionCount;
@@ -316,11 +363,13 @@ namespace Pulumi.AzureNative.NetworkCloud
             ProvisioningState = provisioningState;
             RuntimeProtectionConfiguration = runtimeProtectionConfiguration;
             SecretArchive = secretArchive;
+            SecretArchiveSettings = secretArchiveSettings;
             SupportExpiryDate = supportExpiryDate;
             SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdateStrategy = updateStrategy;
+            VulnerabilityScanningSettings = vulnerabilityScanningSettings;
             WorkloadResourceIds = workloadResourceIds;
         }
     }

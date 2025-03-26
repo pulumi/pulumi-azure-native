@@ -27,7 +27,10 @@ class GetWebPubSubCustomCertificateResult:
     """
     A custom certificate.
     """
-    def __init__(__self__, id=None, key_vault_base_uri=None, key_vault_secret_name=None, key_vault_secret_version=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, key_vault_base_uri=None, key_vault_secret_name=None, key_vault_secret_version=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,10 +57,18 @@ class GetWebPubSubCustomCertificateResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -89,7 +100,7 @@ class GetWebPubSubCustomCertificateResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -105,7 +116,7 @@ class GetWebPubSubCustomCertificateResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -113,7 +124,7 @@ class GetWebPubSubCustomCertificateResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -124,6 +135,7 @@ class AwaitableGetWebPubSubCustomCertificateResult(GetWebPubSubCustomCertificate
         if False:
             yield self
         return GetWebPubSubCustomCertificateResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             key_vault_base_uri=self.key_vault_base_uri,
             key_vault_secret_name=self.key_vault_secret_name,
@@ -141,13 +153,13 @@ def get_web_pub_sub_custom_certificate(certificate_name: Optional[str] = None,
     """
     Get a custom certificate.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str certificate_name: Custom certificate name
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -158,6 +170,7 @@ def get_web_pub_sub_custom_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:webpubsub:getWebPubSubCustomCertificate', __args__, opts=opts, typ=GetWebPubSubCustomCertificateResult).value
 
     return AwaitableGetWebPubSubCustomCertificateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         key_vault_base_uri=pulumi.get(__ret__, 'key_vault_base_uri'),
         key_vault_secret_name=pulumi.get(__ret__, 'key_vault_secret_name'),
@@ -173,13 +186,13 @@ def get_web_pub_sub_custom_certificate_output(certificate_name: Optional[pulumi.
     """
     Get a custom certificate.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str certificate_name: Custom certificate name
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -189,6 +202,7 @@ def get_web_pub_sub_custom_certificate_output(certificate_name: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:webpubsub:getWebPubSubCustomCertificate', __args__, opts=opts, typ=GetWebPubSubCustomCertificateResult)
     return __ret__.apply(lambda __response__: GetWebPubSubCustomCertificateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         key_vault_base_uri=pulumi.get(__response__, 'key_vault_base_uri'),
         key_vault_secret_name=pulumi.get(__response__, 'key_vault_secret_name'),

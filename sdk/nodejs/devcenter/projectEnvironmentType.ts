@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents an environment type.
  *
- * Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ProjectEnvironmentType extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The role definition assigned to the environment creator on backing resources.
      */
     public readonly creatorRoleAssignment!: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment | undefined>;
@@ -49,6 +53,14 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
      * Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
      */
     public readonly deploymentTargetId!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the project environment type.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The number of environments of this type.
+     */
+    public /*out*/ readonly environmentCount!: pulumi.Output<number>;
     /**
      * Managed identity properties
      */
@@ -105,6 +117,7 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
             }
             resourceInputs["creatorRoleAssignment"] = args ? args.creatorRoleAssignment : undefined;
             resourceInputs["deploymentTargetId"] = args ? args.deploymentTargetId : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environmentTypeName"] = args ? args.environmentTypeName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -113,13 +126,18 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userRoleAssignments"] = args ? args.userRoleAssignments : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["environmentCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creatorRoleAssignment"] = undefined /*out*/;
             resourceInputs["deploymentTargetId"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["environmentCount"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -149,6 +167,10 @@ export interface ProjectEnvironmentTypeArgs {
      * Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
      */
     deploymentTargetId?: pulumi.Input<string>;
+    /**
+     * The display name of the project environment type.
+     */
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the environment type.
      */

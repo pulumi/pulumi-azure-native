@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Cloud Manager Tenant
  *
- * Uses Azure REST API version 2024-02-07-preview.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2025-02-06-preview.
+ * Other available API versions: 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listPaloAltoNetworksCloudngfwCloudManagerTenants(args?: ListPaloAltoNetworksCloudngfwCloudManagerTenantsArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> {
     args = args || {};
@@ -33,9 +33,9 @@ export interface ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult {
 /**
  * Cloud Manager Tenant
  *
- * Uses Azure REST API version 2024-02-07-preview.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2025-02-06-preview.
+ * Other available API versions: 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

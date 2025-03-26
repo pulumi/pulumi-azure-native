@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements virtual machine template GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements virtual machine template GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements virtual machine template GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     [OutputType]
     public sealed class GetVirtualMachineTemplateResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
@@ -162,7 +166,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string OsType;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -200,6 +204,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetVirtualMachineTemplateResult(
+            string azureApiVersion,
+
             string customResourceName,
 
             ImmutableArray<Outputs.VirtualDiskResponse> disks,
@@ -254,6 +260,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vCenterId)
         {
+            AzureApiVersion = azureApiVersion;
             CustomResourceName = customResourceName;
             Disks = disks;
             ExtendedLocation = extendedLocation;

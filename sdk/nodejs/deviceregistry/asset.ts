@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Asset definition.
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
  *
- * Other available API versions: 2024-09-01-preview, 2024-11-01.
+ * Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Asset extends pulumi.CustomResource {
     /**
@@ -42,33 +42,41 @@ export class Asset extends pulumi.CustomResource {
     }
 
     /**
-     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
      */
-    public readonly assetEndpointProfileUri!: pulumi.Output<string>;
-    /**
-     * Resource path to asset type (model) definition.
-     */
-    public readonly assetType!: pulumi.Output<string | undefined>;
+    public readonly assetEndpointProfileRef!: pulumi.Output<string>;
     /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */
     public readonly attributes!: pulumi.Output<any | undefined>;
     /**
-     * Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+     * The Azure API version of the resource.
      */
-    public readonly dataPoints!: pulumi.Output<outputs.deviceregistry.DataPointResponse[] | undefined>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+     * Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
      */
-    public readonly defaultDataPointsConfiguration!: pulumi.Output<string | undefined>;
+    public readonly datasets!: pulumi.Output<outputs.deviceregistry.DatasetResponse[] | undefined>;
+    /**
+     * Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
+     */
+    public readonly defaultDatasetsConfiguration!: pulumi.Output<string | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
     public readonly defaultEventsConfiguration!: pulumi.Output<string | undefined>;
     /**
+     * Object that describes the default topic information for the asset.
+     */
+    public readonly defaultTopic!: pulumi.Output<outputs.deviceregistry.TopicResponse | undefined>;
+    /**
      * Human-readable description of the asset.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+     */
+    public readonly discoveredAssetRefs!: pulumi.Output<string[] | undefined>;
     /**
      * Human-readable display name.
      */
@@ -169,8 +177,8 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assetEndpointProfileUri === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'assetEndpointProfileUri'");
+            if ((!args || args.assetEndpointProfileRef === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'assetEndpointProfileRef'");
             }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
@@ -178,14 +186,15 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assetEndpointProfileUri"] = args ? args.assetEndpointProfileUri : undefined;
+            resourceInputs["assetEndpointProfileRef"] = args ? args.assetEndpointProfileRef : undefined;
             resourceInputs["assetName"] = args ? args.assetName : undefined;
-            resourceInputs["assetType"] = args ? args.assetType : undefined;
             resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["dataPoints"] = args ? args.dataPoints : undefined;
-            resourceInputs["defaultDataPointsConfiguration"] = args ? args.defaultDataPointsConfiguration : undefined;
+            resourceInputs["datasets"] = args ? args.datasets : undefined;
+            resourceInputs["defaultDatasetsConfiguration"] = args ? args.defaultDatasetsConfiguration : undefined;
             resourceInputs["defaultEventsConfiguration"] = args ? args.defaultEventsConfiguration : undefined;
+            resourceInputs["defaultTopic"] = args ? (args.defaultTopic ? pulumi.output(args.defaultTopic).apply(inputs.deviceregistry.topicArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["discoveredAssetRefs"] = args ? args.discoveredAssetRefs : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["documentationUri"] = args ? args.documentationUri : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -202,6 +211,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
             resourceInputs["softwareRevision"] = args ? args.softwareRevision : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -210,13 +220,15 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
-            resourceInputs["assetEndpointProfileUri"] = undefined /*out*/;
-            resourceInputs["assetType"] = undefined /*out*/;
+            resourceInputs["assetEndpointProfileRef"] = undefined /*out*/;
             resourceInputs["attributes"] = undefined /*out*/;
-            resourceInputs["dataPoints"] = undefined /*out*/;
-            resourceInputs["defaultDataPointsConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["datasets"] = undefined /*out*/;
+            resourceInputs["defaultDatasetsConfiguration"] = undefined /*out*/;
             resourceInputs["defaultEventsConfiguration"] = undefined /*out*/;
+            resourceInputs["defaultTopic"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["discoveredAssetRefs"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["documentationUri"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
@@ -252,37 +264,41 @@ export class Asset extends pulumi.CustomResource {
  */
 export interface AssetArgs {
     /**
-     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
      */
-    assetEndpointProfileUri: pulumi.Input<string>;
+    assetEndpointProfileRef: pulumi.Input<string>;
     /**
      * Asset name parameter.
      */
     assetName?: pulumi.Input<string>;
     /**
-     * Resource path to asset type (model) definition.
-     */
-    assetType?: pulumi.Input<string>;
-    /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */
     attributes?: any;
     /**
-     * Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+     * Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
      */
-    dataPoints?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DataPointArgs>[]>;
+    datasets?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DatasetArgs>[]>;
     /**
-     * Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+     * Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
      */
-    defaultDataPointsConfiguration?: pulumi.Input<string>;
+    defaultDatasetsConfiguration?: pulumi.Input<string>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
     defaultEventsConfiguration?: pulumi.Input<string>;
     /**
+     * Object that describes the default topic information for the asset.
+     */
+    defaultTopic?: pulumi.Input<inputs.deviceregistry.TopicArgs>;
+    /**
      * Human-readable description of the asset.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+     */
+    discoveredAssetRefs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Human-readable display name.
      */

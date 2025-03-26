@@ -27,7 +27,10 @@ class GetBlobContainerResult:
     """
     Properties of the blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, enable_nfs_v3_all_squash=None, enable_nfs_v3_root_squash=None, etag=None, has_immutability_policy=None, has_legal_hold=None, id=None, immutability_policy=None, immutable_storage_with_versioning=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, enable_nfs_v3_all_squash=None, enable_nfs_v3_root_squash=None, etag=None, has_immutability_policy=None, has_legal_hold=None, id=None, immutability_policy=None, immutable_storage_with_versioning=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_encryption_scope and not isinstance(default_encryption_scope, str):
             raise TypeError("Expected argument 'default_encryption_scope' to be a str")
         pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
@@ -97,6 +100,14 @@ class GetBlobContainerResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultEncryptionScope")
@@ -289,6 +300,7 @@ class AwaitableGetBlobContainerResult(GetBlobContainerResult):
         if False:
             yield self
         return GetBlobContainerResult(
+            azure_api_version=self.azure_api_version,
             default_encryption_scope=self.default_encryption_scope,
             deleted=self.deleted,
             deleted_time=self.deleted_time,
@@ -321,9 +333,9 @@ def get_blob_container(account_name: Optional[str] = None,
     """
     Gets properties of a specified container.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -338,6 +350,7 @@ def get_blob_container(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getBlobContainer', __args__, opts=opts, typ=GetBlobContainerResult).value
 
     return AwaitableGetBlobContainerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_encryption_scope=pulumi.get(__ret__, 'default_encryption_scope'),
         deleted=pulumi.get(__ret__, 'deleted'),
         deleted_time=pulumi.get(__ret__, 'deleted_time'),
@@ -368,9 +381,9 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of a specified container.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -384,6 +397,7 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getBlobContainer', __args__, opts=opts, typ=GetBlobContainerResult)
     return __ret__.apply(lambda __response__: GetBlobContainerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_encryption_scope=pulumi.get(__response__, 'default_encryption_scope'),
         deleted=pulumi.get(__response__, 'deleted'),
         deleted_time=pulumi.get(__response__, 'deleted_time'),

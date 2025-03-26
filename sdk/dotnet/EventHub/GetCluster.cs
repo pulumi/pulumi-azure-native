@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The UTC time when the Event Hubs Cluster was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -107,6 +111,10 @@ namespace Pulumi.AzureNative.EventHub
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Provisioning state of the Cluster.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Properties of the cluster SKU.
         /// </summary>
@@ -138,6 +146,8 @@ namespace Pulumi.AzureNative.EventHub
 
         [OutputConstructor]
         private GetClusterResult(
+            string azureApiVersion,
+
             string createdAt,
 
             string id,
@@ -147,6 +157,8 @@ namespace Pulumi.AzureNative.EventHub
             string metricId,
 
             string name,
+
+            string provisioningState,
 
             Outputs.ClusterSkuResponse? sku,
 
@@ -162,11 +174,13 @@ namespace Pulumi.AzureNative.EventHub
 
             string updatedAt)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             Id = id;
             Location = location;
             MetricId = metricId;
             Name = name;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Status = status;
             SupportsScaling = supportsScaling;

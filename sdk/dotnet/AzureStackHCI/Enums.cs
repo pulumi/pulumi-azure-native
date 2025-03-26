@@ -52,7 +52,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NoCloud is used as the datasource
+        /// </summary>
         public static CloudInitDataSource NoCloud { get; } = new CloudInitDataSource("NoCloud");
+        /// <summary>
+        /// Azure is used as the datasource
+        /// </summary>
         public static CloudInitDataSource Azure { get; } = new CloudInitDataSource("Azure");
 
         public static bool operator ==(CloudInitDataSource left, CloudInitDataSource right) => left.Equals(right);
@@ -71,7 +77,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// Secured Core Compliance Assignment
+    /// WDAC Compliance Assignment
     /// </summary>
     [EnumType]
     public readonly struct ComplianceAssignmentType : IEquatable<ComplianceAssignmentType>
@@ -145,6 +151,39 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// Device kind to support polymorphic resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeviceKind : IEquatable<DeviceKind>
+    {
+        private readonly string _value;
+
+        private DeviceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Arc-enabled edge device with HCI OS.
+        /// </summary>
+        public static DeviceKind HCI { get; } = new DeviceKind("HCI");
+
+        public static bool operator ==(DeviceKind left, DeviceKind right) => left.Equals(right);
+        public static bool operator !=(DeviceKind left, DeviceKind right) => !left.Equals(right);
+
+        public static explicit operator string(DeviceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeviceKind other && Equals(other);
+        public bool Equals(DeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Desired level of diagnostic data emitted by the cluster.
     /// </summary>
     [EnumType]
@@ -189,7 +228,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// VHDX file format
+        /// </summary>
         public static DiskFileFormat Vhdx { get; } = new DiskFileFormat("vhdx");
+        /// <summary>
+        /// VHD file format
+        /// </summary>
         public static DiskFileFormat Vhd { get; } = new DiskFileFormat("vhd");
 
         public static bool operator ==(DiskFileFormat left, DiskFileFormat right) => left.Equals(right);
@@ -200,6 +245,51 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskFileFormat other && Equals(other);
         public bool Equals(DiskFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Secret name expected for Enterprise Cloud Engine (ECE) deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct EceSecrets : IEquatable<EceSecrets>
+    {
+        private readonly string _value;
+
+        private EceSecrets(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// AzureStackLCMUserCredential used for LCM operations for AzureStackHCI cluster.
+        /// </summary>
+        public static EceSecrets AzureStackLCMUserCredential { get; } = new EceSecrets("AzureStackLCMUserCredential");
+        /// <summary>
+        /// DefaultARBApplication used to manage Azure Arc resource bridge (ARB) for AzureStackHCI cluster.
+        /// </summary>
+        public static EceSecrets DefaultARBApplication { get; } = new EceSecrets("DefaultARBApplication");
+        /// <summary>
+        /// LocalAdminCredential used for admin operations for AzureStackHCI cluster.
+        /// </summary>
+        public static EceSecrets LocalAdminCredential { get; } = new EceSecrets("LocalAdminCredential");
+        /// <summary>
+        /// WitnessStorageKey used for setting up a cloud witness for AzureStackHCI cluster.
+        /// </summary>
+        public static EceSecrets WitnessStorageKey { get; } = new EceSecrets("WitnessStorageKey");
+
+        public static bool operator ==(EceSecrets left, EceSecrets right) => left.Equals(right);
+        public static bool operator !=(EceSecrets left, EceSecrets right) => !left.Equals(right);
+
+        public static explicit operator string(EceSecrets value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EceSecrets other && Equals(other);
+        public bool Equals(EceSecrets other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -271,6 +361,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// GPU assignment type
+    /// </summary>
+    [EnumType]
+    public readonly struct GpuAssignmentTypeEnum : IEquatable<GpuAssignmentTypeEnum>
+    {
+        private readonly string _value;
+
+        private GpuAssignmentTypeEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Attach Graphics Processing Unit (GPU) using Discrete Device Assignment (DDA)
+        /// </summary>
+        public static GpuAssignmentTypeEnum GpuDDA { get; } = new GpuAssignmentTypeEnum("GpuDDA");
+        /// <summary>
+        /// Attach Graphics Processing Unit (GPU) using GPU Partitioning
+        /// </summary>
+        public static GpuAssignmentTypeEnum GpuP { get; } = new GpuAssignmentTypeEnum("GpuP");
+
+        public static bool operator ==(GpuAssignmentTypeEnum left, GpuAssignmentTypeEnum right) => left.Equals(right);
+        public static bool operator !=(GpuAssignmentTypeEnum left, GpuAssignmentTypeEnum right) => !left.Equals(right);
+
+        public static explicit operator string(GpuAssignmentTypeEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GpuAssignmentTypeEnum other && Equals(other);
+        public bool Equals(GpuAssignmentTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Job Type to support polymorphic resource.
     /// </summary>
     [EnumType]
@@ -320,7 +447,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Generation 1 (V1) hypervisor
+        /// </summary>
         public static HyperVGeneration V1 { get; } = new HyperVGeneration("V1");
+        /// <summary>
+        /// Generation 2 (V2) hypervisor
+        /// </summary>
         public static HyperVGeneration V2 { get; } = new HyperVGeneration("V2");
 
         public static bool operator ==(HyperVGeneration left, HyperVGeneration right) => left.Equals(right);
@@ -339,7 +472,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// ip pool type
+    /// Type of the IP Pool [vm, vippool]
     /// </summary>
     [EnumType]
     public readonly struct IPPoolTypeEnum : IEquatable<IPPoolTypeEnum>
@@ -351,7 +484,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Virtual Machine IP Pool
+        /// </summary>
         public static IPPoolTypeEnum Vm { get; } = new IPPoolTypeEnum("vm");
+        /// <summary>
+        /// VIP Pool
+        /// </summary>
         public static IPPoolTypeEnum Vippool { get; } = new IPPoolTypeEnum("vippool");
 
         public static bool operator ==(IPPoolTypeEnum left, IPPoolTypeEnum right) => left.Equals(right);
@@ -416,7 +555,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
         public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
@@ -472,7 +611,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+    /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemTypes : IEquatable<OperatingSystemTypes>
@@ -484,8 +623,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static OperatingSystemTypes Linux { get; } = new OperatingSystemTypes("Linux");
+        /// <summary>
+        /// Windows operating system
+        /// </summary>
         public static OperatingSystemTypes Windows { get; } = new OperatingSystemTypes("Windows");
+        /// <summary>
+        /// Linux operating system
+        /// </summary>
+        public static OperatingSystemTypes Linux { get; } = new OperatingSystemTypes("Linux");
 
         public static bool operator ==(OperatingSystemTypes left, OperatingSystemTypes right) => left.Equals(right);
         public static bool operator !=(OperatingSystemTypes left, OperatingSystemTypes right) => !left.Equals(right);
@@ -495,6 +640,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OperatingSystemTypes other && Equals(other);
         public bool Equals(OperatingSystemTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The intended operation for a cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct OperationType : IEquatable<OperationType>
+    {
+        private readonly string _value;
+
+        private OperationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Cluster provisioning operation.
+        /// </summary>
+        public static OperationType ClusterProvisioning { get; } = new OperationType("ClusterProvisioning");
+        /// <summary>
+        /// Cluster upgrade operation.
+        /// </summary>
+        public static OperationType ClusterUpgrade { get; } = new OperationType("ClusterUpgrade");
+
+        public static bool operator ==(OperationType left, OperationType right) => left.Equals(right);
+        public static bool operator !=(OperationType left, OperationType right) => !left.Equals(right);
+
+        public static explicit operator string(OperationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperationType other && Equals(other);
+        public bool Equals(OperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -534,37 +716,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateIPAllocationMethodEnum : IEquatable<PrivateIPAllocationMethodEnum>
-    {
-        private readonly string _value;
-
-        private PrivateIPAllocationMethodEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateIPAllocationMethodEnum Dynamic { get; } = new PrivateIPAllocationMethodEnum("Dynamic");
-        public static PrivateIPAllocationMethodEnum Static { get; } = new PrivateIPAllocationMethodEnum("Static");
-
-        public static bool operator ==(PrivateIPAllocationMethodEnum left, PrivateIPAllocationMethodEnum right) => left.Equals(right);
-        public static bool operator !=(PrivateIPAllocationMethodEnum left, PrivateIPAllocationMethodEnum right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateIPAllocationMethodEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateIPAllocationMethodEnum other && Equals(other);
-        public bool Equals(PrivateIPAllocationMethodEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The guest agent provisioning action.
     /// </summary>
     [EnumType]
@@ -577,8 +728,17 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Install guest agent
+        /// </summary>
         public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
+        /// <summary>
+        /// Uninstall guest agent
+        /// </summary>
         public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
+        /// <summary>
+        /// Repair guest agent
+        /// </summary>
         public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
 
         public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);
@@ -697,6 +857,39 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the EncryptionType of the managed disk. It is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob. NOTE: It can be set for only Confidential VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityEncryptionType : IEquatable<SecurityEncryptionType>
+    {
+        private readonly string _value;
+
+        private SecurityEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Non-persisted TPM encryption type
+        /// </summary>
+        public static SecurityEncryptionType NonPersistedTPM { get; } = new SecurityEncryptionType("NonPersistedTPM");
+
+        public static bool operator ==(SecurityEncryptionType left, SecurityEncryptionType right) => left.Equals(right);
+        public static bool operator !=(SecurityEncryptionType left, SecurityEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityEncryptionType other && Equals(other);
+        public bool Equals(SecurityEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -836,7 +1029,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Trusted Launch security type
+        /// </summary>
         public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("TrustedLaunch");
+        /// <summary>
+        /// Confidential VM security type
+        /// </summary>
         public static SecurityTypes ConfidentialVM { get; } = new SecurityTypes("ConfidentialVM");
 
         public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
@@ -847,6 +1046,36 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecurityTypes other && Equals(other);
         public bool Equals(SecurityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceName : IEquatable<ServiceName>
+    {
+        private readonly string _value;
+
+        private ServiceName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceName WAC { get; } = new ServiceName("WAC");
+
+        public static bool operator ==(ServiceName left, ServiceName right) => left.Equals(right);
+        public static bool operator !=(ServiceName left, ServiceName right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceName other && Equals(other);
+        public bool Equals(ServiceName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -886,37 +1115,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// Status of the Software Assurance for the cluster.
-    /// </summary>
-    [EnumType]
-    public readonly struct SoftwareAssuranceStatus : IEquatable<SoftwareAssuranceStatus>
-    {
-        private readonly string _value;
-
-        private SoftwareAssuranceStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SoftwareAssuranceStatus Enabled { get; } = new SoftwareAssuranceStatus("Enabled");
-        public static SoftwareAssuranceStatus Disabled { get; } = new SoftwareAssuranceStatus("Disabled");
-
-        public static bool operator ==(SoftwareAssuranceStatus left, SoftwareAssuranceStatus right) => left.Equals(right);
-        public static bool operator !=(SoftwareAssuranceStatus left, SoftwareAssuranceStatus right) => !left.Equals(right);
-
-        public static explicit operator string(SoftwareAssuranceStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SoftwareAssuranceStatus other && Equals(other);
-        public bool Equals(SoftwareAssuranceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// State of the update as it relates to this stamp.
     /// </summary>
     [EnumType]
@@ -947,6 +1145,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public static State ReadyToInstall { get; } = new State("ReadyToInstall");
         public static State ScanInProgress { get; } = new State("ScanInProgress");
         public static State ScanFailed { get; } = new State("ScanFailed");
+        public static State AdditionalContentRequired { get; } = new State("AdditionalContentRequired");
 
         public static bool operator ==(State left, State right) => left.Equals(right);
         public static bool operator !=(State left, State right) => !left.Equals(right);
@@ -1033,6 +1232,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Enum of VM Sizes
+    /// </summary>
     [EnumType]
     public readonly struct VmSizeEnum : IEquatable<VmSizeEnum>
     {
@@ -1043,28 +1245,97 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Default virtual machine size
+        /// </summary>
         public static VmSizeEnum Default { get; } = new VmSizeEnum("Default");
+        /// <summary>
+        /// Standard A2 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_A2_v2 { get; } = new VmSizeEnum("Standard_A2_v2");
+        /// <summary>
+        /// Standard A4 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_A4_v2 { get; } = new VmSizeEnum("Standard_A4_v2");
+        /// <summary>
+        /// Standard D2s v3 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_D2s_v3 { get; } = new VmSizeEnum("Standard_D2s_v3");
+        /// <summary>
+        /// Standard D4s v3 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_D4s_v3 { get; } = new VmSizeEnum("Standard_D4s_v3");
+        /// <summary>
+        /// Standard D8s v3 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_D8s_v3 { get; } = new VmSizeEnum("Standard_D8s_v3");
+        /// <summary>
+        /// Standard D16s v3 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_D16s_v3 { get; } = new VmSizeEnum("Standard_D16s_v3");
+        /// <summary>
+        /// Standard D32s v3 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_D32s_v3 { get; } = new VmSizeEnum("Standard_D32s_v3");
+        /// <summary>
+        /// Standard DS2 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_DS2_v2 { get; } = new VmSizeEnum("Standard_DS2_v2");
+        /// <summary>
+        /// Standard DS3 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_DS3_v2 { get; } = new VmSizeEnum("Standard_DS3_v2");
+        /// <summary>
+        /// Standard DS4 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_DS4_v2 { get; } = new VmSizeEnum("Standard_DS4_v2");
+        /// <summary>
+        /// Standard DS5 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_DS5_v2 { get; } = new VmSizeEnum("Standard_DS5_v2");
+        /// <summary>
+        /// Standard DS13 v2 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_DS13_v2 { get; } = new VmSizeEnum("Standard_DS13_v2");
+        /// <summary>
+        /// Standard K8S v1 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_K8S_v1 { get; } = new VmSizeEnum("Standard_K8S_v1");
+        /// <summary>
+        /// Standard K8S2 v1 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_K8S2_v1 { get; } = new VmSizeEnum("Standard_K8S2_v1");
+        /// <summary>
+        /// Standard K8S3 v1 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_K8S3_v1 { get; } = new VmSizeEnum("Standard_K8S3_v1");
+        /// <summary>
+        /// Standard K8S4 v1 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_K8S4_v1 { get; } = new VmSizeEnum("Standard_K8S4_v1");
+        /// <summary>
+        /// Standard NK6 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_NK6 { get; } = new VmSizeEnum("Standard_NK6");
+        /// <summary>
+        /// Standard NK12 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_NK12 { get; } = new VmSizeEnum("Standard_NK12");
+        /// <summary>
+        /// Standard NV6 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_NV6 { get; } = new VmSizeEnum("Standard_NV6");
+        /// <summary>
+        /// Standard NV12 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_NV12 { get; } = new VmSizeEnum("Standard_NV12");
+        /// <summary>
+        /// Standard K8S5 v1 virtual machine size
+        /// </summary>
         public static VmSizeEnum Standard_K8S5_v1 { get; } = new VmSizeEnum("Standard_K8S5_v1");
+        /// <summary>
+        /// Custom virtual machine size
+        /// </summary>
         public static VmSizeEnum Custom { get; } = new VmSizeEnum("Custom");
 
         public static bool operator ==(VmSizeEnum left, VmSizeEnum right) => left.Equals(right);

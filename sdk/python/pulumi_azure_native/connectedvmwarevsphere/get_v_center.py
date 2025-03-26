@@ -27,7 +27,10 @@ class GetVCenterResult:
     """
     Defines the vCenter.
     """
-    def __init__(__self__, connection_status=None, credentials=None, custom_resource_name=None, extended_location=None, fqdn=None, id=None, instance_uuid=None, kind=None, location=None, name=None, port=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, version=None):
+    def __init__(__self__, azure_api_version=None, connection_status=None, credentials=None, custom_resource_name=None, extended_location=None, fqdn=None, id=None, instance_uuid=None, kind=None, location=None, name=None, port=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
         pulumi.set(__self__, "connection_status", connection_status)
@@ -82,6 +85,14 @@ class GetVCenterResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionStatus")
@@ -175,7 +186,7 @@ class GetVCenterResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -234,6 +245,7 @@ class AwaitableGetVCenterResult(GetVCenterResult):
         if False:
             yield self
         return GetVCenterResult(
+            azure_api_version=self.azure_api_version,
             connection_status=self.connection_status,
             credentials=self.credentials,
             custom_resource_name=self.custom_resource_name,
@@ -260,9 +272,9 @@ def get_v_center(resource_group_name: Optional[str] = None,
     """
     Implements vCenter GET method.
 
-    Uses Azure REST API version 2022-07-15-preview.
+    Uses Azure REST API version 2023-12-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -275,6 +287,7 @@ def get_v_center(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVCenter', __args__, opts=opts, typ=GetVCenterResult).value
 
     return AwaitableGetVCenterResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_status=pulumi.get(__ret__, 'connection_status'),
         credentials=pulumi.get(__ret__, 'credentials'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
@@ -299,9 +312,9 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Implements vCenter GET method.
 
-    Uses Azure REST API version 2022-07-15-preview.
+    Uses Azure REST API version 2023-12-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -313,6 +326,7 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVCenter', __args__, opts=opts, typ=GetVCenterResult)
     return __ret__.apply(lambda __response__: GetVCenterResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_status=pulumi.get(__response__, 'connection_status'),
         credentials=pulumi.get(__response__, 'credentials'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),

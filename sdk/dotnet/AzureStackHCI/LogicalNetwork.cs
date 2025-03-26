@@ -12,18 +12,24 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// The logical network resource definition.
     /// 
-    /// Uses Azure REST API version 2023-09-01-preview.
+    /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:LogicalNetwork")]
     public partial class LogicalNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         /// </summary>
         [Output("dhcpOptions")]
-        public Output<Outputs.LogicalNetworkPropertiesResponseDhcpOptions?> DhcpOptions { get; private set; } = null!;
+        public Output<Outputs.LogicalNetworkPropertiesDhcpOptionsResponse?> DhcpOptions { get; private set; } = null!;
 
         /// <summary>
         /// The extendedLocation of the resource.

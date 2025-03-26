@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly bool? EncryptionAtHost;
         /// <summary>
+        /// Specifies the Managed Identity used by ADE to get access token for keyvault operations.
+        /// </summary>
+        public readonly Outputs.EncryptionIdentityResponse? EncryptionIdentity;
+        /// <summary>
+        /// Specifies ProxyAgent settings while creating the virtual machine. Minimum api-version: 2023-09-01.
+        /// </summary>
+        public readonly Outputs.ProxyAgentSettingsResponse? ProxyAgentSettings;
+        /// <summary>
         /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
         /// </summary>
         public readonly string? SecurityType;
@@ -33,11 +41,17 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private SecurityProfileResponse(
             bool? encryptionAtHost,
 
+            Outputs.EncryptionIdentityResponse? encryptionIdentity,
+
+            Outputs.ProxyAgentSettingsResponse? proxyAgentSettings,
+
             string? securityType,
 
             Outputs.UefiSettingsResponse? uefiSettings)
         {
             EncryptionAtHost = encryptionAtHost;
+            EncryptionIdentity = encryptionIdentity;
+            ProxyAgentSettings = proxyAgentSettings;
             SecurityType = securityType;
             UefiSettings = uefiSettings;
         }

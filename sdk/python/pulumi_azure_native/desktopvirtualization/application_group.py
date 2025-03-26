@@ -33,6 +33,7 @@ class ApplicationGroupArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 show_in_feed: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -43,9 +44,10 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] application_group_name: The name of the application group
         :param pulumi.Input[str] description: Description of ApplicationGroup.
         :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        :param pulumi.Input[bool] show_in_feed: Boolean representing whether the applicationGroup is show in the feed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "application_group_type", application_group_type)
@@ -67,6 +69,8 @@ class ApplicationGroupArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if show_in_feed is not None:
+            pulumi.set(__self__, "show_in_feed", show_in_feed)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -157,7 +161,7 @@ class ApplicationGroupArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -199,6 +203,18 @@ class ApplicationGroupArgs:
         pulumi.set(self, "plan", value)
 
     @property
+    @pulumi.getter(name="showInFeed")
+    def show_in_feed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean representing whether the applicationGroup is show in the feed.
+        """
+        return pulumi.get(self, "show_in_feed")
+
+    @show_in_feed.setter
+    def show_in_feed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_in_feed", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]:
         return pulumi.get(self, "sku")
@@ -236,15 +252,16 @@ class ApplicationGroup(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 show_in_feed: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a ApplicationGroup definition.
 
-        Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
-        Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,10 +270,11 @@ class ApplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of ApplicationGroup.
         :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
         :param pulumi.Input[str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] show_in_feed: Boolean representing whether the applicationGroup is show in the feed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -268,9 +286,9 @@ class ApplicationGroup(pulumi.CustomResource):
         """
         Represents a ApplicationGroup definition.
 
-        Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
-        Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -298,6 +316,7 @@ class ApplicationGroup(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 show_in_feed: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -326,8 +345,10 @@ class ApplicationGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["show_in_feed"] = show_in_feed
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cloud_pc_resource"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -335,7 +356,7 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workspace_arm_path"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ApplicationGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:ApplicationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGroup, __self__).__init__(
             'azure-native:desktopvirtualization:ApplicationGroup',
@@ -360,6 +381,7 @@ class ApplicationGroup(pulumi.CustomResource):
         __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
         __props__.__dict__["application_group_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cloud_pc_resource"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
@@ -372,6 +394,7 @@ class ApplicationGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["plan"] = None
+        __props__.__dict__["show_in_feed"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -386,6 +409,14 @@ class ApplicationGroup(pulumi.CustomResource):
         Resource Type of ApplicationGroup.
         """
         return pulumi.get(self, "application_group_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudPcResource")
@@ -436,13 +467,13 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -478,6 +509,14 @@ class ApplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "plan")
 
     @property
+    @pulumi.getter(name="showInFeed")
+    def show_in_feed(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean representing whether the applicationGroup is show in the feed.
+        """
+        return pulumi.get(self, "show_in_feed")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']]:
         return pulumi.get(self, "sku")
@@ -486,7 +525,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

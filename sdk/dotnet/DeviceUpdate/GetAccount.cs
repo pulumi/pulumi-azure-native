@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// CMK encryption at rest properties
         /// </summary>
         public readonly Outputs.EncryptionResponse? Encryption;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             Outputs.EncryptionResponse? encryption,
 
             string hostName,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Encryption = encryption;
             HostName = hostName;
             Id = id;

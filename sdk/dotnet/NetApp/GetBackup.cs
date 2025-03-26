@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.NetApp
     public static class GetBackup
     {
         /// <summary>
-        /// Gets the specified backup of the volume
+        /// Get the specified Backup under Backup Vault.
         /// 
-        /// Uses Azure REST API version 2022-11-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the specified backup of the volume
+        /// Get the specified Backup under Backup Vault.
         /// 
-        /// Uses Azure REST API version 2022-11-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the specified backup of the volume
+        /// Get the specified Backup under Backup Vault.
         /// 
-        /// Uses Azure REST API version 2022-11-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
@@ -58,22 +58,16 @@ namespace Pulumi.AzureNative.NetApp
         public string BackupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the capacity pool
+        /// The name of the Backup Vault
         /// </summary>
-        [Input("poolName", required: true)]
-        public string PoolName { get; set; } = null!;
+        [Input("backupVaultName", required: true)]
+        public string BackupVaultName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the volume
-        /// </summary>
-        [Input("volumeName", required: true)]
-        public string VolumeName { get; set; } = null!;
 
         public GetBackupArgs()
         {
@@ -96,22 +90,16 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> BackupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the capacity pool
+        /// The name of the Backup Vault
         /// </summary>
-        [Input("poolName", required: true)]
-        public Input<string> PoolName { get; set; } = null!;
+        [Input("backupVaultName", required: true)]
+        public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the volume
-        /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
 
         public GetBackupInvokeArgs()
         {
@@ -124,9 +112,17 @@ namespace Pulumi.AzureNative.NetApp
     public sealed class GetBackupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// UUID v4 used to identify the Backup
         /// </summary>
         public readonly string BackupId;
+        /// <summary>
+        /// ResourceId used to identify the backup policy
+        /// </summary>
+        public readonly string BackupPolicyResourceId;
         /// <summary>
         /// Type of backup Manual or Scheduled
         /// </summary>
@@ -140,17 +136,13 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string FailureReason;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// Label for backup
         /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        public readonly string Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -160,9 +152,13 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Size of backup
+        /// Size of backup in bytes
         /// </summary>
         public readonly double Size;
+        /// <summary>
+        /// The name of the snapshot
+        /// </summary>
+        public readonly string? SnapshotName;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -176,13 +172,17 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly bool? UseExistingSnapshot;
         /// <summary>
-        /// Volume name
+        /// ResourceId used to identify the Volume
         /// </summary>
-        public readonly string VolumeName;
+        public readonly string VolumeResourceId;
 
         [OutputConstructor]
         private GetBackupResult(
+            string azureApiVersion,
+
             string backupId,
+
+            string backupPolicyResourceId,
 
             string backupType,
 
@@ -194,13 +194,13 @@ namespace Pulumi.AzureNative.NetApp
 
             string? label,
 
-            string location,
-
             string name,
 
             string provisioningState,
 
             double size,
+
+            string? snapshotName,
 
             Outputs.SystemDataResponse systemData,
 
@@ -208,22 +208,24 @@ namespace Pulumi.AzureNative.NetApp
 
             bool? useExistingSnapshot,
 
-            string volumeName)
+            string volumeResourceId)
         {
+            AzureApiVersion = azureApiVersion;
             BackupId = backupId;
+            BackupPolicyResourceId = backupPolicyResourceId;
             BackupType = backupType;
             CreationDate = creationDate;
             FailureReason = failureReason;
             Id = id;
             Label = label;
-            Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             Size = size;
+            SnapshotName = snapshotName;
             SystemData = systemData;
             Type = type;
             UseExistingSnapshot = useExistingSnapshot;
-            VolumeName = volumeName;
+            VolumeResourceId = volumeResourceId;
         }
     }
 }

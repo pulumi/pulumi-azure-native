@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.DataMigration
     public static class GetServiceTask
     {
         /// <summary>
-        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
+        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
         /// 
-        /// Uses Azure REST API version 2021-06-30.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServiceTaskResult> InvokeAsync(GetServiceTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceTaskResult>("azure-native:datamigration:getServiceTask", args ?? new GetServiceTaskArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
+        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
         /// 
-        /// Uses Azure REST API version 2021-06-30.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServiceTaskResult> Invoke(GetServiceTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceTaskResult>("azure-native:datamigration:getServiceTask", args ?? new GetServiceTaskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
+        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
         /// 
-        /// Uses Azure REST API version 2021-06-30.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServiceTaskResult> Invoke(GetServiceTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceTaskResult>("azure-native:datamigration:getServiceTask", args ?? new GetServiceTaskInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class GetServiceTaskResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// HTTP strong entity tag value. This is ignored if submitted.
         /// </summary>
         public readonly string? Etag;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.DataMigration
 
         [OutputConstructor]
         private GetServiceTaskResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

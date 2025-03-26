@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns the Workspace resource associated with the given name.
  *
- * Uses Azure REST API version 2022-01-10-preview.
+ * Uses Azure REST API version 2023-11-13-preview.
  *
- * Other available API versions: 2023-11-13-preview.
+ * Other available API versions: 2022-01-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
 
 export interface GetWorkspaceArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -34,21 +34,21 @@ export interface GetWorkspaceArgs {
 }
 
 /**
- * The resource proxy definition object for quantum workspace.
+ * The resource proxy definition object for Quantum Workspace.
  */
 export interface GetWorkspaceResult {
     /**
-     * The URI of the workspace endpoint.
+     * The Azure API version of the resource.
      */
-    readonly endpointUri: string;
+    readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Managed Identity information.
+     * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.quantum.QuantumWorkspaceResponseIdentity;
+    readonly identity?: outputs.quantum.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -58,19 +58,11 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * List of Providers selected for this Workspace
+     * Gets or sets the properties. Define quantum workspace's specific properties.
      */
-    readonly providers?: outputs.quantum.ProviderResponse[];
+    readonly properties: outputs.quantum.WorkspaceResourcePropertiesResponse;
     /**
-     * Provisioning status field
-     */
-    readonly provisioningState: string;
-    /**
-     * ARM Resource Id of the storage account associated with this workspace.
-     */
-    readonly storageAccount?: string;
-    /**
-     * System metadata
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.quantum.SystemDataResponse;
     /**
@@ -81,17 +73,13 @@ export interface GetWorkspaceResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Whether the current workspace is ready to accept Jobs.
-     */
-    readonly usable: string;
 }
 /**
  * Returns the Workspace resource associated with the given name.
  *
- * Uses Azure REST API version 2022-01-10-preview.
+ * Uses Azure REST API version 2023-11-13-preview.
  *
- * Other available API versions: 2023-11-13-preview.
+ * Other available API versions: 2022-01-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +91,7 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
 
 export interface GetWorkspaceOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

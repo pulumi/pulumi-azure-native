@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Represents a Package in Azure Security Insights.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview.
+    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ContentPackage")]
     public partial class ContentPackage : global::Pulumi.CustomResource
@@ -26,13 +26,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.MetadataAuthorResponse?> Author { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The categories of the package
         /// </summary>
         [Output("categories")]
         public Output<Outputs.MetadataCategoriesResponse?> Categories { get; private set; } = null!;
 
         /// <summary>
-        /// The package id
+        /// The content id of the package
         /// </summary>
         [Output("contentId")]
         public Output<string> ContentId { get; private set; } = null!;
@@ -42,6 +48,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("contentKind")]
         public Output<string> ContentKind { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+        /// </summary>
+        [Output("contentProductId")]
+        public Output<string> ContentProductId { get; private set; } = null!;
 
         /// <summary>
         /// The version of the content schema.
@@ -84,6 +96,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("icon")]
         public Output<string?> Icon { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag indicates if this template is deprecated
+        /// </summary>
+        [Output("isDeprecated")]
+        public Output<string?> IsDeprecated { get; private set; } = null!;
 
         /// <summary>
         /// Flag indicates if this package is among the featured list.
@@ -246,7 +264,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.MetadataCategoriesArgs>? Categories { get; set; }
 
         /// <summary>
-        /// The package id
+        /// The content id of the package
         /// </summary>
         [Input("contentId", required: true)]
         public Input<string> ContentId { get; set; } = null!;
@@ -256,6 +274,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("contentKind", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.PackageKind> ContentKind { get; set; } = null!;
+
+        /// <summary>
+        /// Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+        /// </summary>
+        [Input("contentProductId", required: true)]
+        public Input<string> ContentProductId { get; set; } = null!;
 
         /// <summary>
         /// The version of the content schema.
@@ -292,6 +316,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("icon")]
         public Input<string>? Icon { get; set; }
+
+        /// <summary>
+        /// Flag indicates if this template is deprecated
+        /// </summary>
+        [Input("isDeprecated")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Flag>? IsDeprecated { get; set; }
 
         /// <summary>
         /// Flag indicates if this package is among the featured list.

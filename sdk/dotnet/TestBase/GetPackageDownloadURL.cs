@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the download URL of a package.
         /// 
-        /// Uses Azure REST API version 2022-04-01-preview.
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPackageDownloadURLResult> InvokeAsync(GetPackageDownloadURLArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageDownloadURLResult>("azure-native:testbase:getPackageDownloadURL", args ?? new GetPackageDownloadURLArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the download URL of a package.
         /// 
-        /// Uses Azure REST API version 2022-04-01-preview.
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPackageDownloadURLResult> Invoke(GetPackageDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the download URL of a package.
         /// 
-        /// Uses Azure REST API version 2022-04-01-preview.
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPackageDownloadURLResult> Invoke(GetPackageDownloadURLInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.TestBase
         public string PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string> PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

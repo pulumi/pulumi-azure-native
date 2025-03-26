@@ -27,13 +27,28 @@ class GetAvsAssessmentsOperationResult:
     """
     AVS assessment resource.
     """
-    def __init__(__self__, assessment_error_summary=None, assessment_type=None, azure_location=None, azure_offer_code=None, confidence_rating_in_percentage=None, cpu_utilization=None, created_timestamp=None, currency=None, dedupe_compression=None, discount_percentage=None, failures_to_tolerate_and_raid_level=None, group_type=None, id=None, is_stretch_cluster_enabled=None, limiting_factor=None, mem_overcommit=None, name=None, node_type=None, number_of_machines=None, number_of_nodes=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, ram_utilization=None, reserved_instance=None, scaling_factor=None, schema_version=None, sizing_criterion=None, stage=None, status=None, storage_utilization=None, suitability=None, suitability_explanation=None, suitability_summary=None, system_data=None, time_range=None, total_cpu_cores=None, total_monthly_cost=None, total_ram_in_gb=None, total_storage_in_gb=None, type=None, updated_timestamp=None, vcpu_oversubscription=None):
+    def __init__(__self__, assessment_error_summary=None, assessment_type=None, avs_assessment_scenario=None, avs_estimated_external_storages=None, avs_estimated_networks=None, avs_estimated_nodes=None, azure_api_version=None, azure_location=None, azure_offer_code=None, confidence_rating_in_percentage=None, cost_components=None, cpu_headroom=None, cpu_utilization=None, created_timestamp=None, currency=None, dedupe_compression=None, discount_percentage=None, external_storage_types=None, failures_to_tolerate_and_raid_level=None, failures_to_tolerate_and_raid_level_list=None, group_type=None, id=None, is_stretch_cluster_enabled=None, is_vcf_byol_enabled=None, limiting_factor=None, mem_overcommit=None, name=None, node_type=None, node_types=None, number_of_machines=None, number_of_nodes=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, ram_utilization=None, reserved_instance=None, scaling_factor=None, schema_version=None, sizing_criterion=None, stage=None, status=None, storage_utilization=None, suitability=None, suitability_explanation=None, suitability_summary=None, system_data=None, time_range=None, total_cpu_cores=None, total_monthly_cost=None, total_ram_in_gb=None, total_storage_in_gb=None, type=None, updated_timestamp=None, vcpu_oversubscription=None):
         if assessment_error_summary and not isinstance(assessment_error_summary, dict):
             raise TypeError("Expected argument 'assessment_error_summary' to be a dict")
         pulumi.set(__self__, "assessment_error_summary", assessment_error_summary)
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
+        if avs_assessment_scenario and not isinstance(avs_assessment_scenario, str):
+            raise TypeError("Expected argument 'avs_assessment_scenario' to be a str")
+        pulumi.set(__self__, "avs_assessment_scenario", avs_assessment_scenario)
+        if avs_estimated_external_storages and not isinstance(avs_estimated_external_storages, list):
+            raise TypeError("Expected argument 'avs_estimated_external_storages' to be a list")
+        pulumi.set(__self__, "avs_estimated_external_storages", avs_estimated_external_storages)
+        if avs_estimated_networks and not isinstance(avs_estimated_networks, list):
+            raise TypeError("Expected argument 'avs_estimated_networks' to be a list")
+        pulumi.set(__self__, "avs_estimated_networks", avs_estimated_networks)
+        if avs_estimated_nodes and not isinstance(avs_estimated_nodes, list):
+            raise TypeError("Expected argument 'avs_estimated_nodes' to be a list")
+        pulumi.set(__self__, "avs_estimated_nodes", avs_estimated_nodes)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_location and not isinstance(azure_location, str):
             raise TypeError("Expected argument 'azure_location' to be a str")
         pulumi.set(__self__, "azure_location", azure_location)
@@ -43,6 +58,12 @@ class GetAvsAssessmentsOperationResult:
         if confidence_rating_in_percentage and not isinstance(confidence_rating_in_percentage, float):
             raise TypeError("Expected argument 'confidence_rating_in_percentage' to be a float")
         pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
+        if cost_components and not isinstance(cost_components, list):
+            raise TypeError("Expected argument 'cost_components' to be a list")
+        pulumi.set(__self__, "cost_components", cost_components)
+        if cpu_headroom and not isinstance(cpu_headroom, float):
+            raise TypeError("Expected argument 'cpu_headroom' to be a float")
+        pulumi.set(__self__, "cpu_headroom", cpu_headroom)
         if cpu_utilization and not isinstance(cpu_utilization, float):
             raise TypeError("Expected argument 'cpu_utilization' to be a float")
         pulumi.set(__self__, "cpu_utilization", cpu_utilization)
@@ -58,9 +79,15 @@ class GetAvsAssessmentsOperationResult:
         if discount_percentage and not isinstance(discount_percentage, float):
             raise TypeError("Expected argument 'discount_percentage' to be a float")
         pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if external_storage_types and not isinstance(external_storage_types, list):
+            raise TypeError("Expected argument 'external_storage_types' to be a list")
+        pulumi.set(__self__, "external_storage_types", external_storage_types)
         if failures_to_tolerate_and_raid_level and not isinstance(failures_to_tolerate_and_raid_level, str):
             raise TypeError("Expected argument 'failures_to_tolerate_and_raid_level' to be a str")
         pulumi.set(__self__, "failures_to_tolerate_and_raid_level", failures_to_tolerate_and_raid_level)
+        if failures_to_tolerate_and_raid_level_list and not isinstance(failures_to_tolerate_and_raid_level_list, list):
+            raise TypeError("Expected argument 'failures_to_tolerate_and_raid_level_list' to be a list")
+        pulumi.set(__self__, "failures_to_tolerate_and_raid_level_list", failures_to_tolerate_and_raid_level_list)
         if group_type and not isinstance(group_type, str):
             raise TypeError("Expected argument 'group_type' to be a str")
         pulumi.set(__self__, "group_type", group_type)
@@ -70,6 +97,9 @@ class GetAvsAssessmentsOperationResult:
         if is_stretch_cluster_enabled and not isinstance(is_stretch_cluster_enabled, bool):
             raise TypeError("Expected argument 'is_stretch_cluster_enabled' to be a bool")
         pulumi.set(__self__, "is_stretch_cluster_enabled", is_stretch_cluster_enabled)
+        if is_vcf_byol_enabled and not isinstance(is_vcf_byol_enabled, bool):
+            raise TypeError("Expected argument 'is_vcf_byol_enabled' to be a bool")
+        pulumi.set(__self__, "is_vcf_byol_enabled", is_vcf_byol_enabled)
         if limiting_factor and not isinstance(limiting_factor, str):
             raise TypeError("Expected argument 'limiting_factor' to be a str")
         pulumi.set(__self__, "limiting_factor", limiting_factor)
@@ -82,6 +112,9 @@ class GetAvsAssessmentsOperationResult:
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
+        if node_types and not isinstance(node_types, list):
+            raise TypeError("Expected argument 'node_types' to be a list")
+        pulumi.set(__self__, "node_types", node_types)
         if number_of_machines and not isinstance(number_of_machines, int):
             raise TypeError("Expected argument 'number_of_machines' to be a int")
         pulumi.set(__self__, "number_of_machines", number_of_machines)
@@ -183,6 +216,46 @@ class GetAvsAssessmentsOperationResult:
         return pulumi.get(self, "assessment_type")
 
     @property
+    @pulumi.getter(name="avsAssessmentScenario")
+    def avs_assessment_scenario(self) -> Optional[str]:
+        """
+        AVS Assessment Scenario.
+        """
+        return pulumi.get(self, "avs_assessment_scenario")
+
+    @property
+    @pulumi.getter(name="avsEstimatedExternalStorages")
+    def avs_estimated_external_storages(self) -> Sequence['outputs.AvsEstimatedExternalStorageResponse']:
+        """
+        Estimated External Storage for Assessment.
+        """
+        return pulumi.get(self, "avs_estimated_external_storages")
+
+    @property
+    @pulumi.getter(name="avsEstimatedNetworks")
+    def avs_estimated_networks(self) -> Sequence['outputs.AvsEstimatedNetworkResponse']:
+        """
+        Estimated External Storage for Assessment.
+        """
+        return pulumi.get(self, "avs_estimated_networks")
+
+    @property
+    @pulumi.getter(name="avsEstimatedNodes")
+    def avs_estimated_nodes(self) -> Sequence['outputs.AvsEstimatedNodeResponse']:
+        """
+        Estimated AVS SKU for Assessment.
+        """
+        return pulumi.get(self, "avs_estimated_nodes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="azureLocation")
     def azure_location(self) -> Optional[str]:
         """
@@ -205,6 +278,22 @@ class GetAvsAssessmentsOperationResult:
         Confidence Rating in Percentage.
         """
         return pulumi.get(self, "confidence_rating_in_percentage")
+
+    @property
+    @pulumi.getter(name="costComponents")
+    def cost_components(self) -> Sequence['outputs.CostComponentResponse']:
+        """
+        collection of cost components.
+        """
+        return pulumi.get(self, "cost_components")
+
+    @property
+    @pulumi.getter(name="cpuHeadroom")
+    def cpu_headroom(self) -> Optional[float]:
+        """
+        Percentage of CPU capacity reserved for processing additional workloads.
+        """
+        return pulumi.get(self, "cpu_headroom")
 
     @property
     @pulumi.getter(name="cpuUtilization")
@@ -247,12 +336,28 @@ class GetAvsAssessmentsOperationResult:
         return pulumi.get(self, "discount_percentage")
 
     @property
+    @pulumi.getter(name="externalStorageTypes")
+    def external_storage_types(self) -> Optional[Sequence[str]]:
+        """
+        List of AVS external storage types.
+        """
+        return pulumi.get(self, "external_storage_types")
+
+    @property
     @pulumi.getter(name="failuresToTolerateAndRaidLevel")
     def failures_to_tolerate_and_raid_level(self) -> Optional[str]:
         """
         Failures to tolerate and RAID level in a common property.
         """
         return pulumi.get(self, "failures_to_tolerate_and_raid_level")
+
+    @property
+    @pulumi.getter(name="failuresToTolerateAndRaidLevelList")
+    def failures_to_tolerate_and_raid_level_list(self) -> Optional[Sequence[str]]:
+        """
+        List of Failures to tolerate and RAID levels in a common property.
+        """
+        return pulumi.get(self, "failures_to_tolerate_and_raid_level_list")
 
     @property
     @pulumi.getter(name="groupType")
@@ -266,7 +371,7 @@ class GetAvsAssessmentsOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -277,6 +382,14 @@ class GetAvsAssessmentsOperationResult:
         Is Stretch Cluster Enabled.
         """
         return pulumi.get(self, "is_stretch_cluster_enabled")
+
+    @property
+    @pulumi.getter(name="isVcfByolEnabled")
+    def is_vcf_byol_enabled(self) -> Optional[bool]:
+        """
+        Is VCF license applied
+        """
+        return pulumi.get(self, "is_vcf_byol_enabled")
 
     @property
     @pulumi.getter(name="limitingFactor")
@@ -309,6 +422,14 @@ class GetAvsAssessmentsOperationResult:
         AVS node type.
         """
         return pulumi.get(self, "node_type")
+
+    @property
+    @pulumi.getter(name="nodeTypes")
+    def node_types(self) -> Optional[Sequence[str]]:
+        """
+        AVS node types.
+        """
+        return pulumi.get(self, "node_types")
 
     @property
     @pulumi.getter(name="numberOfMachines")
@@ -539,22 +660,33 @@ class AwaitableGetAvsAssessmentsOperationResult(GetAvsAssessmentsOperationResult
         return GetAvsAssessmentsOperationResult(
             assessment_error_summary=self.assessment_error_summary,
             assessment_type=self.assessment_type,
+            avs_assessment_scenario=self.avs_assessment_scenario,
+            avs_estimated_external_storages=self.avs_estimated_external_storages,
+            avs_estimated_networks=self.avs_estimated_networks,
+            avs_estimated_nodes=self.avs_estimated_nodes,
+            azure_api_version=self.azure_api_version,
             azure_location=self.azure_location,
             azure_offer_code=self.azure_offer_code,
             confidence_rating_in_percentage=self.confidence_rating_in_percentage,
+            cost_components=self.cost_components,
+            cpu_headroom=self.cpu_headroom,
             cpu_utilization=self.cpu_utilization,
             created_timestamp=self.created_timestamp,
             currency=self.currency,
             dedupe_compression=self.dedupe_compression,
             discount_percentage=self.discount_percentage,
+            external_storage_types=self.external_storage_types,
             failures_to_tolerate_and_raid_level=self.failures_to_tolerate_and_raid_level,
+            failures_to_tolerate_and_raid_level_list=self.failures_to_tolerate_and_raid_level_list,
             group_type=self.group_type,
             id=self.id,
             is_stretch_cluster_enabled=self.is_stretch_cluster_enabled,
+            is_vcf_byol_enabled=self.is_vcf_byol_enabled,
             limiting_factor=self.limiting_factor,
             mem_overcommit=self.mem_overcommit,
             name=self.name,
             node_type=self.node_type,
+            node_types=self.node_types,
             number_of_machines=self.number_of_machines,
             number_of_nodes=self.number_of_nodes,
             percentile=self.percentile,
@@ -592,9 +724,9 @@ def get_avs_assessments_operation(assessment_name: Optional[str] = None,
     """
     Get a AvsAssessment
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: AVS Assessment ARM name
@@ -613,22 +745,33 @@ def get_avs_assessments_operation(assessment_name: Optional[str] = None,
     return AwaitableGetAvsAssessmentsOperationResult(
         assessment_error_summary=pulumi.get(__ret__, 'assessment_error_summary'),
         assessment_type=pulumi.get(__ret__, 'assessment_type'),
+        avs_assessment_scenario=pulumi.get(__ret__, 'avs_assessment_scenario'),
+        avs_estimated_external_storages=pulumi.get(__ret__, 'avs_estimated_external_storages'),
+        avs_estimated_networks=pulumi.get(__ret__, 'avs_estimated_networks'),
+        avs_estimated_nodes=pulumi.get(__ret__, 'avs_estimated_nodes'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_location=pulumi.get(__ret__, 'azure_location'),
         azure_offer_code=pulumi.get(__ret__, 'azure_offer_code'),
         confidence_rating_in_percentage=pulumi.get(__ret__, 'confidence_rating_in_percentage'),
+        cost_components=pulumi.get(__ret__, 'cost_components'),
+        cpu_headroom=pulumi.get(__ret__, 'cpu_headroom'),
         cpu_utilization=pulumi.get(__ret__, 'cpu_utilization'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         currency=pulumi.get(__ret__, 'currency'),
         dedupe_compression=pulumi.get(__ret__, 'dedupe_compression'),
         discount_percentage=pulumi.get(__ret__, 'discount_percentage'),
+        external_storage_types=pulumi.get(__ret__, 'external_storage_types'),
         failures_to_tolerate_and_raid_level=pulumi.get(__ret__, 'failures_to_tolerate_and_raid_level'),
+        failures_to_tolerate_and_raid_level_list=pulumi.get(__ret__, 'failures_to_tolerate_and_raid_level_list'),
         group_type=pulumi.get(__ret__, 'group_type'),
         id=pulumi.get(__ret__, 'id'),
         is_stretch_cluster_enabled=pulumi.get(__ret__, 'is_stretch_cluster_enabled'),
+        is_vcf_byol_enabled=pulumi.get(__ret__, 'is_vcf_byol_enabled'),
         limiting_factor=pulumi.get(__ret__, 'limiting_factor'),
         mem_overcommit=pulumi.get(__ret__, 'mem_overcommit'),
         name=pulumi.get(__ret__, 'name'),
         node_type=pulumi.get(__ret__, 'node_type'),
+        node_types=pulumi.get(__ret__, 'node_types'),
         number_of_machines=pulumi.get(__ret__, 'number_of_machines'),
         number_of_nodes=pulumi.get(__ret__, 'number_of_nodes'),
         percentile=pulumi.get(__ret__, 'percentile'),
@@ -664,9 +807,9 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
     """
     Get a AvsAssessment
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: AVS Assessment ARM name
@@ -684,22 +827,33 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
     return __ret__.apply(lambda __response__: GetAvsAssessmentsOperationResult(
         assessment_error_summary=pulumi.get(__response__, 'assessment_error_summary'),
         assessment_type=pulumi.get(__response__, 'assessment_type'),
+        avs_assessment_scenario=pulumi.get(__response__, 'avs_assessment_scenario'),
+        avs_estimated_external_storages=pulumi.get(__response__, 'avs_estimated_external_storages'),
+        avs_estimated_networks=pulumi.get(__response__, 'avs_estimated_networks'),
+        avs_estimated_nodes=pulumi.get(__response__, 'avs_estimated_nodes'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_location=pulumi.get(__response__, 'azure_location'),
         azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
         confidence_rating_in_percentage=pulumi.get(__response__, 'confidence_rating_in_percentage'),
+        cost_components=pulumi.get(__response__, 'cost_components'),
+        cpu_headroom=pulumi.get(__response__, 'cpu_headroom'),
         cpu_utilization=pulumi.get(__response__, 'cpu_utilization'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         currency=pulumi.get(__response__, 'currency'),
         dedupe_compression=pulumi.get(__response__, 'dedupe_compression'),
         discount_percentage=pulumi.get(__response__, 'discount_percentage'),
+        external_storage_types=pulumi.get(__response__, 'external_storage_types'),
         failures_to_tolerate_and_raid_level=pulumi.get(__response__, 'failures_to_tolerate_and_raid_level'),
+        failures_to_tolerate_and_raid_level_list=pulumi.get(__response__, 'failures_to_tolerate_and_raid_level_list'),
         group_type=pulumi.get(__response__, 'group_type'),
         id=pulumi.get(__response__, 'id'),
         is_stretch_cluster_enabled=pulumi.get(__response__, 'is_stretch_cluster_enabled'),
+        is_vcf_byol_enabled=pulumi.get(__response__, 'is_vcf_byol_enabled'),
         limiting_factor=pulumi.get(__response__, 'limiting_factor'),
         mem_overcommit=pulumi.get(__response__, 'mem_overcommit'),
         name=pulumi.get(__response__, 'name'),
         node_type=pulumi.get(__response__, 'node_type'),
+        node_types=pulumi.get(__response__, 'node_types'),
         number_of_machines=pulumi.get(__response__, 'number_of_machines'),
         number_of_nodes=pulumi.get(__response__, 'number_of_nodes'),
         percentile=pulumi.get(__response__, 'percentile'),

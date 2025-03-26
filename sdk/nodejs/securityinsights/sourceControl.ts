@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a SourceControl in Azure Security Insights.
  *
- * Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+ * Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SourceControl extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class SourceControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === SourceControl.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Array of source control content types.
      */
@@ -131,11 +135,13 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["sourceControlId"] = args ? args.sourceControlId : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentTypes"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

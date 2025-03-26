@@ -39,13 +39,6 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 // Export enums:
 export * from "../types/enums/powerplatform";
 
-// Export sub-modules:
-import * as v20201030preview from "./v20201030preview";
-
-export {
-    v20201030preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

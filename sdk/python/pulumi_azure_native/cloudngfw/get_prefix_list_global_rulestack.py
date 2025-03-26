@@ -27,10 +27,13 @@ class GetPrefixListGlobalRulestackResult:
     """
     GlobalRulestack prefixList
     """
-    def __init__(__self__, audit_comment=None, description=None, etag=None, id=None, name=None, prefix_list=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, audit_comment=None, azure_api_version=None, description=None, etag=None, id=None, name=None, prefix_list=None, provisioning_state=None, system_data=None, type=None):
         if audit_comment and not isinstance(audit_comment, str):
             raise TypeError("Expected argument 'audit_comment' to be a str")
         pulumi.set(__self__, "audit_comment", audit_comment)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -63,6 +66,14 @@ class GetPrefixListGlobalRulestackResult:
         comment for this object
         """
         return pulumi.get(self, "audit_comment")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetPrefixListGlobalRulestackResult(GetPrefixListGlobalRulestackRe
             yield self
         return GetPrefixListGlobalRulestackResult(
             audit_comment=self.audit_comment,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
@@ -152,9 +164,9 @@ def get_prefix_list_global_rulestack(global_rulestack_name: Optional[str] = None
     """
     Get a PrefixListGlobalRulestackResource
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2025-02-06-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -168,6 +180,7 @@ def get_prefix_list_global_rulestack(global_rulestack_name: Optional[str] = None
 
     return AwaitableGetPrefixListGlobalRulestackResult(
         audit_comment=pulumi.get(__ret__, 'audit_comment'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -182,9 +195,9 @@ def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulu
     """
     Get a PrefixListGlobalRulestackResource
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2025-02-06-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -197,6 +210,7 @@ def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulu
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getPrefixListGlobalRulestack', __args__, opts=opts, typ=GetPrefixListGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetPrefixListGlobalRulestackResult(
         audit_comment=pulumi.get(__response__, 'audit_comment'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

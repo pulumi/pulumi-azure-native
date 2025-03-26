@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication SystemAssignedManagedIdentity properties
+    /// DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse
+    public sealed class DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse
     {
         /// <summary>
         /// Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         /// </summary>
-        public readonly string Audience;
+        public readonly string? Audience;
 
         [OutputConstructor]
-        private DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse(string audience)
+        private DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse(string? audience)
         {
             Audience = audience;
         }

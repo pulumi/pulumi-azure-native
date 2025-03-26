@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**
@@ -40,10 +40,14 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.AADAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.OAuth2AuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -77,10 +81,12 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -101,7 +107,7 @@ export interface WorkspaceConnectionArgs {
      * Friendly name of the workspace connection
      */
     connectionName?: pulumi.Input<string>;
-    properties: pulumi.Input<inputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.AADAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.OAuth2AuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

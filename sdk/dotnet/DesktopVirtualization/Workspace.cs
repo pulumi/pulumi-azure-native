@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Represents a Workspace definition.
     /// 
-    /// Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+    /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
     /// 
-    /// Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("applicationGroupReferences")]
         public Output<ImmutableArray<string>> ApplicationGroupReferences { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Is cloud pc resource.
@@ -53,7 +59,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -62,7 +68,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -85,11 +91,23 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [Output("plan")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -148,6 +166,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:Workspace" },
@@ -208,7 +227,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -227,6 +246,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [Input("plan")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

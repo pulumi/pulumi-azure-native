@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// <summary>
     /// The managed cluster resource
     /// 
-    /// Uses Azure REST API version 2023-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource
@@ -60,6 +60,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("azureActiveDirectory")]
         public Output<Outputs.AzureActiveDirectoryResponse?> AzureActiveDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The port used for client connections to the cluster.
@@ -110,6 +116,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string?> ClusterUpgradeMode { get; private set; } = null!;
 
         /// <summary>
+        /// Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+        /// </summary>
+        [Output("ddosProtectionPlanId")]
+        public Output<string?> DdosProtectionPlanId { get; private set; } = null!;
+
+        /// <summary>
         /// The cluster dns name.
         /// </summary>
         [Output("dnsName")]
@@ -120,6 +132,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("enableAutoOSUpgrade")]
         public Output<bool?> EnableAutoOSUpgrade { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+        /// </summary>
+        [Output("enableHttpGatewayExclusiveAuthMode")]
+        public Output<bool?> EnableHttpGatewayExclusiveAuthMode { get; private set; } = null!;
 
         /// <summary>
         /// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
@@ -158,10 +176,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<int?> HttpGatewayConnectionPort { get; private set; } = null!;
 
         /// <summary>
+        /// The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        /// </summary>
+        [Output("httpGatewayTokenAuthConnectionPort")]
+        public Output<int?> HttpGatewayTokenAuthConnectionPort { get; private set; } = null!;
+
+        /// <summary>
         /// The list of IP tags associated with the default public IP address of the cluster.
         /// </summary>
         [Output("ipTags")]
-        public Output<ImmutableArray<Outputs.IPTagResponse>> IpTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpTagResponse>> IpTags { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 address associated with the public load balancer of the cluster.
@@ -206,10 +230,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        /// Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         /// </summary>
         [Output("publicIPPrefixId")]
         public Output<string?> PublicIPPrefixId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+        /// </summary>
+        [Output("publicIPv6PrefixId")]
+        public Output<string?> PublicIPv6PrefixId { get; private set; } = null!;
 
         /// <summary>
         /// Service endpoints for subnets in the cluster.
@@ -246,6 +276,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The policy to use when upgrading the cluster.
+        /// </summary>
+        [Output("upgradeDescription")]
+        public Output<Outputs.ClusterUpgradePolicyResponse?> UpgradeDescription { get; private set; } = null!;
 
         /// <summary>
         /// For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
@@ -432,6 +468,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ClusterUpgradeMode>? ClusterUpgradeMode { get; set; }
 
         /// <summary>
+        /// Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+        /// </summary>
+        [Input("ddosProtectionPlanId")]
+        public Input<string>? DdosProtectionPlanId { get; set; }
+
+        /// <summary>
         /// The cluster dns name.
         /// </summary>
         [Input("dnsName", required: true)]
@@ -442,6 +484,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Input("enableAutoOSUpgrade")]
         public Input<bool>? EnableAutoOSUpgrade { get; set; }
+
+        /// <summary>
+        /// If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+        /// </summary>
+        [Input("enableHttpGatewayExclusiveAuthMode")]
+        public Input<bool>? EnableHttpGatewayExclusiveAuthMode { get; set; }
 
         /// <summary>
         /// Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
@@ -473,15 +521,21 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("httpGatewayConnectionPort")]
         public Input<int>? HttpGatewayConnectionPort { get; set; }
 
+        /// <summary>
+        /// The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        /// </summary>
+        [Input("httpGatewayTokenAuthConnectionPort")]
+        public Input<int>? HttpGatewayTokenAuthConnectionPort { get; set; }
+
         [Input("ipTags")]
-        private InputList<Inputs.IPTagArgs>? _ipTags;
+        private InputList<Inputs.IpTagArgs>? _ipTags;
 
         /// <summary>
         /// The list of IP tags associated with the default public IP address of the cluster.
         /// </summary>
-        public InputList<Inputs.IPTagArgs> IpTags
+        public InputList<Inputs.IpTagArgs> IpTags
         {
-            get => _ipTags ?? (_ipTags = new InputList<Inputs.IPTagArgs>());
+            get => _ipTags ?? (_ipTags = new InputList<Inputs.IpTagArgs>());
             set => _ipTags = value;
         }
 
@@ -516,10 +570,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        /// Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         /// </summary>
         [Input("publicIPPrefixId")]
         public Input<string>? PublicIPPrefixId { get; set; }
+
+        /// <summary>
+        /// Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+        /// </summary>
+        [Input("publicIPv6PrefixId")]
+        public Input<string>? PublicIPv6PrefixId { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -562,6 +622,12 @@ namespace Pulumi.AzureNative.ServiceFabric
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The policy to use when upgrading the cluster.
+        /// </summary>
+        [Input("upgradeDescription")]
+        public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradeDescription { get; set; }
 
         /// <summary>
         /// For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.

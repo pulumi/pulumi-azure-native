@@ -27,7 +27,10 @@ class GetVirtualNetworkResult:
     """
     The virtual network resource definition.
     """
-    def __init__(__self__, dhcp_options=None, extended_location=None, id=None, location=None, name=None, network_type=None, provisioning_state=None, status=None, subnets=None, system_data=None, tags=None, type=None, vm_switch_name=None):
+    def __init__(__self__, azure_api_version=None, dhcp_options=None, extended_location=None, id=None, location=None, name=None, network_type=None, provisioning_state=None, status=None, subnets=None, system_data=None, tags=None, type=None, vm_switch_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dhcp_options and not isinstance(dhcp_options, dict):
             raise TypeError("Expected argument 'dhcp_options' to be a dict")
         pulumi.set(__self__, "dhcp_options", dhcp_options)
@@ -67,6 +70,14 @@ class GetVirtualNetworkResult:
         if vm_switch_name and not isinstance(vm_switch_name, str):
             raise TypeError("Expected argument 'vm_switch_name' to be a str")
         pulumi.set(__self__, "vm_switch_name", vm_switch_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dhcpOptions")
@@ -179,6 +190,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         if False:
             yield self
         return GetVirtualNetworkResult(
+            azure_api_version=self.azure_api_version,
             dhcp_options=self.dhcp_options,
             extended_location=self.extended_location,
             id=self.id,
@@ -200,9 +212,9 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     """
     The virtual network resource definition.
 
-    Uses Azure REST API version 2022-12-15-preview.
+    Uses Azure REST API version 2023-07-01-preview.
 
-    Other available API versions: 2023-07-01-preview.
+    Other available API versions: 2022-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -215,6 +227,7 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dhcp_options=pulumi.get(__ret__, 'dhcp_options'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -234,9 +247,9 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     The virtual network resource definition.
 
-    Uses Azure REST API version 2022-12-15-preview.
+    Uses Azure REST API version 2023-07-01-preview.
 
-    Other available API versions: 2023-07-01-preview.
+    Other available API versions: 2022-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -248,6 +261,7 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dhcp_options=pulumi.get(__response__, 'dhcp_options'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

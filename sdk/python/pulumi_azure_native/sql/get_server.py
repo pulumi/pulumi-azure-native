@@ -27,13 +27,19 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrators=None, federated_client_id=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, public_network_access=None, restrict_outbound_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, administrators=None, azure_api_version=None, external_governance_status=None, federated_client_id=None, fully_qualified_domain_name=None, id=None, identity=None, is_i_pv6_enabled=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, public_network_access=None, restrict_outbound_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if administrators and not isinstance(administrators, dict):
             raise TypeError("Expected argument 'administrators' to be a dict")
         pulumi.set(__self__, "administrators", administrators)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if external_governance_status and not isinstance(external_governance_status, str):
+            raise TypeError("Expected argument 'external_governance_status' to be a str")
+        pulumi.set(__self__, "external_governance_status", external_governance_status)
         if federated_client_id and not isinstance(federated_client_id, str):
             raise TypeError("Expected argument 'federated_client_id' to be a str")
         pulumi.set(__self__, "federated_client_id", federated_client_id)
@@ -46,6 +52,9 @@ class GetServerResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if is_i_pv6_enabled and not isinstance(is_i_pv6_enabled, str):
+            raise TypeError("Expected argument 'is_i_pv6_enabled' to be a str")
+        pulumi.set(__self__, "is_i_pv6_enabled", is_i_pv6_enabled)
         if key_id and not isinstance(key_id, str):
             raise TypeError("Expected argument 'key_id' to be a str")
         pulumi.set(__self__, "key_id", key_id)
@@ -101,9 +110,25 @@ class GetServerResult:
     @pulumi.getter
     def administrators(self) -> Optional['outputs.ServerExternalAdministratorResponse']:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="externalGovernanceStatus")
+    def external_governance_status(self) -> str:
+        """
+        Status of external governance.
+        """
+        return pulumi.get(self, "external_governance_status")
 
     @property
     @pulumi.getter(name="federatedClientId")
@@ -138,6 +163,14 @@ class GetServerResult:
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="isIPv6Enabled")
+    def is_i_pv6_enabled(self) -> Optional[str]:
+        """
+        Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "is_i_pv6_enabled")
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
         """
@@ -165,7 +198,7 @@ class GetServerResult:
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> Optional[str]:
         """
-        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         """
         return pulumi.get(self, "minimal_tls_version")
 
@@ -197,7 +230,7 @@ class GetServerResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         """
         return pulumi.get(self, "public_network_access")
 
@@ -258,10 +291,13 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             administrators=self.administrators,
+            azure_api_version=self.azure_api_version,
+            external_governance_status=self.external_governance_status,
             federated_client_id=self.federated_client_id,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
+            is_i_pv6_enabled=self.is_i_pv6_enabled,
             key_id=self.key_id,
             kind=self.kind,
             location=self.location,
@@ -285,9 +321,9 @@ def get_server(expand: Optional[str] = None,
     """
     Gets a server.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The child resources to include in the response.
@@ -304,10 +340,13 @@ def get_server(expand: Optional[str] = None,
     return AwaitableGetServerResult(
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
         administrators=pulumi.get(__ret__, 'administrators'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        external_governance_status=pulumi.get(__ret__, 'external_governance_status'),
         federated_client_id=pulumi.get(__ret__, 'federated_client_id'),
         fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        is_i_pv6_enabled=pulumi.get(__ret__, 'is_i_pv6_enabled'),
         key_id=pulumi.get(__ret__, 'key_id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
@@ -329,9 +368,9 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets a server.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The child resources to include in the response.
@@ -347,10 +386,13 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     return __ret__.apply(lambda __response__: GetServerResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),
         administrators=pulumi.get(__response__, 'administrators'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        external_governance_status=pulumi.get(__response__, 'external_governance_status'),
         federated_client_id=pulumi.get(__response__, 'federated_client_id'),
         fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        is_i_pv6_enabled=pulumi.get(__response__, 'is_i_pv6_enabled'),
         key_id=pulumi.get(__response__, 'key_id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),

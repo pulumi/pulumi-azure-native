@@ -27,10 +27,13 @@ class GetDeploymentSettingResult:
     """
     Edge device resource
     """
-    def __init__(__self__, arc_node_resource_ids=None, deployment_configuration=None, deployment_mode=None, id=None, name=None, provisioning_state=None, reported_properties=None, system_data=None, type=None):
+    def __init__(__self__, arc_node_resource_ids=None, azure_api_version=None, deployment_configuration=None, deployment_mode=None, id=None, name=None, operation_type=None, provisioning_state=None, reported_properties=None, system_data=None, type=None):
         if arc_node_resource_ids and not isinstance(arc_node_resource_ids, list):
             raise TypeError("Expected argument 'arc_node_resource_ids' to be a list")
         pulumi.set(__self__, "arc_node_resource_ids", arc_node_resource_ids)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_configuration and not isinstance(deployment_configuration, dict):
             raise TypeError("Expected argument 'deployment_configuration' to be a dict")
         pulumi.set(__self__, "deployment_configuration", deployment_configuration)
@@ -43,6 +46,9 @@ class GetDeploymentSettingResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if operation_type and not isinstance(operation_type, str):
+            raise TypeError("Expected argument 'operation_type' to be a str")
+        pulumi.set(__self__, "operation_type", operation_type)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -65,6 +71,14 @@ class GetDeploymentSettingResult:
         return pulumi.get(self, "arc_node_resource_ids")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> 'outputs.DeploymentConfigurationResponse':
         """
@@ -84,7 +98,7 @@ class GetDeploymentSettingResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -97,6 +111,14 @@ class GetDeploymentSettingResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[str]:
+        """
+        The intended operation for a cluster.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -106,7 +128,7 @@ class GetDeploymentSettingResult:
 
     @property
     @pulumi.getter(name="reportedProperties")
-    def reported_properties(self) -> 'outputs.ReportedPropertiesResponse':
+    def reported_properties(self) -> 'outputs.EceReportedPropertiesResponse':
         """
         Deployment Status reported from cluster.
         """
@@ -136,10 +158,12 @@ class AwaitableGetDeploymentSettingResult(GetDeploymentSettingResult):
             yield self
         return GetDeploymentSettingResult(
             arc_node_resource_ids=self.arc_node_resource_ids,
+            azure_api_version=self.azure_api_version,
             deployment_configuration=self.deployment_configuration,
             deployment_mode=self.deployment_mode,
             id=self.id,
             name=self.name,
+            operation_type=self.operation_type,
             provisioning_state=self.provisioning_state,
             reported_properties=self.reported_properties,
             system_data=self.system_data,
@@ -153,9 +177,9 @@ def get_deployment_setting(cluster_name: Optional[str] = None,
     """
     Get a DeploymentSetting
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the cluster.
@@ -171,10 +195,12 @@ def get_deployment_setting(cluster_name: Optional[str] = None,
 
     return AwaitableGetDeploymentSettingResult(
         arc_node_resource_ids=pulumi.get(__ret__, 'arc_node_resource_ids'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_configuration=pulumi.get(__ret__, 'deployment_configuration'),
         deployment_mode=pulumi.get(__ret__, 'deployment_mode'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        operation_type=pulumi.get(__ret__, 'operation_type'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         reported_properties=pulumi.get(__ret__, 'reported_properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -186,9 +212,9 @@ def get_deployment_setting_output(cluster_name: Optional[pulumi.Input[str]] = No
     """
     Get a DeploymentSetting
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the cluster.
@@ -203,10 +229,12 @@ def get_deployment_setting_output(cluster_name: Optional[pulumi.Input[str]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getDeploymentSetting', __args__, opts=opts, typ=GetDeploymentSettingResult)
     return __ret__.apply(lambda __response__: GetDeploymentSettingResult(
         arc_node_resource_ids=pulumi.get(__response__, 'arc_node_resource_ids'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_configuration=pulumi.get(__response__, 'deployment_configuration'),
         deployment_mode=pulumi.get(__response__, 'deployment_mode'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        operation_type=pulumi.get(__response__, 'operation_type'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         reported_properties=pulumi.get(__response__, 'reported_properties'),
         system_data=pulumi.get(__response__, 'system_data'),

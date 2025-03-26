@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-08-01-preview.
  *
- * Other available API versions: 2024-12-01-preview.
+ * Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVariableValueAtManagementGroup(args: GetVariableValueAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableValueAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetVariableValueAtManagementGroupArgs {
  */
 export interface GetVariableValueAtManagementGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ID of the variable.
      */
     readonly id: string;
@@ -68,7 +72,7 @@ export interface GetVariableValueAtManagementGroupResult {
  *
  * Uses Azure REST API version 2022-08-01-preview.
  *
- * Other available API versions: 2024-12-01-preview.
+ * Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVariableValueAtManagementGroupOutput(args: GetVariableValueAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableValueAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// The gallery images resource definition.
     /// 
-    /// Uses Azure REST API version 2022-12-15-preview.
+    /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
         /// </summary>
@@ -26,10 +32,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string?> CloudInitDataSource { get; private set; } = null!;
 
         /// <summary>
-        /// Container Name for storage container
+        /// Storage ContainerID of the storage container to be used for gallery image
         /// </summary>
-        [Output("containerName")]
-        public Output<string?> ContainerName { get; private set; } = null!;
+        [Output("containerId")]
+        public Output<string?> ContainerId { get; private set; } = null!;
 
         /// <summary>
         /// The extendedLocation of the resource.
@@ -71,13 +77,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Operating system type that the gallery image uses [Windows, Linux]
         /// </summary>
         [Output("osType")]
-        public Output<string?> OsType { get; private set; } = null!;
+        public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the gallery image.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+        /// </summary>
+        [Output("sourceVirtualMachineId")]
+        public Output<string?> SourceVirtualMachineId { get; private set; } = null!;
 
         /// <summary>
         /// The observed state of gallery images
@@ -109,6 +121,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Output("version")]
         public Output<Outputs.GalleryImageVersionResponse?> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The credentials used to login to the image repository that has access to the specified image
+        /// </summary>
+        [Output("vmImageRepositoryCredentials")]
+        public Output<Outputs.VmImageRepositoryCredentialsResponse?> VmImageRepositoryCredentials { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GalleryImage resource with the given unique name, arguments, and options.
@@ -136,6 +154,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GalleryImage" },
@@ -177,10 +196,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CloudInitDataSource>? CloudInitDataSource { get; set; }
 
         /// <summary>
-        /// Container Name for storage container
+        /// Storage ContainerID of the storage container to be used for gallery image
         /// </summary>
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
+        [Input("containerId")]
+        public Input<string>? ContainerId { get; set; }
 
         /// <summary>
         /// The extendedLocation of the resource.
@@ -221,14 +240,20 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Operating system type that the gallery image uses [Windows, Linux]
         /// </summary>
-        [Input("osType")]
-        public Input<Pulumi.AzureNative.AzureStackHCI.OperatingSystemTypes>? OsType { get; set; }
+        [Input("osType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+        /// </summary>
+        [Input("sourceVirtualMachineId")]
+        public Input<string>? SourceVirtualMachineId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -247,6 +272,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("version")]
         public Input<Inputs.GalleryImageVersionArgs>? Version { get; set; }
+
+        /// <summary>
+        /// The credentials used to login to the image repository that has access to the specified image
+        /// </summary>
+        [Input("vmImageRepositoryCredentials")]
+        public Input<Inputs.VmImageRepositoryCredentialsArgs>? VmImageRepositoryCredentials { get; set; }
 
         public GalleryImageArgs()
         {

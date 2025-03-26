@@ -38,7 +38,7 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[str] database_name_override: Overrides the original database name. Relevant only when attaching to a specific database.
         :param pulumi.Input[str] database_name_prefix: Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
@@ -113,7 +113,7 @@ class AttachedDatabaseConfigurationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -201,9 +201,9 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Other available API versions: 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +215,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] database_name_prefix: Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
         :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']] table_level_sharing_properties: Table level sharing specifications
         """
         ...
@@ -227,9 +227,9 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Other available API versions: 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -286,6 +286,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["table_level_sharing_properties"] = table_level_sharing_properties
             __props__.__dict__["attached_database_names"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -314,6 +315,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__ = AttachedDatabaseConfigurationArgs.__new__(AttachedDatabaseConfigurationArgs)
 
         __props__.__dict__["attached_database_names"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_resource_id"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["database_name_override"] = None
@@ -333,6 +335,14 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         The list of databases from the clusterResourceId which are currently attached to the cluster.
         """
         return pulumi.get(self, "attached_database_names")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterResourceId")

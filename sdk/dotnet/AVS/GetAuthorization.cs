@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetAuthorization
     {
         /// <summary>
-        /// ExpressRoute Circuit Authorization
+        /// Get a ExpressRouteAuthorization
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ExpressRoute Circuit Authorization
+        /// Get a ExpressRouteAuthorization
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ExpressRoute Circuit Authorization
+        /// Get a ExpressRouteAuthorization
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAuthorizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the ExpressRoute Circuit Authorization in the private cloud
+        /// Name of the ExpressRoute Circuit Authorization
         /// </summary>
         [Input("authorizationName", required: true)]
         public string AuthorizationName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the ExpressRoute Circuit Authorization in the private cloud
+        /// Name of the ExpressRoute Circuit Authorization
         /// </summary>
         [Input("authorizationName", required: true)]
         public Input<string> AuthorizationName { get; set; } = null!;
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAuthorizationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the ExpressRoute Circuit Authorization
         /// </summary>
         public readonly string ExpressRouteAuthorizationId;
@@ -112,24 +116,30 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? ExpressRouteId;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The state of the  ExpressRoute Circuit Authorization provisioning
+        /// The state of the ExpressRoute Circuit Authorization provisioning
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAuthorizationResult(
+            string azureApiVersion,
+
             string expressRouteAuthorizationId,
 
             string expressRouteAuthorizationKey,
@@ -142,14 +152,18 @@ namespace Pulumi.AzureNative.AVS
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExpressRouteAuthorizationId = expressRouteAuthorizationId;
             ExpressRouteAuthorizationKey = expressRouteAuthorizationKey;
             ExpressRouteId = expressRouteId;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -27,7 +27,10 @@ class GetManagedNetworkResult:
     """
     The Managed Network resource
     """
-    def __init__(__self__, connectivity=None, etag=None, id=None, location=None, name=None, provisioning_state=None, scope=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, connectivity=None, etag=None, id=None, location=None, name=None, provisioning_state=None, scope=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connectivity and not isinstance(connectivity, dict):
             raise TypeError("Expected argument 'connectivity' to be a dict")
         pulumi.set(__self__, "connectivity", connectivity)
@@ -55,6 +58,14 @@ class GetManagedNetworkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetManagedNetworkResult(GetManagedNetworkResult):
         if False:
             yield self
         return GetManagedNetworkResult(
+            azure_api_version=self.azure_api_version,
             connectivity=self.connectivity,
             etag=self.etag,
             id=self.id,
@@ -165,6 +177,7 @@ def get_managed_network(managed_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetwork:getManagedNetwork', __args__, opts=opts, typ=GetManagedNetworkResult).value
 
     return AwaitableGetManagedNetworkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connectivity=pulumi.get(__ret__, 'connectivity'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -192,6 +205,7 @@ def get_managed_network_output(managed_network_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork:getManagedNetwork', __args__, opts=opts, typ=GetManagedNetworkResult)
     return __ret__.apply(lambda __response__: GetManagedNetworkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connectivity=pulumi.get(__response__, 'connectivity'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

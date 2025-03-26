@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The registration definition.
  *
- * Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2019-09-01.
+ * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistrationDefinition.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the registration definition.
      */
@@ -78,10 +82,12 @@ export class RegistrationDefinition extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["registrationDefinitionId"] = args ? args.registrationDefinitionId : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

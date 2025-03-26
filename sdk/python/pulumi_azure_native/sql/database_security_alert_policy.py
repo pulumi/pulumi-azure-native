@@ -218,9 +218,9 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
         """
         A database security alert policy.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,9 +245,9 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
         """
         A database security alert policy.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DatabaseSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -303,11 +303,12 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             __props__.__dict__["storage_endpoint"] = storage_endpoint
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql:DatabaseThreatDetectionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseSecurityAlertPolicy, __self__).__init__(
             'azure-native:sql:DatabaseSecurityAlertPolicy',
@@ -331,6 +332,7 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
 
         __props__ = DatabaseSecurityAlertPolicyArgs.__new__(DatabaseSecurityAlertPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["disabled_alerts"] = None
         __props__.__dict__["email_account_admins"] = None
@@ -343,6 +345,14 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DatabaseSecurityAlertPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")

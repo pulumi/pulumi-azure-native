@@ -27,7 +27,10 @@ class GetNetworkGroupResult:
     """
     The network group resource
     """
-    def __init__(__self__, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, etag=None, id=None, member_type=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +40,9 @@ class GetNetworkGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if member_type and not isinstance(member_type, str):
+            raise TypeError("Expected argument 'member_type' to be a str")
+        pulumi.set(__self__, "member_type", member_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -52,6 +58,14 @@ class GetNetworkGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -76,6 +90,14 @@ class GetNetworkGroupResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[str]:
+        """
+        The type of the group member.
+        """
+        return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter
@@ -124,9 +146,11 @@ class AwaitableGetNetworkGroupResult(GetNetworkGroupResult):
         if False:
             yield self
         return GetNetworkGroupResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
+            member_type=self.member_type,
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
@@ -141,9 +165,9 @@ def get_network_group(network_group_name: Optional[str] = None,
     """
     Gets the specified network group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_group_name: The name of the network group.
@@ -158,9 +182,11 @@ def get_network_group(network_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkGroup', __args__, opts=opts, typ=GetNetworkGroupResult).value
 
     return AwaitableGetNetworkGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        member_type=pulumi.get(__ret__, 'member_type'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
@@ -173,9 +199,9 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
     """
     Gets the specified network group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_group_name: The name of the network group.
@@ -189,9 +215,11 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkGroup', __args__, opts=opts, typ=GetNetworkGroupResult)
     return __ret__.apply(lambda __response__: GetNetworkGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
+        member_type=pulumi.get(__response__, 'member_type'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),

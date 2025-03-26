@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the details of specified NVA connection.
  *
- * Uses Azure REST API version 2023-06-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkVirtualApplianceConnection(args: GetNetworkVirtualApplianceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,17 +43,9 @@ export interface GetNetworkVirtualApplianceConnectionArgs {
  */
 export interface GetNetworkVirtualApplianceConnectionResult {
     /**
-     * Network Virtual Appliance ASN.
+     * The Azure API version of the resource.
      */
-    readonly asn?: number;
-    /**
-     * List of bgpPeerAddresses for the NVA instances
-     */
-    readonly bgpPeerAddress?: string[];
-    /**
-     * Enable internet security.
-     */
-    readonly enableInternetSecurity?: boolean;
+    readonly azureApiVersion: string;
     /**
      * Resource ID.
      */
@@ -63,24 +55,16 @@ export interface GetNetworkVirtualApplianceConnectionResult {
      */
     readonly name?: string;
     /**
-     * The provisioning state of the NetworkVirtualApplianceConnection resource.
+     * Properties of the express route connection.
      */
-    readonly provisioningState: string;
-    /**
-     * The Routing Configuration indicating the associated and propagated route tables on this connection.
-     */
-    readonly routingConfiguration?: outputs.network.RoutingConfigurationResponse;
-    /**
-     * Unique identifier for the connection.
-     */
-    readonly tunnelIdentifier?: number;
+    readonly properties: outputs.network.NetworkVirtualApplianceConnectionPropertiesResponse;
 }
 /**
  * Retrieves the details of specified NVA connection.
  *
- * Uses Azure REST API version 2023-06-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkVirtualApplianceConnectionOutput(args: GetNetworkVirtualApplianceConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkVirtualApplianceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

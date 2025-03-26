@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the alert rule.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +44,10 @@ export interface GetFusionAlertRuleResult {
      * The Name of the alert rule template used to create this rule.
      */
     readonly alertRuleTemplateName: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The description of the alert rule.
      */
@@ -101,7 +105,7 @@ export interface GetFusionAlertRuleResult {
 /**
  * Gets the alert rule.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFusionAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

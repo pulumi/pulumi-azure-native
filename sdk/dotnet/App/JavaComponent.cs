@@ -12,24 +12,18 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Java Component.
     /// 
-    /// Uses Azure REST API version 2023-11-02-preview.
+    /// Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
     /// 
-    /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:JavaComponent")]
     public partial class JavaComponent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of the Java Component.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("componentType")]
-        public Output<string?> ComponentType { get; private set; } = null!;
-
-        /// <summary>
-        /// List of Java Components configuration properties
-        /// </summary>
-        [Output("configurations")]
-        public Output<ImmutableArray<Outputs.JavaComponentConfigurationPropertyResponse>> Configurations { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -38,16 +32,10 @@ namespace Pulumi.AzureNative.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the Java Component.
+        /// Java Component resource specific properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// List of Java Components that are bound to the Java component
-        /// </summary>
-        [Output("serviceBinds")]
-        public Output<ImmutableArray<Outputs.JavaComponentServiceBindResponse>> ServiceBinds { get; private set; } = null!;
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -115,24 +103,6 @@ namespace Pulumi.AzureNative.App
     public sealed class JavaComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of the Java Component.
-        /// </summary>
-        [Input("componentType")]
-        public InputUnion<string, Pulumi.AzureNative.App.JavaComponentType>? ComponentType { get; set; }
-
-        [Input("configurations")]
-        private InputList<Inputs.JavaComponentConfigurationPropertyArgs>? _configurations;
-
-        /// <summary>
-        /// List of Java Components configuration properties
-        /// </summary>
-        public InputList<Inputs.JavaComponentConfigurationPropertyArgs> Configurations
-        {
-            get => _configurations ?? (_configurations = new InputList<Inputs.JavaComponentConfigurationPropertyArgs>());
-            set => _configurations = value;
-        }
-
-        /// <summary>
         /// Name of the Managed Environment.
         /// </summary>
         [Input("environmentName", required: true)]
@@ -145,22 +115,16 @@ namespace Pulumi.AzureNative.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Java Component resource specific properties
+        /// </summary>
+        [Input("properties")]
+        public object? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("serviceBinds")]
-        private InputList<Inputs.JavaComponentServiceBindArgs>? _serviceBinds;
-
-        /// <summary>
-        /// List of Java Components that are bound to the Java component
-        /// </summary>
-        public InputList<Inputs.JavaComponentServiceBindArgs> ServiceBinds
-        {
-            get => _serviceBinds ?? (_serviceBinds = new InputList<Inputs.JavaComponentServiceBindArgs>());
-            set => _serviceBinds = value;
-        }
 
         public JavaComponentArgs()
         {

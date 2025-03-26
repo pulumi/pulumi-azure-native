@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A hostname binding object.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppHostNameBindingSlot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Azure resource name.
      */
@@ -123,9 +127,11 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
             resourceInputs["slot"] = args ? args.slot : undefined;
             resourceInputs["sslState"] = args ? args.sslState : undefined;
             resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualIP"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureResourceName"] = undefined /*out*/;
             resourceInputs["azureResourceType"] = undefined /*out*/;
             resourceInputs["customHostNameDnsRecordType"] = undefined /*out*/;

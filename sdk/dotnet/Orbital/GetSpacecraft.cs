@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.Orbital
         /// Gets the specified spacecraft in a specified resource group.
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Task<GetSpacecraftResult> InvokeAsync(GetSpacecraftArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.Orbital
         /// Gets the specified spacecraft in a specified resource group.
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.Orbital
         /// Gets the specified spacecraft in a specified resource group.
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetSpacecraftResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -134,6 +132,8 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetSpacecraftResult(
+            string azureApiVersion,
+
             string id,
 
             ImmutableArray<Outputs.SpacecraftLinkResponse> links,
@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.Orbital
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Links = links;
             Location = location;

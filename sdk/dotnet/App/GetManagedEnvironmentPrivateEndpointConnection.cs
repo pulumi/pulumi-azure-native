@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// 
-        /// Uses Azure REST API version 2024-02-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetManagedEnvironmentPrivateEndpointConnectionResult> InvokeAsync(GetManagedEnvironmentPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// 
-        /// Uses Azure REST API version 2024-02-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedEnvironmentPrivateEndpointConnectionResult> Invoke(GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// 
-        /// Uses Azure REST API version 2024-02-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedEnvironmentPrivateEndpointConnectionResult> Invoke(GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetManagedEnvironmentPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetManagedEnvironmentPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<string> groupIds,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupIds = groupIds;
             Id = id;
             Name = name;

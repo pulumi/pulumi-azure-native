@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Preferences related to the shipment logistics of the sku
+    /// Preferences related to the shipment logistics of the sku.
     /// </summary>
     public sealed class TransportPreferencesArgs : global::Pulumi.ResourceArgs
     {

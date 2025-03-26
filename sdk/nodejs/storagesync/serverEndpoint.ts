@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Server Endpoint object.
  *
- * Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
+ * Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ServerEndpoint extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ServerEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Cloud Tiering.
      */
@@ -102,6 +106,10 @@ export class ServerEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly recallStatus!: pulumi.Output<outputs.storagesync.ServerEndpointRecallStatusResponse>;
     /**
+     * Server Endpoint provisioning status
+     */
+    public /*out*/ readonly serverEndpointProvisioningStatus!: pulumi.Output<outputs.storagesync.ServerEndpointProvisioningStatusResponse | undefined>;
+    /**
      * Server Local path.
      */
     public readonly serverLocalPath!: pulumi.Output<string | undefined>;
@@ -156,9 +164,9 @@ export class ServerEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["cloudTiering"] = args ? args.cloudTiering : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["initialDownloadPolicy"] = (args ? args.initialDownloadPolicy : undefined) ?? "NamespaceThenModifiedFiles";
-            resourceInputs["initialUploadPolicy"] = (args ? args.initialUploadPolicy : undefined) ?? "Merge";
-            resourceInputs["localCacheMode"] = (args ? args.localCacheMode : undefined) ?? "UpdateLocallyCachedFiles";
+            resourceInputs["initialDownloadPolicy"] = args ? args.initialDownloadPolicy : undefined;
+            resourceInputs["initialUploadPolicy"] = args ? args.initialUploadPolicy : undefined;
+            resourceInputs["localCacheMode"] = args ? args.localCacheMode : undefined;
             resourceInputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
             resourceInputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -169,6 +177,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             resourceInputs["tierFilesOlderThanDays"] = (args ? args.tierFilesOlderThanDays : undefined) ?? 0;
             resourceInputs["volumeFreeSpacePercent"] = (args ? args.volumeFreeSpacePercent : undefined) ?? 20;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudTieringStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;
@@ -177,11 +186,13 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["recallStatus"] = undefined /*out*/;
+            resourceInputs["serverEndpointProvisioningStatus"] = undefined /*out*/;
             resourceInputs["serverName"] = undefined /*out*/;
             resourceInputs["syncStatus"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudTiering"] = undefined /*out*/;
             resourceInputs["cloudTieringStatus"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
@@ -197,6 +208,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["recallStatus"] = undefined /*out*/;
+            resourceInputs["serverEndpointProvisioningStatus"] = undefined /*out*/;
             resourceInputs["serverLocalPath"] = undefined /*out*/;
             resourceInputs["serverName"] = undefined /*out*/;
             resourceInputs["serverResourceId"] = undefined /*out*/;

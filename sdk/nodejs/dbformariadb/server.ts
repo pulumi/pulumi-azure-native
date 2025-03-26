@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a server.
  *
- * Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * Other available API versions: 2018-06-01-preview.
+ * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class Server extends pulumi.CustomResource {
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
     public /*out*/ readonly administratorLogin!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Earliest restore point creation time (ISO8601 format)
      */
@@ -138,6 +140,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["earliestRestoreDate"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["masterServerId"] = undefined /*out*/;
@@ -154,6 +157,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["earliestRestoreDate"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the private endpoint connection to the search service in the given resource group.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2023-11-01.
  *
- * Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+     * The name of the private endpoint connection to the search service with the specified resource group.
      */
     privateEndpointConnectionName: string;
     /**
@@ -33,15 +33,19 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: string;
 }
 
 /**
- * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+ * Describes an existing private endpoint connection to the search service.
  */
 export interface GetPrivateEndpointConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -51,7 +55,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+     * Describes the properties of an existing private endpoint connection to the search service.
      */
     readonly properties: outputs.search.PrivateEndpointConnectionPropertiesResponse;
     /**
@@ -62,9 +66,9 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Gets the details of the private endpoint connection to the search service in the given resource group.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2023-11-01.
  *
- * Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +81,7 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+     * The name of the private endpoint connection to the search service with the specified resource group.
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
@@ -85,7 +89,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }

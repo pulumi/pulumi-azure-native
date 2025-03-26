@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a ElasticSan.
  *
- * Uses Azure REST API version 2021-11-20-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getElasticSan(args: GetElasticSanArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticSanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetElasticSanResult {
      */
     readonly availabilityZones?: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Base size of the Elastic San appliance in TiB.
      */
     readonly baseSizeTiB: number;
@@ -50,31 +54,39 @@ export interface GetElasticSanResult {
      */
     readonly extendedCapacitySizeTiB: number;
     /**
-     * Azure resource identifier.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The geo-location where the resource lives.
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * Azure resource name.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * The list of Private Endpoint Connections.
+     */
+    readonly privateEndpointConnections: outputs.elasticsan.PrivateEndpointConnectionResponse[];
     /**
      * State of the operation on the resource.
      */
     readonly provisioningState: string;
     /**
+     * Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * resource sku
      */
     readonly sku: outputs.elasticsan.SkuResponse;
     /**
-     * Resource metadata required by ARM RPC
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.elasticsan.SystemDataResponse;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -94,7 +106,7 @@ export interface GetElasticSanResult {
      */
     readonly totalVolumeSizeGiB: number;
     /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -105,9 +117,9 @@ export interface GetElasticSanResult {
 /**
  * Get a ElasticSan.
  *
- * Uses Azure REST API version 2021-11-20-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticSanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

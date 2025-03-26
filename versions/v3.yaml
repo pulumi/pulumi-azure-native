@@ -8469,15 +8469,15 @@ NetApp:
         SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/backupVaults/{backupVaultName}
         RpNamespace: Microsoft.NetApp
+    CapacityPool:
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}
+        RpNamespace: Microsoft.NetApp
     CapacityPoolBackup:
         ApiVersion: "2022-11-01"
         SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2022-11-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName}
-        RpNamespace: Microsoft.NetApp
-    CapacityPoolPool:
-        ApiVersion: "2024-09-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolSnapshot:
         ApiVersion: "2024-09-01"

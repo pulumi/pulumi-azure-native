@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// <summary>
         /// Get information about a guest configuration assignment
         /// 
-        /// Uses Azure REST API version 2022-01-25.
+        /// Uses Azure REST API version 2024-04-05.
         /// 
-        /// Other available API versions: 2024-04-05.
+        /// Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// <summary>
         /// Get information about a guest configuration assignment
         /// 
-        /// Uses Azure REST API version 2022-01-25.
+        /// Uses Azure REST API version 2024-04-05.
         /// 
-        /// Other available API versions: 2024-04-05.
+        /// Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentResult> Invoke(GetGuestConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// <summary>
         /// Get information about a guest configuration assignment
         /// 
-        /// Uses Azure REST API version 2022-01-25.
+        /// Uses Azure REST API version 2024-04-05.
         /// 
-        /// Other available API versions: 2024-04-05.
+        /// Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentResult> Invoke(GetGuestConfigurationAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.GuestConfiguration
     public sealed class GetGuestConfigurationAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ARM resource id of the guest configuration assignment.
         /// </summary>
         public readonly string Id;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
         [OutputConstructor]
         private GetGuestConfigurationAssignmentResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

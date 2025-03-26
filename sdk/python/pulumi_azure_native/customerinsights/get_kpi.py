@@ -27,10 +27,13 @@ class GetKpiResult:
     """
     The KPI resource format.
     """
-    def __init__(__self__, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, group_by_metadata=None, id=None, kpi_name=None, name=None, participant_profiles_metadata=None, provisioning_state=None, tenant_id=None, thres_holds=None, type=None, unit=None):
+    def __init__(__self__, aliases=None, azure_api_version=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, group_by_metadata=None, id=None, kpi_name=None, name=None, participant_profiles_metadata=None, provisioning_state=None, tenant_id=None, thres_holds=None, type=None, unit=None):
         if aliases and not isinstance(aliases, list):
             raise TypeError("Expected argument 'aliases' to be a list")
         pulumi.set(__self__, "aliases", aliases)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if calculation_window and not isinstance(calculation_window, str):
             raise TypeError("Expected argument 'calculation_window' to be a str")
         pulumi.set(__self__, "calculation_window", calculation_window)
@@ -102,6 +105,14 @@ class GetKpiResult:
         The aliases.
         """
         return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="calculationWindow")
@@ -279,6 +290,7 @@ class AwaitableGetKpiResult(GetKpiResult):
             yield self
         return GetKpiResult(
             aliases=self.aliases,
+            azure_api_version=self.azure_api_version,
             calculation_window=self.calculation_window,
             calculation_window_field_name=self.calculation_window_field_name,
             description=self.description,
@@ -325,6 +337,7 @@ def get_kpi(hub_name: Optional[str] = None,
 
     return AwaitableGetKpiResult(
         aliases=pulumi.get(__ret__, 'aliases'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         calculation_window=pulumi.get(__ret__, 'calculation_window'),
         calculation_window_field_name=pulumi.get(__ret__, 'calculation_window_field_name'),
         description=pulumi.get(__ret__, 'description'),
@@ -368,6 +381,7 @@ def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getKpi', __args__, opts=opts, typ=GetKpiResult)
     return __ret__.apply(lambda __response__: GetKpiResult(
         aliases=pulumi.get(__response__, 'aliases'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         calculation_window=pulumi.get(__response__, 'calculation_window'),
         calculation_window_field_name=pulumi.get(__response__, 'calculation_window_field_name'),
         description=pulumi.get(__response__, 'description'),

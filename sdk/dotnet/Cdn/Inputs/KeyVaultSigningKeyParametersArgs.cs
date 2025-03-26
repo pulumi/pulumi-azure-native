@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public Input<string> SubscriptionId { get; set; } = null!;
 
         [Input("typeName", required: true)]
-        public Input<string> TypeName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.KeyVaultSigningKeyParametersType> TypeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the user's Key Vault containing the secret

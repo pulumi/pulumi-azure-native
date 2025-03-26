@@ -27,7 +27,10 @@ class GetOriginGroupResult:
     """
     Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     """
-    def __init__(__self__, health_probe_settings=None, id=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, azure_api_version=None, health_probe_settings=None, id=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if health_probe_settings and not isinstance(health_probe_settings, dict):
             raise TypeError("Expected argument 'health_probe_settings' to be a dict")
         pulumi.set(__self__, "health_probe_settings", health_probe_settings)
@@ -58,6 +61,14 @@ class GetOriginGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="healthProbeSettings")
@@ -146,6 +157,7 @@ class AwaitableGetOriginGroupResult(GetOriginGroupResult):
         if False:
             yield self
         return GetOriginGroupResult(
+            azure_api_version=self.azure_api_version,
             health_probe_settings=self.health_probe_settings,
             id=self.id,
             name=self.name,
@@ -166,9 +178,9 @@ def get_origin_group(endpoint_name: Optional[str] = None,
     """
     Gets an existing origin group within an endpoint.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -185,6 +197,7 @@ def get_origin_group(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getOriginGroup', __args__, opts=opts, typ=GetOriginGroupResult).value
 
     return AwaitableGetOriginGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         health_probe_settings=pulumi.get(__ret__, 'health_probe_settings'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -203,9 +216,9 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an existing origin group within an endpoint.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -221,6 +234,7 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getOriginGroup', __args__, opts=opts, typ=GetOriginGroupResult)
     return __ret__.apply(lambda __response__: GetOriginGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         health_probe_settings=pulumi.get(__response__, 'health_probe_settings'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

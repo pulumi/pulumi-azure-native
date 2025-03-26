@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * An object that represents a machine learning workspace.
  *
- * Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2016-04-01.
+ * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Workspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workspace.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation time for this workspace resource.
      */
@@ -120,6 +124,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["studioEndpoint"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceState"] = undefined /*out*/;
             resourceInputs["workspaceType"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["keyVaultIdentifierId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

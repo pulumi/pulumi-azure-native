@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Details about environment name, metadata and environment id of an environment
  *
- * Uses Azure REST API version 2024-07-01.
+ * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
  */
 export class OrganizationEnvironmentById extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class OrganizationEnvironmentById extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationEnvironmentById.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Type of environment
      */
@@ -86,7 +90,9 @@ export class OrganizationEnvironmentById extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["streamGovernanceConfig"] = args ? args.streamGovernanceConfig : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

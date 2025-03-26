@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided cloud services network.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCloudServicesNetworkResult> InvokeAsync(GetCloudServicesNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided cloud services network.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudServicesNetworkResult> Invoke(GetCloudServicesNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided cloud services network.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudServicesNetworkResult> Invoke(GetCloudServicesNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AssociatedResourceIds;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the Network Cloud cluster this cloud services network is associated with.
         /// </summary>
         public readonly string ClusterId;
@@ -115,6 +119,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The full list of additional and default egress endpoints that are currently enabled.
         /// </summary>
         public readonly ImmutableArray<Outputs.EgressEndpointResponse> EnabledEgressEndpoints;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -166,6 +174,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableArray<string> associatedResourceIds,
 
+            string azureApiVersion,
+
             string clusterId,
 
             string detailedStatus,
@@ -175,6 +185,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             string? enableDefaultEgressEndpoints,
 
             ImmutableArray<Outputs.EgressEndpointResponse> enabledEgressEndpoints,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -200,11 +212,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         {
             AdditionalEgressEndpoints = additionalEgressEndpoints;
             AssociatedResourceIds = associatedResourceIds;
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
             EnableDefaultEgressEndpoints = enableDefaultEgressEndpoints;
             EnabledEgressEndpoints = enabledEgressEndpoints;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
             Id = id;

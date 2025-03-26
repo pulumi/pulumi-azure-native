@@ -25,6 +25,7 @@ class GalleryArgs:
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['GalleryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sharing_profile: Optional[pulumi.Input['SharingProfileArgs']] = None,
                  soft_delete_policy: Optional[pulumi.Input['SoftDeletePolicyArgs']] = None,
@@ -34,6 +35,7 @@ class GalleryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] description: The description of this Shared Image Gallery resource. This property is updatable.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input['GalleryIdentityArgs'] identity: The identity of the gallery, if configured.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['SharingProfileArgs'] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input['SoftDeletePolicyArgs'] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
@@ -44,6 +46,8 @@ class GalleryArgs:
             pulumi.set(__self__, "description", description)
         if gallery_name is not None:
             pulumi.set(__self__, "gallery_name", gallery_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sharing_profile is not None:
@@ -88,6 +92,18 @@ class GalleryArgs:
     @gallery_name.setter
     def gallery_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gallery_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['GalleryIdentityArgs']]:
+        """
+        The identity of the gallery, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['GalleryIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -145,6 +161,7 @@ class Gallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sharing_profile: Optional[pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
@@ -154,14 +171,15 @@ class Gallery(pulumi.CustomResource):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
-        Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
+        Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Shared Image Gallery resource. This property is updatable.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']] identity: The identity of the gallery, if configured.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']] sharing_profile: Profile for gallery sharing to subscription or tenant
@@ -177,9 +195,9 @@ class Gallery(pulumi.CustomResource):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
-        Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
+        Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +216,7 @@ class Gallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['GalleryIdentityArgs', 'GalleryIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sharing_profile: Optional[pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
@@ -214,6 +233,7 @@ class Gallery(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["gallery_name"] = gallery_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -221,6 +241,7 @@ class Gallery(pulumi.CustomResource):
             __props__.__dict__["sharing_profile"] = sharing_profile
             __props__.__dict__["soft_delete_policy"] = soft_delete_policy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["identifier"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -250,8 +271,10 @@ class Gallery(pulumi.CustomResource):
 
         __props__ = GalleryArgs.__new__(GalleryArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["identifier"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -261,6 +284,14 @@ class Gallery(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Gallery(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -277,6 +308,14 @@ class Gallery(pulumi.CustomResource):
         Describes the gallery unique name.
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.GalleryIdentityResponse']]:
+        """
+        The identity of the gallery, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

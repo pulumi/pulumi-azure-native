@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The remediation definition.
  *
- * Uses Azure REST API version 2021-10-01. In version 1.x of the Azure Native provider, it used API version 2019-07-01.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RemediationAtResourceGroup extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RemediationAtResourceGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
      */
@@ -129,6 +133,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;

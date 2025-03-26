@@ -153,7 +153,7 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
         """
         The description of the service.
 
-        Uses Azure REST API version 2021-03-08. In version 1.x of the Azure Native provider, it used API version 2021-03-08.
+        Uses Azure REST API version 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +174,7 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
         """
         The description of the service.
 
-        Uses Azure REST API version 2021-03-08. In version 1.x of the Azure Native provider, it used API version 2021-03-08.
+        Uses Azure REST API version 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkServicesForSCCPowershellArgs args: The arguments to use to populate this resource's properties.
@@ -218,11 +218,12 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForSCCPowershell")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicesForSCCPowershell, __self__).__init__(
             'azure-native:securityandcompliance:PrivateLinkServicesForSCCPowershell',
@@ -246,6 +247,7 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
 
         __props__ = PrivateLinkServicesForSCCPowershellArgs.__new__(PrivateLinkServicesForSCCPowershellArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
@@ -256,6 +258,14 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PrivateLinkServicesForSCCPowershell(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

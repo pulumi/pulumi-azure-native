@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Private endpoint connection resource.
     /// 
-    /// Uses Azure REST API version 2023-03-15.
+    /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:PrivateEndpointConnectionOperation")]
     public partial class PrivateEndpointConnectionOperation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
@@ -86,12 +92,14 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,9 +11,7 @@ import * as utilities from "../utilities";
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
  *
- * Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
- *
- * Other available API versions: 2018-09-01, 2019-04-01.
+ * Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -50,6 +48,10 @@ export class Task extends pulumi.CustomResource {
      * The dedicated agent pool for the task.
      */
     public readonly agentPoolName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of task.
      */
@@ -148,6 +150,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["taskName"] = args ? args.taskName : undefined;
             resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
             resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.triggerPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -156,6 +159,7 @@ export class Task extends pulumi.CustomResource {
         } else {
             resourceInputs["agentConfiguration"] = undefined /*out*/;
             resourceInputs["agentPoolName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

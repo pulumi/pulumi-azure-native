@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        /// Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        /// Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        /// Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetExportResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Has the definition for the export.
         /// </summary>
         public readonly Outputs.ExportDefinitionResponse Definition;
@@ -119,6 +123,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The managed identity associated with Export
+        /// </summary>
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// The location of the Export's managed identity. Only required when utilizing managed identity.
+        /// </summary>
+        public readonly string? Location;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -146,6 +158,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetExportResult(
+            string azureApiVersion,
+
             Outputs.ExportDefinitionResponse definition,
 
             Outputs.ExportDeliveryInfoResponse deliveryInfo,
@@ -155,6 +169,10 @@ namespace Pulumi.AzureNative.CostManagement
             string? format,
 
             string id,
+
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
+
+            string? location,
 
             string name,
 
@@ -168,11 +186,14 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Definition = definition;
             DeliveryInfo = deliveryInfo;
             ETag = eTag;
             Format = format;
             Id = id;
+            Identity = identity;
+            Location = location;
             Name = name;
             NextRunTimeEstimate = nextRunTimeEstimate;
             PartitionData = partitionData;

@@ -45,6 +45,10 @@ export interface GetChangeDataCaptureResult {
      */
     readonly allowVNetOverride?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The description of the change data capture.
      */
     readonly description?: string;

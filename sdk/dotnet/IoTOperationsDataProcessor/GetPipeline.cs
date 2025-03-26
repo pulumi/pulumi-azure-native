@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
     public sealed class GetPipelineResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Detailed description of the Pipeline.
         /// </summary>
         public readonly string? Description;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 
         [OutputConstructor]
         private GetPipelineResult(
+            string azureApiVersion,
+
             string? description,
 
             bool enabled,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Enabled = enabled;
             ExtendedLocation = extendedLocation;

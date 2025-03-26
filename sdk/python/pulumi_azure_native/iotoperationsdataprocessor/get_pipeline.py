@@ -27,7 +27,10 @@ class GetPipelineResult:
     """
     A Pipeline resource belonging to an Instance resource.
     """
-    def __init__(__self__, description=None, enabled=None, extended_location=None, id=None, input=None, location=None, name=None, provisioning_state=None, stages=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, enabled=None, extended_location=None, id=None, input=None, location=None, name=None, provisioning_state=None, stages=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,6 +67,14 @@ class GetPipelineResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         if False:
             yield self
         return GetPipelineResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             enabled=self.enabled,
             extended_location=self.extended_location,
@@ -204,6 +216,7 @@ def get_pipeline(instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsdataprocessor:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         enabled=pulumi.get(__ret__, 'enabled'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -237,6 +250,7 @@ def get_pipeline_output(instance_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsdataprocessor:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         enabled=pulumi.get(__response__, 'enabled'),
         extended_location=pulumi.get(__response__, 'extended_location'),

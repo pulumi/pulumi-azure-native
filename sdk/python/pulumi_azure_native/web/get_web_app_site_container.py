@@ -27,10 +27,13 @@ class GetWebAppSiteContainerResult:
     """
     Container of a site
     """
-    def __init__(__self__, auth_type=None, created_time=None, environment_variables=None, id=None, image=None, is_main=None, kind=None, last_modified_time=None, name=None, password_secret=None, start_up_command=None, target_port=None, type=None, user_managed_identity_client_id=None, user_name=None, volume_mounts=None):
+    def __init__(__self__, auth_type=None, azure_api_version=None, created_time=None, environment_variables=None, id=None, image=None, is_main=None, kind=None, last_modified_time=None, name=None, password_secret=None, start_up_command=None, target_port=None, type=None, user_managed_identity_client_id=None, user_name=None, volume_mounts=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -84,6 +87,14 @@ class GetWebAppSiteContainerResult:
         Auth Type
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -213,6 +224,7 @@ class AwaitableGetWebAppSiteContainerResult(GetWebAppSiteContainerResult):
             yield self
         return GetWebAppSiteContainerResult(
             auth_type=self.auth_type,
+            azure_api_version=self.azure_api_version,
             created_time=self.created_time,
             environment_variables=self.environment_variables,
             id=self.id,
@@ -237,9 +249,9 @@ def get_web_app_site_container(container_name: Optional[str] = None,
     """
     Container of a site
 
-    Uses Azure REST API version 2023-12-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str container_name: Site Container Name
@@ -255,6 +267,7 @@ def get_web_app_site_container(container_name: Optional[str] = None,
 
     return AwaitableGetWebAppSiteContainerResult(
         auth_type=pulumi.get(__ret__, 'auth_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_time=pulumi.get(__ret__, 'created_time'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         id=pulumi.get(__ret__, 'id'),
@@ -277,9 +290,9 @@ def get_web_app_site_container_output(container_name: Optional[pulumi.Input[str]
     """
     Container of a site
 
-    Uses Azure REST API version 2023-12-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str container_name: Site Container Name
@@ -294,6 +307,7 @@ def get_web_app_site_container_output(container_name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSiteContainer', __args__, opts=opts, typ=GetWebAppSiteContainerResult)
     return __ret__.apply(lambda __response__: GetWebAppSiteContainerResult(
         auth_type=pulumi.get(__response__, 'auth_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_time=pulumi.get(__response__, 'created_time'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         id=pulumi.get(__response__, 'id'),

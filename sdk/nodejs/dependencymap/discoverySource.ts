@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A Discovery Source resource
  *
- * Uses Azure REST API version 2025-01-31-preview.
+ * Uses Azure REST API version 2025-01-31-preview. In version 2.x of the Azure Native provider, it used API version 2025-01-31-preview.
  */
 export class DiscoverySource extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class DiscoverySource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiscoverySource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -102,11 +106,13 @@ export class DiscoverySource extends pulumi.CustomResource {
             resourceInputs["sourceName"] = args ? args.sourceName : undefined;
             resourceInputs["sourceType"] = args ? args.sourceType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

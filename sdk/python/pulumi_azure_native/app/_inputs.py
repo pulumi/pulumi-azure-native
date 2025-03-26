@@ -46,6 +46,8 @@ __all__ = [
     'AzureStaticWebAppsRegistrationArgsDict',
     'AzureStaticWebAppsArgs',
     'AzureStaticWebAppsArgsDict',
+    'BlobStorageTokenStoreArgs',
+    'BlobStorageTokenStoreArgsDict',
     'BuildConfigurationArgs',
     'BuildConfigurationArgsDict',
     'CertificatePropertiesArgs',
@@ -88,6 +90,8 @@ __all__ = [
     'CustomOpenIdConnectProviderArgsDict',
     'CustomScaleRuleArgs',
     'CustomScaleRuleArgsDict',
+    'DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs',
+    'DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgsDict',
     'DaprComponentResiliencyPolicyConfigurationArgs',
     'DaprComponentResiliencyPolicyConfigurationArgsDict',
     'DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs',
@@ -114,8 +118,8 @@ __all__ = [
     'DotNetComponentServiceBindArgsDict',
     'DynamicPoolConfigurationArgs',
     'DynamicPoolConfigurationArgsDict',
-    'EnvironmentSkuPropertiesArgs',
-    'EnvironmentSkuPropertiesArgsDict',
+    'EncryptionSettingsArgs',
+    'EncryptionSettingsArgsDict',
     'EnvironmentVariableArgs',
     'EnvironmentVariableArgsDict',
     'EnvironmentVarArgs',
@@ -162,6 +166,10 @@ __all__ = [
     'HttpSettingsArgsDict',
     'IdentityProvidersArgs',
     'IdentityProvidersArgsDict',
+    'IngressPortMappingArgs',
+    'IngressPortMappingArgsDict',
+    'IngressStickySessionsArgs',
+    'IngressStickySessionsArgsDict',
     'IngressArgs',
     'IngressArgsDict',
     'InitContainerArgs',
@@ -170,6 +178,8 @@ __all__ = [
     'IpSecurityRestrictionRuleArgsDict',
     'JavaComponentConfigurationPropertyArgs',
     'JavaComponentConfigurationPropertyArgsDict',
+    'JavaComponentPropertiesScaleArgs',
+    'JavaComponentPropertiesScaleArgsDict',
     'JavaComponentServiceBindArgs',
     'JavaComponentServiceBindArgsDict',
     'JobConfigurationEventTriggerConfigArgs',
@@ -198,12 +208,22 @@ __all__ = [
     'LoginArgsDict',
     'ManagedCertificatePropertiesArgs',
     'ManagedCertificatePropertiesArgsDict',
-    'ManagedEnvironmentOutboundSettingsArgs',
-    'ManagedEnvironmentOutboundSettingsArgsDict',
+    'ManagedEnvironmentEncryptionArgs',
+    'ManagedEnvironmentEncryptionArgsDict',
+    'ManagedEnvironmentPeerAuthenticationArgs',
+    'ManagedEnvironmentPeerAuthenticationArgsDict',
+    'ManagedEnvironmentPeerTrafficConfigurationArgs',
+    'ManagedEnvironmentPeerTrafficConfigurationArgsDict',
     'ManagedEnvironmentStoragePropertiesArgs',
     'ManagedEnvironmentStoragePropertiesArgsDict',
+    'ManagedIdentitySettingArgs',
+    'ManagedIdentitySettingArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'MtlsArgs',
+    'MtlsArgsDict',
+    'NacosComponentArgs',
+    'NacosComponentArgsDict',
     'NonceArgs',
     'NonceArgsDict',
     'OpenIdConnectClientCredentialArgs',
@@ -232,12 +252,18 @@ __all__ = [
     'ScaleRuleArgsDict',
     'ScaleArgs',
     'ScaleArgsDict',
+    'ScgRouteArgs',
+    'ScgRouteArgsDict',
     'ScheduledEntryArgs',
     'ScheduledEntryArgsDict',
     'SecretVolumeItemArgs',
     'SecretVolumeItemArgsDict',
     'SecretArgs',
     'SecretArgsDict',
+    'ServiceBindArgs',
+    'ServiceBindArgsDict',
+    'ServiceArgs',
+    'ServiceArgsDict',
     'SessionContainerResourcesArgs',
     'SessionContainerResourcesArgsDict',
     'SessionContainerArgs',
@@ -250,6 +276,14 @@ __all__ = [
     'SessionPoolSecretArgsDict',
     'SessionRegistryCredentialsArgs',
     'SessionRegistryCredentialsArgsDict',
+    'SpringBootAdminComponentArgs',
+    'SpringBootAdminComponentArgsDict',
+    'SpringCloudConfigComponentArgs',
+    'SpringCloudConfigComponentArgsDict',
+    'SpringCloudEurekaComponentArgs',
+    'SpringCloudEurekaComponentArgsDict',
+    'SpringCloudGatewayComponentArgs',
+    'SpringCloudGatewayComponentArgsDict',
     'TcpConnectionPoolArgs',
     'TcpConnectionPoolArgsDict',
     'TcpRetryPolicyArgs',
@@ -260,6 +294,8 @@ __all__ = [
     'TemplateArgsDict',
     'TimeoutPolicyArgs',
     'TimeoutPolicyArgsDict',
+    'TokenStoreArgs',
+    'TokenStoreArgsDict',
     'TrafficWeightArgs',
     'TrafficWeightArgsDict',
     'TwitterRegistrationArgs',
@@ -1106,6 +1142,10 @@ if not MYPY:
         """
         Client Secret.
         """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of auth github does for deploying the template
+        """
         subscription_id: NotRequired[pulumi.Input[str]]
         """
         Subscription Id.
@@ -1122,12 +1162,14 @@ class AzureCredentialsArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Container App credentials.
         :param pulumi.Input[str] client_id: Client Id.
         :param pulumi.Input[str] client_secret: Client Secret.
+        :param pulumi.Input[str] kind: Kind of auth github does for deploying the template
         :param pulumi.Input[str] subscription_id: Subscription Id.
         :param pulumi.Input[str] tenant_id: Tenant Id.
         """
@@ -1135,6 +1177,8 @@ class AzureCredentialsArgs:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
@@ -1163,6 +1207,18 @@ class AzureCredentialsArgs:
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of auth github does for deploying the template
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter(name="subscriptionId")
@@ -1378,6 +1434,41 @@ class AzureStaticWebAppsArgs:
 
 
 if not MYPY:
+    class BlobStorageTokenStoreArgsDict(TypedDict):
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
+        sas_url_setting_name: pulumi.Input[str]
+        """
+        The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        """
+elif False:
+    BlobStorageTokenStoreArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BlobStorageTokenStoreArgs:
+    def __init__(__self__, *,
+                 sas_url_setting_name: pulumi.Input[str]):
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        :param pulumi.Input[str] sas_url_setting_name: The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        """
+        pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
+
+    @property
+    @pulumi.getter(name="sasUrlSettingName")
+    def sas_url_setting_name(self) -> pulumi.Input[str]:
+        """
+        The name of the app secrets containing the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "sas_url_setting_name")
+
+    @sas_url_setting_name.setter
+    def sas_url_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url_setting_name", value)
+
+
+if not MYPY:
     class BuildConfigurationArgsDict(TypedDict):
         """
         Configuration of the build.
@@ -1388,7 +1479,7 @@ if not MYPY:
         """
         environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
         """
-        List of environment variables to be passed to the build.
+        List of environment variables to be passed to the build, secrets should not be used in environment variable.
         """
         platform: NotRequired[pulumi.Input[str]]
         """
@@ -1416,7 +1507,7 @@ class BuildConfigurationArgs:
         """
         Configuration of the build.
         :param pulumi.Input[str] base_os: Base OS used to build and run the app.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables to be passed to the build.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables to be passed to the build, secrets should not be used in environment variable.
         :param pulumi.Input[str] platform: Platform to be used to build and run the app.
         :param pulumi.Input[str] platform_version: Platform version to be used to build and run the app.
         :param pulumi.Input[Sequence[pulumi.Input['PreBuildStepArgs']]] pre_build_steps: List of steps to perform before the build.
@@ -1448,7 +1539,7 @@ class BuildConfigurationArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
-        List of environment variables to be passed to the build.
+        List of environment variables to be passed to the build, secrets should not be used in environment variable.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -1711,6 +1802,10 @@ if not MYPY:
         """
         Collection of secrets used by a Container app
         """
+        service: NotRequired[pulumi.Input['ServiceArgsDict']]
+        """
+        Container App to be a dev Container App Service
+        """
 elif False:
     ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1722,7 +1817,8 @@ class ConfigurationArgs:
                  ingress: Optional[pulumi.Input['IngressArgs']] = None,
                  max_inactive_revisions: Optional[pulumi.Input[int]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None):
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
+                 service: Optional[pulumi.Input['ServiceArgs']] = None):
         """
         Non versioned Container App configuration properties that define the mutable settings of a Container app
         :param pulumi.Input[Union[str, 'ActiveRevisionsMode']] active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
@@ -1732,6 +1828,7 @@ class ConfigurationArgs:
         :param pulumi.Input[int] max_inactive_revisions: Optional. Max inactive revisions a Container App can have.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Container app
+        :param pulumi.Input['ServiceArgs'] service: Container App to be a dev Container App Service
         """
         if active_revisions_mode is None:
             active_revisions_mode = 'Single'
@@ -1747,6 +1844,8 @@ class ConfigurationArgs:
             pulumi.set(__self__, "registries", registries)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
 
     @property
     @pulumi.getter(name="activeRevisionsMode")
@@ -1820,6 +1919,18 @@ class ConfigurationArgs:
     @secrets.setter
     def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]):
         pulumi.set(self, "secrets", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input['ServiceArgs']]:
+        """
+        Container App to be a dev Container App Service
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input['ServiceArgs']]):
+        pulumi.set(self, "service", value)
 
 
 if not MYPY:
@@ -2682,27 +2793,27 @@ if not MYPY:
         """
         allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        allowed origins
+        Specifies the content for the access-control-allow-origins header
         """
         allow_credentials: NotRequired[pulumi.Input[bool]]
         """
-        allow credential or not
+        Specifies whether the resource allows credentials
         """
         allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        allowed HTTP headers
+        Specifies the content for the access-control-allow-headers header
         """
         allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        allowed HTTP methods
+        Specifies the content for the access-control-allow-methods header
         """
         expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        expose HTTP headers 
+        Specifies the content for the access-control-expose-headers header 
         """
         max_age: NotRequired[pulumi.Input[int]]
         """
-        max time client can cache the result
+        Specifies the content for the access-control-max-age header
         """
 elif False:
     CorsPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -2718,12 +2829,12 @@ class CorsPolicyArgs:
                  max_age: Optional[pulumi.Input[int]] = None):
         """
         Cross-Origin-Resource-Sharing policy
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: allowed origins
-        :param pulumi.Input[bool] allow_credentials: allow credential or not
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: allowed HTTP headers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: allowed HTTP methods
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: expose HTTP headers 
-        :param pulumi.Input[int] max_age: max time client can cache the result
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies the content for the access-control-allow-origins header
+        :param pulumi.Input[bool] allow_credentials: Specifies whether the resource allows credentials
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: Specifies the content for the access-control-allow-headers header
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Specifies the content for the access-control-allow-methods header
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: Specifies the content for the access-control-expose-headers header 
+        :param pulumi.Input[int] max_age: Specifies the content for the access-control-max-age header
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allow_credentials is not None:
@@ -2741,7 +2852,7 @@ class CorsPolicyArgs:
     @pulumi.getter(name="allowedOrigins")
     def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        allowed origins
+        Specifies the content for the access-control-allow-origins header
         """
         return pulumi.get(self, "allowed_origins")
 
@@ -2753,7 +2864,7 @@ class CorsPolicyArgs:
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
         """
-        allow credential or not
+        Specifies whether the resource allows credentials
         """
         return pulumi.get(self, "allow_credentials")
 
@@ -2765,7 +2876,7 @@ class CorsPolicyArgs:
     @pulumi.getter(name="allowedHeaders")
     def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        allowed HTTP headers
+        Specifies the content for the access-control-allow-headers header
         """
         return pulumi.get(self, "allowed_headers")
 
@@ -2777,7 +2888,7 @@ class CorsPolicyArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        allowed HTTP methods
+        Specifies the content for the access-control-allow-methods header
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -2789,7 +2900,7 @@ class CorsPolicyArgs:
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        expose HTTP headers 
+        Specifies the content for the access-control-expose-headers header 
         """
         return pulumi.get(self, "expose_headers")
 
@@ -2801,7 +2912,7 @@ class CorsPolicyArgs:
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[pulumi.Input[int]]:
         """
-        max time client can cache the result
+        Specifies the content for the access-control-max-age header
         """
         return pulumi.get(self, "max_age")
 
@@ -3193,9 +3304,89 @@ class CustomScaleRuleArgs:
 
 
 if not MYPY:
+    class DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgsDict(TypedDict):
+        """
+        Dapr Component Resiliency Policy Circuit Breaker Policy Configuration.
+        """
+        consecutive_errors: NotRequired[pulumi.Input[int]]
+        """
+        The number of consecutive errors before the circuit is opened.
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The optional interval in seconds after which the error count resets to 0. An interval of 0 will never reset. If not specified, the timeoutInSeconds value will be used.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The interval in seconds until a retry attempt is made after the circuit is opened.
+        """
+elif False:
+    DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 consecutive_errors: Optional[pulumi.Input[int]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Dapr Component Resiliency Policy Circuit Breaker Policy Configuration.
+        :param pulumi.Input[int] consecutive_errors: The number of consecutive errors before the circuit is opened.
+        :param pulumi.Input[int] interval_in_seconds: The optional interval in seconds after which the error count resets to 0. An interval of 0 will never reset. If not specified, the timeoutInSeconds value will be used.
+        :param pulumi.Input[int] timeout_in_seconds: The interval in seconds until a retry attempt is made after the circuit is opened.
+        """
+        if consecutive_errors is not None:
+            pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive errors before the circuit is opened.
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @consecutive_errors.setter
+    def consecutive_errors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "consecutive_errors", value)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional interval in seconds after which the error count resets to 0. An interval of 0 will never reset. If not specified, the timeoutInSeconds value will be used.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval in seconds until a retry attempt is made after the circuit is opened.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
+if not MYPY:
     class DaprComponentResiliencyPolicyConfigurationArgsDict(TypedDict):
         """
         Dapr Component Resiliency Policy Configuration.
+        """
+        circuit_breaker_policy: NotRequired[pulumi.Input['DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgsDict']]
+        """
+        The optional circuit breaker policy configuration
         """
         http_retry_policy: NotRequired[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgsDict']]
         """
@@ -3211,17 +3402,33 @@ elif False:
 @pulumi.input_type
 class DaprComponentResiliencyPolicyConfigurationArgs:
     def __init__(__self__, *,
+                 circuit_breaker_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs']] = None,
                  http_retry_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs']] = None,
                  timeout_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs']] = None):
         """
         Dapr Component Resiliency Policy Configuration.
+        :param pulumi.Input['DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs'] circuit_breaker_policy: The optional circuit breaker policy configuration
         :param pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs'] http_retry_policy: The optional HTTP retry policy configuration
         :param pulumi.Input['DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs'] timeout_policy: The optional timeout policy configuration
         """
+        if circuit_breaker_policy is not None:
+            pulumi.set(__self__, "circuit_breaker_policy", circuit_breaker_policy)
         if http_retry_policy is not None:
             pulumi.set(__self__, "http_retry_policy", http_retry_policy)
         if timeout_policy is not None:
             pulumi.set(__self__, "timeout_policy", timeout_policy)
+
+    @property
+    @pulumi.getter(name="circuitBreakerPolicy")
+    def circuit_breaker_policy(self) -> Optional[pulumi.Input['DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs']]:
+        """
+        The optional circuit breaker policy configuration
+        """
+        return pulumi.get(self, "circuit_breaker_policy")
+
+    @circuit_breaker_policy.setter
+    def circuit_breaker_policy(self, value: Optional[pulumi.Input['DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationArgs']]):
+        pulumi.set(self, "circuit_breaker_policy", value)
 
     @property
     @pulumi.getter(name="httpRetryPolicy")
@@ -4067,38 +4274,59 @@ class DynamicPoolConfigurationArgs:
 
 
 if not MYPY:
-    class EnvironmentSkuPropertiesArgsDict(TypedDict):
+    class EncryptionSettingsArgsDict(TypedDict):
         """
-        Managed Environment resource SKU properties.
+        The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
         """
-        name: pulumi.Input[Union[str, 'SkuName']]
+        container_app_auth_encryption_secret_name: NotRequired[pulumi.Input[str]]
         """
-        Name of the Sku.
+        The secret name which is referenced for EncryptionKey.
+        """
+        container_app_auth_signing_secret_name: NotRequired[pulumi.Input[str]]
+        """
+        The secret name which is referenced for SigningKey.
         """
 elif False:
-    EnvironmentSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    EncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class EnvironmentSkuPropertiesArgs:
+class EncryptionSettingsArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuName']]):
+                 container_app_auth_encryption_secret_name: Optional[pulumi.Input[str]] = None,
+                 container_app_auth_signing_secret_name: Optional[pulumi.Input[str]] = None):
         """
-        Managed Environment resource SKU properties.
-        :param pulumi.Input[Union[str, 'SkuName']] name: Name of the Sku.
+        The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[str] container_app_auth_encryption_secret_name: The secret name which is referenced for EncryptionKey.
+        :param pulumi.Input[str] container_app_auth_signing_secret_name: The secret name which is referenced for SigningKey.
         """
-        pulumi.set(__self__, "name", name)
+        if container_app_auth_encryption_secret_name is not None:
+            pulumi.set(__self__, "container_app_auth_encryption_secret_name", container_app_auth_encryption_secret_name)
+        if container_app_auth_signing_secret_name is not None:
+            pulumi.set(__self__, "container_app_auth_signing_secret_name", container_app_auth_signing_secret_name)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
+    @pulumi.getter(name="containerAppAuthEncryptionSecretName")
+    def container_app_auth_encryption_secret_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Sku.
+        The secret name which is referenced for EncryptionKey.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "container_app_auth_encryption_secret_name")
 
-    @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
-        pulumi.set(self, "name", value)
+    @container_app_auth_encryption_secret_name.setter
+    def container_app_auth_encryption_secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_app_auth_encryption_secret_name", value)
+
+    @property
+    @pulumi.getter(name="containerAppAuthSigningSecretName")
+    def container_app_auth_signing_secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret name which is referenced for SigningKey.
+        """
+        return pulumi.get(self, "container_app_auth_signing_secret_name")
+
+    @container_app_auth_signing_secret_name.setter
+    def container_app_auth_signing_secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_app_auth_signing_secret_name", value)
 
 
 if not MYPY:
@@ -4548,6 +4776,10 @@ if not MYPY:
         """
         Context path
         """
+        github_personal_access_token: NotRequired[pulumi.Input[str]]
+        """
+        One time Github PAT to configure github environment
+        """
         image: NotRequired[pulumi.Input[str]]
         """
         Image name
@@ -4580,6 +4812,7 @@ class GithubActionConfigurationArgs:
     def __init__(__self__, *,
                  azure_credentials: Optional[pulumi.Input['AzureCredentialsArgs']] = None,
                  context_path: Optional[pulumi.Input[str]] = None,
+                 github_personal_access_token: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  os: Optional[pulumi.Input[str]] = None,
                  publish_type: Optional[pulumi.Input[str]] = None,
@@ -4590,6 +4823,7 @@ class GithubActionConfigurationArgs:
         Configuration properties that define the mutable settings of a Container App SourceControl
         :param pulumi.Input['AzureCredentialsArgs'] azure_credentials: AzureCredentials configurations.
         :param pulumi.Input[str] context_path: Context path
+        :param pulumi.Input[str] github_personal_access_token: One time Github PAT to configure github environment
         :param pulumi.Input[str] image: Image name
         :param pulumi.Input[str] os: Operation system
         :param pulumi.Input[str] publish_type: Code or Image
@@ -4601,6 +4835,8 @@ class GithubActionConfigurationArgs:
             pulumi.set(__self__, "azure_credentials", azure_credentials)
         if context_path is not None:
             pulumi.set(__self__, "context_path", context_path)
+        if github_personal_access_token is not None:
+            pulumi.set(__self__, "github_personal_access_token", github_personal_access_token)
         if image is not None:
             pulumi.set(__self__, "image", image)
         if os is not None:
@@ -4637,6 +4873,18 @@ class GithubActionConfigurationArgs:
     @context_path.setter
     def context_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter(name="githubPersonalAccessToken")
+    def github_personal_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        One time Github PAT to configure github environment
+        """
+        return pulumi.get(self, "github_personal_access_token")
+
+    @github_personal_access_token.setter
+    def github_personal_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "github_personal_access_token", value)
 
     @property
     @pulumi.getter
@@ -6035,9 +6283,123 @@ class IdentityProvidersArgs:
 
 
 if not MYPY:
+    class IngressPortMappingArgsDict(TypedDict):
+        """
+        Port mappings of container app ingress
+        """
+        external: pulumi.Input[bool]
+        """
+        Specifies whether the app port is accessible outside of the environment
+        """
+        target_port: pulumi.Input[int]
+        """
+        Specifies the port user's container listens on
+        """
+        exposed_port: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the exposed port for the target port. If not specified, it defaults to target port
+        """
+elif False:
+    IngressPortMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IngressPortMappingArgs:
+    def __init__(__self__, *,
+                 external: pulumi.Input[bool],
+                 target_port: pulumi.Input[int],
+                 exposed_port: Optional[pulumi.Input[int]] = None):
+        """
+        Port mappings of container app ingress
+        :param pulumi.Input[bool] external: Specifies whether the app port is accessible outside of the environment
+        :param pulumi.Input[int] target_port: Specifies the port user's container listens on
+        :param pulumi.Input[int] exposed_port: Specifies the exposed port for the target port. If not specified, it defaults to target port
+        """
+        pulumi.set(__self__, "external", external)
+        pulumi.set(__self__, "target_port", target_port)
+        if exposed_port is not None:
+            pulumi.set(__self__, "exposed_port", exposed_port)
+
+    @property
+    @pulumi.getter
+    def external(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether the app port is accessible outside of the environment
+        """
+        return pulumi.get(self, "external")
+
+    @external.setter
+    def external(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "external", value)
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> pulumi.Input[int]:
+        """
+        Specifies the port user's container listens on
+        """
+        return pulumi.get(self, "target_port")
+
+    @target_port.setter
+    def target_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_port", value)
+
+    @property
+    @pulumi.getter(name="exposedPort")
+    def exposed_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the exposed port for the target port. If not specified, it defaults to target port
+        """
+        return pulumi.get(self, "exposed_port")
+
+    @exposed_port.setter
+    def exposed_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "exposed_port", value)
+
+
+if not MYPY:
+    class IngressStickySessionsArgsDict(TypedDict):
+        """
+        Sticky Sessions for Single Revision Mode
+        """
+        affinity: NotRequired[pulumi.Input[Union[str, 'Affinity']]]
+        """
+        Sticky Session Affinity
+        """
+elif False:
+    IngressStickySessionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IngressStickySessionsArgs:
+    def __init__(__self__, *,
+                 affinity: Optional[pulumi.Input[Union[str, 'Affinity']]] = None):
+        """
+        Sticky Sessions for Single Revision Mode
+        :param pulumi.Input[Union[str, 'Affinity']] affinity: Sticky Session Affinity
+        """
+        if affinity is not None:
+            pulumi.set(__self__, "affinity", affinity)
+
+    @property
+    @pulumi.getter
+    def affinity(self) -> Optional[pulumi.Input[Union[str, 'Affinity']]]:
+        """
+        Sticky Session Affinity
+        """
+        return pulumi.get(self, "affinity")
+
+    @affinity.setter
+    def affinity(self, value: Optional[pulumi.Input[Union[str, 'Affinity']]]):
+        pulumi.set(self, "affinity", value)
+
+
+if not MYPY:
     class IngressArgsDict(TypedDict):
         """
         Container App Ingress configuration.
+        """
+        additional_port_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['IngressPortMappingArgsDict']]]]
+        """
+        Settings to expose additional ports on container app
         """
         allow_insecure: NotRequired[pulumi.Input[bool]]
         """
@@ -6067,6 +6429,10 @@ if not MYPY:
         """
         Rules to restrict incoming IP address.
         """
+        sticky_sessions: NotRequired[pulumi.Input['IngressStickySessionsArgsDict']]
+        """
+        Sticky Sessions for Single Revision Mode
+        """
         target_port: NotRequired[pulumi.Input[int]]
         """
         Target Port in containers for traffic from ingress
@@ -6085,6 +6451,7 @@ elif False:
 @pulumi.input_type
 class IngressArgs:
     def __init__(__self__, *,
+                 additional_port_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['IngressPortMappingArgs']]]] = None,
                  allow_insecure: Optional[pulumi.Input[bool]] = None,
                  client_certificate_mode: Optional[pulumi.Input[Union[str, 'IngressClientCertificateMode']]] = None,
                  cors_policy: Optional[pulumi.Input['CorsPolicyArgs']] = None,
@@ -6092,11 +6459,13 @@ class IngressArgs:
                  exposed_port: Optional[pulumi.Input[int]] = None,
                  external: Optional[pulumi.Input[bool]] = None,
                  ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionRuleArgs']]]] = None,
+                 sticky_sessions: Optional[pulumi.Input['IngressStickySessionsArgs']] = None,
                  target_port: Optional[pulumi.Input[int]] = None,
                  traffic: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]] = None,
                  transport: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]] = None):
         """
         Container App Ingress configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['IngressPortMappingArgs']]] additional_port_mappings: Settings to expose additional ports on container app
         :param pulumi.Input[bool] allow_insecure: Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
         :param pulumi.Input[Union[str, 'IngressClientCertificateMode']] client_certificate_mode: Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
         :param pulumi.Input['CorsPolicyArgs'] cors_policy: CORS policy for container app
@@ -6104,10 +6473,13 @@ class IngressArgs:
         :param pulumi.Input[int] exposed_port: Exposed Port in containers for TCP traffic from ingress
         :param pulumi.Input[bool] external: Bool indicating if app exposes an external http endpoint
         :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionRuleArgs']]] ip_security_restrictions: Rules to restrict incoming IP address.
+        :param pulumi.Input['IngressStickySessionsArgs'] sticky_sessions: Sticky Sessions for Single Revision Mode
         :param pulumi.Input[int] target_port: Target Port in containers for traffic from ingress
         :param pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]] traffic: Traffic weights for app's revisions
         :param pulumi.Input[Union[str, 'IngressTransportMethod']] transport: Ingress transport protocol
         """
+        if additional_port_mappings is not None:
+            pulumi.set(__self__, "additional_port_mappings", additional_port_mappings)
         if allow_insecure is None:
             allow_insecure = False
         if allow_insecure is not None:
@@ -6126,6 +6498,8 @@ class IngressArgs:
             pulumi.set(__self__, "external", external)
         if ip_security_restrictions is not None:
             pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if sticky_sessions is not None:
+            pulumi.set(__self__, "sticky_sessions", sticky_sessions)
         if target_port is not None:
             pulumi.set(__self__, "target_port", target_port)
         if traffic is not None:
@@ -6134,6 +6508,18 @@ class IngressArgs:
             transport = 'auto'
         if transport is not None:
             pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="additionalPortMappings")
+    def additional_port_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IngressPortMappingArgs']]]]:
+        """
+        Settings to expose additional ports on container app
+        """
+        return pulumi.get(self, "additional_port_mappings")
+
+    @additional_port_mappings.setter
+    def additional_port_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IngressPortMappingArgs']]]]):
+        pulumi.set(self, "additional_port_mappings", value)
 
     @property
     @pulumi.getter(name="allowInsecure")
@@ -6218,6 +6604,18 @@ class IngressArgs:
     @ip_security_restrictions.setter
     def ip_security_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionRuleArgs']]]]):
         pulumi.set(self, "ip_security_restrictions", value)
+
+    @property
+    @pulumi.getter(name="stickySessions")
+    def sticky_sessions(self) -> Optional[pulumi.Input['IngressStickySessionsArgs']]:
+        """
+        Sticky Sessions for Single Revision Mode
+        """
+        return pulumi.get(self, "sticky_sessions")
+
+    @sticky_sessions.setter
+    def sticky_sessions(self, value: Optional[pulumi.Input['IngressStickySessionsArgs']]):
+        pulumi.set(self, "sticky_sessions", value)
 
     @property
     @pulumi.getter(name="targetPort")
@@ -6559,6 +6957,62 @@ class JavaComponentConfigurationPropertyArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class JavaComponentPropertiesScaleArgsDict(TypedDict):
+        """
+        Java component scaling configurations
+        """
+        max_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Optional. Maximum number of Java component replicas
+        """
+        min_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Optional. Minimum number of Java component replicas. Defaults to 1 if not set
+        """
+elif False:
+    JavaComponentPropertiesScaleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JavaComponentPropertiesScaleArgs:
+    def __init__(__self__, *,
+                 max_replicas: Optional[pulumi.Input[int]] = None,
+                 min_replicas: Optional[pulumi.Input[int]] = None):
+        """
+        Java component scaling configurations
+        :param pulumi.Input[int] max_replicas: Optional. Maximum number of Java component replicas
+        :param pulumi.Input[int] min_replicas: Optional. Minimum number of Java component replicas. Defaults to 1 if not set
+        """
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional. Maximum number of Java component replicas
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @max_replicas.setter
+    def max_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_replicas", value)
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional. Minimum number of Java component replicas. Defaults to 1 if not set
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @min_replicas.setter
+    def min_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_replicas", value)
 
 
 if not MYPY:
@@ -7486,6 +7940,10 @@ if not MYPY:
         """
         The routes that specify the endpoints used for login and logout requests.
         """
+        token_store: NotRequired[pulumi.Input['TokenStoreArgsDict']]
+        """
+        The configuration settings of the token store.
+        """
 elif False:
     LoginArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7496,7 +7954,8 @@ class LoginArgs:
                  cookie_expiration: Optional[pulumi.Input['CookieExpirationArgs']] = None,
                  nonce: Optional[pulumi.Input['NonceArgs']] = None,
                  preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
-                 routes: Optional[pulumi.Input['LoginRoutesArgs']] = None):
+                 routes: Optional[pulumi.Input['LoginRoutesArgs']] = None,
+                 token_store: Optional[pulumi.Input['TokenStoreArgs']] = None):
         """
         The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -7506,6 +7965,7 @@ class LoginArgs:
         :param pulumi.Input['NonceArgs'] nonce: The configuration settings of the nonce used in the login flow.
         :param pulumi.Input[bool] preserve_url_fragments_for_logins: <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
         :param pulumi.Input['LoginRoutesArgs'] routes: The routes that specify the endpoints used for login and logout requests.
+        :param pulumi.Input['TokenStoreArgs'] token_store: The configuration settings of the token store.
         """
         if allowed_external_redirect_urls is not None:
             pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -7517,6 +7977,8 @@ class LoginArgs:
             pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
+        if token_store is not None:
+            pulumi.set(__self__, "token_store", token_store)
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
@@ -7580,6 +8042,18 @@ class LoginArgs:
     def routes(self, value: Optional[pulumi.Input['LoginRoutesArgs']]):
         pulumi.set(self, "routes", value)
 
+    @property
+    @pulumi.getter(name="tokenStore")
+    def token_store(self) -> Optional[pulumi.Input['TokenStoreArgs']]:
+        """
+        The configuration settings of the token store.
+        """
+        return pulumi.get(self, "token_store")
+
+    @token_store.setter
+    def token_store(self, value: Optional[pulumi.Input['TokenStoreArgs']]):
+        pulumi.set(self, "token_store", value)
+
 
 if not MYPY:
     class ManagedCertificatePropertiesArgsDict(TypedDict):
@@ -7638,59 +8112,111 @@ class ManagedCertificatePropertiesArgs:
 
 
 if not MYPY:
-    class ManagedEnvironmentOutboundSettingsArgsDict(TypedDict):
+    class ManagedEnvironmentEncryptionArgsDict(TypedDict):
         """
-        Configuration used to control the Environment Egress outbound traffic
+        Peer traffic encryption settings for the Managed Environment
         """
-        out_bound_type: NotRequired[pulumi.Input[Union[str, 'ManagedEnvironmentOutBoundType']]]
+        enabled: NotRequired[pulumi.Input[bool]]
         """
-        Outbound type for the cluster
-        """
-        virtual_network_appliance_ip: NotRequired[pulumi.Input[str]]
-        """
-        Virtual Appliance IP used as the Egress controller for the Environment
+        Boolean indicating whether the peer traffic encryption is enabled
         """
 elif False:
-    ManagedEnvironmentOutboundSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    ManagedEnvironmentEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class ManagedEnvironmentOutboundSettingsArgs:
+class ManagedEnvironmentEncryptionArgs:
     def __init__(__self__, *,
-                 out_bound_type: Optional[pulumi.Input[Union[str, 'ManagedEnvironmentOutBoundType']]] = None,
-                 virtual_network_appliance_ip: Optional[pulumi.Input[str]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None):
         """
-        Configuration used to control the Environment Egress outbound traffic
-        :param pulumi.Input[Union[str, 'ManagedEnvironmentOutBoundType']] out_bound_type: Outbound type for the cluster
-        :param pulumi.Input[str] virtual_network_appliance_ip: Virtual Appliance IP used as the Egress controller for the Environment
+        Peer traffic encryption settings for the Managed Environment
+        :param pulumi.Input[bool] enabled: Boolean indicating whether the peer traffic encryption is enabled
         """
-        if out_bound_type is not None:
-            pulumi.set(__self__, "out_bound_type", out_bound_type)
-        if virtual_network_appliance_ip is not None:
-            pulumi.set(__self__, "virtual_network_appliance_ip", virtual_network_appliance_ip)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
-    @pulumi.getter(name="outBoundType")
-    def out_bound_type(self) -> Optional[pulumi.Input[Union[str, 'ManagedEnvironmentOutBoundType']]]:
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Outbound type for the cluster
+        Boolean indicating whether the peer traffic encryption is enabled
         """
-        return pulumi.get(self, "out_bound_type")
+        return pulumi.get(self, "enabled")
 
-    @out_bound_type.setter
-    def out_bound_type(self, value: Optional[pulumi.Input[Union[str, 'ManagedEnvironmentOutBoundType']]]):
-        pulumi.set(self, "out_bound_type", value)
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class ManagedEnvironmentPeerAuthenticationArgsDict(TypedDict):
+        """
+        Peer authentication settings for the Managed Environment
+        """
+        mtls: NotRequired[pulumi.Input['MtlsArgsDict']]
+        """
+        Mutual TLS authentication settings for the Managed Environment
+        """
+elif False:
+    ManagedEnvironmentPeerAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedEnvironmentPeerAuthenticationArgs:
+    def __init__(__self__, *,
+                 mtls: Optional[pulumi.Input['MtlsArgs']] = None):
+        """
+        Peer authentication settings for the Managed Environment
+        :param pulumi.Input['MtlsArgs'] mtls: Mutual TLS authentication settings for the Managed Environment
+        """
+        if mtls is not None:
+            pulumi.set(__self__, "mtls", mtls)
 
     @property
-    @pulumi.getter(name="virtualNetworkApplianceIp")
-    def virtual_network_appliance_ip(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def mtls(self) -> Optional[pulumi.Input['MtlsArgs']]:
         """
-        Virtual Appliance IP used as the Egress controller for the Environment
+        Mutual TLS authentication settings for the Managed Environment
         """
-        return pulumi.get(self, "virtual_network_appliance_ip")
+        return pulumi.get(self, "mtls")
 
-    @virtual_network_appliance_ip.setter
-    def virtual_network_appliance_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_network_appliance_ip", value)
+    @mtls.setter
+    def mtls(self, value: Optional[pulumi.Input['MtlsArgs']]):
+        pulumi.set(self, "mtls", value)
+
+
+if not MYPY:
+    class ManagedEnvironmentPeerTrafficConfigurationArgsDict(TypedDict):
+        """
+        Peer traffic settings for the Managed Environment
+        """
+        encryption: NotRequired[pulumi.Input['ManagedEnvironmentEncryptionArgsDict']]
+        """
+        Peer traffic encryption settings for the Managed Environment
+        """
+elif False:
+    ManagedEnvironmentPeerTrafficConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedEnvironmentPeerTrafficConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption: Optional[pulumi.Input['ManagedEnvironmentEncryptionArgs']] = None):
+        """
+        Peer traffic settings for the Managed Environment
+        :param pulumi.Input['ManagedEnvironmentEncryptionArgs'] encryption: Peer traffic encryption settings for the Managed Environment
+        """
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['ManagedEnvironmentEncryptionArgs']]:
+        """
+        Peer traffic encryption settings for the Managed Environment
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['ManagedEnvironmentEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
 
 if not MYPY:
@@ -7727,6 +8253,63 @@ class ManagedEnvironmentStoragePropertiesArgs:
     @azure_file.setter
     def azure_file(self, value: Optional[pulumi.Input['AzureFilePropertiesArgs']]):
         pulumi.set(self, "azure_file", value)
+
+
+if not MYPY:
+    class ManagedIdentitySettingArgsDict(TypedDict):
+        """
+        Optional settings for a Managed Identity that is assigned to the Session pool.
+        """
+        identity: pulumi.Input[str]
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Session Pool, or 'system' for system-assigned identity.
+        """
+        lifecycle: NotRequired[pulumi.Input[Union[str, 'IdentitySettingsLifeCycle']]]
+        """
+        Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+        """
+elif False:
+    ManagedIdentitySettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedIdentitySettingArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input[str],
+                 lifecycle: Optional[pulumi.Input[Union[str, 'IdentitySettingsLifeCycle']]] = None):
+        """
+        Optional settings for a Managed Identity that is assigned to the Session pool.
+        :param pulumi.Input[str] identity: The resource ID of a user-assigned managed identity that is assigned to the Session Pool, or 'system' for system-assigned identity.
+        :param pulumi.Input[Union[str, 'IdentitySettingsLifeCycle']] lifecycle: Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+        """
+        pulumi.set(__self__, "identity", identity)
+        if lifecycle is None:
+            lifecycle = 'None'
+        if lifecycle is not None:
+            pulumi.set(__self__, "lifecycle", lifecycle)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[str]:
+        """
+        The resource ID of a user-assigned managed identity that is assigned to the Session Pool, or 'system' for system-assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def lifecycle(self) -> Optional[pulumi.Input[Union[str, 'IdentitySettingsLifeCycle']]]:
+        """
+        Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+        """
+        return pulumi.get(self, "lifecycle")
+
+    @lifecycle.setter
+    def lifecycle(self, value: Optional[pulumi.Input[Union[str, 'IdentitySettingsLifeCycle']]]):
+        pulumi.set(self, "lifecycle", value)
 
 
 if not MYPY:
@@ -7782,6 +8365,140 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class MtlsArgsDict(TypedDict):
+        """
+        Configuration properties for mutual TLS authentication
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean indicating whether the mutual TLS authentication is enabled
+        """
+elif False:
+    MtlsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MtlsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Configuration properties for mutual TLS authentication
+        :param pulumi.Input[bool] enabled: Boolean indicating whether the mutual TLS authentication is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating whether the mutual TLS authentication is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class NacosComponentArgsDict(TypedDict):
+        """
+        Nacos properties.
+        """
+        component_type: pulumi.Input[str]
+        """
+        Type of the Java Component.
+        Expected value is 'Nacos'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+elif False:
+    NacosComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NacosComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+        """
+        Nacos properties.
+        :param pulumi.Input[str] component_type: Type of the Java Component.
+               Expected value is 'Nacos'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'Nacos')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[str]:
+        """
+        Type of the Java Component.
+        Expected value is 'Nacos'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
 
 
 if not MYPY:
@@ -8851,6 +9568,120 @@ class ScaleArgs:
 
 
 if not MYPY:
+    class ScgRouteArgsDict(TypedDict):
+        """
+        Spring Cloud Gateway route definition
+        """
+        id: pulumi.Input[str]
+        """
+        Id of the route
+        """
+        uri: pulumi.Input[str]
+        """
+        Uri of the route
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Filters of the route
+        """
+        order: NotRequired[pulumi.Input[float]]
+        """
+        Order of the route
+        """
+        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Predicates of the route
+        """
+elif False:
+    ScgRouteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScgRouteArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 order: Optional[pulumi.Input[float]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Spring Cloud Gateway route definition
+        :param pulumi.Input[str] id: Id of the route
+        :param pulumi.Input[str] uri: Uri of the route
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Filters of the route
+        :param pulumi.Input[float] order: Order of the route
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Predicates of the route
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "uri", uri)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Id of the route
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        Uri of the route
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Filters of the route
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[float]]:
+        """
+        Order of the route
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Predicates of the route
+        """
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "predicates", value)
+
+
+if not MYPY:
     class ScheduledEntryArgsDict(TypedDict):
         """
         Maintenance schedule entry for a managed environment.
@@ -9073,6 +9904,97 @@ class SecretArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceBindArgsDict(TypedDict):
+        """
+        Configuration to bind a ContainerApp to a dev ContainerApp Service
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the service bind
+        """
+        service_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the target service
+        """
+elif False:
+    ServiceBindArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceBindArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_id: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration to bind a ContainerApp to a dev ContainerApp Service
+        :param pulumi.Input[str] name: Name of the service bind
+        :param pulumi.Input[str] service_id: Resource id of the target service
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
+
+    @service_id.setter
+    def service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_id", value)
+
+
+if not MYPY:
+    class ServiceArgsDict(TypedDict):
+        """
+        Container App to be a dev service
+        """
+        type: pulumi.Input[str]
+        """
+        Dev ContainerApp service type
+        """
+elif False:
+    ServiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        Container App to be a dev service
+        :param pulumi.Input[str] type: Dev ContainerApp service type
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Dev ContainerApp service type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -9400,11 +10322,15 @@ if not MYPY:
         """
         Session pool private registry credentials.
         """
+        identity: NotRequired[pulumi.Input[str]]
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
         password_secret_ref: NotRequired[pulumi.Input[str]]
         """
         The name of the secret that contains the registry login password
         """
-        registry_server: NotRequired[pulumi.Input[str]]
+        server: NotRequired[pulumi.Input[str]]
         """
         Container registry server.
         """
@@ -9418,21 +10344,37 @@ elif False:
 @pulumi.input_type
 class SessionRegistryCredentialsArgs:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[str]] = None,
                  password_secret_ref: Optional[pulumi.Input[str]] = None,
-                 registry_server: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Session pool private registry credentials.
+        :param pulumi.Input[str] identity: A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
         :param pulumi.Input[str] password_secret_ref: The name of the secret that contains the registry login password
-        :param pulumi.Input[str] registry_server: Container registry server.
+        :param pulumi.Input[str] server: Container registry server.
         :param pulumi.Input[str] username: Container registry username.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if password_secret_ref is not None:
             pulumi.set(__self__, "password_secret_ref", password_secret_ref)
-        if registry_server is not None:
-            pulumi.set(__self__, "registry_server", registry_server)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="passwordSecretRef")
@@ -9447,16 +10389,16 @@ class SessionRegistryCredentialsArgs:
         pulumi.set(self, "password_secret_ref", value)
 
     @property
-    @pulumi.getter(name="registryServer")
-    def registry_server(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[str]]:
         """
         Container registry server.
         """
-        return pulumi.get(self, "registry_server")
+        return pulumi.get(self, "server")
 
-    @registry_server.setter
-    def registry_server(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "registry_server", value)
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server", value)
 
     @property
     @pulumi.getter
@@ -9469,6 +10411,418 @@ class SessionRegistryCredentialsArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class SpringBootAdminComponentArgsDict(TypedDict):
+        """
+        Spring Boot Admin properties.
+        """
+        component_type: pulumi.Input[str]
+        """
+        Type of the Java Component.
+        Expected value is 'SpringBootAdmin'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+elif False:
+    SpringBootAdminComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpringBootAdminComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+        """
+        Spring Boot Admin properties.
+        :param pulumi.Input[str] component_type: Type of the Java Component.
+               Expected value is 'SpringBootAdmin'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'SpringBootAdmin')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[str]:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringBootAdmin'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+
+if not MYPY:
+    class SpringCloudConfigComponentArgsDict(TypedDict):
+        """
+        Spring Cloud Config properties.
+        """
+        component_type: pulumi.Input[str]
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudConfig'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+elif False:
+    SpringCloudConfigComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpringCloudConfigComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+        """
+        Spring Cloud Config properties.
+        :param pulumi.Input[str] component_type: Type of the Java Component.
+               Expected value is 'SpringCloudConfig'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudConfig')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[str]:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudConfig'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+
+if not MYPY:
+    class SpringCloudEurekaComponentArgsDict(TypedDict):
+        """
+        Spring Cloud Eureka properties.
+        """
+        component_type: pulumi.Input[str]
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudEureka'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+elif False:
+    SpringCloudEurekaComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpringCloudEurekaComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+        """
+        Spring Cloud Eureka properties.
+        :param pulumi.Input[str] component_type: Type of the Java Component.
+               Expected value is 'SpringCloudEureka'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudEureka')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[str]:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudEureka'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+
+if not MYPY:
+    class SpringCloudGatewayComponentArgsDict(TypedDict):
+        """
+        Spring Cloud Gateway properties.
+        """
+        component_type: pulumi.Input[str]
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudGateway'.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgsDict']]]]
+        """
+        List of Java Components configuration properties
+        """
+        scale: NotRequired[pulumi.Input['JavaComponentPropertiesScaleArgsDict']]
+        """
+        Java component scaling configurations
+        """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgsDict']]]]
+        """
+        List of Java Components that are bound to the Java component
+        """
+        spring_cloud_gateway_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgsDict']]]]
+        """
+        Gateway route definition
+        """
+elif False:
+    SpringCloudGatewayComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpringCloudGatewayComponentArgs:
+    def __init__(__self__, *,
+                 component_type: pulumi.Input[str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
+                 scale: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None,
+                 spring_cloud_gateway_routes: Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]] = None):
+        """
+        Spring Cloud Gateway properties.
+        :param pulumi.Input[str] component_type: Type of the Java Component.
+               Expected value is 'SpringCloudGateway'.
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
+        :param pulumi.Input['JavaComponentPropertiesScaleArgs'] scale: Java component scaling configurations
+        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        :param pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]] spring_cloud_gateway_routes: Gateway route definition
+        """
+        pulumi.set(__self__, "component_type", 'SpringCloudGateway')
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+        if spring_cloud_gateway_routes is not None:
+            pulumi.set(__self__, "spring_cloud_gateway_routes", spring_cloud_gateway_routes)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> pulumi.Input[str]:
+        """
+        Type of the Java Component.
+        Expected value is 'SpringCloudGateway'.
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
+        """
+        List of Java Components configuration properties
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]:
+        """
+        Java component scaling configurations
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['JavaComponentPropertiesScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+        """
+        List of Java Components that are bound to the Java component
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+    @property
+    @pulumi.getter(name="springCloudGatewayRoutes")
+    def spring_cloud_gateway_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]]:
+        """
+        Gateway route definition
+        """
+        return pulumi.get(self, "spring_cloud_gateway_routes")
+
+    @spring_cloud_gateway_routes.setter
+    def spring_cloud_gateway_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScgRouteArgs']]]]):
+        pulumi.set(self, "spring_cloud_gateway_routes", value)
 
 
 if not MYPY:
@@ -9622,6 +10976,14 @@ if not MYPY:
         """
         Scaling properties for the Container App.
         """
+        service_binds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceBindArgsDict']]]]
+        """
+        List of container app services bound to the app
+        """
+        termination_grace_period_seconds: NotRequired[pulumi.Input[float]]
+        """
+        Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
+        """
         volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeArgsDict']]]]
         """
         List of volume definitions for the Container App.
@@ -9636,6 +10998,8 @@ class TemplateArgs:
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerArgs']]]] = None,
                  revision_suffix: Optional[pulumi.Input[str]] = None,
                  scale: Optional[pulumi.Input['ScaleArgs']] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceBindArgs']]]] = None,
+                 termination_grace_period_seconds: Optional[pulumi.Input[float]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None):
         """
         Container App versioned application definition.
@@ -9645,6 +11009,8 @@ class TemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InitContainerArgs']]] init_containers: List of specialized containers that run before app containers.
         :param pulumi.Input[str] revision_suffix: User friendly suffix that is appended to the revision name
         :param pulumi.Input['ScaleArgs'] scale: Scaling properties for the Container App.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceBindArgs']]] service_binds: List of container app services bound to the app
+        :param pulumi.Input[float] termination_grace_period_seconds: Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: List of volume definitions for the Container App.
         """
         if containers is not None:
@@ -9655,6 +11021,10 @@ class TemplateArgs:
             pulumi.set(__self__, "revision_suffix", revision_suffix)
         if scale is not None:
             pulumi.set(__self__, "scale", scale)
+        if service_binds is not None:
+            pulumi.set(__self__, "service_binds", service_binds)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -9705,6 +11075,30 @@ class TemplateArgs:
     @scale.setter
     def scale(self, value: Optional[pulumi.Input['ScaleArgs']]):
         pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="serviceBinds")
+    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceBindArgs']]]]:
+        """
+        List of container app services bound to the app
+        """
+        return pulumi.get(self, "service_binds")
+
+    @service_binds.setter
+    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceBindArgs']]]]):
+        pulumi.set(self, "service_binds", value)
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @termination_grace_period_seconds.setter
+    def termination_grace_period_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "termination_grace_period_seconds", value)
 
     @property
     @pulumi.getter
@@ -9773,6 +11167,88 @@ class TimeoutPolicyArgs:
     @response_timeout_in_seconds.setter
     def response_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "response_timeout_in_seconds", value)
+
+
+if not MYPY:
+    class TokenStoreArgsDict(TypedDict):
+        """
+        The configuration settings of the token store.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['BlobStorageTokenStoreArgsDict']]
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         The default is <code>false</code>.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to
+        call the token refresh API. The default is 72 hours.
+        """
+elif False:
+    TokenStoreArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TokenStoreArgs:
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional[pulumi.Input['BlobStorageTokenStoreArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None):
+        """
+        The configuration settings of the token store.
+        :param pulumi.Input['BlobStorageTokenStoreArgs'] azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
+        :param pulumi.Input[bool] enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+                The default is <code>false</code>.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
+               call the token refresh API. The default is 72 hours.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['BlobStorageTokenStoreArgs']]:
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['BlobStorageTokenStoreArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         The default is <code>false</code>.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to
+        call the token refresh API. The default is 72 hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
 
 
 if not MYPY:
@@ -10005,15 +11481,11 @@ if not MYPY:
         """
         infrastructure_subnet_id: NotRequired[pulumi.Input[str]]
         """
-        Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
+        Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
         """
         internal: NotRequired[pulumi.Input[bool]]
         """
-        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
-        """
-        outbound_settings: NotRequired[pulumi.Input['ManagedEnvironmentOutboundSettingsArgsDict']]
-        """
-        Configuration used to control the Environment Egress outbound traffic
+        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         """
         platform_reserved_cidr: NotRequired[pulumi.Input[str]]
         """
@@ -10022,10 +11494,6 @@ if not MYPY:
         platform_reserved_dns_ip: NotRequired[pulumi.Input[str]]
         """
          An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
-        """
-        runtime_subnet_id: NotRequired[pulumi.Input[str]]
-        """
-        This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
         """
 elif False:
     VnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -10036,19 +11504,15 @@ class VnetConfigurationArgs:
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
-                 outbound_settings: Optional[pulumi.Input['ManagedEnvironmentOutboundSettingsArgs']] = None,
                  platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
-                 platform_reserved_dns_ip: Optional[pulumi.Input[str]] = None,
-                 runtime_subnet_id: Optional[pulumi.Input[str]] = None):
+                 platform_reserved_dns_ip: Optional[pulumi.Input[str]] = None):
         """
         Configuration properties for apps environment to join a Virtual Network
         :param pulumi.Input[str] docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge, network. Must not overlap with any other provided IP ranges.
-        :param pulumi.Input[str] infrastructure_subnet_id: Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
-        :param pulumi.Input[bool] internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
-        :param pulumi.Input['ManagedEnvironmentOutboundSettingsArgs'] outbound_settings: Configuration used to control the Environment Egress outbound traffic
+        :param pulumi.Input[str] infrastructure_subnet_id: Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
+        :param pulumi.Input[bool] internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         :param pulumi.Input[str] platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         :param pulumi.Input[str] platform_reserved_dns_ip:  An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
-        :param pulumi.Input[str] runtime_subnet_id: This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
         """
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
@@ -10056,14 +11520,10 @@ class VnetConfigurationArgs:
             pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
         if internal is not None:
             pulumi.set(__self__, "internal", internal)
-        if outbound_settings is not None:
-            pulumi.set(__self__, "outbound_settings", outbound_settings)
         if platform_reserved_cidr is not None:
             pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
         if platform_reserved_dns_ip is not None:
             pulumi.set(__self__, "platform_reserved_dns_ip", platform_reserved_dns_ip)
-        if runtime_subnet_id is not None:
-            pulumi.set(__self__, "runtime_subnet_id", runtime_subnet_id)
 
     @property
     @pulumi.getter(name="dockerBridgeCidr")
@@ -10081,7 +11541,7 @@ class VnetConfigurationArgs:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
+        Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -10093,25 +11553,13 @@ class VnetConfigurationArgs:
     @pulumi.getter
     def internal(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
+        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
     def internal(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "internal", value)
-
-    @property
-    @pulumi.getter(name="outboundSettings")
-    def outbound_settings(self) -> Optional[pulumi.Input['ManagedEnvironmentOutboundSettingsArgs']]:
-        """
-        Configuration used to control the Environment Egress outbound traffic
-        """
-        return pulumi.get(self, "outbound_settings")
-
-    @outbound_settings.setter
-    def outbound_settings(self, value: Optional[pulumi.Input['ManagedEnvironmentOutboundSettingsArgs']]):
-        pulumi.set(self, "outbound_settings", value)
 
     @property
     @pulumi.getter(name="platformReservedCidr")
@@ -10136,18 +11584,6 @@ class VnetConfigurationArgs:
     @platform_reserved_dns_ip.setter
     def platform_reserved_dns_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "platform_reserved_dns_ip", value)
-
-    @property
-    @pulumi.getter(name="runtimeSubnetId")
-    def runtime_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
-        """
-        return pulumi.get(self, "runtime_subnet_id")
-
-    @runtime_subnet_id.setter
-    def runtime_subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "runtime_subnet_id", value)
 
 
 if not MYPY:
@@ -10347,17 +11783,21 @@ if not MYPY:
         """
         Workload profile to scope container app execution.
         """
-        maximum_count: pulumi.Input[int]
+        name: pulumi.Input[str]
         """
-        The maximum capacity.
-        """
-        minimum_count: pulumi.Input[int]
-        """
-        The minimum capacity.
+        Workload profile type for the workloads to run on.
         """
         workload_profile_type: pulumi.Input[str]
         """
         Workload profile type for the workloads to run on.
+        """
+        maximum_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum capacity.
+        """
+        minimum_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum capacity.
         """
 elif False:
     WorkloadProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -10365,42 +11805,35 @@ elif False:
 @pulumi.input_type
 class WorkloadProfileArgs:
     def __init__(__self__, *,
-                 maximum_count: pulumi.Input[int],
-                 minimum_count: pulumi.Input[int],
-                 workload_profile_type: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 workload_profile_type: pulumi.Input[str],
+                 maximum_count: Optional[pulumi.Input[int]] = None,
+                 minimum_count: Optional[pulumi.Input[int]] = None):
         """
         Workload profile to scope container app execution.
+        :param pulumi.Input[str] name: Workload profile type for the workloads to run on.
+        :param pulumi.Input[str] workload_profile_type: Workload profile type for the workloads to run on.
         :param pulumi.Input[int] maximum_count: The maximum capacity.
         :param pulumi.Input[int] minimum_count: The minimum capacity.
-        :param pulumi.Input[str] workload_profile_type: Workload profile type for the workloads to run on.
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+        if maximum_count is not None:
+            pulumi.set(__self__, "maximum_count", maximum_count)
+        if minimum_count is not None:
+            pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
-    @pulumi.getter(name="maximumCount")
-    def maximum_count(self) -> pulumi.Input[int]:
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
         """
-        The maximum capacity.
+        Workload profile type for the workloads to run on.
         """
-        return pulumi.get(self, "maximum_count")
+        return pulumi.get(self, "name")
 
-    @maximum_count.setter
-    def maximum_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "maximum_count", value)
-
-    @property
-    @pulumi.getter(name="minimumCount")
-    def minimum_count(self) -> pulumi.Input[int]:
-        """
-        The minimum capacity.
-        """
-        return pulumi.get(self, "minimum_count")
-
-    @minimum_count.setter
-    def minimum_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "minimum_count", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="workloadProfileType")
@@ -10413,5 +11846,29 @@ class WorkloadProfileArgs:
     @workload_profile_type.setter
     def workload_profile_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "workload_profile_type", value)
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum capacity.
+        """
+        return pulumi.get(self, "maximum_count")
+
+    @maximum_count.setter
+    def maximum_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_count", value)
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum capacity.
+        """
+        return pulumi.get(self, "minimum_count")
+
+    @minimum_count.setter
+    def minimum_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_count", value)
 
 

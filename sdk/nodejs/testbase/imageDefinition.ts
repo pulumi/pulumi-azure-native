@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The test base image definition resource.
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
  */
 export class ImageDefinition extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class ImageDefinition extends pulumi.CustomResource {
      * Custom image architecture.
      */
     public readonly architecture!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -97,12 +101,14 @@ export class ImageDefinition extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityType"] = args ? args.securityType : undefined;
             resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["architecture"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

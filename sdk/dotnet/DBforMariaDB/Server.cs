@@ -12,9 +12,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// <summary>
     /// Represents a server.
     /// 
-    /// Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
-    /// 
-    /// Other available API versions: 2018-06-01-preview.
+    /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -24,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// </summary>
         [Output("administratorLogin")]
         public Output<string?> AdministratorLogin { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)

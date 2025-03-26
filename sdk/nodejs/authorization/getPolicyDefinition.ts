@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  *
- * Uses Azure REST API version 2021-06-01.
+ * Uses Azure REST API version 2025-01-01.
  *
- * Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
+ * Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,6 +32,10 @@ export interface GetPolicyDefinitionArgs {
  * The policy definition.
  */
 export interface GetPolicyDefinitionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The policy definition description.
      */
@@ -76,13 +80,21 @@ export interface GetPolicyDefinitionResult {
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
     readonly type: string;
+    /**
+     * The policy definition version in #.#.# format.
+     */
+    readonly version?: string;
+    /**
+     * A list of available versions for this policy definition.
+     */
+    readonly versions?: string[];
 }
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  *
- * Uses Azure REST API version 2021-06-01.
+ * Uses Azure REST API version 2025-01-01.
  *
- * Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
+ * Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

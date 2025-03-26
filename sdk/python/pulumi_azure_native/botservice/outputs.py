@@ -42,11 +42,21 @@ __all__ = [
     'M365ExtensionsResponse',
     'MsTeamsChannelPropertiesResponse',
     'MsTeamsChannelResponse',
+    'NetworkSecurityPerimeterConfigurationPropertiesResponse',
+    'NetworkSecurityPerimeterConfigurationResponse',
+    'NetworkSecurityPerimeterResponse',
+    'NspAccessRuleResponse',
+    'NspAccessRuleResponseProperties',
+    'NspAccessRuleResponseSubscriptions',
     'OmnichannelResponse',
     'OutlookChannelResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProfileResponse',
+    'ProvisioningIssueResponse',
+    'ProvisioningIssueResponseProperties',
+    'ResourceAssociationResponse',
     'SearchAssistantResponse',
     'ServiceProviderParameterResponse',
     'ServiceProviderParameterResponseConstraints',
@@ -346,6 +356,8 @@ class BotPropertiesResponse(dict):
             suggest = "migration_token"
         elif key == "msaAppId":
             suggest = "msa_app_id"
+        elif key == "networkSecurityPerimeterConfigurations":
+            suggest = "network_security_perimeter_configurations"
         elif key == "privateEndpointConnections":
             suggest = "private_endpoint_connections"
         elif key == "provisioningState":
@@ -416,6 +428,7 @@ class BotPropertiesResponse(dict):
                  is_developer_app_insights_api_key_set: bool,
                  migration_token: str,
                  msa_app_id: str,
+                 network_security_perimeter_configurations: Sequence['outputs.NetworkSecurityPerimeterConfigurationResponse'],
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: str,
                  all_settings: Optional[Mapping[str, str]] = None,
@@ -453,6 +466,7 @@ class BotPropertiesResponse(dict):
         :param bool is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
         :param str migration_token: Token used to migrate non Azure bot to azure subscription
         :param str msa_app_id: Microsoft App Id for the bot
+        :param Sequence['NetworkSecurityPerimeterConfigurationResponse'] network_security_perimeter_configurations: List of Network Security Perimeter configurations for the bot
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of Private Endpoint Connections configured for the bot
         :param str provisioning_state: Provisioning state of the resource
         :param Mapping[str, str] all_settings: Contains resource all settings defined as key/value pairs.
@@ -489,6 +503,7 @@ class BotPropertiesResponse(dict):
         pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
         pulumi.set(__self__, "migration_token", migration_token)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        pulumi.set(__self__, "network_security_perimeter_configurations", network_security_perimeter_configurations)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if all_settings is not None:
@@ -619,6 +634,14 @@ class BotPropertiesResponse(dict):
         Microsoft App Id for the bot
         """
         return pulumi.get(self, "msa_app_id")
+
+    @property
+    @pulumi.getter(name="networkSecurityPerimeterConfigurations")
+    def network_security_perimeter_configurations(self) -> Sequence['outputs.NetworkSecurityPerimeterConfigurationResponse']:
+        """
+        List of Network Security Perimeter configurations for the bot
+        """
+        return pulumi.get(self, "network_security_perimeter_configurations")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -2795,7 +2818,7 @@ class MsTeamsChannelPropertiesResponse(dict):
         if calling_webhook is not None:
             pulumi.set(__self__, "calling_webhook", calling_webhook)
         if deployment_environment is None:
-            deployment_environment = 'FallbackDeploymentEnvironment'
+            deployment_environment = 'CommercialDeployment'
         if deployment_environment is not None:
             pulumi.set(__self__, "deployment_environment", deployment_environment)
         if enable_calling is None:
@@ -2944,6 +2967,389 @@ class MsTeamsChannelResponse(dict):
         The set of properties specific to Microsoft Teams channel resource
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class NetworkSecurityPerimeterConfigurationPropertiesResponse(dict):
+    """
+    Properties of Network Security Perimeter configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkSecurityPerimeter":
+            suggest = "network_security_perimeter"
+        elif key == "resourceAssociation":
+            suggest = "resource_association"
+        elif key == "provisioningIssues":
+            suggest = "provisioning_issues"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityPerimeterConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSecurityPerimeterConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSecurityPerimeterConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_security_perimeter: 'outputs.NetworkSecurityPerimeterResponse',
+                 profile: 'outputs.ProfileResponse',
+                 resource_association: 'outputs.ResourceAssociationResponse',
+                 provisioning_issues: Optional[Sequence['outputs.ProvisioningIssueResponse']] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Properties of Network Security Perimeter configuration
+        :param 'NetworkSecurityPerimeterResponse' network_security_perimeter: Information about Network Security Perimeter
+        :param 'ProfileResponse' profile: Information about profile
+        :param 'ResourceAssociationResponse' resource_association: Information about resource association
+        :param Sequence['ProvisioningIssueResponse'] provisioning_issues: List of Provisioning Issues if any
+        """
+        pulumi.set(__self__, "network_security_perimeter", network_security_perimeter)
+        pulumi.set(__self__, "profile", profile)
+        pulumi.set(__self__, "resource_association", resource_association)
+        if provisioning_issues is not None:
+            pulumi.set(__self__, "provisioning_issues", provisioning_issues)
+        if provisioning_state is None:
+            provisioning_state = 'Succeeded'
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="networkSecurityPerimeter")
+    def network_security_perimeter(self) -> 'outputs.NetworkSecurityPerimeterResponse':
+        """
+        Information about Network Security Perimeter
+        """
+        return pulumi.get(self, "network_security_perimeter")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> 'outputs.ProfileResponse':
+        """
+        Information about profile
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="resourceAssociation")
+    def resource_association(self) -> 'outputs.ResourceAssociationResponse':
+        """
+        Information about resource association
+        """
+        return pulumi.get(self, "resource_association")
+
+    @property
+    @pulumi.getter(name="provisioningIssues")
+    def provisioning_issues(self) -> Optional[Sequence['outputs.ProvisioningIssueResponse']]:
+        """
+        List of Provisioning Issues if any
+        """
+        return pulumi.get(self, "provisioning_issues")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class NetworkSecurityPerimeterConfigurationResponse(dict):
+    """
+    Network Security Perimeter configuration
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse',
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Network Security Perimeter configuration
+        :param 'NetworkSecurityPerimeterConfigurationPropertiesResponse' properties: Properties of the Network Security Perimeter configuration
+        :param str id: Fully qualified identifier of the resource
+        :param str name: Name of the resource
+        :param str type: Type of the resource
+        """
+        pulumi.set(__self__, "properties", properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse':
+        """
+        Properties of the Network Security Perimeter configuration
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Fully qualified identifier of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the resource
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NetworkSecurityPerimeterResponse(dict):
+    """
+    Information about Network Security Perimeter
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perimeterGuid":
+            suggest = "perimeter_guid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityPerimeterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSecurityPerimeterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSecurityPerimeterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 location: Optional[str] = None,
+                 perimeter_guid: Optional[str] = None):
+        """
+        Information about Network Security Perimeter
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str location: Location of the Network Security Perimeter
+        :param str perimeter_guid: Guid of the Network Security Perimeter
+        """
+        pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if perimeter_guid is not None:
+            pulumi.set(__self__, "perimeter_guid", perimeter_guid)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Location of the Network Security Perimeter
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="perimeterGuid")
+    def perimeter_guid(self) -> Optional[str]:
+        """
+        Guid of the Network Security Perimeter
+        """
+        return pulumi.get(self, "perimeter_guid")
+
+
+@pulumi.output_type
+class NspAccessRuleResponse(dict):
+    """
+    Information of Access Rule in a profile
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.NspAccessRuleResponseProperties',
+                 name: Optional[str] = None):
+        """
+        Information of Access Rule in a profile
+        :param 'NspAccessRuleResponseProperties' properties: Properties of Access Rule
+        :param str name: Name of the access rule
+        """
+        pulumi.set(__self__, "properties", properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.NspAccessRuleResponseProperties':
+        """
+        Properties of Access Rule
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the access rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NspAccessRuleResponseProperties(dict):
+    """
+    Properties of Access Rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddresses":
+            suggest = "email_addresses"
+        elif key == "fullyQualifiedDomainNames":
+            suggest = "fully_qualified_domain_names"
+        elif key == "networkSecurityPerimeters":
+            suggest = "network_security_perimeters"
+        elif key == "phoneNumbers":
+            suggest = "phone_numbers"
+        elif key == "addressPrefixes":
+            suggest = "address_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NspAccessRuleResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NspAccessRuleResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NspAccessRuleResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_addresses: Sequence[str],
+                 fully_qualified_domain_names: Sequence[str],
+                 network_security_perimeters: Sequence['outputs.NetworkSecurityPerimeterResponse'],
+                 phone_numbers: Sequence[str],
+                 address_prefixes: Optional[Sequence[str]] = None,
+                 direction: Optional[str] = None,
+                 subscriptions: Optional[Sequence['outputs.NspAccessRuleResponseSubscriptions']] = None):
+        """
+        Properties of Access Rule
+        :param Sequence[str] email_addresses: Email addresses for outbound rules
+        :param Sequence[str] fully_qualified_domain_names: FQDN for outbound rules
+        :param Sequence['NetworkSecurityPerimeterResponse'] network_security_perimeters: NetworkSecurityPerimeters for inbound rules
+        :param Sequence[str] phone_numbers: Phone numbers for outbound rules
+        :param Sequence[str] address_prefixes: Address prefixes in the CIDR format for inbound rules
+        :param str direction: Direction of Access Rule
+        :param Sequence['NspAccessRuleResponseSubscriptions'] subscriptions: Subscriptions for inbound rules
+        """
+        pulumi.set(__self__, "email_addresses", email_addresses)
+        pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
+        pulumi.set(__self__, "network_security_perimeters", network_security_perimeters)
+        pulumi.set(__self__, "phone_numbers", phone_numbers)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter(name="emailAddresses")
+    def email_addresses(self) -> Sequence[str]:
+        """
+        Email addresses for outbound rules
+        """
+        return pulumi.get(self, "email_addresses")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainNames")
+    def fully_qualified_domain_names(self) -> Sequence[str]:
+        """
+        FQDN for outbound rules
+        """
+        return pulumi.get(self, "fully_qualified_domain_names")
+
+    @property
+    @pulumi.getter(name="networkSecurityPerimeters")
+    def network_security_perimeters(self) -> Sequence['outputs.NetworkSecurityPerimeterResponse']:
+        """
+        NetworkSecurityPerimeters for inbound rules
+        """
+        return pulumi.get(self, "network_security_perimeters")
+
+    @property
+    @pulumi.getter(name="phoneNumbers")
+    def phone_numbers(self) -> Sequence[str]:
+        """
+        Phone numbers for outbound rules
+        """
+        return pulumi.get(self, "phone_numbers")
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Address prefixes in the CIDR format for inbound rules
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[str]:
+        """
+        Direction of Access Rule
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence['outputs.NspAccessRuleResponseSubscriptions']]:
+        """
+        Subscriptions for inbound rules
+        """
+        return pulumi.get(self, "subscriptions")
+
+
+@pulumi.output_type
+class NspAccessRuleResponseSubscriptions(dict):
+    """
+    Subscription for inbound rule
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Subscription for inbound rule
+        :param str id: Fully qualified identifier of subscription
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Fully qualified identifier of subscription
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -3303,6 +3709,276 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ProfileResponse(dict):
+    """
+    Information about profile
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledLogCategories":
+            suggest = "enabled_log_categories"
+        elif key == "accessRules":
+            suggest = "access_rules"
+        elif key == "accessRulesVersion":
+            suggest = "access_rules_version"
+        elif key == "diagnosticSettingsVersion":
+            suggest = "diagnostic_settings_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_log_categories: Sequence[str],
+                 access_rules: Optional[Sequence['outputs.NspAccessRuleResponse']] = None,
+                 access_rules_version: Optional[float] = None,
+                 diagnostic_settings_version: Optional[float] = None,
+                 name: Optional[str] = None):
+        """
+        Information about profile
+        :param Sequence[str] enabled_log_categories: List of log categories
+        :param Sequence['NspAccessRuleResponse'] access_rules: List of Access Rules
+        :param float access_rules_version: Current access rules version
+        :param float diagnostic_settings_version: Current diagnostic settings version
+        :param str name: Name of the profile
+        """
+        pulumi.set(__self__, "enabled_log_categories", enabled_log_categories)
+        if access_rules is not None:
+            pulumi.set(__self__, "access_rules", access_rules)
+        if access_rules_version is not None:
+            pulumi.set(__self__, "access_rules_version", access_rules_version)
+        if diagnostic_settings_version is not None:
+            pulumi.set(__self__, "diagnostic_settings_version", diagnostic_settings_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="enabledLogCategories")
+    def enabled_log_categories(self) -> Sequence[str]:
+        """
+        List of log categories
+        """
+        return pulumi.get(self, "enabled_log_categories")
+
+    @property
+    @pulumi.getter(name="accessRules")
+    def access_rules(self) -> Optional[Sequence['outputs.NspAccessRuleResponse']]:
+        """
+        List of Access Rules
+        """
+        return pulumi.get(self, "access_rules")
+
+    @property
+    @pulumi.getter(name="accessRulesVersion")
+    def access_rules_version(self) -> Optional[float]:
+        """
+        Current access rules version
+        """
+        return pulumi.get(self, "access_rules_version")
+
+    @property
+    @pulumi.getter(name="diagnosticSettingsVersion")
+    def diagnostic_settings_version(self) -> Optional[float]:
+        """
+        Current diagnostic settings version
+        """
+        return pulumi.get(self, "diagnostic_settings_version")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the profile
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ProvisioningIssueResponse(dict):
+    """
+    Describes Provisioning issue for given Network Security Perimeter configuration
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.ProvisioningIssueResponseProperties',
+                 name: Optional[str] = None):
+        """
+        Describes Provisioning issue for given Network Security Perimeter configuration
+        :param 'ProvisioningIssueResponseProperties' properties: Properties of Provisioning Issue
+        :param str name: Name of the issue
+        """
+        pulumi.set(__self__, "properties", properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProvisioningIssueResponseProperties':
+        """
+        Properties of Provisioning Issue
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the issue
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ProvisioningIssueResponseProperties(dict):
+    """
+    Properties of Provisioning Issue
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "suggestedResourceIds":
+            suggest = "suggested_resource_ids"
+        elif key == "issueType":
+            suggest = "issue_type"
+        elif key == "suggestedAccessRules":
+            suggest = "suggested_access_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProvisioningIssueResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProvisioningIssueResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProvisioningIssueResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 suggested_resource_ids: Sequence[str],
+                 description: Optional[str] = None,
+                 issue_type: Optional[str] = None,
+                 severity: Optional[str] = None,
+                 suggested_access_rules: Optional[Sequence['outputs.NspAccessRuleResponse']] = None):
+        """
+        Properties of Provisioning Issue
+        :param Sequence[str] suggested_resource_ids: ARM IDs of resources that can be associated to the same perimeter to remediate the issue.
+        :param str description: Description of the issue
+        :param str issue_type: Type of Issue
+        :param str severity: Provisioning state of Network Security Perimeter configuration propagation
+        :param Sequence['NspAccessRuleResponse'] suggested_access_rules: Access rules that can be added to the same profile to remediate the issue.
+        """
+        pulumi.set(__self__, "suggested_resource_ids", suggested_resource_ids)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if issue_type is not None:
+            pulumi.set(__self__, "issue_type", issue_type)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if suggested_access_rules is not None:
+            pulumi.set(__self__, "suggested_access_rules", suggested_access_rules)
+
+    @property
+    @pulumi.getter(name="suggestedResourceIds")
+    def suggested_resource_ids(self) -> Sequence[str]:
+        """
+        ARM IDs of resources that can be associated to the same perimeter to remediate the issue.
+        """
+        return pulumi.get(self, "suggested_resource_ids")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the issue
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="issueType")
+    def issue_type(self) -> Optional[str]:
+        """
+        Type of Issue
+        """
+        return pulumi.get(self, "issue_type")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        Provisioning state of Network Security Perimeter configuration propagation
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="suggestedAccessRules")
+    def suggested_access_rules(self) -> Optional[Sequence['outputs.NspAccessRuleResponse']]:
+        """
+        Access rules that can be added to the same profile to remediate the issue.
+        """
+        return pulumi.get(self, "suggested_access_rules")
+
+
+@pulumi.output_type
+class ResourceAssociationResponse(dict):
+    """
+    Information about resource association
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessMode":
+            suggest = "access_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceAssociationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceAssociationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceAssociationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_mode: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Information about resource association
+        :param str access_mode: Access Mode of the resource association
+        :param str name: Name of the resource association
+        """
+        if access_mode is not None:
+            pulumi.set(__self__, "access_mode", access_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="accessMode")
+    def access_mode(self) -> Optional[str]:
+        """
+        Access Mode of the resource association
+        """
+        return pulumi.get(self, "access_mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource association
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

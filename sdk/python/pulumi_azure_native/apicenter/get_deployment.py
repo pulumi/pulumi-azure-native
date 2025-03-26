@@ -27,7 +27,10 @@ class GetDeploymentResult:
     """
     API deployment entity.
     """
-    def __init__(__self__, custom_properties=None, definition_id=None, description=None, environment_id=None, id=None, name=None, server=None, state=None, system_data=None, title=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_properties=None, definition_id=None, description=None, environment_id=None, id=None, name=None, server=None, state=None, system_data=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_properties and not isinstance(custom_properties, dict):
             raise TypeError("Expected argument 'custom_properties' to be a dict")
         pulumi.set(__self__, "custom_properties", custom_properties)
@@ -61,6 +64,14 @@ class GetDeploymentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customProperties")
@@ -157,6 +168,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
+            azure_api_version=self.azure_api_version,
             custom_properties=self.custom_properties,
             definition_id=self.definition_id,
             description=self.description,
@@ -179,9 +191,9 @@ def get_deployment(api_name: Optional[str] = None,
     """
     Returns details of the API deployment.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_name: The name of the API.
@@ -200,6 +212,7 @@ def get_deployment(api_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apicenter:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_properties=pulumi.get(__ret__, 'custom_properties'),
         definition_id=pulumi.get(__ret__, 'definition_id'),
         description=pulumi.get(__ret__, 'description'),
@@ -220,9 +233,9 @@ def get_deployment_output(api_name: Optional[pulumi.Input[str]] = None,
     """
     Returns details of the API deployment.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_name: The name of the API.
@@ -240,6 +253,7 @@ def get_deployment_output(api_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
     return __ret__.apply(lambda __response__: GetDeploymentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_properties=pulumi.get(__response__, 'custom_properties'),
         definition_id=pulumi.get(__response__, 'definition_id'),
         description=pulumi.get(__response__, 'description'),

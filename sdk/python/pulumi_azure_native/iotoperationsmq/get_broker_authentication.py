@@ -27,10 +27,13 @@ class GetBrokerAuthenticationResult:
     """
     MQ broker/authentication resource
     """
-    def __init__(__self__, authentication_methods=None, extended_location=None, id=None, listener_ref=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, authentication_methods=None, azure_api_version=None, extended_location=None, id=None, listener_ref=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if authentication_methods and not isinstance(authentication_methods, list):
             raise TypeError("Expected argument 'authentication_methods' to be a list")
         pulumi.set(__self__, "authentication_methods", authentication_methods)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -66,6 +69,14 @@ class GetBrokerAuthenticationResult:
         The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
         """
         return pulumi.get(self, "authentication_methods")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -147,6 +158,7 @@ class AwaitableGetBrokerAuthenticationResult(GetBrokerAuthenticationResult):
             yield self
         return GetBrokerAuthenticationResult(
             authentication_methods=self.authentication_methods,
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             listener_ref=self.listener_ref,
@@ -184,6 +196,7 @@ def get_broker_authentication(authentication_name: Optional[str] = None,
 
     return AwaitableGetBrokerAuthenticationResult(
         authentication_methods=pulumi.get(__ret__, 'authentication_methods'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         listener_ref=pulumi.get(__ret__, 'listener_ref'),
@@ -218,6 +231,7 @@ def get_broker_authentication_output(authentication_name: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getBrokerAuthentication', __args__, opts=opts, typ=GetBrokerAuthenticationResult)
     return __ret__.apply(lambda __response__: GetBrokerAuthenticationResult(
         authentication_methods=pulumi.get(__response__, 'authentication_methods'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         listener_ref=pulumi.get(__response__, 'listener_ref'),

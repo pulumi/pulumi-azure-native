@@ -11,16 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication UserAssignedManagedIdentity properties
+    /// DataflowEndpoint Authentication UserAssignedManagedIdentity properties
     /// </summary>
-    public sealed class DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
-        /// </summary>
-        [Input("audience", required: true)]
-        public Input<string> Audience { get; set; } = null!;
-
         /// <summary>
         /// Client ID for the user-assigned managed identity.
         /// </summary>
@@ -28,14 +22,20 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
+        /// Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        /// <summary>
         /// Tenant ID.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
 
-        public DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs()
+        public DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs()
         {
         }
-        public static new DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs Empty => new DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs();
+        public static new DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs Empty => new DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs();
     }
 }

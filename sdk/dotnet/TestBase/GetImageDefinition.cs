@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly string Architecture;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -127,6 +131,8 @@ namespace Pulumi.AzureNative.TestBase
         private GetImageDefinitionResult(
             string architecture,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.TestBase
             string type)
         {
             Architecture = architecture;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             OsState = osState;

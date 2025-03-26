@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.IoTOperations
     /// <summary>
     /// A Instance resource is a logical container for a set of child resources.
     /// 
-    /// Uses Azure REST API version 2024-07-01-preview.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
     /// 
-    /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+    /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Edge location of the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -119,6 +131,12 @@ namespace Pulumi.AzureNative.IoTOperations
         /// </summary>
         [Input("extendedLocation", required: true)]
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Name of instance.

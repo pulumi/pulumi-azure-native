@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// <summary>
     /// A virtual network rule.
     /// 
-    /// Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
-    /// 
-    /// Other available API versions: 2018-06-01-preview.
+    /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
         /// </summary>

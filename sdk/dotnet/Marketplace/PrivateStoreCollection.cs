@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Marketplace
     /// <summary>
     /// The Collection data structure.
     /// 
-    /// Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01.
+    /// Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollection")]
     public partial class PrivateStoreCollection : global::Pulumi.CustomResource
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Marketplace
         /// </summary>
         [Output("approveAllItemsModifiedAt")]
         public Output<string> ApproveAllItemsModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.

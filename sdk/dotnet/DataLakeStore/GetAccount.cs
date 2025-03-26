@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The account creation time.
         /// </summary>
         public readonly string CreationTime;
@@ -182,6 +186,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         private GetAccountResult(
             string accountId,
 
+            string azureApiVersion,
+
             string creationTime,
 
             string currentTier,
@@ -229,6 +235,7 @@ namespace Pulumi.AzureNative.DataLakeStore
             ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
         {
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             CurrentTier = currentTier;
             DefaultGroup = defaultGroup;

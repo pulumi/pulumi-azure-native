@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A replication link.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
- * Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ReplicationLink extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ReplicationLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationLink.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Whether the user is currently allowed to terminate the link.
      */
@@ -123,6 +127,7 @@ export class ReplicationLink extends pulumi.CustomResource {
             resourceInputs["linkType"] = args ? args.linkType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isTerminationAllowed"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnerDatabase"] = undefined /*out*/;
@@ -137,6 +142,7 @@ export class ReplicationLink extends pulumi.CustomResource {
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isTerminationAllowed"] = undefined /*out*/;
             resourceInputs["linkType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

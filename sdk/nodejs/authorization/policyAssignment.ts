@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The policy assignment.
  *
- * Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+ * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
- * Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
+ * Other available API versions: 2020-09-01, 2021-06-01, 2022-06-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -42,6 +42,18 @@ export class PolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+     */
+    public readonly assignmentType!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The version of the policy definition to use.
+     */
+    public readonly definitionVersion!: pulumi.Output<string | undefined>;
+    /**
      * This message will be part of response in case of policy violation.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -50,13 +62,25 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+     * The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+     */
+    public /*out*/ readonly effectiveDefinitionVersion!: pulumi.Output<string>;
+    /**
+     * The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
      */
     public readonly enforcementMode!: pulumi.Output<string | undefined>;
     /**
      * The managed identity associated with the policy assignment.
      */
     public readonly identity!: pulumi.Output<outputs.authorization.IdentityResponse | undefined>;
+    /**
+     * The instance ID of the policy assignment. This ID only and always changes when the assignment is deleted and recreated.
+     */
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    /**
+     * The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+     */
+    public /*out*/ readonly latestDefinitionVersion!: pulumi.Output<string>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -120,6 +144,8 @@ export class PolicyAssignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
+            resourceInputs["definitionVersion"] = args ? args.definitionVersion : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enforcementMode"] = (args ? args.enforcementMode : undefined) ?? "Default";
@@ -134,14 +160,24 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["effectiveDefinitionVersion"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["latestDefinitionVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["assignmentType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["definitionVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["effectiveDefinitionVersion"] = undefined /*out*/;
             resourceInputs["enforcementMode"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["latestDefinitionVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -167,6 +203,14 @@ export class PolicyAssignment extends pulumi.CustomResource {
  */
 export interface PolicyAssignmentArgs {
     /**
+     * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+     */
+    assignmentType?: pulumi.Input<string | enums.authorization.AssignmentType>;
+    /**
+     * The version of the policy definition to use.
+     */
+    definitionVersion?: pulumi.Input<string>;
+    /**
      * This message will be part of response in case of policy violation.
      */
     description?: pulumi.Input<string>;
@@ -175,7 +219,7 @@ export interface PolicyAssignmentArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+     * The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
      */
     enforcementMode?: pulumi.Input<string | enums.authorization.EnforcementMode>;
     /**

@@ -10,18 +10,5 @@ from .firmware import *
 from .get_firmware import *
 from .get_workspace import *
 from .workspace import *
+from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.iotfirmwaredefense.v20230208preview as __v20230208preview
-    v20230208preview = __v20230208preview
-    import pulumi_azure_native.iotfirmwaredefense.v20240110 as __v20240110
-    v20240110 = __v20240110
-    import pulumi_azure_native.iotfirmwaredefense.v20250401preview as __v20250401preview
-    v20250401preview = __v20250401preview
-else:
-    v20230208preview = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense.v20230208preview')
-    v20240110 = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense.v20240110')
-    v20250401preview = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense.v20250401preview')
-

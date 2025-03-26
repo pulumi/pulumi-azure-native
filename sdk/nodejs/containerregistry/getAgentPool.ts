@@ -42,6 +42,10 @@ export interface GetAgentPoolArgs {
  */
 export interface GetAgentPoolResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The count of agent machine
      */
     readonly count?: number;

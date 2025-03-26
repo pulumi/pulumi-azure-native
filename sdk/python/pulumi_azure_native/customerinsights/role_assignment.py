@@ -372,7 +372,7 @@ class RoleAssignment(pulumi.CustomResource):
         """
         The Role Assignment resource format.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -406,7 +406,7 @@ class RoleAssignment(pulumi.CustomResource):
         """
         The Role Assignment resource format.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -480,6 +480,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__.__dict__["segments"] = segments
             __props__.__dict__["views"] = views
             __props__.__dict__["widget_types"] = widget_types
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["tenant_id"] = None
@@ -509,6 +510,7 @@ class RoleAssignment(pulumi.CustomResource):
         __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
         __props__.__dict__["assignment_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["conflation_policies"] = None
         __props__.__dict__["connectors"] = None
         __props__.__dict__["description"] = None
@@ -539,6 +541,14 @@ class RoleAssignment(pulumi.CustomResource):
         The name of the metadata object.
         """
         return pulumi.get(self, "assignment_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="conflationPolicies")

@@ -40,6 +40,10 @@ export class Springbootapp extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -77,17 +81,19 @@ export class Springbootapp extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["springbootappsName"] = args ? args.springbootappsName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20240401preview:Springbootapp" }, { type: "azure-native:offazurespringboot/v20240401preview:springbootapp" }, { type: "azure-native:offazurespringboot:springbootapp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20240401preview:Springbootapp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Springbootapp.__pulumiType, name, resourceInputs, opts);
     }

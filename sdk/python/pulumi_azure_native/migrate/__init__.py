@@ -34,15 +34,11 @@ from .get_move_resource import *
 from .get_private_endpoint_connection import *
 from .get_private_endpoint_connection_controller_private_endpoint_connection import *
 from .get_private_endpoint_connection_operation import *
-from .get_private_endpoint_connection_proxy_controller import *
 from .get_project import *
-from .get_project_keys import *
 from .get_server_collector import *
 from .get_server_collectors_operation import *
 from .get_solution import *
 from .get_solution_config import *
-from .get_solutions_controller_config import *
-from .get_solutions_controller_solution import *
 from .get_sql_assessment_v2_operation import *
 from .get_sql_collector_operation import *
 from .get_v_mware_collector import *
@@ -67,12 +63,10 @@ from .move_resource import *
 from .private_endpoint_connection import *
 from .private_endpoint_connection_controller_private_endpoint_connection import *
 from .private_endpoint_connection_operation import *
-from .private_endpoint_connection_proxy_controller import *
 from .project import *
 from .server_collector import *
 from .server_collectors_operation import *
 from .solution import *
-from .solutions_controller_solution import *
 from .sql_assessment_v2_operation import *
 from .sql_collector_operation import *
 from .v_mware_collector import *
@@ -83,47 +77,3 @@ from .workload_deployment import *
 from .workload_instance import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.migrate.v20180202 as __v20180202
-    v20180202 = __v20180202
-    import pulumi_azure_native.migrate.v20180901preview as __v20180901preview
-    v20180901preview = __v20180901preview
-    import pulumi_azure_native.migrate.v20191001 as __v20191001
-    v20191001 = __v20191001
-    import pulumi_azure_native.migrate.v20200501 as __v20200501
-    v20200501 = __v20200501
-    import pulumi_azure_native.migrate.v20220501preview as __v20220501preview
-    v20220501preview = __v20220501preview
-    import pulumi_azure_native.migrate.v20220801 as __v20220801
-    v20220801 = __v20220801
-    import pulumi_azure_native.migrate.v20230101 as __v20230101
-    v20230101 = __v20230101
-    import pulumi_azure_native.migrate.v20230315 as __v20230315
-    v20230315 = __v20230315
-    import pulumi_azure_native.migrate.v20230401preview as __v20230401preview
-    v20230401preview = __v20230401preview
-    import pulumi_azure_native.migrate.v20230501preview as __v20230501preview
-    v20230501preview = __v20230501preview
-    import pulumi_azure_native.migrate.v20230801 as __v20230801
-    v20230801 = __v20230801
-    import pulumi_azure_native.migrate.v20230909preview as __v20230909preview
-    v20230909preview = __v20230909preview
-    import pulumi_azure_native.migrate.v20240101preview as __v20240101preview
-    v20240101preview = __v20240101preview
-else:
-    v20180202 = _utilities.lazy_import('pulumi_azure_native.migrate.v20180202')
-    v20180901preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20180901preview')
-    v20191001 = _utilities.lazy_import('pulumi_azure_native.migrate.v20191001')
-    v20200501 = _utilities.lazy_import('pulumi_azure_native.migrate.v20200501')
-    v20220501preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20220501preview')
-    v20220801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20220801')
-    v20230101 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230101')
-    v20230315 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230315')
-    v20230401preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230401preview')
-    v20230501preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230501preview')
-    v20230801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230801')
-    v20230909preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230909preview')
-    v20240101preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20240101preview')
-

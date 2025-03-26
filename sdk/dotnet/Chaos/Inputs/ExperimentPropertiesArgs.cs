@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     /// </summary>
     public sealed class ExperimentPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional customer-managed Storage account where Experiment schema will be stored.
+        /// </summary>
+        [Input("customerDataStorage")]
+        public Input<Inputs.CustomerDataStoragePropertiesArgs>? CustomerDataStorage { get; set; }
+
         [Input("selectors", required: true)]
         private InputList<Union<Inputs.ListSelectorArgs, Inputs.QuerySelectorArgs>>? _selectors;
 
@@ -26,12 +32,6 @@ namespace Pulumi.AzureNative.Chaos.Inputs
             get => _selectors ?? (_selectors = new InputList<Union<Inputs.ListSelectorArgs, Inputs.QuerySelectorArgs>>());
             set => _selectors = value;
         }
-
-        /// <summary>
-        /// A boolean value that indicates if experiment should be started on creation or not.
-        /// </summary>
-        [Input("startOnCreation")]
-        public Input<bool>? StartOnCreation { get; set; }
 
         [Input("steps", required: true)]
         private InputList<Inputs.StepArgs>? _steps;

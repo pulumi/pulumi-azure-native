@@ -205,7 +205,7 @@ class Standard(pulumi.CustomResource):
         """
         Security Standard on a resource
 
-        Uses Azure REST API version 2021-08-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-08-01-preview.
+        Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +229,7 @@ class Standard(pulumi.CustomResource):
         """
         Security Standard on a resource
 
-        Uses Azure REST API version 2021-08-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-08-01-preview.
+        Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StandardArgs args: The arguments to use to populate this resource's properties.
@@ -277,6 +277,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["standard_id"] = standard_id
             __props__.__dict__["supported_clouds"] = supported_clouds
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["standard_type"] = None
@@ -306,6 +307,7 @@ class Standard(pulumi.CustomResource):
 
         __props__ = StandardArgs.__new__(StandardArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["category"] = None
         __props__.__dict__["components"] = None
         __props__.__dict__["description"] = None
@@ -320,6 +322,14 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Standard(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

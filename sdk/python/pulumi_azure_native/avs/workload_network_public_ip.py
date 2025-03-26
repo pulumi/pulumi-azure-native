@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['WorkloadNetworkPublicIPArgs', 'WorkloadNetworkPublicIP']
 
@@ -30,7 +31,7 @@ class WorkloadNetworkPublicIPArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] display_name: Display name of the Public IP Block.
         :param pulumi.Input[float] number_of_public_ips: Number of Public IPs requested.
-        :param pulumi.Input[str] public_ip_id: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+        :param pulumi.Input[str] public_ip_id: ID of the DNS zone.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -93,7 +94,7 @@ class WorkloadNetworkPublicIPArgs:
     @pulumi.getter(name="publicIPId")
     def public_ip_id(self) -> Optional[pulumi.Input[str]]:
         """
-        NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+        ID of the DNS zone.
         """
         return pulumi.get(self, "public_ip_id")
 
@@ -116,16 +117,16 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
         """
         NSX Public IP Block
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Display name of the Public IP Block.
         :param pulumi.Input[float] number_of_public_ips: Number of Public IPs requested.
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
-        :param pulumi.Input[str] public_ip_id: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+        :param pulumi.Input[str] public_ip_id: ID of the DNS zone.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -137,9 +138,9 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
         """
         NSX Public IP Block
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkPublicIPArgs args: The arguments to use to populate this resource's properties.
@@ -179,9 +180,11 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["public_ip_block"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkPublicIP"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkPublicIP"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkPublicIP"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkPublicIP"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkPublicIP")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -207,13 +210,23 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
 
         __props__ = WorkloadNetworkPublicIPArgs.__new__(WorkloadNetworkPublicIPArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["number_of_public_ips"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_block"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WorkloadNetworkPublicIP(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -227,7 +240,7 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -256,10 +269,18 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
         return pulumi.get(self, "public_ip_block")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

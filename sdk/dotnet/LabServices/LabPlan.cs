@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.LabServices
     /// <summary>
     /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     /// 
-    /// Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
+    /// Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
-    /// Other available API versions: 2023-06-07.
+    /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:LabPlan")]
     public partial class LabPlan : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("allowedRegions")]
         public Output<ImmutableArray<string>> AllowedRegions { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
@@ -72,6 +78,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Error details of last operation done on lab plan.
+        /// </summary>
+        [Output("resourceOperationError")]
+        public Output<Outputs.ResourceOperationErrorResponse> ResourceOperationError { get; private set; } = null!;
 
         /// <summary>
         /// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.

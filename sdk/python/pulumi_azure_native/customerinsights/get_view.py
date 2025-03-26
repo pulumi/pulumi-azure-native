@@ -26,7 +26,10 @@ class GetViewResult:
     """
     The view resource format.
     """
-    def __init__(__self__, changed=None, created=None, definition=None, display_name=None, id=None, name=None, tenant_id=None, type=None, user_id=None, view_name=None):
+    def __init__(__self__, azure_api_version=None, changed=None, created=None, definition=None, display_name=None, id=None, name=None, tenant_id=None, type=None, user_id=None, view_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if changed and not isinstance(changed, str):
             raise TypeError("Expected argument 'changed' to be a str")
         pulumi.set(__self__, "changed", changed)
@@ -57,6 +60,14 @@ class GetViewResult:
         if view_name and not isinstance(view_name, str):
             raise TypeError("Expected argument 'view_name' to be a str")
         pulumi.set(__self__, "view_name", view_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -145,6 +156,7 @@ class AwaitableGetViewResult(GetViewResult):
         if False:
             yield self
         return GetViewResult(
+            azure_api_version=self.azure_api_version,
             changed=self.changed,
             created=self.created,
             definition=self.definition,
@@ -182,6 +194,7 @@ def get_view(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getView', __args__, opts=opts, typ=GetViewResult).value
 
     return AwaitableGetViewResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         changed=pulumi.get(__ret__, 'changed'),
         created=pulumi.get(__ret__, 'created'),
         definition=pulumi.get(__ret__, 'definition'),
@@ -216,6 +229,7 @@ def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getView', __args__, opts=opts, typ=GetViewResult)
     return __ret__.apply(lambda __response__: GetViewResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         changed=pulumi.get(__response__, 'changed'),
         created=pulumi.get(__response__, 'created'),
         definition=pulumi.get(__response__, 'definition'),

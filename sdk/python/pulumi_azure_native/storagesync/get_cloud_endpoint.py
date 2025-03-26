@@ -27,7 +27,10 @@ class GetCloudEndpointResult:
     """
     Cloud Endpoint object.
     """
-    def __init__(__self__, azure_file_share_name=None, backup_enabled=None, change_enumeration_status=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_file_share_name=None, backup_enabled=None, change_enumeration_status=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_file_share_name and not isinstance(azure_file_share_name, str):
             raise TypeError("Expected argument 'azure_file_share_name' to be a str")
         pulumi.set(__self__, "azure_file_share_name", azure_file_share_name)
@@ -72,6 +75,14 @@ class GetCloudEndpointResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="azureFileShareName")
     def azure_file_share_name(self) -> Optional[str]:
         """
@@ -107,7 +118,7 @@ class GetCloudEndpointResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -190,6 +201,7 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
         if False:
             yield self
         return GetCloudEndpointResult(
+            azure_api_version=self.azure_api_version,
             azure_file_share_name=self.azure_file_share_name,
             backup_enabled=self.backup_enabled,
             change_enumeration_status=self.change_enumeration_status,
@@ -214,9 +226,9 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     """
     Get a given CloudEndpoint.
 
-    Uses Azure REST API version 2022-06-01.
+    Uses Azure REST API version 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
@@ -233,6 +245,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagesync:getCloudEndpoint', __args__, opts=opts, typ=GetCloudEndpointResult).value
 
     return AwaitableGetCloudEndpointResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_file_share_name=pulumi.get(__ret__, 'azure_file_share_name'),
         backup_enabled=pulumi.get(__ret__, 'backup_enabled'),
         change_enumeration_status=pulumi.get(__ret__, 'change_enumeration_status'),
@@ -255,9 +268,9 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     """
     Get a given CloudEndpoint.
 
-    Uses Azure REST API version 2022-06-01.
+    Uses Azure REST API version 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
@@ -273,6 +286,7 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getCloudEndpoint', __args__, opts=opts, typ=GetCloudEndpointResult)
     return __ret__.apply(lambda __response__: GetCloudEndpointResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_file_share_name=pulumi.get(__response__, 'azure_file_share_name'),
         backup_enabled=pulumi.get(__response__, 'backup_enabled'),
         change_enumeration_status=pulumi.get(__response__, 'change_enumeration_status'),

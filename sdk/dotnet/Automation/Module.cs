@@ -12,27 +12,27 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the module type.
     /// 
-    /// Uses Azure REST API version 2022-08-08. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
+    /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
-    /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Module")]
     public partial class Module : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets the activity count of the module.
+        /// Gets the activity count of the module.
         /// </summary>
         [Output("activityCount")]
         public Output<int?> ActivityCount { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the contentLink of the module.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("contentLink")]
-        public Output<Outputs.ContentLinkResponse?> ContentLink { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the creation time.
+        /// Gets the creation time.
         /// </summary>
         [Output("creationTime")]
         public Output<string?> CreationTime { get; private set; } = null!;
@@ -44,31 +44,31 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the error info of the module.
+        /// Gets the error info of the module.
         /// </summary>
         [Output("error")]
         public Output<Outputs.ModuleErrorInfoResponse?> Error { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the etag of the resource.
+        /// Gets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets type of module, if its composite or not.
+        /// Gets type of module, if its composite or not.
         /// </summary>
         [Output("isComposite")]
         public Output<bool?> IsComposite { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the isGlobal flag of the module.
+        /// Gets the isGlobal flag of the module.
         /// </summary>
         [Output("isGlobal")]
         public Output<bool?> IsGlobal { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the last modified time.
+        /// Gets the last modified time.
         /// </summary>
         [Output("lastModifiedTime")]
         public Output<string?> LastModifiedTime { get; private set; } = null!;
@@ -86,13 +86,13 @@ namespace Pulumi.AzureNative.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state of the module.
+        /// Gets the provisioning state of the module.
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the size in bytes of the module.
+        /// Gets the size in bytes of the module.
         /// </summary>
         [Output("sizeInBytes")]
         public Output<double?> SizeInBytes { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Automation
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the version of the module.
+        /// Gets the version of the module.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -177,13 +177,13 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the module content link.
+        /// Sets the hash.
         /// </summary>
         [Input("contentLink", required: true)]
         public Input<Inputs.ContentLinkArgs> ContentLink { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the location of the resource.
+        /// Sets the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string>? ModuleName { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the resource.
+        /// Sets name of the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.Automation
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets the tags attached to the resource.
+        /// Sets the tags attached to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

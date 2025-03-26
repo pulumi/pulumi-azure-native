@@ -22,9 +22,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  List Both of the 2 Keys of a Remote Rendering Account
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2025-01-01.
+        /// Other available API versions: 2021-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListRemoteRenderingAccountKeysResult> InvokeAsync(ListRemoteRenderingAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithDefaults());
@@ -40,9 +40,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  List Both of the 2 Keys of a Remote Rendering Account
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2025-01-01.
+        /// Other available API versions: 2021-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithDefaults());
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  List Both of the 2 Keys of a Remote Rendering Account
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2025-01-01.
+        /// Other available API versions: 2021-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithDefaults());

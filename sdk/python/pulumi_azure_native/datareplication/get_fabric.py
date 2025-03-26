@@ -27,7 +27,10 @@ class GetFabricResult:
     """
     Fabric model.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetFabricResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -110,6 +121,7 @@ class AwaitableGetFabricResult(GetFabricResult):
         if False:
             yield self
         return GetFabricResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -127,7 +139,7 @@ def get_fabric(fabric_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-02-16-preview.
 
-    Other available API versions: 2024-09-01.
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str fabric_name: The fabric name.
@@ -140,6 +152,7 @@ def get_fabric(fabric_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datareplication:getFabric', __args__, opts=opts, typ=GetFabricResult).value
 
     return AwaitableGetFabricResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -155,7 +168,7 @@ def get_fabric_output(fabric_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2021-02-16-preview.
 
-    Other available API versions: 2024-09-01.
+    Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str fabric_name: The fabric name.
@@ -167,6 +180,7 @@ def get_fabric_output(fabric_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datareplication:getFabric', __args__, opts=opts, typ=GetFabricResult)
     return __ret__.apply(lambda __response__: GetFabricResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

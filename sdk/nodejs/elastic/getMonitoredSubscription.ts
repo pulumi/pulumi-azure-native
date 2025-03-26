@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The request to update subscriptions needed to be monitored by the Elastic monitor resource.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2025-01-15-preview.
  *
- * Other available API versions: 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMonitoredSubscription(args: GetMonitoredSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetMonitoredSubscriptionArgs {
  */
 export interface GetMonitoredSubscriptionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the monitored subscription resource.
      */
     readonly id: string;
@@ -62,9 +66,9 @@ export interface GetMonitoredSubscriptionResult {
 /**
  * The request to update subscriptions needed to be monitored by the Elastic monitor resource.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2025-01-15-preview.
  *
- * Other available API versions: 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

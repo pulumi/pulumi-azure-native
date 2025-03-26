@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an Agent resource.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,6 +59,10 @@ export interface GetAgentResult {
      */
     readonly arcVmUuid: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A description for the Agent.
      */
     readonly description?: string;
@@ -92,13 +96,21 @@ export interface GetAgentResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.storagemover.SystemDataResponse;
+    /**
+     * The agent's local time zone represented in Windows format.
+     */
+    readonly timeZone: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+     */
+    readonly uploadLimitSchedule?: outputs.storagemover.UploadLimitScheduleResponse;
     /**
      * Uptime of the Agent in seconds.
      */
@@ -107,9 +119,9 @@ export interface GetAgentResult {
 /**
  * Gets an Agent resource.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityReservationGroupResult:
-    def __init__(__self__, capacity_reservation_group_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, capacity_reservation_group_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capacity_reservation_group_properties and not isinstance(capacity_reservation_group_properties, dict):
             raise TypeError("Expected argument 'capacity_reservation_group_properties' to be a dict")
         pulumi.set(__self__, "capacity_reservation_group_properties", capacity_reservation_group_properties)
@@ -55,6 +58,14 @@ class GetCapacityReservationGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="capacityReservationGroupProperties")
@@ -143,6 +154,7 @@ class AwaitableGetCapacityReservationGroupResult(GetCapacityReservationGroupResu
         if False:
             yield self
         return GetCapacityReservationGroupResult(
+            azure_api_version=self.azure_api_version,
             capacity_reservation_group_properties=self.capacity_reservation_group_properties,
             id=self.id,
             identity=self.identity,
@@ -159,11 +171,12 @@ def get_capacity_reservation_group(group_id: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationGroupResult:
     """
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+    Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
+    :param str group_id: Group ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -173,6 +186,7 @@ def get_capacity_reservation_group(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getCapacityReservationGroup', __args__, opts=opts, typ=GetCapacityReservationGroupResult).value
 
     return AwaitableGetCapacityReservationGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capacity_reservation_group_properties=pulumi.get(__ret__, 'capacity_reservation_group_properties'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -187,11 +201,12 @@ def get_capacity_reservation_group_output(group_id: Optional[pulumi.Input[str]] 
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+    Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
+    :param str group_id: Group ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -200,6 +215,7 @@ def get_capacity_reservation_group_output(group_id: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getCapacityReservationGroup', __args__, opts=opts, typ=GetCapacityReservationGroupResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capacity_reservation_group_properties=pulumi.get(__response__, 'capacity_reservation_group_properties'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

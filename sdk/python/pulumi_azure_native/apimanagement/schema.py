@@ -133,7 +133,7 @@ class Schema(pulumi.CustomResource):
         """
         Schema Contract details.
 
-        Uses Azure REST API version 2021-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class Schema(pulumi.CustomResource):
         """
         Schema Contract details.
 
-        Uses Azure REST API version 2021-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.
@@ -197,9 +197,10 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["value"] = value
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Schema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement:GlobalSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schema, __self__).__init__(
             'azure-native:apimanagement:Schema',
@@ -223,12 +224,21 @@ class Schema(pulumi.CustomResource):
 
         __props__ = SchemaArgs.__new__(SchemaArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schema_type"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["value"] = None
         return Schema(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

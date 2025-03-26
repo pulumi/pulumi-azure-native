@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the tag for optimistic concurrency control.
         /// </summary>
         public readonly string ETag;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

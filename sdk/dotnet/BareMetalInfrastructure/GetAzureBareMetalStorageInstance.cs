@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     public static class GetAzureBareMetalStorageInstance
     {
         /// <summary>
-        /// Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
+        /// Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
         /// 
-        /// Uses Azure REST API version 2023-04-06.
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// 
-        /// Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAzureBareMetalStorageInstanceResult> InvokeAsync(GetAzureBareMetalStorageInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureBareMetalStorageInstanceResult>("azure-native:baremetalinfrastructure:getAzureBareMetalStorageInstance", args ?? new GetAzureBareMetalStorageInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
+        /// Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
         /// 
-        /// Uses Azure REST API version 2023-04-06.
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// 
-        /// Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAzureBareMetalStorageInstanceResult> Invoke(GetAzureBareMetalStorageInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureBareMetalStorageInstanceResult>("azure-native:baremetalinfrastructure:getAzureBareMetalStorageInstance", args ?? new GetAzureBareMetalStorageInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
+        /// Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
         /// 
-        /// Uses Azure REST API version 2023-04-06.
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// 
-        /// Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAzureBareMetalStorageInstanceResult> Invoke(GetAzureBareMetalStorageInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureBareMetalStorageInstanceResult>("azure-native:baremetalinfrastructure:getAzureBareMetalStorageInstance", args ?? new GetAzureBareMetalStorageInstanceInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     public sealed class GetAzureBareMetalStorageInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the AzureBareMetalStorage on Azure instance.
+        /// Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         /// </summary>
         [Input("azureBareMetalStorageInstanceName", required: true)]
         public string AzureBareMetalStorageInstanceName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     public sealed class GetAzureBareMetalStorageInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the AzureBareMetalStorage on Azure instance.
+        /// Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         /// </summary>
         [Input("azureBareMetalStorageInstanceName", required: true)]
         public Input<string> AzureBareMetalStorageInstanceName { get; set; } = null!;
@@ -88,13 +88,21 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     public sealed class GetAzureBareMetalStorageInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the AzureBareMetaStorageInstance unique ID.
         /// </summary>
         public readonly string? AzureBareMetalStorageInstanceUniqueIdentifier;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of Azure Bare Metal Storage Instance, if configured.
+        /// </summary>
+        public readonly Outputs.AzureBareMetalStorageInstanceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -108,7 +116,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         /// </summary>
         public readonly Outputs.StoragePropertiesResponse? StorageProperties;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -122,9 +130,13 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
 
         [OutputConstructor]
         private GetAzureBareMetalStorageInstanceResult(
+            string azureApiVersion,
+
             string? azureBareMetalStorageInstanceUniqueIdentifier,
 
             string id,
+
+            Outputs.AzureBareMetalStorageInstanceIdentityResponse? identity,
 
             string location,
 
@@ -138,8 +150,10 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureBareMetalStorageInstanceUniqueIdentifier = azureBareMetalStorageInstanceUniqueIdentifier;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             StorageProperties = storageProperties;

@@ -27,7 +27,10 @@ class GetThreatIntelligenceIndicatorResult:
     """
     Threat intelligence information object.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -46,6 +49,14 @@ class GetThreatIntelligenceIndicatorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetThreatIntelligenceIndicatorResult(GetThreatIntelligenceIndicat
         if False:
             yield self
         return GetThreatIntelligenceIndicatorResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
@@ -117,9 +129,9 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
     """
     View a threat intelligence indicator by name.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Threat intelligence indicator name field.
@@ -134,6 +146,7 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getThreatIntelligenceIndicator', __args__, opts=opts, typ=GetThreatIntelligenceIndicatorResult).value
 
     return AwaitableGetThreatIntelligenceIndicatorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -147,9 +160,9 @@ def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] =
     """
     View a threat intelligence indicator by name.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Threat intelligence indicator name field.
@@ -163,6 +176,7 @@ def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getThreatIntelligenceIndicator', __args__, opts=opts, typ=GetThreatIntelligenceIndicatorResult)
     return __ret__.apply(lambda __response__: GetThreatIntelligenceIndicatorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

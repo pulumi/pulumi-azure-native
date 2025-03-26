@@ -27,7 +27,10 @@ class GetVpnGatewayResult:
     """
     VpnGateway Resource.
     """
-    def __init__(__self__, bgp_settings=None, connections=None, enable_bgp_route_translation_for_nat=None, etag=None, id=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, nat_rules=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
+    def __init__(__self__, azure_api_version=None, bgp_settings=None, connections=None, enable_bgp_route_translation_for_nat=None, etag=None, id=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, nat_rules=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -73,6 +76,14 @@ class GetVpnGatewayResult:
         if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, int):
             raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a int")
         pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -201,6 +212,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
         if False:
             yield self
         return GetVpnGatewayResult(
+            azure_api_version=self.azure_api_version,
             bgp_settings=self.bgp_settings,
             connections=self.connections,
             enable_bgp_route_translation_for_nat=self.enable_bgp_route_translation_for_nat,
@@ -224,9 +236,9 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
     """
     Retrieves the details of a virtual wan vpn gateway.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str gateway_name: The name of the gateway.
@@ -239,6 +251,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult).value
 
     return AwaitableGetVpnGatewayResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
         connections=pulumi.get(__ret__, 'connections'),
         enable_bgp_route_translation_for_nat=pulumi.get(__ret__, 'enable_bgp_route_translation_for_nat'),
@@ -260,9 +273,9 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the details of a virtual wan vpn gateway.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str gateway_name: The name of the gateway.
@@ -274,6 +287,7 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult)
     return __ret__.apply(lambda __response__: GetVpnGatewayResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),
         connections=pulumi.get(__response__, 'connections'),
         enable_bgp_route_translation_for_nat=pulumi.get(__response__, 'enable_bgp_route_translation_for_nat'),

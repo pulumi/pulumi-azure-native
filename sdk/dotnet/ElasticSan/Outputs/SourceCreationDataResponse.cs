@@ -21,18 +21,18 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
         /// </summary>
         public readonly string? CreateSource;
         /// <summary>
-        /// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
-        public readonly string? SourceUri;
+        public readonly string? SourceId;
 
         [OutputConstructor]
         private SourceCreationDataResponse(
             string? createSource,
 
-            string? sourceUri)
+            string? sourceId)
         {
             CreateSource = createSource;
-            SourceUri = sourceUri;
+            SourceId = sourceId;
         }
     }
 }

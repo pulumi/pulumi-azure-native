@@ -10,15 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The NetworkDevice resource definition.
+    /// The Network Device resource definition.
     /// 
-    /// Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
+    /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkDevice")]
     public partial class NetworkDevice : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
+
         /// <summary>
         /// Switch configuration description.
         /// </summary>
@@ -26,7 +32,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// The host Name of the device.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// The host name of the device.
         /// </summary>
         [Output("hostName")]
         public Output<string?> HostName { get; private set; } = null!;
@@ -38,13 +56,25 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Management IPv4 Address.
+        /// </summary>
+        [Output("managementIpv4Address")]
+        public Output<string> ManagementIpv4Address { get; private set; } = null!;
+
+        /// <summary>
+        /// Management IPv6 Address.
+        /// </summary>
+        [Output("managementIpv6Address")]
+        public Output<string> ManagementIpv6Address { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// networkDeviceRole is the device role: Example: CE | ToR.
+        /// NetworkDeviceRole is the device role: Example: CE | ToR.
         /// </summary>
         [Output("networkDeviceRole")]
         public Output<string> NetworkDeviceRole { get; private set; } = null!;
@@ -53,7 +83,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Network Device SKU name.
         /// </summary>
         [Output("networkDeviceSku")]
-        public Output<string> NetworkDeviceSku { get; private set; } = null!;
+        public Output<string?> NetworkDeviceSku { get; private set; } = null!;
 
         /// <summary>
         /// Reference to network rack resource id.
@@ -62,13 +92,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> NetworkRackId { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        /// Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         /// </summary>
         [Output("serialNumber")]
         public Output<string> SerialNumber { get; private set; } = null!;
@@ -154,7 +184,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// The host Name of the device.
+        /// The host name of the device.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
@@ -166,22 +196,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the Network Device
+        /// Name of the Network Device.
         /// </summary>
         [Input("networkDeviceName")]
         public Input<string>? NetworkDeviceName { get; set; }
 
         /// <summary>
-        /// networkDeviceRole is the device role: Example: CE | ToR.
-        /// </summary>
-        [Input("networkDeviceRole", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.NetworkDeviceRoleTypes> NetworkDeviceRole { get; set; } = null!;
-
-        /// <summary>
         /// Network Device SKU name.
         /// </summary>
-        [Input("networkDeviceSku", required: true)]
-        public Input<string> NetworkDeviceSku { get; set; } = null!;
+        [Input("networkDeviceSku")]
+        public Input<string>? NetworkDeviceSku { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -190,7 +214,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        /// Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         /// </summary>
         [Input("serialNumber", required: true)]
         public Input<string> SerialNumber { get; set; } = null!;

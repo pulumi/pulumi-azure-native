@@ -44,21 +44,6 @@ utilities.lazyLoad(exports, ["PrivateStoreCollectionOffer"], () => require("./pr
 // Export enums:
 export * from "../types/enums/marketplace";
 
-// Export sub-modules:
-import * as v20200101 from "./v20200101";
-import * as v20211201 from "./v20211201";
-import * as v20220301 from "./v20220301";
-import * as v20220901 from "./v20220901";
-import * as v20230101 from "./v20230101";
-
-export {
-    v20200101,
-    v20211201,
-    v20220301,
-    v20220901,
-    v20230101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

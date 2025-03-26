@@ -27,7 +27,10 @@ class GetIotConnectorResult:
     """
     IoT Connector definition.
     """
-    def __init__(__self__, device_mapping=None, etag=None, id=None, identity=None, ingestion_endpoint_configuration=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, device_mapping=None, etag=None, id=None, identity=None, ingestion_endpoint_configuration=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if device_mapping and not isinstance(device_mapping, dict):
             raise TypeError("Expected argument 'device_mapping' to be a dict")
         pulumi.set(__self__, "device_mapping", device_mapping)
@@ -61,6 +64,14 @@ class GetIotConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deviceMapping")
@@ -157,6 +168,7 @@ class AwaitableGetIotConnectorResult(GetIotConnectorResult):
         if False:
             yield self
         return GetIotConnectorResult(
+            azure_api_version=self.azure_api_version,
             device_mapping=self.device_mapping,
             etag=self.etag,
             id=self.id,
@@ -177,9 +189,9 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
     """
     Gets the properties of the specified IoT Connector.
 
-    Uses Azure REST API version 2023-02-28.
+    Uses Azure REST API version 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+    Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str iot_connector_name: The name of IoT Connector resource.
@@ -194,6 +206,7 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getIotConnector', __args__, opts=opts, typ=GetIotConnectorResult).value
 
     return AwaitableGetIotConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         device_mapping=pulumi.get(__ret__, 'device_mapping'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -212,9 +225,9 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
     """
     Gets the properties of the specified IoT Connector.
 
-    Uses Azure REST API version 2023-02-28.
+    Uses Azure REST API version 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+    Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str iot_connector_name: The name of IoT Connector resource.
@@ -228,6 +241,7 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis:getIotConnector', __args__, opts=opts, typ=GetIotConnectorResult)
     return __ret__.apply(lambda __response__: GetIotConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         device_mapping=pulumi.get(__response__, 'device_mapping'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

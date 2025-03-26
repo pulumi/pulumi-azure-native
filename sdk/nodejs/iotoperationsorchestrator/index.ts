@@ -39,13 +39,6 @@ utilities.lazyLoad(exports, ["Target"], () => require("./target"));
 // Export enums:
 export * from "../types/enums/iotoperationsorchestrator";
 
-// Export sub-modules:
-import * as v20231004preview from "./v20231004preview";
-
-export {
-    v20231004preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

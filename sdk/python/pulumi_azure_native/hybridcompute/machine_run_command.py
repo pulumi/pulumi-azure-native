@@ -307,9 +307,9 @@ class MachineRunCommand(pulumi.CustomResource):
         """
         Describes a Run Command
 
-        Uses Azure REST API version 2023-10-03-preview.
+        Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-03-preview.
 
-        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -339,9 +339,9 @@ class MachineRunCommand(pulumi.CustomResource):
         """
         Describes a Run Command
 
-        Uses Azure REST API version 2023-10-03-preview.
+        Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-03-preview.
 
-        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MachineRunCommandArgs args: The arguments to use to populate this resource's properties.
@@ -405,6 +405,7 @@ class MachineRunCommand(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -435,6 +436,7 @@ class MachineRunCommand(pulumi.CustomResource):
         __props__ = MachineRunCommandArgs.__new__(MachineRunCommandArgs)
 
         __props__.__dict__["async_execution"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["error_blob_managed_identity"] = None
         __props__.__dict__["error_blob_uri"] = None
         __props__.__dict__["instance_view"] = None
@@ -461,6 +463,14 @@ class MachineRunCommand(pulumi.CustomResource):
         Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete.
         """
         return pulumi.get(self, "async_execution")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorBlobManagedIdentity")

@@ -11,38 +11,32 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlow Resource properties
+    /// Dataflow Resource properties
     /// </summary>
-    public sealed class DataFlowPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Mode for DataFlow. Optional; defaults to Enabled.
+        /// Mode for Dataflow. Optional; defaults to Enabled.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.IoTOperations.OperationalMode>? Mode { get; set; }
 
         [Input("operations", required: true)]
-        private InputList<Inputs.DataFlowOperationArgs>? _operations;
+        private InputList<Inputs.DataflowOperationArgs>? _operations;
 
         /// <summary>
         /// List of operations including source and destination references as well as transformation.
         /// </summary>
-        public InputList<Inputs.DataFlowOperationArgs> Operations
+        public InputList<Inputs.DataflowOperationArgs> Operations
         {
-            get => _operations ?? (_operations = new InputList<Inputs.DataFlowOperationArgs>());
+            get => _operations ?? (_operations = new InputList<Inputs.DataflowOperationArgs>());
             set => _operations = value;
         }
 
-        /// <summary>
-        /// Reference to the DataflowProfile CR.
-        /// </summary>
-        [Input("profileRef", required: true)]
-        public Input<string> ProfileRef { get; set; } = null!;
-
-        public DataFlowPropertiesArgs()
+        public DataflowPropertiesArgs()
         {
             Mode = "Enabled";
         }
-        public static new DataFlowPropertiesArgs Empty => new DataFlowPropertiesArgs();
+        public static new DataflowPropertiesArgs Empty => new DataflowPropertiesArgs();
     }
 }

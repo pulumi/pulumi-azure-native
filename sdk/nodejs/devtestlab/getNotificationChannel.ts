@@ -46,6 +46,10 @@ export interface GetNotificationChannelArgs {
  */
 export interface GetNotificationChannelResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the notification channel.
      */
     readonly createdDate: string;

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.StandbyPool
     /// <summary>
     /// A StandbyVirtualMachinePoolResource.
     /// 
-    /// Uses Azure REST API version 2023-12-01-preview.
+    /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
+    /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyVirtualMachinePool")]
     public partial class StandbyVirtualMachinePool : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.StandbyPool
         /// </summary>
         [Output("attachedVirtualMachineScaleSetId")]
         public Output<string?> AttachedVirtualMachineScaleSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the elasticity profile of the standby virtual machine pools.

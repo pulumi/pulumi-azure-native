@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a private endpoint.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJobPrivateEndpoint(args: GetJobPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetJobPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetJobPrivateEndpointArgs {
  */
 export interface GetJobPrivateEndpointResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ID.
      */
     readonly id: string;
@@ -68,9 +72,9 @@ export interface GetJobPrivateEndpointResult {
 /**
  * Gets a private endpoint.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

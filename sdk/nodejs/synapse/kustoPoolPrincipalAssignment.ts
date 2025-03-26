@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Class representing a cluster principal assignment.
  *
- * Uses Azure REST API version 2021-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+ * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -43,6 +45,10 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
      * The service principal object id in AAD (Azure active directory)
      */
     public /*out*/ readonly aadObjectId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -122,6 +128,7 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["aadObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -130,6 +137,7 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aadObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;

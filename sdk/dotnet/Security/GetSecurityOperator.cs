@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityOperatorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetSecurityOperatorResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Name = name;

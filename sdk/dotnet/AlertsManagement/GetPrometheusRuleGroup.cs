@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Retrieve a Prometheus rule group definition.
         /// 
         /// Uses Azure REST API version 2023-03-01.
+        /// 
+        /// Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrometheusRuleGroupResult> InvokeAsync(GetPrometheusRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Retrieve a Prometheus rule group definition.
         /// 
         /// Uses Azure REST API version 2023-03-01.
+        /// 
+        /// Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Retrieve a Prometheus rule group definition.
         /// 
         /// Uses Azure REST API version 2023-03-01.
+        /// 
+        /// Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());
@@ -82,6 +88,10 @@ namespace Pulumi.AzureNative.AlertsManagement
     public sealed class GetPrometheusRuleGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Apply rule to data from a specific cluster.
         /// </summary>
         public readonly string? ClusterName;
@@ -132,6 +142,8 @@ namespace Pulumi.AzureNative.AlertsManagement
 
         [OutputConstructor]
         private GetPrometheusRuleGroupResult(
+            string azureApiVersion,
+
             string? clusterName,
 
             string? description,
@@ -156,6 +168,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClusterName = clusterName;
             Description = description;
             Enabled = enabled;

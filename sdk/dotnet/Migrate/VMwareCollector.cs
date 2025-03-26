@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
-    /// Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+    /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:VMwareCollector")]
     public partial class VMwareCollector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
 
@@ -54,10 +60,16 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:VmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:VmwareCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

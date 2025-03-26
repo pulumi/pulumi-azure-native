@@ -26,7 +26,10 @@ class GetSecurityConnectorApplicationResult:
     """
     Security Application over a given scope
     """
-    def __init__(__self__, description=None, display_name=None, id=None, name=None, source_resource_type=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, name=None, source_resource_type=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -45,6 +48,14 @@ class GetSecurityConnectorApplicationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetSecurityConnectorApplicationResult(GetSecurityConnectorApplica
         if False:
             yield self
         return GetSecurityConnectorApplicationResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -131,6 +143,7 @@ def get_security_connector_application(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityConnectorApplication', __args__, opts=opts, typ=GetSecurityConnectorApplicationResult).value
 
     return AwaitableGetSecurityConnectorApplicationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -158,6 +171,7 @@ def get_security_connector_application_output(application_id: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getSecurityConnectorApplication', __args__, opts=opts, typ=GetSecurityConnectorApplicationResult)
     return __ret__.apply(lambda __response__: GetSecurityConnectorApplicationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

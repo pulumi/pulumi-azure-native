@@ -70,7 +70,7 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[str] = 
 
     Uses Azure REST API version 2022-10-27.
 
-    Other available API versions: 2021-10-31-preview.
+    Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -93,7 +93,7 @@ def list_appliance_cluster_user_credential_output(resource_group_name: Optional[
 
     Uses Azure REST API version 2022-10-27.
 
-    Other available API versions: 2021-10-31-preview.
+    Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

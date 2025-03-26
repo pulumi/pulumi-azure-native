@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns properties of a OpenShift cluster.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns properties of a OpenShift cluster.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOpenShiftClusterResult> Invoke(GetOpenShiftClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenShiftClusterResult>("azure-native:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns properties of a OpenShift cluster.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOpenShiftClusterResult> Invoke(GetOpenShiftClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenShiftClusterResult>("azure-native:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// The cluster API server profile.
         /// </summary>
         public readonly Outputs.APIServerProfileResponse? ApiserverProfile;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The cluster profile.
         /// </summary>
@@ -147,10 +151,16 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// The cluster worker profiles.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkerProfileResponse> WorkerProfiles;
+        /// <summary>
+        /// The cluster worker profiles status.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WorkerProfileResponse> WorkerProfilesStatus;
 
         [OutputConstructor]
         private GetOpenShiftClusterResult(
             Outputs.APIServerProfileResponse? apiserverProfile,
+
+            string azureApiVersion,
 
             Outputs.ClusterProfileResponse? clusterProfile,
 
@@ -178,9 +188,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
             string type,
 
-            ImmutableArray<Outputs.WorkerProfileResponse> workerProfiles)
+            ImmutableArray<Outputs.WorkerProfileResponse> workerProfiles,
+
+            ImmutableArray<Outputs.WorkerProfileResponse> workerProfilesStatus)
         {
             ApiserverProfile = apiserverProfile;
+            AzureApiVersion = azureApiVersion;
             ClusterProfile = clusterProfile;
             ConsoleProfile = consoleProfile;
             Id = id;
@@ -195,6 +208,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
             Tags = tags;
             Type = type;
             WorkerProfiles = workerProfiles;
+            WorkerProfilesStatus = workerProfilesStatus;
         }
     }
 }

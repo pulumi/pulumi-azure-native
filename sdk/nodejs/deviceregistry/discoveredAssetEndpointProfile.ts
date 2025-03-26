@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Discovered Asset Endpoint Profile definition.
  *
- * Uses Azure REST API version 2024-09-01-preview.
+ * Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
  */
 export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
      * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
     public readonly additionalConfiguration!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Identifier used to detect changes in the asset endpoint profile.
      */
@@ -132,12 +136,14 @@ export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetAddress"] = args ? args.targetAddress : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoveryId"] = undefined /*out*/;
             resourceInputs["endpointProfileType"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;

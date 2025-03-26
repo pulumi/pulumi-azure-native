@@ -18,9 +18,9 @@ from ._enums import *
 
 __all__ = [
     'ManagedServiceIdentityResponse',
-    'MediaServicesForPutRequestResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'StorageServicesForPutRequestResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
@@ -100,60 +100,6 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class MediaServicesForPutRequestResponse(dict):
-    """
-    The media services details
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceId":
-            suggest = "resource_id"
-        elif key == "userAssignedIdentity":
-            suggest = "user_assigned_identity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MediaServicesForPutRequestResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MediaServicesForPutRequestResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MediaServicesForPutRequestResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_id: Optional[str] = None,
-                 user_assigned_identity: Optional[str] = None):
-        """
-        The media services details
-        :param str resource_id: The media services resource id
-        :param str user_assigned_identity: The user assigned identity to be used to grant permissions
-        """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        The media services resource id
-        """
-        return pulumi.get(self, "resource_id")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[str]:
-        """
-        The user assigned identity to be used to grant permissions
-        """
-        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type
@@ -240,6 +186,60 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class StorageServicesForPutRequestResponse(dict):
+    """
+    The storage services details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageServicesForPutRequestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageServicesForPutRequestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageServicesForPutRequestResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The storage services details
+        :param str resource_id: The storage services resource id
+        :param str user_assigned_identity: The user assigned identity to be used to grant permissions
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The storage services resource id
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user assigned identity to be used to grant permissions
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type

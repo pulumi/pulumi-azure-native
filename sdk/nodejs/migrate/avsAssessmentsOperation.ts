@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * AVS assessment resource.
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AvsAssessmentsOperation extends pulumi.CustomResource {
     /**
@@ -52,6 +52,26 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
      */
     public /*out*/ readonly assessmentType!: pulumi.Output<string>;
     /**
+     * AVS Assessment Scenario.
+     */
+    public readonly avsAssessmentScenario!: pulumi.Output<string | undefined>;
+    /**
+     * Estimated External Storage for Assessment.
+     */
+    public /*out*/ readonly avsEstimatedExternalStorages!: pulumi.Output<outputs.migrate.AvsEstimatedExternalStorageResponse[]>;
+    /**
+     * Estimated External Storage for Assessment.
+     */
+    public /*out*/ readonly avsEstimatedNetworks!: pulumi.Output<outputs.migrate.AvsEstimatedNetworkResponse[]>;
+    /**
+     * Estimated AVS SKU for Assessment.
+     */
+    public /*out*/ readonly avsEstimatedNodes!: pulumi.Output<outputs.migrate.AvsEstimatedNodeResponse[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
     public readonly azureLocation!: pulumi.Output<string | undefined>;
@@ -63,6 +83,14 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
      * Confidence Rating in Percentage.
      */
     public /*out*/ readonly confidenceRatingInPercentage!: pulumi.Output<number>;
+    /**
+     * collection of cost components.
+     */
+    public /*out*/ readonly costComponents!: pulumi.Output<outputs.migrate.CostComponentResponse[]>;
+    /**
+     * Percentage of CPU capacity reserved for processing additional workloads.
+     */
+    public readonly cpuHeadroom!: pulumi.Output<number | undefined>;
     /**
      * Predicted CPU utilization.
      */
@@ -84,9 +112,17 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
      */
     public readonly discountPercentage!: pulumi.Output<number | undefined>;
     /**
+     * List of AVS external storage types.
+     */
+    public readonly externalStorageTypes!: pulumi.Output<string[] | undefined>;
+    /**
      * Failures to tolerate and RAID level in a common property.
      */
     public readonly failuresToTolerateAndRaidLevel!: pulumi.Output<string | undefined>;
+    /**
+     * List of Failures to tolerate and RAID levels in a common property.
+     */
+    public readonly failuresToTolerateAndRaidLevelList!: pulumi.Output<string[] | undefined>;
     /**
      * Gets the group type for the assessment.
      */
@@ -95,6 +131,10 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
      * Is Stretch Cluster Enabled.
      */
     public readonly isStretchClusterEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Is VCF license applied
+     */
+    public readonly isVcfByolEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Limiting factor.
      */
@@ -111,6 +151,10 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
      * AVS node type.
      */
     public readonly nodeType!: pulumi.Output<string | undefined>;
+    /**
+     * AVS node types.
+     */
+    public readonly nodeTypes!: pulumi.Output<string[] | undefined>;
     /**
      * Number of machines part of the assessment.
      */
@@ -245,16 +289,22 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
+            resourceInputs["avsAssessmentScenario"] = args ? args.avsAssessmentScenario : undefined;
             resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
             resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
+            resourceInputs["cpuHeadroom"] = args ? args.cpuHeadroom : undefined;
             resourceInputs["currency"] = args ? args.currency : undefined;
             resourceInputs["dedupeCompression"] = args ? args.dedupeCompression : undefined;
             resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
+            resourceInputs["externalStorageTypes"] = args ? args.externalStorageTypes : undefined;
             resourceInputs["failuresToTolerateAndRaidLevel"] = args ? args.failuresToTolerateAndRaidLevel : undefined;
+            resourceInputs["failuresToTolerateAndRaidLevelList"] = args ? args.failuresToTolerateAndRaidLevelList : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["isStretchClusterEnabled"] = args ? args.isStretchClusterEnabled : undefined;
+            resourceInputs["isVcfByolEnabled"] = args ? args.isVcfByolEnabled : undefined;
             resourceInputs["memOvercommit"] = args ? args.memOvercommit : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
+            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
             resourceInputs["percentile"] = args ? args.percentile : undefined;
             resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
             resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
@@ -268,7 +318,12 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
             resourceInputs["vcpuOversubscription"] = args ? args.vcpuOversubscription : undefined;
             resourceInputs["assessmentErrorSummary"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
+            resourceInputs["avsEstimatedExternalStorages"] = undefined /*out*/;
+            resourceInputs["avsEstimatedNetworks"] = undefined /*out*/;
+            resourceInputs["avsEstimatedNodes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["confidenceRatingInPercentage"] = undefined /*out*/;
+            resourceInputs["costComponents"] = undefined /*out*/;
             resourceInputs["cpuUtilization"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
@@ -295,21 +350,32 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
         } else {
             resourceInputs["assessmentErrorSummary"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
+            resourceInputs["avsAssessmentScenario"] = undefined /*out*/;
+            resourceInputs["avsEstimatedExternalStorages"] = undefined /*out*/;
+            resourceInputs["avsEstimatedNetworks"] = undefined /*out*/;
+            resourceInputs["avsEstimatedNodes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureLocation"] = undefined /*out*/;
             resourceInputs["azureOfferCode"] = undefined /*out*/;
             resourceInputs["confidenceRatingInPercentage"] = undefined /*out*/;
+            resourceInputs["costComponents"] = undefined /*out*/;
+            resourceInputs["cpuHeadroom"] = undefined /*out*/;
             resourceInputs["cpuUtilization"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
             resourceInputs["dedupeCompression"] = undefined /*out*/;
             resourceInputs["discountPercentage"] = undefined /*out*/;
+            resourceInputs["externalStorageTypes"] = undefined /*out*/;
             resourceInputs["failuresToTolerateAndRaidLevel"] = undefined /*out*/;
+            resourceInputs["failuresToTolerateAndRaidLevelList"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
             resourceInputs["isStretchClusterEnabled"] = undefined /*out*/;
+            resourceInputs["isVcfByolEnabled"] = undefined /*out*/;
             resourceInputs["limitingFactor"] = undefined /*out*/;
             resourceInputs["memOvercommit"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeType"] = undefined /*out*/;
+            resourceInputs["nodeTypes"] = undefined /*out*/;
             resourceInputs["numberOfMachines"] = undefined /*out*/;
             resourceInputs["numberOfNodes"] = undefined /*out*/;
             resourceInputs["percentile"] = undefined /*out*/;
@@ -354,6 +420,10 @@ export interface AvsAssessmentsOperationArgs {
      */
     assessmentName?: pulumi.Input<string>;
     /**
+     * AVS Assessment Scenario.
+     */
+    avsAssessmentScenario?: pulumi.Input<string | enums.migrate.AvsAssessmentScenario>;
+    /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
     azureLocation?: pulumi.Input<string | enums.migrate.AzureLocation>;
@@ -361,6 +431,10 @@ export interface AvsAssessmentsOperationArgs {
      * Azure Offer code according to which cost estimation is done.
      */
     azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
+    /**
+     * Percentage of CPU capacity reserved for processing additional workloads.
+     */
+    cpuHeadroom?: pulumi.Input<number>;
     /**
      * Currency in which prices should be reported.
      */
@@ -374,9 +448,17 @@ export interface AvsAssessmentsOperationArgs {
      */
     discountPercentage?: pulumi.Input<number>;
     /**
+     * List of AVS external storage types.
+     */
+    externalStorageTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.ExternalStorageType>[]>;
+    /**
      * Failures to tolerate and RAID level in a common property.
      */
     failuresToTolerateAndRaidLevel?: pulumi.Input<string | enums.migrate.FttAndRaidLevel>;
+    /**
+     * List of Failures to tolerate and RAID levels in a common property.
+     */
+    failuresToTolerateAndRaidLevelList?: pulumi.Input<pulumi.Input<string | enums.migrate.FttAndRaidLevel>[]>;
     /**
      * Group ARM name
      */
@@ -386,6 +468,10 @@ export interface AvsAssessmentsOperationArgs {
      */
     isStretchClusterEnabled?: pulumi.Input<boolean>;
     /**
+     * Is VCF license applied
+     */
+    isVcfByolEnabled?: pulumi.Input<boolean>;
+    /**
      * Memory overcommit.
      */
     memOvercommit?: pulumi.Input<number>;
@@ -393,6 +479,10 @@ export interface AvsAssessmentsOperationArgs {
      * AVS node type.
      */
     nodeType?: pulumi.Input<string | enums.migrate.AzureAvsNodeType>;
+    /**
+     * AVS node types.
+     */
+    nodeTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureAvsNodeType>[]>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.

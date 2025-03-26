@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Sql.Outputs
     public sealed class ElasticPoolPerDatabaseSettingsResponse
     {
         /// <summary>
+        /// Auto Pause Delay for per database within pool
+        /// </summary>
+        public readonly int? AutoPauseDelay;
+        /// <summary>
         /// The maximum capacity any one database can consume.
         /// </summary>
         public readonly double? MaxCapacity;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Sql.Outputs
 
         [OutputConstructor]
         private ElasticPoolPerDatabaseSettingsResponse(
+            int? autoPauseDelay,
+
             double? maxCapacity,
 
             double? minCapacity)
         {
+            AutoPauseDelay = autoPauseDelay;
             MaxCapacity = maxCapacity;
             MinCapacity = minCapacity;
         }

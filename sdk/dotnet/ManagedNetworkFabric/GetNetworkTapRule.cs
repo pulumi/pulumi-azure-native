@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration state of the resource.
         /// </summary>
         public readonly string ConfigurationState;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string? annotation,
 
+            string azureApiVersion,
+
             string configurationState,
 
             string configurationType,
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         {
             AdministrativeState = administrativeState;
             Annotation = annotation;
+            AzureApiVersion = azureApiVersion;
             ConfigurationState = configurationState;
             ConfigurationType = configurationType;
             DynamicMatchConfigurations = dynamicMatchConfigurations;

@@ -20,11 +20,3 @@ from .role_assignment_artifact import *
 from .template_artifact import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.blueprint.v20181101preview as __v20181101preview
-    v20181101preview = __v20181101preview
-else:
-    v20181101preview = _utilities.lazy_import('pulumi_azure_native.blueprint.v20181101preview')
-

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Cloud shell console
  *
- * Uses Azure REST API version 2018-10-01. In version 1.x of the Azure Native provider, it used API version 2018-10-01.
+ * Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
  */
 export class ConsoleWithLocation extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Cloud shell console properties.
      */
     public /*out*/ readonly properties!: pulumi.Output<outputs.portal.ConsolePropertiesResponse>;
@@ -60,8 +64,10 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
             }
             resourceInputs["consoleName"] = args ? args.consoleName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? Action;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// IP Filter name
         /// </summary>
         public readonly string? FilterName;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.ServiceBus
         private GetNamespaceIpFilterRuleResult(
             string? action,
 
+            string azureApiVersion,
+
             string? filterName,
 
             string id,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNative.ServiceBus
             string type)
         {
             Action = action;
+            AzureApiVersion = azureApiVersion;
             FilterName = filterName;
             Id = id;
             IpMask = ipMask;

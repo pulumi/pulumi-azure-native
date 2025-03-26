@@ -27,10 +27,16 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, system_data=None, tags=None, type=None, zone_redundancy=None):
+    def __init__(__self__, admin_user_enabled=None, anonymous_pull_enabled=None, azure_api_version=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, system_data=None, tags=None, type=None, zone_redundancy=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
+        if anonymous_pull_enabled and not isinstance(anonymous_pull_enabled, bool):
+            raise TypeError("Expected argument 'anonymous_pull_enabled' to be a bool")
+        pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -102,6 +108,22 @@ class GetRegistryResult:
         The value that indicates whether the admin user is enabled.
         """
         return pulumi.get(self, "admin_user_enabled")
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> Optional[bool]:
+        """
+        Enables registry-wide pull from unauthenticated clients.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -279,6 +301,8 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             yield self
         return GetRegistryResult(
             admin_user_enabled=self.admin_user_enabled,
+            anonymous_pull_enabled=self.anonymous_pull_enabled,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             data_endpoint_enabled=self.data_endpoint_enabled,
             data_endpoint_host_names=self.data_endpoint_host_names,
@@ -308,9 +332,9 @@ def get_registry(registry_name: Optional[str] = None,
     """
     Gets the properties of the specified container registry.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2023-01-01-preview.
 
-    Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.
@@ -324,6 +348,8 @@ def get_registry(registry_name: Optional[str] = None,
 
     return AwaitableGetRegistryResult(
         admin_user_enabled=pulumi.get(__ret__, 'admin_user_enabled'),
+        anonymous_pull_enabled=pulumi.get(__ret__, 'anonymous_pull_enabled'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         data_endpoint_enabled=pulumi.get(__ret__, 'data_endpoint_enabled'),
         data_endpoint_host_names=pulumi.get(__ret__, 'data_endpoint_host_names'),
@@ -351,9 +377,9 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the specified container registry.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2023-01-01-preview.
 
-    Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.
@@ -366,6 +392,8 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
     return __ret__.apply(lambda __response__: GetRegistryResult(
         admin_user_enabled=pulumi.get(__response__, 'admin_user_enabled'),
+        anonymous_pull_enabled=pulumi.get(__response__, 'anonymous_pull_enabled'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         data_endpoint_enabled=pulumi.get(__response__, 'data_endpoint_enabled'),
         data_endpoint_host_names=pulumi.get(__response__, 'data_endpoint_host_names'),

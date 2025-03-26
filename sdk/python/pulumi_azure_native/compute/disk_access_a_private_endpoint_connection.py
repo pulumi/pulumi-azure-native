@@ -101,9 +101,9 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
-        Uses Azure REST API version 2022-07-02. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,9 +121,9 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
-        Uses Azure REST API version 2022-07-02. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DiskAccessAPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -163,6 +163,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -191,12 +192,21 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = DiskAccessAPrivateEndpointConnectionArgs.__new__(DiskAccessAPrivateEndpointConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return DiskAccessAPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

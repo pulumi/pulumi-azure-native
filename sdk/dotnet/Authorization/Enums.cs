@@ -175,6 +175,39 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssignmentType : IEquatable<AssignmentType>
+    {
+        private readonly string _value;
+
+        private AssignmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssignmentType NotSpecified { get; } = new AssignmentType("NotSpecified");
+        public static AssignmentType System { get; } = new AssignmentType("System");
+        public static AssignmentType SystemHidden { get; } = new AssignmentType("SystemHidden");
+        public static AssignmentType Custom { get; } = new AssignmentType("Custom");
+
+        public static bool operator ==(AssignmentType left, AssignmentType right) => left.Equals(right);
+        public static bool operator !=(AssignmentType left, AssignmentType right) => !left.Equals(right);
+
+        public static explicit operator string(AssignmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssignmentType other && Equals(other);
+        public bool Equals(AssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This specifies the behavior for the autoReview feature when an access review completes.
     /// </summary>
     [EnumType]
@@ -239,7 +272,7 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
-    /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+    /// The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
     /// </summary>
     [EnumType]
     public readonly struct EnforcementMode : IEquatable<EnforcementMode>
@@ -259,6 +292,10 @@ namespace Pulumi.AzureNative.Authorization
         /// The policy effect is not enforced during resource creation or update.
         /// </summary>
         public static EnforcementMode DoNotEnforce { get; } = new EnforcementMode("DoNotEnforce");
+        /// <summary>
+        /// The policy effect is not enforced during resource creation or update until the resource or scope of the resource is enrolled to the assignment instance. Enrollment occurs upon deployment of the policy enrollment resource.
+        /// </summary>
+        public static EnforcementMode Enroll { get; } = new EnforcementMode("Enroll");
 
         public static bool operator ==(EnforcementMode left, EnforcementMode right) => left.Equals(right);
         public static bool operator !=(EnforcementMode left, EnforcementMode right) => !left.Equals(right);
@@ -451,6 +488,10 @@ namespace Pulumi.AzureNative.Authorization
         /// It will override the policy effect type.
         /// </summary>
         public static OverrideKind PolicyEffect { get; } = new OverrideKind("policyEffect");
+        /// <summary>
+        /// It will override the definition version property value of the policy assignment.
+        /// </summary>
+        public static OverrideKind DefinitionVersion { get; } = new OverrideKind("definitionVersion");
 
         public static bool operator ==(OverrideKind left, OverrideKind right) => left.Equals(right);
         public static bool operator !=(OverrideKind left, OverrideKind right) => !left.Equals(right);

@@ -27,10 +27,13 @@ class GetWebhookResult:
     """
     An object that represents a webhook for a container registry.
     """
-    def __init__(__self__, actions=None, id=None, location=None, name=None, provisioning_state=None, scope=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, actions=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, scope=None, status=None, system_data=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -66,6 +69,14 @@ class GetWebhookResult:
         The list of actions that trigger the webhook to post notifications.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             yield self
         return GetWebhookResult(
             actions=self.actions,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -165,9 +177,9 @@ def get_webhook(registry_name: Optional[str] = None,
     """
     Gets the properties of the specified webhook.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.
@@ -183,6 +195,7 @@ def get_webhook(registry_name: Optional[str] = None,
 
     return AwaitableGetWebhookResult(
         actions=pulumi.get(__ret__, 'actions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -199,9 +212,9 @@ def get_webhook_output(registry_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the specified webhook.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registry_name: The name of the container registry.
@@ -216,6 +229,7 @@ def get_webhook_output(registry_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getWebhook', __args__, opts=opts, typ=GetWebhookResult)
     return __ret__.apply(lambda __response__: GetWebhookResult(
         actions=pulumi.get(__response__, 'actions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
