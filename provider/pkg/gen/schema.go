@@ -1254,7 +1254,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 		if desc != "" {
 			fmt.Fprint(&b, "\n\n")
 		}
-		fmt.Fprintf(&b, "Azure REST API version: %s.", defaultVersion)
+		fmt.Fprintf(&b, "Uses Azure REST API version %s.", defaultVersion)
 		if previousDefaultVersion != "" {
 			fmt.Fprintf(&b, " In version %d.x of the Azure Native provider, it used API version %s.", g.majorVersion-1, previousDefaultVersion)
 		}
