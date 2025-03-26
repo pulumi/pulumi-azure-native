@@ -105,7 +105,8 @@ def get_node_type_fault_simulation(cluster_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeTypeFaultSimulationResult:
     """
     Gets a fault simulation by the simulationId.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -134,7 +135,8 @@ def get_node_type_fault_simulation_output(cluster_name: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeTypeFaultSimulationResult]:
     """
     Gets a fault simulation by the simulationId.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

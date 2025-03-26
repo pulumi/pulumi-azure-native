@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a fleet database.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetDatabase(args: GetFleetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +68,8 @@ export interface GetFleetDatabaseResult {
 }
 /**
  * Gets a fleet database.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetDatabaseOutput(args: GetFleetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

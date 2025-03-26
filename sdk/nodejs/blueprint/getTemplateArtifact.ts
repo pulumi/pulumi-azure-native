@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a blueprint artifact.
- * Azure REST API version: 2018-11-01-preview.
+ *
+ * Uses Azure REST API version 2018-11-01-preview.
  */
 export function getTemplateArtifact(args: GetTemplateArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +84,8 @@ export interface GetTemplateArtifactResult {
 }
 /**
  * Get a blueprint artifact.
- * Azure REST API version: 2018-11-01-preview.
+ *
+ * Uses Azure REST API version 2018-11-01-preview.
  */
 export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

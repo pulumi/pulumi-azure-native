@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a string that represents the contents of the RDP file for the virtual machine
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getVirtualMachineRdpFileContents(args: GetVirtualMachineRdpFileContentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRdpFileContentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +44,8 @@ export interface GetVirtualMachineRdpFileContentsResult {
 }
 /**
  * Gets a string that represents the contents of the RDP file for the virtual machine
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

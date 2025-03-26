@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Connector definition for kind 'Customizable'.
-    /// Azure REST API version: 2023-07-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:CustomizableConnectorDefinition")]
     public partial class CustomizableConnectorDefinition : global::Pulumi.CustomResource

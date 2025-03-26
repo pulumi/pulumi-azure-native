@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Device resource.
-    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+    /// 
+    /// Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Device")]
     public partial class Device : global::Pulumi.CustomResource

@@ -200,7 +200,8 @@ def get_v_net_peering(peering_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVNetPeeringResult:
     """
     Gets the workspace vNet Peering.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
 
     :param str peering_name: The name of the workspace vNet peering.
@@ -234,7 +235,8 @@ def get_v_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVNetPeeringResult]:
     """
     Gets the workspace vNet Peering.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
 
     :param str peering_name: The name of the workspace vNet peering.

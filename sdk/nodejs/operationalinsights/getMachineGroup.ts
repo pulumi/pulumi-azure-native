@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the specified machine group as it existed during the specified time interval.
- * Azure REST API version: 2015-11-01-preview.
+ *
+ * Uses Azure REST API version 2015-11-01-preview.
  */
 export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +90,8 @@ export interface GetMachineGroupResult {
 }
 /**
  * Returns the specified machine group as it existed during the specified time interval.
- * Azure REST API version: 2015-11-01-preview.
+ *
+ * Uses Azure REST API version 2015-11-01-preview.
  */
 export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

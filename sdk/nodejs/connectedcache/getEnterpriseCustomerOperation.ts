@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of a Enterprise customer
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export function getEnterpriseCustomerOperation(args: GetEnterpriseCustomerOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseCustomerOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEnterpriseCustomerOperationResult {
 }
 /**
  * Retrieves the properties of a Enterprise customer
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export function getEnterpriseCustomerOperationOutput(args: GetEnterpriseCustomerOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseCustomerOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

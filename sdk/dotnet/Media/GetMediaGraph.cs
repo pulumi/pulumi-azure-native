@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Media Graph in the Media Services account.
-        /// Azure REST API version: 2020-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2020-02-01-preview.
         /// </summary>
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of a Media Graph in the Media Services account.
-        /// Azure REST API version: 2020-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2020-02-01-preview.
         /// </summary>
         public static Output<GetMediaGraphResult> Invoke(GetMediaGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of a Media Graph in the Media Services account.
-        /// Azure REST API version: 2020-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2020-02-01-preview.
         /// </summary>
         public static Output<GetMediaGraphResult> Invoke(GetMediaGraphInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithDefaults());

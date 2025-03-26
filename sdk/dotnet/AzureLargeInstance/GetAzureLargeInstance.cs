@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Gets an Azure Large Instance for the specified subscription, resource group,
         /// and instance name.
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Task<GetAzureLargeInstanceResult> InvokeAsync(GetAzureLargeInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance:getAzureLargeInstance", args ?? new GetAzureLargeInstanceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Gets an Azure Large Instance for the specified subscription, resource group,
         /// and instance name.
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Output<GetAzureLargeInstanceResult> Invoke(GetAzureLargeInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance:getAzureLargeInstance", args ?? new GetAzureLargeInstanceInvokeArgs(), options.WithDefaults());
@@ -30,7 +32,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Gets an Azure Large Instance for the specified subscription, resource group,
         /// and instance name.
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Output<GetAzureLargeInstanceResult> Invoke(GetAzureLargeInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance:getAzureLargeInstance", args ?? new GetAzureLargeInstanceInvokeArgs(), options.WithDefaults());

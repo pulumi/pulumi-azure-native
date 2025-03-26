@@ -103,7 +103,8 @@ def get_cloud_link(cloud_link_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudLinkResult:
     """
     A cloud link resource
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 
@@ -131,7 +132,8 @@ def get_cloud_link_output(cloud_link_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudLinkResult]:
     """
     A cloud link resource
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 

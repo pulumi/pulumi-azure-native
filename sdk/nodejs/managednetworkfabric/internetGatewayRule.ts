@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Internet Gateway Rule resource definition.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export class InternetGatewayRule extends pulumi.CustomResource {
     /**

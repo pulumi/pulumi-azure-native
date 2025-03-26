@@ -67,7 +67,8 @@ def list_cluster_streaming_jobs(cluster_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterStreamingJobsResult:
     """
     Lists all of the streaming jobs in the given cluster.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2020-03-01-preview.
 
@@ -89,7 +90,8 @@ def list_cluster_streaming_jobs_output(cluster_name: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterStreamingJobsResult]:
     """
     Lists all of the streaming jobs in the given cluster.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2020-03-01-preview.
 

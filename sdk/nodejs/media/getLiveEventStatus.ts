@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets status telemetry of a live event.
- * Azure REST API version: 2022-11-01.
+ *
+ * Uses Azure REST API version 2022-11-01.
  */
 export function getLiveEventStatus(args: GetLiveEventStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +47,8 @@ export interface GetLiveEventStatusResult {
 }
 /**
  * Gets status telemetry of a live event.
- * Azure REST API version: 2022-11-01.
+ *
+ * Uses Azure REST API version 2022-11-01.
  */
 export function getLiveEventStatusOutput(args: GetLiveEventStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

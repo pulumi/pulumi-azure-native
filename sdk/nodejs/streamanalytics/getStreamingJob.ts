@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified streaming job.
- * Azure REST API version: 2020-03-01.
+ *
+ * Uses Azure REST API version 2020-03-01.
  *
  * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */
@@ -160,7 +161,8 @@ export interface GetStreamingJobResult {
 }
 /**
  * Gets details about the specified streaming job.
- * Azure REST API version: 2020-03-01.
+ *
+ * Uses Azure REST API version 2020-03-01.
  *
  * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */

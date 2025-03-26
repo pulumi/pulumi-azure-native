@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LambdaFunction
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLambdaFunction(args: GetLambdaFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetLambdaFunctionResult {
 }
 /**
  * Get a LambdaFunction
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLambdaFunctionOutput(args: GetLambdaFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLambdaFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

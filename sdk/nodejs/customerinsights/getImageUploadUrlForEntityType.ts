@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets entity type (profile or interaction) image upload URL.
- * Azure REST API version: 2017-04-26.
+ *
+ * Uses Azure REST API version 2017-04-26.
  */
 export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForEntityTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +62,8 @@ export interface GetImageUploadUrlForEntityTypeResult {
 }
 /**
  * Gets entity type (profile or interaction) image upload URL.
- * Azure REST API version: 2017-04-26.
+ *
+ * Uses Azure REST API version 2017-04-26.
  */
 export function getImageUploadUrlForEntityTypeOutput(args: GetImageUploadUrlForEntityTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageUploadUrlForEntityTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

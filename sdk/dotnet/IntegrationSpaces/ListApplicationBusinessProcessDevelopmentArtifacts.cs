@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     {
         /// <summary>
         /// The list business process development artifacts action.
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Task<ListApplicationBusinessProcessDevelopmentArtifactsResult> InvokeAsync(ListApplicationBusinessProcessDevelopmentArtifactsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationBusinessProcessDevelopmentArtifactsResult>("azure-native:integrationspaces:listApplicationBusinessProcessDevelopmentArtifacts", args ?? new ListApplicationBusinessProcessDevelopmentArtifactsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list business process development artifacts action.
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> Invoke(ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationBusinessProcessDevelopmentArtifactsResult>("azure-native:integrationspaces:listApplicationBusinessProcessDevelopmentArtifacts", args ?? new ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list business process development artifacts action.
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> Invoke(ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationBusinessProcessDevelopmentArtifactsResult>("azure-native:integrationspaces:listApplicationBusinessProcessDevelopmentArtifacts", args ?? new ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs(), options.WithDefaults());

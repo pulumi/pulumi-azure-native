@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetRulesEngineResult {
 }
 /**
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  */
 export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesEngineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

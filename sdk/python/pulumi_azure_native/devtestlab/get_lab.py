@@ -346,7 +346,8 @@ def get_lab(expand: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
     Get lab.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
@@ -392,7 +393,8 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Get lab.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'

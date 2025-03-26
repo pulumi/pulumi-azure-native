@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Site as ARM Resource
- * Azure REST API version: 2024-02-01-preview.
+ *
+ * Uses Azure REST API version 2024-02-01-preview.
  */
 export class Site extends pulumi.CustomResource {
     /**

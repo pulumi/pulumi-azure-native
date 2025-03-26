@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     {
         /// <summary>
         /// Get the evidence metadata
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Task<GetEvidenceResult> InvokeAsync(GetEvidenceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEvidenceResult>("azure-native:appcomplianceautomation:getEvidence", args ?? new GetEvidenceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the evidence metadata
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetEvidenceResult> Invoke(GetEvidenceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEvidenceResult>("azure-native:appcomplianceautomation:getEvidence", args ?? new GetEvidenceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the evidence metadata
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetEvidenceResult> Invoke(GetEvidenceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEvidenceResult>("azure-native:appcomplianceautomation:getEvidence", args ?? new GetEvidenceInvokeArgs(), options.WithDefaults());

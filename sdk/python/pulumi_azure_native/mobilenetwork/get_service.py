@@ -164,7 +164,8 @@ def get_service(mobile_network_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Gets information about the specified service.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
@@ -197,7 +198,8 @@ def get_service_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Gets information about the specified service.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 

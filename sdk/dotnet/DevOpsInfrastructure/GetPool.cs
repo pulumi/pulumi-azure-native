@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
     {
         /// <summary>
         /// Get a Pool
-        /// Azure REST API version: 2023-10-30-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-30-preview.
         /// 
         /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
 
         /// <summary>
         /// Get a Pool
-        /// Azure REST API version: 2023-10-30-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-30-preview.
         /// 
         /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
 
         /// <summary>
         /// Get a Pool
-        /// Azure REST API version: 2023-10-30-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-30-preview.
         /// 
         /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
         /// </summary>

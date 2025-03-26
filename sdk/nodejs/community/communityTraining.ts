@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A CommunityProviderHub resource
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  */
 export class CommunityTraining extends pulumi.CustomResource {
     /**

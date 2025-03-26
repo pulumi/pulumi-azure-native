@@ -148,7 +148,8 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteCustomDomainResult:
     """
     Description for Gets an existing custom domain for a particular static site.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -180,7 +181,8 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteCustomDomainResult]:
     """
     Description for Gets an existing custom domain for a particular static site.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 

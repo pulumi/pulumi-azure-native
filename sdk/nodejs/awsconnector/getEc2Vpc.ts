@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2Vpc
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2Vpc(args: GetEc2VpcArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2VpcResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2VpcResult {
 }
 /**
  * Get a Ec2Vpc
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2VpcOutput(args: GetEc2VpcOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VpcResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

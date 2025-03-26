@@ -224,7 +224,8 @@ def get_vcenter_controller(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVcenterControllerResult:
     """
     Get a Vcenter
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
@@ -262,7 +263,8 @@ def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVcenterControllerResult]:
     """
     Get a Vcenter
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 

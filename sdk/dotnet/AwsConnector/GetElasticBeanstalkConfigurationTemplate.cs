@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a ElasticBeanstalkConfigurationTemplate
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetElasticBeanstalkConfigurationTemplateResult> InvokeAsync(GetElasticBeanstalkConfigurationTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticBeanstalkConfigurationTemplateResult>("azure-native:awsconnector:getElasticBeanstalkConfigurationTemplate", args ?? new GetElasticBeanstalkConfigurationTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ElasticBeanstalkConfigurationTemplate
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetElasticBeanstalkConfigurationTemplateResult> Invoke(GetElasticBeanstalkConfigurationTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticBeanstalkConfigurationTemplateResult>("azure-native:awsconnector:getElasticBeanstalkConfigurationTemplate", args ?? new GetElasticBeanstalkConfigurationTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ElasticBeanstalkConfigurationTemplate
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetElasticBeanstalkConfigurationTemplateResult> Invoke(GetElasticBeanstalkConfigurationTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticBeanstalkConfigurationTemplateResult>("azure-native:awsconnector:getElasticBeanstalkConfigurationTemplate", args ?? new GetElasticBeanstalkConfigurationTemplateInvokeArgs(), options.WithDefaults());

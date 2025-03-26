@@ -103,7 +103,8 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainOwnershipIdentifierResult:
     """
     Description for Get ownership identifier for domain
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -131,7 +132,8 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainOwnershipIdentifierResult]:
     """
     Description for Get ownership identifier for domain
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a fleet resource.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetFleetResult {
 }
 /**
  * Gets a fleet resource.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

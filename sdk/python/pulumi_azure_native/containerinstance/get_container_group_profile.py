@@ -286,7 +286,8 @@ def get_container_group_profile(container_group_profile_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupProfileResult:
     """
     Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str container_group_profile_name: The name of the container group profile.
@@ -324,7 +325,8 @@ def get_container_group_profile_output(container_group_profile_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupProfileResult]:
     """
     Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str container_group_profile_name: The name of the container group profile.

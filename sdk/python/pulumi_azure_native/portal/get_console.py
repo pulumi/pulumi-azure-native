@@ -54,7 +54,8 @@ def get_console(console_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
     Gets the console for the user.
-    Azure REST API version: 2018-10-01.
+
+    Uses Azure REST API version 2018-10-01.
 
 
     :param str console_name: The name of the console
@@ -70,7 +71,8 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsoleResult]:
     """
     Gets the console for the user.
-    Azure REST API version: 2018-10-01.
+
+    Uses Azure REST API version 2018-10-01.
 
 
     :param str console_name: The name of the console

@@ -97,7 +97,8 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceTypeRegistrationResult:
     """
     Gets a resource type details in the given subscription and provider.
-    Azure REST API version: 2021-09-01-preview.
+
+    Uses Azure REST API version 2021-09-01-preview.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -120,7 +121,8 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
     """
     Gets a resource type details in the given subscription and provider.
-    Azure REST API version: 2021-09-01-preview.
+
+    Uses Azure REST API version 2021-09-01-preview.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export class AFDTargetGroup extends pulumi.CustomResource {
     /**

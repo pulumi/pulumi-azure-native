@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the associated resources for this identity.
- * Azure REST API version: 2022-01-31-preview.
+ *
+ * Uses Azure REST API version 2022-01-31-preview.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +75,8 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
 }
 /**
  * Lists the associated resources for this identity.
- * Azure REST API version: 2022-01-31-preview.
+ *
+ * Uses Azure REST API version 2022-01-31-preview.
  */
 export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

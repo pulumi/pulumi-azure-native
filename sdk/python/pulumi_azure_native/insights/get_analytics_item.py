@@ -154,7 +154,8 @@ def get_analytics_item(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalyticsItemResult:
     """
     Gets a specific Analytics Items defined within an Application Insights component.
-    Azure REST API version: 2015-05-01.
+
+    Uses Azure REST API version 2015-05-01.
 
 
     :param str id: The Id of a specific item defined in the Application Insights component
@@ -190,7 +191,8 @@ def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalyticsItemResult]:
     """
     Gets a specific Analytics Items defined within an Application Insights component.
-    Azure REST API version: 2015-05-01.
+
+    Uses Azure REST API version 2015-05-01.
 
 
     :param str id: The Id of a specific item defined in the Application Insights component

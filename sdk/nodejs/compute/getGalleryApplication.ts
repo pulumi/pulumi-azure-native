@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery Application Definition.
- * Azure REST API version: 2022-03-03.
+ *
+ * Uses Azure REST API version 2022-03-03.
  *
  * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
  */
@@ -92,7 +93,8 @@ export interface GetGalleryApplicationResult {
 }
 /**
  * Retrieves information about a gallery Application Definition.
- * Azure REST API version: 2022-03-03.
+ *
+ * Uses Azure REST API version 2022-03-03.
  *
  * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
  */

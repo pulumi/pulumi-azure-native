@@ -55,7 +55,8 @@ def list_global_user_environments(lab_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserEnvironmentsResult:
     """
     List Environments for the user
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str lab_id: The resource Id of the lab
@@ -74,7 +75,8 @@ def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalUserEnvironmentsResult]:
     """
     List Environments for the user
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str lab_id: The resource Id of the lab

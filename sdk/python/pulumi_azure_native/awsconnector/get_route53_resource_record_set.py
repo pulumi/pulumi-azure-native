@@ -127,7 +127,8 @@ def get_route53_resource_record_set(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoute53ResourceRecordSetResult:
     """
     Get a Route53ResourceRecordSet
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Route53ResourceRecordSet
@@ -152,7 +153,8 @@ def get_route53_resource_record_set_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoute53ResourceRecordSetResult]:
     """
     Get a Route53ResourceRecordSet
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Route53ResourceRecordSet

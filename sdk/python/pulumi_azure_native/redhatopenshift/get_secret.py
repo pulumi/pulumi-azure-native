@@ -104,7 +104,8 @@ def get_secret(child_resource_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     The operation returns properties of a Secret.
-    Azure REST API version: 2022-09-04.
+
+    Uses Azure REST API version 2022-09-04.
 
     Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 
@@ -132,7 +133,8 @@ def get_secret_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
     The operation returns properties of a Secret.
-    Azure REST API version: 2022-09-04.
+
+    Uses Azure REST API version 2022-09-04.
 
     Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 

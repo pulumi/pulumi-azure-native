@@ -118,7 +118,8 @@ class PrivateLinkScope(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Monitor PrivateLinkScope definition.
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+
+        Uses Azure REST API version 2021-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-10-17-preview.
 
         Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
 
@@ -138,7 +139,8 @@ class PrivateLinkScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Monitor PrivateLinkScope definition.
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+
+        Uses Azure REST API version 2021-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-10-17-preview.
 
         Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
 

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Get the storage task assignment properties
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// 
         /// Other available API versions: 2024-01-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Storage
 
         /// <summary>
         /// Get the storage task assignment properties
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// 
         /// Other available API versions: 2024-01-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Storage
 
         /// <summary>
         /// Get the storage task assignment properties
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// 
         /// Other available API versions: 2024-01-01.
         /// </summary>

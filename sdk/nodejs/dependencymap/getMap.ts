@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a MapsResource
- * Azure REST API version: 2025-01-31-preview.
+ *
+ * Uses Azure REST API version 2025-01-31-preview.
  */
 export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetMapResult {
 }
 /**
  * Get a MapsResource
- * Azure REST API version: 2025-01-31-preview.
+ *
+ * Uses Azure REST API version 2025-01-31-preview.
  */
 export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

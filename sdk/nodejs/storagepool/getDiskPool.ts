@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Disk pool.
- * Azure REST API version: 2021-08-01.
+ *
+ * Uses Azure REST API version 2021-08-01.
  *
  * Other available API versions: 2020-03-15-preview.
  */
@@ -99,7 +100,8 @@ export interface GetDiskPoolResult {
 }
 /**
  * Get a Disk pool.
- * Azure REST API version: 2021-08-01.
+ *
+ * Uses Azure REST API version 2021-08-01.
  *
  * Other available API versions: 2020-03-15-preview.
  */

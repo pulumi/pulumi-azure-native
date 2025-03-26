@@ -105,7 +105,8 @@ def get_reachability_analysis_intent(network_manager_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReachabilityAnalysisIntentResult:
     """
     Configuration information or intent on which to do the analysis on.
-    Azure REST API version: 2024-01-01-preview.
+
+    Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2024-05-01.
 
@@ -136,7 +137,8 @@ def get_reachability_analysis_intent_output(network_manager_name: Optional[pulum
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReachabilityAnalysisIntentResult]:
     """
     Configuration information or intent on which to do the analysis on.
-    Azure REST API version: 2024-01-01-preview.
+
+    Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2024-05-01.
 

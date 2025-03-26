@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
     {
         /// <summary>
         /// Gets fleetspace resource.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Task<GetFleetspaceResult> InvokeAsync(GetFleetspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetspaceResult>("azure-native:databasefleetmanager:getFleetspace", args ?? new GetFleetspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets fleetspace resource.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Output<GetFleetspaceResult> Invoke(GetFleetspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetspaceResult>("azure-native:databasefleetmanager:getFleetspace", args ?? new GetFleetspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets fleetspace resource.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Output<GetFleetspaceResult> Invoke(GetFleetspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetspaceResult>("azure-native:databasefleetmanager:getFleetspace", args ?? new GetFleetspaceInvokeArgs(), options.WithDefaults());

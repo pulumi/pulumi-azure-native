@@ -228,7 +228,8 @@ def get_domain_event_subscription(domain_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainEventSubscriptionResult:
     """
     Get properties of an event subscription of a domain.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -266,7 +267,8 @@ def get_domain_event_subscription_output(domain_name: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainEventSubscriptionResult]:
     """
     Get properties of an event subscription of a domain.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

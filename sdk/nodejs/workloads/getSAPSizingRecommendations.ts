@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
@@ -83,7 +84,8 @@ export interface GetSAPSizingRecommendationsResult {
 }
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */

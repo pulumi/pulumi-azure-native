@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get service runner.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRunnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +67,8 @@ export interface GetServiceRunnerResult {
 }
 /**
  * Get service runner.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceRunnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

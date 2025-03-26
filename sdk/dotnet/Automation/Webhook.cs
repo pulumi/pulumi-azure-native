@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the webhook type.
-    /// Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
+    /// 
+    /// Uses Azure REST API version 2015-10-31. In version 1.x of the Azure Native provider, it used API version 2015-10-31.
     /// 
     /// Other available API versions: 2023-05-15-preview, 2024-10-23.
     /// </summary>

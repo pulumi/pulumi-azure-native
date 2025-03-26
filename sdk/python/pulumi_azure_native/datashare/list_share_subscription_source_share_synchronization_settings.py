@@ -69,7 +69,8 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult:
     """
     Get synchronization settings set on a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -95,7 +96,8 @@ def list_share_subscription_source_share_synchronization_settings_output(account
                                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListShareSubscriptionSourceShareSynchronizationSettingsResult]:
     """
     Get synchronization settings set on a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.

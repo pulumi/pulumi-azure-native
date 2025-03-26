@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a WafWebACLSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetWafWebAclSummaryResult> InvokeAsync(GetWafWebAclSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafWebAclSummaryResult>("azure-native:awsconnector:getWafWebAclSummary", args ?? new GetWafWebAclSummaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a WafWebACLSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetWafWebAclSummaryResult> Invoke(GetWafWebAclSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafWebAclSummaryResult>("azure-native:awsconnector:getWafWebAclSummary", args ?? new GetWafWebAclSummaryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a WafWebACLSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetWafWebAclSummaryResult> Invoke(GetWafWebAclSummaryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafWebAclSummaryResult>("azure-native:awsconnector:getWafWebAclSummary", args ?? new GetWafWebAclSummaryInvokeArgs(), options.WithDefaults());

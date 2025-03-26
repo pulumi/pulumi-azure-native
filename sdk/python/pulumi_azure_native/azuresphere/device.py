@@ -131,7 +131,8 @@ class Device(pulumi.CustomResource):
                  __props__=None):
         """
         An device resource belonging to a device group resource.
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+
+        Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2024-04-01.
 
@@ -152,7 +153,8 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An device resource belonging to a device group resource.
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+
+        Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2024-04-01.
 

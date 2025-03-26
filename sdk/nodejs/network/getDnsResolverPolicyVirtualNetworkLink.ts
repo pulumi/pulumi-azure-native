@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a DNS resolver policy virtual network link.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getDnsResolverPolicyVirtualNetworkLink(args: GetDnsResolverPolicyVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverPolicyVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +79,8 @@ export interface GetDnsResolverPolicyVirtualNetworkLinkResult {
 }
 /**
  * Gets properties of a DNS resolver policy virtual network link.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getDnsResolverPolicyVirtualNetworkLinkOutput(args: GetDnsResolverPolicyVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverPolicyVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

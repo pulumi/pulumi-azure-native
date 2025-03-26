@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a RdsDBCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetRdsDbClusterResult> InvokeAsync(GetRdsDbClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRdsDbClusterResult>("azure-native:awsconnector:getRdsDbCluster", args ?? new GetRdsDbClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a RdsDBCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetRdsDbClusterResult> Invoke(GetRdsDbClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbClusterResult>("azure-native:awsconnector:getRdsDbCluster", args ?? new GetRdsDbClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a RdsDBCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetRdsDbClusterResult> Invoke(GetRdsDbClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbClusterResult>("azure-native:awsconnector:getRdsDbCluster", args ?? new GetRdsDbClusterInvokeArgs(), options.WithDefaults());

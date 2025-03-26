@@ -151,7 +151,8 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
     Description for Get the certificate associated with a certificate order.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -183,7 +184,8 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Description for Get the certificate associated with a certificate order.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 

@@ -165,7 +165,8 @@ class L2Connection(pulumi.CustomResource):
                  __props__=None):
         """
         Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
-        Azure REST API version: 2024-03-01-preview.
+
+        Uses Azure REST API version 2024-03-01-preview.
 
         Other available API versions: 2024-03-01.
 
@@ -188,7 +189,8 @@ class L2Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
-        Azure REST API version: 2024-03-01-preview.
+
+        Uses Azure REST API version 2024-03-01-preview.
 
         Other available API versions: 2024-03-01.
 

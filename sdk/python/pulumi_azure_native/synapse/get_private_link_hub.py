@@ -127,7 +127,8 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkHubResult:
     """
     Gets a privateLinkHub
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -154,7 +155,8 @@ def get_private_link_hub_output(private_link_hub_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkHubResult]:
     """
     Gets a privateLinkHub
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

@@ -127,7 +127,8 @@ def get_route53_domains_domain_summary(name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoute53DomainsDomainSummaryResult:
     """
     Get a Route53DomainsDomainSummary
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Route53DomainsDomainSummary
@@ -152,7 +153,8 @@ def get_route53_domains_domain_summary_output(name: Optional[pulumi.Input[str]] 
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoute53DomainsDomainSummaryResult]:
     """
     Get a Route53DomainsDomainSummary
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Route53DomainsDomainSummary

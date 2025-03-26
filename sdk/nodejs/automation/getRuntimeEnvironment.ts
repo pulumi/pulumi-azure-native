@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about the Runtime Environment
- * Azure REST API version: 2023-05-15-preview.
+ *
+ * Uses Azure REST API version 2023-05-15-preview.
  *
  * Other available API versions: 2024-10-23.
  */
@@ -84,7 +85,8 @@ export interface GetRuntimeEnvironmentResult {
 }
 /**
  * Get information about the Runtime Environment
- * Azure REST API version: 2023-05-15-preview.
+ *
+ * Uses Azure REST API version 2023-05-15-preview.
  *
  * Other available API versions: 2024-10-23.
  */

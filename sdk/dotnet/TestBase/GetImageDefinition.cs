@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Task<GetImageDefinitionResult> InvokeAsync(GetImageDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageDefinitionResult>("azure-native:testbase:getImageDefinition", args ?? new GetImageDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetImageDefinitionResult> Invoke(GetImageDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageDefinitionResult>("azure-native:testbase:getImageDefinition", args ?? new GetImageDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetImageDefinitionResult> Invoke(GetImageDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageDefinitionResult>("azure-native:testbase:getImageDefinition", args ?? new GetImageDefinitionInvokeArgs(), options.WithDefaults());

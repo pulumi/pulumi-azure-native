@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
-    /// Azure REST API version: 2023-11-01-preview.
+    /// Uses Azure REST API version 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:ActionRequest")]
     public partial class ActionRequest : global::Pulumi.CustomResource

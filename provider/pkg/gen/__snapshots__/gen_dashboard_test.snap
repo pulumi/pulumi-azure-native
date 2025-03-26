@@ -12,7 +12,7 @@
    "type": "azure-native:portal/v20221201preview:Dashboard"
   }
  ],
- "description": "The shared dashboard resource definition.\n\nAzure REST API version: 2020-09-01-preview.",
+ "description": "The shared dashboard resource definition.\n\nUses Azure REST API version 2020-09-01-preview.",
  "inputProperties": {
   "dashboardName": {
    "description": "The name of the dashboard.",

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the details of the monitored resource.
- * Azure REST API version: 2023-07-07-preview.
+ *
+ * Uses Azure REST API version 2023-07-07-preview.
  */
 export function getMonitoredResource(args: GetMonitoredResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoredResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetMonitoredResourceResult {
 }
 /**
  * Retrieve the details of the monitored resource.
- * Azure REST API version: 2023-07-07-preview.
+ *
+ * Uses Azure REST API version 2023-07-07-preview.
  */
 export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

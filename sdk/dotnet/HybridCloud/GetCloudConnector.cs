@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridCloud
     {
         /// <summary>
         /// Gets the specified cloud connector in a specified resource group.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// </summary>
         public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-native:hybridcloud:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified cloud connector in a specified resource group.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// </summary>
         public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:hybridcloud:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified cloud connector in a specified resource group.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// </summary>
         public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:hybridcloud:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Task<GetAccountKeyVaultStatusResult> InvokeAsync(GetAccountKeyVaultStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountKeyVaultStatusResult>("azure-native:netapp:getAccountKeyVaultStatus", args ?? new GetAccountKeyVaultStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Output<GetAccountKeyVaultStatusResult> Invoke(GetAccountKeyVaultStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountKeyVaultStatusResult>("azure-native:netapp:getAccountKeyVaultStatus", args ?? new GetAccountKeyVaultStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Output<GetAccountKeyVaultStatusResult> Invoke(GetAccountKeyVaultStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountKeyVaultStatusResult>("azure-native:netapp:getAccountKeyVaultStatus", args ?? new GetAccountKeyVaultStatusInvokeArgs(), options.WithDefaults());

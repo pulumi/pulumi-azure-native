@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a EdgeDeviceJob
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export function getHciEdgeDeviceJob(args: GetHciEdgeDeviceJobArgs, opts?: pulumi.InvokeOptions): Promise<GetHciEdgeDeviceJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +68,8 @@ export interface GetHciEdgeDeviceJobResult {
 }
 /**
  * Get a EdgeDeviceJob
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export function getHciEdgeDeviceJobOutput(args: GetHciEdgeDeviceJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHciEdgeDeviceJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

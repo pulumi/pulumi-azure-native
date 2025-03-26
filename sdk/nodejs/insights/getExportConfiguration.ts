@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Continuous Export configuration for this export id.
- * Azure REST API version: 2015-05-01.
+ *
+ * Uses Azure REST API version 2015-05-01.
  */
 export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetExportConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +116,8 @@ export interface GetExportConfigurationResult {
 }
 /**
  * Get the Continuous Export configuration for this export id.
- * Azure REST API version: 2015-05-01.
+ *
+ * Uses Azure REST API version 2015-05-01.
  */
 export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExportConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

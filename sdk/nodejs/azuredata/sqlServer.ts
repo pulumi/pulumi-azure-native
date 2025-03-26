@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL server.
- * Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 1.x: 2019-07-24-preview.
+ *
+ * Uses Azure REST API version 2019-07-24-preview. In version 1.x of the Azure Native provider, it used API version 2019-07-24-preview.
  */
 export class SqlServer extends pulumi.CustomResource {
     /**

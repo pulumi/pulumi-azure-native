@@ -67,7 +67,8 @@ def list_serverless_endpoint_keys(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerlessEndpointKeysResult:
     """
     Keys for endpoint authentication.
-    Azure REST API version: 2023-08-01-preview.
+
+    Uses Azure REST API version 2023-08-01-preview.
 
     Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
@@ -92,7 +93,8 @@ def list_serverless_endpoint_keys_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerlessEndpointKeysResult]:
     """
     Keys for endpoint authentication.
-    Azure REST API version: 2023-08-01-preview.
+
+    Uses Azure REST API version 2023-08-01-preview.
 
     Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 

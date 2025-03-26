@@ -259,7 +259,8 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftManagedClusterResult:
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
-    Azure REST API version: 2019-10-27-preview.
+
+    Uses Azure REST API version 2019-10-27-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -295,7 +296,8 @@ def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.I
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenShiftManagedClusterResult]:
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
-    Azure REST API version: 2019-10-27-preview.
+
+    Uses Azure REST API version 2019-10-27-preview.
 
 
     :param str resource_group_name: The name of the resource group.

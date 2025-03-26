@@ -223,7 +223,8 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Get a role assignment by scope and name.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
 
@@ -261,7 +262,8 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Get a role assignment by scope and name.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
 

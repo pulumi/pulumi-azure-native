@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the Database Migration Service
- * Azure REST API version: 2023-07-15-preview.
+ *
+ * Uses Azure REST API version 2023-07-15-preview.
  */
 export function getMigrationService(args: GetMigrationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +70,8 @@ export interface GetMigrationServiceResult {
 }
 /**
  * Retrieve the Database Migration Service
- * Azure REST API version: 2023-07-15-preview.
+ *
+ * Uses Azure REST API version 2023-07-15-preview.
  */
 export function getMigrationServiceOutput(args: GetMigrationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

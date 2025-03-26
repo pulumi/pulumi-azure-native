@@ -165,7 +165,8 @@ def get_local_rule_counters(firewall_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalRuleCountersResult:
     """
     Get counters
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
@@ -200,7 +201,8 @@ def get_local_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRuleCountersResult]:
     """
     Get counters
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 

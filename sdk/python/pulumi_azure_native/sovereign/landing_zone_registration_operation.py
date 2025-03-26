@@ -101,7 +101,8 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
                  __props__=None):
         """
         The Landing zone registration resource type.
-        Azure REST API version: 2025-02-27-preview.
+
+        Uses Azure REST API version 2025-02-27-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +119,8 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Landing zone registration resource type.
-        Azure REST API version: 2025-02-27-preview.
+
+        Uses Azure REST API version 2025-02-27-preview.
 
         :param str resource_name: The name of the resource.
         :param LandingZoneRegistrationOperationArgs args: The arguments to use to populate this resource's properties.

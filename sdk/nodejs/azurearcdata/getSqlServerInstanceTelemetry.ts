@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves SQL Server instance telemetry
- * Azure REST API version: 2024-01-01.
+ *
+ * Uses Azure REST API version 2024-01-01.
  *
  * Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
  */
@@ -81,7 +82,8 @@ export interface GetSqlServerInstanceTelemetryResult {
 }
 /**
  * Retrieves SQL Server instance telemetry
- * Azure REST API version: 2024-01-01.
+ *
+ * Uses Azure REST API version 2024-01-01.
  *
  * Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
  */

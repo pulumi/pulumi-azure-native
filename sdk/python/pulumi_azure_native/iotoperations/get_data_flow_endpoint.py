@@ -116,7 +116,8 @@ def get_data_flow_endpoint(dataflow_endpoint_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataFlowEndpointResult:
     """
     Get a DataFlowEndpointResource
-    Azure REST API version: 2024-07-01-preview.
+
+    Uses Azure REST API version 2024-07-01-preview.
 
 
     :param str dataflow_endpoint_name: Name of Instance dataflowEndpoint resource
@@ -143,7 +144,8 @@ def get_data_flow_endpoint_output(dataflow_endpoint_name: Optional[pulumi.Input[
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataFlowEndpointResult]:
     """
     Get a DataFlowEndpointResource
-    Azure REST API version: 2024-07-01-preview.
+
+    Uses Azure REST API version 2024-07-01-preview.
 
 
     :param str dataflow_endpoint_name: Name of Instance dataflowEndpoint resource

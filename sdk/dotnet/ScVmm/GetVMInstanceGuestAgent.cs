@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// </summary>
         public static Task<GetVMInstanceGuestAgentResult> InvokeAsync(GetVMInstanceGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVMInstanceGuestAgentResult>("azure-native:scvmm:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// </summary>
         public static Output<GetVMInstanceGuestAgentResult> Invoke(GetVMInstanceGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMInstanceGuestAgentResult>("azure-native:scvmm:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// </summary>
         public static Output<GetVMInstanceGuestAgentResult> Invoke(GetVMInstanceGuestAgentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMInstanceGuestAgentResult>("azure-native:scvmm:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentInvokeArgs(), options.WithDefaults());

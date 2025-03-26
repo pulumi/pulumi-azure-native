@@ -211,7 +211,8 @@ def get_connector(connector_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Gets a connector in the hub.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str connector_name: The name of the connector.
@@ -246,7 +247,8 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Gets a connector in the hub.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str connector_name: The name of the connector.

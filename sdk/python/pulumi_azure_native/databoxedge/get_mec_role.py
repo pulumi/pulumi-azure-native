@@ -153,7 +153,8 @@ def get_mec_role(device_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMECRoleResult:
     """
     Gets a specific role by name.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -183,7 +184,8 @@ def get_mec_role_output(device_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMECRoleResult]:
     """
     Gets a specific role by name.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
 
     :param str device_name: The device name.

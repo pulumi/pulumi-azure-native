@@ -140,7 +140,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get the specified private endpoint connection associated with the Video Indexer account.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str account_name: The name of the Azure Video Indexer account.
@@ -169,7 +170,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get the specified private endpoint connection associated with the Video Indexer account.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str account_name: The name of the Azure Video Indexer account.

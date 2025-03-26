@@ -66,7 +66,8 @@ def get_adoo_auth_info(location: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADOOAuthInfoResult:
     """
     Response containing ADO OAuth information
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2025-03-01-preview.
 
@@ -88,7 +89,8 @@ def get_adoo_auth_info_output(location: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
     """
     Response containing ADO OAuth information
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2025-03-01-preview.
 

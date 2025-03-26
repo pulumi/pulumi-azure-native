@@ -127,7 +127,8 @@ def get_sage_maker_notebook_instance_summary(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSageMakerNotebookInstanceSummaryResult:
     """
     Get a SageMakerNotebookInstanceSummary
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SageMakerNotebookInstanceSummary
@@ -152,7 +153,8 @@ def get_sage_maker_notebook_instance_summary_output(name: Optional[pulumi.Input[
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSageMakerNotebookInstanceSummaryResult]:
     """
     Get a SageMakerNotebookInstanceSummary
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SageMakerNotebookInstanceSummary

@@ -247,7 +247,8 @@ def get_network_tap_rule(network_tap_rule_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkTapRuleResult:
     """
     Get Network Tap Rule resource details.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_tap_rule_name: Name of the Network Tap Rule.
@@ -282,7 +283,8 @@ def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkTapRuleResult]:
     """
     Get Network Tap Rule resource details.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_tap_rule_name: Name of the Network Tap Rule.

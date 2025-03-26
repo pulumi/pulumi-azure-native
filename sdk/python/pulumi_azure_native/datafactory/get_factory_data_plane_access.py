@@ -84,7 +84,8 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryDataPlaneAccessResult:
     """
     Get Data Plane access.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
@@ -120,7 +121,8 @@ def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.I
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFactoryDataPlaneAccessResult]:
     """
     Get Data Plane access.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.

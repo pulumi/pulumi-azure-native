@@ -145,7 +145,8 @@ def get_provisioned_cluster(resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProvisionedClusterResult:
     """
     Gets the Hybrid AKS provisioned cluster
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2022-05-01-preview.
 
@@ -174,7 +175,8 @@ def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[st
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisionedClusterResult]:
     """
     Gets the Hybrid AKS provisioned cluster
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2022-05-01-preview.
 

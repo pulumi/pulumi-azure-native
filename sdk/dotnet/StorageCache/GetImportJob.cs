@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Returns an import job.
-        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Uses Azure REST API version 2024-03-01.
         /// </summary>
         public static Task<GetImportJobResult> InvokeAsync(GetImportJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportJobResult>("azure-native:storagecache:getImportJob", args ?? new GetImportJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an import job.
-        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Uses Azure REST API version 2024-03-01.
         /// </summary>
         public static Output<GetImportJobResult> Invoke(GetImportJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportJobResult>("azure-native:storagecache:getImportJob", args ?? new GetImportJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an import job.
-        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Uses Azure REST API version 2024-03-01.
         /// </summary>
         public static Output<GetImportJobResult> Invoke(GetImportJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportJobResult>("azure-native:storagecache:getImportJob", args ?? new GetImportJobInvokeArgs(), options.WithDefaults());

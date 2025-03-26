@@ -116,7 +116,8 @@ def get_invoice_section(billing_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvoiceSectionResult:
     """
     Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -143,7 +144,8 @@ def get_invoice_section_output(billing_account_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvoiceSectionResult]:
     """
     Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

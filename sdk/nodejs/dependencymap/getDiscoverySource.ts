@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DiscoverySourceResource
- * Azure REST API version: 2025-01-31-preview.
+ *
+ * Uses Azure REST API version 2025-01-31-preview.
  */
 export function getDiscoverySource(args: GetDiscoverySourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscoverySourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +79,8 @@ export interface GetDiscoverySourceResult {
 }
 /**
  * Get a DiscoverySourceResource
- * Azure REST API version: 2025-01-31-preview.
+ *
+ * Uses Azure REST API version 2025-01-31-preview.
  */
 export function getDiscoverySourceOutput(args: GetDiscoverySourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiscoverySourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

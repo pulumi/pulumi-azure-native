@@ -176,7 +176,8 @@ def get_alert(alert_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertResult:
     """
     Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
-    Azure REST API version: 2024-02-01-preview.
+
+    Uses Azure REST API version 2024-02-01-preview.
 
 
     :param str alert_name: Name of the SAP monitor alert resource.
@@ -208,7 +209,8 @@ def get_alert_output(alert_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertResult]:
     """
     Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
-    Azure REST API version: 2024-02-01-preview.
+
+    Uses Azure REST API version 2024-02-01-preview.
 
 
     :param str alert_name: Name of the SAP monitor alert resource.

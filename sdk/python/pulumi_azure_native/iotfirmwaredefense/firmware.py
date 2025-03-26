@@ -221,7 +221,8 @@ class Firmware(pulumi.CustomResource):
                  __props__=None):
         """
         Firmware definition
-        Azure REST API version: 2023-02-08-preview.
+
+        Uses Azure REST API version 2023-02-08-preview.
 
         Other available API versions: 2024-01-10, 2025-04-01-preview.
 
@@ -247,7 +248,8 @@ class Firmware(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Firmware definition
-        Azure REST API version: 2023-02-08-preview.
+
+        Uses Azure REST API version 2023-02-08-preview.
 
         Other available API versions: 2024-01-10, 2025-04-01-preview.
 

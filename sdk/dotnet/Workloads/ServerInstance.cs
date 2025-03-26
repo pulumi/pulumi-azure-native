@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the Server Instance resource.
-    /// Azure REST API version: 2023-10-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ServerInstance")]
     public partial class ServerInstance : global::Pulumi.CustomResource

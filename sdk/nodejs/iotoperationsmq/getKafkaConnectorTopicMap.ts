@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a KafkaTopicMapResource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getKafkaConnectorTopicMap(args: GetKafkaConnectorTopicMapArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaConnectorTopicMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,7 +108,8 @@ export interface GetKafkaConnectorTopicMapResult {
 }
 /**
  * Get a KafkaTopicMapResource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getKafkaConnectorTopicMapOutput(args: GetKafkaConnectorTopicMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaConnectorTopicMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

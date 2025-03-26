@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Impact
     {
         /// <summary>
         /// Get Insight resources by workloadImpactName and insightName
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Task<GetInsightResult> InvokeAsync(GetInsightArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInsightResult>("azure-native:impact:getInsight", args ?? new GetInsightArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Insight resources by workloadImpactName and insightName
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("azure-native:impact:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Insight resources by workloadImpactName and insightName
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("azure-native:impact:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());

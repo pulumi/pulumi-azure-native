@@ -199,7 +199,8 @@ def get_dedicated_hsm(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHsmResult:
     """
     Gets the specified Azure dedicated HSM.
-    Azure REST API version: 2021-11-30.
+
+    Uses Azure REST API version 2021-11-30.
 
     Other available API versions: 2024-06-30-preview.
 
@@ -232,7 +233,8 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
     Gets the specified Azure dedicated HSM.
-    Azure REST API version: 2021-11-30.
+
+    Uses Azure REST API version 2021-11-30.
 
     Other available API versions: 2024-06-30-preview.
 

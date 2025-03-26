@@ -117,7 +117,8 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicAuthorizationRuleResult:
     """
     Returns the specified authorization rule.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
@@ -149,7 +150,8 @@ def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicAuthorizationRuleResult]:
     """
     Returns the specified authorization rule.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 

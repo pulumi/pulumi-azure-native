@@ -117,7 +117,8 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayAuthorizationRuleResult:
     """
     Get authorizationRule for a WCF relay by name.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2017-04-01, 2024-01-01.
 
@@ -149,7 +150,8 @@ def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pu
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWCFRelayAuthorizationRuleResult]:
     """
     Get authorizationRule for a WCF relay by name.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2017-04-01, 2024-01-01.
 

@@ -55,7 +55,8 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionFullUrlResult:
     """
     Get the full endpoint URL for an event subscription of a partner topic.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -79,7 +80,8 @@ def get_partner_topic_event_subscription_full_url_output(event_subscription_name
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription of a partner topic.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

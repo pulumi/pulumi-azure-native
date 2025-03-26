@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific governanceAssignment for the requested scope by AssignmentKey
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  */
 export function getGovernanceAssignment(args: GetGovernanceAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +79,8 @@ export interface GetGovernanceAssignmentResult {
 }
 /**
  * Get a specific governanceAssignment for the requested scope by AssignmentKey
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  */
 export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGovernanceAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

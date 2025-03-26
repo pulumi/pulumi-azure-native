@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Security settings proxy resource
-    /// Azure REST API version: 2023-11-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-11-01-preview.
     /// 
     /// Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
     /// </summary>

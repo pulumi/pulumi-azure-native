@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
-        /// Azure REST API version: 2017-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2017-08-01-preview.
         /// </summary>
         public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
-        /// Azure REST API version: 2017-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2017-08-01-preview.
         /// </summary>
         public static Output<GetWorkspaceSettingResult> Invoke(GetWorkspaceSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
-        /// Azure REST API version: 2017-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2017-08-01-preview.
         /// </summary>
         public static Output<GetWorkspaceSettingResult> Invoke(GetWorkspaceSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingInvokeArgs(), options.WithDefaults());

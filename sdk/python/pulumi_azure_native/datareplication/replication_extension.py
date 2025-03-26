@@ -99,7 +99,8 @@ class ReplicationExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Replication extension model.
-        Azure REST API version: 2021-02-16-preview.
+
+        Uses Azure REST API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01.
 
@@ -118,7 +119,8 @@ class ReplicationExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Replication extension model.
-        Azure REST API version: 2021-02-16-preview.
+
+        Uses Azure REST API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01.
 

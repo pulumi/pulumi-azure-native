@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a RdsExportTask
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetRdsExportTaskResult> InvokeAsync(GetRdsExportTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRdsExportTaskResult>("azure-native:awsconnector:getRdsExportTask", args ?? new GetRdsExportTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a RdsExportTask
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetRdsExportTaskResult> Invoke(GetRdsExportTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsExportTaskResult>("azure-native:awsconnector:getRdsExportTask", args ?? new GetRdsExportTaskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a RdsExportTask
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetRdsExportTaskResult> Invoke(GetRdsExportTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsExportTaskResult>("azure-native:awsconnector:getRdsExportTask", args ?? new GetRdsExportTaskInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CommunityTraining
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  */
 export function getCommunityTraining(args: GetCommunityTrainingArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunityTrainingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,7 +98,8 @@ export interface GetCommunityTrainingResult {
 }
 /**
  * Get a CommunityTraining
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  */
 export function getCommunityTrainingOutput(args: GetCommunityTrainingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunityTrainingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

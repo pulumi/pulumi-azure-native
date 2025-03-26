@@ -126,7 +126,8 @@ def get_scope_assignment(scope: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeAssignmentResult:
     """
     Get the specified scope assignment.
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
 
     :param str scope: The base resource of the scope assignment.
@@ -151,7 +152,8 @@ def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAssignmentResult]:
     """
     Get the specified scope assignment.
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
 
     :param str scope: The base resource of the scope assignment.

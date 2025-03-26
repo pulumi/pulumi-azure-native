@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get the specified role eligibility schedule request.
-        /// Azure REST API version: 2020-10-01.
+        /// 
+        /// Uses Azure REST API version 2020-10-01.
         /// </summary>
         public static Task<GetPimRoleEligibilityScheduleResult> InvokeAsync(GetPimRoleEligibilityScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPimRoleEligibilityScheduleResult>("azure-native:authorization:getPimRoleEligibilitySchedule", args ?? new GetPimRoleEligibilityScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified role eligibility schedule request.
-        /// Azure REST API version: 2020-10-01.
+        /// 
+        /// Uses Azure REST API version 2020-10-01.
         /// </summary>
         public static Output<GetPimRoleEligibilityScheduleResult> Invoke(GetPimRoleEligibilityScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPimRoleEligibilityScheduleResult>("azure-native:authorization:getPimRoleEligibilitySchedule", args ?? new GetPimRoleEligibilityScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified role eligibility schedule request.
-        /// Azure REST API version: 2020-10-01.
+        /// 
+        /// Uses Azure REST API version 2020-10-01.
         /// </summary>
         public static Output<GetPimRoleEligibilityScheduleResult> Invoke(GetPimRoleEligibilityScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPimRoleEligibilityScheduleResult>("azure-native:authorization:getPimRoleEligibilitySchedule", args ?? new GetPimRoleEligibilityScheduleInvokeArgs(), options.WithDefaults());

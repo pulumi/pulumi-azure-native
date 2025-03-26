@@ -132,7 +132,8 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
+
+        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
 
         Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
@@ -153,7 +154,8 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
+
+        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
 
         Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List manual private endpoints on artifact stores
- * Azure REST API version: 2024-04-15.
+ *
+ * Uses Azure REST API version 2024-04-15.
  */
 export function listArtifactStorePrivateEndPoints(args: ListArtifactStorePrivateEndPointsArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactStorePrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface ListArtifactStorePrivateEndPointsResult {
 }
 /**
  * List manual private endpoints on artifact stores
- * Azure REST API version: 2024-04-15.
+ *
+ * Uses Azure REST API version 2024-04-15.
  */
 export function listArtifactStorePrivateEndPointsOutput(args: ListArtifactStorePrivateEndPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactStorePrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

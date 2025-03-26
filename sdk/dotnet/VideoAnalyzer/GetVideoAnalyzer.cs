@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     {
         /// <summary>
         /// Get the details of the specified Video Analyzer account
-        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-01-preview.
         /// 
         /// Other available API versions: 2021-05-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         /// <summary>
         /// Get the details of the specified Video Analyzer account
-        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-01-preview.
         /// 
         /// Other available API versions: 2021-05-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         /// <summary>
         /// Get the details of the specified Video Analyzer account
-        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-01-preview.
         /// 
         /// Other available API versions: 2021-05-01-preview.
         /// </summary>

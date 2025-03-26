@@ -165,7 +165,8 @@ def get_prefix(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixResult:
     """
     Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
-    Azure REST API version: 2022-10-01.
+
+    Uses Azure REST API version 2022-10-01.
 
 
     :param str expand: The properties to be expanded.
@@ -199,7 +200,8 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixResult]:
     """
     Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
-    Azure REST API version: 2022-10-01.
+
+    Uses Azure REST API version 2022-10-01.
 
 
     :param str expand: The properties to be expanded.

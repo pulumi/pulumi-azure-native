@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     {
         /// <summary>
         /// Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Task<GetSecretValueResult> InvokeAsync(GetSecretValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithDefaults());

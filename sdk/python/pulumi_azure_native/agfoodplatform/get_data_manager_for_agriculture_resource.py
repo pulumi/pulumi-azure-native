@@ -187,7 +187,8 @@ def get_data_manager_for_agriculture_resource(data_manager_for_agriculture_resou
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataManagerForAgricultureResourceResult:
     """
     Get DataManagerForAgriculture resource.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
@@ -217,7 +218,8 @@ def get_data_manager_for_agriculture_resource_output(data_manager_for_agricultur
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataManagerForAgricultureResourceResult]:
     """
     Get DataManagerForAgriculture resource.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.

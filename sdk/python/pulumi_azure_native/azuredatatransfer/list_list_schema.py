@@ -61,7 +61,8 @@ def list_list_schema(connection_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListSchemaResult:
     """
     Lists the schemas for the specified connection in a pipeline.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 
@@ -97,7 +98,8 @@ def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]]
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListSchemaResult]:
     """
     Lists the schemas for the specified connection in a pipeline.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 

@@ -211,7 +211,8 @@ def get_network_security_perimeter_link(link_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterLinkResult:
     """
     Gets the specified NSP link resource.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str link_name: The name of the NSP link.
@@ -246,7 +247,8 @@ def get_network_security_perimeter_link_output(link_name: Optional[pulumi.Input[
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterLinkResult]:
     """
     Gets the specified NSP link resource.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str link_name: The name of the NSP link.

@@ -235,7 +235,8 @@ def get_azure_bare_metal_instance(azure_bare_metal_instance_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureBareMetalInstanceResult:
     """
     Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str azure_bare_metal_instance_name: Name of the Azure Bare Metal Instance, also known as the ResourceName.
@@ -269,7 +270,8 @@ def get_azure_bare_metal_instance_output(azure_bare_metal_instance_name: Optiona
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureBareMetalInstanceResult]:
     """
     Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str azure_bare_metal_instance_name: Name of the Azure Bare Metal Instance, also known as the ResourceName.

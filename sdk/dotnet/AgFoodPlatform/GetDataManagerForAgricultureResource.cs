@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get DataManagerForAgriculture resource.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// </summary>
         public static Task<GetDataManagerForAgricultureResourceResult> InvokeAsync(GetDataManagerForAgricultureResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerForAgricultureResourceResult>("azure-native:agfoodplatform:getDataManagerForAgricultureResource", args ?? new GetDataManagerForAgricultureResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get DataManagerForAgriculture resource.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// </summary>
         public static Output<GetDataManagerForAgricultureResourceResult> Invoke(GetDataManagerForAgricultureResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerForAgricultureResourceResult>("azure-native:agfoodplatform:getDataManagerForAgricultureResource", args ?? new GetDataManagerForAgricultureResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get DataManagerForAgriculture resource.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// </summary>
         public static Output<GetDataManagerForAgricultureResourceResult> Invoke(GetDataManagerForAgricultureResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerForAgricultureResourceResult>("azure-native:agfoodplatform:getDataManagerForAgricultureResource", args ?? new GetDataManagerForAgricultureResourceInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * configuration associated with SAP Landscape Monitor Dashboard.
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
  */

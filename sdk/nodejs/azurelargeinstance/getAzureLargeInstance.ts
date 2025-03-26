@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an Azure Large Instance for the specified subscription, resource group,
  * and instance name.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export function getAzureLargeInstance(args: GetAzureLargeInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureLargeInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,7 +101,8 @@ export interface GetAzureLargeInstanceResult {
 /**
  * Gets an Azure Large Instance for the specified subscription, resource group,
  * and instance name.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureLargeInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

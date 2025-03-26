@@ -271,7 +271,8 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineImageTemplateResult:
     """
     Get information about a virtual machine image template
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2023-07-01, 2024-02-01.
 
@@ -310,7 +311,8 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
     Get information about a virtual machine image template
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2023-07-01, 2024-02-01.
 

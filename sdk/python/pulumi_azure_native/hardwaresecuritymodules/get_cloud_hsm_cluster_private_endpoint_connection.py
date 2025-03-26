@@ -152,7 +152,8 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudHsmClusterPrivateEndpointConnectionResult:
     """
     Gets the private endpoint connection for the Cloud Hsm Cluster.
-    Azure REST API version: 2022-08-31-preview.
+
+    Uses Azure REST API version 2022-08-31-preview.
 
     Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
 
@@ -184,7 +185,8 @@ def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_n
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudHsmClusterPrivateEndpointConnectionResult]:
     """
     Gets the private endpoint connection for the Cloud Hsm Cluster.
-    Azure REST API version: 2022-08-31-preview.
+
+    Uses Azure REST API version 2022-08-31-preview.
 
     Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
 

@@ -137,7 +137,8 @@ def get_action_request(action_request_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionRequestResult:
     """
     Get the action request under the specified test base account.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,7 +167,8 @@ def get_action_request_output(action_request_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionRequestResult]:
     """
     Get the action request under the specified test base account.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

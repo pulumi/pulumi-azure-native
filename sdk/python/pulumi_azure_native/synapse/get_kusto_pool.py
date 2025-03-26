@@ -260,7 +260,8 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolResult:
     """
     Gets a Kusto pool.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.
@@ -299,7 +300,8 @@ def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolResult]:
     """
     Gets a Kusto pool.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

@@ -73,7 +73,8 @@ def list_featureset_version_materialization_jobs(feature_window_end: Optional[st
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFeaturesetVersionMaterializationJobsResult:
     """
     A paginated list of FeaturesetJob entities.
-    Azure REST API version: 2023-04-01-preview.
+
+    Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2023-06-01-preview.
 
@@ -113,7 +114,8 @@ def list_featureset_version_materialization_jobs_output(feature_window_end: Opti
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeaturesetVersionMaterializationJobsResult]:
     """
     A paginated list of FeaturesetJob entities.
-    Azure REST API version: 2023-04-01-preview.
+
+    Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2023-06-01-preview.
 

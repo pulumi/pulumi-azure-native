@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A Microsoft.AwsConnector resource
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export class CloudFormationStack extends pulumi.CustomResource {
     /**

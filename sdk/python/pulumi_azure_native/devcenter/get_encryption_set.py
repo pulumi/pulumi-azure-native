@@ -164,7 +164,8 @@ def get_encryption_set(dev_center_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptionSetResult:
     """
     Gets a devcenter encryption set.
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
@@ -197,7 +198,8 @@ def get_encryption_set_output(dev_center_name: Optional[pulumi.Input[str]] = Non
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionSetResult]:
     """
     Gets a devcenter encryption set.
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 

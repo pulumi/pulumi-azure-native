@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * List the registration key for the device.
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  */
 export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceRegistrationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,7 +39,8 @@ export interface ListDeviceRegistrationKeyResult {
 }
 /**
  * List the registration key for the device.
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  */
 export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

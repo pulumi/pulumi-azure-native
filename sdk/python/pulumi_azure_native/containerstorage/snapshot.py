@@ -98,7 +98,8 @@ class Snapshot(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-07-01-preview.
+
+        Uses Azure REST API version 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +116,8 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-07-01-preview.
+
+        Uses Azure REST API version 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

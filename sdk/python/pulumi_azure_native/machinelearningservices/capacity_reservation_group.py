@@ -164,7 +164,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-08-01-preview.
+        Uses Azure REST API version 2023-08-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
 
@@ -185,7 +185,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  args: CapacityReservationGroupInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-08-01-preview.
+        Uses Azure REST API version 2023-08-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
 

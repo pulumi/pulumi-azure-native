@@ -126,7 +126,8 @@ def get_setting(setting_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSettingResult:
     """
     Retrieves the current value for a specific setting.
-    Azure REST API version: 2019-11-01.
+
+    Uses Azure REST API version 2019-11-01.
 
 
     :param str setting_name: Name of the setting. Allowed values: myscope
@@ -148,7 +149,8 @@ def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSettingResult]:
     """
     Retrieves the current value for a specific setting.
-    Azure REST API version: 2019-11-01.
+
+    Uses Azure REST API version 2019-11-01.
 
 
     :param str setting_name: Name of the setting. Allowed values: myscope

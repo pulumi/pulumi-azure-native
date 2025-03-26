@@ -127,7 +127,8 @@ def get_enterprise_customer_operation(customer_resource_name: Optional[str] = No
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseCustomerOperationResult:
     """
     Retrieves the properties of a Enterprise customer
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str customer_resource_name: Name of the Customer resource
@@ -152,7 +153,8 @@ def get_enterprise_customer_operation_output(customer_resource_name: Optional[pu
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseCustomerOperationResult]:
     """
     Retrieves the properties of a Enterprise customer
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str customer_resource_name: Name of the Customer resource

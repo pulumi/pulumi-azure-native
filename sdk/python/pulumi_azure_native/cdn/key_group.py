@@ -100,7 +100,8 @@ class KeyGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Contains a list of references of UrlSigningKey type secret objects.
-        Azure REST API version: 2023-07-01-preview.
+
+        Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
 
@@ -119,7 +120,8 @@ class KeyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains a list of references of UrlSigningKey type secret objects.
-        Azure REST API version: 2023-07-01-preview.
+
+        Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
 

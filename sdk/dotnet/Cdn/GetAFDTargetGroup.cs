@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing target group within a profile.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<GetAFDTargetGroupResult> InvokeAsync(GetAFDTargetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDTargetGroupResult>("azure-native:cdn:getAFDTargetGroup", args ?? new GetAFDTargetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing target group within a profile.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetAFDTargetGroupResult> Invoke(GetAFDTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDTargetGroupResult>("azure-native:cdn:getAFDTargetGroup", args ?? new GetAFDTargetGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing target group within a profile.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetAFDTargetGroupResult> Invoke(GetAFDTargetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDTargetGroupResult>("azure-native:cdn:getAFDTargetGroup", args ?? new GetAFDTargetGroupInvokeArgs(), options.WithDefaults());

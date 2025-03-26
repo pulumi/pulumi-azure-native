@@ -116,7 +116,8 @@ def get_credential(credential_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialResult:
     """
     Gets a test base credential Resource
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str credential_name: The credential resource name.
@@ -143,7 +144,8 @@ def get_credential_output(credential_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialResult]:
     """
     Gets a test base credential Resource
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str credential_name: The credential resource name.

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
     /// The notification registration definition.
-    /// Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20.
+    /// 
+    /// Uses Azure REST API version 2021-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-11-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:NotificationRegistration")]
     public partial class NotificationRegistration : global::Pulumi.CustomResource

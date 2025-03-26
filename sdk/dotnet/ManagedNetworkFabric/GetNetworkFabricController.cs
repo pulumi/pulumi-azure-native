@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// 
         /// Other available API versions: 2023-06-15.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// 
         /// Other available API versions: 2023-06-15.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// 
         /// Other available API versions: 2023-06-15.
         /// </summary>

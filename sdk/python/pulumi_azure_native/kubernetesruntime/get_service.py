@@ -115,7 +115,8 @@ def get_service(resource_uri: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Get a ServiceResource
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-10-01-preview.
 
@@ -141,7 +142,8 @@ def get_service_output(resource_uri: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Get a ServiceResource
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-10-01-preview.
 

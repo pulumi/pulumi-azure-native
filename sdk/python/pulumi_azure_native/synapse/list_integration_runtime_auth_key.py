@@ -67,7 +67,8 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationRuntimeAuthKeyResult:
     """
     List authentication keys in an integration runtime
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -92,7 +93,8 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeyResult]:
     """
     List authentication keys in an integration runtime
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

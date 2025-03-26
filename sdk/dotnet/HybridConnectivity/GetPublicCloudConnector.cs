@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Get a PublicCloudConnector
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetPublicCloudConnectorResult> InvokeAsync(GetPublicCloudConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicCloudConnectorResult>("azure-native:hybridconnectivity:getPublicCloudConnector", args ?? new GetPublicCloudConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a PublicCloudConnector
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetPublicCloudConnectorResult> Invoke(GetPublicCloudConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicCloudConnectorResult>("azure-native:hybridconnectivity:getPublicCloudConnector", args ?? new GetPublicCloudConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a PublicCloudConnector
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetPublicCloudConnectorResult> Invoke(GetPublicCloudConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicCloudConnectorResult>("azure-native:hybridconnectivity:getPublicCloudConnector", args ?? new GetPublicCloudConnectorInvokeArgs(), options.WithDefaults());

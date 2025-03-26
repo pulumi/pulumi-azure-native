@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// DevOps Policy assignment resource.
-    /// Azure REST API version: 2024-05-15-preview.
+    /// 
+    /// Uses Azure REST API version 2024-05-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DevOpsPolicyAssignment")]
     public partial class DevOpsPolicyAssignment : global::Pulumi.CustomResource

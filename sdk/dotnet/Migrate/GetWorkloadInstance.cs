@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Gets the details of the workload instance.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// </summary>
         public static Task<GetWorkloadInstanceResult> InvokeAsync(GetWorkloadInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadInstanceResult>("azure-native:migrate:getWorkloadInstance", args ?? new GetWorkloadInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the workload instance.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// </summary>
         public static Output<GetWorkloadInstanceResult> Invoke(GetWorkloadInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadInstanceResult>("azure-native:migrate:getWorkloadInstance", args ?? new GetWorkloadInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the workload instance.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// </summary>
         public static Output<GetWorkloadInstanceResult> Invoke(GetWorkloadInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadInstanceResult>("azure-native:migrate:getWorkloadInstance", args ?? new GetWorkloadInstanceInvokeArgs(), options.WithDefaults());

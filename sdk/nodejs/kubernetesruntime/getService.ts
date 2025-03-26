@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ServiceResource
- * Azure REST API version: 2024-03-01.
+ *
+ * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2023-10-01-preview.
  */
@@ -63,7 +64,8 @@ export interface GetServiceResult {
 }
 /**
  * Get a ServiceResource
- * Azure REST API version: 2024-03-01.
+ *
+ * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2023-10-01-preview.
  */

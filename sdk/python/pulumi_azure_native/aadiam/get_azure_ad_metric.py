@@ -112,7 +112,8 @@ def get_azure_ad_metric(azure_ad_metrics_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureADMetricResult:
     """
     Gets a azureADMetrics instance with a given name.
-    Azure REST API version: 2020-07-01-preview.
+
+    Uses Azure REST API version 2020-07-01-preview.
 
 
     :param str azure_ad_metrics_name: Name of the azureADMetrics instance.
@@ -136,7 +137,8 @@ def get_azure_ad_metric_output(azure_ad_metrics_name: Optional[pulumi.Input[str]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureADMetricResult]:
     """
     Gets a azureADMetrics instance with a given name.
-    Azure REST API version: 2020-07-01-preview.
+
+    Uses Azure REST API version 2020-07-01-preview.
 
 
     :param str azure_ad_metrics_name: Name of the azureADMetrics instance.

@@ -127,7 +127,8 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Get the project with the specified name.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
     Other available API versions: 2018-02-02.
 
@@ -154,7 +155,8 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Get the project with the specified name.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
     Other available API versions: 2018-02-02.
 

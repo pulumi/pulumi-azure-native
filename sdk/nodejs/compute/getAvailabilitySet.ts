@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about an availability set.
- * Azure REST API version: 2023-03-01.
+ *
+ * Uses Azure REST API version 2023-03-01.
  *
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
  */
@@ -83,7 +84,8 @@ export interface GetAvailabilitySetResult {
 }
 /**
  * Retrieves information about an availability set.
- * Azure REST API version: 2023-03-01.
+ *
+ * Uses Azure REST API version 2023-03-01.
  *
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
  */

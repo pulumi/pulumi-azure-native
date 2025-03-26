@@ -134,7 +134,8 @@ def get_modernize_project(modernize_project_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModernizeProjectResult:
     """
     Gets the details of the modernize project.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
 
     :param str modernize_project_name: Modernize project name.
@@ -163,7 +164,8 @@ def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModernizeProjectResult]:
     """
     Gets the details of the modernize project.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
 
     :param str modernize_project_name: Modernize project name.

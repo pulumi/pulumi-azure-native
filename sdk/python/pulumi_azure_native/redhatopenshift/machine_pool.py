@@ -95,7 +95,8 @@ class MachinePool(pulumi.CustomResource):
                  __props__=None):
         """
         MachinePool represents a MachinePool
-        Azure REST API version: 2022-09-04.
+
+        Uses Azure REST API version 2022-09-04.
 
         Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 
@@ -113,7 +114,8 @@ class MachinePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MachinePool represents a MachinePool
-        Azure REST API version: 2022-09-04.
+
+        Uses Azure REST API version 2022-09-04.
 
         Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Billing
     {
         /// <summary>
         /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// 
         /// Other available API versions: 2019-10-01-preview, 2024-04-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Billing
 
         /// <summary>
         /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// 
         /// Other available API versions: 2019-10-01-preview, 2024-04-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Billing
 
         /// <summary>
         /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// 
         /// Other available API versions: 2019-10-01-preview, 2024-04-01.
         /// </summary>

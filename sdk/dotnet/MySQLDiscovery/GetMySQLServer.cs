@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.MySQLDiscovery
     {
         /// <summary>
         /// Gets the MySQLServers resource.
-        /// Azure REST API version: 2024-09-30-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-30-preview.
         /// </summary>
         public static Task<GetMySQLServerResult> InvokeAsync(GetMySQLServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMySQLServerResult>("azure-native:mysqldiscovery:getMySQLServer", args ?? new GetMySQLServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the MySQLServers resource.
-        /// Azure REST API version: 2024-09-30-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-30-preview.
         /// </summary>
         public static Output<GetMySQLServerResult> Invoke(GetMySQLServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMySQLServerResult>("azure-native:mysqldiscovery:getMySQLServer", args ?? new GetMySQLServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the MySQLServers resource.
-        /// Azure REST API version: 2024-09-30-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-30-preview.
         /// </summary>
         public static Output<GetMySQLServerResult> Invoke(GetMySQLServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMySQLServerResult>("azure-native:mysqldiscovery:getMySQLServer", args ?? new GetMySQLServerInvokeArgs(), options.WithDefaults());

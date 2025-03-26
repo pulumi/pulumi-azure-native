@@ -66,7 +66,8 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[str]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSaasSubscriptionLevelAccessTokenResult:
     """
     Gets the ISV access token for a specified Subscription Level SaaS.
-    Azure REST API version: 2018-03-01-beta.
+
+    Uses Azure REST API version 2018-03-01-beta.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -86,7 +87,8 @@ def list_saas_subscription_level_access_token_output(resource_group_name: Option
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSaasSubscriptionLevelAccessTokenResult]:
     """
     Gets the ISV access token for a specified Subscription Level SaaS.
-    Azure REST API version: 2018-03-01-beta.
+
+    Uses Azure REST API version 2018-03-01-beta.
 
 
     :param str resource_group_name: The name of the resource group.

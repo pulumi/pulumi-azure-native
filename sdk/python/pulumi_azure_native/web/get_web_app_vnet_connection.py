@@ -177,7 +177,8 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionResult:
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -211,7 +212,8 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 

@@ -15,7 +15,8 @@ import * as utilities from "../utilities";
  * > The Mixed Reality service is now deprecated and will be retired.
  *
  *  Retrieve an Object Anchors Account.
- * Azure REST API version: 2021-03-01-preview.
+ *
+ * Uses Azure REST API version 2021-03-01-preview.
  */
 export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,7 +99,8 @@ export interface GetObjectAnchorsAccountResult {
  * > The Mixed Reality service is now deprecated and will be retired.
  *
  *  Retrieve an Object Anchors Account.
- * Azure REST API version: 2021-03-01-preview.
+ *
+ * Uses Azure REST API version 2021-03-01-preview.
  */
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

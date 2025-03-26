@@ -127,7 +127,8 @@ def get_ssm_resource_compliance_summary_item(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsmResourceComplianceSummaryItemResult:
     """
     Get a SsmResourceComplianceSummaryItem
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SsmResourceComplianceSummaryItem
@@ -152,7 +153,8 @@ def get_ssm_resource_compliance_summary_item_output(name: Optional[pulumi.Input[
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSsmResourceComplianceSummaryItemResult]:
     """
     Get a SsmResourceComplianceSummaryItem
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SsmResourceComplianceSummaryItem

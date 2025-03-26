@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Returns a Log Analytics QueryPack.
-        /// Azure REST API version: 2019-09-01.
+        /// 
+        /// Uses Azure REST API version 2019-09-01.
         /// 
         /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         /// <summary>
         /// Returns a Log Analytics QueryPack.
-        /// Azure REST API version: 2019-09-01.
+        /// 
+        /// Uses Azure REST API version 2019-09-01.
         /// 
         /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         /// <summary>
         /// Returns a Log Analytics QueryPack.
-        /// Azure REST API version: 2019-09-01.
+        /// 
+        /// Uses Azure REST API version 2019-09-01.
         /// 
         /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>

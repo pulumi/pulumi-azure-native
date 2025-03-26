@@ -200,7 +200,8 @@ def get_pipeline(factory_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
     Gets a pipeline.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -234,7 +235,8 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Gets a pipeline.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.

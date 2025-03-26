@@ -164,7 +164,8 @@ def get_image(expand: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Gets an image.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
@@ -197,7 +198,8 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Gets an image.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 

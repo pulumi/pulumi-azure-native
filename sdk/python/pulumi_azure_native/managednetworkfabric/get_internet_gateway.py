@@ -187,7 +187,8 @@ def get_internet_gateway(internet_gateway_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
     """
     Implements Gateway GET method.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str internet_gateway_name: Name of the Internet Gateway.
@@ -217,7 +218,8 @@ def get_internet_gateway_output(internet_gateway_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     Implements Gateway GET method.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str internet_gateway_name: Name of the Internet Gateway.

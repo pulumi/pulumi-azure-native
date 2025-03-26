@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified role eligibility schedule request.
- * Azure REST API version: 2020-10-01.
+ *
+ * Uses Azure REST API version 2020-10-01.
  */
 export function getPimRoleEligibilitySchedule(args: GetPimRoleEligibilityScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPimRoleEligibilityScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +118,8 @@ export interface GetPimRoleEligibilityScheduleResult {
 }
 /**
  * Get the specified role eligibility schedule request.
- * Azure REST API version: 2020-10-01.
+ *
+ * Uses Azure REST API version 2020-10-01.
  */
 export function getPimRoleEligibilityScheduleOutput(args: GetPimRoleEligibilityScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPimRoleEligibilityScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

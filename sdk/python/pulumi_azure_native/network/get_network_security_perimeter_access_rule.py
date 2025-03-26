@@ -213,7 +213,8 @@ def get_network_security_perimeter_access_rule(access_rule_name: Optional[str] =
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterAccessRuleResult:
     """
     Gets the specified NSP access rule by name.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.
@@ -251,7 +252,8 @@ def get_network_security_perimeter_access_rule_output(access_rule_name: Optional
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterAccessRuleResult]:
     """
     Gets the specified NSP access rule by name.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.

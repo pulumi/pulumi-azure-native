@@ -90,7 +90,8 @@ def get_tag_at_scope(scope: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagAtScopeResult:
     """
     Wrapper resource for tags API requests and responses.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
@@ -111,7 +112,8 @@ def get_tag_at_scope_output(scope: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagAtScopeResult]:
     """
     Wrapper resource for tags API requests and responses.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 

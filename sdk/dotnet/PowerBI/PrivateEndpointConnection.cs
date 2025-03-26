@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBI
 {
     /// <summary>
-    /// Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// Uses Azure REST API version 2020-06-01. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

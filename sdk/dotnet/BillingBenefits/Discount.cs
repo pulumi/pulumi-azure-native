@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.BillingBenefits
 {
     /// <summary>
     /// Resource definition for Discounts.
-    /// Azure REST API version: 2024-11-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:billingbenefits:Discount")]
     public partial class Discount : global::Pulumi.CustomResource

@@ -202,7 +202,8 @@ def get_workspace_api_diagnostic(api_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceApiDiagnosticResult:
     """
     Gets the details of the Diagnostic for an API specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -244,7 +245,8 @@ def get_workspace_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = No
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceApiDiagnosticResult]:
     """
     Gets the details of the Diagnostic for an API specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 

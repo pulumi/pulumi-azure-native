@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ProviderHub
     {
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());

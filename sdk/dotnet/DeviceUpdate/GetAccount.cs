@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DeviceUpdate
     {
         /// <summary>
         /// Returns account details for the given account name.
-        /// Azure REST API version: 2023-07-01.
+        /// 
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns account details for the given account name.
-        /// Azure REST API version: 2023-07-01.
+        /// 
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns account details for the given account name.
-        /// Azure REST API version: 2023-07-01.
+        /// 
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

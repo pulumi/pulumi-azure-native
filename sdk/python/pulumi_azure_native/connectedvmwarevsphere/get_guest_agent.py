@@ -188,7 +188,8 @@ def get_guest_agent(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestAgentResult:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-07-15-preview.
+
+    Uses Azure REST API version 2022-07-15-preview.
 
     Other available API versions: 2023-03-01-preview.
 
@@ -223,7 +224,8 @@ def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-07-15-preview.
+
+    Uses Azure REST API version 2022-07-15-preview.
 
     Other available API versions: 2023-03-01-preview.
 

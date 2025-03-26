@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+ *
+ * Uses Azure REST API version 2021-03-08. In version 1.x of the Azure Native provider, it used API version 2021-03-08.
  */
 export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.CustomResource {
     /**

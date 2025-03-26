@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
- * Azure REST API version: 2016-03-30.
+ *
+ * Uses Azure REST API version 2016-03-30.
  */
 export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetADCCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,7 +86,8 @@ export interface GetADCCatalogResult {
 }
 /**
  * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
- * Azure REST API version: 2016-03-30.
+ *
+ * Uses Azure REST API version 2016-03-30.
  */
 export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADCCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Task<GetPrivateLinkServicesForMIPPolicySyncResult> InvokeAsync(GetPrivateLinkServicesForMIPPolicySyncArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateLinkServicesForMIPPolicySyncResult> Invoke(GetPrivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateLinkServicesForMIPPolicySyncResult> Invoke(GetPrivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());

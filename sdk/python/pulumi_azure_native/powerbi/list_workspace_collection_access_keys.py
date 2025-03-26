@@ -63,7 +63,8 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceCollectionAccessKeysResult:
     """
     Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
-    Azure REST API version: 2016-01-29.
+
+    Uses Azure REST API version 2016-01-29.
 
 
     :param str resource_group_name: Azure resource group
@@ -83,7 +84,8 @@ def list_workspace_collection_access_keys_output(resource_group_name: Optional[p
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
     """
     Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
-    Azure REST API version: 2016-01-29.
+
+    Uses Azure REST API version 2016-01-29.
 
 
     :param str resource_group_name: Azure resource group

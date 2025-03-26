@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorSimple
     {
         /// <summary>
         /// Returns the symmetric encrypted public encryption key of the manager.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Task<ListManagerPublicEncryptionKeyResult> InvokeAsync(ListManagerPublicEncryptionKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the symmetric encrypted public encryption key of the manager.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<ListManagerPublicEncryptionKeyResult> Invoke(ListManagerPublicEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the symmetric encrypted public encryption key of the manager.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<ListManagerPublicEncryptionKeyResult> Invoke(ListManagerPublicEncryptionKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyInvokeArgs(), options.WithDefaults());

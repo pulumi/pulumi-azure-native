@@ -104,7 +104,8 @@ def get_dataset(dataset_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
     Gets a dataset.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str dataset_name: The dataset name.
@@ -130,7 +131,8 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Gets a dataset.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str dataset_name: The dataset name.

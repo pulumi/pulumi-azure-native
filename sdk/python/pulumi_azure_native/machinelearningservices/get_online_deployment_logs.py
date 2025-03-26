@@ -55,7 +55,7 @@ def get_online_deployment_logs(container_type: Optional[Union[str, 'ContainerTyp
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineDeploymentLogsResult:
     """
-    Azure REST API version: 2023-04-01.
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
@@ -87,7 +87,7 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
                                       workspace_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
     """
-    Azure REST API version: 2023-04-01.
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 

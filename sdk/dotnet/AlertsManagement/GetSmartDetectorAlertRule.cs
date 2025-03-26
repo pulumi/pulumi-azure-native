@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AlertsManagement
     {
         /// <summary>
         /// Get a specific Smart Detector alert rule.
-        /// Azure REST API version: 2021-04-01.
+        /// 
+        /// Uses Azure REST API version 2021-04-01.
         /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific Smart Detector alert rule.
-        /// Azure REST API version: 2021-04-01.
+        /// 
+        /// Uses Azure REST API version 2021-04-01.
         /// </summary>
         public static Output<GetSmartDetectorAlertRuleResult> Invoke(GetSmartDetectorAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific Smart Detector alert rule.
-        /// Azure REST API version: 2021-04-01.
+        /// 
+        /// Uses Azure REST API version 2021-04-01.
         /// </summary>
         public static Output<GetSmartDetectorAlertRuleResult> Invoke(GetSmartDetectorAlertRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithDefaults());

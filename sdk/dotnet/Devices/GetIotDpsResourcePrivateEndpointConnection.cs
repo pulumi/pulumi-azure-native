@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// Get private endpoint connection properties
-        /// Azure REST API version: 2022-12-12.
+        /// 
+        /// Uses Azure REST API version 2022-12-12.
         /// 
         /// Other available API versions: 2023-03-01-preview, 2025-02-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Devices
 
         /// <summary>
         /// Get private endpoint connection properties
-        /// Azure REST API version: 2022-12-12.
+        /// 
+        /// Uses Azure REST API version 2022-12-12.
         /// 
         /// Other available API versions: 2023-03-01-preview, 2025-02-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Devices
 
         /// <summary>
         /// Get private endpoint connection properties
-        /// Azure REST API version: 2022-12-12.
+        /// 
+        /// Uses Azure REST API version 2022-12-12.
         /// 
         /// Other available API versions: 2023-03-01-preview, 2025-02-01-preview.
         /// </summary>

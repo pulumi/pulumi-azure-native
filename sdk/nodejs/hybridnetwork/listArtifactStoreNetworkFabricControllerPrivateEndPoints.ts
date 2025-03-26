@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List network fabric controllers to artifact stores
- * Azure REST API version: 2024-04-15.
+ *
+ * Uses Azure REST API version 2024-04-15.
  */
 export function listArtifactStoreNetworkFabricControllerPrivateEndPoints(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult 
 }
 /**
  * List network fabric controllers to artifact stores
- * Azure REST API version: 2024-04-15.
+ *
+ * Uses Azure REST API version 2024-04-15.
  */
 export function listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -116,7 +116,8 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets information about a database.
-    Azure REST API version: 2022-01-01.
+
+    Uses Azure REST API version 2022-01-01.
 
     Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
@@ -145,7 +146,8 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets information about a database.
-    Azure REST API version: 2022-01-01.
+
+    Uses Azure REST API version 2022-01-01.
 
     Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
 

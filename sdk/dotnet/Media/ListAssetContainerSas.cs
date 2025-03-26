@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<ListAssetContainerSasResult> Invoke(ListAssetContainerSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<ListAssetContainerSasResult> Invoke(ListAssetContainerSasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());

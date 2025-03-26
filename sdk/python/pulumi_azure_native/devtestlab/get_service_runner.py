@@ -116,7 +116,8 @@ def get_service_runner(lab_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceRunnerResult:
     """
     Get service runner.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str lab_name: The name of the lab.
@@ -143,7 +144,8 @@ def get_service_runner_output(lab_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceRunnerResult]:
     """
     Get service runner.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str lab_name: The name of the lab.

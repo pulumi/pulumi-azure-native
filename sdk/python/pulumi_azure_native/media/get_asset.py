@@ -200,7 +200,8 @@ def get_asset(account_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     Get the details of an Asset in the Media Services account
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -234,7 +235,8 @@ def get_asset_output(account_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Get the details of an Asset in the Media Services account
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

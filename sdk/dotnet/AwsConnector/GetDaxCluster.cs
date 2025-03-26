@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a DaxCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetDaxClusterResult> InvokeAsync(GetDaxClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaxClusterResult>("azure-native:awsconnector:getDaxCluster", args ?? new GetDaxClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DaxCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetDaxClusterResult> Invoke(GetDaxClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaxClusterResult>("azure-native:awsconnector:getDaxCluster", args ?? new GetDaxClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DaxCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetDaxClusterResult> Invoke(GetDaxClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaxClusterResult>("azure-native:awsconnector:getDaxCluster", args ?? new GetDaxClusterInvokeArgs(), options.WithDefaults());

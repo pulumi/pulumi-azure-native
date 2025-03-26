@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a read write database.
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// 
+    /// Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource

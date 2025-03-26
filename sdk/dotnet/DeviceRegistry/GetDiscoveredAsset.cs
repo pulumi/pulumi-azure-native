@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DeviceRegistry
     {
         /// <summary>
         /// Get a DiscoveredAsset
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Task<GetDiscoveredAssetResult> InvokeAsync(GetDiscoveredAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiscoveredAssetResult>("azure-native:deviceregistry:getDiscoveredAsset", args ?? new GetDiscoveredAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DiscoveredAsset
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Output<GetDiscoveredAssetResult> Invoke(GetDiscoveredAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscoveredAssetResult>("azure-native:deviceregistry:getDiscoveredAsset", args ?? new GetDiscoveredAssetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DiscoveredAsset
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Output<GetDiscoveredAssetResult> Invoke(GetDiscoveredAssetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscoveredAssetResult>("azure-native:deviceregistry:getDiscoveredAsset", args ?? new GetDiscoveredAssetInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get user profile.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +88,8 @@ export interface GetUserResult {
 }
 /**
  * Get user profile.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

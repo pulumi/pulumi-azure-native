@@ -332,7 +332,8 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitPeeringResult:
     """
     Gets the specified peering for the express route circuit.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
     Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
@@ -379,7 +380,8 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitPeeringResult]:
     """
     Gets the specified peering for the express route circuit.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
     Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 

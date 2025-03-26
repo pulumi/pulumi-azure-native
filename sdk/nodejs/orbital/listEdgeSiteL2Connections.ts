@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of L2 Connections attached to an edge site.
- * Azure REST API version: 2024-03-01-preview.
+ *
+ * Uses Azure REST API version 2024-03-01-preview.
  *
  * Other available API versions: 2024-03-01.
  */
@@ -47,7 +48,8 @@ export interface ListEdgeSiteL2ConnectionsResult {
 }
 /**
  * Returns a list of L2 Connections attached to an edge site.
- * Azure REST API version: 2024-03-01-preview.
+ *
+ * Uses Azure REST API version 2024-03-01-preview.
  *
  * Other available API versions: 2024-03-01.
  */

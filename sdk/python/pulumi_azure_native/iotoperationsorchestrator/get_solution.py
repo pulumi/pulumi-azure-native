@@ -163,7 +163,8 @@ def get_solution(name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
     Get a Solution
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str name: Name of solution.
@@ -191,7 +192,8 @@ def get_solution_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Get a Solution
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str name: Name of solution.

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Display information about a cloud service.
-        /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Uses Azure REST API version 2022-09-04.
         /// 
         /// Other available API versions: 2024-11-04.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Compute
 
         /// <summary>
         /// Display information about a cloud service.
-        /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Uses Azure REST API version 2022-09-04.
         /// 
         /// Other available API versions: 2024-11-04.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Compute
 
         /// <summary>
         /// Display information about a cloud service.
-        /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Uses Azure REST API version 2022-09-04.
         /// 
         /// Other available API versions: 2024-11-04.
         /// </summary>

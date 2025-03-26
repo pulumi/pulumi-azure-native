@@ -127,7 +127,8 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns RecommendationsService Account resource for a given name.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2022-03-01-preview.
 
@@ -154,7 +155,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns RecommendationsService Account resource for a given name.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2022-03-01-preview.
 

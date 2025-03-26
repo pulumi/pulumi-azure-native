@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Get environment setting
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Task<GetEnvironmentSettingResult> InvokeAsync(GetEnvironmentSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSettingResult>("azure-native:labservices:getEnvironmentSetting", args ?? new GetEnvironmentSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get environment setting
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetEnvironmentSettingResult> Invoke(GetEnvironmentSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSettingResult>("azure-native:labservices:getEnvironmentSetting", args ?? new GetEnvironmentSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get environment setting
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetEnvironmentSettingResult> Invoke(GetEnvironmentSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSettingResult>("azure-native:labservices:getEnvironmentSetting", args ?? new GetEnvironmentSettingInvokeArgs(), options.WithDefaults());

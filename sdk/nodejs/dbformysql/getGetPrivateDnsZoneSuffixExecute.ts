@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get private DNS zone suffix in the cloud.
- * Azure REST API version: 2022-01-01.
+ *
+ * Uses Azure REST API version 2022-01-01.
  *
  * Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
  */
@@ -31,7 +32,8 @@ export interface GetGetPrivateDnsZoneSuffixExecuteResult {
 }
 /**
  * Get private DNS zone suffix in the cloud.
- * Azure REST API version: 2022-01-01.
+ *
+ * Uses Azure REST API version 2022-01-01.
  *
  * Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
  */

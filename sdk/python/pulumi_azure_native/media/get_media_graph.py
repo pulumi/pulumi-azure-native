@@ -152,7 +152,8 @@ def get_media_graph(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaGraphResult:
     """
     Get the details of a Media Graph in the Media Services account.
-    Azure REST API version: 2020-02-01-preview.
+
+    Uses Azure REST API version 2020-02-01-preview.
 
 
     :param str account_name: The Media Services account name.
@@ -182,7 +183,8 @@ def get_media_graph_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMediaGraphResult]:
     """
     Get the details of a Media Graph in the Media Services account.
-    Azure REST API version: 2020-02-01-preview.
+
+    Uses Azure REST API version 2020-02-01-preview.
 
 
     :param str account_name: The Media Services account name.

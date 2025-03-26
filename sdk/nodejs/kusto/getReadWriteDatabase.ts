@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a database.
- * Azure REST API version: 2022-12-29.
+ *
+ * Uses Azure REST API version 2022-12-29.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +84,8 @@ export interface GetReadWriteDatabaseResult {
 }
 /**
  * Returns a database.
- * Azure REST API version: 2022-12-29.
+ *
+ * Uses Azure REST API version 2022-12-29.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

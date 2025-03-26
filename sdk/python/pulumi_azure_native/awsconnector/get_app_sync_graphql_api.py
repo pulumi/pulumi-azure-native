@@ -127,7 +127,8 @@ def get_app_sync_graphql_api(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppSyncGraphqlApiResult:
     """
     Get a AppSyncGraphqlApi
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of AppSyncGraphqlApi
@@ -152,7 +153,8 @@ def get_app_sync_graphql_api_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppSyncGraphqlApiResult]:
     """
     Get a AppSyncGraphqlApi
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of AppSyncGraphqlApi

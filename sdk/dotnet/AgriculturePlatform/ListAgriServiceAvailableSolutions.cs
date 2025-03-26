@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AgriculturePlatform
     {
         /// <summary>
         /// Returns the list of available agri solutions.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<ListAgriServiceAvailableSolutionsResult> InvokeAsync(ListAgriServiceAvailableSolutionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAgriServiceAvailableSolutionsResult>("azure-native:agricultureplatform:listAgriServiceAvailableSolutions", args ?? new ListAgriServiceAvailableSolutionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the list of available agri solutions.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<ListAgriServiceAvailableSolutionsResult> Invoke(ListAgriServiceAvailableSolutionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAgriServiceAvailableSolutionsResult>("azure-native:agricultureplatform:listAgriServiceAvailableSolutions", args ?? new ListAgriServiceAvailableSolutionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the list of available agri solutions.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<ListAgriServiceAvailableSolutionsResult> Invoke(ListAgriServiceAvailableSolutionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAgriServiceAvailableSolutionsResult>("azure-native:agricultureplatform:listAgriServiceAvailableSolutions", args ?? new ListAgriServiceAvailableSolutionsInvokeArgs(), options.WithDefaults());

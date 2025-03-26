@@ -259,7 +259,8 @@ def get_network_function(network_function_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFunctionResult:
     """
     Gets information about the specified network function resource.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2023-09-01, 2024-04-15.
 
@@ -297,7 +298,8 @@ def get_network_function_output(network_function_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFunctionResult]:
     """
     Gets information about the specified network function resource.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2023-09-01, 2024-04-15.
 

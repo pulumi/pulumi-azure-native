@@ -67,7 +67,8 @@ def list_sites_controller_health_summary(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSitesControllerHealthSummaryResult:
     """
     Method to get site health summary.
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
@@ -89,7 +90,8 @@ def list_sites_controller_health_summary_output(resource_group_name: Optional[pu
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSitesControllerHealthSummaryResult]:
     """
     Method to get site health summary.
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 

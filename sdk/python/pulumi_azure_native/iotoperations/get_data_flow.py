@@ -117,7 +117,8 @@ def get_data_flow(dataflow_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataFlowResult:
     """
     Get a DataFlowResource
-    Azure REST API version: 2024-07-01-preview.
+
+    Uses Azure REST API version 2024-07-01-preview.
 
 
     :param str dataflow_name: Name of Instance dataflowProfile dataflow resource
@@ -147,7 +148,8 @@ def get_data_flow_output(dataflow_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataFlowResult]:
     """
     Get a DataFlowResource
-    Azure REST API version: 2024-07-01-preview.
+
+    Uses Azure REST API version 2024-07-01-preview.
 
 
     :param str dataflow_name: Name of Instance dataflowProfile dataflow resource

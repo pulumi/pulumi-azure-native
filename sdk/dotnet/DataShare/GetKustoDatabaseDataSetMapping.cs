@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Task<GetKustoDatabaseDataSetMappingResult> InvokeAsync(GetKustoDatabaseDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetKustoDatabaseDataSetMappingResult> Invoke(GetKustoDatabaseDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetKustoDatabaseDataSetMappingResult> Invoke(GetKustoDatabaseDataSetMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithDefaults());

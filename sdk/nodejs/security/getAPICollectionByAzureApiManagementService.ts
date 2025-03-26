@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
- * Azure REST API version: 2023-11-15.
+ *
+ * Uses Azure REST API version 2023-11-15.
  */
 export function getAPICollectionByAzureApiManagementService(args: GetAPICollectionByAzureApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAPICollectionByAzureApiManagementServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +92,8 @@ export interface GetAPICollectionByAzureApiManagementServiceResult {
 }
 /**
  * Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
- * Azure REST API version: 2023-11-15.
+ *
+ * Uses Azure REST API version 2023-11-15.
  */
 export function getAPICollectionByAzureApiManagementServiceOutput(args: GetAPICollectionByAzureApiManagementServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAPICollectionByAzureApiManagementServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

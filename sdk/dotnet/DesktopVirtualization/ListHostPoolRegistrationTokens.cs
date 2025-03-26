@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Operation to list the RegistrationTokens associated with the HostPool.
-        /// Azure REST API version: 2024-04-08-preview.
+        /// 
+        /// Uses Azure REST API version 2024-04-08-preview.
         /// 
         /// Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         /// <summary>
         /// Operation to list the RegistrationTokens associated with the HostPool.
-        /// Azure REST API version: 2024-04-08-preview.
+        /// 
+        /// Uses Azure REST API version 2024-04-08-preview.
         /// 
         /// Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         /// <summary>
         /// Operation to list the RegistrationTokens associated with the HostPool.
-        /// Azure REST API version: 2024-04-08-preview.
+        /// 
+        /// Uses Azure REST API version 2024-04-08-preview.
         /// 
         /// Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
         /// </summary>

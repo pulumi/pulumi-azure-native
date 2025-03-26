@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sku details for the given resource type and sku name.
- * Azure REST API version: 2021-09-01-preview.
+ *
+ * Uses Azure REST API version 2021-09-01-preview.
  */
 export function getSkusNestedResourceTypeFirst(args: GetSkusNestedResourceTypeFirstArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeFirstResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +62,8 @@ export interface GetSkusNestedResourceTypeFirstResult {
 }
 /**
  * Gets the sku details for the given resource type and sku name.
- * Azure REST API version: 2021-09-01-preview.
+ *
+ * Uses Azure REST API version 2021-09-01-preview.
  */
 export function getSkusNestedResourceTypeFirstOutput(args: GetSkusNestedResourceTypeFirstOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSkusNestedResourceTypeFirstResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

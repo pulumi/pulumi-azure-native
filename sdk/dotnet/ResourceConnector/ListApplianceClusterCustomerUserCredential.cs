@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ResourceConnector
     {
         /// <summary>
         /// Returns the cluster customer user credentials for the dedicated appliance.
-        /// Azure REST API version: 2022-04-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-15-preview.
         /// </summary>
         public static Task<ListApplianceClusterCustomerUserCredentialResult> InvokeAsync(ListApplianceClusterCustomerUserCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the cluster customer user credentials for the dedicated appliance.
-        /// Azure REST API version: 2022-04-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-15-preview.
         /// </summary>
         public static Output<ListApplianceClusterCustomerUserCredentialResult> Invoke(ListApplianceClusterCustomerUserCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the cluster customer user credentials for the dedicated appliance.
-        /// Azure REST API version: 2022-04-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-15-preview.
         /// </summary>
         public static Output<ListApplianceClusterCustomerUserCredentialResult> Invoke(ListApplianceClusterCustomerUserCredentialInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialInvokeArgs(), options.WithDefaults());

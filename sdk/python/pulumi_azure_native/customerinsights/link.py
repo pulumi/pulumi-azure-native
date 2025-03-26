@@ -249,7 +249,8 @@ class Link(pulumi.CustomResource):
                  __props__=None):
         """
         The link resource format.
-        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+
+        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,7 +276,8 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The link resource format.
-        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+
+        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

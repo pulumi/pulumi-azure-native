@@ -127,7 +127,8 @@ def get_lambda_function_code_location(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLambdaFunctionCodeLocationResult:
     """
     Get a LambdaFunctionCodeLocation
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LambdaFunctionCodeLocation
@@ -152,7 +153,8 @@ def get_lambda_function_code_location_output(name: Optional[pulumi.Input[str]] =
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaFunctionCodeLocationResult]:
     """
     Get a LambdaFunctionCodeLocation
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LambdaFunctionCodeLocation

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     {
         /// <summary>
         /// Get the count of reports.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Task<GetProviderActionCollectionCountResult> InvokeAsync(GetProviderActionCollectionCountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderActionCollectionCountResult>("azure-native:appcomplianceautomation:getProviderActionCollectionCount", args ?? new GetProviderActionCollectionCountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the count of reports.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetProviderActionCollectionCountResult> Invoke(GetProviderActionCollectionCountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionCollectionCountResult>("azure-native:appcomplianceautomation:getProviderActionCollectionCount", args ?? new GetProviderActionCollectionCountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the count of reports.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetProviderActionCollectionCountResult> Invoke(GetProviderActionCollectionCountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionCollectionCountResult>("azure-native:appcomplianceautomation:getProviderActionCollectionCount", args ?? new GetProviderActionCollectionCountInvokeArgs(), options.WithDefaults());

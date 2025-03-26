@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// List manual private endpoints on artifact stores
-        /// Azure REST API version: 2024-04-15.
+        /// 
+        /// Uses Azure REST API version 2024-04-15.
         /// </summary>
         public static Task<ListArtifactStorePrivateEndPointsResult> InvokeAsync(ListArtifactStorePrivateEndPointsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListArtifactStorePrivateEndPointsResult>("azure-native:hybridnetwork:listArtifactStorePrivateEndPoints", args ?? new ListArtifactStorePrivateEndPointsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List manual private endpoints on artifact stores
-        /// Azure REST API version: 2024-04-15.
+        /// 
+        /// Uses Azure REST API version 2024-04-15.
         /// </summary>
         public static Output<ListArtifactStorePrivateEndPointsResult> Invoke(ListArtifactStorePrivateEndPointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactStorePrivateEndPointsResult>("azure-native:hybridnetwork:listArtifactStorePrivateEndPoints", args ?? new ListArtifactStorePrivateEndPointsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List manual private endpoints on artifact stores
-        /// Azure REST API version: 2024-04-15.
+        /// 
+        /// Uses Azure REST API version 2024-04-15.
         /// </summary>
         public static Output<ListArtifactStorePrivateEndPointsResult> Invoke(ListArtifactStorePrivateEndPointsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactStorePrivateEndPointsResult>("azure-native:hybridnetwork:listArtifactStorePrivateEndPoints", args ?? new ListArtifactStorePrivateEndPointsInvokeArgs(), options.WithDefaults());

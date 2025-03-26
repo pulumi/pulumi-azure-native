@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Uses Azure REST API version 2020-03-01.
         /// 
         /// Other available API versions: 2019-06-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ContainerService
 
         /// <summary>
         /// Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Uses Azure REST API version 2020-03-01.
         /// 
         /// Other available API versions: 2019-06-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ContainerService
 
         /// <summary>
         /// Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Uses Azure REST API version 2020-03-01.
         /// 
         /// Other available API versions: 2019-06-01.
         /// </summary>

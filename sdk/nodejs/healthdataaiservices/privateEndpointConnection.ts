@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Holder for private endpoint connections
- * Azure REST API version: 2024-02-28-preview.
+ *
+ * Uses Azure REST API version 2024-02-28-preview.
  *
  * Other available API versions: 2024-09-20.
  */

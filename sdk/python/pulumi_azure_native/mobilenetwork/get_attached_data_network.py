@@ -194,7 +194,8 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDataNetworkResult:
     """
     Gets information about the specified attached data network.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
@@ -232,7 +233,8 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
     Gets information about the specified attached data network.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 

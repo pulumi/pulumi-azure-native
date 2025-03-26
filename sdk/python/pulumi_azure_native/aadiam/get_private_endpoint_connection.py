@@ -116,7 +116,8 @@ def get_private_endpoint_connection(policy_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the given policy.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.
@@ -143,7 +144,8 @@ def get_private_endpoint_connection_output(policy_name: Optional[pulumi.Input[st
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the given policy.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.

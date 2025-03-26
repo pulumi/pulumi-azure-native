@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Stack Versions that this version can upgrade to
-        /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Uses Azure REST API version 2023-06-01.
         /// 
         /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Elastic
 
         /// <summary>
         /// Stack Versions that this version can upgrade to
-        /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Uses Azure REST API version 2023-06-01.
         /// 
         /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Elastic
 
         /// <summary>
         /// Stack Versions that this version can upgrade to
-        /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Uses Azure REST API version 2023-06-01.
         /// 
         /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
         /// </summary>

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes an identity resource.
- * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30.
+ *
+ * Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2018-11-30.
  *
  * Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
  */

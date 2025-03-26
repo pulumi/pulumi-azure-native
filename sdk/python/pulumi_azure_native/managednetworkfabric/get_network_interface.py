@@ -188,7 +188,8 @@ def get_network_interface(network_device_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Get the Network Interface resource details.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 
@@ -223,7 +224,8 @@ def get_network_interface_output(network_device_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Get the Network Interface resource details.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 

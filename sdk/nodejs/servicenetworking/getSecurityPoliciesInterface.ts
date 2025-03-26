@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SecurityPolicy
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  *
  * Other available API versions: 2025-01-01, 2025-03-01-preview.
  */
@@ -80,7 +81,8 @@ export interface GetSecurityPoliciesInterfaceResult {
 }
 /**
  * Get a SecurityPolicy
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  *
  * Other available API versions: 2025-01-01, 2025-03-01-preview.
  */

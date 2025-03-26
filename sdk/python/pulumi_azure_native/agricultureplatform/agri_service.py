@@ -153,7 +153,8 @@ class AgriService(pulumi.CustomResource):
                  __props__=None):
         """
         Schema of the AgriService resource from Microsoft.AgriculturePlatform resource provider.
-        Azure REST API version: 2024-06-01-preview.
+
+        Uses Azure REST API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +174,8 @@ class AgriService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema of the AgriService resource from Microsoft.AgriculturePlatform resource provider.
-        Azure REST API version: 2024-06-01-preview.
+
+        Uses Azure REST API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AgriServiceArgs args: The arguments to use to populate this resource's properties.

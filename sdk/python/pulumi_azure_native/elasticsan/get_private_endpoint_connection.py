@@ -140,7 +140,8 @@ def get_private_endpoint_connection(elastic_san_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the Elastic San
-    Azure REST API version: 2022-12-01-preview.
+
+    Uses Azure REST API version 2022-12-01-preview.
 
     Other available API versions: 2023-01-01, 2024-05-01, 2024-06-01-preview.
 
@@ -171,7 +172,8 @@ def get_private_endpoint_connection_output(elastic_san_name: Optional[pulumi.Inp
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the Elastic San
-    Azure REST API version: 2022-12-01-preview.
+
+    Uses Azure REST API version 2022-12-01-preview.
 
     Other available API versions: 2023-01-01, 2024-05-01, 2024-06-01-preview.
 

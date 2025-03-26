@@ -105,7 +105,8 @@ def get_static_cidr(network_manager_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticCidrResult:
     """
     Instance of StaticCidr resource.
-    Azure REST API version: 2024-01-01-preview.
+
+    Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2024-05-01.
 
@@ -136,7 +137,8 @@ def get_static_cidr_output(network_manager_name: Optional[pulumi.Input[str]] = N
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticCidrResult]:
     """
     Instance of StaticCidr resource.
-    Azure REST API version: 2024-01-01-preview.
+
+    Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2024-05-01.
 

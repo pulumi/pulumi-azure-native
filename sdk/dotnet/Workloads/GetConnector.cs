@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets a connector resource
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:workloads:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a connector resource
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:workloads:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a connector resource
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:workloads:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

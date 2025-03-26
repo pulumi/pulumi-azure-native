@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sensitivity label of a given column
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01-preview.
  */
@@ -110,7 +111,8 @@ export interface GetSqlPoolSensitivityLabelResult {
 }
 /**
  * Gets the sensitivity label of a given column
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01-preview.
  */

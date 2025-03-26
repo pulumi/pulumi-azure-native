@@ -66,7 +66,8 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenShiftClusterCredentialsResult:
     """
     The operation returns the credentials.
-    Azure REST API version: 2022-09-04.
+
+    Uses Azure REST API version 2022-09-04.
 
     Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 
@@ -88,7 +89,8 @@ def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pul
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOpenShiftClusterCredentialsResult]:
     """
     The operation returns the credentials.
-    Azure REST API version: 2022-09-04.
+
+    Uses Azure REST API version 2022-09-04.
 
     Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Template resource definition.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
     /// </summary>

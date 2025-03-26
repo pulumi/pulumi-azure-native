@@ -56,7 +56,8 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetStreamingLocatorsResult:
     """
     Lists Streaming Locators which are associated with this asset.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -78,7 +79,8 @@ def list_asset_streaming_locators_output(account_name: Optional[pulumi.Input[str
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAssetStreamingLocatorsResult]:
     """
     Lists Streaming Locators which are associated with this asset.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

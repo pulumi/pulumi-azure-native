@@ -127,7 +127,8 @@ def get_network_firewall_rule_group(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFirewallRuleGroupResult:
     """
     Get a NetworkFirewallRuleGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of NetworkFirewallRuleGroup
@@ -152,7 +153,8 @@ def get_network_firewall_rule_group_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFirewallRuleGroupResult]:
     """
     Get a NetworkFirewallRuleGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of NetworkFirewallRuleGroup

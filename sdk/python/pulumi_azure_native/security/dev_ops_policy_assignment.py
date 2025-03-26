@@ -101,7 +101,8 @@ class DevOpsPolicyAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         DevOps Policy assignment resource.
-        Azure REST API version: 2024-05-15-preview.
+
+        Uses Azure REST API version 2024-05-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +119,8 @@ class DevOpsPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         DevOps Policy assignment resource.
-        Azure REST API version: 2024-05-15-preview.
+
+        Uses Azure REST API version 2024-05-15-preview.
 
         :param str resource_name: The name of the resource.
         :param DevOpsPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

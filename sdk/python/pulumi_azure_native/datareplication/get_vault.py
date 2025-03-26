@@ -124,7 +124,8 @@ def get_vault(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
     Gets the details of the vault.
-    Azure REST API version: 2021-02-16-preview.
+
+    Uses Azure REST API version 2021-02-16-preview.
 
     Other available API versions: 2024-09-01.
 
@@ -151,7 +152,8 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVaultResult]:
     """
     Gets the details of the vault.
-    Azure REST API version: 2021-02-16-preview.
+
+    Uses Azure REST API version 2021-02-16-preview.
 
     Other available API versions: 2024-09-01.
 

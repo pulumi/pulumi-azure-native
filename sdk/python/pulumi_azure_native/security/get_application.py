@@ -113,7 +113,8 @@ def get_application(application_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Get a specific application for the requested scope by applicationId
-    Azure REST API version: 2022-07-01-preview.
+
+    Uses Azure REST API version 2022-07-01-preview.
 
 
     :param str application_id: The security Application key - unique key for the standard application
@@ -134,7 +135,8 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get a specific application for the requested scope by applicationId
-    Azure REST API version: 2022-07-01-preview.
+
+    Uses Azure REST API version 2022-07-01-preview.
 
 
     :param str application_id: The security Application key - unique key for the standard application

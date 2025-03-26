@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Task<GetPrivateLinkServicesForM365SecurityCenterResult> InvokeAsync(GetPrivateLinkServicesForM365SecurityCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForM365SecurityCenterResult>("azure-native:securityandcompliance:getPrivateLinkServicesForM365SecurityCenter", args ?? new GetPrivateLinkServicesForM365SecurityCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateLinkServicesForM365SecurityCenterResult> Invoke(GetPrivateLinkServicesForM365SecurityCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForM365SecurityCenterResult>("azure-native:securityandcompliance:getPrivateLinkServicesForM365SecurityCenter", args ?? new GetPrivateLinkServicesForM365SecurityCenterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateLinkServicesForM365SecurityCenterResult> Invoke(GetPrivateLinkServicesForM365SecurityCenterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForM365SecurityCenterResult>("azure-native:securityandcompliance:getPrivateLinkServicesForM365SecurityCenter", args ?? new GetPrivateLinkServicesForM365SecurityCenterInvokeArgs(), options.WithDefaults());

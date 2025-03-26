@@ -64,7 +64,8 @@ def list_cluster_callout_policies(cluster_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterCalloutPoliciesResult:
     """
     Returns the allowed callout policies for the specified service.
-    Azure REST API version: 2024-04-13.
+
+    Uses Azure REST API version 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -84,7 +85,8 @@ def list_cluster_callout_policies_output(cluster_name: Optional[pulumi.Input[str
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterCalloutPoliciesResult]:
     """
     Returns the allowed callout policies for the specified service.
-    Azure REST API version: 2024-04-13.
+
+    Uses Azure REST API version 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.

@@ -128,7 +128,8 @@ def get_curation_profile(curation_profile_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCurationProfileResult:
     """
     Gets a specific curation profile.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2024-10-01-preview.
 
@@ -158,7 +159,8 @@ def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurationProfileResult]:
     """
     Gets a specific curation profile.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2024-10-01-preview.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a FabricCapacity
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  *
  * Other available API versions: 2025-01-15-preview.
  */
@@ -79,7 +80,8 @@ export interface GetFabricCapacityResult {
 }
 /**
  * Get a FabricCapacity
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  *
  * Other available API versions: 2025-01-15-preview.
  */

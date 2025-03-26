@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets the log profile.
-        /// Azure REST API version: 2016-03-01.
+        /// 
+        /// Uses Azure REST API version 2016-03-01.
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the log profile.
-        /// Azure REST API version: 2016-03-01.
+        /// 
+        /// Uses Azure REST API version 2016-03-01.
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the log profile.
-        /// Azure REST API version: 2016-03-01.
+        /// 
+        /// Uses Azure REST API version 2016-03-01.
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());

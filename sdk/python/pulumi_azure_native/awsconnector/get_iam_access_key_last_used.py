@@ -127,7 +127,8 @@ def get_iam_access_key_last_used(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIamAccessKeyLastUsedResult:
     """
     Get a IamAccessKeyLastUsed
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamAccessKeyLastUsed
@@ -152,7 +153,8 @@ def get_iam_access_key_last_used_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamAccessKeyLastUsedResult]:
     """
     Get a IamAccessKeyLastUsed
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamAccessKeyLastUsed

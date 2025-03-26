@@ -66,7 +66,8 @@ def list_sql_migration_service_auth_keys(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSqlMigrationServiceAuthKeysResult:
     """
     Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
-    Azure REST API version: 2022-03-30-preview.
+
+    Uses Azure REST API version 2022-03-30-preview.
 
     Other available API versions: 2023-07-15-preview.
 
@@ -88,7 +89,8 @@ def list_sql_migration_service_auth_keys_output(resource_group_name: Optional[pu
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSqlMigrationServiceAuthKeysResult]:
     """
     Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
-    Azure REST API version: 2022-03-30-preview.
+
+    Uses Azure REST API version 2022-03-30-preview.
 
     Other available API versions: 2023-07-15-preview.
 

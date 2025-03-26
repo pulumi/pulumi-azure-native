@@ -127,7 +127,8 @@ def get_sage_maker_app(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSageMakerAppResult:
     """
     Get a SageMakerApp
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SageMakerApp
@@ -152,7 +153,8 @@ def get_sage_maker_app_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSageMakerAppResult]:
     """
     Get a SageMakerApp
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SageMakerApp

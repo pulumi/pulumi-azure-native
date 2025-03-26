@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of language extensions that can run within KQL queries.
- * Azure REST API version: 2022-12-29.
+ *
+ * Uses Azure REST API version 2022-12-29.
  *
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
@@ -43,7 +44,8 @@ export interface ListClusterLanguageExtensionsResult {
 }
 /**
  * Returns a list of language extensions that can run within KQL queries.
- * Azure REST API version: 2022-12-29.
+ *
+ * Uses Azure REST API version 2022-12-29.
  *
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */

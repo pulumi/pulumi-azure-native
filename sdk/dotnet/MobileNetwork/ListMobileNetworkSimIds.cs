@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Lists the IDs of all provisioned SIMs in a mobile network
-        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// </summary>
         public static Task<ListMobileNetworkSimIdsResult> InvokeAsync(ListMobileNetworkSimIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the IDs of all provisioned SIMs in a mobile network
-        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// </summary>
         public static Output<ListMobileNetworkSimIdsResult> Invoke(ListMobileNetworkSimIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the IDs of all provisioned SIMs in a mobile network
-        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// </summary>
         public static Output<ListMobileNetworkSimIdsResult> Invoke(ListMobileNetworkSimIdsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsInvokeArgs(), options.WithDefaults());

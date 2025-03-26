@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a security user rule.
- * Azure REST API version: 2024-03-01.
+ *
+ * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2024-05-01.
  */
@@ -110,7 +111,8 @@ export interface GetSecurityUserRuleResult {
 }
 /**
  * Gets a security user rule.
- * Azure REST API version: 2024-03-01.
+ *
+ * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2024-05-01.
  */

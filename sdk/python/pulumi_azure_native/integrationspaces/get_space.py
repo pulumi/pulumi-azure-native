@@ -139,7 +139,8 @@ def get_space(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpaceResult:
     """
     Get a Space
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -165,7 +166,8 @@ def get_space_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpaceResult]:
     """
     Get a Space
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

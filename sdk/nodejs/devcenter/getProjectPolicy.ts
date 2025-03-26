@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific project policy.
- * Azure REST API version: 2024-10-01-preview.
+ *
+ * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-02-01.
  */
@@ -72,7 +73,8 @@ export interface GetProjectPolicyResult {
 }
 /**
  * Gets a specific project policy.
- * Azure REST API version: 2024-10-01-preview.
+ *
+ * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-02-01.
  */

@@ -175,7 +175,8 @@ def get_gateway(gateway_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
     Retrieves information about the view of a gateway.
-    Azure REST API version: 2024-03-31-preview.
+
+    Uses Azure REST API version 2024-03-31-preview.
 
     Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
 
@@ -206,7 +207,8 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Retrieves information about the view of a gateway.
-    Azure REST API version: 2024-03-31-preview.
+
+    Uses Azure REST API version 2024-03-31-preview.
 
     Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
 

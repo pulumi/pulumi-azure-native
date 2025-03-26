@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// Defines the Neighbor Group.
-    /// Azure REST API version: 2023-06-15.
+    /// 
+    /// Uses Azure REST API version 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NeighborGroup")]
     public partial class NeighborGroup : global::Pulumi.CustomResource

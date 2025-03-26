@@ -199,7 +199,8 @@ def get_storage_task(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTaskResult:
     """
     Get the storage task properties
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,7 +231,8 @@ def get_storage_task_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskResult]:
     """
     Get the storage task properties
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Define the SAP Migration discovery site resource.
- * Azure REST API version: 2023-10-01-preview.
+ *
+ * Uses Azure REST API version 2023-10-01-preview.
  */
 export class SapDiscoverySite extends pulumi.CustomResource {
     /**

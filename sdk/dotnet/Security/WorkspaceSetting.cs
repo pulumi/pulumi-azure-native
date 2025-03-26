@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
-    /// Azure REST API version: 2017-08-01-preview. Prior API version in Azure Native 1.x: 2017-08-01-preview.
+    /// 
+    /// Uses Azure REST API version 2017-08-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:WorkspaceSetting")]
     public partial class WorkspaceSetting : global::Pulumi.CustomResource

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the extended information of the specified manager name.
- * Azure REST API version: 2017-06-01.
+ *
+ * Uses Azure REST API version 2017-06-01.
  */
 export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerExtendedInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +79,8 @@ export interface GetManagerExtendedInfoResult {
 }
 /**
  * Returns the extended information of the specified manager name.
- * Azure REST API version: 2017-06-01.
+ *
+ * Uses Azure REST API version 2017-06-01.
  */
 export function getManagerExtendedInfoOutput(args: GetManagerExtendedInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagerExtendedInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

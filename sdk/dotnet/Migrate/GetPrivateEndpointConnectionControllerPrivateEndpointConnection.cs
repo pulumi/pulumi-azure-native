@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get the private endpoint with the specified name.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// 
         /// Other available API versions: 2023-01-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get the private endpoint with the specified name.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// 
         /// Other available API versions: 2023-01-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get the private endpoint with the specified name.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// 
         /// Other available API versions: 2023-01-01.
         /// </summary>

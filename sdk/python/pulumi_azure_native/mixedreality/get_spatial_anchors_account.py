@@ -205,7 +205,8 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
     > The Mixed Reality service is now deprecated and will be retired.
 
      Retrieve a Spatial Anchors Account.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
     Other available API versions: 2021-03-01-preview.
 
@@ -244,7 +245,8 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
     > The Mixed Reality service is now deprecated and will be retired.
 
      Retrieve a Spatial Anchors Account.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
     Other available API versions: 2021-03-01-preview.
 

@@ -201,7 +201,8 @@ def get_hyperv_sites_controller(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHypervSitesControllerResult:
     """
     Get a HypervSite
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
@@ -234,7 +235,8 @@ def get_hyperv_sites_controller_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervSitesControllerResult]:
     """
     Get a HypervSite
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 

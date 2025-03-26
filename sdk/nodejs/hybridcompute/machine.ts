@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a hybrid machine.
- * Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
+ *
+ * Uses Azure REST API version 2022-12-27. In version 1.x of the Azure Native provider, it used API version 2020-08-02.
  *
  * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
  */

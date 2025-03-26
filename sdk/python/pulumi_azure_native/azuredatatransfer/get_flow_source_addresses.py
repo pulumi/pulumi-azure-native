@@ -55,7 +55,8 @@ def get_flow_source_addresses(connection_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowSourceAddressesResult:
     """
     Get the source addresses for the specified flow.
-    Azure REST API version: 2024-09-27.
+
+    Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2025-03-01-preview.
 
@@ -79,7 +80,8 @@ def get_flow_source_addresses_output(connection_name: Optional[pulumi.Input[str]
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowSourceAddressesResult]:
     """
     Get the source addresses for the specified flow.
-    Azure REST API version: 2024-09-27.
+
+    Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2025-03-01-preview.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CloudFrontDistribution
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getCloudFrontDistribution(args: GetCloudFrontDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFrontDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetCloudFrontDistributionResult {
 }
 /**
  * Get a CloudFrontDistribution
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getCloudFrontDistributionOutput(args: GetCloudFrontDistributionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFrontDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

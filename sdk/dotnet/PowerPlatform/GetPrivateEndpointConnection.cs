@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.PowerPlatform
     {
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2020-10-30-preview.
+        /// 
+        /// Uses Azure REST API version 2020-10-30-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:powerplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2020-10-30-preview.
+        /// 
+        /// Uses Azure REST API version 2020-10-30-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:powerplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2020-10-30-preview.
+        /// 
+        /// Uses Azure REST API version 2020-10-30-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:powerplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

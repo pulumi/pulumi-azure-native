@@ -127,7 +127,8 @@ def get_database_migration_service_replication_instance(name: Optional[str] = No
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseMigrationServiceReplicationInstanceResult:
     """
     Get a DatabaseMigrationServiceReplicationInstance
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of DatabaseMigrationServiceReplicationInstance
@@ -152,7 +153,8 @@ def get_database_migration_service_replication_instance_output(name: Optional[pu
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationServiceReplicationInstanceResult]:
     """
     Get a DatabaseMigrationServiceReplicationInstance
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of DatabaseMigrationServiceReplicationInstance

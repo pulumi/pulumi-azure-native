@@ -188,7 +188,8 @@ def get_user(lab_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Returns the properties of a lab user.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2018-10-15, 2023-06-07.
 
@@ -223,7 +224,8 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Returns the properties of a lab user.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2018-10-15, 2023-06-07.
 

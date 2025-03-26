@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
- * Azure REST API version: 2023-02-01.
+ *
+ * Uses Azure REST API version 2023-02-01.
  *
  * Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
  */
@@ -64,7 +65,8 @@ export interface GetPrivateDnsZoneGroupResult {
 }
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
- * Azure REST API version: 2023-02-01.
+ *
+ * Uses Azure REST API version 2023-02-01.
  *
  * Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
  */

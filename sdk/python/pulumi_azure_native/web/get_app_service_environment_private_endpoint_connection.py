@@ -137,7 +137,8 @@ def get_app_service_environment_private_endpoint_connection(name: Optional[str] 
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentPrivateEndpointConnectionResult:
     """
     Description for Gets a private endpoint connection
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -168,7 +169,8 @@ def get_app_service_environment_private_endpoint_connection_output(name: Optiona
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentPrivateEndpointConnectionResult]:
     """
     Description for Gets a private endpoint connection
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 

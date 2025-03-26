@@ -133,7 +133,8 @@ class TableResourceTableRoleAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Parameters to create and update an Azure Cosmos DB Table Role Assignment.
-        Azure REST API version: 2024-12-01-preview.
+
+        Uses Azure REST API version 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +153,8 @@ class TableResourceTableRoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Parameters to create and update an Azure Cosmos DB Table Role Assignment.
-        Azure REST API version: 2024-12-01-preview.
+
+        Uses Azure REST API version 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TableResourceTableRoleAssignmentArgs args: The arguments to use to populate this resource's properties.

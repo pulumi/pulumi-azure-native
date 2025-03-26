@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Get batch operation status
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserOperationBatchStatusResult> InvokeAsync(GetGlobalUserOperationBatchStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get batch operation status
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserOperationBatchStatusResult> Invoke(GetGlobalUserOperationBatchStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get batch operation status
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserOperationBatchStatusResult> Invoke(GetGlobalUserOperationBatchStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusInvokeArgs(), options.WithDefaults());

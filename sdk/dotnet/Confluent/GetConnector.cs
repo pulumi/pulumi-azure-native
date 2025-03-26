@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Details of connector record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:confluent:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of connector record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:confluent:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of connector record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:confluent:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

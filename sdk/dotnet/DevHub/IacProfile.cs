@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DevHub
 {
     /// <summary>
     /// Resource representation of a IacProfile.
-    /// Azure REST API version: 2024-05-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-05-01-preview.
     /// 
     /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
     /// </summary>

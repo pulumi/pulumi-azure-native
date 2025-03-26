@@ -68,7 +68,8 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeStatusResult:
     """
     Get the integration runtime status
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -93,7 +94,8 @@ def get_integration_runtime_status_output(integration_runtime_name: Optional[pul
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeStatusResult]:
     """
     Get the integration runtime status
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

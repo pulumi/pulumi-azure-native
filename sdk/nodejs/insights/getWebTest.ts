@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific Application Insights web test definition.
- * Azure REST API version: 2022-06-15.
+ *
+ * Uses Azure REST API version 2022-06-15.
  *
  * Other available API versions: 2020-10-05-preview.
  */
@@ -115,7 +116,8 @@ export interface GetWebTestResult {
 }
 /**
  * Get a specific Application Insights web test definition.
- * Azure REST API version: 2022-06-15.
+ *
+ * Uses Azure REST API version 2022-06-15.
  *
  * Other available API versions: 2020-10-05-preview.
  */

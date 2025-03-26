@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Gets a management lock at the resource group level.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a management lock at the resource group level.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Output<GetManagementLockAtResourceGroupLevelResult> Invoke(GetManagementLockAtResourceGroupLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a management lock at the resource group level.
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Output<GetManagementLockAtResourceGroupLevelResult> Invoke(GetManagementLockAtResourceGroupLevelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithDefaults());

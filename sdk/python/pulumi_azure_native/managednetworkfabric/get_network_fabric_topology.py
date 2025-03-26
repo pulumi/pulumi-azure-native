@@ -79,7 +79,8 @@ def get_network_fabric_topology(network_fabric_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFabricTopologyResult:
     """
     Gets Topology of the underlying resources in the given Network Fabric instance.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_fabric_name: Name of the Network Fabric.
@@ -100,7 +101,8 @@ def get_network_fabric_topology_output(network_fabric_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricTopologyResult]:
     """
     Gets Topology of the underlying resources in the given Network Fabric instance.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_fabric_name: Name of the Network Fabric.

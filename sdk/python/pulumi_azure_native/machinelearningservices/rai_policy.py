@@ -116,7 +116,8 @@ class RaiPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Azure OpenAI Content Filters resource.
-        Azure REST API version: 2024-04-01-preview.
+
+        Uses Azure REST API version 2024-04-01-preview.
 
         Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 
@@ -136,7 +137,8 @@ class RaiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure OpenAI Content Filters resource.
-        Azure REST API version: 2024-04-01-preview.
+
+        Uses Azure REST API version 2024-04-01-preview.
 
         Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 

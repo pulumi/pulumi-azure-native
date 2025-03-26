@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get exposure control feature for specific factory.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  */
 export function getExposureControlFeatureValueByFactory(args: GetExposureControlFeatureValueByFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueByFactoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,7 +53,8 @@ export interface GetExposureControlFeatureValueByFactoryResult {
 }
 /**
  * Get exposure control feature for specific factory.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  */
 export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

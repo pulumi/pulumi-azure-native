@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a BotService Channel registration specified by the parameters.
- * Azure REST API version: 2022-09-15.
+ *
+ * Uses Azure REST API version 2022-09-15.
  *
  * Other available API versions: 2023-09-15-preview.
  */
@@ -84,7 +85,8 @@ export interface GetChannelResult {
 }
 /**
  * Returns a BotService Channel registration specified by the parameters.
- * Azure REST API version: 2022-09-15.
+ *
+ * Uses Azure REST API version 2022-09-15.
  *
  * Other available API versions: 2023-09-15-preview.
  */

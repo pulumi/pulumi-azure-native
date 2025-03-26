@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an curation profile resource.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  *
  * Other available API versions: 2024-10-01-preview.
  */

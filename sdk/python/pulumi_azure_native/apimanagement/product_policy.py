@@ -133,7 +133,8 @@ class ProductPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Policy Contract details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
 
         Other available API versions: 2016-10-10, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
@@ -154,7 +155,8 @@ class ProductPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Contract details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
 
         Other available API versions: 2016-10-10, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 

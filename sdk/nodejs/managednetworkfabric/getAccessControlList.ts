@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Implements Access Control List GET method.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */
@@ -79,7 +80,8 @@ export interface GetAccessControlListResult {
 }
 /**
  * Implements Access Control List GET method.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */

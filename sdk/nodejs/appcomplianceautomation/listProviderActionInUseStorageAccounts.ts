@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List the storage accounts which are in use by related reports
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function listProviderActionInUseStorageAccounts(args?: ListProviderActionInUseStorageAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListProviderActionInUseStorageAccountsResult> {
     args = args || {};
@@ -37,7 +38,8 @@ export interface ListProviderActionInUseStorageAccountsResult {
 }
 /**
  * List the storage accounts which are in use by related reports
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function listProviderActionInUseStorageAccountsOutput(args?: ListProviderActionInUseStorageAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProviderActionInUseStorageAccountsResult> {
     args = args || {};

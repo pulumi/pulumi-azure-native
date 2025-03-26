@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * Azure REST API version: 2021-08-01.
+ *
+ * Uses Azure REST API version 2021-08-01.
  */
 export function getBlobFolderDataSet(args: GetBlobFolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +93,8 @@ export interface GetBlobFolderDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * Azure REST API version: 2021-08-01.
+ *
+ * Uses Azure REST API version 2021-08-01.
  */
 export function getBlobFolderDataSetOutput(args: GetBlobFolderDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobFolderDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

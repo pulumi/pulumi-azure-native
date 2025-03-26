@@ -115,7 +115,8 @@ def get_schema(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaResult:
     """
     Gets the details of the Schema specified by its identifier.
-    Azure REST API version: 2021-04-01-preview.
+
+    Uses Azure REST API version 2021-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -142,7 +143,8 @@ def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Gets the details of the Schema specified by its identifier.
-    Azure REST API version: 2021-04-01-preview.
+
+    Uses Azure REST API version 2021-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

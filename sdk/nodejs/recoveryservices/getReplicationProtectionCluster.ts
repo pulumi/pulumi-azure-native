@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of an ASR replication protection cluster.
- * Azure REST API version: 2024-02-01.
+ *
+ * Uses Azure REST API version 2024-02-01.
  *
  * Other available API versions: 2024-04-01, 2024-10-01.
  */
@@ -70,7 +71,8 @@ export interface GetReplicationProtectionClusterResult {
 }
 /**
  * Gets the details of an ASR replication protection cluster.
- * Azure REST API version: 2024-02-01.
+ *
+ * Uses Azure REST API version 2024-02-01.
  *
  * Other available API versions: 2024-04-01, 2024-10-01.
  */

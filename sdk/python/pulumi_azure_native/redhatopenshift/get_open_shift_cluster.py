@@ -223,7 +223,8 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftClusterResult:
     """
     The operation returns properties of a OpenShift cluster.
-    Azure REST API version: 2022-09-04.
+
+    Uses Azure REST API version 2022-09-04.
 
     Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 
@@ -258,7 +259,8 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
     """
     The operation returns properties of a OpenShift cluster.
-    Azure REST API version: 2022-09-04.
+
+    Uses Azure REST API version 2022-09-04.
 
     Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 

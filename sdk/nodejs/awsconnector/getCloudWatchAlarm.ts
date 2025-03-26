@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CloudWatchAlarm
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getCloudWatchAlarm(args: GetCloudWatchAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudWatchAlarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetCloudWatchAlarmResult {
 }
 /**
  * Get a CloudWatchAlarm
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudWatchAlarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

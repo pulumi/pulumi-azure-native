@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the security user configuration
- * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2022-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
  *
  * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
  */

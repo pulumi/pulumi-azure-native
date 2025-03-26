@@ -220,7 +220,8 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
                  __props__=None):
         """
         Database Migration Resource for Mongo to CosmosDb.
-        Azure REST API version: 2023-07-15-preview.
+
+        Uses Azure REST API version 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +246,8 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Database Migration Resource for Mongo to CosmosDb.
-        Azure REST API version: 2023-07-15-preview.
+
+        Uses Azure REST API version 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsMongoToCosmosDbRUMongoArgs args: The arguments to use to populate this resource's properties.

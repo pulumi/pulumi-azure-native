@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get a role assignment by scope and name.
-        /// Azure REST API version: 2022-04-01.
+        /// 
+        /// Uses Azure REST API version 2022-04-01.
         /// 
         /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// Get a role assignment by scope and name.
-        /// Azure REST API version: 2022-04-01.
+        /// 
+        /// Uses Azure REST API version 2022-04-01.
         /// 
         /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// Get a role assignment by scope and name.
-        /// Azure REST API version: 2022-04-01.
+        /// 
+        /// Uses Azure REST API version 2022-04-01.
         /// 
         /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>

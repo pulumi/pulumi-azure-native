@@ -235,7 +235,8 @@ class ServiceConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         The service configuration details associated with the target resource.
-        Azure REST API version: 2023-03-15.
+
+        Uses Azure REST API version 2023-03-15.
 
         Other available API versions: 2024-12-01.
 
@@ -262,7 +263,8 @@ class ServiceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The service configuration details associated with the target resource.
-        Azure REST API version: 2023-03-15.
+
+        Uses Azure REST API version 2023-03-15.
 
         Other available API versions: 2024-12-01.
 

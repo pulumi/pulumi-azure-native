@@ -178,7 +178,8 @@ def get_io_t_addon(addon_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTAddonResult:
     """
     Gets a specific addon by name.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
 
     :param str addon_name: The addon name.
@@ -213,7 +214,8 @@ def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoTAddonResult]:
     """
     Gets a specific addon by name.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
 
     :param str addon_name: The addon name.

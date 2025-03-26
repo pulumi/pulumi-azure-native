@@ -127,7 +127,8 @@ def get_ec2_snapshot(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2SnapshotResult:
     """
     Get a Ec2Snapshot
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2Snapshot
@@ -152,7 +153,8 @@ def get_ec2_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2SnapshotResult]:
     """
     Get a Ec2Snapshot
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2Snapshot

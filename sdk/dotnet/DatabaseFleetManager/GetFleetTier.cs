@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
     {
         /// <summary>
         /// Gets a tier resource.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Task<GetFleetTierResult> InvokeAsync(GetFleetTierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetTierResult>("azure-native:databasefleetmanager:getFleetTier", args ?? new GetFleetTierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a tier resource.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Output<GetFleetTierResult> Invoke(GetFleetTierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetTierResult>("azure-native:databasefleetmanager:getFleetTier", args ?? new GetFleetTierInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a tier resource.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Output<GetFleetTierResult> Invoke(GetFleetTierInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetTierResult>("azure-native:databasefleetmanager:getFleetTier", args ?? new GetFleetTierInvokeArgs(), options.WithDefaults());

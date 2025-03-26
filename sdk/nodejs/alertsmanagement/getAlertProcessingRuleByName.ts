@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get an alert processing rule by name.
- * Azure REST API version: 2021-08-08.
+ *
+ * Uses Azure REST API version 2021-08-08.
  */
 export function getAlertProcessingRuleByName(args: GetAlertProcessingRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertProcessingRuleByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetAlertProcessingRuleByNameResult {
 }
 /**
  * Get an alert processing rule by name.
- * Azure REST API version: 2021-08-08.
+ *
+ * Uses Azure REST API version 2021-08-08.
  */
 export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

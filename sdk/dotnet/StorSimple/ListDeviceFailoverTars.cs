@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorSimple
     {
         /// <summary>
         /// Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Task<ListDeviceFailoverTarsResult> InvokeAsync(ListDeviceFailoverTarsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-native:storsimple:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<ListDeviceFailoverTarsResult> Invoke(ListDeviceFailoverTarsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverTarsResult>("azure-native:storsimple:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<ListDeviceFailoverTarsResult> Invoke(ListDeviceFailoverTarsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverTarsResult>("azure-native:storsimple:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsInvokeArgs(), options.WithDefaults());

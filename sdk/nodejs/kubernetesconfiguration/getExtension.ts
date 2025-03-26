@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets Kubernetes Cluster Extension.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
  */
@@ -138,7 +139,8 @@ export interface GetExtensionResult {
 }
 /**
  * Gets Kubernetes Cluster Extension.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
  */

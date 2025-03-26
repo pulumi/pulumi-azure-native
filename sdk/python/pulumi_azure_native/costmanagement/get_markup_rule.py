@@ -152,7 +152,8 @@ def get_markup_rule(billing_account_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMarkupRuleResult:
     """
     Get a markup rule by its rule name.
-    Azure REST API version: 2022-10-05-preview.
+
+    Uses Azure REST API version 2022-10-05-preview.
 
 
     :param str billing_account_id: BillingAccount ID
@@ -182,7 +183,8 @@ def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = Non
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarkupRuleResult]:
     """
     Get a markup rule by its rule name.
-    Azure REST API version: 2022-10-05-preview.
+
+    Uses Azure REST API version 2022-10-05-preview.
 
 
     :param str billing_account_id: BillingAccount ID

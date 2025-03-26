@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Customer subscription.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+ *
+ * Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
  *
  * Other available API versions: 2020-06-01-preview.
  */

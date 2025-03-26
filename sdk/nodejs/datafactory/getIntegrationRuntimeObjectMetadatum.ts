@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,7 +56,8 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
 }
 /**
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  */
 export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

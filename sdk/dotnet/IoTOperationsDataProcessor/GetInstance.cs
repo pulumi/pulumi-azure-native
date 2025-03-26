@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
     {
         /// <summary>
         /// Get a Instance
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:iotoperationsdataprocessor:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Instance
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperationsdataprocessor:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Instance
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperationsdataprocessor:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());

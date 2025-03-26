@@ -132,7 +132,8 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace active directory administrator
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2021-06-01-preview.
 
@@ -155,7 +156,8 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2021-06-01-preview.
 

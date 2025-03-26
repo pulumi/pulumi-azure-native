@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a EmrCluster
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEmrCluster(args: GetEmrClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetEmrClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEmrClusterResult {
 }
 /**
  * Get a EmrCluster
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEmrClusterOutput(args: GetEmrClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmrClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

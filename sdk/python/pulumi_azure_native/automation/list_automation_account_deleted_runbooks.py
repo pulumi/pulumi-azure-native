@@ -67,7 +67,8 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[s
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAutomationAccountDeletedRunbooksResult:
     """
     Retrieve the deleted runbooks for an automation account.
-    Azure REST API version: 2023-05-15-preview.
+
+    Uses Azure REST API version 2023-05-15-preview.
 
     Other available API versions: 2024-10-23.
 
@@ -89,7 +90,8 @@ def list_automation_account_deleted_runbooks_output(automation_account_name: Opt
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAutomationAccountDeletedRunbooksResult]:
     """
     Retrieve the deleted runbooks for an automation account.
-    Azure REST API version: 2023-05-15-preview.
+
+    Uses Azure REST API version 2023-05-15-preview.
 
     Other available API versions: 2024-10-23.
 

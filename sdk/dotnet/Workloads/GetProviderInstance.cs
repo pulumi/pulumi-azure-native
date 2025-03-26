@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Workloads
 
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Workloads
 
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
         /// </summary>

@@ -81,7 +81,8 @@ def get_application_business_process_development_artifact(application_name: Opti
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationBusinessProcessDevelopmentArtifactResult:
     """
     The get business process development artifact action.
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str application_name: The name of the Application
@@ -108,7 +109,8 @@ def get_application_business_process_development_artifact_output(application_nam
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationBusinessProcessDevelopmentArtifactResult]:
     """
     The get business process development artifact action.
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str application_name: The name of the Application

@@ -283,7 +283,8 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoMAMPolicyByNameResult:
     """
     Returns Intune iOS policies.
-    Azure REST API version: 2015-01-14-preview.
+
+    Uses Azure REST API version 2015-01-14-preview.
 
     Other available API versions: 2015-01-14-privatepreview.
 
@@ -331,7 +332,8 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
     """
     Returns Intune iOS policies.
-    Azure REST API version: 2015-01-14-preview.
+
+    Uses Azure REST API version 2015-01-14-preview.
 
     Other available API versions: 2015-01-14-privatepreview.
 

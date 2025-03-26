@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Lists connection keys.
-        /// Azure REST API version: 2015-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2015-08-01-preview.
         /// </summary>
         public static Task<ListConnectionKeysResult> InvokeAsync(ListConnectionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists connection keys.
-        /// Azure REST API version: 2015-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2015-08-01-preview.
         /// </summary>
         public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists connection keys.
-        /// Azure REST API version: 2015-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2015-08-01-preview.
         /// </summary>
         public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());

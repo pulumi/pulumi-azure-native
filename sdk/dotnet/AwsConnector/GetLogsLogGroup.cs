@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a LogsLogGroup
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetLogsLogGroupResult> InvokeAsync(GetLogsLogGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsLogGroupResult>("azure-native:awsconnector:getLogsLogGroup", args ?? new GetLogsLogGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LogsLogGroup
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLogsLogGroupResult> Invoke(GetLogsLogGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsLogGroupResult>("azure-native:awsconnector:getLogsLogGroup", args ?? new GetLogsLogGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LogsLogGroup
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLogsLogGroupResult> Invoke(GetLogsLogGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsLogGroupResult>("azure-native:awsconnector:getLogsLogGroup", args ?? new GetLogsLogGroupInvokeArgs(), options.WithDefaults());

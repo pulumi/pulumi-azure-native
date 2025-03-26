@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
- * Azure REST API version: 2024-01-01.
+ *
+ * Uses Azure REST API version 2024-01-01.
  */
 export function getPricing(args: GetPricingArgs, opts?: pulumi.InvokeOptions): Promise<GetPricingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +94,8 @@ export interface GetPricingResult {
 }
 /**
  * Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
- * Azure REST API version: 2024-01-01.
+ *
+ * Uses Azure REST API version 2024-01-01.
  */
 export function getPricingOutput(args: GetPricingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPricingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

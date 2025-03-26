@@ -178,7 +178,8 @@ def get_environment(expand: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Get environment.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
@@ -216,7 +217,8 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Get environment.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'

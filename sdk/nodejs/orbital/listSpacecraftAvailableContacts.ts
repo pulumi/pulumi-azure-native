@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
- * Azure REST API version: 2022-11-01.
+ *
+ * Uses Azure REST API version 2022-11-01.
  *
  * Other available API versions: 2022-03-01.
  */
@@ -67,7 +68,8 @@ export interface ListSpacecraftAvailableContactsResult {
 }
 /**
  * Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
- * Azure REST API version: 2022-11-01.
+ *
+ * Uses Azure REST API version 2022-11-01.
  *
  * Other available API versions: 2022-03-01.
  */

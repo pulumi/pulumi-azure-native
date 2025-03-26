@@ -104,7 +104,8 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     Gets the maintenance configuration of a ManagedEnvironment .
-    Azure REST API version: 2024-10-02-preview.
+
+    Uses Azure REST API version 2024-10-02-preview.
 
 
     :param str config_name: The name of the maintenance configuration.
@@ -130,7 +131,8 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     Gets the maintenance configuration of a ManagedEnvironment .
-    Azure REST API version: 2024-10-02-preview.
+
+    Uses Azure REST API version 2024-10-02-preview.
 
 
     :param str config_name: The name of the maintenance configuration.

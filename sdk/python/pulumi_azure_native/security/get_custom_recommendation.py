@@ -187,7 +187,8 @@ def get_custom_recommendation(custom_recommendation_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomRecommendationResult:
     """
     Get a specific custom recommendation for the requested scope by customRecommendationName
-    Azure REST API version: 2024-08-01.
+
+    Uses Azure REST API version 2024-08-01.
 
 
     :param str custom_recommendation_name: Name of the Custom Recommendation.
@@ -217,7 +218,8 @@ def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRecommendationResult]:
     """
     Get a specific custom recommendation for the requested scope by customRecommendationName
-    Azure REST API version: 2024-08-01.
+
+    Uses Azure REST API version 2024-08-01.
 
 
     :param str custom_recommendation_name: Name of the Custom Recommendation.

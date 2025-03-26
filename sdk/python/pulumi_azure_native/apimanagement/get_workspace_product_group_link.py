@@ -93,7 +93,8 @@ def get_workspace_product_group_link(group_link_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceProductGroupLinkResult:
     """
     Gets the group link for the product.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
@@ -126,7 +127,8 @@ def get_workspace_product_group_link_output(group_link_id: Optional[pulumi.Input
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceProductGroupLinkResult]:
     """
     Gets the group link for the product.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 

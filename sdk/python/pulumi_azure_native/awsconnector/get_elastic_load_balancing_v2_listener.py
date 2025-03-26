@@ -127,7 +127,8 @@ def get_elastic_load_balancing_v2_listener(name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticLoadBalancingV2ListenerResult:
     """
     Get a ElasticLoadBalancingV2Listener
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticLoadBalancingV2Listener
@@ -152,7 +153,8 @@ def get_elastic_load_balancing_v2_listener_output(name: Optional[pulumi.Input[st
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticLoadBalancingV2ListenerResult]:
     """
     Get a ElasticLoadBalancingV2Listener
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticLoadBalancingV2Listener

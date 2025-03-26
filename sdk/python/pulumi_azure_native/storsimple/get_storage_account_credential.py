@@ -140,7 +140,8 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
     Gets the properties of the specified storage account credential name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str manager_name: The manager name
@@ -169,7 +170,8 @@ def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
     Gets the properties of the specified storage account credential name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str manager_name: The manager name

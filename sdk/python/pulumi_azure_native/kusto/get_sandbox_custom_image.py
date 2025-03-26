@@ -127,7 +127,8 @@ def get_sandbox_custom_image(cluster_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSandboxCustomImageResult:
     """
     Returns a sandbox custom image
-    Azure REST API version: 2023-08-15.
+
+    Uses Azure REST API version 2023-08-15.
 
     Other available API versions: 2024-04-13.
 
@@ -157,7 +158,8 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
     """
     Returns a sandbox custom image
-    Azure REST API version: 2023-08-15.
+
+    Uses Azure REST API version 2023-08-15.
 
     Other available API versions: 2024-04-13.
 

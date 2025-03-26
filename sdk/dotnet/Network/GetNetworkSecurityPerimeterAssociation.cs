@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP association by name.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterAssociationResult> InvokeAsync(GetNetworkSecurityPerimeterAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterAssociationResult>("azure-native:network:getNetworkSecurityPerimeterAssociation", args ?? new GetNetworkSecurityPerimeterAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP association by name.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterAssociationResult> Invoke(GetNetworkSecurityPerimeterAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterAssociationResult>("azure-native:network:getNetworkSecurityPerimeterAssociation", args ?? new GetNetworkSecurityPerimeterAssociationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP association by name.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterAssociationResult> Invoke(GetNetworkSecurityPerimeterAssociationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterAssociationResult>("azure-native:network:getNetworkSecurityPerimeterAssociation", args ?? new GetNetworkSecurityPerimeterAssociationInvokeArgs(), options.WithDefaults());

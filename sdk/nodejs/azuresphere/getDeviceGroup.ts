@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
- * Azure REST API version: 2022-09-01-preview.
+ *
+ * Uses Azure REST API version 2022-09-01-preview.
  *
  * Other available API versions: 2024-04-01.
  */
@@ -93,7 +94,8 @@ export interface GetDeviceGroupResult {
 }
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
- * Azure REST API version: 2022-09-01-preview.
+ *
+ * Uses Azure REST API version 2022-09-01-preview.
  *
  * Other available API versions: 2024-04-01.
  */

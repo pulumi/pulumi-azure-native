@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An associated tenant.
- * Azure REST API version: 2024-04-01.
+ *
+ * Uses Azure REST API version 2024-04-01.
  */
 export class AssociatedTenant extends pulumi.CustomResource {
     /**

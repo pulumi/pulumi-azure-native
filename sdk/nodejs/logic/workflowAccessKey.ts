@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2015-02-01-preview. Prior API version in Azure Native 1.x: 2015-02-01-preview.
+ * Uses Azure REST API version 2015-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2015-02-01-preview.
  */
 export class WorkflowAccessKey extends pulumi.CustomResource {
     /**

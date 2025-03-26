@@ -153,7 +153,8 @@ def get_azure_large_storage_instance(azure_large_storage_instance_name: Optional
     """
     Gets an Azure Large Storage instance for the specified subscription, resource
     group, and instance name.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
@@ -181,7 +182,8 @@ def get_azure_large_storage_instance_output(azure_large_storage_instance_name: O
     """
     Gets an Azure Large Storage instance for the specified subscription, resource
     group, and instance name.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.

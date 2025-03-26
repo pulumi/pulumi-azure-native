@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a IamAccessKeyLastUsed
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetIamAccessKeyLastUsedResult> InvokeAsync(GetIamAccessKeyLastUsedArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamAccessKeyLastUsed
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamAccessKeyLastUsedResult> Invoke(GetIamAccessKeyLastUsedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamAccessKeyLastUsed
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamAccessKeyLastUsedResult> Invoke(GetIamAccessKeyLastUsedInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedInvokeArgs(), options.WithDefaults());

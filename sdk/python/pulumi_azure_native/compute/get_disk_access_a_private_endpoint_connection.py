@@ -116,7 +116,8 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[str
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessAPrivateEndpointConnectionResult:
     """
     Gets information about a private endpoint connection under a disk access resource.
-    Azure REST API version: 2022-07-02.
+
+    Uses Azure REST API version 2022-07-02.
 
     Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 
@@ -145,7 +146,8 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskAccessAPrivateEndpointConnectionResult]:
     """
     Gets information about a private endpoint connection under a disk access resource.
-    Azure REST API version: 2022-07-02.
+
+    Uses Azure REST API version 2022-07-02.
 
     Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 

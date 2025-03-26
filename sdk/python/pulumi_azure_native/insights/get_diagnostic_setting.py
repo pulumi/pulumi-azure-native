@@ -199,7 +199,8 @@ def get_diagnostic_setting(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
     Gets the active diagnostic settings for the specified resource.
-    Azure REST API version: 2021-05-01-preview.
+
+    Uses Azure REST API version 2021-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.
@@ -230,7 +231,8 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
     """
     Gets the active diagnostic settings for the specified resource.
-    Azure REST API version: 2021-05-01-preview.
+
+    Uses Azure REST API version 2021-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.

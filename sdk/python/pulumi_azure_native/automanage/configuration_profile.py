@@ -118,7 +118,8 @@ class ConfigurationProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the configuration profile.
-        Azure REST API version: 2022-05-04.
+
+        Uses Azure REST API version 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +137,8 @@ class ConfigurationProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the configuration profile.
-        Azure REST API version: 2022-05-04.
+
+        Uses Azure REST API version 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

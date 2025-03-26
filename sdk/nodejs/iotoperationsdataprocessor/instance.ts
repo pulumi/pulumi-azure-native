@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A Instance resource is a logical container for a set of child resources.
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export class Instance extends pulumi.CustomResource {
     /**

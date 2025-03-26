@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DeviceRegistry
     {
         /// <summary>
         /// Get a Schema
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Task<GetSchemaResult> InvokeAsync(GetSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaResult>("azure-native:deviceregistry:getSchema", args ?? new GetSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Schema
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("azure-native:deviceregistry:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Schema
-        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("azure-native:deviceregistry:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());

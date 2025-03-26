@@ -55,7 +55,8 @@ def get_manager_device_public_encryption_key(device_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerDevicePublicEncryptionKeyResult:
     """
     Returns the public encryption key of the device.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str device_name: The device name
@@ -77,7 +78,8 @@ def get_manager_device_public_encryption_key_output(device_name: Optional[pulumi
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagerDevicePublicEncryptionKeyResult]:
     """
     Returns the public encryption key of the device.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str device_name: The device name

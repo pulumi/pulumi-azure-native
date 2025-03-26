@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Lists the keys for a Media Service.
-        /// Azure REST API version: 2015-10-01.
+        /// 
+        /// Uses Azure REST API version 2015-10-01.
         /// </summary>
         public static Task<ListMediaServiceKeysResult> InvokeAsync(ListMediaServiceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azure-native:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the keys for a Media Service.
-        /// Azure REST API version: 2015-10-01.
+        /// 
+        /// Uses Azure REST API version 2015-10-01.
         /// </summary>
         public static Output<ListMediaServiceKeysResult> Invoke(ListMediaServiceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMediaServiceKeysResult>("azure-native:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the keys for a Media Service.
-        /// Azure REST API version: 2015-10-01.
+        /// 
+        /// Uses Azure REST API version 2015-10-01.
         /// </summary>
         public static Output<ListMediaServiceKeysResult> Invoke(ListMediaServiceKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMediaServiceKeysResult>("azure-native:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysInvokeArgs(), options.WithDefaults());

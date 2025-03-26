@@ -104,7 +104,8 @@ def get_dev_ops_policy_assignment(policy_assignment_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevOpsPolicyAssignmentResult:
     """
     DevOps Policy assignment resource.
-    Azure REST API version: 2024-05-15-preview.
+
+    Uses Azure REST API version 2024-05-15-preview.
 
 
     :param str policy_assignment_id: The policy assignment Id.
@@ -130,7 +131,8 @@ def get_dev_ops_policy_assignment_output(policy_assignment_id: Optional[pulumi.I
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevOpsPolicyAssignmentResult]:
     """
     DevOps Policy assignment resource.
-    Azure REST API version: 2024-05-15-preview.
+
+    Uses Azure REST API version 2024-05-15-preview.
 
 
     :param str policy_assignment_id: The policy assignment Id.

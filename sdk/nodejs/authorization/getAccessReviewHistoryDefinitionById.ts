@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get access review history definition by definition Id
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getAccessReviewHistoryDefinitionById(args: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,7 +109,8 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
 }
 /**
  * Get access review history definition by definition Id
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

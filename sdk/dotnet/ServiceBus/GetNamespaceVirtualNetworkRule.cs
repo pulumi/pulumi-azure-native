@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Gets an VirtualNetworkRule for a Namespace by rule name.
-        /// Azure REST API version: 2018-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-01-01-preview.
         /// </summary>
         public static Task<GetNamespaceVirtualNetworkRuleResult> InvokeAsync(GetNamespaceVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an VirtualNetworkRule for a Namespace by rule name.
-        /// Azure REST API version: 2018-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-01-01-preview.
         /// </summary>
         public static Output<GetNamespaceVirtualNetworkRuleResult> Invoke(GetNamespaceVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an VirtualNetworkRule for a Namespace by rule name.
-        /// Azure REST API version: 2018-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-01-01-preview.
         /// </summary>
         public static Output<GetNamespaceVirtualNetworkRuleResult> Invoke(GetNamespaceVirtualNetworkRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithDefaults());

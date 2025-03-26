@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// A virtual network.
-    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+    /// 
+    /// Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

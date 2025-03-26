@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a EfsFileSystem
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEfsFileSystemResult> InvokeAsync(GetEfsFileSystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEfsFileSystemResult>("azure-native:awsconnector:getEfsFileSystem", args ?? new GetEfsFileSystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EfsFileSystem
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEfsFileSystemResult> Invoke(GetEfsFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEfsFileSystemResult>("azure-native:awsconnector:getEfsFileSystem", args ?? new GetEfsFileSystemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EfsFileSystem
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEfsFileSystemResult> Invoke(GetEfsFileSystemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEfsFileSystemResult>("azure-native:awsconnector:getEfsFileSystem", args ?? new GetEfsFileSystemInvokeArgs(), options.WithDefaults());

@@ -116,7 +116,8 @@ def get_creator(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCreatorResult:
     """
     Get a Maps Creator resource.
-    Azure REST API version: 2021-02-01.
+
+    Uses Azure REST API version 2021-02-01.
 
     Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
 
@@ -145,7 +146,8 @@ def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCreatorResult]:
     """
     Get a Maps Creator resource.
-    Azure REST API version: 2021-02-01.
+
+    Uses Azure REST API version 2021-02-01.
 
     Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
 

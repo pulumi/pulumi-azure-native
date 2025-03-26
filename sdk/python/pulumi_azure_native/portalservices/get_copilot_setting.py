@@ -113,7 +113,8 @@ class AwaitableGetCopilotSettingResult(GetCopilotSettingResult):
 def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCopilotSettingResult:
     """
     Get a CopilotSettingsResource
-    Azure REST API version: 2024-04-01-preview.
+
+    Uses Azure REST API version 2024-04-01-preview.
 
     Other available API versions: 2024-04-01.
     """
@@ -131,7 +132,8 @@ def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
 def get_copilot_setting_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCopilotSettingResult]:
     """
     Get a CopilotSettingsResource
-    Azure REST API version: 2024-04-01-preview.
+
+    Uses Azure REST API version 2024-04-01-preview.
 
     Other available API versions: 2024-04-01.
     """

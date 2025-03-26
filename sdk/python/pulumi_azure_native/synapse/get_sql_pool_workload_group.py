@@ -152,7 +152,8 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolWorkloadGroupResult:
     """
     Get a Sql pool's workload group.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -187,7 +188,8 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
     """
     Get a Sql pool's workload group.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

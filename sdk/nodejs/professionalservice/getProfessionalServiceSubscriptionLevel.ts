@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified Subscription Level ProfessionalService.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getProfessionalServiceSubscriptionLevel(args: GetProfessionalServiceSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetProfessionalServiceSubscriptionLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetProfessionalServiceSubscriptionLevelResult {
 }
 /**
  * Gets information about the specified Subscription Level ProfessionalService.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getProfessionalServiceSubscriptionLevelOutput(args: GetProfessionalServiceSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfessionalServiceSubscriptionLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

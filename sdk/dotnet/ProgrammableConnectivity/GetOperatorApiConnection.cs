@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
     {
         /// <summary>
         /// Get an Operator API Connection.
-        /// Azure REST API version: 2024-01-15-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-15-preview.
         /// </summary>
         public static Task<GetOperatorApiConnectionResult> InvokeAsync(GetOperatorApiConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity:getOperatorApiConnection", args ?? new GetOperatorApiConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an Operator API Connection.
-        /// Azure REST API version: 2024-01-15-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-15-preview.
         /// </summary>
         public static Output<GetOperatorApiConnectionResult> Invoke(GetOperatorApiConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity:getOperatorApiConnection", args ?? new GetOperatorApiConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an Operator API Connection.
-        /// Azure REST API version: 2024-01-15-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-15-preview.
         /// </summary>
         public static Output<GetOperatorApiConnectionResult> Invoke(GetOperatorApiConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity:getOperatorApiConnection", args ?? new GetOperatorApiConnectionInvokeArgs(), options.WithDefaults());

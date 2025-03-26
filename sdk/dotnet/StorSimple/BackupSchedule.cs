@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The backup schedule.
-    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+    /// 
+    /// Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:BackupSchedule")]
     public partial class BackupSchedule : global::Pulumi.CustomResource

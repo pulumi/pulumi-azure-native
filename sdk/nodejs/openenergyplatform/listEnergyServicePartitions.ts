@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Method that gets called when list of partitions is requested.
- * Azure REST API version: 2022-04-04-preview.
+ *
+ * Uses Azure REST API version 2022-04-04-preview.
  */
 export function listEnergyServicePartitions(args: ListEnergyServicePartitionsArgs, opts?: pulumi.InvokeOptions): Promise<ListEnergyServicePartitionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +42,8 @@ export interface ListEnergyServicePartitionsResult {
 }
 /**
  * Method that gets called when list of partitions is requested.
- * Azure REST API version: 2022-04-04-preview.
+ *
+ * Uses Azure REST API version 2022-04-04-preview.
  */
 export function listEnergyServicePartitionsOutput(args: ListEnergyServicePartitionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEnergyServicePartitionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

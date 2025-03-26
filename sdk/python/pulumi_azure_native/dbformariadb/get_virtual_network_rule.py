@@ -115,7 +115,8 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
     Gets a virtual network rule.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
     Other available API versions: 2018-06-01-preview.
 
@@ -144,7 +145,8 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets a virtual network rule.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
     Other available API versions: 2018-06-01-preview.
 

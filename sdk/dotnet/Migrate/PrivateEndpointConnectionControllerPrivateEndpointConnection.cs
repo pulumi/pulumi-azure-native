@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
-    /// Azure REST API version: 2020-05-01.
+    /// 
+    /// Uses Azure REST API version 2020-05-01.
     /// 
     /// Other available API versions: 2023-01-01.
     /// </summary>

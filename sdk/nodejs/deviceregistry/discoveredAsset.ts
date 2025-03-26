@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Discovered Asset definition.
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export class DiscoveredAsset extends pulumi.CustomResource {
     /**

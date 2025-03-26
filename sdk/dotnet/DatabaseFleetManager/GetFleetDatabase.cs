@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
     {
         /// <summary>
         /// Gets a fleet database.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Task<GetFleetDatabaseResult> InvokeAsync(GetFleetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetDatabaseResult>("azure-native:databasefleetmanager:getFleetDatabase", args ?? new GetFleetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a fleet database.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Output<GetFleetDatabaseResult> Invoke(GetFleetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetDatabaseResult>("azure-native:databasefleetmanager:getFleetDatabase", args ?? new GetFleetDatabaseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a fleet database.
-        /// Azure REST API version: 2025-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// </summary>
         public static Output<GetFleetDatabaseResult> Invoke(GetFleetDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetDatabaseResult>("azure-native:databasefleetmanager:getFleetDatabase", args ?? new GetFleetDatabaseInvokeArgs(), options.WithDefaults());

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Lists active security admin rules in a network manager.
-        /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-01-preview.
         /// </summary>
         public static Task<ListActiveSecurityAdminRuleResult> InvokeAsync(ListActiveSecurityAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists active security admin rules in a network manager.
-        /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-01-preview.
         /// </summary>
         public static Output<ListActiveSecurityAdminRuleResult> Invoke(ListActiveSecurityAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists active security admin rules in a network manager.
-        /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-01-preview.
         /// </summary>
         public static Output<ListActiveSecurityAdminRuleResult> Invoke(ListActiveSecurityAdminRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRuleResult>("azure-native:network:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());

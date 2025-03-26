@@ -127,7 +127,8 @@ def get_server_communication_link(communication_link_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCommunicationLinkResult:
     """
     Returns a server communication link.
-    Azure REST API version: 2014-04-01.
+
+    Uses Azure REST API version 2014-04-01.
 
 
     :param str communication_link_name: The name of the server communication link.
@@ -155,7 +156,8 @@ def get_server_communication_link_output(communication_link_name: Optional[pulum
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCommunicationLinkResult]:
     """
     Returns a server communication link.
-    Azure REST API version: 2014-04-01.
+
+    Uses Azure REST API version 2014-04-01.
 
 
     :param str communication_link_name: The name of the server communication link.

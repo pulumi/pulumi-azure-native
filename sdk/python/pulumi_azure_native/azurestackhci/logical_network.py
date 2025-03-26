@@ -170,7 +170,8 @@ class LogicalNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         The logical network resource definition.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
 
@@ -193,7 +194,8 @@ class LogicalNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The logical network resource definition.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
 

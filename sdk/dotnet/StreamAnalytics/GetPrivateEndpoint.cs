@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Uses Azure REST API version 2020-03-01.
         /// 
         /// Other available API versions: 2020-03-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Uses Azure REST API version 2020-03-01.
         /// 
         /// Other available API versions: 2020-03-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Uses Azure REST API version 2020-03-01.
         /// 
         /// Other available API versions: 2020-03-01-preview.
         /// </summary>

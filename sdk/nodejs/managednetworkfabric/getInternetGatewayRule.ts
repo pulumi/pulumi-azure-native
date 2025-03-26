@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Internet Gateway Rule resource.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export function getInternetGatewayRule(args: GetInternetGatewayRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +78,8 @@ export interface GetInternetGatewayRuleResult {
 }
 /**
  * Gets an Internet Gateway Rule resource.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export function getInternetGatewayRuleOutput(args: GetInternetGatewayRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternetGatewayRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

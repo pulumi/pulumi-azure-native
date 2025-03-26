@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
- * Azure REST API version: 2016-05-01-preview.
+ *
+ * Uses Azure REST API version 2016-05-01-preview.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +70,8 @@ export interface GetCommitmentPlanResult {
 }
 /**
  * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
- * Azure REST API version: 2016-05-01-preview.
+ *
+ * Uses Azure REST API version 2016-05-01-preview.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommitmentPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

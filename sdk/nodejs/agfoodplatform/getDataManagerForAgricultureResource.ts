@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get DataManagerForAgriculture resource.
- * Azure REST API version: 2023-06-01-preview.
+ *
+ * Uses Azure REST API version 2023-06-01-preview.
  */
 export function getDataManagerForAgricultureResource(args: GetDataManagerForAgricultureResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerForAgricultureResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,7 +86,8 @@ export interface GetDataManagerForAgricultureResourceResult {
 }
 /**
  * Get DataManagerForAgriculture resource.
- * Azure REST API version: 2023-06-01-preview.
+ *
+ * Uses Azure REST API version 2023-06-01-preview.
  */
 export function getDataManagerForAgricultureResourceOutput(args: GetDataManagerForAgricultureResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataManagerForAgricultureResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

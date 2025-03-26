@@ -150,7 +150,8 @@ class OrderItem(pulumi.CustomResource):
                  __props__=None):
         """
         Represents order item resource.
-        Azure REST API version: 2022-05-01-preview.
+
+        Uses Azure REST API version 2022-05-01-preview.
 
         Other available API versions: 2024-02-01.
 
@@ -172,7 +173,8 @@ class OrderItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents order item resource.
-        Azure REST API version: 2022-05-01-preview.
+
+        Uses Azure REST API version 2022-05-01-preview.
 
         Other available API versions: 2024-02-01.
 

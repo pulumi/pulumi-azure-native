@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Contoso
 {
     /// <summary>
     /// Employee resource
-    /// Azure REST API version: 2021-10-01-preview.
+    /// 
+    /// Uses Azure REST API version 2021-10-01-preview.
     /// 
     /// Other available API versions: 2021-11-01.
     /// </summary>

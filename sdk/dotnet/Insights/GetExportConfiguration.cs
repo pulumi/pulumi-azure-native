@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get the Continuous Export configuration for this export id.
-        /// Azure REST API version: 2015-05-01.
+        /// 
+        /// Uses Azure REST API version 2015-05-01.
         /// </summary>
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-native:insights:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Continuous Export configuration for this export id.
-        /// Azure REST API version: 2015-05-01.
+        /// 
+        /// Uses Azure REST API version 2015-05-01.
         /// </summary>
         public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Continuous Export configuration for this export id.
-        /// Azure REST API version: 2015-05-01.
+        /// 
+        /// Uses Azure REST API version 2015-05-01.
         /// </summary>
         public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());

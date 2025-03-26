@@ -101,7 +101,8 @@ def get_dra(fabric_agent_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDraResult:
     """
     Gets the details of the fabric agent.
-    Azure REST API version: 2021-02-16-preview.
+
+    Uses Azure REST API version 2021-02-16-preview.
 
 
     :param str fabric_agent_name: The fabric agent (Dra) name.
@@ -127,7 +128,8 @@ def get_dra_output(fabric_agent_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraResult]:
     """
     Gets the details of the fabric agent.
-    Azure REST API version: 2021-02-16-preview.
+
+    Uses Azure REST API version 2021-02-16-preview.
 
 
     :param str fabric_agent_name: The fabric agent (Dra) name.

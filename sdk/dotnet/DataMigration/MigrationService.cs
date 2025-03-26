@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A Migration Service.
-    /// Azure REST API version: 2023-07-15-preview.
+    /// 
+    /// Uses Azure REST API version 2023-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:MigrationService")]
     public partial class MigrationService : global::Pulumi.CustomResource

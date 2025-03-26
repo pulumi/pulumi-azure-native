@@ -107,7 +107,8 @@ def get_inference_group_delta_models_status_async(delta_models: Optional[Sequenc
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceGroupDeltaModelsStatusAsyncResult:
     """
     Contract returning to user the delta models.
-    Azure REST API version: 2024-10-01-preview.
+
+    Uses Azure REST API version 2024-10-01-preview.
 
     Other available API versions: 2025-01-01-preview.
 
@@ -144,7 +145,8 @@ def get_inference_group_delta_models_status_async_output(delta_models: Optional[
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceGroupDeltaModelsStatusAsyncResult]:
     """
     Contract returning to user the delta models.
-    Azure REST API version: 2024-10-01-preview.
+
+    Uses Azure REST API version 2024-10-01-preview.
 
     Other available API versions: 2025-01-01-preview.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a Linked Subscription resource.
- * Azure REST API version: 2020-06-01-preview.
+ *
+ * Uses Azure REST API version 2020-06-01-preview.
  */
 export function getLinkedSubscription(args: GetLinkedSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,7 +98,8 @@ export interface GetLinkedSubscriptionResult {
 }
 /**
  * Returns the properties of a Linked Subscription resource.
- * Azure REST API version: 2020-06-01-preview.
+ *
+ * Uses Azure REST API version 2020-06-01-preview.
  */
 export function getLinkedSubscriptionOutput(args: GetLinkedSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

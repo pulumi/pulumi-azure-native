@@ -127,7 +127,8 @@ def get_iam_policy_version(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIamPolicyVersionResult:
     """
     Get a IamPolicyVersion
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamPolicyVersion
@@ -152,7 +153,8 @@ def get_iam_policy_version_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamPolicyVersionResult]:
     """
     Get a IamPolicyVersion
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamPolicyVersion

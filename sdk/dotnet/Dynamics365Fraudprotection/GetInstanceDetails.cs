@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
     {
         /// <summary>
         /// Gets details about the specified instances.
-        /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-01-preview.
         /// </summary>
         public static Task<GetInstanceDetailsResult> InvokeAsync(GetInstanceDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details about the specified instances.
-        /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-01-preview.
         /// </summary>
         public static Output<GetInstanceDetailsResult> Invoke(GetInstanceDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details about the specified instances.
-        /// Azure REST API version: 2021-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-01-preview.
         /// </summary>
         public static Output<GetInstanceDetailsResult> Invoke(GetInstanceDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithDefaults());

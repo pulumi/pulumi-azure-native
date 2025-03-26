@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Database Fleet tier.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export class FleetTier extends pulumi.CustomResource {
     /**

@@ -248,7 +248,8 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtManagementGroupResult:
     """
     Gets an existing remediation at management group scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 
@@ -288,7 +289,8 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
     """
     Gets an existing remediation at management group scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 

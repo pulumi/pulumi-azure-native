@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ *
+ * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
  *
  * Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
  */

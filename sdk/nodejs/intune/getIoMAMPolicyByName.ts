@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Intune iOS policies.
- * Azure REST API version: 2015-01-14-preview.
+ *
+ * Uses Azure REST API version 2015-01-14-preview.
  *
  * Other available API versions: 2015-01-14-privatepreview.
  */
@@ -81,7 +82,8 @@ export interface GetIoMAMPolicyByNameResult {
 }
 /**
  * Returns Intune iOS policies.
- * Azure REST API version: 2015-01-14-preview.
+ *
+ * Uses Azure REST API version 2015-01-14-preview.
  *
  * Other available API versions: 2015-01-14-privatepreview.
  */

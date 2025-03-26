@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The AutoUpgradeProfile resource.
- * Azure REST API version: 2024-05-02-preview.
+ *
+ * Uses Azure REST API version 2024-05-02-preview.
  */
 export class AutoUpgradeProfile extends pulumi.CustomResource {
     /**

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * MQ broker/authorization resource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export class BrokerAuthorization extends pulumi.CustomResource {
     /**

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns account resource for a given name.
- * Azure REST API version: 2023-04-13.
+ *
+ * Uses Azure REST API version 2023-04-13.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetAccountResult {
 }
 /**
  * Returns account resource for a given name.
- * Azure REST API version: 2023-04-13.
+ *
+ * Uses Azure REST API version 2023-04-13.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

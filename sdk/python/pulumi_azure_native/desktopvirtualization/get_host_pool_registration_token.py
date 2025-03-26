@@ -78,7 +78,8 @@ def get_host_pool_registration_token(host_pool_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostPoolRegistrationTokenResult:
     """
     Registration token of the host pool.
-    Azure REST API version: 2022-09-09.
+
+    Uses Azure REST API version 2022-09-09.
 
     Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
 
@@ -101,7 +102,8 @@ def get_host_pool_registration_token_output(host_pool_name: Optional[pulumi.Inpu
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostPoolRegistrationTokenResult]:
     """
     Registration token of the host pool.
-    Azure REST API version: 2022-09-09.
+
+    Uses Azure REST API version 2022-09-09.
 
     Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
 

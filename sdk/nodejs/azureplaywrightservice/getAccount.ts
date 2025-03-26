@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Account
- * Azure REST API version: 2023-10-01-preview.
+ *
+ * Uses Azure REST API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
  */
@@ -83,7 +84,8 @@ export interface GetAccountResult {
 }
 /**
  * Get a Account
- * Azure REST API version: 2023-10-01-preview.
+ *
+ * Uses Azure REST API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
  */

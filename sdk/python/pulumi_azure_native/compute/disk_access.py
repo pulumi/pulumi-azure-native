@@ -119,7 +119,8 @@ class DiskAccess(pulumi.CustomResource):
                  __props__=None):
         """
         disk access resource.
-        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Uses Azure REST API version 2022-07-02. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
 
         Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 
@@ -139,7 +140,8 @@ class DiskAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         disk access resource.
-        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Uses Azure REST API version 2022-07-02. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
 
         Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 

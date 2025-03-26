@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * An API collection as represented by Defender for APIs.
- * Azure REST API version: 2022-11-20-preview.
+ *
+ * Uses Azure REST API version 2022-11-20-preview.
  */
 export class APICollection extends pulumi.CustomResource {
     /**

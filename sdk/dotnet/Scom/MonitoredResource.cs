@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Scom
 {
     /// <summary>
     /// A monitored resource.
-    /// Azure REST API version: 2023-07-07-preview.
+    /// 
+    /// Uses Azure REST API version 2023-07-07-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scom:MonitoredResource")]
     public partial class MonitoredResource : global::Pulumi.CustomResource

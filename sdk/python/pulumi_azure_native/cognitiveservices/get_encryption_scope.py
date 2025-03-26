@@ -128,7 +128,8 @@ def get_encryption_scope(account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptionScopeResult:
     """
     Gets the specified EncryptionScope associated with the Cognitive Services account.
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 
@@ -158,7 +159,8 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionScopeResult]:
     """
     Gets the specified EncryptionScope associated with the Cognitive Services account.
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 

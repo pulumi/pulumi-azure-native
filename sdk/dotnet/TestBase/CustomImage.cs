@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// The test base custom image resource.
-    /// Azure REST API version: 2023-11-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomImage")]
     public partial class CustomImage : global::Pulumi.CustomResource

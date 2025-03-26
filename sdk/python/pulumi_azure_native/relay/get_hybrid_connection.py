@@ -164,7 +164,8 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionResult:
     """
     Returns the description for the specified hybrid connection.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2024-01-01.
 
@@ -197,7 +198,8 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridConnectionResult]:
     """
     Returns the description for the specified hybrid connection.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2024-01-01.
 

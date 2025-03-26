@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a cloud connector definition
- * Azure REST API version: 2019-03-01-preview.
+ *
+ * Uses Azure REST API version 2019-03-01-preview.
  */
 export function getCloudConnector(args: GetCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -109,7 +110,8 @@ export interface GetCloudConnectorResult {
 }
 /**
  * Get a cloud connector definition
- * Azure REST API version: 2019-03-01-preview.
+ *
+ * Uses Azure REST API version 2019-03-01-preview.
  */
 export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

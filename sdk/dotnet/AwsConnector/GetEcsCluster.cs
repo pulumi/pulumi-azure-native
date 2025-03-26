@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a EcsCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEcsClusterResult> InvokeAsync(GetEcsClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEcsClusterResult>("azure-native:awsconnector:getEcsCluster", args ?? new GetEcsClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcsCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcsClusterResult> Invoke(GetEcsClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsClusterResult>("azure-native:awsconnector:getEcsCluster", args ?? new GetEcsClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcsCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcsClusterResult> Invoke(GetEcsClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsClusterResult>("azure-native:awsconnector:getEcsCluster", args ?? new GetEcsClusterInvokeArgs(), options.WithDefaults());

@@ -152,7 +152,8 @@ class Builder(pulumi.CustomResource):
                  __props__=None):
         """
         Information about the SourceToCloud builder resource.
-        Azure REST API version: 2023-08-01-preview.
+
+        Uses Azure REST API version 2023-08-01-preview.
 
         Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 
@@ -174,7 +175,8 @@ class Builder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about the SourceToCloud builder resource.
-        Azure REST API version: 2023-08-01-preview.
+
+        Uses Azure REST API version 2023-08-01-preview.
 
         Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Task<ListKustoPoolFollowerDatabasesResult> InvokeAsync(ListKustoPoolFollowerDatabasesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolFollowerDatabasesResult> Invoke(ListKustoPoolFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolFollowerDatabasesResult> Invoke(ListKustoPoolFollowerDatabasesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified backup schedule name.
- * Azure REST API version: 2017-06-01.
+ *
+ * Uses Azure REST API version 2017-06-01.
  */
 export function getBackupSchedule(args: GetBackupScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +93,8 @@ export interface GetBackupScheduleResult {
 }
 /**
  * Gets the properties of the specified backup schedule name.
- * Azure REST API version: 2017-06-01.
+ *
+ * Uses Azure REST API version 2017-06-01.
  */
 export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

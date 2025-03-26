@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Education
     {
         /// <summary>
         /// Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
-        /// Azure REST API version: 2021-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-12-01-preview.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:education:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
-        /// Azure REST API version: 2021-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-12-01-preview.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
-        /// Azure REST API version: 2021-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-12-01-preview.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());

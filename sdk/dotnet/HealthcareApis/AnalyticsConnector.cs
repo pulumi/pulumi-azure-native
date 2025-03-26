@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// Analytics Connector definition.
-    /// Azure REST API version: 2022-10-01-preview.
+    /// 
+    /// Uses Azure REST API version 2022-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:AnalyticsConnector")]
     public partial class AnalyticsConnector : global::Pulumi.CustomResource

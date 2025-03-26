@@ -127,7 +127,8 @@ def get_logs_metric_filter(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogsMetricFilterResult:
     """
     Get a LogsMetricFilter
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LogsMetricFilter
@@ -152,7 +153,8 @@ def get_logs_metric_filter_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsMetricFilterResult]:
     """
     Get a LogsMetricFilter
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LogsMetricFilter

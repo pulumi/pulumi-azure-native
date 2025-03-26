@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the application settings of a static site build.
- * Azure REST API version: 2022-09-01.
+ *
+ * Uses Azure REST API version 2022-09-01.
  *
  * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
@@ -61,7 +62,8 @@ export interface ListStaticSiteBuildFunctionAppSettingsResult {
 }
 /**
  * Description for Gets the application settings of a static site build.
- * Azure REST API version: 2022-09-01.
+ *
+ * Uses Azure REST API version 2022-09-01.
  *
  * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */

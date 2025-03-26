@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// Tag Inheritance Setting definition.
-    /// Azure REST API version: 2022-10-05-preview.
+    /// 
+    /// Uses Azure REST API version 2022-10-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:TagInheritanceSetting")]
     public partial class TagInheritanceSetting : global::Pulumi.CustomResource

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     {
         /// <summary>
         /// Get a Space
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Task<GetSpaceResult> InvokeAsync(GetSpaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpaceResult>("azure-native:integrationspaces:getSpace", args ?? new GetSpaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Space
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("azure-native:integrationspaces:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Space
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("azure-native:integrationspaces:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());

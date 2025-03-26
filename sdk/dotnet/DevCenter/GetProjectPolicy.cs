@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a specific project policy.
-        /// Azure REST API version: 2024-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
         /// Other available API versions: 2025-02-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         /// <summary>
         /// Gets a specific project policy.
-        /// Azure REST API version: 2024-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
         /// Other available API versions: 2025-02-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         /// <summary>
         /// Gets a specific project policy.
-        /// Azure REST API version: 2024-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
         /// Other available API versions: 2025-02-01.
         /// </summary>

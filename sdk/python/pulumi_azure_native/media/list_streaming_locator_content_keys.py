@@ -56,7 +56,8 @@ def list_streaming_locator_content_keys(account_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorContentKeysResult:
     """
     List Content Keys used by this Streaming Locator
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -78,7 +79,8 @@ def list_streaming_locator_content_keys_output(account_name: Optional[pulumi.Inp
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStreamingLocatorContentKeysResult]:
     """
     List Content Keys used by this Streaming Locator
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
+ *
+ * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
  *
  * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */

@@ -118,7 +118,8 @@ class EnterpriseCustomerOperation(pulumi.CustomResource):
                  __props__=None):
         """
         ConnectedCache Resource. Represents the high level Nodes needed to provision CacheNode and customer resources used in private preview
-        Azure REST API version: 2023-05-01-preview.
+
+        Uses Azure REST API version 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +137,8 @@ class EnterpriseCustomerOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ConnectedCache Resource. Represents the high level Nodes needed to provision CacheNode and customer resources used in private preview
-        Azure REST API version: 2023-05-01-preview.
+
+        Uses Azure REST API version 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EnterpriseCustomerOperationArgs args: The arguments to use to populate this resource's properties.

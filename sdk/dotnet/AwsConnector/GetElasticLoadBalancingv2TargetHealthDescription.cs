@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a ElasticLoadBalancingv2TargetHealthDescription
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetElasticLoadBalancingv2TargetHealthDescriptionResult> InvokeAsync(GetElasticLoadBalancingv2TargetHealthDescriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ElasticLoadBalancingv2TargetHealthDescription
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> Invoke(GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ElasticLoadBalancingv2TargetHealthDescription
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> Invoke(GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs(), options.WithDefaults());

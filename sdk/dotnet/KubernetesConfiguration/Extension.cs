@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
     /// The Extension object.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-01-preview.
     /// 
     /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
     /// </summary>

@@ -104,7 +104,8 @@ def get_certificate(certificate_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Returns the certificate.
-    Azure REST API version: 2022-04-30-preview.
+
+    Uses Azure REST API version 2022-04-30-preview.
 
     Other available API versions: 2020-04-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
@@ -132,7 +133,8 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Returns the certificate.
-    Azure REST API version: 2022-04-30-preview.
+
+    Uses Azure REST API version 2022-04-30-preview.
 
     Other available API versions: 2020-04-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 

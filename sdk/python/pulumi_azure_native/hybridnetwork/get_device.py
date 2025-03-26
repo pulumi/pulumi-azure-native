@@ -163,7 +163,8 @@ def get_device(device_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Gets information about the specified device.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
 
     :param str device_name: The name of the device resource.
@@ -191,7 +192,8 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Gets information about the specified device.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
 
     :param str device_name: The name of the device resource.

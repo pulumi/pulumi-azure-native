@@ -331,7 +331,8 @@ def get_server(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Gets information about a server.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
@@ -375,7 +376,8 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Gets information about a server.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 

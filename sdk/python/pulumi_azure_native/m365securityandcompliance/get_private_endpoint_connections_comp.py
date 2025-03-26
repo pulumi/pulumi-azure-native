@@ -128,7 +128,8 @@ def get_private_endpoint_connections_comp(private_endpoint_connection_name: Opti
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsCompResult:
     """
     Gets the specified private endpoint connection associated with the service.
-    Azure REST API version: 2021-03-25-preview.
+
+    Uses Azure REST API version 2021-03-25-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -156,7 +157,8 @@ def get_private_endpoint_connections_comp_output(private_endpoint_connection_nam
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionsCompResult]:
     """
     Gets the specified private endpoint connection associated with the service.
-    Azure REST API version: 2021-03-25-preview.
+
+    Uses Azure REST API version 2021-03-25-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

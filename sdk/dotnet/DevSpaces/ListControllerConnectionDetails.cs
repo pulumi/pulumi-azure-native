@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DevSpaces
     {
         /// <summary>
         /// Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
-        /// Azure REST API version: 2019-04-01.
+        /// 
+        /// Uses Azure REST API version 2019-04-01.
         /// </summary>
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
-        /// Azure REST API version: 2019-04-01.
+        /// 
+        /// Uses Azure REST API version 2019-04-01.
         /// </summary>
         public static Output<ListControllerConnectionDetailsResult> Invoke(ListControllerConnectionDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
-        /// Azure REST API version: 2019-04-01.
+        /// 
+        /// Uses Azure REST API version 2019-04-01.
         /// </summary>
         public static Output<ListControllerConnectionDetailsResult> Invoke(ListControllerConnectionDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Streaming Locator in the Media Services account
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  *
  * Other available API versions: 2018-03-30-preview.
  */
@@ -100,7 +101,8 @@ export interface GetStreamingLocatorResult {
 }
 /**
  * Get the details of a Streaming Locator in the Media Services account
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  *
  * Other available API versions: 2018-03-30-preview.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the description for the specified hybrid connection.
- * Azure REST API version: 2021-11-01.
+ *
+ * Uses Azure REST API version 2021-11-01.
  *
  * Other available API versions: 2024-01-01.
  */
@@ -84,7 +85,8 @@ export interface GetHybridConnectionResult {
 }
 /**
  * Returns the description for the specified hybrid connection.
- * Azure REST API version: 2021-11-01.
+ *
+ * Uses Azure REST API version 2021-11-01.
  *
  * Other available API versions: 2024-01-01.
  */

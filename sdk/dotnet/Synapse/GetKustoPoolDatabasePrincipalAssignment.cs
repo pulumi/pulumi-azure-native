@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Gets a Kusto pool database principalAssignment.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Task<GetKustoPoolDatabasePrincipalAssignmentResult> InvokeAsync(GetKustoPoolDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolDatabasePrincipalAssignmentResult>("azure-native:synapse:getKustoPoolDatabasePrincipalAssignment", args ?? new GetKustoPoolDatabasePrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto pool database principalAssignment.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolDatabasePrincipalAssignmentResult> Invoke(GetKustoPoolDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolDatabasePrincipalAssignmentResult>("azure-native:synapse:getKustoPoolDatabasePrincipalAssignment", args ?? new GetKustoPoolDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto pool database principalAssignment.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolDatabasePrincipalAssignmentResult> Invoke(GetKustoPoolDatabasePrincipalAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolDatabasePrincipalAssignmentResult>("azure-native:synapse:getKustoPoolDatabasePrincipalAssignment", args ?? new GetKustoPoolDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());

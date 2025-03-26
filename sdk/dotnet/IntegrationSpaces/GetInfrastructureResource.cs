@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     {
         /// <summary>
         /// Get a InfrastructureResource
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Task<GetInfrastructureResourceResult> InvokeAsync(GetInfrastructureResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureResourceResult>("azure-native:integrationspaces:getInfrastructureResource", args ?? new GetInfrastructureResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a InfrastructureResource
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetInfrastructureResourceResult> Invoke(GetInfrastructureResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureResourceResult>("azure-native:integrationspaces:getInfrastructureResource", args ?? new GetInfrastructureResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a InfrastructureResource
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetInfrastructureResourceResult> Invoke(GetInfrastructureResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureResourceResult>("azure-native:integrationspaces:getInfrastructureResource", args ?? new GetInfrastructureResourceInvokeArgs(), options.WithDefaults());

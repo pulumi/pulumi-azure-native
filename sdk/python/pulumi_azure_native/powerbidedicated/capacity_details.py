@@ -169,7 +169,8 @@ class CapacityDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of a Dedicated Capacity resource.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2021-01-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +191,8 @@ class CapacityDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a Dedicated Capacity resource.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2021-01-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param CapacityDetailsArgs args: The arguments to use to populate this resource's properties.

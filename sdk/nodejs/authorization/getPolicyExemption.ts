@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
- * Azure REST API version: 2022-07-01-preview.
+ *
+ * Uses Azure REST API version 2022-07-01-preview.
  *
  * Other available API versions: 2024-12-01-preview.
  */
@@ -91,7 +92,8 @@ export interface GetPolicyExemptionResult {
 }
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
- * Azure REST API version: 2022-07-01-preview.
+ *
+ * Uses Azure REST API version 2022-07-01-preview.
  *
  * Other available API versions: 2024-12-01-preview.
  */

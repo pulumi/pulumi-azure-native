@@ -100,7 +100,8 @@ class StorageTaskAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         The storage task assignment.
-        Azure REST API version: 2023-05-01.
+
+        Uses Azure REST API version 2023-05-01.
 
         Other available API versions: 2024-01-01.
 
@@ -119,7 +120,8 @@ class StorageTaskAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage task assignment.
-        Azure REST API version: 2023-05-01.
+
+        Uses Azure REST API version 2023-05-01.
 
         Other available API versions: 2024-01-01.
 

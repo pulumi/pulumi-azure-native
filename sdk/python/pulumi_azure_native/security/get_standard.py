@@ -211,7 +211,8 @@ def get_standard(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardResult:
     """
     Get a specific security standard for the requested scope
-    Azure REST API version: 2021-08-01-preview.
+
+    Uses Azure REST API version 2021-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -243,7 +244,8 @@ def get_standard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardResult]:
     """
     Get a specific security standard for the requested scope
-    Azure REST API version: 2021-08-01-preview.
+
+    Uses Azure REST API version 2021-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

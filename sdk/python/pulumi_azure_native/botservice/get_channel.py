@@ -164,7 +164,8 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Returns a BotService Channel registration specified by the parameters.
-    Azure REST API version: 2022-09-15.
+
+    Uses Azure REST API version 2022-09-15.
 
     Other available API versions: 2023-09-15-preview.
 
@@ -197,7 +198,8 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Returns a BotService Channel registration specified by the parameters.
-    Azure REST API version: 2022-09-15.
+
+    Uses Azure REST API version 2022-09-15.
 
     Other available API versions: 2023-09-15-preview.
 

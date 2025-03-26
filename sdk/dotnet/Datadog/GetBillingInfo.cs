@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
-        /// Azure REST API version: 2023-10-20.
+        /// 
+        /// Uses Azure REST API version 2023-10-20.
         /// </summary>
         public static Task<GetBillingInfoResult> InvokeAsync(GetBillingInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingInfoResult>("azure-native:datadog:getBillingInfo", args ?? new GetBillingInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
-        /// Azure REST API version: 2023-10-20.
+        /// 
+        /// Uses Azure REST API version 2023-10-20.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:datadog:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Marketplace Subscription and Organization details to which resource gets billed into.
-        /// Azure REST API version: 2023-10-20.
+        /// 
+        /// Uses Azure REST API version 2023-10-20.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:datadog:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());

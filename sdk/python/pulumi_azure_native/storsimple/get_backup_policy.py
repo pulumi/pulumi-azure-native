@@ -176,7 +176,8 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Gets the properties of the specified backup policy name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str backup_policy_name: The name of backup policy to be fetched.
@@ -211,7 +212,8 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Gets the properties of the specified backup policy name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str backup_policy_name: The name of backup policy to be fetched.

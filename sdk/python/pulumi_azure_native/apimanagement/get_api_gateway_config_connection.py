@@ -139,7 +139,8 @@ def get_api_gateway_config_connection(config_connection_name: Optional[str] = No
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiGatewayConfigConnectionResult:
     """
     Gets an API Management gateway config connection resource description.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -170,7 +171,8 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayConfigConnectionResult]:
     """
     Gets an API Management gateway config connection resource description.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 

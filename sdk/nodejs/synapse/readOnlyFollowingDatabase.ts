@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read only following database.
- * Azure REST API version: 2021-06-01-preview.
+ *
+ * Uses Azure REST API version 2021-06-01-preview.
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**

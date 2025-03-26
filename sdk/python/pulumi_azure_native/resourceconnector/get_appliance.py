@@ -199,7 +199,8 @@ def get_appliance(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplianceResult:
     """
     Gets the details of an Appliance with a specified resource group and name.
-    Azure REST API version: 2022-10-27.
+
+    Uses Azure REST API version 2022-10-27.
 
     Other available API versions: 2021-10-31-preview.
 
@@ -232,7 +233,8 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplianceResult]:
     """
     Gets the details of an Appliance with a specified resource group and name.
-    Azure REST API version: 2022-10-27.
+
+    Uses Azure REST API version 2022-10-27.
 
     Other available API versions: 2021-10-31-preview.
 

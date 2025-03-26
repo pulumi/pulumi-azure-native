@@ -116,7 +116,8 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopedResourceResult:
     """
     Gets a scoped resource in a private link scope.
-    Azure REST API version: 2021-07-01-preview.
+
+    Uses Azure REST API version 2021-07-01-preview.
 
     Other available API versions: 2021-09-01, 2023-06-01-preview.
 
@@ -145,7 +146,8 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkScopedResourceResult]:
     """
     Gets a scoped resource in a private link scope.
-    Azure REST API version: 2021-07-01-preview.
+
+    Uses Azure REST API version 2021-07-01-preview.
 
     Other available API versions: 2021-09-01, 2023-06-01-preview.
 

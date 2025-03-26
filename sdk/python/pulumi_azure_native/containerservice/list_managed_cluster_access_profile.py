@@ -115,7 +115,8 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterAccessProfileResult:
     """
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2019-06-01.
 
@@ -144,7 +145,8 @@ def list_managed_cluster_access_profile_output(resource_group_name: Optional[pul
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
     """
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2019-06-01.
 

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets data image upload URL.
- * Azure REST API version: 2017-04-26.
+ *
+ * Uses Azure REST API version 2017-04-26.
  */
 export function getImageUploadUrlForData(args: GetImageUploadUrlForDataArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +62,8 @@ export interface GetImageUploadUrlForDataResult {
 }
 /**
  * Gets data image upload URL.
- * Azure REST API version: 2017-04-26.
+ *
+ * Uses Azure REST API version 2017-04-26.
  */
 export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

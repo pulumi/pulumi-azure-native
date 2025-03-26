@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Dashboard.
- * Azure REST API version: 2020-09-01-preview.
+ *
+ * Uses Azure REST API version 2020-09-01-preview.
  *
  * Other available API versions: 2019-01-01-preview, 2022-12-01-preview, 2025-04-01-preview.
  */
@@ -67,7 +68,8 @@ export interface GetDashboardResult {
 }
 /**
  * Gets the Dashboard.
- * Azure REST API version: 2020-09-01-preview.
+ *
+ * Uses Azure REST API version 2020-09-01-preview.
  *
  * Other available API versions: 2019-01-01-preview, 2022-12-01-preview, 2025-04-01-preview.
  */

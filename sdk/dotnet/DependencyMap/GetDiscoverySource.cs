@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DependencyMap
     {
         /// <summary>
         /// Get a DiscoverySourceResource
-        /// Azure REST API version: 2025-01-31-preview.
+        /// 
+        /// Uses Azure REST API version 2025-01-31-preview.
         /// </summary>
         public static Task<GetDiscoverySourceResult> InvokeAsync(GetDiscoverySourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiscoverySourceResult>("azure-native:dependencymap:getDiscoverySource", args ?? new GetDiscoverySourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DiscoverySourceResource
-        /// Azure REST API version: 2025-01-31-preview.
+        /// 
+        /// Uses Azure REST API version 2025-01-31-preview.
         /// </summary>
         public static Output<GetDiscoverySourceResult> Invoke(GetDiscoverySourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscoverySourceResult>("azure-native:dependencymap:getDiscoverySource", args ?? new GetDiscoverySourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DiscoverySourceResource
-        /// Azure REST API version: 2025-01-31-preview.
+        /// 
+        /// Uses Azure REST API version 2025-01-31-preview.
         /// </summary>
         public static Output<GetDiscoverySourceResult> Invoke(GetDiscoverySourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscoverySourceResult>("azure-native:dependencymap:getDiscoverySource", args ?? new GetDiscoverySourceInvokeArgs(), options.WithDefaults());

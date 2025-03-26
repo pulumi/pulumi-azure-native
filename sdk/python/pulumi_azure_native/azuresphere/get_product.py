@@ -116,7 +116,8 @@ def get_product(catalog_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2024-04-01.
 
@@ -145,7 +146,8 @@ def get_product_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2024-04-01.
 

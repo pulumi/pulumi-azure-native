@@ -125,7 +125,8 @@ def get_connection(connection_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     Get a specific connection
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
     Other available API versions: 2015-08-01-preview.
 
@@ -155,7 +156,8 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Get a specific connection
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
     Other available API versions: 2015-08-01-preview.
 

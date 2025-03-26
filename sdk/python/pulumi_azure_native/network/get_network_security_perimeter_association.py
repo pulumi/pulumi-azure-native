@@ -164,7 +164,8 @@ def get_network_security_perimeter_association(association_name: Optional[str] =
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterAssociationResult:
     """
     Gets the specified NSP association by name.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str association_name: The name of the NSP association.
@@ -195,7 +196,8 @@ def get_network_security_perimeter_association_output(association_name: Optional
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterAssociationResult]:
     """
     Gets the specified NSP association by name.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str association_name: The name of the NSP association.

@@ -121,7 +121,8 @@ def get_energy_service(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnergyServiceResult:
     """
     Returns oep resource for a given name.
-    Azure REST API version: 2022-04-04-preview.
+
+    Uses Azure REST API version 2022-04-04-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -146,7 +147,8 @@ def get_energy_service_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnergyServiceResult]:
     """
     Returns oep resource for a given name.
-    Azure REST API version: 2022-04-04-preview.
+
+    Uses Azure REST API version 2022-04-04-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

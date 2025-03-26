@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Properties for the database account.
- * Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+ *
+ * Uses Azure REST API version 2023-04-15. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
  *
  * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
  */

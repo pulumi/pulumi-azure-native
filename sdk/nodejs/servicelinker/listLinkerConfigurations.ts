@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * list source configurations for a Linker.
- * Azure REST API version: 2022-11-01-preview.
+ *
+ * Uses Azure REST API version 2022-11-01-preview.
  *
  * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
@@ -43,7 +44,8 @@ export interface ListLinkerConfigurationsResult {
 }
 /**
  * list source configurations for a Linker.
- * Azure REST API version: 2022-11-01-preview.
+ *
+ * Uses Azure REST API version 2022-11-01-preview.
  *
  * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */

@@ -308,7 +308,8 @@ def get_certificate_profile(account_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateProfileResult:
     """
     Get details of a certificate profile.
-    Azure REST API version: 2024-02-05-preview.
+
+    Uses Azure REST API version 2024-02-05-preview.
 
     Other available API versions: 2024-09-30-preview.
 
@@ -353,7 +354,8 @@ def get_certificate_profile_output(account_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateProfileResult]:
     """
     Get details of a certificate profile.
-    Azure REST API version: 2024-02-05-preview.
+
+    Uses Azure REST API version 2024-02-05-preview.
 
     Other available API versions: 2024-09-30-preview.
 

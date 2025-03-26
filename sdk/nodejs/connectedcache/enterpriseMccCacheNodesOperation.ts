@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents the high level Nodes needed to provision cache node resources
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export class EnterpriseMccCacheNodesOperation extends pulumi.CustomResource {
     /**

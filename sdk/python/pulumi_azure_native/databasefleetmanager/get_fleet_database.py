@@ -105,7 +105,8 @@ def get_fleet_database(database_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetDatabaseResult:
     """
     Gets a fleet database.
-    Azure REST API version: 2025-02-01-preview.
+
+    Uses Azure REST API version 2025-02-01-preview.
 
 
     :param str database_name: Name of the database.
@@ -134,7 +135,8 @@ def get_fleet_database_output(database_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetDatabaseResult]:
     """
     Gets a fleet database.
-    Azure REST API version: 2025-02-01-preview.
+
+    Uses Azure REST API version 2025-02-01-preview.
 
 
     :param str database_name: Name of the database.

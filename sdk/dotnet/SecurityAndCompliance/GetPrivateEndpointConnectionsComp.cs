@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsCompResult> InvokeAsync(GetPrivateEndpointConnectionsCompArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsCompResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsComp", args ?? new GetPrivateEndpointConnectionsCompArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsCompResult> Invoke(GetPrivateEndpointConnectionsCompInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsCompResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsComp", args ?? new GetPrivateEndpointConnectionsCompInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsCompResult> Invoke(GetPrivateEndpointConnectionsCompInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsCompResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsComp", args ?? new GetPrivateEndpointConnectionsCompInvokeArgs(), options.WithDefaults());

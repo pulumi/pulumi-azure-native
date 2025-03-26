@@ -164,7 +164,8 @@ def get_runtime_environment(automation_account_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuntimeEnvironmentResult:
     """
     Get information about the Runtime Environment
-    Azure REST API version: 2023-05-15-preview.
+
+    Uses Azure REST API version 2023-05-15-preview.
 
     Other available API versions: 2024-10-23.
 
@@ -197,7 +198,8 @@ def get_runtime_environment_output(automation_account_name: Optional[pulumi.Inpu
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeEnvironmentResult]:
     """
     Get information about the Runtime Environment
-    Azure REST API version: 2023-05-15-preview.
+
+    Uses Azure REST API version 2023-05-15-preview.
 
     Other available API versions: 2024-10-23.
 

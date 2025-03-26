@@ -139,7 +139,8 @@ def get_access_connector(connector_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessConnectorResult:
     """
     Gets an azure databricks accessConnector.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
 
@@ -167,7 +168,8 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessConnectorResult]:
     """
     Gets an azure databricks accessConnector.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
 

@@ -174,7 +174,8 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerExtendedInfoResult:
     """
     Returns the extended information of the specified manager name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str manager_name: The manager name
@@ -203,7 +204,8 @@ def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagerExtendedInfoResult]:
     """
     Returns the extended information of the specified manager name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str manager_name: The manager name

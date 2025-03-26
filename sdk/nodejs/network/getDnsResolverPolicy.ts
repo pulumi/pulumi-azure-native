@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a DNS resolver policy.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getDnsResolverPolicy(args: GetDnsResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +74,8 @@ export interface GetDnsResolverPolicyResult {
 }
 /**
  * Gets properties of a DNS resolver policy.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getDnsResolverPolicyOutput(args: GetDnsResolverPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

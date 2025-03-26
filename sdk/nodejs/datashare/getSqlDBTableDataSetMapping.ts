@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSetMapping in a shareSubscription
- * Azure REST API version: 2021-08-01.
+ *
+ * Uses Azure REST API version 2021-08-01.
  */
 export function getSqlDBTableDataSetMapping(args: GetSqlDBTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,7 +97,8 @@ export interface GetSqlDBTableDataSetMappingResult {
 }
 /**
  * Get a DataSetMapping in a shareSubscription
- * Azure REST API version: 2021-08-01.
+ *
+ * Uses Azure REST API version 2021-08-01.
  */
 export function getSqlDBTableDataSetMappingOutput(args: GetSqlDBTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDBTableDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

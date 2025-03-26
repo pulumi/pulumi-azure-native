@@ -65,7 +65,8 @@ def list_saas_resource_access_token(resource_id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSaasResourceAccessTokenResult:
     """
     Gets the ISV access token for a SaaS resource.
-    Azure REST API version: 2018-03-01-beta.
+
+    Uses Azure REST API version 2018-03-01-beta.
 
 
     :param str resource_id: The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
@@ -82,7 +83,8 @@ def list_saas_resource_access_token_output(resource_id: Optional[pulumi.Input[st
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSaasResourceAccessTokenResult]:
     """
     Gets the ISV access token for a SaaS resource.
-    Azure REST API version: 2018-03-01-beta.
+
+    Uses Azure REST API version 2018-03-01-beta.
 
 
     :param str resource_id: The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)

@@ -81,7 +81,8 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
                  __props__=None):
         """
         An API collection as represented by Microsoft Defender for APIs.
-        Azure REST API version: 2023-11-15.
+
+        Uses Azure REST API version 2023-11-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +98,8 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An API collection as represented by Microsoft Defender for APIs.
-        Azure REST API version: 2023-11-15.
+
+        Uses Azure REST API version 2023-11-15.
 
         :param str resource_name: The name of the resource.
         :param APICollectionByAzureApiManagementServiceArgs args: The arguments to use to populate this resource's properties.

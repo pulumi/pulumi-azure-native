@@ -128,7 +128,8 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVirtualMachineApplicableSchedulesResult:
     """
     Lists the applicable start/stop schedules, if any.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str lab_name: The name of the lab.
@@ -156,7 +157,8 @@ def list_virtual_machine_applicable_schedules_output(lab_name: Optional[pulumi.I
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVirtualMachineApplicableSchedulesResult]:
     """
     Lists the applicable start/stop schedules, if any.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str lab_name: The name of the lab.

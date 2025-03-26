@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.NetworkFunction
     {
         /// <summary>
         /// Gets the collector policy in a specified Traffic Collector
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2022-05-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.NetworkFunction
 
         /// <summary>
         /// Gets the collector policy in a specified Traffic Collector
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2022-05-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.NetworkFunction
 
         /// <summary>
         /// Gets the collector policy in a specified Traffic Collector
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2022-05-01.
         /// </summary>

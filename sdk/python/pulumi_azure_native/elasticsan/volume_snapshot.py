@@ -115,7 +115,8 @@ class VolumeSnapshot(pulumi.CustomResource):
                  __props__=None):
         """
         Response for Volume Snapshot request.
-        Azure REST API version: 2023-01-01.
+
+        Uses Azure REST API version 2023-01-01.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -135,7 +136,8 @@ class VolumeSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response for Volume Snapshot request.
-        Azure REST API version: 2023-01-01.
+
+        Uses Azure REST API version 2023-01-01.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 

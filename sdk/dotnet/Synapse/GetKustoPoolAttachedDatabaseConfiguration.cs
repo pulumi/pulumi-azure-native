@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns an attached database configuration.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Task<GetKustoPoolAttachedDatabaseConfigurationResult> InvokeAsync(GetKustoPoolAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an attached database configuration.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolAttachedDatabaseConfigurationResult> Invoke(GetKustoPoolAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an attached database configuration.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolAttachedDatabaseConfigurationResult> Invoke(GetKustoPoolAttachedDatabaseConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());

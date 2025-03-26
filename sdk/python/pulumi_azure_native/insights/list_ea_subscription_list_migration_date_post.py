@@ -64,7 +64,8 @@ class AwaitableListEASubscriptionListMigrationDatePostResult(ListEASubscriptionL
 def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEASubscriptionListMigrationDatePostResult:
     """
     list date to migrate to new pricing model.
-    Azure REST API version: 2017-10-01.
+
+    Uses Azure REST API version 2017-10-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -76,7 +77,8 @@ def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOp
 def list_ea_subscription_list_migration_date_post_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEASubscriptionListMigrationDatePostResult]:
     """
     list date to migrate to new pricing model.
-    Azure REST API version: 2017-10-01.
+
+    Uses Azure REST API version 2017-10-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

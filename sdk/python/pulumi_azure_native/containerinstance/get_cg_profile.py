@@ -358,7 +358,8 @@ def get_cg_profile(container_group_profile_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCGProfileResult:
     """
     Get the properties of the specified container group profile.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str container_group_profile_name: ContainerGroupProfile name.
@@ -402,7 +403,8 @@ def get_cg_profile_output(container_group_profile_name: Optional[pulumi.Input[st
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCGProfileResult]:
     """
     Get the properties of the specified container group profile.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str container_group_profile_name: ContainerGroupProfile name.

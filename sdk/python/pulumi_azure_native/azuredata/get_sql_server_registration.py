@@ -151,7 +151,8 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerRegistrationResult:
     """
     Gets a SQL Server registration.
-    Azure REST API version: 2019-07-24-preview.
+
+    Uses Azure REST API version 2019-07-24-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -178,7 +179,8 @@ def get_sql_server_registration_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerRegistrationResult]:
     """
     Gets a SQL Server registration.
-    Azure REST API version: 2019-07-24-preview.
+
+    Uses Azure REST API version 2019-07-24-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

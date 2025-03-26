@@ -185,7 +185,8 @@ class ClusterPool(pulumi.CustomResource):
                  __props__=None):
         """
         Cluster pool.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
 
@@ -209,7 +210,8 @@ class ClusterPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cluster pool.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
 

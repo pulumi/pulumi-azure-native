@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a published version of a blueprint definition.
- * Azure REST API version: 2018-11-01-preview.
+ *
+ * Uses Azure REST API version 2018-11-01-preview.
  */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,7 +87,8 @@ export interface GetPublishedBlueprintResult {
 }
 /**
  * Get a published version of a blueprint definition.
- * Azure REST API version: 2018-11-01-preview.
+ *
+ * Uses Azure REST API version 2018-11-01-preview.
  */
 export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublishedBlueprintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

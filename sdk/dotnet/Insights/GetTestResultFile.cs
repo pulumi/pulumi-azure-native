@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Returns a file test result for the matching test
-        /// Azure REST API version: 2020-02-10-preview.
+        /// 
+        /// Uses Azure REST API version 2020-02-10-preview.
         /// </summary>
         public static Task<GetTestResultFileResult> InvokeAsync(GetTestResultFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a file test result for the matching test
-        /// Azure REST API version: 2020-02-10-preview.
+        /// 
+        /// Uses Azure REST API version 2020-02-10-preview.
         /// </summary>
         public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a file test result for the matching test
-        /// Azure REST API version: 2020-02-10-preview.
+        /// 
+        /// Uses Azure REST API version 2020-02-10-preview.
         /// </summary>
         public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about an existing job.
- * Azure REST API version: 2021-01-01.
+ *
+ * Uses Azure REST API version 2021-01-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +70,8 @@ export interface GetJobResult {
 }
 /**
  * Gets information about an existing job.
- * Azure REST API version: 2021-01-01.
+ *
+ * Uses Azure REST API version 2021-01-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

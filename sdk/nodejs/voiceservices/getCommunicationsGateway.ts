@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CommunicationsGateway
- * Azure REST API version: 2023-04-03.
+ *
+ * Uses Azure REST API version 2023-04-03.
  *
  * Other available API versions: 2023-09-01.
  */
@@ -123,7 +124,8 @@ export interface GetCommunicationsGatewayResult {
 }
 /**
  * Get a CommunicationsGateway
- * Azure REST API version: 2023-04-03.
+ *
+ * Uses Azure REST API version 2023-04-03.
  *
  * Other available API versions: 2023-09-01.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of the specified container group profile.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getCGProfile(args: GetCGProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCGProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -144,7 +145,8 @@ export interface GetCGProfileResult {
 }
 /**
  * Get the properties of the specified container group profile.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getCGProfileOutput(args: GetCGProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCGProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

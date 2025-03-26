@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a existing Azure Advisor assessment.
- * Azure REST API version: 2023-09-01-preview.
+ *
+ * Uses Azure REST API version 2023-09-01-preview.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,7 +85,8 @@ export interface GetAssessmentResult {
 }
 /**
  * Get a existing Azure Advisor assessment.
- * Azure REST API version: 2023-09-01-preview.
+ *
+ * Uses Azure REST API version 2023-09-01-preview.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

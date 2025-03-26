@@ -136,7 +136,8 @@ class DeidService(pulumi.CustomResource):
                  __props__=None):
         """
         A HealthDataAIServicesProviderHub resource
-        Azure REST API version: 2024-02-28-preview.
+
+        Uses Azure REST API version 2024-02-28-preview.
 
         Other available API versions: 2024-09-20.
 
@@ -157,7 +158,8 @@ class DeidService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A HealthDataAIServicesProviderHub resource
-        Azure REST API version: 2024-02-28-preview.
+
+        Uses Azure REST API version 2024-02-28-preview.
 
         Other available API versions: 2024-09-20.
 

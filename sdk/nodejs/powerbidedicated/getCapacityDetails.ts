@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified dedicated capacity.
- * Azure REST API version: 2021-01-01.
+ *
+ * Uses Azure REST API version 2021-01-01.
  */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +90,8 @@ export interface GetCapacityDetailsResult {
 }
 /**
  * Gets details about the specified dedicated capacity.
- * Azure REST API version: 2021-01-01.
+ *
+ * Uses Azure REST API version 2021-01-01.
  */
 export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

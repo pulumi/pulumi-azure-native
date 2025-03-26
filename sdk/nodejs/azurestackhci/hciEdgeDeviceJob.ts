@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Edge device job for Azure Stack HCI solution.
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export class HciEdgeDeviceJob extends pulumi.CustomResource {
     /**

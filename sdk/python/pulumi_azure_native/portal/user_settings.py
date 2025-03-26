@@ -68,7 +68,8 @@ class UserSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Response to get user settings
-        Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01.
+
+        Uses Azure REST API version 2018-10-01. In version 1.x of the Azure Native provider, it used API version 2018-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +84,8 @@ class UserSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to get user settings
-        Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01.
+
+        Uses Azure REST API version 2018-10-01. In version 1.x of the Azure Native provider, it used API version 2018-10-01.
 
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.

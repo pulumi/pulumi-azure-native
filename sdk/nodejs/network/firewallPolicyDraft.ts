@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * FirewallPolicy Resource.
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  *
  * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
  */

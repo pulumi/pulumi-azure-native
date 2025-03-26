@@ -163,7 +163,8 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureTrafficCollectorResult:
     """
     Gets the specified Azure Traffic Collector in a specified resource group
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-08-01.
 
@@ -193,7 +194,8 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureTrafficCollectorResult]:
     """
     Gets the specified Azure Traffic Collector in a specified resource group
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-08-01.
 

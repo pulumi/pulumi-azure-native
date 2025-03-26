@@ -176,7 +176,8 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecVersionResult:
     """
     Gets a Template Spec version from a specific Template Spec.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2019-06-01-preview.
 
@@ -210,7 +211,8 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
     Gets a Template Spec version from a specific Template Spec.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2019-06-01-preview.
 

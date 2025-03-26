@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetWorkspaceConnection
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-04-01.
+        /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-04-01.
+        /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-04-01.
+        /// Uses Azure REST API version 2023-04-01.
         /// 
         /// Other available API versions: 2021-04-01, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>

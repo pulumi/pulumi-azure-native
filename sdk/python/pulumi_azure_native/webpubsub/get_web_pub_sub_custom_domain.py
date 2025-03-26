@@ -128,7 +128,8 @@ def get_web_pub_sub_custom_domain(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubCustomDomainResult:
     """
     Get a custom domain.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
     Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
@@ -158,7 +159,8 @@ def get_web_pub_sub_custom_domain_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebPubSubCustomDomainResult]:
     """
     Get a custom domain.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
     Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 

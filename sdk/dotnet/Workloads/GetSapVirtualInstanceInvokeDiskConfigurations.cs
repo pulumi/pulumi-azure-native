@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-        /// Azure REST API version: 2024-09-01.
+        /// 
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetSapVirtualInstanceInvokeDiskConfigurationsResult> InvokeAsync(GetSapVirtualInstanceInvokeDiskConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapVirtualInstanceInvokeDiskConfigurationsResult>("azure-native:workloads:getSapVirtualInstanceInvokeDiskConfigurations", args ?? new GetSapVirtualInstanceInvokeDiskConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-        /// Azure REST API version: 2024-09-01.
+        /// 
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> Invoke(GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeDiskConfigurationsResult>("azure-native:workloads:getSapVirtualInstanceInvokeDiskConfigurations", args ?? new GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-        /// Azure REST API version: 2024-09-01.
+        /// 
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> Invoke(GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeDiskConfigurationsResult>("azure-native:workloads:getSapVirtualInstanceInvokeDiskConfigurations", args ?? new GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs(), options.WithDefaults());

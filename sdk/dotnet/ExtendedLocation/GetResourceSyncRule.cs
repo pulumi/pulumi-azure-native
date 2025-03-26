@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ExtendedLocation
     {
         /// <summary>
         /// Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
-        /// Azure REST API version: 2021-08-31-preview.
+        /// 
+        /// Uses Azure REST API version 2021-08-31-preview.
         /// </summary>
         public static Task<GetResourceSyncRuleResult> InvokeAsync(GetResourceSyncRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceSyncRuleResult>("azure-native:extendedlocation:getResourceSyncRule", args ?? new GetResourceSyncRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
-        /// Azure REST API version: 2021-08-31-preview.
+        /// 
+        /// Uses Azure REST API version 2021-08-31-preview.
         /// </summary>
         public static Output<GetResourceSyncRuleResult> Invoke(GetResourceSyncRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceSyncRuleResult>("azure-native:extendedlocation:getResourceSyncRule", args ?? new GetResourceSyncRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
-        /// Azure REST API version: 2021-08-31-preview.
+        /// 
+        /// Uses Azure REST API version 2021-08-31-preview.
         /// </summary>
         public static Output<GetResourceSyncRuleResult> Invoke(GetResourceSyncRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceSyncRuleResult>("azure-native:extendedlocation:getResourceSyncRule", args ?? new GetResourceSyncRuleInvokeArgs(), options.WithDefaults());

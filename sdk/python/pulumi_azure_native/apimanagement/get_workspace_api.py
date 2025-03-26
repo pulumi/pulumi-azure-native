@@ -333,7 +333,8 @@ def get_workspace_api(api_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceApiResult:
     """
     Gets the details of the API specified by its identifier.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
@@ -383,7 +384,8 @@ def get_workspace_api_output(api_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceApiResult]:
     """
     Gets the details of the API specified by its identifier.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 

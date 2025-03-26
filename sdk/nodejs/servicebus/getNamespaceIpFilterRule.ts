@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an IpFilterRule for a Namespace by rule name.
- * Azure REST API version: 2018-01-01-preview.
+ *
+ * Uses Azure REST API version 2018-01-01-preview.
  */
 export function getNamespaceIpFilterRule(args: GetNamespaceIpFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceIpFilterRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +64,8 @@ export interface GetNamespaceIpFilterRuleResult {
 }
 /**
  * Gets an IpFilterRule for a Namespace by rule name.
- * Azure REST API version: 2018-01-01-preview.
+ *
+ * Uses Azure REST API version 2018-01-01-preview.
  */
 export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

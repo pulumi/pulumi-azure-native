@@ -127,7 +127,8 @@ def get_catalog(catalog_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogResult:
     """
     Get a Catalog
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2024-04-01.
 
@@ -154,7 +155,8 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Get a Catalog
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2024-04-01.
 

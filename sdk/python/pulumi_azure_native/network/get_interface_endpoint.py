@@ -188,7 +188,8 @@ def get_interface_endpoint(expand: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInterfaceEndpointResult:
     """
     Gets the specified interface endpoint by resource group.
-    Azure REST API version: 2019-02-01.
+
+    Uses Azure REST API version 2019-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -221,7 +222,8 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInterfaceEndpointResult]:
     """
     Gets the specified interface endpoint by resource group.
-    Azure REST API version: 2019-02-01.
+
+    Uses Azure REST API version 2019-02-01.
 
 
     :param str expand: Expands referenced resources.

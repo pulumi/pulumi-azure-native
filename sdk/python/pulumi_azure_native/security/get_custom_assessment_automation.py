@@ -175,7 +175,8 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomAssessmentAutomationResult:
     """
     Gets a single custom assessment automation by name for the provided subscription and resource group.
-    Azure REST API version: 2021-07-01-preview.
+
+    Uses Azure REST API version 2021-07-01-preview.
 
 
     :param str custom_assessment_automation_name: Name of the Custom Assessment Automation.
@@ -204,7 +205,8 @@ def get_custom_assessment_automation_output(custom_assessment_automation_name: O
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomAssessmentAutomationResult]:
     """
     Gets a single custom assessment automation by name for the provided subscription and resource group.
-    Azure REST API version: 2021-07-01-preview.
+
+    Uses Azure REST API version 2021-07-01-preview.
 
 
     :param str custom_assessment_automation_name: Name of the Custom Assessment Automation.

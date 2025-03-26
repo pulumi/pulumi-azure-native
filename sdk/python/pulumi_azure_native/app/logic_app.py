@@ -82,7 +82,8 @@ class LogicApp(pulumi.CustomResource):
                  __props__=None):
         """
         A logic app extension resource
-        Azure REST API version: 2024-02-02-preview.
+
+        Uses Azure REST API version 2024-02-02-preview.
 
         Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
 
@@ -100,7 +101,8 @@ class LogicApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A logic app extension resource
-        Azure REST API version: 2024-02-02-preview.
+
+        Uses Azure REST API version 2024-02-02-preview.
 
         Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
 

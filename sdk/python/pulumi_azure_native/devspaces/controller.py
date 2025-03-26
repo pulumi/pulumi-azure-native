@@ -149,7 +149,7 @@ class Controller(pulumi.CustomResource):
                  target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+        Uses Azure REST API version 2019-04-01. In version 1.x of the Azure Native provider, it used API version 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class Controller(pulumi.CustomResource):
                  args: ControllerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+        Uses Azure REST API version 2019-04-01. In version 1.x of the Azure Native provider, it used API version 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param ControllerArgs args: The arguments to use to populate this resource's properties.

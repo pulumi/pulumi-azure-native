@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Cloud Manager Tenant
- * Azure REST API version: 2024-02-07-preview.
+ *
+ * Uses Azure REST API version 2024-02-07-preview.
  *
  * Other available API versions: 2025-02-06-preview.
  */
@@ -31,7 +32,8 @@ export interface ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult {
 }
 /**
  * Cloud Manager Tenant
- * Azure REST API version: 2024-02-07-preview.
+ *
+ * Uses Azure REST API version 2024-02-07-preview.
  *
  * Other available API versions: 2025-02-06-preview.
  */

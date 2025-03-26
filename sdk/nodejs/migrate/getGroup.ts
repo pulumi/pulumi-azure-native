@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
- * Azure REST API version: 2019-10-01.
+ *
+ * Uses Azure REST API version 2019-10-01.
  *
  * Other available API versions: 2018-02-02.
  */
@@ -64,7 +65,8 @@ export interface GetGroupResult {
 }
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
- * Azure REST API version: 2019-10-01.
+ *
+ * Uses Azure REST API version 2019-10-01.
  *
  * Other available API versions: 2018-02-02.
  */

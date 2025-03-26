@@ -139,7 +139,8 @@ def get_instance_details(instance_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceDetailsResult:
     """
     Gets details about the specified instances.
-    Azure REST API version: 2021-02-01-preview.
+
+    Uses Azure REST API version 2021-02-01-preview.
 
 
     :param str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
@@ -165,7 +166,8 @@ def get_instance_details_output(instance_name: Optional[pulumi.Input[str]] = Non
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceDetailsResult]:
     """
     Gets details about the specified instances.
-    Azure REST API version: 2021-02-01-preview.
+
+    Uses Azure REST API version 2021-02-01-preview.
 
 
     :param str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.

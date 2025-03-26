@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 {
     /// <summary>
     /// A business process under application.
-    /// Azure REST API version: 2023-11-14-preview.
+    /// 
+    /// Uses Azure REST API version 2023-11-14-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:BusinessProcess")]
     public partial class BusinessProcess : global::Pulumi.CustomResource

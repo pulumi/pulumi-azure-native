@@ -201,7 +201,8 @@ def get_package(automation_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
     Retrieve the Package identified by Package name.
-    Azure REST API version: 2023-05-15-preview.
+
+    Uses Azure REST API version 2023-05-15-preview.
 
     Other available API versions: 2024-10-23.
 
@@ -240,7 +241,8 @@ def get_package_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Retrieve the Package identified by Package name.
-    Azure REST API version: 2023-05-15-preview.
+
+    Uses Azure REST API version 2023-05-15-preview.
 
     Other available API versions: 2024-10-23.
 

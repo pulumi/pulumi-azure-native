@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified cluster.
- * Azure REST API version: 2020-03-01.
+ *
+ * Uses Azure REST API version 2020-03-01.
  *
  * Other available API versions: 2020-03-01-preview.
  */
@@ -87,7 +88,8 @@ export interface GetClusterResult {
 }
 /**
  * Gets information about the specified cluster.
- * Azure REST API version: 2020-03-01.
+ *
+ * Uses Azure REST API version 2020-03-01.
  *
  * Other available API versions: 2020-03-01-preview.
  */

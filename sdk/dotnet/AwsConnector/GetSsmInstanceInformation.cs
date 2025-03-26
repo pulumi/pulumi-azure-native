@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a SsmInstanceInformation
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetSsmInstanceInformationResult> InvokeAsync(GetSsmInstanceInformationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSsmInstanceInformationResult>("azure-native:awsconnector:getSsmInstanceInformation", args ?? new GetSsmInstanceInformationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SsmInstanceInformation
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSsmInstanceInformationResult> Invoke(GetSsmInstanceInformationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSsmInstanceInformationResult>("azure-native:awsconnector:getSsmInstanceInformation", args ?? new GetSsmInstanceInformationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SsmInstanceInformation
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSsmInstanceInformationResult> Invoke(GetSsmInstanceInformationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSsmInstanceInformationResult>("azure-native:awsconnector:getSsmInstanceInformation", args ?? new GetSsmInstanceInformationInvokeArgs(), options.WithDefaults());

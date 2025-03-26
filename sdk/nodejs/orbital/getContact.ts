@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified contact in a specified resource group.
- * Azure REST API version: 2022-11-01.
+ *
+ * Uses Azure REST API version 2022-11-01.
  *
  * Other available API versions: 2022-03-01.
  */
@@ -124,7 +125,8 @@ export interface GetContactResult {
 }
 /**
  * Gets the specified contact in a specified resource group.
- * Azure REST API version: 2022-11-01.
+ *
+ * Uses Azure REST API version 2022-11-01.
  *
  * Other available API versions: 2022-03-01.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2Subnet
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2Subnet(args: GetEc2SubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2SubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2SubnetResult {
 }
 /**
  * Get a Ec2Subnet
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2SubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

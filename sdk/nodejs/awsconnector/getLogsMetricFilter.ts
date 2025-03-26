@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LogsMetricFilter
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLogsMetricFilter(args: GetLogsMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsMetricFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetLogsMetricFilterResult {
 }
 /**
  * Get a LogsMetricFilter
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLogsMetricFilterOutput(args: GetLogsMetricFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsMetricFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

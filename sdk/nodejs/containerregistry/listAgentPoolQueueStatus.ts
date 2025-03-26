@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the count of queued runs for a given agent pool.
- * Azure REST API version: 2019-06-01-preview.
+ *
+ * Uses Azure REST API version 2019-06-01-preview.
  */
 export function listAgentPoolQueueStatus(args: ListAgentPoolQueueStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListAgentPoolQueueStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +44,8 @@ export interface ListAgentPoolQueueStatusResult {
 }
 /**
  * Gets the count of queued runs for a given agent pool.
- * Azure REST API version: 2019-06-01-preview.
+ *
+ * Uses Azure REST API version 2019-06-01-preview.
  */
 export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -166,7 +166,8 @@ def get_suppression_list_address(address_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSuppressionListAddressResult:
     """
     Get a SuppressionListAddress.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2024-09-01-preview.
 
@@ -205,7 +206,8 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionListAddressResult]:
     """
     Get a SuppressionListAddress.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2024-09-01-preview.
 

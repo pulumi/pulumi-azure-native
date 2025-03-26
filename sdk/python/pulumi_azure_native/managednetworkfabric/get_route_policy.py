@@ -151,7 +151,8 @@ def get_route_policy(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoutePolicyResult:
     """
     Implements Route Policy GET method.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 
@@ -180,7 +181,8 @@ def get_route_policy_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutePolicyResult]:
     """
     Implements Route Policy GET method.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 

@@ -119,7 +119,8 @@ class CodeSigningAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Trusted signing account resource.
-        Azure REST API version: 2024-02-05-preview.
+
+        Uses Azure REST API version 2024-02-05-preview.
 
         Other available API versions: 2024-09-30-preview.
 
@@ -139,7 +140,8 @@ class CodeSigningAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Trusted signing account resource.
-        Azure REST API version: 2024-02-05-preview.
+
+        Uses Azure REST API version 2024-02-05-preview.
 
         Other available API versions: 2024-09-30-preview.
 

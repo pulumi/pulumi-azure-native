@@ -125,7 +125,8 @@ def get_integration_fabric(integration_fabric_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationFabricResult:
     """
     The integration fabric resource type.
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2024-10-01.
 
@@ -155,7 +156,8 @@ def get_integration_fabric_output(integration_fabric_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationFabricResult]:
     """
     The integration fabric resource type.
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2024-10-01.
 

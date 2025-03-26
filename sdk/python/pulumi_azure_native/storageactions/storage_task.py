@@ -166,7 +166,8 @@ class StorageTask(pulumi.CustomResource):
                  __props__=None):
         """
         Represents Storage Task.
-        Azure REST API version: 2023-01-01.
+
+        Uses Azure REST API version 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +188,8 @@ class StorageTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Storage Task.
-        Azure REST API version: 2023-01-01.
+
+        Uses Azure REST API version 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param StorageTaskArgs args: The arguments to use to populate this resource's properties.

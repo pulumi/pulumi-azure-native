@@ -115,7 +115,8 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
     Get connection info for an integration runtime
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -144,7 +145,8 @@ def get_integration_runtime_connection_info_output(integration_runtime_name: Opt
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
     Get connection info for an integration runtime
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

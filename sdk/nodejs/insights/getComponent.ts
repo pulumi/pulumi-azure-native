@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an Application Insights component.
- * Azure REST API version: 2020-02-02.
+ *
+ * Uses Azure REST API version 2020-02-02.
  *
  * Other available API versions: 2020-02-02-preview.
  */
@@ -163,7 +164,8 @@ export interface GetComponentResult {
 }
 /**
  * Returns an Application Insights component.
- * Azure REST API version: 2020-02-02.
+ *
+ * Uses Azure REST API version 2020-02-02.
  *
  * Other available API versions: 2020-02-02-preview.
  */

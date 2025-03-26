@@ -463,7 +463,8 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Gets details of the specified Data Lake Analytics account.
-    Azure REST API version: 2019-11-01-preview.
+
+    Uses Azure REST API version 2019-11-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.
@@ -516,7 +517,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets details of the specified Data Lake Analytics account.
-    Azure REST API version: 2019-11-01-preview.
+
+    Uses Azure REST API version 2019-11-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

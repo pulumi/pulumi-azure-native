@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a BusinessProcess
- * Azure REST API version: 2023-11-14-preview.
+ *
+ * Uses Azure REST API version 2023-11-14-preview.
  */
 export function getBusinessProcess(args: GetBusinessProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +96,8 @@ export interface GetBusinessProcessResult {
 }
 /**
  * Get a BusinessProcess
- * Azure REST API version: 2023-11-14-preview.
+ *
+ * Uses Azure REST API version 2023-11-14-preview.
  */
 export function getBusinessProcessOutput(args: GetBusinessProcessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

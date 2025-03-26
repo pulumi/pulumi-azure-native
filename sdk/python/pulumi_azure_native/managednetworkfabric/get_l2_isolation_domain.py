@@ -199,7 +199,8 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL2IsolationDomainResult:
     """
     Implements L2 Isolation Domain GET method.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 
@@ -232,7 +233,8 @@ def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2IsolationDomainResult]:
     """
     Implements L2 Isolation Domain GET method.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 

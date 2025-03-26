@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Billing
 {
     /// <summary>
     /// An associated tenant.
-    /// Azure REST API version: 2024-04-01.
+    /// 
+    /// Uses Azure REST API version 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:AssociatedTenant")]
     public partial class AssociatedTenant : global::Pulumi.CustomResource

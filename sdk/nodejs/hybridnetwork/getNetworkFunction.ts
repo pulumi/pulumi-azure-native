@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network function resource.
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  *
  * Other available API versions: 2023-09-01, 2024-04-15.
  */
@@ -111,7 +112,8 @@ export interface GetNetworkFunctionResult {
 }
 /**
  * Gets information about the specified network function resource.
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  *
  * Other available API versions: 2023-09-01, 2024-04-15.
  */

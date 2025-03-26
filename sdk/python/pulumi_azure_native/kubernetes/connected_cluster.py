@@ -221,7 +221,8 @@ class ConnectedCluster(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a connected cluster.
-        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2022-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
 
@@ -247,7 +248,8 @@ class ConnectedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a connected cluster.
-        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2022-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
 

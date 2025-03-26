@@ -233,7 +233,8 @@ class SecurityUserRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network security user rule.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-05-01.
 
@@ -260,7 +261,8 @@ class SecurityUserRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security user rule.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-05-01.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SsmInstanceInformation
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSsmInstanceInformation(args: GetSsmInstanceInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmInstanceInformationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSsmInstanceInformationResult {
 }
 /**
  * Get a SsmInstanceInformation
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSsmInstanceInformationOutput(args: GetSsmInstanceInformationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmInstanceInformationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a private endpoint connection for the IoT Central Application.
- * Azure REST API version: 2021-11-01-preview.
+ *
+ * Uses Azure REST API version 2021-11-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +75,8 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Get the metadata of a private endpoint connection for the IoT Central Application.
- * Azure REST API version: 2021-11-01-preview.
+ *
+ * Uses Azure REST API version 2021-11-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

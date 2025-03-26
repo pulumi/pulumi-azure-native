@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single graph query by its resourceName.
- * Azure REST API version: 2020-04-01-preview.
+ *
+ * Uses Azure REST API version 2020-04-01-preview.
  *
  * Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
  */
@@ -83,7 +84,8 @@ export interface GetGraphQueryResult {
 }
 /**
  * Get a single graph query by its resourceName.
- * Azure REST API version: 2020-04-01-preview.
+ *
+ * Uses Azure REST API version 2020-04-01-preview.
  *
  * Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
  */

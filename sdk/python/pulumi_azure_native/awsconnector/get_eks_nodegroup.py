@@ -127,7 +127,8 @@ def get_eks_nodegroup(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEksNodegroupResult:
     """
     Get a EksNodegroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of EksNodegroup
@@ -152,7 +153,8 @@ def get_eks_nodegroup_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEksNodegroupResult]:
     """
     Get a EksNodegroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of EksNodegroup

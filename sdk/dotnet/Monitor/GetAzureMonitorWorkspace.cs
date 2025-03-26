@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Monitor
     {
         /// <summary>
         /// Returns the specified Azure Monitor Workspace
-        /// Azure REST API version: 2023-04-03.
+        /// 
+        /// Uses Azure REST API version 2023-04-03.
         /// 
         /// Other available API versions: 2023-10-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Monitor
 
         /// <summary>
         /// Returns the specified Azure Monitor Workspace
-        /// Azure REST API version: 2023-04-03.
+        /// 
+        /// Uses Azure REST API version 2023-04-03.
         /// 
         /// Other available API versions: 2023-10-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Monitor
 
         /// <summary>
         /// Returns the specified Azure Monitor Workspace
-        /// Azure REST API version: 2023-04-03.
+        /// 
+        /// Uses Azure REST API version 2023-04-03.
         /// 
         /// Other available API versions: 2023-10-01-preview.
         /// </summary>

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get the ProactiveDetection configuration for this configuration id.
-        /// Azure REST API version: 2018-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-05-01-preview.
         /// 
         /// Other available API versions: 2015-05-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Get the ProactiveDetection configuration for this configuration id.
-        /// Azure REST API version: 2018-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-05-01-preview.
         /// 
         /// Other available API versions: 2015-05-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Get the ProactiveDetection configuration for this configuration id.
-        /// Azure REST API version: 2018-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-05-01-preview.
         /// 
         /// Other available API versions: 2015-05-01.
         /// </summary>

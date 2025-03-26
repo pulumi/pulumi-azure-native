@@ -167,7 +167,8 @@ def get_auto_upgrade_profile(auto_upgrade_profile_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoUpgradeProfileResult:
     """
     Get a AutoUpgradeProfile
-    Azure REST API version: 2024-05-02-preview.
+
+    Uses Azure REST API version 2024-05-02-preview.
 
 
     :param str auto_upgrade_profile_name: The name of the AutoUpgradeProfile resource.
@@ -198,7 +199,8 @@ def get_auto_upgrade_profile_output(auto_upgrade_profile_name: Optional[pulumi.I
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoUpgradeProfileResult]:
     """
     Get a AutoUpgradeProfile
-    Azure REST API version: 2024-05-02-preview.
+
+    Uses Azure REST API version 2024-05-02-preview.
 
 
     :param str auto_upgrade_profile_name: The name of the AutoUpgradeProfile resource.

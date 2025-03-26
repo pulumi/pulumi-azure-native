@@ -55,7 +55,8 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountRegionalAvailabilityResult:
     """
     Get regional availability information for each size category configured under a lab account
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str lab_account_name: The name of the lab Account.
@@ -74,7 +75,8 @@ def get_lab_account_regional_availability_output(lab_account_name: Optional[pulu
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabAccountRegionalAvailabilityResult]:
     """
     Get regional availability information for each size category configured under a lab account
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str lab_account_name: The name of the lab Account.

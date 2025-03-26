@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DaxCluster
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getDaxCluster(args: GetDaxClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDaxClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetDaxClusterResult {
 }
 /**
  * Get a DaxCluster
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getDaxClusterOutput(args: GetDaxClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaxClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class ListWorkspaceConnectionSecrets
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
         /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceConnectionSecretsResult>("azure-native:machinelearningservices:listWorkspaceConnectionSecrets", args ?? new ListWorkspaceConnectionSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
         /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceConnectionSecretsResult>("azure-native:machinelearningservices:listWorkspaceConnectionSecrets", args ?? new ListWorkspaceConnectionSecretsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
         /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>

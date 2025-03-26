@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the ACS and SAS connection strings for the Event Hub.
- * Azure REST API version: 2022-10-01-preview.
+ *
+ * Uses Azure REST API version 2022-10-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
@@ -74,7 +75,8 @@ export interface ListEventHubKeysResult {
 }
 /**
  * Gets the ACS and SAS connection strings for the Event Hub.
- * Azure REST API version: 2022-10-01-preview.
+ *
+ * Uses Azure REST API version 2022-10-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */

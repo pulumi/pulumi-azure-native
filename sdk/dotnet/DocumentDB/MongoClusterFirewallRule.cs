@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Represents a mongo cluster firewall rule.
-    /// Azure REST API version: 2023-03-15-preview.
+    /// 
+    /// Uses Azure REST API version 2023-03-15-preview.
     /// 
     /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
     /// </summary>

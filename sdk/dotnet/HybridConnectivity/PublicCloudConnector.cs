@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
 {
     /// <summary>
     /// Public Cloud Connector
-    /// Azure REST API version: 2024-12-01.
+    /// 
+    /// Uses Azure REST API version 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:PublicCloudConnector")]
     public partial class PublicCloudConnector : global::Pulumi.CustomResource

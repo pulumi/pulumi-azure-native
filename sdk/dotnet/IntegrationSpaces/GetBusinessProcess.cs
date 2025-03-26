@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     {
         /// <summary>
         /// Get a BusinessProcess
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Task<GetBusinessProcessResult> InvokeAsync(GetBusinessProcessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBusinessProcessResult>("azure-native:integrationspaces:getBusinessProcess", args ?? new GetBusinessProcessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BusinessProcess
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetBusinessProcessResult> Invoke(GetBusinessProcessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessProcessResult>("azure-native:integrationspaces:getBusinessProcess", args ?? new GetBusinessProcessInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BusinessProcess
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetBusinessProcessResult> Invoke(GetBusinessProcessInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessProcessResult>("azure-native:integrationspaces:getBusinessProcess", args ?? new GetBusinessProcessInvokeArgs(), options.WithDefaults());

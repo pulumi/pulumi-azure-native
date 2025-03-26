@@ -114,7 +114,8 @@ class FavoriteProcess(pulumi.CustomResource):
                  __props__=None):
         """
         A favorite process identifier.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+
+        Uses Azure REST API version 2022-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2023-11-01-preview.
 
@@ -134,7 +135,8 @@ class FavoriteProcess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A favorite process identifier.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+
+        Uses Azure REST API version 2022-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2023-11-01-preview.
 

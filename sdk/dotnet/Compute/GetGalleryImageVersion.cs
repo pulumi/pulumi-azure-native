@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// Azure REST API version: 2022-03-03.
+        /// 
+        /// Uses Azure REST API version 2022-03-03.
         /// 
         /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Compute
 
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// Azure REST API version: 2022-03-03.
+        /// 
+        /// Uses Azure REST API version 2022-03-03.
         /// 
         /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Compute
 
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// Azure REST API version: 2022-03-03.
+        /// 
+        /// Uses Azure REST API version 2022-03-03.
         /// 
         /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
         /// </summary>

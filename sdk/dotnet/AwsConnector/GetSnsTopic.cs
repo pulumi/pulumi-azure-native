@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a SnsTopic
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetSnsTopicResult> InvokeAsync(GetSnsTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnsTopicResult>("azure-native:awsconnector:getSnsTopic", args ?? new GetSnsTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SnsTopic
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSnsTopicResult> Invoke(GetSnsTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnsTopicResult>("azure-native:awsconnector:getSnsTopic", args ?? new GetSnsTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SnsTopic
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSnsTopicResult> Invoke(GetSnsTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnsTopicResult>("azure-native:awsconnector:getSnsTopic", args ?? new GetSnsTopicInvokeArgs(), options.WithDefaults());

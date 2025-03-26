@@ -115,7 +115,8 @@ def get_registered_asn(peering_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredAsnResult:
     """
     Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
-    Azure REST API version: 2022-10-01.
+
+    Uses Azure REST API version 2022-10-01.
 
 
     :param str peering_name: The name of the peering.
@@ -142,7 +143,8 @@ def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegisteredAsnResult]:
     """
     Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
-    Azure REST API version: 2022-10-01.
+
+    Uses Azure REST API version 2022-10-01.
 
 
     :param str peering_name: The name of the peering.

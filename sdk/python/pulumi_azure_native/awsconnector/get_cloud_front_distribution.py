@@ -127,7 +127,8 @@ def get_cloud_front_distribution(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudFrontDistributionResult:
     """
     Get a CloudFrontDistribution
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of CloudFrontDistribution
@@ -152,7 +153,8 @@ def get_cloud_front_distribution_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFrontDistributionResult]:
     """
     Get a CloudFrontDistribution
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of CloudFrontDistribution

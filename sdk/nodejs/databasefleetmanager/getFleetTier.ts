@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a tier resource.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetTier(args: GetFleetTierArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetTierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetFleetTierResult {
 }
 /**
  * Gets a tier resource.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetTierOutput(args: GetFleetTierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetTierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

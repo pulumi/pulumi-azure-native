@@ -16,7 +16,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     ///   - Sources: list of one or more data sources nodes such as an RTSP source which allows for content to be ingested from cameras.
     ///   - Processors: list of nodes which perform data analysis or transformations.
     ///   - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
-    ///     Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+    /// 
+    /// Uses Azure REST API version 2021-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PipelineTopology")]
     public partial class PipelineTopology : global::Pulumi.CustomResource

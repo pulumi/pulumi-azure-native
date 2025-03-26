@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Media Services account
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2015-10-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Media
 
         /// <summary>
         /// Get the details of a Media Services account
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2015-10-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Media
 
         /// <summary>
         /// Get the details of a Media Services account
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2015-10-01.
         /// </summary>

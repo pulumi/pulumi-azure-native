@@ -67,7 +67,8 @@ def list_ground_station_l2_connections(ground_station_name: Optional[str] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGroundStationL2ConnectionsResult:
     """
     Returns a list of L2 Connections attached to an ground station.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 
@@ -89,7 +90,8 @@ def list_ground_station_l2_connections_output(ground_station_name: Optional[pulu
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGroundStationL2ConnectionsResult]:
     """
     Returns a list of L2 Connections attached to an ground station.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 

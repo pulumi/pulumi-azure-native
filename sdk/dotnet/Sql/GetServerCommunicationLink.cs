@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Returns a server communication link.
-        /// Azure REST API version: 2014-04-01.
+        /// 
+        /// Uses Azure REST API version 2014-04-01.
         /// </summary>
         public static Task<GetServerCommunicationLinkResult> InvokeAsync(GetServerCommunicationLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-native:sql:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a server communication link.
-        /// Azure REST API version: 2014-04-01.
+        /// 
+        /// Uses Azure REST API version 2014-04-01.
         /// </summary>
         public static Output<GetServerCommunicationLinkResult> Invoke(GetServerCommunicationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCommunicationLinkResult>("azure-native:sql:getServerCommunicationLink", args ?? new GetServerCommunicationLinkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a server communication link.
-        /// Azure REST API version: 2014-04-01.
+        /// 
+        /// Uses Azure REST API version 2014-04-01.
         /// </summary>
         public static Output<GetServerCommunicationLinkResult> Invoke(GetServerCommunicationLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCommunicationLinkResult>("azure-native:sql:getServerCommunicationLink", args ?? new GetServerCommunicationLinkInvokeArgs(), options.WithDefaults());

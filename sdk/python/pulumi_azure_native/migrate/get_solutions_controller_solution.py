@@ -104,7 +104,8 @@ def get_solutions_controller_solution(migrate_project_name: Optional[str] = None
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionsControllerSolutionResult:
     """
     Solution REST Resource.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str migrate_project_name: Name of the Azure Migrate project.
@@ -130,7 +131,8 @@ def get_solutions_controller_solution_output(migrate_project_name: Optional[pulu
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionsControllerSolutionResult]:
     """
     Solution REST Resource.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str migrate_project_name: Name of the Azure Migrate project.

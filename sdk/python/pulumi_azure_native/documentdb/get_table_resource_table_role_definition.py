@@ -128,7 +128,8 @@ def get_table_resource_table_role_definition(account_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResourceTableRoleDefinitionResult:
     """
     Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
-    Azure REST API version: 2024-12-01-preview.
+
+    Uses Azure REST API version 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -156,7 +157,8 @@ def get_table_resource_table_role_definition_output(account_name: Optional[pulum
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResourceTableRoleDefinitionResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
-    Azure REST API version: 2024-12-01-preview.
+
+    Uses Azure REST API version 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.

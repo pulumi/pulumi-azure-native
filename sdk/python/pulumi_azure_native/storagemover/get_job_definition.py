@@ -261,7 +261,8 @@ def get_job_definition(job_definition_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
     Gets a Job Definition resource.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
 
@@ -305,7 +306,8 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Gets a Job Definition resource.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
 

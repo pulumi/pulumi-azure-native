@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get discount at resource group level
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getDiscount(args: GetDiscountArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -133,7 +134,8 @@ export interface GetDiscountResult {
 }
 /**
  * Get discount at resource group level
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getDiscountOutput(args: GetDiscountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiscountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

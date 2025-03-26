@@ -102,7 +102,8 @@ def get_connector(connector_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Details of a specific cloud account connector
-    Azure REST API version: 2020-01-01-preview.
+
+    Uses Azure REST API version 2020-01-01-preview.
 
 
     :param str connector_name: Name of the cloud account connector
@@ -122,7 +123,8 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Details of a specific cloud account connector
-    Azure REST API version: 2020-01-01-preview.
+
+    Uses Azure REST API version 2020-01-01-preview.
 
 
     :param str connector_name: Name of the cloud account connector

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ElasticSan
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Elastic San
-        /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
         /// Other available API versions: 2023-01-01, 2024-05-01, 2024-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ElasticSan
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Elastic San
-        /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
         /// Other available API versions: 2023-01-01, 2024-05-01, 2024-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ElasticSan
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Elastic San
-        /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
         /// Other available API versions: 2023-01-01, 2024-05-01, 2024-06-01-preview.
         /// </summary>

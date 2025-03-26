@@ -104,7 +104,8 @@ def get_managed_cluster_fault_simulation(cluster_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterFaultSimulationResult:
     """
     Gets a fault simulation by the simulationId.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -130,7 +131,8 @@ def get_managed_cluster_fault_simulation_output(cluster_name: Optional[pulumi.In
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterFaultSimulationResult]:
     """
     Gets a fault simulation by the simulationId.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

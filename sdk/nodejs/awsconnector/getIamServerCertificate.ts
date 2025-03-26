@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a IamServerCertificate
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamServerCertificate(args: GetIamServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIamServerCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetIamServerCertificateResult {
 }
 /**
  * Get a IamServerCertificate
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamServerCertificateOutput(args: GetIamServerCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamServerCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -246,7 +246,8 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtSubscriptionResult:
     """
     Gets an existing remediation at subscription scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 
@@ -280,7 +281,8 @@ def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Inp
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtSubscriptionResult]:
     """
     Gets an existing remediation at subscription scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 

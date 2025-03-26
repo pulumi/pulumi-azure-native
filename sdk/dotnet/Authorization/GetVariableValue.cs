@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
-        /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-08-01-preview.
         /// 
         /// Other available API versions: 2024-12-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
-        /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-08-01-preview.
         /// 
         /// Other available API versions: 2024-12-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
-        /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-08-01-preview.
         /// 
         /// Other available API versions: 2024-12-01-preview.
         /// </summary>

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Defender for Storage resource.
- * Azure REST API version: 2022-12-01-preview.
+ *
+ * Uses Azure REST API version 2022-12-01-preview.
  *
  * Other available API versions: 2024-10-01-preview.
  */

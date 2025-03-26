@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the workspace.
- * Azure REST API version: 2023-02-01.
+ *
+ * Uses Azure REST API version 2023-02-01.
  *
  * Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
  */
@@ -135,7 +136,8 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets the workspace.
- * Azure REST API version: 2023-02-01.
+ *
+ * Uses Azure REST API version 2023-02-01.
  *
  * Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
  */

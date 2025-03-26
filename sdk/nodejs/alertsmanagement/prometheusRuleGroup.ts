@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Prometheus rule group resource.
- * Azure REST API version: 2023-03-01.
+ *
+ * Uses Azure REST API version 2023-03-01.
  */
 export class PrometheusRuleGroup extends pulumi.CustomResource {
     /**

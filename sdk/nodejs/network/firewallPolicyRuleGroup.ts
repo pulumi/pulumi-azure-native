@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Rule Group resource.
- * Azure REST API version: 2020-04-01. Prior API version in Azure Native 1.x: 2020-04-01.
+ *
+ * Uses Azure REST API version 2020-04-01. In version 1.x of the Azure Native provider, it used API version 2020-04-01.
  */
 export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**

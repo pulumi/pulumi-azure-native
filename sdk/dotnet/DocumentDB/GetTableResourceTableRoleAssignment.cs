@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
-        /// Azure REST API version: 2024-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-12-01-preview.
         /// </summary>
         public static Task<GetTableResourceTableRoleAssignmentResult> InvokeAsync(GetTableResourceTableRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableRoleAssignmentResult>("azure-native:documentdb:getTableResourceTableRoleAssignment", args ?? new GetTableResourceTableRoleAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
-        /// Azure REST API version: 2024-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-12-01-preview.
         /// </summary>
         public static Output<GetTableResourceTableRoleAssignmentResult> Invoke(GetTableResourceTableRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleAssignmentResult>("azure-native:documentdb:getTableResourceTableRoleAssignment", args ?? new GetTableResourceTableRoleAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
-        /// Azure REST API version: 2024-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-12-01-preview.
         /// </summary>
         public static Output<GetTableResourceTableRoleAssignmentResult> Invoke(GetTableResourceTableRoleAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleAssignmentResult>("azure-native:documentdb:getTableResourceTableRoleAssignment", args ?? new GetTableResourceTableRoleAssignmentInvokeArgs(), options.WithDefaults());

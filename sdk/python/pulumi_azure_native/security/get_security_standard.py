@@ -163,7 +163,8 @@ def get_security_standard(scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityStandardResult:
     """
     Get a specific security standard for the requested scope by standardId
-    Azure REST API version: 2024-08-01.
+
+    Uses Azure REST API version 2024-08-01.
 
 
     :param str scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
@@ -191,7 +192,8 @@ def get_security_standard_output(scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityStandardResult]:
     """
     Get a specific security standard for the requested scope by standardId
-    Azure REST API version: 2024-08-01.
+
+    Uses Azure REST API version 2024-08-01.
 
 
     :param str scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'

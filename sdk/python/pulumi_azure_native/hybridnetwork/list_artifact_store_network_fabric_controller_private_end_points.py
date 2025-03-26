@@ -68,7 +68,8 @@ def list_artifact_store_network_fabric_controller_private_end_points(artifact_st
                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListArtifactStoreNetworkFabricControllerPrivateEndPointsResult:
     """
     List network fabric controllers to artifact stores
-    Azure REST API version: 2024-04-15.
+
+    Uses Azure REST API version 2024-04-15.
 
 
     :param str artifact_store_name: The name of the artifact store.
@@ -91,7 +92,8 @@ def list_artifact_store_network_fabric_controller_private_end_points_output(arti
                                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult]:
     """
     List network fabric controllers to artifact stores
-    Azure REST API version: 2024-04-15.
+
+    Uses Azure REST API version 2024-04-15.
 
 
     :param str artifact_store_name: The name of the artifact store.

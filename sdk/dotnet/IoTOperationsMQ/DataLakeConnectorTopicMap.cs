@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 {
     /// <summary>
     /// MQ dataLakeConnector/topicMap resource
-    /// Azure REST API version: 2023-10-04-preview.
+    /// 
+    /// Uses Azure REST API version 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:DataLakeConnectorTopicMap")]
     public partial class DataLakeConnectorTopicMap : global::Pulumi.CustomResource

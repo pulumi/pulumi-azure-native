@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of an IoT Central application.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-11-01-preview.
  */
@@ -87,7 +88,8 @@ export interface GetAppResult {
 }
 /**
  * Get the metadata of an IoT Central application.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-11-01-preview.
  */

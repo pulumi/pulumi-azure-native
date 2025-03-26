@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// 
         /// Other available API versions: 2023-12-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Security
 
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// 
         /// Other available API versions: 2023-12-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Security
 
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// 
         /// Other available API versions: 2023-12-01-preview.
         /// </summary>

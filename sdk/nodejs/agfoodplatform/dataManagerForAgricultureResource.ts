@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Data Manager For Agriculture ARM Resource.
- * Azure REST API version: 2023-06-01-preview.
+ *
+ * Uses Azure REST API version 2023-06-01-preview.
  */
 export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**

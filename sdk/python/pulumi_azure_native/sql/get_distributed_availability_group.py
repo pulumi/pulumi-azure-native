@@ -199,7 +199,8 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributedAvailabilityGroupResult:
     """
     Gets a distributed availability group info.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
@@ -235,7 +236,8 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributedAvailabilityGroupResult]:
     """
     Gets a distributed availability group info.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 

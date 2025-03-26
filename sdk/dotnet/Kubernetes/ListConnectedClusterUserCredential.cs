@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Kubernetes
     {
         /// <summary>
         /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// 
         /// Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Kubernetes
 
         /// <summary>
         /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// 
         /// Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Kubernetes
 
         /// <summary>
         /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// 
         /// Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
         /// </summary>

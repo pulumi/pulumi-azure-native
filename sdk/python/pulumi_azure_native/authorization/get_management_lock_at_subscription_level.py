@@ -126,7 +126,8 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtSubscriptionLevelResult:
     """
     Gets a management lock at the subscription level.
-    Azure REST API version: 2020-05-01.
+
+    Uses Azure REST API version 2020-05-01.
 
 
     :param str lock_name: The name of the lock to get.
@@ -148,7 +149,8 @@ def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementLockAtSubscriptionLevelResult]:
     """
     Gets a management lock at the subscription level.
-    Azure REST API version: 2020-05-01.
+
+    Uses Azure REST API version 2020-05-01.
 
 
     :param str lock_name: The name of the lock to get.

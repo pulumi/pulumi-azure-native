@@ -97,7 +97,8 @@ class TrustedIdProvider(pulumi.CustomResource):
                  __props__=None):
         """
         Data Lake Store trusted identity provider information.
-        Azure REST API version: 2016-11-01. Prior API version in Azure Native 1.x: 2016-11-01.
+
+        Uses Azure REST API version 2016-11-01. In version 1.x of the Azure Native provider, it used API version 2016-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +115,8 @@ class TrustedIdProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data Lake Store trusted identity provider information.
-        Azure REST API version: 2016-11-01. Prior API version in Azure Native 1.x: 2016-11-01.
+
+        Uses Azure REST API version 2016-11-01. In version 1.x of the Azure Native provider, it used API version 2016-11-01.
 
         :param str resource_name: The name of the resource.
         :param TrustedIdProviderArgs args: The arguments to use to populate this resource's properties.

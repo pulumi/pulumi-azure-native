@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
-        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Uses Azure REST API version 2019-10-01.
         /// 
         /// Other available API versions: 2018-02-02.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
-        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Uses Azure REST API version 2019-10-01.
         /// 
         /// Other available API versions: 2018-02-02.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
-        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Uses Azure REST API version 2019-10-01.
         /// 
         /// Other available API versions: 2018-02-02.
         /// </summary>

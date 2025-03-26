@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A Programmable Connectivity Gateway resource
- * Azure REST API version: 2024-01-15-preview.
+ *
+ * Uses Azure REST API version 2024-01-15-preview.
  */
 export class Gateway extends pulumi.CustomResource {
     /**

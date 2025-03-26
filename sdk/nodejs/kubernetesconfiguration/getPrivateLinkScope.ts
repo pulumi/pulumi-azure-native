@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Azure Arc PrivateLinkScope.
- * Azure REST API version: 2022-04-02-preview.
+ *
+ * Uses Azure REST API version 2022-04-02-preview.
  *
  * Other available API versions: 2024-11-01-preview.
  */
@@ -67,7 +68,8 @@ export interface GetPrivateLinkScopeResult {
 }
 /**
  * Returns a Azure Arc PrivateLinkScope.
- * Azure REST API version: 2022-04-02-preview.
+ *
+ * Uses Azure REST API version 2022-04-02-preview.
  *
  * Other available API versions: 2024-11-01-preview.
  */

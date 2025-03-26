@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
 {
     /// <summary>
     /// A fleet database.
-    /// Azure REST API version: 2025-02-01-preview.
+    /// 
+    /// Uses Azure REST API version 2025-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasefleetmanager:FleetDatabase")]
     public partial class FleetDatabase : global::Pulumi.CustomResource

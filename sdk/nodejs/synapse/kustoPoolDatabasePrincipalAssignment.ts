@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database principal assignment.
- * Azure REST API version: 2021-06-01-preview.
+ *
+ * Uses Azure REST API version 2021-06-01-preview.
  */
 export class KustoPoolDatabasePrincipalAssignment extends pulumi.CustomResource {
     /**

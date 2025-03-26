@@ -58,7 +58,8 @@ def list_asset_container_sas(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetContainerSasResult:
     """
     Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -86,7 +87,8 @@ def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAssetContainerSasResult]:
     """
     Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

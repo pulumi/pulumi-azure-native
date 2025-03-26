@@ -211,7 +211,8 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyDraftResult:
     """
     Get a draft Firewall Policy.
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
     Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
 
@@ -245,7 +246,8 @@ def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyDraftResult]:
     """
     Get a draft Firewall Policy.
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
     Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
 

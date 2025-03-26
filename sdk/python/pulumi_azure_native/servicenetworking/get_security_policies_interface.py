@@ -152,7 +152,8 @@ def get_security_policies_interface(resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPoliciesInterfaceResult:
     """
     Get a SecurityPolicy
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-01-01, 2025-03-01-preview.
 
@@ -184,7 +185,8 @@ def get_security_policies_interface_output(resource_group_name: Optional[pulumi.
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPoliciesInterfaceResult]:
     """
     Get a SecurityPolicy
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-01-01, 2025-03-01-preview.
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The NSP logging configuration
-    /// Azure REST API version: 2024-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterLoggingConfiguration")]
     public partial class NetworkSecurityPerimeterLoggingConfiguration : global::Pulumi.CustomResource

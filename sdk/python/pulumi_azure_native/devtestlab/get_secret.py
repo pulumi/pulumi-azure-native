@@ -141,7 +141,8 @@ def get_secret(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Get secret.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=value)'
@@ -176,7 +177,8 @@ def get_secret_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
     Get secret.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=value)'

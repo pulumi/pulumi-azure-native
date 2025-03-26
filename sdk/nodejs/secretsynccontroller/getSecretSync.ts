@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of a SecretSync instance.
- * Azure REST API version: 2024-08-21-preview.
+ *
+ * Uses Azure REST API version 2024-08-21-preview.
  */
 export function getSecretSync(args: GetSecretSyncArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +94,8 @@ export interface GetSecretSyncResult {
 }
 /**
  * Gets the properties of a SecretSync instance.
- * Azure REST API version: 2024-08-21-preview.
+ *
+ * Uses Azure REST API version 2024-08-21-preview.
  */
 export function getSecretSyncOutput(args: GetSecretSyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

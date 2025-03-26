@@ -103,7 +103,8 @@ def get_draft_package_path(draft_package_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDraftPackagePathResult:
     """
     Gets draft package path and temp working path with SAS.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str draft_package_name: The resource name of the Test Base Draft Package.
@@ -129,7 +130,8 @@ def get_draft_package_path_output(draft_package_name: Optional[pulumi.Input[str]
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraftPackagePathResult]:
     """
     Gets draft package path and temp working path with SAS.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str draft_package_name: The resource name of the Test Base Draft Package.

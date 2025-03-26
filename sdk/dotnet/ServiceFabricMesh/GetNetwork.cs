@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     {
         /// <summary>
         /// Gets the information about the network resource with the given name. The information include the description and other properties of the network.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-native:servicefabricmesh:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the information about the network resource with the given name. The information include the description and other properties of the network.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("azure-native:servicefabricmesh:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the information about the network resource with the given name. The information include the description and other properties of the network.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("azure-native:servicefabricmesh:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());

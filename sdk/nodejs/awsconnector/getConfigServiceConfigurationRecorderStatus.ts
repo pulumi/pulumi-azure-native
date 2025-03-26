@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ConfigServiceConfigurationRecorderStatus
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getConfigServiceConfigurationRecorderStatus(args: GetConfigServiceConfigurationRecorderStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServiceConfigurationRecorderStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetConfigServiceConfigurationRecorderStatusResult {
 }
 /**
  * Get a ConfigServiceConfigurationRecorderStatus
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getConfigServiceConfigurationRecorderStatusOutput(args: GetConfigServiceConfigurationRecorderStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServiceConfigurationRecorderStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

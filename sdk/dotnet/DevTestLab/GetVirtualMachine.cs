@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Get virtual machine.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:devtestlab:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get virtual machine.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:devtestlab:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get virtual machine.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:devtestlab:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());

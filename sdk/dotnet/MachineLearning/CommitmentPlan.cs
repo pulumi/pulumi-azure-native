@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MachineLearning
 {
     /// <summary>
     /// An Azure ML commitment plan resource.
-    /// Azure REST API version: 2016-05-01-preview. Prior API version in Azure Native 1.x: 2016-05-01-preview.
+    /// 
+    /// Uses Azure REST API version 2016-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2016-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:CommitmentPlan")]
     public partial class CommitmentPlan : global::Pulumi.CustomResource

@@ -356,7 +356,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
@@ -405,7 +406,8 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 

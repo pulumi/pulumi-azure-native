@@ -235,7 +235,8 @@ def get_operator_api_connection(operator_api_connection_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOperatorApiConnectionResult:
     """
     Get an Operator API Connection.
-    Azure REST API version: 2024-01-15-preview.
+
+    Uses Azure REST API version 2024-01-15-preview.
 
 
     :param str operator_api_connection_name: Azure Programmable Connectivity (APC) Operator API Connection Name.
@@ -269,7 +270,8 @@ def get_operator_api_connection_output(operator_api_connection_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOperatorApiConnectionResult]:
     """
     Get an Operator API Connection.
-    Azure REST API version: 2024-01-15-preview.
+
+    Uses Azure REST API version 2024-01-15-preview.
 
 
     :param str operator_api_connection_name: Azure Programmable Connectivity (APC) Operator API Connection Name.

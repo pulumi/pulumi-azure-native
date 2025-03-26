@@ -283,7 +283,8 @@ def get_pim_role_eligibility_schedule(role_eligibility_schedule_request_name: Op
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPimRoleEligibilityScheduleResult:
     """
     Get the specified role eligibility schedule request.
-    Azure REST API version: 2020-10-01.
+
+    Uses Azure REST API version 2020-10-01.
 
 
     :param str role_eligibility_schedule_request_name: The name (guid) of the role eligibility schedule request to get.
@@ -321,7 +322,8 @@ def get_pim_role_eligibility_schedule_output(role_eligibility_schedule_request_n
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPimRoleEligibilityScheduleResult]:
     """
     Get the specified role eligibility schedule request.
-    Azure REST API version: 2020-10-01.
+
+    Uses Azure REST API version 2020-10-01.
 
 
     :param str role_eligibility_schedule_request_name: The name (guid) of the role eligibility schedule request to get.

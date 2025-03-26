@@ -199,7 +199,8 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[str] = N
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAPICollectionByAzureApiManagementServiceResult:
     """
     Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-    Azure REST API version: 2023-11-15.
+
+    Uses Azure REST API version 2023-11-15.
 
 
     :param str api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -233,7 +234,8 @@ def get_api_collection_by_azure_api_management_service_output(api_id: Optional[p
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAPICollectionByAzureApiManagementServiceResult]:
     """
     Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-    Azure REST API version: 2023-11-15.
+
+    Uses Azure REST API version 2023-11-15.
 
 
     :param str api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

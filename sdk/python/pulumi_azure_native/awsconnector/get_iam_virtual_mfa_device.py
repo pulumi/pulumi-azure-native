@@ -127,7 +127,8 @@ def get_iam_virtual_mfa_device(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIamVirtualMfaDeviceResult:
     """
     Get a IamVirtualMFADevice
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamVirtualMFADevice
@@ -152,7 +153,8 @@ def get_iam_virtual_mfa_device_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamVirtualMfaDeviceResult]:
     """
     Get a IamVirtualMFADevice
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamVirtualMFADevice

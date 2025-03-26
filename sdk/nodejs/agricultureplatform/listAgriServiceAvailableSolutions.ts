@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the list of available agri solutions.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export function listAgriServiceAvailableSolutions(args: ListAgriServiceAvailableSolutionsArgs, opts?: pulumi.InvokeOptions): Promise<ListAgriServiceAvailableSolutionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +42,8 @@ export interface ListAgriServiceAvailableSolutionsResult {
 }
 /**
  * Returns the list of available agri solutions.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export function listAgriServiceAvailableSolutionsOutput(args: ListAgriServiceAvailableSolutionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAgriServiceAvailableSolutionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

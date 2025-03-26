@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Details of connector record
- * Azure REST API version: 2024-07-01.
+ *
+ * Uses Azure REST API version 2024-07-01.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,7 +81,8 @@ export interface GetConnectorResult {
 }
 /**
  * Details of connector record
- * Azure REST API version: 2024-07-01.
+ *
+ * Uses Azure REST API version 2024-07-01.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

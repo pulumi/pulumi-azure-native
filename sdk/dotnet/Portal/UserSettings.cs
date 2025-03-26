@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
     /// Response to get user settings
-    /// Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01.
+    /// 
+    /// Uses Azure REST API version 2018-10-01. In version 1.x of the Azure Native provider, it used API version 2018-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:UserSettings")]
     public partial class UserSettings : global::Pulumi.CustomResource

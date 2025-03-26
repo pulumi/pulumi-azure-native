@@ -88,7 +88,7 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[str] = None,
                                   test_base_account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingHubServiceUsageResult:
     """
-    Azure REST API version: 2022-04-01-preview.
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 
@@ -120,7 +120,7 @@ def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[s
                                          test_base_account_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingHubServiceUsageResult]:
     """
-    Azure REST API version: 2022-04-01-preview.
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 

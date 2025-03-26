@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
- * Azure REST API version: 2022-05-04. Prior API version in Azure Native 1.x: 2020-06-30-preview.
+ *
+ * Uses Azure REST API version 2022-05-04. In version 1.x of the Azure Native provider, it used API version 2020-06-30-preview.
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Relay
     {
         /// <summary>
         /// Get authorizationRule for a WCF relay by name.
-        /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Uses Azure REST API version 2021-11-01.
         /// 
         /// Other available API versions: 2017-04-01, 2024-01-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Relay
 
         /// <summary>
         /// Get authorizationRule for a WCF relay by name.
-        /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Uses Azure REST API version 2021-11-01.
         /// 
         /// Other available API versions: 2017-04-01, 2024-01-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Relay
 
         /// <summary>
         /// Get authorizationRule for a WCF relay by name.
-        /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Uses Azure REST API version 2021-11-01.
         /// 
         /// Other available API versions: 2017-04-01, 2024-01-01.
         /// </summary>

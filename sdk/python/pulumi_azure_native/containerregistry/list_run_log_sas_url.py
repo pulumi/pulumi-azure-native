@@ -67,7 +67,8 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRunLogSasUrlResult:
     """
     Gets a link to download the run logs.
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
     Other available API versions: 2018-09-01, 2019-04-01.
 
@@ -92,7 +93,8 @@ def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = Non
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRunLogSasUrlResult]:
     """
     Gets a link to download the run logs.
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
     Other available API versions: 2018-09-01, 2019-04-01.
 

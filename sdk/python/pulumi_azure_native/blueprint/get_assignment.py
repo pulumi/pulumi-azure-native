@@ -211,7 +211,8 @@ def get_assignment(assignment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssignmentResult:
     """
     Get a blueprint assignment.
-    Azure REST API version: 2018-11-01-preview.
+
+    Uses Azure REST API version 2018-11-01-preview.
 
 
     :param str assignment_name: Name of the blueprint assignment.
@@ -243,7 +244,8 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssignmentResult]:
     """
     Get a blueprint assignment.
-    Azure REST API version: 2018-11-01-preview.
+
+    Uses Azure REST API version 2018-11-01-preview.
 
 
     :param str assignment_name: Name of the blueprint assignment.

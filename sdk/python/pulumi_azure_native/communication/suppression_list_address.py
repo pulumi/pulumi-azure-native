@@ -181,7 +181,8 @@ class SuppressionListAddress(pulumi.CustomResource):
                  __props__=None):
         """
         A object that represents a SuppressionList record.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview.
 
@@ -205,7 +206,8 @@ class SuppressionListAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A object that represents a SuppressionList record.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview.
 

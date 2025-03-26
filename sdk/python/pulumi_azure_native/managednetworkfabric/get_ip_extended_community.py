@@ -163,7 +163,8 @@ def get_ip_extended_community(ip_extended_community_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpExtendedCommunityResult:
     """
     Implements IP Extended Community GET method.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 
@@ -193,7 +194,8 @@ def get_ip_extended_community_output(ip_extended_community_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpExtendedCommunityResult]:
     """
     Implements IP Extended Community GET method.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
     Other available API versions: 2023-06-15.
 

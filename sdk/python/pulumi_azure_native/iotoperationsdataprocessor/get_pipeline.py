@@ -188,7 +188,8 @@ def get_pipeline(instance_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
     Get a Pipeline
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str instance_name: Name of instance.
@@ -221,7 +222,8 @@ def get_pipeline_output(instance_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Get a Pipeline
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str instance_name: Name of instance.

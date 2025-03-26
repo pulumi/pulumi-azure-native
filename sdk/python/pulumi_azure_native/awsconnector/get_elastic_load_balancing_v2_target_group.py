@@ -127,7 +127,8 @@ def get_elastic_load_balancing_v2_target_group(name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticLoadBalancingV2TargetGroupResult:
     """
     Get a ElasticLoadBalancingV2TargetGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticLoadBalancingV2TargetGroup
@@ -152,7 +153,8 @@ def get_elastic_load_balancing_v2_target_group_output(name: Optional[pulumi.Inpu
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticLoadBalancingV2TargetGroupResult]:
     """
     Get a ElasticLoadBalancingV2TargetGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticLoadBalancingV2TargetGroup

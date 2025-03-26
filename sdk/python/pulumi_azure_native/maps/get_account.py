@@ -151,7 +151,8 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get a Maps Account.
-    Azure REST API version: 2021-02-01.
+
+    Uses Azure REST API version 2021-02-01.
 
     Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
 
@@ -180,7 +181,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get a Maps Account.
-    Azure REST API version: 2021-02-01.
+
+    Uses Azure REST API version 2021-02-01.
 
     Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
 

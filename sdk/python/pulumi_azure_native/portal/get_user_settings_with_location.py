@@ -55,7 +55,8 @@ def get_user_settings_with_location(location: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsWithLocationResult:
     """
     Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
-    Azure REST API version: 2018-10-01.
+
+    Uses Azure REST API version 2018-10-01.
 
 
     :param str location: The provider location
@@ -74,7 +75,8 @@ def get_user_settings_with_location_output(location: Optional[pulumi.Input[str]]
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsWithLocationResult]:
     """
     Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
-    Azure REST API version: 2018-10-01.
+
+    Uses Azure REST API version 2018-10-01.
 
 
     :param str location: The provider location

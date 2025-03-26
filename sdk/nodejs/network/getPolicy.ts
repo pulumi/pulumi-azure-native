@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve protection policy with specified name within a resource group.
- * Azure REST API version: 2022-05-01.
+ *
+ * Uses Azure REST API version 2022-05-01.
  *
  * Other available API versions: 2021-06-01, 2024-02-01.
  */
@@ -96,7 +97,8 @@ export interface GetPolicyResult {
 }
 /**
  * Retrieve protection policy with specified name within a resource group.
- * Azure REST API version: 2022-05-01.
+ *
+ * Uses Azure REST API version 2022-05-01.
  *
  * Other available API versions: 2021-06-01, 2024-02-01.
  */

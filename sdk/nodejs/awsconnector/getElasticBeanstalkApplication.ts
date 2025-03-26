@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ElasticBeanstalkApplication
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getElasticBeanstalkApplication(args: GetElasticBeanstalkApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticBeanstalkApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetElasticBeanstalkApplicationResult {
 }
 /**
  * Get a ElasticBeanstalkApplication
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getElasticBeanstalkApplicationOutput(args: GetElasticBeanstalkApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticBeanstalkApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

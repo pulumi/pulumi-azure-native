@@ -56,7 +56,8 @@ def get_open_ai_status(integration_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenAIStatusResult:
     """
     Status of the OpenAI Integration
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
 
@@ -80,7 +81,8 @@ def get_open_ai_status_output(integration_name: Optional[pulumi.Input[str]] = No
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenAIStatusResult]:
     """
     Status of the OpenAI Integration
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
 

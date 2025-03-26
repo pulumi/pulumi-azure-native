@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An invoice section.
- * Azure REST API version: 2024-04-01.
+ *
+ * Uses Azure REST API version 2024-04-01.
  */
 export class InvoiceSection extends pulumi.CustomResource {
     /**

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Data Lake Analytics firewall rule.
- * Azure REST API version: 2019-11-01-preview.
+ *
+ * Uses Azure REST API version 2019-11-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +60,8 @@ export interface GetFirewallRuleResult {
 }
 /**
  * Gets the specified Data Lake Analytics firewall rule.
- * Azure REST API version: 2019-11-01-preview.
+ *
+ * Uses Azure REST API version 2019-11-01-preview.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

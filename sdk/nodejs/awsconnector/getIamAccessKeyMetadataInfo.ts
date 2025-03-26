@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a IamAccessKeyMetadata
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamAccessKeyMetadataInfo(args: GetIamAccessKeyMetadataInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIamAccessKeyMetadataInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetIamAccessKeyMetadataInfoResult {
 }
 /**
  * Get a IamAccessKeyMetadata
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamAccessKeyMetadataInfoOutput(args: GetIamAccessKeyMetadataInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamAccessKeyMetadataInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

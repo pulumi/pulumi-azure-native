@@ -199,7 +199,8 @@ def get_profile(profile_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
     Gets a Traffic Manager profile.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2022-04-01-preview.
 
@@ -232,7 +233,8 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Gets a Traffic Manager profile.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2022-04-01-preview.
 

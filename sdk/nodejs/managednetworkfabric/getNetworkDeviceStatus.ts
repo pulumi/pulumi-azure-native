@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the running status of the Network Device.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  */
 export function getNetworkDeviceStatus(args: GetNetworkDeviceStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDeviceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +47,8 @@ export interface GetNetworkDeviceStatusResult {
 }
 /**
  * Get the running status of the Network Device.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  */
 export function getNetworkDeviceStatusOutput(args: GetNetworkDeviceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDeviceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -393,7 +393,8 @@ class Server(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
+
+        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
 
         Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
@@ -429,7 +430,8 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
+
+        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
 
         Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 

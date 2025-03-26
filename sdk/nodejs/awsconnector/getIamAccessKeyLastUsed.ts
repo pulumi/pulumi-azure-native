@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a IamAccessKeyLastUsed
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamAccessKeyLastUsed(args: GetIamAccessKeyLastUsedArgs, opts?: pulumi.InvokeOptions): Promise<GetIamAccessKeyLastUsedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetIamAccessKeyLastUsedResult {
 }
 /**
  * Get a IamAccessKeyLastUsed
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamAccessKeyLastUsedOutput(args: GetIamAccessKeyLastUsedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamAccessKeyLastUsedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

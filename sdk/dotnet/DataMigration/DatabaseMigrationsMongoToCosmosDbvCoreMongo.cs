@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// Database Migration Resource for Mongo to CosmosDb.
-    /// Azure REST API version: 2023-07-15-preview.
+    /// 
+    /// Uses Azure REST API version 2023-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbvCoreMongo")]
     public partial class DatabaseMigrationsMongoToCosmosDbvCoreMongo : global::Pulumi.CustomResource

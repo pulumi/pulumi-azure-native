@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List Environments for the user
- * Azure REST API version: 2018-10-15.
+ *
+ * Uses Azure REST API version 2018-10-15.
  */
 export function listGlobalUserEnvironments(args: ListGlobalUserEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +42,8 @@ export interface ListGlobalUserEnvironmentsResult {
 }
 /**
  * List Environments for the user
- * Azure REST API version: 2018-10-15.
+ *
+ * Uses Azure REST API version 2018-10-15.
  */
 export function listGlobalUserEnvironmentsOutput(args: ListGlobalUserEnvironmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalUserEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

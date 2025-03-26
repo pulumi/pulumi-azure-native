@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The diagnostic setting resource.
- * Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01.
+ *
+ * Uses Azure REST API version 2017-04-01. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
  *
  * Other available API versions: 2017-04-01-preview.
  */

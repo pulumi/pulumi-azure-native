@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.CustomerInsights
     {
         /// <summary>
         /// Gets data image upload URL.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Task<GetImageUploadUrlForDataResult> InvokeAsync(GetImageUploadUrlForDataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForDataResult>("azure-native:customerinsights:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets data image upload URL.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetImageUploadUrlForDataResult> Invoke(GetImageUploadUrlForDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForDataResult>("azure-native:customerinsights:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets data image upload URL.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetImageUploadUrlForDataResult> Invoke(GetImageUploadUrlForDataInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForDataResult>("azure-native:customerinsights:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataInvokeArgs(), options.WithDefaults());

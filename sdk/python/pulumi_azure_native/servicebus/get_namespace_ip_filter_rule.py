@@ -115,7 +115,8 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceIpFilterRuleResult:
     """
     Gets an IpFilterRule for a Namespace by rule name.
-    Azure REST API version: 2018-01-01-preview.
+
+    Uses Azure REST API version 2018-01-01-preview.
 
 
     :param str ip_filter_rule_name: The IP Filter Rule name.
@@ -142,7 +143,8 @@ def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Inp
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceIpFilterRuleResult]:
     """
     Gets an IpFilterRule for a Namespace by rule name.
-    Azure REST API version: 2018-01-01-preview.
+
+    Uses Azure REST API version 2018-01-01-preview.
 
 
     :param str ip_filter_rule_name: The IP Filter Rule name.

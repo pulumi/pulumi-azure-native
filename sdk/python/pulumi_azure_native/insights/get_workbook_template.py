@@ -163,7 +163,8 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookTemplateResult:
     """
     Get a single workbook template by its resourceName.
-    Azure REST API version: 2020-11-20.
+
+    Uses Azure REST API version 2020-11-20.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -191,7 +192,8 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
     """
     Get a single workbook template by its resourceName.
-    Azure REST API version: 2020-11-20.
+
+    Uses Azure REST API version 2020-11-20.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

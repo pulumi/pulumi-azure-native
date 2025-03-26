@@ -152,7 +152,8 @@ def get_volume(pool_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Get a Volume
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str pool_name: Pool Object
@@ -182,7 +183,8 @@ def get_volume_output(pool_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Get a Volume
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str pool_name: Pool Object

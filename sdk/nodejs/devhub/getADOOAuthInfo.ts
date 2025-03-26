@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Response containing ADO OAuth information
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  *
  * Other available API versions: 2025-03-01-preview.
  */
@@ -44,7 +45,8 @@ export interface GetADOOAuthInfoResult {
 }
 /**
  * Response containing ADO OAuth information
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  *
  * Other available API versions: 2025-03-01-preview.
  */

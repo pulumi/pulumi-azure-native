@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Connector definition for kind 'Customizable'.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export class CustomizableConnectorDefinition extends pulumi.CustomResource {
     /**

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a EcsTaskDefinition
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEcsTaskDefinitionResult> InvokeAsync(GetEcsTaskDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEcsTaskDefinitionResult>("azure-native:awsconnector:getEcsTaskDefinition", args ?? new GetEcsTaskDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcsTaskDefinition
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcsTaskDefinitionResult> Invoke(GetEcsTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsTaskDefinitionResult>("azure-native:awsconnector:getEcsTaskDefinition", args ?? new GetEcsTaskDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcsTaskDefinition
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcsTaskDefinitionResult> Invoke(GetEcsTaskDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsTaskDefinitionResult>("azure-native:awsconnector:getEcsTaskDefinition", args ?? new GetEcsTaskDefinitionInvokeArgs(), options.WithDefaults());

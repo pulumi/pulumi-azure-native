@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-        /// Azure REST API version: 2023-11-15.
+        /// 
+        /// Uses Azure REST API version 2023-11-15.
         /// </summary>
         public static Task<GetAPICollectionByAzureApiManagementServiceResult> InvokeAsync(GetAPICollectionByAzureApiManagementServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAPICollectionByAzureApiManagementServiceResult>("azure-native:security:getAPICollectionByAzureApiManagementService", args ?? new GetAPICollectionByAzureApiManagementServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-        /// Azure REST API version: 2023-11-15.
+        /// 
+        /// Uses Azure REST API version 2023-11-15.
         /// </summary>
         public static Output<GetAPICollectionByAzureApiManagementServiceResult> Invoke(GetAPICollectionByAzureApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAPICollectionByAzureApiManagementServiceResult>("azure-native:security:getAPICollectionByAzureApiManagementService", args ?? new GetAPICollectionByAzureApiManagementServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-        /// Azure REST API version: 2023-11-15.
+        /// 
+        /// Uses Azure REST API version 2023-11-15.
         /// </summary>
         public static Output<GetAPICollectionByAzureApiManagementServiceResult> Invoke(GetAPICollectionByAzureApiManagementServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAPICollectionByAzureApiManagementServiceResult>("azure-native:security:getAPICollectionByAzureApiManagementService", args ?? new GetAPICollectionByAzureApiManagementServiceInvokeArgs(), options.WithDefaults());

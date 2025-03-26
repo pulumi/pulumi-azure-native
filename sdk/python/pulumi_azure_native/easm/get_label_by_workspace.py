@@ -128,7 +128,8 @@ def get_label_by_workspace(label_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelByWorkspaceResult:
     """
     Returns a label in the given workspace.
-    Azure REST API version: 2023-04-01-preview.
+
+    Uses Azure REST API version 2023-04-01-preview.
 
 
     :param str label_name: The name of the Label.
@@ -156,7 +157,8 @@ def get_label_by_workspace_output(label_name: Optional[pulumi.Input[str]] = None
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabelByWorkspaceResult]:
     """
     Returns a label in the given workspace.
-    Azure REST API version: 2023-04-01-preview.
+
+    Uses Azure REST API version 2023-04-01-preview.
 
 
     :param str label_name: The name of the Label.

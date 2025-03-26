@@ -188,7 +188,8 @@ def get_experiment(experiment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Defines the properties of an Experiment
-    Azure REST API version: 2019-11-01.
+
+    Uses Azure REST API version 2019-11-01.
 
 
     :param str experiment_name: The Experiment identifier associated with the Experiment
@@ -221,7 +222,8 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Defines the properties of an Experiment
-    Azure REST API version: 2019-11-01.
+
+    Uses Azure REST API version 2019-11-01.
 
 
     :param str experiment_name: The Experiment identifier associated with the Experiment

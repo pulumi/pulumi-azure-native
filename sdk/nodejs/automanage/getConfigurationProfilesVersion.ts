@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a configuration profile version
- * Azure REST API version: 2022-05-04.
+ *
+ * Uses Azure REST API version 2022-05-04.
  */
 export function getConfigurationProfilesVersion(args: GetConfigurationProfilesVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +71,8 @@ export interface GetConfigurationProfilesVersionResult {
 }
 /**
  * Get information about a configuration profile version
- * Azure REST API version: 2022-05-04.
+ *
+ * Uses Azure REST API version 2022-05-04.
  */
 export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

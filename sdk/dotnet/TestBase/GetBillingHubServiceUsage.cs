@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.TestBase
     public static class GetBillingHubServiceUsage
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2022-04-01-preview.
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// 
         /// Other available API versions: 2023-11-01-preview.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.TestBase
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2022-04-01-preview.
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// 
         /// Other available API versions: 2023-11-01-preview.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.TestBase
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2022-04-01-preview.
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// 
         /// Other available API versions: 2023-11-01-preview.
         /// </summary>

@@ -21,7 +21,8 @@ namespace Pulumi.AzureNative.MixedReality
         /// &gt; The Mixed Reality service is now deprecated and will be retired. 
         /// 
         ///  Retrieve an Object Anchors Account.
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Task<GetObjectAnchorsAccountResult> InvokeAsync(GetObjectAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithDefaults());
@@ -36,7 +37,8 @@ namespace Pulumi.AzureNative.MixedReality
         /// &gt; The Mixed Reality service is now deprecated and will be retired. 
         /// 
         ///  Retrieve an Object Anchors Account.
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Output<GetObjectAnchorsAccountResult> Invoke(GetObjectAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountInvokeArgs(), options.WithDefaults());
@@ -51,7 +53,8 @@ namespace Pulumi.AzureNative.MixedReality
         /// &gt; The Mixed Reality service is now deprecated and will be retired. 
         /// 
         ///  Retrieve an Object Anchors Account.
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Output<GetObjectAnchorsAccountResult> Invoke(GetObjectAnchorsAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountInvokeArgs(), options.WithDefaults());

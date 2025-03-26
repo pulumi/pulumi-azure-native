@@ -55,7 +55,8 @@ def list_energy_service_partitions(resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEnergyServicePartitionsResult:
     """
     Method that gets called when list of partitions is requested.
-    Azure REST API version: 2022-04-04-preview.
+
+    Uses Azure REST API version 2022-04-04-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -74,7 +75,8 @@ def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.I
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
     """
     Method that gets called when list of partitions is requested.
-    Azure REST API version: 2022-04-04-preview.
+
+    Uses Azure REST API version 2022-04-04-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

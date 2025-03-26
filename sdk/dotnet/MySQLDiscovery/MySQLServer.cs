@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
 {
     /// <summary>
     /// The MySQLServer resource definition.
-    /// Azure REST API version: 2024-09-30-preview.
+    /// 
+    /// Uses Azure REST API version 2024-09-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mysqldiscovery:MySQLServer")]
     public partial class MySQLServer : global::Pulumi.CustomResource

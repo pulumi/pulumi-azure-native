@@ -56,7 +56,8 @@ def get_topic_event_subscription_delivery_attributes(event_subscription_name: Op
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicEventSubscriptionDeliveryAttributesResult:
     """
     Get all delivery attributes for an event subscription for topic.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -80,7 +81,8 @@ def get_topic_event_subscription_delivery_attributes_output(event_subscription_n
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription for topic.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

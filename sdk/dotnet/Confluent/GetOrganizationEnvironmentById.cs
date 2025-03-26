@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Details about environment name, metadata and environment id of an environment
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Task<GetOrganizationEnvironmentByIdResult> InvokeAsync(GetOrganizationEnvironmentByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details about environment name, metadata and environment id of an environment
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetOrganizationEnvironmentByIdResult> Invoke(GetOrganizationEnvironmentByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details about environment name, metadata and environment id of an environment
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetOrganizationEnvironmentByIdResult> Invoke(GetOrganizationEnvironmentByIdInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationEnvironmentByIdResult>("azure-native:confluent:getOrganizationEnvironmentById", args ?? new GetOrganizationEnvironmentByIdInvokeArgs(), options.WithDefaults());

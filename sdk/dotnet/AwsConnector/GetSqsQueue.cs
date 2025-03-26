@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a SqsQueue
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetSqsQueueResult> InvokeAsync(GetSqsQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqsQueueResult>("azure-native:awsconnector:getSqsQueue", args ?? new GetSqsQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqsQueue
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSqsQueueResult> Invoke(GetSqsQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqsQueueResult>("azure-native:awsconnector:getSqsQueue", args ?? new GetSqsQueueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqsQueue
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSqsQueueResult> Invoke(GetSqsQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqsQueueResult>("azure-native:awsconnector:getSqsQueue", args ?? new GetSqsQueueInvokeArgs(), options.WithDefaults());

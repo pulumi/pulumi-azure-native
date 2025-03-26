@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     {
         /// <summary>
         /// Get a KafkaTopicMapResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetKafkaConnectorTopicMapResult> InvokeAsync(GetKafkaConnectorTopicMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaConnectorTopicMapResult>("azure-native:iotoperationsmq:getKafkaConnectorTopicMap", args ?? new GetKafkaConnectorTopicMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a KafkaTopicMapResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetKafkaConnectorTopicMapResult> Invoke(GetKafkaConnectorTopicMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConnectorTopicMapResult>("azure-native:iotoperationsmq:getKafkaConnectorTopicMap", args ?? new GetKafkaConnectorTopicMapInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a KafkaTopicMapResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetKafkaConnectorTopicMapResult> Invoke(GetKafkaConnectorTopicMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConnectorTopicMapResult>("azure-native:iotoperationsmq:getKafkaConnectorTopicMap", args ?? new GetKafkaConnectorTopicMapInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * MQ diagnostic services resource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export class DiagnosticService extends pulumi.CustomResource {
     /**

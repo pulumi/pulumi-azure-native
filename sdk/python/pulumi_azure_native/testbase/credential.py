@@ -115,7 +115,8 @@ class Credential(pulumi.CustomResource):
                  __props__=None):
         """
         The test base credential resource.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +134,8 @@ class Credential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The test base credential resource.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CredentialArgs args: The arguments to use to populate this resource's properties.

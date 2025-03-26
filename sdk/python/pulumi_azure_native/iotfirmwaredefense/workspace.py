@@ -100,7 +100,8 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Firmware analysis workspace.
-        Azure REST API version: 2023-02-08-preview.
+
+        Uses Azure REST API version 2023-02-08-preview.
 
         Other available API versions: 2024-01-10, 2025-04-01-preview.
 
@@ -119,7 +120,8 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Firmware analysis workspace.
-        Azure REST API version: 2023-02-08-preview.
+
+        Uses Azure REST API version 2023-02-08-preview.
 
         Other available API versions: 2024-01-10, 2025-04-01-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets all the SIM groups assigned to a mobile network.
-        /// Azure REST API version: 2024-04-01.
+        /// 
+        /// Uses Azure REST API version 2024-04-01.
         /// </summary>
         public static Task<ListMobileNetworkSimGroupsResult> InvokeAsync(ListMobileNetworkSimGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimGroupsResult>("azure-native:mobilenetwork:listMobileNetworkSimGroups", args ?? new ListMobileNetworkSimGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all the SIM groups assigned to a mobile network.
-        /// Azure REST API version: 2024-04-01.
+        /// 
+        /// Uses Azure REST API version 2024-04-01.
         /// </summary>
         public static Output<ListMobileNetworkSimGroupsResult> Invoke(ListMobileNetworkSimGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimGroupsResult>("azure-native:mobilenetwork:listMobileNetworkSimGroups", args ?? new ListMobileNetworkSimGroupsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all the SIM groups assigned to a mobile network.
-        /// Azure REST API version: 2024-04-01.
+        /// 
+        /// Uses Azure REST API version 2024-04-01.
         /// </summary>
         public static Output<ListMobileNetworkSimGroupsResult> Invoke(ListMobileNetworkSimGroupsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimGroupsResult>("azure-native:mobilenetwork:listMobileNetworkSimGroups", args ?? new ListMobileNetworkSimGroupsInvokeArgs(), options.WithDefaults());

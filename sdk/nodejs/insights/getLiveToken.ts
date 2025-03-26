@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * **Gets an access token for live metrics stream data.**
- * Azure REST API version: 2021-10-14.
+ *
+ * Uses Azure REST API version 2021-10-14.
  *
  * Other available API versions: 2020-06-02-preview.
  */
@@ -35,7 +36,8 @@ export interface GetLiveTokenResult {
 }
 /**
  * **Gets an access token for live metrics stream data.**
- * Azure REST API version: 2021-10-14.
+ *
+ * Uses Azure REST API version 2021-10-14.
  *
  * Other available API versions: 2020-06-02-preview.
  */

@@ -99,7 +99,8 @@ class ControllerDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of a DNC controller.
-        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
+
+        Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
 
         Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 
@@ -118,7 +119,8 @@ class ControllerDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a DNC controller.
-        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
+
+        Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
 
         Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 

@@ -127,7 +127,8 @@ def get_iam_instance_profile(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIamInstanceProfileResult:
     """
     Get a IamInstanceProfile
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamInstanceProfile
@@ -152,7 +153,8 @@ def get_iam_instance_profile_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamInstanceProfileResult]:
     """
     Get a IamInstanceProfile
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of IamInstanceProfile

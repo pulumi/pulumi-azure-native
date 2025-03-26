@@ -105,7 +105,8 @@ def get_assessment(assessment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
     Other available API versions: 2018-02-02.
 
@@ -136,7 +137,8 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
     Other available API versions: 2018-02-02.
 

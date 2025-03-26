@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Contains a list of references of UrlSigningKey type secret objects.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
  */

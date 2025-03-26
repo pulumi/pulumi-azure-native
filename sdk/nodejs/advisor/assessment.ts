@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Advisor assessment result data structure.
- * Azure REST API version: 2023-09-01-preview.
+ *
+ * Uses Azure REST API version 2023-09-01-preview.
  */
 export class Assessment extends pulumi.CustomResource {
     /**

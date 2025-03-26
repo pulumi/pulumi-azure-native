@@ -127,7 +127,8 @@ def get_edge_site(edge_site_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEdgeSiteResult:
     """
     Gets the specified edge site in a specified resource group.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 
@@ -154,7 +155,8 @@ def get_edge_site_output(edge_site_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeSiteResult]:
     """
     Gets the specified edge site in a specified resource group.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 

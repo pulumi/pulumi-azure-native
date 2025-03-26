@@ -152,7 +152,8 @@ def get_dns_resolver_policy_virtual_network_link(dns_resolver_policy_name: Optio
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResolverPolicyVirtualNetworkLinkResult:
     """
     Gets properties of a DNS resolver policy virtual network link.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_policy_name: The name of the DNS resolver policy.
@@ -182,7 +183,8 @@ def get_dns_resolver_policy_virtual_network_link_output(dns_resolver_policy_name
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverPolicyVirtualNetworkLinkResult]:
     """
     Gets properties of a DNS resolver policy virtual network link.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_policy_name: The name of the DNS resolver policy.

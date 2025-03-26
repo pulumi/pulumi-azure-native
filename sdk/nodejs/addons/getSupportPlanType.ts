@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
- * Azure REST API version: 2018-03-01.
+ *
+ * Uses Azure REST API version 2018-03-01.
  */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface GetSupportPlanTypeResult {
 }
 /**
  * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
- * Azure REST API version: 2018-03-01.
+ *
+ * Uses Azure REST API version 2018-03-01.
  */
 export function getSupportPlanTypeOutput(args: GetSupportPlanTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSupportPlanTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

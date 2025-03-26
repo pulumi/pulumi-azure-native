@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Get the callback URL for a workflow trigger.
-        /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Uses Azure REST API version 2022-09-01.
         /// 
         /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// Get the callback URL for a workflow trigger.
-        /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Uses Azure REST API version 2022-09-01.
         /// 
         /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// Get the callback URL for a workflow trigger.
-        /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Uses Azure REST API version 2022-09-01.
         /// 
         /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>

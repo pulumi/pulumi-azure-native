@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ConfigServiceDeliveryChannel
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getConfigServiceDeliveryChannel(args: GetConfigServiceDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServiceDeliveryChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetConfigServiceDeliveryChannelResult {
 }
 /**
  * Get a ConfigServiceDeliveryChannel
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

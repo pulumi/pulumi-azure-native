@@ -215,7 +215,8 @@ def get_user_rule(configuration_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserRuleResult:
     """
     Gets a user rule.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2021-05-01-preview.
 
@@ -258,7 +259,8 @@ def get_user_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserRuleResult]:
     """
     Gets a user rule.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2021-05-01-preview.
 

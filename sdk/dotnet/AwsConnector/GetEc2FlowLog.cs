@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2FlowLog
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2FlowLogResult> InvokeAsync(GetEc2FlowLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2FlowLogResult>("azure-native:awsconnector:getEc2FlowLog", args ?? new GetEc2FlowLogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2FlowLog
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2FlowLogResult> Invoke(GetEc2FlowLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2FlowLogResult>("azure-native:awsconnector:getEc2FlowLog", args ?? new GetEc2FlowLogInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2FlowLog
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2FlowLogResult> Invoke(GetEc2FlowLogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2FlowLogResult>("azure-native:awsconnector:getEc2FlowLog", args ?? new GetEc2FlowLogInvokeArgs(), options.WithDefaults());

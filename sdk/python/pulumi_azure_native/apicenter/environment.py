@@ -200,7 +200,8 @@ class Environment(pulumi.CustomResource):
                  __props__=None):
         """
         Environment entity.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 
@@ -225,7 +226,8 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Environment entity.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 

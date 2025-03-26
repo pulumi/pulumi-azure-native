@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * Azure REST API version: 2023-06-01-preview.
+ *
+ * Uses Azure REST API version 2023-06-01-preview.
  */
 export function getUeba(args: GetUebaArgs, opts?: pulumi.InvokeOptions): Promise<GetUebaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,7 +72,8 @@ export interface GetUebaResult {
 }
 /**
  * Gets a setting.
- * Azure REST API version: 2023-06-01-preview.
+ *
+ * Uses Azure REST API version 2023-06-01-preview.
  */
 export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUebaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

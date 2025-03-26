@@ -128,7 +128,8 @@ def get_private_endpoint_connections_for_scc_powershell(private_endpoint_connect
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsForSCCPowershellResult:
     """
     Gets the specified private endpoint connection associated with the service.
-    Azure REST API version: 2021-03-08.
+
+    Uses Azure REST API version 2021-03-08.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -156,7 +157,8 @@ def get_private_endpoint_connections_for_scc_powershell_output(private_endpoint_
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionsForSCCPowershellResult]:
     """
     Gets the specified private endpoint connection associated with the service.
-    Azure REST API version: 2021-03-08.
+
+    Uses Azure REST API version 2021-03-08.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

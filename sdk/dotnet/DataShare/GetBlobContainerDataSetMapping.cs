@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Task<GetBlobContainerDataSetMappingResult> InvokeAsync(GetBlobContainerDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerDataSetMappingResult>("azure-native:datashare:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetBlobContainerDataSetMappingResult> Invoke(GetBlobContainerDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerDataSetMappingResult>("azure-native:datashare:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetBlobContainerDataSetMappingResult> Invoke(GetBlobContainerDataSetMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerDataSetMappingResult>("azure-native:datashare:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingInvokeArgs(), options.WithDefaults());

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// Gets the properties of the specified Analytics Connector.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-01-preview.
         /// </summary>
         public static Task<GetAnalyticsConnectorResult> InvokeAsync(GetAnalyticsConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsConnectorResult>("azure-native:healthcareapis:getAnalyticsConnector", args ?? new GetAnalyticsConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified Analytics Connector.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-01-preview.
         /// </summary>
         public static Output<GetAnalyticsConnectorResult> Invoke(GetAnalyticsConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsConnectorResult>("azure-native:healthcareapis:getAnalyticsConnector", args ?? new GetAnalyticsConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified Analytics Connector.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-01-preview.
         /// </summary>
         public static Output<GetAnalyticsConnectorResult> Invoke(GetAnalyticsConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsConnectorResult>("azure-native:healthcareapis:getAnalyticsConnector", args ?? new GetAnalyticsConnectorInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List allowed upgrade plans for application.
- * Azure REST API version: 2021-07-01.
+ *
+ * Uses Azure REST API version 2021-07-01.
  *
  * Other available API versions: 2023-12-01-preview.
  */
@@ -43,7 +44,8 @@ export interface ListApplicationAllowedUpgradePlansResult {
 }
 /**
  * List allowed upgrade plans for application.
- * Azure REST API version: 2021-07-01.
+ *
+ * Uses Azure REST API version 2021-07-01.
  *
  * Other available API versions: 2023-12-01-preview.
  */

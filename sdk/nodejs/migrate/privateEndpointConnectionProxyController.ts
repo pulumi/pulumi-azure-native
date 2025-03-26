@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Defines Private endpoint proxy resource.
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export class PrivateEndpointConnectionProxyController extends pulumi.CustomResource {
     /**

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the managementpolicy associated with the specified storage account.
- * Azure REST API version: 2022-09-01.
+ *
+ * Uses Azure REST API version 2022-09-01.
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
  */
@@ -64,7 +65,8 @@ export interface GetManagementPolicyResult {
 }
 /**
  * Gets the managementpolicy associated with the specified storage account.
- * Azure REST API version: 2022-09-01.
+ *
+ * Uses Azure REST API version 2022-09-01.
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
  */

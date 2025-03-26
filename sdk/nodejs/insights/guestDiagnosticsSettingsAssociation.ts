@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual machine guest diagnostic settings resource.
- * Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview.
+ *
+ * Uses Azure REST API version 2018-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-06-01-preview.
  */
 export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
     /**

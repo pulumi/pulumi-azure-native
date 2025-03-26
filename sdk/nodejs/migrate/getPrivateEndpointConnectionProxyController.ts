@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the of private link proxy resources from a migrate project and private link proxy resource.
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export function getPrivateEndpointConnectionProxyController(args: GetPrivateEndpointConnectionProxyControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,7 +55,8 @@ export interface GetPrivateEndpointConnectionProxyControllerResult {
 }
 /**
  * Get the of private link proxy resources from a migrate project and private link proxy resource.
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export function getPrivateEndpointConnectionProxyControllerOutput(args: GetPrivateEndpointConnectionProxyControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionProxyControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

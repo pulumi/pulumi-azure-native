@@ -55,7 +55,8 @@ def list_bit_locker_key(job_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBitLockerKeyResult:
     """
     Returns the BitLocker Keys for all drives in the specified job.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
 
     :param str job_name: The name of the import/export job.
@@ -74,7 +75,8 @@ def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBitLockerKeyResult]:
     """
     Returns the BitLocker Keys for all drives in the specified job.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
 
     :param str job_name: The name of the import/export job.

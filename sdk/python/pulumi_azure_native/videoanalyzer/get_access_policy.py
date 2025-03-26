@@ -116,7 +116,8 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     Retrieves an existing access policy resource with the given name.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str access_policy_name: The Access Policy name.
@@ -143,7 +144,8 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Retrieves an existing access policy resource with the given name.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str access_policy_name: The Access Policy name.

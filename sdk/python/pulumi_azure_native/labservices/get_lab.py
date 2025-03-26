@@ -247,7 +247,8 @@ def get_lab(lab_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
     Returns the properties of a lab resource.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2018-10-15, 2023-06-07.
 
@@ -284,7 +285,8 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Returns the properties of a lab resource.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2018-10-15, 2023-06-07.
 

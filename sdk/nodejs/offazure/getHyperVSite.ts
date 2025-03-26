@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * Azure REST API version: 2020-07-07.
+ *
+ * Uses Azure REST API version 2020-07-07.
  */
 export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +67,8 @@ export interface GetHyperVSiteResult {
 }
 /**
  * Site REST Resource.
- * Azure REST API version: 2020-07-07.
+ *
+ * Uses Azure REST API version 2020-07-07.
  */
 export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHyperVSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

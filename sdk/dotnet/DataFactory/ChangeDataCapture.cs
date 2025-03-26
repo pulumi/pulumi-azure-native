@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Change data capture resource type.
-    /// Azure REST API version: 2018-06-01.
+    /// 
+    /// Uses Azure REST API version 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:ChangeDataCapture")]
     public partial class ChangeDataCapture : global::Pulumi.CustomResource

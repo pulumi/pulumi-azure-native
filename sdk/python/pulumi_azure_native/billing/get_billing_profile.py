@@ -115,7 +115,8 @@ def get_billing_profile(billing_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingProfileResult:
     """
     Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -139,7 +140,8 @@ def get_billing_profile_output(billing_account_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingProfileResult]:
     """
     Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

@@ -150,7 +150,8 @@ class WorkspaceCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate details.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -172,7 +173,8 @@ class WorkspaceCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate details.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP profile.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterProfileResult> InvokeAsync(GetNetworkSecurityPerimeterProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterProfileResult>("azure-native:network:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP profile.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterProfileResult> Invoke(GetNetworkSecurityPerimeterProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterProfileResult>("azure-native:network:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP profile.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterProfileResult> Invoke(GetNetworkSecurityPerimeterProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterProfileResult>("azure-native:network:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileInvokeArgs(), options.WithDefaults());

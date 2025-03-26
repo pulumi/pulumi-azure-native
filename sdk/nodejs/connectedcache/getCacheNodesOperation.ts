@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of a cacheNodes
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export function getCacheNodesOperation(args: GetCacheNodesOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheNodesOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetCacheNodesOperationResult {
 }
 /**
  * Retrieves the properties of a cacheNodes
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export function getCacheNodesOperationOutput(args: GetCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheNodesOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

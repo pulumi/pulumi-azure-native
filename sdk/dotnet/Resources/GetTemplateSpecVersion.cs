@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a Template Spec version from a specific Template Spec.
-        /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Uses Azure REST API version 2022-02-01.
         /// 
         /// Other available API versions: 2019-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Resources
 
         /// <summary>
         /// Gets a Template Spec version from a specific Template Spec.
-        /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Uses Azure REST API version 2022-02-01.
         /// 
         /// Other available API versions: 2019-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Resources
 
         /// <summary>
         /// Gets a Template Spec version from a specific Template Spec.
-        /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Uses Azure REST API version 2022-02-01.
         /// 
         /// Other available API versions: 2019-06-01-preview.
         /// </summary>

@@ -224,7 +224,8 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRosettaNetProcessConfigurationResult:
     """
     Gets an integration account RosettaNetProcessConfiguration.
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param str integration_account_name: The integration account name.
@@ -260,7 +261,8 @@ def get_rosetta_net_process_configuration_output(integration_account_name: Optio
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
     """
     Gets an integration account RosettaNetProcessConfiguration.
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param str integration_account_name: The integration account name.

@@ -253,7 +253,8 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Deployment stack object.
-        Azure REST API version: 2022-08-01-preview.
+
+        Uses Azure REST API version 2022-08-01-preview.
 
         Other available API versions: 2024-03-01.
 
@@ -281,7 +282,8 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment stack object.
-        Azure REST API version: 2022-08-01-preview.
+
+        Uses Azure REST API version 2022-08-01-preview.
 
         Other available API versions: 2024-03-01.
 

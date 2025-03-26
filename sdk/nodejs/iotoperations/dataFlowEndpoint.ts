@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Instance dataflowEndpoint resource
- * Azure REST API version: 2024-07-01-preview.
+ *
+ * Uses Azure REST API version 2024-07-01-preview.
  */
 export class DataFlowEndpoint extends pulumi.CustomResource {
     /**

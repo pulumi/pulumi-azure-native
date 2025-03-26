@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of an Asset Filter associated with the specified Asset.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of an Asset Filter associated with the specified Asset.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of an Asset Filter associated with the specified Asset.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());

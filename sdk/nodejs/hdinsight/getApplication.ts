@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of the specified application.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
  */
@@ -72,7 +73,8 @@ export interface GetApplicationResult {
 }
 /**
  * Gets properties of the specified application.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
  */

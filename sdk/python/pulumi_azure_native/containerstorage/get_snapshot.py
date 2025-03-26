@@ -128,7 +128,8 @@ def get_snapshot(pool_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Get a Snapshot
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str pool_name: Pool Object
@@ -156,7 +157,8 @@ def get_snapshot_output(pool_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Get a Snapshot
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str pool_name: Pool Object

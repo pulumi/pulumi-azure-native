@@ -69,7 +69,8 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtManagementGroupResult:
     """
     Gets all deployments for a remediation at management group scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 
@@ -97,7 +98,8 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtManagementGroupResult]:
     """
     Gets all deployments for a remediation at management group scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 

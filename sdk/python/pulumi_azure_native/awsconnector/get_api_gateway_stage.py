@@ -127,7 +127,8 @@ def get_api_gateway_stage(name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiGatewayStageResult:
     """
     Get a ApiGatewayStage
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ApiGatewayStage
@@ -152,7 +153,8 @@ def get_api_gateway_stage_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayStageResult]:
     """
     Get a ApiGatewayStage
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ApiGatewayStage

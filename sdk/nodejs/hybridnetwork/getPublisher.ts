@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified publisher.
- * Azure REST API version: 2023-09-01.
+ *
+ * Uses Azure REST API version 2023-09-01.
  *
  * Other available API versions: 2024-04-15.
  */
@@ -71,7 +72,8 @@ export interface GetPublisherResult {
 }
 /**
  * Gets information about the specified publisher.
- * Azure REST API version: 2023-09-01.
+ *
+ * Uses Azure REST API version 2023-09-01.
  *
  * Other available API versions: 2024-04-15.
  */

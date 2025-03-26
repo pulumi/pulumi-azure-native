@@ -90,7 +90,8 @@ def get_subscription_tar_directory(subscription_id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionTarDirectoryResult:
     """
     The operation to view Initiator Subscription Changed Request
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str subscription_id: Subscription Id.
@@ -109,7 +110,8 @@ def get_subscription_tar_directory_output(subscription_id: Optional[pulumi.Input
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionTarDirectoryResult]:
     """
     The operation to view Initiator Subscription Changed Request
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str subscription_id: Subscription Id.

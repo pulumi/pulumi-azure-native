@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The NSP resource association resource
-    /// Azure REST API version: 2024-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterAssociation")]
     public partial class NetworkSecurityPerimeterAssociation : global::Pulumi.CustomResource

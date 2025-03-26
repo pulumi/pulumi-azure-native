@@ -71,7 +71,8 @@ def list_catalog_deployments(catalog_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCatalogDeploymentsResult:
     """
     Lists deployments for catalog.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2024-04-01.
 
@@ -105,7 +106,8 @@ def list_catalog_deployments_output(catalog_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCatalogDeploymentsResult]:
     """
     Lists deployments for catalog.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2024-04-01.
 

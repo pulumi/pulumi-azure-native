@@ -127,7 +127,8 @@ def get_account(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns account resource for a given name.
-    Azure REST API version: 2023-04-13.
+
+    Uses Azure REST API version 2023-04-13.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -152,7 +153,8 @@ def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns account resource for a given name.
-    Azure REST API version: 2023-04-13.
+
+    Uses Azure REST API version 2023-04-13.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

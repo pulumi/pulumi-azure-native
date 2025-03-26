@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
     /// Notification Hubs Namespace Resource.
-    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// 
+    /// Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
     /// 
     /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
     /// </summary>

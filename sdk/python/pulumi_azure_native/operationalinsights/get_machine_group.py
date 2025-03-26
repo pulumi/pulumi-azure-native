@@ -155,7 +155,8 @@ def get_machine_group(end_time: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineGroupResult:
     """
     Returns the specified machine group as it existed during the specified time interval.
-    Azure REST API version: 2015-11-01-preview.
+
+    Uses Azure REST API version 2015-11-01-preview.
 
 
     :param str end_time: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
@@ -191,7 +192,8 @@ def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineGroupResult]:
     """
     Returns the specified machine group as it existed during the specified time interval.
-    Azure REST API version: 2015-11-01-preview.
+
+    Uses Azure REST API version 2015-11-01-preview.
 
 
     :param str end_time: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow

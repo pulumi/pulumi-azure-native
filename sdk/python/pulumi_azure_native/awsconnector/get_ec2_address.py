@@ -127,7 +127,8 @@ def get_ec2_address(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2AddressResult:
     """
     Get a Ec2Address
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2Address
@@ -152,7 +153,8 @@ def get_ec2_address_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2AddressResult]:
     """
     Get a Ec2Address
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2Address

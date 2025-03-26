@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a OpenSearchDomainStatus
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetOpenSearchDomainStatusResult> InvokeAsync(GetOpenSearchDomainStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenSearchDomainStatusResult>("azure-native:awsconnector:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a OpenSearchDomainStatus
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetOpenSearchDomainStatusResult> Invoke(GetOpenSearchDomainStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenSearchDomainStatusResult>("azure-native:awsconnector:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a OpenSearchDomainStatus
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetOpenSearchDomainStatusResult> Invoke(GetOpenSearchDomainStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenSearchDomainStatusResult>("azure-native:awsconnector:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusInvokeArgs(), options.WithDefaults());

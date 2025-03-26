@@ -104,7 +104,8 @@ def get_http_route_config(environment_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHttpRouteConfigResult:
     """
     Advanced Ingress routing for path/header based routing for a Container App Environment
-    Azure REST API version: 2024-10-02-preview.
+
+    Uses Azure REST API version 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -130,7 +131,8 @@ def get_http_route_config_output(environment_name: Optional[pulumi.Input[str]] =
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHttpRouteConfigResult]:
     """
     Advanced Ingress routing for path/header based routing for a Container App Environment
-    Azure REST API version: 2024-10-02-preview.
+
+    Uses Azure REST API version 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get a specific standard assignment for the requested scope by resourceId
-        /// Azure REST API version: 2021-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-08-01-preview.
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:security:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific standard assignment for the requested scope by resourceId
-        /// Azure REST API version: 2021-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-08-01-preview.
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:security:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific standard assignment for the requested scope by resourceId
-        /// Azure REST API version: 2021-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-08-01-preview.
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:security:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());

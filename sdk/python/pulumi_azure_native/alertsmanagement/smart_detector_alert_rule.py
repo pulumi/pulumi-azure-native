@@ -234,7 +234,8 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  __props__=None):
         """
         The alert rule information
-        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-06-01.
+
+        Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,7 +260,8 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The alert rule information
-        Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-06-01.
+
+        Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.

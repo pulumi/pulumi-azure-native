@@ -127,7 +127,8 @@ def get_sns_subscription(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnsSubscriptionResult:
     """
     Get a SnsSubscription
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SnsSubscription
@@ -152,7 +153,8 @@ def get_sns_subscription_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnsSubscriptionResult]:
     """
     Get a SnsSubscription
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SnsSubscription

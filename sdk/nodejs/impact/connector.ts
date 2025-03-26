@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A connector is a resource that can be used to proactively report impacts against workloads in Azure to Microsoft.
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export class Connector extends pulumi.CustomResource {
     /**

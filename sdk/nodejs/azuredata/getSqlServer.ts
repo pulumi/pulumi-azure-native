@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a SQL Server.
- * Azure REST API version: 2019-07-24-preview.
+ *
+ * Uses Azure REST API version 2019-07-24-preview.
  */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,7 +77,8 @@ export interface GetSqlServerResult {
 }
 /**
  * Gets a SQL Server.
- * Azure REST API version: 2019-07-24-preview.
+ *
+ * Uses Azure REST API version 2019-07-24-preview.
  */
 export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -136,7 +136,8 @@ def get_storage_space_retrieve(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSpaceRetrieveResult:
     """
     Gets the Hybrid AKS storage space object
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -162,7 +163,8 @@ def get_storage_space_retrieve_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSpaceRetrieveResult]:
     """
     Gets the Hybrid AKS storage space object
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

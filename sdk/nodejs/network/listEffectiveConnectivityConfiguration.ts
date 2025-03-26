@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List all effective connectivity configurations applied on a virtual network.
- * Azure REST API version: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2021-02-01-preview.
  */
 export function listEffectiveConnectivityConfiguration(args: ListEffectiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface ListEffectiveConnectivityConfigurationResult {
 }
 /**
  * List all effective connectivity configurations applied on a virtual network.
- * Azure REST API version: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2021-02-01-preview.
  */
 export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

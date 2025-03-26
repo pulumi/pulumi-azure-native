@@ -116,7 +116,8 @@ def get_configuration_profile_hcrpassignment(configuration_profile_assignment_na
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileHCRPAssignmentResult:
     """
     Get information about a configuration profile assignment
-    Azure REST API version: 2022-05-04.
+
+    Uses Azure REST API version 2022-05-04.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
@@ -143,7 +144,8 @@ def get_configuration_profile_hcrpassignment_output(configuration_profile_assign
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileHCRPAssignmentResult]:
     """
     Get information about a configuration profile assignment
-    Azure REST API version: 2022-05-04.
+
+    Uses Azure REST API version 2022-05-04.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.

@@ -199,7 +199,8 @@ def get_pool(pool_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Get a Pool
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str pool_name: Pool Object
@@ -230,7 +231,8 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Get a Pool
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str pool_name: Pool Object

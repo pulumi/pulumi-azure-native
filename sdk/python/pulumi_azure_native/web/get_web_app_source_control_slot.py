@@ -176,7 +176,8 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlSlotResult:
     """
     Description for Gets the source control configuration of an app.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -210,7 +211,8 @@ def get_web_app_source_control_slot_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSourceControlSlotResult]:
     """
     Description for Gets the source control configuration of an app.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 

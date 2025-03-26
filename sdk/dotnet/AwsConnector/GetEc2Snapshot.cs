@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2Snapshot
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2SnapshotResult> InvokeAsync(GetEc2SnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2SnapshotResult>("azure-native:awsconnector:getEc2Snapshot", args ?? new GetEc2SnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Snapshot
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2SnapshotResult> Invoke(GetEc2SnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2SnapshotResult>("azure-native:awsconnector:getEc2Snapshot", args ?? new GetEc2SnapshotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Snapshot
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2SnapshotResult> Invoke(GetEc2SnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2SnapshotResult>("azure-native:awsconnector:getEc2Snapshot", args ?? new GetEc2SnapshotInvokeArgs(), options.WithDefaults());

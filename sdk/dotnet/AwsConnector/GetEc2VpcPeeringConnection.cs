@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2VPCPeeringConnection
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2VpcPeeringConnectionResult> InvokeAsync(GetEc2VpcPeeringConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2VpcPeeringConnectionResult>("azure-native:awsconnector:getEc2VpcPeeringConnection", args ?? new GetEc2VpcPeeringConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2VPCPeeringConnection
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2VpcPeeringConnectionResult> Invoke(GetEc2VpcPeeringConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2VpcPeeringConnectionResult>("azure-native:awsconnector:getEc2VpcPeeringConnection", args ?? new GetEc2VpcPeeringConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2VPCPeeringConnection
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2VpcPeeringConnectionResult> Invoke(GetEc2VpcPeeringConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2VpcPeeringConnectionResult>("azure-native:awsconnector:getEc2VpcPeeringConnection", args ?? new GetEc2VpcPeeringConnectionInvokeArgs(), options.WithDefaults());

@@ -211,7 +211,8 @@ def get_secret_sync(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretSyncResult:
     """
     Gets the properties of a SecretSync instance.
-    Azure REST API version: 2024-08-21-preview.
+
+    Uses Azure REST API version 2024-08-21-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -243,7 +244,8 @@ def get_secret_sync_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretSyncResult]:
     """
     Gets the properties of a SecretSync instance.
-    Azure REST API version: 2024-08-21-preview.
+
+    Uses Azure REST API version 2024-08-21-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

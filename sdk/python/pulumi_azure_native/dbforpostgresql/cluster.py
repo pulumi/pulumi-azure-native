@@ -424,7 +424,8 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a cluster.
-        Azure REST API version: 2022-11-08.
+
+        Uses Azure REST API version 2022-11-08.
 
         Other available API versions: 2023-03-02-preview.
 
@@ -462,7 +463,8 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a cluster.
-        Azure REST API version: 2022-11-08.
+
+        Uses Azure REST API version 2022-11-08.
 
         Other available API versions: 2023-03-02-preview.
 

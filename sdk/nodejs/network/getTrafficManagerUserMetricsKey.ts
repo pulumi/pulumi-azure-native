@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the subscription-level key used for Real User Metrics collection.
- * Azure REST API version: 2022-04-01.
+ *
+ * Uses Azure REST API version 2022-04-01.
  *
  * Other available API versions: 2022-04-01-preview.
  */
@@ -43,7 +44,8 @@ export interface GetTrafficManagerUserMetricsKeyResult {
 }
 /**
  * Get the subscription-level key used for Real User Metrics collection.
- * Azure REST API version: 2022-04-01.
+ *
+ * Uses Azure REST API version 2022-04-01.
  *
  * Other available API versions: 2022-04-01-preview.
  */

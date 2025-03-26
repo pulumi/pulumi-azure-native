@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AgriculturePlatform
     {
         /// <summary>
         /// Get a AgriServiceResource
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<GetAgriServiceResult> InvokeAsync(GetAgriServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgriServiceResult>("azure-native:agricultureplatform:getAgriService", args ?? new GetAgriServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AgriServiceResource
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetAgriServiceResult> Invoke(GetAgriServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgriServiceResult>("azure-native:agricultureplatform:getAgriService", args ?? new GetAgriServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AgriServiceResource
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetAgriServiceResult> Invoke(GetAgriServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgriServiceResult>("azure-native:agricultureplatform:getAgriService", args ?? new GetAgriServiceInvokeArgs(), options.WithDefaults());

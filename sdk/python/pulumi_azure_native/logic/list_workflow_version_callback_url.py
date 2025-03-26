@@ -120,7 +120,8 @@ def list_workflow_version_callback_url(key_type: Optional['KeyType'] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowVersionCallbackUrlResult:
     """
     Get the callback url for a trigger of a workflow version.
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param 'KeyType' key_type: The key type.
@@ -156,7 +157,8 @@ def list_workflow_version_callback_url_output(key_type: Optional[pulumi.Input[Op
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowVersionCallbackUrlResult]:
     """
     Get the callback url for a trigger of a workflow version.
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param 'KeyType' key_type: The key type.

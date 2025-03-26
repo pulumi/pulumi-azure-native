@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A custom API
-    /// Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+    /// 
+    /// Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:CustomApi")]
     public partial class CustomApi : global::Pulumi.CustomResource

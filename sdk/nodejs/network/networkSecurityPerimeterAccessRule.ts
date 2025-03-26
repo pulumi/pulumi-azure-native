@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP access rule resource
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
     /**

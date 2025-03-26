@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the AppComplianceAutomation scoping configuration of the specific report.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getScopingConfiguration(args: GetScopingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetScopingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +62,8 @@ export interface GetScopingConfigurationResult {
 }
 /**
  * Get the AppComplianceAutomation scoping configuration of the specific report.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getScopingConfigurationOutput(args: GetScopingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScopingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

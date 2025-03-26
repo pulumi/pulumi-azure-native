@@ -153,7 +153,8 @@ class Bot(pulumi.CustomResource):
                  __props__=None):
         """
         Bot resource definition
-        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2022-09-15. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2023-09-15-preview.
 
@@ -175,7 +176,8 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bot resource definition
-        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2022-09-15. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2023-09-15-preview.
 

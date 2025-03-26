@@ -142,7 +142,8 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsSlotResult:
     """
     Description for Gets the Push settings associated with web app.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -173,7 +174,8 @@ def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSitePushSettingsSlotResult]:
     """
     Description for Gets the Push settings associated with web app.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 

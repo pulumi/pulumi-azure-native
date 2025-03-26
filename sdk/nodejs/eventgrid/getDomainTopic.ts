@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a domain topic.
- * Azure REST API version: 2022-06-15.
+ *
+ * Uses Azure REST API version 2022-06-15.
  *
  * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
@@ -64,7 +65,8 @@ export interface GetDomainTopicResult {
 }
 /**
  * Get properties of a domain topic.
- * Azure REST API version: 2022-06-15.
+ *
+ * Uses Azure REST API version 2022-06-15.
  *
  * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */

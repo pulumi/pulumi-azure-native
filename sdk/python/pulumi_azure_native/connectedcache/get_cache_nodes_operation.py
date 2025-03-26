@@ -127,7 +127,8 @@ def get_cache_nodes_operation(customer_resource_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheNodesOperationResult:
     """
     Retrieves the properties of a cacheNodes
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str customer_resource_name: Name of the Customer resource
@@ -152,7 +153,8 @@ def get_cache_nodes_operation_output(customer_resource_name: Optional[pulumi.Inp
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheNodesOperationResult]:
     """
     Retrieves the properties of a cacheNodes
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str customer_resource_name: Name of the Customer resource

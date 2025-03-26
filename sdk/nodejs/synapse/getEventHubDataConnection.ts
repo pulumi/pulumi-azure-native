@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * Azure REST API version: 2021-06-01-preview.
+ *
+ * Uses Azure REST API version 2021-06-01-preview.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +114,8 @@ export interface GetEventHubDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * Azure REST API version: 2021-06-01-preview.
+ *
+ * Uses Azure REST API version 2021-06-01-preview.
  */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

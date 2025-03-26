@@ -101,7 +101,8 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a time series database connection resource.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2021-06-30-preview.
+
+        Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +119,8 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a time series database connection resource.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2021-06-30-preview.
+
+        Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2021-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

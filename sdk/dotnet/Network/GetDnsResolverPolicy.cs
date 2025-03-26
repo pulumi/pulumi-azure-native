@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets properties of a DNS resolver policy.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Task<GetDnsResolverPolicyResult> InvokeAsync(GetDnsResolverPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsResolverPolicyResult>("azure-native:network:getDnsResolverPolicy", args ?? new GetDnsResolverPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a DNS resolver policy.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnsResolverPolicyResult> Invoke(GetDnsResolverPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyResult>("azure-native:network:getDnsResolverPolicy", args ?? new GetDnsResolverPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a DNS resolver policy.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnsResolverPolicyResult> Invoke(GetDnsResolverPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyResult>("azure-native:network:getDnsResolverPolicy", args ?? new GetDnsResolverPolicyInvokeArgs(), options.WithDefaults());

@@ -127,7 +127,8 @@ def get_ssm_parameter(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsmParameterResult:
     """
     Get a SsmParameter
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SsmParameter
@@ -152,7 +153,8 @@ def get_ssm_parameter_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSsmParameterResult]:
     """
     Get a SsmParameter
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SsmParameter

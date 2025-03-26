@@ -67,7 +67,8 @@ def list_mobile_network_sim_groups(mobile_network_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMobileNetworkSimGroupsResult:
     """
     Gets all the SIM groups assigned to a mobile network.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -87,7 +88,8 @@ def list_mobile_network_sim_groups_output(mobile_network_name: Optional[pulumi.I
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMobileNetworkSimGroupsResult]:
     """
     Gets all the SIM groups assigned to a mobile network.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

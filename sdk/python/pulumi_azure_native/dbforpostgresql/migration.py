@@ -390,7 +390,8 @@ class Migration(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a migration resource.
-        Azure REST API version: 2023-03-01-preview.
+
+        Uses Azure REST API version 2023-03-01-preview.
 
         Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
@@ -426,7 +427,8 @@ class Migration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a migration resource.
-        Azure REST API version: 2023-03-01-preview.
+
+        Uses Azure REST API version 2023-03-01-preview.
 
         Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 

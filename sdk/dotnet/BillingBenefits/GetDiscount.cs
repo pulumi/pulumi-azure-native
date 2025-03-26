@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.BillingBenefits
     {
         /// <summary>
         /// Get discount at resource group level
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Task<GetDiscountResult> InvokeAsync(GetDiscountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiscountResult>("azure-native:billingbenefits:getDiscount", args ?? new GetDiscountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get discount at resource group level
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Output<GetDiscountResult> Invoke(GetDiscountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscountResult>("azure-native:billingbenefits:getDiscount", args ?? new GetDiscountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get discount at resource group level
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Output<GetDiscountResult> Invoke(GetDiscountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscountResult>("azure-native:billingbenefits:getDiscount", args ?? new GetDiscountInvokeArgs(), options.WithDefaults());

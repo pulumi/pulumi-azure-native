@@ -92,7 +92,8 @@ def get_linked_workspace(link_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedWorkspaceResult:
     """
     Get the detail of a linked workspace.
-    Azure REST API version: 2020-05-15-preview.
+
+    Uses Azure REST API version 2020-05-15-preview.
 
 
     :param str link_name: Friendly name of the linked workspace
@@ -117,7 +118,8 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedWorkspaceResult]:
     """
     Get the detail of a linked workspace.
-    Azure REST API version: 2020-05-15-preview.
+
+    Uses Azure REST API version 2020-05-15-preview.
 
 
     :param str link_name: Friendly name of the linked workspace

@@ -127,7 +127,8 @@ def get_s3_access_control_policy(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetS3AccessControlPolicyResult:
     """
     Get a S3AccessControlPolicy
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of S3AccessControlPolicy
@@ -152,7 +153,8 @@ def get_s3_access_control_policy_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3AccessControlPolicyResult]:
     """
     Get a S3AccessControlPolicy
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of S3AccessControlPolicy

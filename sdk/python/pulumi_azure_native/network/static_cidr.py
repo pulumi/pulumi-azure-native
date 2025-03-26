@@ -116,7 +116,8 @@ class StaticCidr(pulumi.CustomResource):
                  __props__=None):
         """
         Instance of StaticCidr resource.
-        Azure REST API version: 2024-01-01-preview.
+
+        Uses Azure REST API version 2024-01-01-preview.
 
         Other available API versions: 2024-05-01.
 
@@ -136,7 +137,8 @@ class StaticCidr(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance of StaticCidr resource.
-        Azure REST API version: 2024-01-01-preview.
+
+        Uses Azure REST API version 2024-01-01-preview.
 
         Other available API versions: 2024-05-01.
 

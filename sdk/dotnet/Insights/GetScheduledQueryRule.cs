@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Retrieve an scheduled query rule definition.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// 
+        /// Uses Azure REST API version 2023-03-15-preview.
         /// 
         /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Retrieve an scheduled query rule definition.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// 
+        /// Uses Azure REST API version 2023-03-15-preview.
         /// 
         /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Retrieve an scheduled query rule definition.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// 
+        /// Uses Azure REST API version 2023-03-15-preview.
         /// 
         /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
         /// </summary>

@@ -57,7 +57,8 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountCallbackUrlResult:
     """
     Gets the integration account callback URL.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview.
 
@@ -84,7 +85,8 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountCallbackUrlResult]:
     """
     Gets the integration account callback URL.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview.
 

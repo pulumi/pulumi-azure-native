@@ -67,7 +67,8 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplianceClusterUserCredentialResult:
     """
     Returns the cluster user credentials for the dedicated appliance.
-    Azure REST API version: 2022-10-27.
+
+    Uses Azure REST API version 2022-10-27.
 
     Other available API versions: 2021-10-31-preview.
 
@@ -89,7 +90,8 @@ def list_appliance_cluster_user_credential_output(resource_group_name: Optional[
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterUserCredentialResult]:
     """
     Returns the cluster user credentials for the dedicated appliance.
-    Azure REST API version: 2022-10-27.
+
+    Uses Azure REST API version 2022-10-27.
 
     Other available API versions: 2021-10-31-preview.
 

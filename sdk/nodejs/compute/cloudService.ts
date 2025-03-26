@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the cloud service.
- * Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
+ *
+ * Uses Azure REST API version 2022-09-04. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
  *
  * Other available API versions: 2024-11-04.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
- * Azure REST API version: 2021-04-01.
+ *
+ * Uses Azure REST API version 2021-04-01.
  *
  * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
  */
@@ -67,7 +68,8 @@ export interface GetGuestUsageResult {
 }
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
- * Azure REST API version: 2021-04-01.
+ *
+ * Uses Azure REST API version 2021-04-01.
  *
  * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
  */

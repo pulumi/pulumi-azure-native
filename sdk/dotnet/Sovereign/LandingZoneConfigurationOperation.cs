@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sovereign
 {
     /// <summary>
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2025-02-27-preview.
+    /// 
+    /// Uses Azure REST API version 2025-02-27-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign:LandingZoneConfigurationOperation")]
     public partial class LandingZoneConfigurationOperation : global::Pulumi.CustomResource

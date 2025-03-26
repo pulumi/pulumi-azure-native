@@ -86,7 +86,8 @@ def get_server_collector(project_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCollectorResult:
     """
     Get a Server collector.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
 
     :param str project_name: Name of the Azure Migrate project.
@@ -112,7 +113,8 @@ def get_server_collector_output(project_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCollectorResult]:
     """
     Get a Server collector.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
 
     :param str project_name: Name of the Azure Migrate project.

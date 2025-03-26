@@ -127,7 +127,8 @@ def get_open_search_domain_status(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenSearchDomainStatusResult:
     """
     Get a OpenSearchDomainStatus
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of OpenSearchDomainStatus
@@ -152,7 +153,8 @@ def get_open_search_domain_status_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenSearchDomainStatusResult]:
     """
     Get a OpenSearchDomainStatus
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of OpenSearchDomainStatus

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an associated project catalog.
- * Azure REST API version: 2024-02-01.
+ *
+ * Uses Azure REST API version 2024-02-01.
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
@@ -100,7 +101,8 @@ export interface GetProjectCatalogResult {
 }
 /**
  * Gets an associated project catalog.
- * Azure REST API version: 2024-02-01.
+ *
+ * Uses Azure REST API version 2024-02-01.
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */

@@ -128,7 +128,8 @@ def get_suppression(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSuppressionResult:
     """
     Obtains the details of a suppression.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2023-09-01-preview, 2025-01-01.
 
@@ -158,7 +159,8 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionResult]:
     """
     Obtains the details of a suppression.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2023-09-01-preview, 2025-01-01.
 

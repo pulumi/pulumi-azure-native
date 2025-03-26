@@ -99,7 +99,8 @@ class AFDTargetGroup(pulumi.CustomResource):
                  __props__=None):
         """
         AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
-        Azure REST API version: 2024-06-01-preview.
+
+        Uses Azure REST API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +117,8 @@ class AFDTargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
-        Azure REST API version: 2024-06-01-preview.
+
+        Uses Azure REST API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AFDTargetGroupArgs args: The arguments to use to populate this resource's properties.

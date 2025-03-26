@@ -152,7 +152,8 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the service.
-        Azure REST API version: 2021-03-25-preview. Prior API version in Azure Native 1.x: 2021-03-25-preview.
+
+        Uses Azure REST API version 2021-03-25-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-25-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +173,8 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the service.
-        Azure REST API version: 2021-03-25-preview. Prior API version in Azure Native 1.x: 2021-03-25-preview.
+
+        Uses Azure REST API version 2021-03-25-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-25-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkServicesForSCCPowershellArgs args: The arguments to use to populate this resource's properties.

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
         public static Task<GetAlertResult> InvokeAsync(GetAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertResult>("azure-native:workloads:getAlert", args ?? new GetAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
         public static Output<GetAlertResult> Invoke(GetAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertResult>("azure-native:workloads:getAlert", args ?? new GetAlertInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
         public static Output<GetAlertResult> Invoke(GetAlertInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertResult>("azure-native:workloads:getAlert", args ?? new GetAlertInvokeArgs(), options.WithDefaults());

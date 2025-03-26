@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
- * Azure REST API version: 2022-10-01-preview.
+ *
+ * Uses Azure REST API version 2022-10-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
@@ -73,7 +74,8 @@ export interface GetEventHubAuthorizationRuleResult {
 }
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
- * Azure REST API version: 2022-10-01-preview.
+ *
+ * Uses Azure REST API version 2022-10-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */

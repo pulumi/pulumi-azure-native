@@ -67,7 +67,8 @@ def list_azure_dev_ops_org_available(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAzureDevOpsOrgAvailableResult:
     """
     List of RP resources which supports pagination.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
 
@@ -89,7 +90,8 @@ def list_azure_dev_ops_org_available_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAzureDevOpsOrgAvailableResult]:
     """
     List of RP resources which supports pagination.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
 

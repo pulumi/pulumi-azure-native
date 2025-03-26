@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.WeightsAndBiases
     {
         /// <summary>
         /// Get a InstanceResource
-        /// Azure REST API version: 2024-09-18-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-18-preview.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:weightsandbiases:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a InstanceResource
-        /// Azure REST API version: 2024-09-18-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-18-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:weightsandbiases:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a InstanceResource
-        /// Azure REST API version: 2024-09-18-preview.
+        /// 
+        /// Uses Azure REST API version 2024-09-18-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:weightsandbiases:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());

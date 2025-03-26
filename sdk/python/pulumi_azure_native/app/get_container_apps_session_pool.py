@@ -247,7 +247,8 @@ def get_container_apps_session_pool(resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppsSessionPoolResult:
     """
     Container App session pool.
-    Azure REST API version: 2024-02-02-preview.
+
+    Uses Azure REST API version 2024-02-02-preview.
 
     Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
@@ -284,7 +285,8 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsSessionPoolResult]:
     """
     Container App session pool.
-    Azure REST API version: 2024-02-02-preview.
+
+    Uses Azure REST API version 2024-02-02-preview.
 
     Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 

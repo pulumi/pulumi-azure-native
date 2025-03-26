@@ -119,7 +119,8 @@ class Vault(pulumi.CustomResource):
                  __props__=None):
         """
         Vault model.
-        Azure REST API version: 2021-02-16-preview.
+
+        Uses Azure REST API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01.
 
@@ -139,7 +140,8 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Vault model.
-        Azure REST API version: 2021-02-16-preview.
+
+        Uses Azure REST API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01.
 

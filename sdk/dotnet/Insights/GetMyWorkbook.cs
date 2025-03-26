@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a single private workbook by its resourceName.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single private workbook by its resourceName.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single private workbook by its resourceName.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());

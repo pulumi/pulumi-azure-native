@@ -116,7 +116,8 @@ def get_gallery_in_vm_access_control_profile(gallery_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryInVMAccessControlProfileResult:
     """
     Retrieves information about a gallery inVMAccessControlProfile.
-    Azure REST API version: 2024-03-03.
+
+    Uses Azure REST API version 2024-03-03.
 
 
     :param str gallery_name: The name of the Shared Image Gallery from which the InVMAccessControlProfiles are to be retrieved.
@@ -143,7 +144,8 @@ def get_gallery_in_vm_access_control_profile_output(gallery_name: Optional[pulum
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryInVMAccessControlProfileResult]:
     """
     Retrieves information about a gallery inVMAccessControlProfile.
-    Azure REST API version: 2024-03-03.
+
+    Uses Azure REST API version 2024-03-03.
 
 
     :param str gallery_name: The name of the Shared Image Gallery from which the InVMAccessControlProfiles are to be retrieved.

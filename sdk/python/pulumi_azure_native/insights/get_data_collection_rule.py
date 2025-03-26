@@ -260,7 +260,8 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleResult:
     """
     Definition of ARM tracked top level resource.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2023-03-11.
 
@@ -298,7 +299,8 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Definition of ARM tracked top level resource.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2023-03-11.
 

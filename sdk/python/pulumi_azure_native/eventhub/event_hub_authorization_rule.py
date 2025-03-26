@@ -115,7 +115,8 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in a List or Get AuthorizationRule operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+
+        Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
 
         Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
@@ -135,7 +136,8 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+
+        Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
 
         Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 

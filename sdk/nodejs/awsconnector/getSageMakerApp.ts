@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SageMakerApp
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSageMakerApp(args: GetSageMakerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetSageMakerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSageMakerAppResult {
 }
 /**
  * Get a SageMakerApp
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSageMakerAppOutput(args: GetSageMakerAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSageMakerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

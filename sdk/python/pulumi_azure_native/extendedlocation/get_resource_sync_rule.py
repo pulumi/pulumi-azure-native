@@ -164,7 +164,8 @@ def get_resource_sync_rule(child_resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceSyncRuleResult:
     """
     Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
-    Azure REST API version: 2021-08-31-preview.
+
+    Uses Azure REST API version 2021-08-31-preview.
 
 
     :param str child_resource_name: Resource Sync Rule name.
@@ -195,7 +196,8 @@ def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSyncRuleResult]:
     """
     Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
-    Azure REST API version: 2021-08-31-preview.
+
+    Uses Azure REST API version 2021-08-31-preview.
 
 
     :param str child_resource_name: Resource Sync Rule name.

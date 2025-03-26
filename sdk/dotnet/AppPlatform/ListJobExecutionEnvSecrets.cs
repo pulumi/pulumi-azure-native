@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// List sensitive environment variables of Job execution.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Task<ListJobExecutionEnvSecretsResult> InvokeAsync(ListJobExecutionEnvSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListJobExecutionEnvSecretsResult>("azure-native:appplatform:listJobExecutionEnvSecrets", args ?? new ListJobExecutionEnvSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List sensitive environment variables of Job execution.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<ListJobExecutionEnvSecretsResult> Invoke(ListJobExecutionEnvSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobExecutionEnvSecretsResult>("azure-native:appplatform:listJobExecutionEnvSecrets", args ?? new ListJobExecutionEnvSecretsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List sensitive environment variables of Job execution.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<ListJobExecutionEnvSecretsResult> Invoke(ListJobExecutionEnvSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobExecutionEnvSecretsResult>("azure-native:appplatform:listJobExecutionEnvSecrets", args ?? new ListJobExecutionEnvSecretsInvokeArgs(), options.WithDefaults());

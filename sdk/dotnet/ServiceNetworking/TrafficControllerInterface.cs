@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-10-01-preview.
     /// 
     /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
     /// </summary>

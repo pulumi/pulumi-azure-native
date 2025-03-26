@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
     {
         /// <summary>
         /// Returns a EnterpriseKnowledgeGraph service specified by the parameters.
-        /// Azure REST API version: 2018-12-03.
+        /// 
+        /// Uses Azure REST API version 2018-12-03.
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a EnterpriseKnowledgeGraph service specified by the parameters.
-        /// Azure REST API version: 2018-12-03.
+        /// 
+        /// Uses Azure REST API version 2018-12-03.
         /// </summary>
         public static Output<GetEnterpriseKnowledgeGraphResult> Invoke(GetEnterpriseKnowledgeGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a EnterpriseKnowledgeGraph service specified by the parameters.
-        /// Azure REST API version: 2018-12-03.
+        /// 
+        /// Uses Azure REST API version 2018-12-03.
         /// </summary>
         public static Output<GetEnterpriseKnowledgeGraphResult> Invoke(GetEnterpriseKnowledgeGraphInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithDefaults());

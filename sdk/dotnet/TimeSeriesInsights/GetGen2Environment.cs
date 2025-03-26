@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// Gets the environment with the specified name in the specified subscription and resource group.
-        /// Azure REST API version: 2020-05-15.
+        /// 
+        /// Uses Azure REST API version 2020-05-15.
         /// </summary>
         public static Task<GetGen2EnvironmentResult> InvokeAsync(GetGen2EnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the environment with the specified name in the specified subscription and resource group.
-        /// Azure REST API version: 2020-05-15.
+        /// 
+        /// Uses Azure REST API version 2020-05-15.
         /// </summary>
         public static Output<GetGen2EnvironmentResult> Invoke(GetGen2EnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the environment with the specified name in the specified subscription and resource group.
-        /// Azure REST API version: 2020-05-15.
+        /// 
+        /// Uses Azure REST API version 2020-05-15.
         /// </summary>
         public static Output<GetGen2EnvironmentResult> Invoke(GetGen2EnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentInvokeArgs(), options.WithDefaults());

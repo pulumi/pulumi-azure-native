@@ -103,7 +103,8 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
     Get the keys to use with the Quantum APIs. A key is used to authenticate and authorize access to the Quantum REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-    Azure REST API version: 2023-11-13-preview.
+
+    Uses Azure REST API version 2023-11-13-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -126,7 +127,8 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
     Get the keys to use with the Quantum APIs. A key is used to authenticate and authorize access to the Quantum REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-    Azure REST API version: 2023-11-13-preview.
+
+    Uses Azure REST API version 2023-11-13-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

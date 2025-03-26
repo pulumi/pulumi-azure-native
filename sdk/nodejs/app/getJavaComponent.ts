@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Java Component.
- * Azure REST API version: 2023-11-02-preview.
+ *
+ * Uses Azure REST API version 2023-11-02-preview.
  *
  * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
  */
@@ -76,7 +77,8 @@ export interface GetJavaComponentResult {
 }
 /**
  * Java Component.
- * Azure REST API version: 2023-11-02-preview.
+ *
+ * Uses Azure REST API version 2023-11-02-preview.
  *
  * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
  */

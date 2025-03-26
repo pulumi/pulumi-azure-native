@@ -175,7 +175,8 @@ def get_n_group(ngroups_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNGroupResult:
     """
     Get the properties of the specified n group.
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
     Other available API versions: 2024-11-01-preview.
 
@@ -206,7 +207,8 @@ def get_n_group_output(ngroups_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNGroupResult]:
     """
     Get the properties of the specified n group.
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
     Other available API versions: 2024-11-01-preview.
 

@@ -135,7 +135,8 @@ class IpPrefix(pulumi.CustomResource):
                  __props__=None):
         """
         The IPPrefix resource definition.
-        Azure REST API version: 2023-02-01-preview.
+
+        Uses Azure REST API version 2023-02-01-preview.
 
         Other available API versions: 2023-06-15.
 
@@ -156,7 +157,8 @@ class IpPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The IPPrefix resource definition.
-        Azure REST API version: 2023-02-01-preview.
+
+        Uses Azure REST API version 2023-02-01-preview.
 
         Other available API versions: 2023-06-15.
 

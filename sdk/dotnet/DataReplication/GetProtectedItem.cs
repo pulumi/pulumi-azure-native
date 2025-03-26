@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DataReplication
     {
         /// <summary>
         /// Gets the details of the protected item.
-        /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-16-preview.
         /// 
         /// Other available API versions: 2024-09-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DataReplication
 
         /// <summary>
         /// Gets the details of the protected item.
-        /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-16-preview.
         /// 
         /// Other available API versions: 2024-09-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DataReplication
 
         /// <summary>
         /// Gets the details of the protected item.
-        /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Uses Azure REST API version 2021-02-16-preview.
         /// 
         /// Other available API versions: 2024-09-01.
         /// </summary>

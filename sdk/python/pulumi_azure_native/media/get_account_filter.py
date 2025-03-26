@@ -128,7 +128,8 @@ def get_account_filter(account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountFilterResult:
     """
     Get the details of an Account Filter in the Media Services account.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -156,7 +157,8 @@ def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountFilterResult]:
     """
     Get the details of an Account Filter in the Media Services account.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

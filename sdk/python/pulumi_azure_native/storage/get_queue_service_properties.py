@@ -92,7 +92,8 @@ def get_queue_service_properties(account_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueServicePropertiesResult:
     """
     Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
@@ -119,7 +120,8 @@ def get_queue_service_properties_output(account_name: Optional[pulumi.Input[str]
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 

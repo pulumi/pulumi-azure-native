@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
- * Azure REST API version: 2018-09-01-preview.
+ *
+ * Uses Azure REST API version 2018-09-01-preview.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +94,8 @@ export interface GetGatewayResult {
 }
 /**
  * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
- * Azure REST API version: 2018-09-01-preview.
+ *
+ * Uses Azure REST API version 2018-09-01-preview.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -307,7 +307,8 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[str] 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentStackAtResourceGroupResult:
     """
     Gets a Deployment Stack with a given name.
-    Azure REST API version: 2022-08-01-preview.
+
+    Uses Azure REST API version 2022-08-01-preview.
 
     Other available API versions: 2024-03-01.
 
@@ -349,7 +350,8 @@ def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optiona
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtResourceGroupResult]:
     """
     Gets a Deployment Stack with a given name.
-    Azure REST API version: 2022-08-01-preview.
+
+    Uses Azure REST API version 2022-08-01-preview.
 
     Other available API versions: 2024-03-01.
 

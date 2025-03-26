@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-06-01.
+ * Uses Azure REST API version 2022-06-01.
  *
  * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */
@@ -47,7 +47,7 @@ export interface GetMonitorDefaultKeyResult {
     readonly name?: string;
 }
 /**
- * Azure REST API version: 2022-06-01.
+ * Uses Azure REST API version 2022-06-01.
  *
  * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */

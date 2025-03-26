@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the resource overview status.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getProviderActionOverviewStatus(args?: GetProviderActionOverviewStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderActionOverviewStatusResult> {
     args = args || {};
@@ -37,7 +38,8 @@ export interface GetProviderActionOverviewStatusResult {
 }
 /**
  * Get the resource overview status.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getProviderActionOverviewStatusOutput(args?: GetProviderActionOverviewStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderActionOverviewStatusResult> {
     args = args || {};

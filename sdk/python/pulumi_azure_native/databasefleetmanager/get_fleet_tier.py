@@ -104,7 +104,8 @@ def get_fleet_tier(fleet_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetTierResult:
     """
     Gets a tier resource.
-    Azure REST API version: 2025-02-01-preview.
+
+    Uses Azure REST API version 2025-02-01-preview.
 
 
     :param str fleet_name: Name of the database fleet.
@@ -130,7 +131,8 @@ def get_fleet_tier_output(fleet_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetTierResult]:
     """
     Gets a tier resource.
-    Azure REST API version: 2025-02-01-preview.
+
+    Uses Azure REST API version 2025-02-01-preview.
 
 
     :param str fleet_name: Name of the database fleet.

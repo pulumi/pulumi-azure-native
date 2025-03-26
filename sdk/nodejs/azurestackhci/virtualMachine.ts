@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual machine resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ *
+ * Uses Azure REST API version 2022-12-15-preview.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

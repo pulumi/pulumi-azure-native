@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
 {
     /// <summary>
     /// A ManufacturingPlatformProviderHub resource
-    /// Azure REST API version: 2025-03-01.
+    /// 
+    /// Uses Azure REST API version 2025-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:manufacturingplatform:ManufacturingDataService")]
     public partial class ManufacturingDataService : global::Pulumi.CustomResource

@@ -127,7 +127,8 @@ def get_config_service_delivery_channel(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigServiceDeliveryChannelResult:
     """
     Get a ConfigServiceDeliveryChannel
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ConfigServiceDeliveryChannel
@@ -152,7 +153,8 @@ def get_config_service_delivery_channel_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigServiceDeliveryChannelResult]:
     """
     Get a ConfigServiceDeliveryChannel
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ConfigServiceDeliveryChannel

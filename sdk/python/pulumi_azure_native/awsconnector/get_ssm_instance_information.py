@@ -127,7 +127,8 @@ def get_ssm_instance_information(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsmInstanceInformationResult:
     """
     Get a SsmInstanceInformation
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SsmInstanceInformation
@@ -152,7 +153,8 @@ def get_ssm_instance_information_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSsmInstanceInformationResult]:
     """
     Get a SsmInstanceInformation
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SsmInstanceInformation

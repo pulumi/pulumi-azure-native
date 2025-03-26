@@ -163,7 +163,8 @@ def get_sim_group(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimGroupResult:
     """
     Gets information about the specified SIM group.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
@@ -193,7 +194,8 @@ def get_sim_group_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimGroupResult]:
     """
     Gets information about the specified SIM group.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 

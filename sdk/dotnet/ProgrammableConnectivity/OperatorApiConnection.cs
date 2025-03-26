@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
 {
     /// <summary>
     /// A Programmable Connectivity Operator API Connection resource
-    /// Azure REST API version: 2024-01-15-preview.
+    /// 
+    /// Uses Azure REST API version 2024-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:programmableconnectivity:OperatorApiConnection")]
     public partial class OperatorApiConnection : global::Pulumi.CustomResource

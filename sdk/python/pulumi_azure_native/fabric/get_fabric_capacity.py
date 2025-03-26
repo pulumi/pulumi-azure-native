@@ -163,7 +163,8 @@ def get_fabric_capacity(capacity_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFabricCapacityResult:
     """
     Get a FabricCapacity
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
     Other available API versions: 2025-01-15-preview.
 
@@ -193,7 +194,8 @@ def get_fabric_capacity_output(capacity_name: Optional[pulumi.Input[str]] = None
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFabricCapacityResult]:
     """
     Get a FabricCapacity
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
     Other available API versions: 2025-01-15-preview.
 

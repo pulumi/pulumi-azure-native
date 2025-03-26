@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.HybridContainerService
     {
         /// <summary>
         /// Gets the Hybrid AKS provisioned cluster
-        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
         /// Other available API versions: 2022-05-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.HybridContainerService
 
         /// <summary>
         /// Gets the Hybrid AKS provisioned cluster
-        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
         /// Other available API versions: 2022-05-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.HybridContainerService
 
         /// <summary>
         /// Gets the Hybrid AKS provisioned cluster
-        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
         /// Other available API versions: 2022-05-01-preview.
         /// </summary>

@@ -128,7 +128,8 @@ def get_project_policy(dev_center_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectPolicyResult:
     """
     Gets a specific project policy.
-    Azure REST API version: 2024-10-01-preview.
+
+    Uses Azure REST API version 2024-10-01-preview.
 
     Other available API versions: 2025-02-01.
 
@@ -158,7 +159,8 @@ def get_project_policy_output(dev_center_name: Optional[pulumi.Input[str]] = Non
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectPolicyResult]:
     """
     Gets a specific project policy.
-    Azure REST API version: 2024-10-01-preview.
+
+    Uses Azure REST API version 2024-10-01-preview.
 
     Other available API versions: 2025-02-01.
 

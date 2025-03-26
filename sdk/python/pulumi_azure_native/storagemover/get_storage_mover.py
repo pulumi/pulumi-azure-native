@@ -139,7 +139,8 @@ def get_storage_mover(resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageMoverResult:
     """
     Gets a Storage Mover resource.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
 
@@ -167,7 +168,8 @@ def get_storage_mover_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageMoverResult]:
     """
     Gets a Storage Mover resource.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
 

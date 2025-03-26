@@ -119,7 +119,8 @@ def list_integration_account_partner_content_callback_url(integration_account_na
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountPartnerContentCallbackUrlResult:
     """
     Get the content callback url.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.
@@ -152,7 +153,8 @@ def list_integration_account_partner_content_callback_url_output(integration_acc
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountPartnerContentCallbackUrlResult]:
     """
     Get the content callback url.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.

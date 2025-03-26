@@ -128,7 +128,8 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
     Response for POST requests that return single SharedAccessAuthorizationRule.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
@@ -158,7 +159,8 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
     Response for POST requests that return single SharedAccessAuthorizationRule.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 

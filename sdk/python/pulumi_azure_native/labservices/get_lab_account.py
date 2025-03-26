@@ -164,7 +164,8 @@ def get_lab_account(expand: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountResult:
     """
     Get lab account
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
@@ -195,7 +196,8 @@ def get_lab_account_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabAccountResult]:
     """
     Get lab account
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'

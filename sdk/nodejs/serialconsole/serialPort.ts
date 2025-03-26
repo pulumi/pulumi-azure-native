@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents the serial port of the parent resource.
- * Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01.
+ *
+ * Uses Azure REST API version 2018-05-01. In version 1.x of the Azure Native provider, it used API version 2018-05-01.
  */
 export class SerialPort extends pulumi.CustomResource {
     /**

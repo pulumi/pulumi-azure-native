@@ -204,7 +204,8 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         An attestation resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2024-10-01.
 
@@ -229,7 +230,8 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An attestation resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2024-10-01.
 

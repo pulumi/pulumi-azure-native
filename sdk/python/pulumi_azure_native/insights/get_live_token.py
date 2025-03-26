@@ -53,7 +53,8 @@ def get_live_token(resource_uri: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveTokenResult:
     """
     **Gets an access token for live metrics stream data.**
-    Azure REST API version: 2021-10-14.
+
+    Uses Azure REST API version 2021-10-14.
 
     Other available API versions: 2020-06-02-preview.
 
@@ -71,7 +72,8 @@ def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveTokenResult]:
     """
     **Gets an access token for live metrics stream data.**
-    Azure REST API version: 2021-10-14.
+
+    Uses Azure REST API version 2021-10-14.
 
     Other available API versions: 2020-06-02-preview.
 

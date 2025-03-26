@@ -140,7 +140,8 @@ def get_transform(account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransformResult:
     """
     Gets a Transform.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
 
     :param str account_name: The Media Services account name.
@@ -169,7 +170,8 @@ def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransformResult]:
     """
     Gets a Transform.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
 
     :param str account_name: The Media Services account name.

@@ -133,7 +133,8 @@ class Creator(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview.
+
+        Uses Azure REST API version 2021-02-01. In version 1.x of the Azure Native provider, it used API version 2020-02-01-preview.
 
         Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
 
@@ -154,7 +155,8 @@ class Creator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview.
+
+        Uses Azure REST API version 2021-02-01. In version 1.x of the Azure Native provider, it used API version 2020-02-01-preview.
 
         Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
 

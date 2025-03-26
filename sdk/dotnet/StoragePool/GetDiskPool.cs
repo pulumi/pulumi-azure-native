@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.StoragePool
     {
         /// <summary>
         /// Get a Disk pool.
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// 
         /// Other available API versions: 2020-03-15-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.StoragePool
 
         /// <summary>
         /// Get a Disk pool.
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// 
         /// Other available API versions: 2020-03-15-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.StoragePool
 
         /// <summary>
         /// Get a Disk pool.
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// 
         /// Other available API versions: 2020-03-15-preview.
         /// </summary>

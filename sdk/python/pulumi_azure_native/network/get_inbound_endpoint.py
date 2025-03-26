@@ -164,7 +164,8 @@ def get_inbound_endpoint(dns_resolver_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundEndpointResult:
     """
     Gets properties of an inbound endpoint for a DNS resolver.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 
@@ -197,7 +198,8 @@ def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] =
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInboundEndpointResult]:
     """
     Gets properties of an inbound endpoint for a DNS resolver.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 

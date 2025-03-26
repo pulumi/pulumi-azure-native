@@ -369,7 +369,8 @@ def get_scheduled_alert_rule(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledAlertRuleResult:
     """
     Gets the alert rule.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -417,7 +418,8 @@ def get_scheduled_alert_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledAlertRuleResult]:
     """
     Gets the alert rule.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

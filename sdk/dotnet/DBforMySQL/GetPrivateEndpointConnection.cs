@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2022-09-30-preview.
+        /// 
+        /// Uses Azure REST API version 2022-09-30-preview.
         /// 
         /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2022-09-30-preview.
+        /// 
+        /// Uses Azure REST API version 2022-09-30-preview.
         /// 
         /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2022-09-30-preview.
+        /// 
+        /// Uses Azure REST API version 2022-09-30-preview.
         /// 
         /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
         /// </summary>

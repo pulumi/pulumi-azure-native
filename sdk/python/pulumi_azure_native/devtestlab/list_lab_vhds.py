@@ -67,7 +67,8 @@ def list_lab_vhds(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLabVhdsResult:
     """
     List disk images available for custom image creation.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str name: The name of the lab.
@@ -87,7 +88,8 @@ def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLabVhdsResult]:
     """
     List disk images available for custom image creation.
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str name: The name of the lab.

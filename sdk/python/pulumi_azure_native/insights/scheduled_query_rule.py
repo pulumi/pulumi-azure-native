@@ -405,7 +405,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  __props__=None):
         """
         The scheduled query rule resource.
-        Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
+
+        Uses Azure REST API version 2023-03-15-preview. In version 1.x of the Azure Native provider, it used API version 2018-04-16.
 
         Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
 
@@ -442,7 +443,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The scheduled query rule resource.
-        Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
+
+        Uses Azure REST API version 2023-03-15-preview. In version 1.x of the Azure Native provider, it used API version 2018-04-16.
 
         Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
 

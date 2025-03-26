@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     {
         /// <summary>
         /// Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Task<GetReportScopingQuestionsResult> InvokeAsync(GetReportScopingQuestionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportScopingQuestionsResult>("azure-native:appcomplianceautomation:getReportScopingQuestions", args ?? new GetReportScopingQuestionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetReportScopingQuestionsResult> Invoke(GetReportScopingQuestionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportScopingQuestionsResult>("azure-native:appcomplianceautomation:getReportScopingQuestions", args ?? new GetReportScopingQuestionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetReportScopingQuestionsResult> Invoke(GetReportScopingQuestionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportScopingQuestionsResult>("azure-native:appcomplianceautomation:getReportScopingQuestions", args ?? new GetReportScopingQuestionsInvokeArgs(), options.WithDefaults());

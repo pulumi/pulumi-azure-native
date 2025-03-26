@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Dashboard
     {
         /// <summary>
         /// The managed private endpoint resource type.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-01-preview.
         /// 
         /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Dashboard
 
         /// <summary>
         /// The managed private endpoint resource type.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-01-preview.
         /// 
         /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Dashboard
 
         /// <summary>
         /// The managed private endpoint resource type.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-01-preview.
         /// 
         /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
         /// </summary>

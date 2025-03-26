@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
- * Azure REST API version: 2022-03-01.
+ *
+ * Uses Azure REST API version 2022-03-01.
  *
  * Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
@@ -147,7 +148,8 @@ export interface GetDeviceResult {
 }
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
- * Azure REST API version: 2022-03-01.
+ *
+ * Uses Azure REST API version 2022-03-01.
  *
  * Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */

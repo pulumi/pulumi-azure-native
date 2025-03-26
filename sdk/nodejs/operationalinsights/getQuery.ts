@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
- * Azure REST API version: 2019-09-01.
+ *
+ * Uses Azure REST API version 2019-09-01.
  *
  * Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
  */
@@ -96,7 +97,8 @@ export interface GetQueryResult {
 }
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
- * Azure REST API version: 2019-09-01.
+ *
+ * Uses Azure REST API version 2019-09-01.
  *
  * Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the JIT request.
- * Azure REST API version: 2021-07-01.
+ *
+ * Uses Azure REST API version 2021-07-01.
  *
  * Other available API versions: 2023-12-01-preview.
  */
@@ -95,7 +96,8 @@ export interface GetJitRequestResult {
 }
 /**
  * Gets the JIT request.
- * Azure REST API version: 2021-07-01.
+ *
+ * Uses Azure REST API version 2021-07-01.
  *
  * Other available API versions: 2023-12-01-preview.
  */

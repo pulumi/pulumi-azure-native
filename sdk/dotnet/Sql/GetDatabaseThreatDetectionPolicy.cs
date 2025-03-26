@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a database's threat detection policy.
-        /// Azure REST API version: 2014-04-01.
+        /// 
+        /// Uses Azure REST API version 2014-04-01.
         /// </summary>
         public static Task<GetDatabaseThreatDetectionPolicyResult> InvokeAsync(GetDatabaseThreatDetectionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a database's threat detection policy.
-        /// Azure REST API version: 2014-04-01.
+        /// 
+        /// Uses Azure REST API version 2014-04-01.
         /// </summary>
         public static Output<GetDatabaseThreatDetectionPolicyResult> Invoke(GetDatabaseThreatDetectionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a database's threat detection policy.
-        /// Azure REST API version: 2014-04-01.
+        /// 
+        /// Uses Azure REST API version 2014-04-01.
         /// </summary>
         public static Output<GetDatabaseThreatDetectionPolicyResult> Invoke(GetDatabaseThreatDetectionPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithDefaults());

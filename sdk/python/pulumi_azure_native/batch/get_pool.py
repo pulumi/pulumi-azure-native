@@ -403,7 +403,8 @@ def get_pool(account_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Gets information about the specified pool.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
 
@@ -458,7 +459,8 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets information about the specified pool.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
 

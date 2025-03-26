@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a RedshiftClusterParameterGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getRedshiftClusterParameterGroup(args: GetRedshiftClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRedshiftClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetRedshiftClusterParameterGroupResult {
 }
 /**
  * Get a RedshiftClusterParameterGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getRedshiftClusterParameterGroupOutput(args: GetRedshiftClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedshiftClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

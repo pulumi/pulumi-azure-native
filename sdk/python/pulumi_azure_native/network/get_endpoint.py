@@ -249,7 +249,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets a Traffic Manager endpoint.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2022-04-01-preview.
 
@@ -292,7 +293,8 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets a Traffic Manager endpoint.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2022-04-01-preview.
 

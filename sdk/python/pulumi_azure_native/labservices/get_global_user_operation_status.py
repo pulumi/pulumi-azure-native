@@ -54,7 +54,8 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserOperationStatusResult:
     """
     Gets the status of long running operation
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str operation_url: The operation url of long running operation
@@ -73,7 +74,8 @@ def get_global_user_operation_status_output(operation_url: Optional[pulumi.Input
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalUserOperationStatusResult]:
     """
     Gets the status of long running operation
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str operation_url: The operation url of long running operation

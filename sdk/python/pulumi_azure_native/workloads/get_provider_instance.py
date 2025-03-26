@@ -140,7 +140,8 @@ def get_provider_instance(monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderInstanceResult:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 
@@ -171,7 +172,8 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 

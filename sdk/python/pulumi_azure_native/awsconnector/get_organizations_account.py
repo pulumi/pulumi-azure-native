@@ -127,7 +127,8 @@ def get_organizations_account(name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationsAccountResult:
     """
     Get a OrganizationsAccount
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of OrganizationsAccount
@@ -152,7 +153,8 @@ def get_organizations_account_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationsAccountResult]:
     """
     Get a OrganizationsAccount
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of OrganizationsAccount

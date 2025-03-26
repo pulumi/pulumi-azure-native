@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the non-security related metadata of an IoT hub.
- * Azure REST API version: 2022-04-30-preview.
+ *
+ * Uses Azure REST API version 2022-04-30-preview.
  *
  * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
@@ -79,7 +80,8 @@ export interface GetIotHubResourceResult {
 }
 /**
  * Get the non-security related metadata of an IoT hub.
- * Azure REST API version: 2022-04-30-preview.
+ *
+ * Uses Azure REST API version 2022-04-30-preview.
  *
  * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */

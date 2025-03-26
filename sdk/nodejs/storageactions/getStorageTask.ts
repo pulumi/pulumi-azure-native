@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the storage task properties
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export function getStorageTask(args: GetStorageTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +90,8 @@ export interface GetStorageTaskResult {
 }
 /**
  * Get the storage task properties
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export function getStorageTaskOutput(args: GetStorageTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

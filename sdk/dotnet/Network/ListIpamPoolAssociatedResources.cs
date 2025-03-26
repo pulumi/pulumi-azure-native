@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// List of PoolAssociation
-        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
         /// Other available API versions: 2024-05-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// List of PoolAssociation
-        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
         /// Other available API versions: 2024-05-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// List of PoolAssociation
-        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
         /// Other available API versions: 2024-05-01.
         /// </summary>

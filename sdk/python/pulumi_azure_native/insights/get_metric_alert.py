@@ -259,7 +259,8 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricAlertResult:
     """
     Retrieve an alert rule definition.
-    Azure REST API version: 2018-03-01.
+
+    Uses Azure REST API version 2018-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -295,7 +296,8 @@ def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricAlertResult]:
     """
     Retrieve an alert rule definition.
-    Azure REST API version: 2018-03-01.
+
+    Uses Azure REST API version 2018-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

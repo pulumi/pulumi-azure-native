@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets model status of the prediction.
- * Azure REST API version: 2017-04-26.
+ *
+ * Uses Azure REST API version 2017-04-26.
  */
 export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionModelStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +84,8 @@ export interface GetPredictionModelStatusResult {
 }
 /**
  * Gets model status of the prediction.
- * Azure REST API version: 2017-04-26.
+ *
+ * Uses Azure REST API version 2017-04-26.
  */
 export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPredictionModelStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

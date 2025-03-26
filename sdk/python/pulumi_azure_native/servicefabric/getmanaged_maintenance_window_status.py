@@ -126,7 +126,8 @@ def getmanaged_maintenance_window_status(cluster_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetmanagedMaintenanceWindowStatusResult:
     """
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
 
@@ -153,7 +154,8 @@ def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.In
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetmanagedMaintenanceWindowStatusResult]:
     """
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
 

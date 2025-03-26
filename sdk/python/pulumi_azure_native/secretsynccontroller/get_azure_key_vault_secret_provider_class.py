@@ -187,7 +187,8 @@ def get_azure_key_vault_secret_provider_class(azure_key_vault_secret_provider_cl
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureKeyVaultSecretProviderClassResult:
     """
     Gets the properties of an AzureKeyVaultSecretProviderClass instance.
-    Azure REST API version: 2024-08-21-preview.
+
+    Uses Azure REST API version 2024-08-21-preview.
 
 
     :param str azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
@@ -217,7 +218,8 @@ def get_azure_key_vault_secret_provider_class_output(azure_key_vault_secret_prov
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureKeyVaultSecretProviderClassResult]:
     """
     Gets the properties of an AzureKeyVaultSecretProviderClass instance.
-    Azure REST API version: 2024-08-21-preview.
+
+    Uses Azure REST API version 2024-08-21-preview.
 
 
     :param str azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass

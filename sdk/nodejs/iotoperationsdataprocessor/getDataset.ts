@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Dataset
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,7 +95,8 @@ export interface GetDatasetResult {
 }
 /**
  * Get a Dataset
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

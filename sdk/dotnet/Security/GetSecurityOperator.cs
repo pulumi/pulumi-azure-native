@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get a specific security operator for the requested scope.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// </summary>
         public static Task<GetSecurityOperatorResult> InvokeAsync(GetSecurityOperatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityOperatorResult>("azure-native:security:getSecurityOperator", args ?? new GetSecurityOperatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific security operator for the requested scope.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// </summary>
         public static Output<GetSecurityOperatorResult> Invoke(GetSecurityOperatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityOperatorResult>("azure-native:security:getSecurityOperator", args ?? new GetSecurityOperatorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific security operator for the requested scope.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// </summary>
         public static Output<GetSecurityOperatorResult> Invoke(GetSecurityOperatorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityOperatorResult>("azure-native:security:getSecurityOperator", args ?? new GetSecurityOperatorInvokeArgs(), options.WithDefaults());

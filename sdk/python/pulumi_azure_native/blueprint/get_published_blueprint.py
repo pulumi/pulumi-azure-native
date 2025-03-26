@@ -176,7 +176,8 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublishedBlueprintResult:
     """
     Get a published version of a blueprint definition.
-    Azure REST API version: 2018-11-01-preview.
+
+    Uses Azure REST API version 2018-11-01-preview.
 
 
     :param str blueprint_name: Name of the blueprint definition.
@@ -208,7 +209,8 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
     """
     Get a published version of a blueprint definition.
-    Azure REST API version: 2018-11-01-preview.
+
+    Uses Azure REST API version 2018-11-01-preview.
 
 
     :param str blueprint_name: Name of the blueprint definition.

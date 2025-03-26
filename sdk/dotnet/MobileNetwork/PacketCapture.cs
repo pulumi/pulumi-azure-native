@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Packet capture session resource.
-    /// Azure REST API version: 2023-06-01.
+    /// 
+    /// Uses Azure REST API version 2023-06-01.
     /// 
     /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
     /// </summary>

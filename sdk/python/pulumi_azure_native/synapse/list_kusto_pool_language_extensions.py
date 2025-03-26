@@ -56,7 +56,8 @@ def list_kusto_pool_language_extensions(kusto_pool_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKustoPoolLanguageExtensionsResult:
     """
     Returns a list of language extensions that can run within KQL queries.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.
@@ -78,7 +79,8 @@ def list_kusto_pool_language_extensions_output(kusto_pool_name: Optional[pulumi.
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListKustoPoolLanguageExtensionsResult]:
     """
     Returns a list of language extensions that can run within KQL queries.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

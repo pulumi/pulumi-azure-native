@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Machine Extension.
- * Azure REST API version: 2022-12-15-preview.
+ *
+ * Uses Azure REST API version 2022-12-15-preview.
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**

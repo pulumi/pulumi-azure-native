@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Returns an AML file system.
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// </summary>
         public static Task<GetAmlFilesystemResult> InvokeAsync(GetAmlFilesystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmlFilesystemResult>("azure-native:storagecache:getAmlFilesystem", args ?? new GetAmlFilesystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an AML file system.
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// </summary>
         public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an AML file system.
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// </summary>
         public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());

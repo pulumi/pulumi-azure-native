@@ -188,7 +188,8 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
     Returns an attached database configuration.
-    Azure REST API version: 2022-12-29.
+
+    Uses Azure REST API version 2022-12-29.
 
     Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
 
@@ -223,7 +224,8 @@ def get_attached_database_configuration_output(attached_database_configuration_n
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
-    Azure REST API version: 2022-12-29.
+
+    Uses Azure REST API version 2022-12-29.
 
     Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview.
+    /// 
+    /// Uses Azure REST API version 2022-04-02-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-02-preview.
     /// 
     /// Other available API versions: 2024-11-01-preview.
     /// </summary>

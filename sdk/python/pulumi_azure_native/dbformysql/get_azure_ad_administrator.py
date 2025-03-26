@@ -152,7 +152,8 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureADAdministratorResult:
     """
     Gets information about an azure ad administrator.
-    Azure REST API version: 2022-01-01.
+
+    Uses Azure REST API version 2022-01-01.
 
     Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
@@ -184,7 +185,8 @@ def get_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureADAdministratorResult]:
     """
     Gets information about an azure ad administrator.
-    Azure REST API version: 2022-01-01.
+
+    Uses Azure REST API version 2022-01-01.
 
     Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
 

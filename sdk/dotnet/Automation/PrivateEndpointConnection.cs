@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// A private endpoint connection
-    /// Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2020-01-13-preview.
+    /// 
+    /// Uses Azure REST API version 2020-01-13-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-13-preview.
     /// 
     /// Other available API versions: 2023-05-15-preview, 2024-10-23.
     /// </summary>

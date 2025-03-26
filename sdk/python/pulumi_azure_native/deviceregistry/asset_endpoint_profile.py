@@ -185,7 +185,8 @@ class AssetEndpointProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Asset Endpoint Profile definition.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2024-11-01.
 
@@ -209,7 +210,8 @@ class AssetEndpointProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Asset Endpoint Profile definition.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2024-11-01.
 

@@ -150,7 +150,8 @@ class RoutingRuleCollection(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the routing rule collection.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-05-01.
 
@@ -172,7 +173,8 @@ class RoutingRuleCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the routing rule collection.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-05-01.
 

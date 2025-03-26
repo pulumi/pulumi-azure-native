@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetInferencePoolStatus
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-08-01-preview.
         /// 
         /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferencePoolStatusResult>("azure-native:machinelearningservices:getInferencePoolStatus", args ?? new GetInferencePoolStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-08-01-preview.
         /// 
         /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.Invoke<GetInferencePoolStatusResult>("azure-native:machinelearningservices:getInferencePoolStatus", args ?? new GetInferencePoolStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-08-01-preview.
         /// 
         /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
         /// </summary>

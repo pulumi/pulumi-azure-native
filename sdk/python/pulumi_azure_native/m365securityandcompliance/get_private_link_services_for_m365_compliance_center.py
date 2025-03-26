@@ -163,7 +163,8 @@ def get_private_link_services_for_m365_compliance_center(resource_group_name: Op
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicesForM365ComplianceCenterResult:
     """
     Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
-    Azure REST API version: 2021-03-25-preview.
+
+    Uses Azure REST API version 2021-03-25-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -191,7 +192,8 @@ def get_private_link_services_for_m365_compliance_center_output(resource_group_n
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForM365ComplianceCenterResult]:
     """
     Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
-    Azure REST API version: 2021-03-25-preview.
+
+    Uses Azure REST API version 2021-03-25-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

@@ -126,7 +126,8 @@ def get_workspace_aad_admin(resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceAadAdminResult:
     """
     Gets a workspace active directory admin
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -153,7 +154,8 @@ def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[st
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceAadAdminResult]:
     """
     Gets a workspace active directory admin
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

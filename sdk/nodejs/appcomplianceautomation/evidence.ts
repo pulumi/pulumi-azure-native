@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent an AppComplianceAutomation evidence resource.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export class Evidence extends pulumi.CustomResource {
     /**

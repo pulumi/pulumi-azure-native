@@ -69,7 +69,8 @@ def get_test_result_console_log_download_url(log_file_name: Optional[str] = None
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultConsoleLogDownloadURLResult:
     """
     Gets the download URL of the test execution console log file.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 
@@ -100,7 +101,8 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
     """
     Gets the download URL of the test execution console log file.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 

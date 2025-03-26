@@ -331,7 +331,8 @@ def get_discovered_asset(discovered_asset_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiscoveredAssetResult:
     """
     Get a DiscoveredAsset
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str discovered_asset_name: Discovered Asset name parameter.
@@ -373,7 +374,8 @@ def get_discovered_asset_output(discovered_asset_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveredAssetResult]:
     """
     Get a DiscoveredAsset
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str discovered_asset_name: Discovered Asset name parameter.

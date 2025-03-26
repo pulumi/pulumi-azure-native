@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a feature registration
- * Azure REST API version: 2021-07-01.
+ *
+ * Uses Azure REST API version 2021-07-01.
  */
 export function getSubscriptionFeatureRegistration(args: GetSubscriptionFeatureRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFeatureRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface GetSubscriptionFeatureRegistrationResult {
 }
 /**
  * Returns a feature registration
- * Azure REST API version: 2021-07-01.
+ *
+ * Uses Azure REST API version 2021-07-01.
  */
 export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

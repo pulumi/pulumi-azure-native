@@ -163,7 +163,8 @@ def get_public_cloud_connector(public_cloud_connector: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicCloudConnectorResult:
     """
     Get a PublicCloudConnector
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str public_cloud_connector: Represent public cloud connectors resource.
@@ -191,7 +192,8 @@ def get_public_cloud_connector_output(public_cloud_connector: Optional[pulumi.In
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicCloudConnectorResult]:
     """
     Get a PublicCloudConnector
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str public_cloud_connector: Represent public cloud connectors resource.

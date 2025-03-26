@@ -136,7 +136,8 @@ def get_guest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestDiagnosticsSettingResult:
     """
     Gets guest diagnostics settings.
-    Azure REST API version: 2018-06-01-preview.
+
+    Uses Azure REST API version 2018-06-01-preview.
 
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.
@@ -162,7 +163,8 @@ def get_guest_diagnostics_setting_output(diagnostic_settings_name: Optional[pulu
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestDiagnosticsSettingResult]:
     """
     Gets guest diagnostics settings.
-    Azure REST API version: 2018-06-01-preview.
+
+    Uses Azure REST API version 2018-06-01-preview.
 
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.

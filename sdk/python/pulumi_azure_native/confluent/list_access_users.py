@@ -80,7 +80,8 @@ def list_access_users(organization_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessUsersResult:
     """
     List users success response
-    Azure REST API version: 2023-08-22.
+
+    Uses Azure REST API version 2023-08-22.
 
     Other available API versions: 2024-02-13, 2024-07-01.
 
@@ -106,7 +107,8 @@ def list_access_users_output(organization_name: Optional[pulumi.Input[str]] = No
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessUsersResult]:
     """
     List users success response
-    Azure REST API version: 2023-08-22.
+
+    Uses Azure REST API version 2023-08-22.
 
     Other available API versions: 2024-02-13, 2024-07-01.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
- * Azure REST API version: 2021-06-30.
+ *
+ * Uses Azure REST API version 2021-06-30.
  *
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
@@ -73,7 +74,8 @@ export interface GetFileResult {
 }
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
- * Azure REST API version: 2021-06-30.
+ *
+ * Uses Azure REST API version 2021-06-30.
  *
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */

@@ -248,7 +248,8 @@ def get_custom_image(custom_image_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomImageResult:
     """
     Gets a test base custom image.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str custom_image_name: The resource name of the test base custom image.
@@ -286,7 +287,8 @@ def get_custom_image_output(custom_image_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomImageResult]:
     """
     Gets a test base custom image.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str custom_image_name: The resource name of the test base custom image.

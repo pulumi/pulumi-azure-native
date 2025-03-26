@@ -260,7 +260,8 @@ def get_script_execution(private_cloud_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptExecutionResult:
     """
     An instance of a script executed by a user - custom or AVS
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 
@@ -301,7 +302,8 @@ def get_script_execution_output(private_cloud_name: Optional[pulumi.Input[str]] 
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptExecutionResult]:
     """
     An instance of a script executed by a user - custom or AVS
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 

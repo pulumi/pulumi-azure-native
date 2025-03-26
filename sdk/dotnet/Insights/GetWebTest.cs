@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a specific Application Insights web test definition.
-        /// Azure REST API version: 2022-06-15.
+        /// 
+        /// Uses Azure REST API version 2022-06-15.
         /// 
         /// Other available API versions: 2020-10-05-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Get a specific Application Insights web test definition.
-        /// Azure REST API version: 2022-06-15.
+        /// 
+        /// Uses Azure REST API version 2022-06-15.
         /// 
         /// Other available API versions: 2020-10-05-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Get a specific Application Insights web test definition.
-        /// Azure REST API version: 2022-06-15.
+        /// 
+        /// Uses Azure REST API version 2022-06-15.
         /// 
         /// Other available API versions: 2020-10-05-preview.
         /// </summary>

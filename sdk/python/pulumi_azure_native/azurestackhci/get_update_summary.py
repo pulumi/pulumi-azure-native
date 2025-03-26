@@ -199,7 +199,8 @@ def get_update_summary(cluster_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateSummaryResult:
     """
     Get all Update summaries under the HCI cluster
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
 
@@ -232,7 +233,8 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUpdateSummaryResult]:
     """
     Get all Update summaries under the HCI cluster
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
 

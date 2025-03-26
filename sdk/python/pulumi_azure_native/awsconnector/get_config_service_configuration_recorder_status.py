@@ -127,7 +127,8 @@ def get_config_service_configuration_recorder_status(name: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigServiceConfigurationRecorderStatusResult:
     """
     Get a ConfigServiceConfigurationRecorderStatus
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ConfigServiceConfigurationRecorderStatus
@@ -152,7 +153,8 @@ def get_config_service_configuration_recorder_status_output(name: Optional[pulum
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigServiceConfigurationRecorderStatusResult]:
     """
     Get a ConfigServiceConfigurationRecorderStatus
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ConfigServiceConfigurationRecorderStatus

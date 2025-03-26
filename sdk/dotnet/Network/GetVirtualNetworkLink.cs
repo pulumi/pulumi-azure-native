@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a virtual network link to the specified Private DNS zone.
-        /// Azure REST API version: 2020-06-01.
+        /// 
+        /// Uses Azure REST API version 2020-06-01.
         /// 
         /// Other available API versions: 2024-06-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a virtual network link to the specified Private DNS zone.
-        /// Azure REST API version: 2020-06-01.
+        /// 
+        /// Uses Azure REST API version 2020-06-01.
         /// 
         /// Other available API versions: 2024-06-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a virtual network link to the specified Private DNS zone.
-        /// Azure REST API version: 2020-06-01.
+        /// 
+        /// Uses Azure REST API version 2020-06-01.
         /// 
         /// Other available API versions: 2024-06-01.
         /// </summary>

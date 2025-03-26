@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a NetworkFirewallRuleGroup
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetNetworkFirewallRuleGroupResult> InvokeAsync(GetNetworkFirewallRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFirewallRuleGroupResult>("azure-native:awsconnector:getNetworkFirewallRuleGroup", args ?? new GetNetworkFirewallRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a NetworkFirewallRuleGroup
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetNetworkFirewallRuleGroupResult> Invoke(GetNetworkFirewallRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFirewallRuleGroupResult>("azure-native:awsconnector:getNetworkFirewallRuleGroup", args ?? new GetNetworkFirewallRuleGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a NetworkFirewallRuleGroup
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetNetworkFirewallRuleGroupResult> Invoke(GetNetworkFirewallRuleGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFirewallRuleGroupResult>("azure-native:awsconnector:getNetworkFirewallRuleGroup", args ?? new GetNetworkFirewallRuleGroupInvokeArgs(), options.WithDefaults());

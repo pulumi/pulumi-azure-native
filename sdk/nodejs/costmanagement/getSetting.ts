@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the current value for a specific setting.
- * Azure REST API version: 2019-11-01.
+ *
+ * Uses Azure REST API version 2019-11-01.
  */
 export function getSetting(args: GetSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,7 +61,8 @@ export interface GetSettingResult {
 }
 /**
  * Retrieves the current value for a specific setting.
- * Azure REST API version: 2019-11-01.
+ *
+ * Uses Azure REST API version 2019-11-01.
  */
 export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

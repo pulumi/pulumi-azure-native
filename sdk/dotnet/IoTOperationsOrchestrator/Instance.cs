@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
 {
     /// <summary>
     /// A Instance resource belonging to an Instance resource.
-    /// Azure REST API version: 2023-10-04-preview.
+    /// 
+    /// Uses Azure REST API version 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsorchestrator:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

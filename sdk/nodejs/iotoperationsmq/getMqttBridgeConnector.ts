@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a MqttBridgeConnectorResource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getMqttBridgeConnector(args: GetMqttBridgeConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMqttBridgeConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +107,8 @@ export interface GetMqttBridgeConnectorResult {
 }
 /**
  * Get a MqttBridgeConnectorResource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getMqttBridgeConnectorOutput(args: GetMqttBridgeConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMqttBridgeConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

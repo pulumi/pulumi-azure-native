@@ -84,7 +84,8 @@ class DefenderForStorage(pulumi.CustomResource):
                  __props__=None):
         """
         The Defender for Storage resource.
-        Azure REST API version: 2022-12-01-preview.
+
+        Uses Azure REST API version 2022-12-01-preview.
 
         Other available API versions: 2024-10-01-preview.
 
@@ -102,7 +103,8 @@ class DefenderForStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Defender for Storage resource.
-        Azure REST API version: 2022-12-01-preview.
+
+        Uses Azure REST API version 2022-12-01-preview.
 
         Other available API versions: 2024-10-01-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Details of a specific cloud account connector
-        /// Azure REST API version: 2020-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2020-01-01-preview.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:security:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of a specific cloud account connector
-        /// Azure REST API version: 2020-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2020-01-01-preview.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:security:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of a specific cloud account connector
-        /// Azure REST API version: 2020-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2020-01-01-preview.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:security:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

@@ -127,7 +127,8 @@ def get_rds_db_snapshot_attributes_result(name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRdsDbSnapshotAttributesResultResult:
     """
     Get a RdsDBSnapshotAttributesResult
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RdsDBSnapshotAttributesResult
@@ -152,7 +153,8 @@ def get_rds_db_snapshot_attributes_result_output(name: Optional[pulumi.Input[str
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRdsDbSnapshotAttributesResultResult]:
     """
     Get a RdsDBSnapshotAttributesResult
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RdsDBSnapshotAttributesResult

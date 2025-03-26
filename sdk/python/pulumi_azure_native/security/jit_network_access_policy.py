@@ -129,7 +129,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2020-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Uses Azure REST API version 2020-01-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  args: JitNetworkAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2020-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Uses Azure REST API version 2020-01-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param JitNetworkAccessPolicyArgs args: The arguments to use to populate this resource's properties.

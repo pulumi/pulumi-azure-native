@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.NotificationHubs
     {
         /// <summary>
         /// Notification Hub Resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// 
         /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.NotificationHubs
 
         /// <summary>
         /// Notification Hub Resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// 
         /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.NotificationHubs
 
         /// <summary>
         /// Notification Hub Resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// 
         /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
         /// </summary>

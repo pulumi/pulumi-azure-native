@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LoadTestMappingResource
- * Azure REST API version: 2023-12-01-preview.
+ *
+ * Uses Azure REST API version 2023-12-01-preview.
  *
  * Other available API versions: 2024-12-01-preview.
  */
@@ -67,7 +68,8 @@ export interface GetLoadTestMappingResult {
 }
 /**
  * Get a LoadTestMappingResource
- * Azure REST API version: 2023-12-01-preview.
+ *
+ * Uses Azure REST API version 2023-12-01-preview.
  *
  * Other available API versions: 2024-12-01-preview.
  */

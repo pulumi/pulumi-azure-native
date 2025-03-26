@@ -125,7 +125,8 @@ def get_rule_set(profile_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleSetResult:
     """
     Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
@@ -155,7 +156,8 @@ def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleSetResult]:
     """
     Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 

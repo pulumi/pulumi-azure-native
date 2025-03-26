@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the properties of an Experiment
- * Azure REST API version: 2019-11-01.
+ *
+ * Uses Azure REST API version 2019-11-01.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,7 +91,8 @@ export interface GetExperimentResult {
 }
 /**
  * Defines the properties of an Experiment
- * Azure REST API version: 2019-11-01.
+ *
+ * Uses Azure REST API version 2019-11-01.
  */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperimentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

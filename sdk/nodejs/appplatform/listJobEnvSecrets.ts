@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List sensitive environment variables of the Job.
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export function listJobEnvSecrets(args: ListJobEnvSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobEnvSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +47,8 @@ export interface ListJobEnvSecretsResult {
 }
 /**
  * List sensitive environment variables of the Job.
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export function listJobEnvSecretsOutput(args: ListJobEnvSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobEnvSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

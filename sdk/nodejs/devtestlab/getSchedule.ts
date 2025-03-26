@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get schedule.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +112,8 @@ export interface GetScheduleResult {
 }
 /**
  * Get schedule.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

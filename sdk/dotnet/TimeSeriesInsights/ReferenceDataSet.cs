@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     /// <summary>
     /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-    /// Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+    /// 
+    /// Uses Azure REST API version 2020-05-15. In version 1.x of the Azure Native provider, it used API version 2020-05-15.
     /// 
     /// Other available API versions: 2021-06-30-preview.
     /// </summary>

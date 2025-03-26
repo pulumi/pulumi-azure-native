@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The service configuration details associated with the target resource.
- * Azure REST API version: 2023-03-15.
+ *
+ * Uses Azure REST API version 2023-03-15.
  *
  * Other available API versions: 2024-12-01.
  */

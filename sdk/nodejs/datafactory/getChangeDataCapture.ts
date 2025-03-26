@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a change data capture.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  */
 export function getChangeDataCapture(args: GetChangeDataCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetChangeDataCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,7 +87,8 @@ export interface GetChangeDataCaptureResult {
 }
 /**
  * Gets a change data capture.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  */
 export function getChangeDataCaptureOutput(args: GetChangeDataCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChangeDataCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

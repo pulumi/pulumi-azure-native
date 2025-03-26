@@ -151,7 +151,8 @@ def get_address_by_name(address_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressByNameResult:
     """
     Gets information about the specified address.
-    Azure REST API version: 2021-12-01.
+
+    Uses Azure REST API version 2021-12-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -178,7 +179,8 @@ def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddressByNameResult]:
     """
     Gets information about the specified address.
-    Azure REST API version: 2021-12-01.
+
+    Uses Azure REST API version 2021-12-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

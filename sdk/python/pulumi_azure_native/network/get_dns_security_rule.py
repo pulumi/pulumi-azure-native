@@ -188,7 +188,8 @@ def get_dns_security_rule(dns_resolver_policy_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsSecurityRuleResult:
     """
     Gets properties of a DNS security rule for a DNS resolver policy.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_policy_name: The name of the DNS resolver policy.
@@ -221,7 +222,8 @@ def get_dns_security_rule_output(dns_resolver_policy_name: Optional[pulumi.Input
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsSecurityRuleResult]:
     """
     Gets properties of a DNS security rule for a DNS resolver policy.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_policy_name: The name of the DNS resolver policy.

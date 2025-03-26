@@ -151,7 +151,8 @@ def get_linked_server(linked_server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServerResult:
     """
     Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
 
@@ -183,7 +184,8 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedServerResult]:
     """
     Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
 

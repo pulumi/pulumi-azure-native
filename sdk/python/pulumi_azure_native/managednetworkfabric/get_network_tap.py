@@ -211,7 +211,8 @@ def get_network_tap(network_tap_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkTapResult:
     """
     Retrieves details of this Network Tap.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_tap_name: Name of the Network Tap.
@@ -243,7 +244,8 @@ def get_network_tap_output(network_tap_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkTapResult]:
     """
     Retrieves details of this Network Tap.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_tap_name: Name of the Network Tap.

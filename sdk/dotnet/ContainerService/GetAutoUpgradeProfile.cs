@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Get a AutoUpgradeProfile
-        /// Azure REST API version: 2024-05-02-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-02-preview.
         /// </summary>
         public static Task<GetAutoUpgradeProfileResult> InvokeAsync(GetAutoUpgradeProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoUpgradeProfileResult>("azure-native:containerservice:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AutoUpgradeProfile
-        /// Azure REST API version: 2024-05-02-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-02-preview.
         /// </summary>
         public static Output<GetAutoUpgradeProfileResult> Invoke(GetAutoUpgradeProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoUpgradeProfileResult>("azure-native:containerservice:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AutoUpgradeProfile
-        /// Azure REST API version: 2024-05-02-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-02-preview.
         /// </summary>
         public static Output<GetAutoUpgradeProfileResult> Invoke(GetAutoUpgradeProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoUpgradeProfileResult>("azure-native:containerservice:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileInvokeArgs(), options.WithDefaults());

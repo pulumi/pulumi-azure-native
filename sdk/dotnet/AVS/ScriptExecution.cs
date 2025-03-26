@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An instance of a script executed by a user - custom or AVS
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
+    /// 
+    /// Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2023-03-01, 2023-09-01.
     /// </summary>

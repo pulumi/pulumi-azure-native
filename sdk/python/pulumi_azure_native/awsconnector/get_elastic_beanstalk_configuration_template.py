@@ -127,7 +127,8 @@ def get_elastic_beanstalk_configuration_template(name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticBeanstalkConfigurationTemplateResult:
     """
     Get a ElasticBeanstalkConfigurationTemplate
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticBeanstalkConfigurationTemplate
@@ -152,7 +153,8 @@ def get_elastic_beanstalk_configuration_template_output(name: Optional[pulumi.In
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticBeanstalkConfigurationTemplateResult]:
     """
     Get a ElasticBeanstalkConfigurationTemplate
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticBeanstalkConfigurationTemplate

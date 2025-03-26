@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// 
         /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// 
         /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Uses Azure REST API version 2023-05-01.
         /// 
         /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
         /// </summary>

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SecretsManagerResourcePolicy
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSecretsManagerResourcePolicy(args: GetSecretsManagerResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsManagerResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSecretsManagerResourcePolicyResult {
 }
 /**
  * Get a SecretsManagerResourcePolicy
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSecretsManagerResourcePolicyOutput(args: GetSecretsManagerResourcePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsManagerResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

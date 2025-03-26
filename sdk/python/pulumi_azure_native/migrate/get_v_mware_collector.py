@@ -86,7 +86,8 @@ def get_v_mware_collector(project_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
     Get a VMware collector.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
 
     :param str project_name: Name of the Azure Migrate project.
@@ -112,7 +113,8 @@ def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMwareCollectorResult]:
     """
     Get a VMware collector.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
 
     :param str project_name: Name of the Azure Migrate project.

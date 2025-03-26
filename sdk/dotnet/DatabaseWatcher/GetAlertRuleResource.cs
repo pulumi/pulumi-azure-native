@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     {
         /// <summary>
         /// Get a AlertRuleResource
-        /// Azure REST API version: 2024-07-19-preview.
+        /// 
+        /// Uses Azure REST API version 2024-07-19-preview.
         /// 
         /// Other available API versions: 2024-10-01-preview, 2025-01-02.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
         /// <summary>
         /// Get a AlertRuleResource
-        /// Azure REST API version: 2024-07-19-preview.
+        /// 
+        /// Uses Azure REST API version 2024-07-19-preview.
         /// 
         /// Other available API versions: 2024-10-01-preview, 2025-01-02.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
         /// <summary>
         /// Get a AlertRuleResource
-        /// Azure REST API version: 2024-07-19-preview.
+        /// 
+        /// Uses Azure REST API version 2024-07-19-preview.
         /// 
         /// Other available API versions: 2024-10-01-preview, 2025-01-02.
         /// </summary>

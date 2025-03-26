@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific custom recommendation for the requested scope by customRecommendationName
- * Azure REST API version: 2024-08-01.
+ *
+ * Uses Azure REST API version 2024-08-01.
  */
 export function getCustomRecommendation(args: GetCustomRecommendationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRecommendationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,7 +86,8 @@ export interface GetCustomRecommendationResult {
 }
 /**
  * Get a specific custom recommendation for the requested scope by customRecommendationName
- * Azure REST API version: 2024-08-01.
+ *
+ * Uses Azure REST API version 2024-08-01.
  */
 export function getCustomRecommendationOutput(args: GetCustomRecommendationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomRecommendationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

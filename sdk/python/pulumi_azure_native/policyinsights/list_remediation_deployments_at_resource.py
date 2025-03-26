@@ -68,7 +68,8 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceResult:
     """
     Gets all deployments for a remediation at resource scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 
@@ -93,7 +94,8 @@ def list_remediation_deployments_at_resource_output(remediation_name: Optional[p
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
     """
     Gets all deployments for a remediation at resource scope.
-    Azure REST API version: 2021-10-01.
+
+    Uses Azure REST API version 2021-10-01.
 
     Other available API versions: 2024-10-01.
 

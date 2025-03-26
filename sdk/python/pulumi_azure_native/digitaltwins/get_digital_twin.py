@@ -199,7 +199,8 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinResult:
     """
     Get DigitalTwinsInstances resource.
-    Azure REST API version: 2023-01-31.
+
+    Uses Azure REST API version 2023-01-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
@@ -230,7 +231,8 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDigitalTwinResult]:
     """
     Get DigitalTwinsInstances resource.
-    Azure REST API version: 2023-01-31.
+
+    Uses Azure REST API version 2023-01-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

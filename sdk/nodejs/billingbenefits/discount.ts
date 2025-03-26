@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource definition for Discounts.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export class Discount extends pulumi.CustomResource {
     /**

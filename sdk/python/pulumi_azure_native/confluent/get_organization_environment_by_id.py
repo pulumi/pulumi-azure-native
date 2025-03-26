@@ -116,7 +116,8 @@ def get_organization_environment_by_id(environment_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationEnvironmentByIdResult:
     """
     Details about environment name, metadata and environment id of an environment
-    Azure REST API version: 2024-07-01.
+
+    Uses Azure REST API version 2024-07-01.
 
 
     :param str environment_id: Confluent environment id
@@ -143,7 +144,8 @@ def get_organization_environment_by_id_output(environment_id: Optional[pulumi.In
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationEnvironmentByIdResult]:
     """
     Details about environment name, metadata and environment id of an environment
-    Azure REST API version: 2024-07-01.
+
+    Uses Azure REST API version 2024-07-01.
 
 
     :param str environment_id: Confluent environment id

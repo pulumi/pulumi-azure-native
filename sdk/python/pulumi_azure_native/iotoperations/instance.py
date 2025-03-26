@@ -135,7 +135,8 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         A Instance resource is a logical container for a set of child resources.
-        Azure REST API version: 2024-07-01-preview.
+
+        Uses Azure REST API version 2024-07-01-preview.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 
@@ -156,7 +157,8 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Instance resource is a logical container for a set of child resources.
-        Azure REST API version: 2024-07-01-preview.
+
+        Uses Azure REST API version 2024-07-01-preview.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto pool principalAssignment.
- * Azure REST API version: 2021-06-01-preview.
+ *
+ * Uses Azure REST API version 2021-06-01-preview.
  */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +96,8 @@ export interface GetKustoPoolPrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto pool principalAssignment.
- * Azure REST API version: 2021-06-01-preview.
+ *
+ * Uses Azure REST API version 2021-06-01-preview.
  */
 export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

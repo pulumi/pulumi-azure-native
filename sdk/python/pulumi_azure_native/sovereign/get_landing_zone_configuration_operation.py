@@ -104,7 +104,8 @@ def get_landing_zone_configuration_operation(landing_zone_account_name: Optional
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLandingZoneConfigurationOperationResult:
     """
     Get a landing zone configuration.
-    Azure REST API version: 2025-02-27-preview.
+
+    Uses Azure REST API version 2025-02-27-preview.
 
 
     :param str landing_zone_account_name: The landing zone account.
@@ -130,7 +131,8 @@ def get_landing_zone_configuration_operation_output(landing_zone_account_name: O
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneConfigurationOperationResult]:
     """
     Get a landing zone configuration.
-    Azure REST API version: 2025-02-27-preview.
+
+    Uses Azure REST API version 2025-02-27-preview.
 
 
     :param str landing_zone_account_name: The landing zone account.

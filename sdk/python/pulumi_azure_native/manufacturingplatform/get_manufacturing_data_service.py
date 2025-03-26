@@ -151,7 +151,8 @@ def get_manufacturing_data_service(mds_resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManufacturingDataServiceResult:
     """
     Get a MdsResource
-    Azure REST API version: 2025-03-01.
+
+    Uses Azure REST API version 2025-03-01.
 
 
     :param str mds_resource_name: Name.
@@ -178,7 +179,8 @@ def get_manufacturing_data_service_output(mds_resource_name: Optional[pulumi.Inp
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManufacturingDataServiceResult]:
     """
     Get a MdsResource
-    Azure REST API version: 2025-03-01.
+
+    Uses Azure REST API version 2025-03-01.
 
 
     :param str mds_resource_name: Name.

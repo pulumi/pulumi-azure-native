@@ -236,7 +236,8 @@ def get_power_shell72_module(automation_account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPowerShell72ModuleResult:
     """
     Retrieve the module identified by module name.
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -273,7 +274,8 @@ def get_power_shell72_module_output(automation_account_name: Optional[pulumi.Inp
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPowerShell72ModuleResult]:
     """
     Retrieve the module identified by module name.
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.

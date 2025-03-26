@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     {
         /// <summary>
         /// Returns Dedicate Cloud Service
-        /// Azure REST API version: 2019-04-01.
+        /// 
+        /// Uses Azure REST API version 2019-04-01.
         /// </summary>
         public static Task<GetDedicatedCloudServiceResult> InvokeAsync(GetDedicatedCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudServiceResult>("azure-native:vmwarecloudsimple:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Dedicate Cloud Service
-        /// Azure REST API version: 2019-04-01.
+        /// 
+        /// Uses Azure REST API version 2019-04-01.
         /// </summary>
         public static Output<GetDedicatedCloudServiceResult> Invoke(GetDedicatedCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedCloudServiceResult>("azure-native:vmwarecloudsimple:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Dedicate Cloud Service
-        /// Azure REST API version: 2019-04-01.
+        /// 
+        /// Uses Azure REST API version 2019-04-01.
         /// </summary>
         public static Output<GetDedicatedCloudServiceResult> Invoke(GetDedicatedCloudServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedCloudServiceResult>("azure-native:vmwarecloudsimple:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceInvokeArgs(), options.WithDefaults());

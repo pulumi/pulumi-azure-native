@@ -103,7 +103,8 @@ def get_saas_subscription_level(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSaasSubscriptionLevelResult:
     """
     Gets information about the specified Subscription Level SaaS.
-    Azure REST API version: 2018-03-01-beta.
+
+    Uses Azure REST API version 2018-03-01-beta.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -126,7 +127,8 @@ def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
     """
     Gets information about the specified Subscription Level SaaS.
-    Azure REST API version: 2018-03-01-beta.
+
+    Uses Azure REST API version 2018-03-01-beta.
 
 
     :param str resource_group_name: The name of the resource group.

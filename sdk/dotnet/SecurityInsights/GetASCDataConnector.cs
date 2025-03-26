@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Uses Azure REST API version 2023-02-01.
         /// </summary>
         public static Task<GetASCDataConnectorResult> InvokeAsync(GetASCDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetASCDataConnectorResult>("azure-native:securityinsights:getASCDataConnector", args ?? new GetASCDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Uses Azure REST API version 2023-02-01.
         /// </summary>
         public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Uses Azure REST API version 2023-02-01.
         /// </summary>
         public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a landing zone configuration.
- * Azure REST API version: 2025-02-27-preview.
+ *
+ * Uses Azure REST API version 2025-02-27-preview.
  */
 export function getLandingZoneConfigurationOperation(args: GetLandingZoneConfigurationOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetLandingZoneConfigurationOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetLandingZoneConfigurationOperationResult {
 }
 /**
  * Get a landing zone configuration.
- * Azure REST API version: 2025-02-27-preview.
+ *
+ * Uses Azure REST API version 2025-02-27-preview.
  */
 export function getLandingZoneConfigurationOperationOutput(args: GetLandingZoneConfigurationOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLandingZoneConfigurationOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

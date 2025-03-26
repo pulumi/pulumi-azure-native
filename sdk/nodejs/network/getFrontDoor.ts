@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  */
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +114,8 @@ export interface GetFrontDoorResult {
 }
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  */
 export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontDoorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

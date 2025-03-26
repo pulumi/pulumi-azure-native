@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets the preview information of a vendor sku.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the preview information of a vendor sku.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
         public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the preview information of a vendor sku.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
         public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());

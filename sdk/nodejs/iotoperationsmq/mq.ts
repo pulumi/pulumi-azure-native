@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * MQ resource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export class Mq extends pulumi.CustomResource {
     /**

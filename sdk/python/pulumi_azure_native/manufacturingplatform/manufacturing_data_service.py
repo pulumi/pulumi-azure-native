@@ -153,7 +153,8 @@ class ManufacturingDataService(pulumi.CustomResource):
                  __props__=None):
         """
         A ManufacturingPlatformProviderHub resource
-        Azure REST API version: 2025-03-01.
+
+        Uses Azure REST API version 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +174,8 @@ class ManufacturingDataService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A ManufacturingPlatformProviderHub resource
-        Azure REST API version: 2025-03-01.
+
+        Uses Azure REST API version 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param ManufacturingDataServiceArgs args: The arguments to use to populate this resource's properties.

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Task<GetConfigurationProfileHCRPAssignmentResult> InvokeAsync(GetConfigurationProfileHCRPAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfileHCRPAssignmentResult> Invoke(GetConfigurationProfileHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfileHCRPAssignmentResult> Invoke(GetConfigurationProfileHCRPAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentInvokeArgs(), options.WithDefaults());

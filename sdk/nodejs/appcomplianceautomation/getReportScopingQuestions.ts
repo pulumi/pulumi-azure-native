@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getReportScopingQuestions(args: GetReportScopingQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetReportScopingQuestionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,7 +37,8 @@ export interface GetReportScopingQuestionsResult {
 }
 /**
  * Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getReportScopingQuestionsOutput(args: GetReportScopingQuestionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportScopingQuestionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

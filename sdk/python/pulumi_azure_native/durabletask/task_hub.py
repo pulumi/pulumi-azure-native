@@ -82,7 +82,8 @@ class TaskHub(pulumi.CustomResource):
                  __props__=None):
         """
         A Task Hub resource belonging to the scheduler
-        Azure REST API version: 2024-10-01-preview.
+
+        Uses Azure REST API version 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +99,8 @@ class TaskHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Task Hub resource belonging to the scheduler
-        Azure REST API version: 2024-10-01-preview.
+
+        Uses Azure REST API version 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TaskHubArgs args: The arguments to use to populate this resource's properties.

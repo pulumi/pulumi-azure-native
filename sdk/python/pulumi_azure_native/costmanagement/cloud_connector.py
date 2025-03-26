@@ -187,7 +187,8 @@ class CloudConnector(pulumi.CustomResource):
                  __props__=None):
         """
         The Connector model definition
-        Azure REST API version: 2019-03-01-preview. Prior API version in Azure Native 1.x: 2019-03-01-preview.
+
+        Uses Azure REST API version 2019-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +210,8 @@ class CloudConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connector model definition
-        Azure REST API version: 2019-03-01-preview. Prior API version in Azure Native 1.x: 2019-03-01-preview.
+
+        Uses Azure REST API version 2019-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CloudConnectorArgs args: The arguments to use to populate this resource's properties.

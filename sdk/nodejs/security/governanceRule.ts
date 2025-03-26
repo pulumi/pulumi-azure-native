@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Governance rule over a given scope
- * Azure REST API version: 2022-01-01-preview.
+ *
+ * Uses Azure REST API version 2022-01-01-preview.
  */
 export class GovernanceRule extends pulumi.CustomResource {
     /**

@@ -103,7 +103,8 @@ def get_config_server(resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigServerResult:
     """
     Get the config server and its properties.
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
 
@@ -128,7 +129,8 @@ def get_config_server_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigServerResult]:
     """
     Get the config server and its properties.
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
 

@@ -68,7 +68,8 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorPathsResult:
     """
     List Paths supported by this Streaming Locator
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -91,7 +92,8 @@ def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStreamingLocatorPathsResult]:
     """
     List Paths supported by this Streaming Locator
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

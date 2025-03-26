@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManagedServices
     {
         /// <summary>
         /// Gets the details of the specified registration assignment.
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the specified registration assignment.
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the specified registration assignment.
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());

@@ -128,7 +128,8 @@ def get_sql_server_availability_group(availability_group_name: Optional[str] = N
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerAvailabilityGroupResult:
     """
     Retrieves an Arc Sql Server availability group.
-    Azure REST API version: 2024-01-01.
+
+    Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
@@ -158,7 +159,8 @@ def get_sql_server_availability_group_output(availability_group_name: Optional[p
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerAvailabilityGroupResult]:
     """
     Retrieves an Arc Sql Server availability group.
-    Azure REST API version: 2024-01-01.
+
+    Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 

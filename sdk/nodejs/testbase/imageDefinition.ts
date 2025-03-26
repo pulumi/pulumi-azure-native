@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The test base image definition resource.
- * Azure REST API version: 2023-11-01-preview.
+ *
+ * Uses Azure REST API version 2023-11-01-preview.
  */
 export class ImageDefinition extends pulumi.CustomResource {
     /**

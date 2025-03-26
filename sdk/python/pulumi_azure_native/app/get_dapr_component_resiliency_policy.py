@@ -117,7 +117,8 @@ def get_dapr_component_resiliency_policy(component_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaprComponentResiliencyPolicyResult:
     """
     Dapr Component Resiliency Policy.
-    Azure REST API version: 2023-08-01-preview.
+
+    Uses Azure REST API version 2023-08-01-preview.
 
     Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 
@@ -149,7 +150,8 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
     """
     Dapr Component Resiliency Policy.
-    Azure REST API version: 2023-08-01-preview.
+
+    Uses Azure REST API version 2023-08-01-preview.
 
     Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 

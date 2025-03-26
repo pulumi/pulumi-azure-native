@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves details of this Network Tap.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export function getNetworkTap(args: GetNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkTapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +94,8 @@ export interface GetNetworkTapResult {
 }
 /**
  * Retrieves details of this Network Tap.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export function getNetworkTapOutput(args: GetNetworkTapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkTapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

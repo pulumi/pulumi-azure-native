@@ -170,7 +170,8 @@ class Policy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines web application firewall policy.
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-11-01.
+
+        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
 
         Other available API versions: 2021-06-01, 2024-02-01.
 
@@ -193,7 +194,8 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy.
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-11-01.
+
+        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
 
         Other available API versions: 2021-06-01, 2024-02-01.
 

@@ -100,7 +100,8 @@ class FailoverGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A failover group resource.
-        Azure REST API version: 2023-01-15-preview.
+
+        Uses Azure REST API version 2023-01-15-preview.
 
         Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
 
@@ -119,7 +120,8 @@ class FailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A failover group resource.
-        Azure REST API version: 2023-01-15-preview.
+
+        Uses Azure REST API version 2023-01-15-preview.
 
         Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
 

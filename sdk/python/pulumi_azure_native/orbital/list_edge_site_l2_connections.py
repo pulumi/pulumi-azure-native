@@ -67,7 +67,8 @@ def list_edge_site_l2_connections(edge_site_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEdgeSiteL2ConnectionsResult:
     """
     Returns a list of L2 Connections attached to an edge site.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 
@@ -89,7 +90,8 @@ def list_edge_site_l2_connections_output(edge_site_name: Optional[pulumi.Input[s
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEdgeSiteL2ConnectionsResult]:
     """
     Returns a list of L2 Connections attached to an edge site.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 

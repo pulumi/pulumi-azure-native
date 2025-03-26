@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A container group profile.
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export class ContainerGroupProfile extends pulumi.CustomResource {
     /**

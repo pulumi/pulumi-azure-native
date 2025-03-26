@@ -165,7 +165,8 @@ def get_mqtt_bridge_topic_map(mq_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMqttBridgeTopicMapResult:
     """
     Get a MqttBridgeTopicMapResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str mq_name: Name of MQ resource
@@ -199,7 +200,8 @@ def get_mqtt_bridge_topic_map_output(mq_name: Optional[pulumi.Input[str]] = None
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMqttBridgeTopicMapResult]:
     """
     Get a MqttBridgeTopicMapResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str mq_name: Name of MQ resource

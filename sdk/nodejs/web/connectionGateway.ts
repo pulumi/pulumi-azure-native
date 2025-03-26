@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The gateway definition
- * Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
  */
 export class ConnectionGateway extends pulumi.CustomResource {
     /**

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific Analytics Items defined within an Application Insights component.
- * Azure REST API version: 2015-05-01.
+ *
+ * Uses Azure REST API version 2015-05-01.
  */
 export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,7 +89,8 @@ export interface GetAnalyticsItemResult {
 }
 /**
  * Gets a specific Analytics Items defined within an Application Insights component.
- * Azure REST API version: 2015-05-01.
+ *
+ * Uses Azure REST API version 2015-05-01.
  */
 export function getAnalyticsItemOutput(args: GetAnalyticsItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalyticsItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

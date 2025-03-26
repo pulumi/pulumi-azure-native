@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the setting from the given scope by name.
- * Azure REST API version: 2022-10-05-preview.
+ *
+ * Uses Azure REST API version 2022-10-05-preview.
  */
 export function getTagInheritanceSetting(args: GetTagInheritanceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagInheritanceSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetTagInheritanceSettingResult {
 }
 /**
  * Get the setting from the given scope by name.
- * Azure REST API version: 2022-10-05-preview.
+ *
+ * Uses Azure REST API version 2022-10-05-preview.
  */
 export function getTagInheritanceSettingOutput(args: GetTagInheritanceSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagInheritanceSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

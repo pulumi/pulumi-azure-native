@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2NetworkInterface
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2NetworkInterfaceResult> InvokeAsync(GetEc2NetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2NetworkInterfaceResult>("azure-native:awsconnector:getEc2NetworkInterface", args ?? new GetEc2NetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2NetworkInterface
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2NetworkInterfaceResult> Invoke(GetEc2NetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2NetworkInterfaceResult>("azure-native:awsconnector:getEc2NetworkInterface", args ?? new GetEc2NetworkInterfaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2NetworkInterface
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2NetworkInterfaceResult> Invoke(GetEc2NetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2NetworkInterfaceResult>("azure-native:awsconnector:getEc2NetworkInterface", args ?? new GetEc2NetworkInterfaceInvokeArgs(), options.WithDefaults());

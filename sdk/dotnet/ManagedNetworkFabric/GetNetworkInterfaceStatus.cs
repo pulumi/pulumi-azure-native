@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Get the running status of the Network Interface.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// </summary>
         public static Task<GetNetworkInterfaceStatusResult> InvokeAsync(GetNetworkInterfaceStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceStatusResult>("azure-native:managednetworkfabric:getNetworkInterfaceStatus", args ?? new GetNetworkInterfaceStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the running status of the Network Interface.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// </summary>
         public static Output<GetNetworkInterfaceStatusResult> Invoke(GetNetworkInterfaceStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceStatusResult>("azure-native:managednetworkfabric:getNetworkInterfaceStatus", args ?? new GetNetworkInterfaceStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the running status of the Network Interface.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// </summary>
         public static Output<GetNetworkInterfaceStatusResult> Invoke(GetNetworkInterfaceStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceStatusResult>("azure-native:managednetworkfabric:getNetworkInterfaceStatus", args ?? new GetNetworkInterfaceStatusInvokeArgs(), options.WithDefaults());

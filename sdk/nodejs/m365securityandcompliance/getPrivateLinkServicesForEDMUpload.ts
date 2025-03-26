@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
- * Azure REST API version: 2021-03-25-preview.
+ *
+ * Uses Azure REST API version 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForEDMUpload(args: GetPrivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForEDMUploadResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +78,8 @@ export interface GetPrivateLinkServicesForEDMUploadResult {
 }
 /**
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
- * Azure REST API version: 2021-03-25-preview.
+ *
+ * Uses Azure REST API version 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForEDMUploadOutput(args: GetPrivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForEDMUploadResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

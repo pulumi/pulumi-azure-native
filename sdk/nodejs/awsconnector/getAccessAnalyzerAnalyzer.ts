@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a AccessAnalyzerAnalyzer
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getAccessAnalyzerAnalyzer(args: GetAccessAnalyzerAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessAnalyzerAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetAccessAnalyzerAnalyzerResult {
 }
 /**
  * Get a AccessAnalyzerAnalyzer
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getAccessAnalyzerAnalyzerOutput(args: GetAccessAnalyzerAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessAnalyzerAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

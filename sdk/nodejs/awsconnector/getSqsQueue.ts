@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SqsQueue
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSqsQueue(args: GetSqsQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetSqsQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSqsQueueResult {
 }
 /**
  * Get a SqsQueue
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSqsQueueOutput(args: GetSqsQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqsQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

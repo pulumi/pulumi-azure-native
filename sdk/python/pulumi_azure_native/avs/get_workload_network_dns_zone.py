@@ -163,7 +163,8 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDnsZoneResult:
     """
     NSX DNS Zone
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 
@@ -196,7 +197,8 @@ def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkDnsZoneResult]:
     """
     NSX DNS Zone
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 

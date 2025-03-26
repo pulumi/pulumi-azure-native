@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a IscsiPath
- * Azure REST API version: 2023-09-01.
+ *
+ * Uses Azure REST API version 2023-09-01.
  */
 export function getIscsiPath(args: GetIscsiPathArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +62,8 @@ export interface GetIscsiPathResult {
 }
 /**
  * Get a IscsiPath
- * Azure REST API version: 2023-09-01.
+ *
+ * Uses Azure REST API version 2023-09-01.
  */
 export function getIscsiPathOutput(args: GetIscsiPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIscsiPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

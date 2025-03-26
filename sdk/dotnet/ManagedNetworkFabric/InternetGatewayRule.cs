@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// The Internet Gateway Rule resource definition.
-    /// Azure REST API version: 2023-06-15.
+    /// 
+    /// Uses Azure REST API version 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:InternetGatewayRule")]
     public partial class InternetGatewayRule : global::Pulumi.CustomResource

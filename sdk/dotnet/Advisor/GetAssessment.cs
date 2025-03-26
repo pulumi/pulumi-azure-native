@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Advisor
     {
         /// <summary>
         /// Get a existing Azure Advisor assessment.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-09-01-preview.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:advisor:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a existing Azure Advisor assessment.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-09-01-preview.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:advisor:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a existing Azure Advisor assessment.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-09-01-preview.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:advisor:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());

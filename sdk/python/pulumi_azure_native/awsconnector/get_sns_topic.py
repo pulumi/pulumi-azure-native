@@ -127,7 +127,8 @@ def get_sns_topic(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnsTopicResult:
     """
     Get a SnsTopic
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SnsTopic
@@ -152,7 +153,8 @@ def get_sns_topic_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnsTopicResult]:
     """
     Get a SnsTopic
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SnsTopic

@@ -224,7 +224,8 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSchemaResult:
     """
     Gets an integration account schema.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview.
 
@@ -262,7 +263,8 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountSchemaResult]:
     """
     Gets an integration account schema.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview.
 

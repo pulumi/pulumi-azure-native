@@ -164,7 +164,8 @@ def get_role_assignment_artifact(artifact_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentArtifactResult:
     """
     Get a blueprint artifact.
-    Azure REST API version: 2018-11-01-preview.
+
+    Uses Azure REST API version 2018-11-01-preview.
 
 
     :param str artifact_name: Name of the blueprint artifact.
@@ -195,7 +196,8 @@ def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentArtifactResult]:
     """
     Get a blueprint artifact.
-    Azure REST API version: 2018-11-01-preview.
+
+    Uses Azure REST API version 2018-11-01-preview.
 
 
     :param str artifact_name: Name of the blueprint artifact.

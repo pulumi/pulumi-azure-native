@@ -238,7 +238,8 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  __props__=None):
         """
         Container App session pool.
-        Azure REST API version: 2024-02-02-preview.
+
+        Uses Azure REST API version 2024-02-02-preview.
 
         Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
@@ -265,7 +266,8 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App session pool.
-        Azure REST API version: 2024-02-02-preview.
+
+        Uses Azure REST API version 2024-02-02-preview.
 
         Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 

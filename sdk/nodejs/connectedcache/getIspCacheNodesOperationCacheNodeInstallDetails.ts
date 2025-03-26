@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * This api gets secrets of the ispCacheNode resource install details
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export function getIspCacheNodesOperationCacheNodeInstallDetails(args: GetIspCacheNodesOperationCacheNodeInstallDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +71,8 @@ export interface GetIspCacheNodesOperationCacheNodeInstallDetailsResult {
 }
 /**
  * This api gets secrets of the ispCacheNode resource install details
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  */
 export function getIspCacheNodesOperationCacheNodeInstallDetailsOutput(args: GetIspCacheNodesOperationCacheNodeInstallDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

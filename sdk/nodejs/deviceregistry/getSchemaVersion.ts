@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SchemaVersion
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export function getSchemaVersion(args: GetSchemaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +84,8 @@ export interface GetSchemaVersionResult {
 }
 /**
  * Get a SchemaVersion
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

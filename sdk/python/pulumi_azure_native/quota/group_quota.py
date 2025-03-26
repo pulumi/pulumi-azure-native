@@ -85,7 +85,8 @@ class GroupQuota(pulumi.CustomResource):
                  __props__=None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
@@ -103,7 +104,8 @@ class GroupQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 

@@ -164,7 +164,8 @@ def get_video(account_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoResult:
     """
     Retrieves an existing video resource with the given name.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
     Other available API versions: 2021-05-01-preview.
 
@@ -197,7 +198,8 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVideoResult]:
     """
     Retrieves an existing video resource with the given name.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
     Other available API versions: 2021-05-01-preview.
 

@@ -152,7 +152,8 @@ def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Get a Application
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str application_name: The name of the Application
@@ -182,7 +183,8 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get a Application
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str application_name: The name of the Application

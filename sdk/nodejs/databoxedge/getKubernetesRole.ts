@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific role by name.
- * Azure REST API version: 2022-03-01.
+ *
+ * Uses Azure REST API version 2022-03-01.
  */
 export function getKubernetesRole(args: GetKubernetesRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,7 +95,8 @@ export interface GetKubernetesRoleResult {
 }
 /**
  * Gets a specific role by name.
- * Azure REST API version: 2022-03-01.
+ *
+ * Uses Azure REST API version 2022-03-01.
  */
 export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

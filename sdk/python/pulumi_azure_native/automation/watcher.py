@@ -200,7 +200,8 @@ class Watcher(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the watcher type.
-        Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
+
+        Uses Azure REST API version 2020-01-13-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
 
         Other available API versions: 2023-05-15-preview, 2024-10-23.
 
@@ -225,7 +226,8 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the watcher type.
-        Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
+
+        Uses Azure REST API version 2020-01-13-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
 
         Other available API versions: 2023-05-15-preview, 2024-10-23.
 

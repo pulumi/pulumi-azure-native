@@ -164,7 +164,8 @@ def get_streaming_policy(account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingPolicyResult:
     """
     Get the details of a Streaming Policy in the Media Services account
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -195,7 +196,8 @@ def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingPolicyResult]:
     """
     Get the details of a Streaming Policy in the Media Services account
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * DevOps Policy assignment resource.
- * Azure REST API version: 2024-05-15-preview.
+ *
+ * Uses Azure REST API version 2024-05-15-preview.
  */
 export function getDevOpsPolicyAssignment(args: GetDevOpsPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDevOpsPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetDevOpsPolicyAssignmentResult {
 }
 /**
  * DevOps Policy assignment resource.
- * Azure REST API version: 2024-05-15-preview.
+ *
+ * Uses Azure REST API version 2024-05-15-preview.
  */
 export function getDevOpsPolicyAssignmentOutput(args: GetDevOpsPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevOpsPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

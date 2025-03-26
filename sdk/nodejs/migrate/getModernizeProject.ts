@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the modernize project.
- * Azure REST API version: 2022-05-01-preview.
+ *
+ * Uses Azure REST API version 2022-05-01-preview.
  */
 export function getModernizeProject(args: GetModernizeProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetModernizeProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +69,8 @@ export interface GetModernizeProjectResult {
 }
 /**
  * Gets the details of the modernize project.
- * Azure REST API version: 2022-05-01-preview.
+ *
+ * Uses Azure REST API version 2022-05-01-preview.
  */
 export function getModernizeProjectOutput(args: GetModernizeProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModernizeProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

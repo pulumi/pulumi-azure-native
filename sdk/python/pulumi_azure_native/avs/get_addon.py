@@ -92,7 +92,8 @@ def get_addon(addon_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
     An addon resource
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
 
@@ -119,7 +120,8 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
     An addon resource
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
 

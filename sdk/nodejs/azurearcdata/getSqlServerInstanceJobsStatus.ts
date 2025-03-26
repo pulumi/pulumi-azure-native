@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets jobs status details for sql arc resource
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  *
  * Other available API versions: 2025-03-01-preview.
  */
@@ -53,7 +54,8 @@ export interface GetSqlServerInstanceJobsStatusResult {
 }
 /**
  * Gets jobs status details for sql arc resource
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  *
  * Other available API versions: 2025-03-01-preview.
  */

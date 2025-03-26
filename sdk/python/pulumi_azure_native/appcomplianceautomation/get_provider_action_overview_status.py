@@ -54,7 +54,8 @@ def get_provider_action_overview_status(type: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderActionOverviewStatusResult:
     """
     Get the resource overview status.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str type: The resource type.
@@ -70,7 +71,8 @@ def get_provider_action_overview_status_output(type: Optional[pulumi.Input[Optio
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionOverviewStatusResult]:
     """
     Get the resource overview status.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str type: The resource type.

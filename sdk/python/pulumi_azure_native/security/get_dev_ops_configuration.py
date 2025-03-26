@@ -103,7 +103,8 @@ def get_dev_ops_configuration(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevOpsConfigurationResult:
     """
     DevOps Configuration resource.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
 
@@ -128,7 +129,8 @@ def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevOpsConfigurationResult]:
     """
     DevOps Configuration resource.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
 

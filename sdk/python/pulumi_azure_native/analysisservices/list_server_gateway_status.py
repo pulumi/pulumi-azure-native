@@ -54,7 +54,8 @@ def list_server_gateway_status(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerGatewayStatusResult:
     """
     Return the gateway status of the specified Analysis Services server instance.
-    Azure REST API version: 2017-08-01.
+
+    Uses Azure REST API version 2017-08-01.
 
     Other available API versions: 2017-08-01-beta.
 
@@ -75,7 +76,8 @@ def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
     """
     Return the gateway status of the specified Analysis Services server instance.
-    Azure REST API version: 2017-08-01.
+
+    Uses Azure REST API version 2017-08-01.
 
     Other available API versions: 2017-08-01-beta.
 

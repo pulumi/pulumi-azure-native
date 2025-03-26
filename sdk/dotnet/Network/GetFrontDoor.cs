@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-native:network:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// </summary>
         public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontDoorResult>("azure-native:network:getFrontDoor", args ?? new GetFrontDoorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// </summary>
         public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontDoorResult>("azure-native:network:getFrontDoor", args ?? new GetFrontDoorInvokeArgs(), options.WithDefaults());

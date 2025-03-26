@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Advanced Ingress routing for path/header based routing for a Container App Environment
- * Azure REST API version: 2024-10-02-preview.
+ *
+ * Uses Azure REST API version 2024-10-02-preview.
  */
 export function getHttpRouteConfig(args: GetHttpRouteConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpRouteConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetHttpRouteConfigResult {
 }
 /**
  * Advanced Ingress routing for path/header based routing for a Container App Environment
- * Azure REST API version: 2024-10-02-preview.
+ *
+ * Uses Azure REST API version 2024-10-02-preview.
  */
 export function getHttpRouteConfigOutput(args: GetHttpRouteConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHttpRouteConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

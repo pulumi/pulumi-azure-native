@@ -224,7 +224,8 @@ def get_relationship(hub_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRelationshipResult:
     """
     Gets information about the specified relationship.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.
@@ -260,7 +261,8 @@ def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRelationshipResult]:
     """
     Gets information about the specified relationship.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.

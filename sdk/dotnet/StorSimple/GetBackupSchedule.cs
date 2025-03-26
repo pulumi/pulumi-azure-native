@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorSimple
     {
         /// <summary>
         /// Gets the properties of the specified backup schedule name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Task<GetBackupScheduleResult> InvokeAsync(GetBackupScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleResult>("azure-native:storsimple:getBackupSchedule", args ?? new GetBackupScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified backup schedule name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<GetBackupScheduleResult> Invoke(GetBackupScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupScheduleResult>("azure-native:storsimple:getBackupSchedule", args ?? new GetBackupScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified backup schedule name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<GetBackupScheduleResult> Invoke(GetBackupScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupScheduleResult>("azure-native:storsimple:getBackupSchedule", args ?? new GetBackupScheduleInvokeArgs(), options.WithDefaults());

@@ -269,7 +269,8 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
                  __props__=None):
         """
         Diagnostic details.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -298,7 +299,8 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 

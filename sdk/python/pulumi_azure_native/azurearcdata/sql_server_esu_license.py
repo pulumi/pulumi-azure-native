@@ -118,7 +118,8 @@ class SqlServerEsuLicense(pulumi.CustomResource):
                  __props__=None):
         """
         Describe SQL Server ESU license resource.
-        Azure REST API version: 2024-05-01-preview.
+
+        Uses Azure REST API version 2024-05-01-preview.
 
         Other available API versions: 2025-03-01-preview.
 
@@ -138,7 +139,8 @@ class SqlServerEsuLicense(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describe SQL Server ESU license resource.
-        Azure REST API version: 2024-05-01-preview.
+
+        Uses Azure REST API version 2024-05-01-preview.
 
         Other available API versions: 2025-03-01-preview.
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// The Internet Gateway resource definition.
-    /// Azure REST API version: 2023-06-15.
+    /// 
+    /// Uses Azure REST API version 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:InternetGateway")]
     public partial class InternetGateway : global::Pulumi.CustomResource

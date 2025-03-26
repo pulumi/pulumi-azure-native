@@ -200,7 +200,8 @@ def get_source_control(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlResult:
     """
     Gets a source control byt its identifier.
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2021-03-01-preview.
 
@@ -236,7 +237,8 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Gets a source control byt its identifier.
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2021-03-01-preview.
 

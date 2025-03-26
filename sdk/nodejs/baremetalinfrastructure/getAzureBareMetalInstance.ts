@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export function getAzureBareMetalInstance(args: GetAzureBareMetalInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureBareMetalInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +102,8 @@ export interface GetAzureBareMetalInstanceResult {
 }
 /**
  * Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export function getAzureBareMetalInstanceOutput(args: GetAzureBareMetalInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureBareMetalInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

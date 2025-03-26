@@ -103,7 +103,8 @@ def get_web_app_ftp_allowed_slot(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFtpAllowedSlotResult:
     """
     Description for Returns whether FTP is allowed on the site or not.
-    Azure REST API version: 2023-12-01.
+
+    Uses Azure REST API version 2023-12-01.
 
     Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
 
@@ -130,7 +131,8 @@ def get_web_app_ftp_allowed_slot_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFtpAllowedSlotResult]:
     """
     Description for Returns whether FTP is allowed on the site or not.
-    Azure REST API version: 2023-12-01.
+
+    Uses Azure REST API version 2023-12-01.
 
     Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
 

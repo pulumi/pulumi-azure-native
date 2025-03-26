@@ -104,7 +104,8 @@ def get_prediction_training_results(hub_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionTrainingResultsResult:
     """
     Gets training results.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.
@@ -130,7 +131,8 @@ def get_prediction_training_results_output(hub_name: Optional[pulumi.Input[str]]
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredictionTrainingResultsResult]:
     """
     Gets training results.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.

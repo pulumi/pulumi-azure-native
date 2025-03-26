@@ -127,7 +127,8 @@ def get_code_build_project(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeBuildProjectResult:
     """
     Get a CodeBuildProject
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of CodeBuildProject
@@ -152,7 +153,8 @@ def get_code_build_project_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeBuildProjectResult]:
     """
     Get a CodeBuildProject
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of CodeBuildProject

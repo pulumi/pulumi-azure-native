@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Get disk.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:devtestlab:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get disk.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get disk.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());

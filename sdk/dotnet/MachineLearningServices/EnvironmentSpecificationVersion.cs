@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+    /// 
+    /// Uses Azure REST API version 2021-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:EnvironmentSpecificationVersion")]
     public partial class EnvironmentSpecificationVersion : global::Pulumi.CustomResource

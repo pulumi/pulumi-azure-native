@@ -223,7 +223,8 @@ def get_community_training(community_training_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunityTrainingResult:
     """
     Get a CommunityTraining
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
 
     :param str community_training_name: The name of the Community Training Resource
@@ -256,7 +257,8 @@ def get_community_training_output(community_training_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunityTrainingResult]:
     """
     Get a CommunityTraining
-    Azure REST API version: 2023-11-01.
+
+    Uses Azure REST API version 2023-11-01.
 
 
     :param str community_training_name: The name of the Community Training Resource

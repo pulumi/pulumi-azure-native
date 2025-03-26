@@ -308,7 +308,8 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineResult:
     """
     Gets a SQL virtual machine.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2023-01-01-preview, 2023-10-01.
 
@@ -353,7 +354,8 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
     Other available API versions: 2023-01-01-preview, 2023-10-01.
 

@@ -104,7 +104,8 @@ def get_network_security_perimeter_logging_configuration(logging_configuration_n
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterLoggingConfigurationResult:
     """
     Gets the NSP logging configuration.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str logging_configuration_name: The name of the NSP logging configuration. Accepts 'instance' as name.
@@ -130,7 +131,8 @@ def get_network_security_perimeter_logging_configuration_output(logging_configur
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterLoggingConfigurationResult]:
     """
     Gets the NSP logging configuration.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str logging_configuration_name: The name of the NSP logging configuration. Accepts 'instance' as name.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
- * Azure REST API version: 2020-04-01-preview.
+ *
+ * Uses Azure REST API version 2020-04-01-preview.
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,7 +61,8 @@ export interface GetConfigurationProfileResult {
 }
 /**
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
- * Azure REST API version: 2020-04-01-preview.
+ *
+ * Uses Azure REST API version 2020-04-01-preview.
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

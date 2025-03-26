@@ -187,7 +187,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Returns the Workspace resource associated with the given name.
-    Azure REST API version: 2022-01-10-preview.
+
+    Uses Azure REST API version 2022-01-10-preview.
 
     Other available API versions: 2023-11-13-preview.
 
@@ -219,7 +220,8 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Returns the Workspace resource associated with the given name.
-    Azure REST API version: 2022-01-10-preview.
+
+    Uses Azure REST API version 2022-01-10-preview.
 
     Other available API versions: 2023-11-13-preview.
 

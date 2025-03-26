@@ -175,7 +175,8 @@ def get_account(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get a Account
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
 
@@ -206,7 +207,8 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get a Account
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
 

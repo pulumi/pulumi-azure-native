@@ -152,7 +152,8 @@ def get_token(registry_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTokenResult:
     """
     Gets the properties of the specified token.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
@@ -184,7 +185,8 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTokenResult]:
     """
     Gets the properties of the specified token.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 

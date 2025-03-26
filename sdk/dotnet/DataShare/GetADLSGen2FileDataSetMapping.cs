@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Task<GetADLSGen2FileDataSetMappingResult> InvokeAsync(GetADLSGen2FileDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileDataSetMappingResult>("azure-native:datashare:getADLSGen2FileDataSetMapping", args ?? new GetADLSGen2FileDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetADLSGen2FileDataSetMappingResult> Invoke(GetADLSGen2FileDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileDataSetMappingResult>("azure-native:datashare:getADLSGen2FileDataSetMapping", args ?? new GetADLSGen2FileDataSetMappingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetADLSGen2FileDataSetMappingResult> Invoke(GetADLSGen2FileDataSetMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileDataSetMappingResult>("azure-native:datashare:getADLSGen2FileDataSetMapping", args ?? new GetADLSGen2FileDataSetMappingInvokeArgs(), options.WithDefaults());

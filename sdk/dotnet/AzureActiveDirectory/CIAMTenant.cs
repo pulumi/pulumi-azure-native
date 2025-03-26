@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 {
     /// <summary>
     /// The Azure AD for customers resource.
-    /// Azure REST API version: 2023-05-17-preview.
+    /// 
+    /// Uses Azure REST API version 2023-05-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:CIAMTenant")]
     public partial class CIAMTenant : global::Pulumi.CustomResource

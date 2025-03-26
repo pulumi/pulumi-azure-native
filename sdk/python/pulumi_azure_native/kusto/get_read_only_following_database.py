@@ -225,7 +225,8 @@ def get_read_only_following_database(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadOnlyFollowingDatabaseResult:
     """
     Returns a database.
-    Azure REST API version: 2022-12-29.
+
+    Uses Azure REST API version 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -261,7 +262,8 @@ def get_read_only_following_database_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadOnlyFollowingDatabaseResult]:
     """
     Returns a database.
-    Azure REST API version: 2022-12-29.
+
+    Uses Azure REST API version 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

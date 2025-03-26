@@ -127,7 +127,8 @@ def get_auto_scaling_auto_scaling_group(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoScalingAutoScalingGroupResult:
     """
     Get a AutoScalingAutoScalingGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of AutoScalingAutoScalingGroup
@@ -152,7 +153,8 @@ def get_auto_scaling_auto_scaling_group_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScalingAutoScalingGroupResult]:
     """
     Get a AutoScalingAutoScalingGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of AutoScalingAutoScalingGroup

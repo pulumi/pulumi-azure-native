@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the count of reports.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getProviderActionCollectionCount(args?: GetProviderActionCollectionCountArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderActionCollectionCountResult> {
     args = args || {};
@@ -34,7 +35,8 @@ export interface GetProviderActionCollectionCountResult {
 }
 /**
  * Get the count of reports.
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getProviderActionCollectionCountOutput(args?: GetProviderActionCollectionCountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderActionCollectionCountResult> {
     args = args || {};

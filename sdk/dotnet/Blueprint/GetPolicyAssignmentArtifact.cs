@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Blueprint
     {
         /// <summary>
         /// Get a blueprint artifact.
-        /// Azure REST API version: 2018-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-11-01-preview.
         /// </summary>
         public static Task<GetPolicyAssignmentArtifactResult> InvokeAsync(GetPolicyAssignmentArtifactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a blueprint artifact.
-        /// Azure REST API version: 2018-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-11-01-preview.
         /// </summary>
         public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a blueprint artifact.
-        /// Azure REST API version: 2018-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-11-01-preview.
         /// </summary>
         public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithDefaults());

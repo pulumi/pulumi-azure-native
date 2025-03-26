@@ -151,7 +151,8 @@ def get_dns_resolver_policy(dns_resolver_policy_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResolverPolicyResult:
     """
     Gets properties of a DNS resolver policy.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_policy_name: The name of the DNS resolver policy.
@@ -178,7 +179,8 @@ def get_dns_resolver_policy_output(dns_resolver_policy_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverPolicyResult]:
     """
     Gets properties of a DNS resolver policy.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_policy_name: The name of the DNS resolver policy.

@@ -452,7 +452,8 @@ class AssessmentsOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Machine assessment resource.
-        Azure REST API version: 2023-04-01-preview.
+
+        Uses Azure REST API version 2023-04-01-preview.
 
         Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
@@ -497,7 +498,8 @@ class AssessmentsOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine assessment resource.
-        Azure REST API version: 2023-04-01-preview.
+
+        Uses Azure REST API version 2023-04-01-preview.
 
         Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 

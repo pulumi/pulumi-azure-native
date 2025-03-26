@@ -100,7 +100,8 @@ class CapabilityHost(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2024-10-01-preview.
+
+        Uses Azure REST API version 2024-10-01-preview.
 
         Other available API versions: 2025-01-01-preview.
 
@@ -119,7 +120,8 @@ class CapabilityHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2024-10-01-preview.
+
+        Uses Azure REST API version 2024-10-01-preview.
 
         Other available API versions: 2025-01-01-preview.
 

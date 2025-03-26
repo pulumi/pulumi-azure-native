@@ -254,7 +254,8 @@ class StorageClass(pulumi.CustomResource):
                  __props__=None):
         """
         A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2023-10-01-preview.
 
@@ -282,7 +283,8 @@ class StorageClass(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2023-10-01-preview.
 

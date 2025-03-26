@@ -153,7 +153,8 @@ def get_api_source(api_source_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiSourceResult:
     """
     Returns details of the API source.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str api_source_name: The name of the API.
@@ -186,7 +187,8 @@ def get_api_source_output(api_source_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiSourceResult]:
     """
     Returns details of the API source.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str api_source_name: The name of the API.

@@ -101,7 +101,8 @@ def get_protected_item(protected_item_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectedItemResult:
     """
     Gets the details of the protected item.
-    Azure REST API version: 2021-02-16-preview.
+
+    Uses Azure REST API version 2021-02-16-preview.
 
     Other available API versions: 2024-09-01.
 
@@ -129,7 +130,8 @@ def get_protected_item_output(protected_item_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectedItemResult]:
     """
     Gets the details of the protected item.
-    Azure REST API version: 2021-02-16-preview.
+
+    Uses Azure REST API version 2021-02-16-preview.
 
     Other available API versions: 2024-09-01.
 

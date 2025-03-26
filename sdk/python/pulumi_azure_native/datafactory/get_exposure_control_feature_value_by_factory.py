@@ -68,7 +68,8 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[str] = 
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueByFactoryResult:
     """
     Get exposure control feature for specific factory.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -94,7 +95,8 @@ def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExposureControlFeatureValueByFactoryResult]:
     """
     Get exposure control feature for specific factory.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.

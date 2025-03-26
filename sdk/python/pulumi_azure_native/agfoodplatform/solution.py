@@ -100,7 +100,8 @@ class Solution(pulumi.CustomResource):
                  __props__=None):
         """
         Solution resource.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-09-01-preview.
 
@@ -119,7 +120,8 @@ class Solution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Solution resource.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-09-01-preview.
 

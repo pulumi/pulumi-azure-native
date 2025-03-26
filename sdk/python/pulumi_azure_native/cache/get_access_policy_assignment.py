@@ -127,7 +127,8 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyAssignmentResult:
     """
     Gets the list of assignments for an access policy of a redis cache
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01, 2025-04-01.
 
@@ -157,7 +158,8 @@ def get_access_policy_assignment_output(access_policy_assignment_name: Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyAssignmentResult]:
     """
     Gets the list of assignments for an access policy of a redis cache
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01, 2025-04-01.
 

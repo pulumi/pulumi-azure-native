@@ -128,7 +128,8 @@ def get_private_endpoint_connection(enterprise_policy_name: Optional[str] = None
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets a private endpoint connection.
-    Azure REST API version: 2020-10-30-preview.
+
+    Uses Azure REST API version 2020-10-30-preview.
 
 
     :param str enterprise_policy_name: EnterprisePolicy for the Microsoft Azure subscription.
@@ -156,7 +157,8 @@ def get_private_endpoint_connection_output(enterprise_policy_name: Optional[pulu
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets a private endpoint connection.
-    Azure REST API version: 2020-10-30-preview.
+
+    Uses Azure REST API version 2020-10-30-preview.
 
 
     :param str enterprise_policy_name: EnterprisePolicy for the Microsoft Azure subscription.

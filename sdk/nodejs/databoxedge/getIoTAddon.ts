@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific addon by name.
- * Azure REST API version: 2022-03-01.
+ *
+ * Uses Azure REST API version 2022-03-01.
  */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +93,8 @@ export interface GetIoTAddonResult {
 }
 /**
  * Gets a specific addon by name.
- * Azure REST API version: 2022-03-01.
+ *
+ * Uses Azure REST API version 2022-03-01.
  */
 export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

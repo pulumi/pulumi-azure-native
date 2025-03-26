@@ -101,7 +101,8 @@ class BillingProfile(pulumi.CustomResource):
                  __props__=None):
         """
         A billing profile.
-        Azure REST API version: 2024-04-01.
+
+        Uses Azure REST API version 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +119,8 @@ class BillingProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A billing profile.
-        Azure REST API version: 2024-04-01.
+
+        Uses Azure REST API version 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param BillingProfileArgs args: The arguments to use to populate this resource's properties.

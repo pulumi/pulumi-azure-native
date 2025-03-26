@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.EngagementFabric
     {
         /// <summary>
         /// The EngagementFabric channel
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// The EngagementFabric channel
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The EngagementFabric channel
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());

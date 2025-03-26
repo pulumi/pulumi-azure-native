@@ -132,7 +132,8 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about an application in a Batch account.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
 
@@ -153,7 +154,8 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about an application in a Batch account.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of a certificate profile.
- * Azure REST API version: 2024-02-05-preview.
+ *
+ * Uses Azure REST API version 2024-02-05-preview.
  *
  * Other available API versions: 2024-09-30-preview.
  */
@@ -132,7 +133,8 @@ export interface GetCertificateProfileResult {
 }
 /**
  * Get details of a certificate profile.
- * Azure REST API version: 2024-02-05-preview.
+ *
+ * Uses Azure REST API version 2024-02-05-preview.
  *
  * Other available API versions: 2024-09-30-preview.
  */

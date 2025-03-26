@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A vulnerability assessments setting on Azure servers in the defined scope.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  */
 export class AzureServersSetting extends pulumi.CustomResource {
     /**

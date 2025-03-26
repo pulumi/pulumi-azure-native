@@ -128,7 +128,8 @@ def get_isp_cache_nodes_operation_cache_node_install_details(cache_node_resource
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIspCacheNodesOperationCacheNodeInstallDetailsResult:
     """
     This api gets secrets of the ispCacheNode resource install details
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str cache_node_resource_name: Name of the ConnectedCache resource
@@ -156,7 +157,8 @@ def get_isp_cache_nodes_operation_cache_node_install_details_output(cache_node_r
                                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIspCacheNodesOperationCacheNodeInstallDetailsResult]:
     """
     This api gets secrets of the ispCacheNode resource install details
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str cache_node_resource_name: Name of the ConnectedCache resource

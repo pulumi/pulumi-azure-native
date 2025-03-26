@@ -138,7 +138,8 @@ def get_report(report_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportResult:
     """
     Gets the report for a subscription by report name.
-    Azure REST API version: 2018-08-01-preview.
+
+    Uses Azure REST API version 2018-08-01-preview.
 
 
     :param str report_name: Report Name.
@@ -161,7 +162,8 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportResult]:
     """
     Gets the report for a subscription by report name.
-    Azure REST API version: 2018-08-01-preview.
+
+    Uses Azure REST API version 2018-08-01-preview.
 
 
     :param str report_name: Report Name.

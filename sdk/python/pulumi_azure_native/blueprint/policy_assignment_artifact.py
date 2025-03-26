@@ -201,7 +201,8 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                  __props__=None):
         """
         Blueprint artifact that applies a Policy assignment.
-        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+
+        Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +226,8 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Blueprint artifact that applies a Policy assignment.
-        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+
+        Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.

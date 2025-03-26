@@ -200,7 +200,8 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountMapResult:
     """
     Gets an integration account map.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview.
 
@@ -236,7 +237,8 @@ def get_integration_account_map_output(integration_account_name: Optional[pulumi
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountMapResult]:
     """
     Gets an integration account map.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview.
 

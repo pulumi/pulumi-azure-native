@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get Network Rack resource details.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */
@@ -83,7 +84,8 @@ export interface GetNetworkRackResult {
 }
 /**
  * Get Network Rack resource details.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */

@@ -104,7 +104,8 @@ def get_managed_network_peering_policy(managed_network_name: Optional[str] = Non
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkPeeringPolicyResult:
     """
     The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
 
     :param str managed_network_name: The name of the Managed Network.
@@ -130,7 +131,8 @@ def get_managed_network_peering_policy_output(managed_network_name: Optional[pul
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
     """
     The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
 
     :param str managed_network_name: The name of the Managed Network.

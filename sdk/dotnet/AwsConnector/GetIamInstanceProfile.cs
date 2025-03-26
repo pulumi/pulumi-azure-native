@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a IamInstanceProfile
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetIamInstanceProfileResult> InvokeAsync(GetIamInstanceProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIamInstanceProfileResult>("azure-native:awsconnector:getIamInstanceProfile", args ?? new GetIamInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamInstanceProfile
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamInstanceProfileResult> Invoke(GetIamInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamInstanceProfileResult>("azure-native:awsconnector:getIamInstanceProfile", args ?? new GetIamInstanceProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamInstanceProfile
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamInstanceProfileResult> Invoke(GetIamInstanceProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamInstanceProfileResult>("azure-native:awsconnector:getIamInstanceProfile", args ?? new GetIamInstanceProfileInvokeArgs(), options.WithDefaults());

@@ -175,7 +175,8 @@ def get_neighbor_group(neighbor_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNeighborGroupResult:
     """
     Gets the Neighbor Group.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str neighbor_group_name: Name of the Neighbor Group.
@@ -204,7 +205,8 @@ def get_neighbor_group_output(neighbor_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNeighborGroupResult]:
     """
     Gets the Neighbor Group.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str neighbor_group_name: Name of the Neighbor Group.

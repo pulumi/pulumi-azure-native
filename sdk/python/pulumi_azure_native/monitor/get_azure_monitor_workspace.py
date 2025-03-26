@@ -199,7 +199,8 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
     Returns the specified Azure Monitor Workspace
-    Azure REST API version: 2023-04-03.
+
+    Uses Azure REST API version 2023-04-03.
 
     Other available API versions: 2023-10-01-preview.
 
@@ -232,7 +233,8 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
     Returns the specified Azure Monitor Workspace
-    Azure REST API version: 2023-04-03.
+
+    Uses Azure REST API version 2023-04-03.
 
     Other available API versions: 2023-10-01-preview.
 

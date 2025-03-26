@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StorageActions
 {
     /// <summary>
     /// Represents Storage Task.
-    /// Azure REST API version: 2023-01-01.
+    /// 
+    /// Uses Azure REST API version 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storageactions:StorageTask")]
     public partial class StorageTask : global::Pulumi.CustomResource

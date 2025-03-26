@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a NetworkFirewallFirewallPolicy
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getNetworkFirewallFirewallPolicy(args: GetNetworkFirewallFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFirewallFirewallPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetNetworkFirewallFirewallPolicyResult {
 }
 /**
  * Get a NetworkFirewallFirewallPolicy
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getNetworkFirewallFirewallPolicyOutput(args: GetNetworkFirewallFirewallPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFirewallFirewallPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

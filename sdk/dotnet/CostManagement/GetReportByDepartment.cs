@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Gets the report for a department by report name.
-        /// Azure REST API version: 2018-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-08-01-preview.
         /// </summary>
         public static Task<GetReportByDepartmentResult> InvokeAsync(GetReportByDepartmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the report for a department by report name.
-        /// Azure REST API version: 2018-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-08-01-preview.
         /// </summary>
         public static Output<GetReportByDepartmentResult> Invoke(GetReportByDepartmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the report for a department by report name.
-        /// Azure REST API version: 2018-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-08-01-preview.
         /// </summary>
         public static Output<GetReportByDepartmentResult> Invoke(GetReportByDepartmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentInvokeArgs(), options.WithDefaults());

@@ -127,7 +127,8 @@ def get_rds_db_instance(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRdsDbInstanceResult:
     """
     Get a RdsDBInstance
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RdsDBInstance
@@ -152,7 +153,8 @@ def get_rds_db_instance_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRdsDbInstanceResult]:
     """
     Get a RdsDBInstance
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RdsDBInstance

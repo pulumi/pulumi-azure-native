@@ -116,7 +116,8 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileHCIAssignmentResult:
     """
     Get information about a configuration profile assignment
-    Azure REST API version: 2022-05-04.
+
+    Uses Azure REST API version 2022-05-04.
 
 
     :param str cluster_name: The name of the Arc machine.
@@ -143,7 +144,8 @@ def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileHCIAssignmentResult]:
     """
     Get information about a configuration profile assignment
-    Azure REST API version: 2022-05-04.
+
+    Uses Azure REST API version 2022-05-04.
 
 
     :param str cluster_name: The name of the Arc machine.

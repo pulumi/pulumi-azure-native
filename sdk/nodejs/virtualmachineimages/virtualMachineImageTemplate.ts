@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
- * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
+ *
+ * Uses Azure REST API version 2022-07-01. In version 1.x of the Azure Native provider, it used API version 2020-02-14.
  *
  * Other available API versions: 2023-07-01, 2024-02-01.
  */

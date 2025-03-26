@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a TestLine
- * Azure REST API version: 2023-04-03.
+ *
+ * Uses Azure REST API version 2023-04-03.
  *
  * Other available API versions: 2022-12-01-preview, 2023-09-01.
  */
@@ -80,7 +81,8 @@ export interface GetTestLineResult {
 }
 /**
  * Get a TestLine
- * Azure REST API version: 2023-04-03.
+ *
+ * Uses Azure REST API version 2023-04-03.
  *
  * Other available API versions: 2022-12-01-preview, 2023-09-01.
  */

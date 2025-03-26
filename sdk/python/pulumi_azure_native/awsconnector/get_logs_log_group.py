@@ -127,7 +127,8 @@ def get_logs_log_group(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogsLogGroupResult:
     """
     Get a LogsLogGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LogsLogGroup
@@ -152,7 +153,8 @@ def get_logs_log_group_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsLogGroupResult]:
     """
     Get a LogsLogGroup
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LogsLogGroup

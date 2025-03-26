@@ -57,7 +57,8 @@ def get_project_catalog_environment_definition_error_details(catalog_name: Optio
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectCatalogEnvironmentDefinitionErrorDetailsResult:
     """
     Gets Environment Definition error details
-    Azure REST API version: 2024-02-01.
+
+    Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
 
@@ -84,7 +85,8 @@ def get_project_catalog_environment_definition_error_details_output(catalog_name
                                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectCatalogEnvironmentDefinitionErrorDetailsResult]:
     """
     Gets Environment Definition error details
-    Azure REST API version: 2024-02-01.
+
+    Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
 

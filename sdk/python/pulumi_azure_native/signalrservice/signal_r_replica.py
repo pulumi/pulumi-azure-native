@@ -135,7 +135,8 @@ class SignalRReplica(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent a replica resource.
-        Azure REST API version: 2023-03-01-preview.
+
+        Uses Azure REST API version 2023-03-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
@@ -156,7 +157,8 @@ class SignalRReplica(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a replica resource.
-        Azure REST API version: 2023-03-01-preview.
+
+        Uses Azure REST API version 2023-03-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 

@@ -152,7 +152,8 @@ def get_test_line(communications_gateway_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestLineResult:
     """
     Get a TestLine
-    Azure REST API version: 2023-04-03.
+
+    Uses Azure REST API version 2023-04-03.
 
     Other available API versions: 2022-12-01-preview, 2023-09-01.
 
@@ -184,7 +185,8 @@ def get_test_line_output(communications_gateway_name: Optional[pulumi.Input[str]
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestLineResult]:
     """
     Get a TestLine
-    Azure REST API version: 2023-04-03.
+
+    Uses Azure REST API version 2023-04-03.
 
     Other available API versions: 2022-12-01-preview, 2023-09-01.
 

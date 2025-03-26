@@ -235,7 +235,8 @@ def get_subscription(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Gets the specified Subscription entity.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2016-10-10, 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
@@ -274,7 +275,8 @@ def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Gets the specified Subscription entity.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2016-10-10, 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 

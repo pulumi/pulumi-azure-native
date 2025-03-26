@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a user rule.
-        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// 
         /// Other available API versions: 2021-05-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a user rule.
-        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// 
         /// Other available API versions: 2021-05-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a user rule.
-        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-04-01-preview.
         /// 
         /// Other available API versions: 2021-05-01-preview.
         /// </summary>
