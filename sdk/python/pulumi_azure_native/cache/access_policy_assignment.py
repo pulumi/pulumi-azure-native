@@ -131,7 +131,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Response to an operation on access policy assignment
         Azure REST API version: 2023-05-01-preview.
 
-        Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01.
+        Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Response to an operation on access policy assignment
         Azure REST API version: 2023-05-01-preview.
 
-        Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01.
+        Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

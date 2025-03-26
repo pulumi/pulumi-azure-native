@@ -12,19 +12,43 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
     public static class ListObjectAnchorsAccountKeys
     {
         /// <summary>
-        /// List Both of the 2 Keys of an object anchors Account
+        /// 
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of an object anchors Account
         /// </summary>
         public static Task<ListObjectAnchorsAccountKeysResult> InvokeAsync(ListObjectAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Both of the 2 Keys of an object anchors Account
+        /// 
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of an object anchors Account
         /// </summary>
         public static Output<ListObjectAnchorsAccountKeysResult> Invoke(ListObjectAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Both of the 2 Keys of an object anchors Account
+        /// 
+        /// 
+        /// &gt; [!NOTE]
+        /// &gt;
+        /// &gt; **Mixed Reality retirement**
+        /// &gt;
+        /// &gt; The Mixed Reality service is now deprecated and will be retired. 
+        /// 
+        ///  List Both of the 2 Keys of an object anchors Account
         /// </summary>
         public static Output<ListObjectAnchorsAccountKeysResult> Invoke(ListObjectAnchorsAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysInvokeArgs(), options.WithDefaults());

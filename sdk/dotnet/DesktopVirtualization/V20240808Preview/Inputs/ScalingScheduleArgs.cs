@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
     public sealed class ScalingScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeek")]
-        private InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>>? _daysOfWeek;
+        private InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>? _daysOfWeek;
 
         /// <summary>
         /// Set of days of the week on which this schedule is active.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>> DaysOfWeek
+        public InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek> DaysOfWeek
         {
-            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>>());
+            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>());
             set => _daysOfWeek = value;
         }
 

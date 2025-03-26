@@ -105,6 +105,7 @@ __all__ = [
     'AzureMySqlTableDatasetResponse',
     'AzurePostgreSqlLinkedServiceResponse',
     'AzurePostgreSqlSinkResponse',
+    'AzurePostgreSqlSinkResponseUpsertSettings',
     'AzurePostgreSqlSourceResponse',
     'AzurePostgreSqlTableDatasetResponse',
     'AzureQueueSinkResponse',
@@ -14312,7 +14313,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 @pulumi.output_type
 class AzurePostgreSqlSinkResponse(dict):
     """
-    A copy activity Azure PostgreSQL sink.
+    A copy activity Azure Database for PostgreSQL sink.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -14327,10 +14328,14 @@ class AzurePostgreSqlSinkResponse(dict):
             suggest = "sink_retry_count"
         elif key == "sinkRetryWait":
             suggest = "sink_retry_wait"
+        elif key == "upsertSettings":
+            suggest = "upsert_settings"
         elif key == "writeBatchSize":
             suggest = "write_batch_size"
         elif key == "writeBatchTimeout":
             suggest = "write_batch_timeout"
+        elif key == "writeMethod":
+            suggest = "write_method"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlSinkResponse. Access the value via the '{suggest}' property getter instead.")
@@ -14350,10 +14355,12 @@ class AzurePostgreSqlSinkResponse(dict):
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
+                 upsert_settings: Optional['outputs.AzurePostgreSqlSinkResponseUpsertSettings'] = None,
                  write_batch_size: Optional[Any] = None,
-                 write_batch_timeout: Optional[Any] = None):
+                 write_batch_timeout: Optional[Any] = None,
+                 write_method: Optional[str] = None):
         """
-        A copy activity Azure PostgreSQL sink.
+        A copy activity Azure Database for PostgreSQL sink.
         :param str type: Copy sink type.
                Expected value is 'AzurePostgreSqlSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -14361,8 +14368,10 @@ class AzurePostgreSqlSinkResponse(dict):
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param 'AzurePostgreSqlSinkResponseUpsertSettings' upsert_settings: Azure Database for PostgreSQL upsert option settings
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param str write_method: The write behavior for the operation. Default is Bulk Insert.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSqlSink')
         if disable_metrics_collection is not None:
@@ -14375,10 +14384,14 @@ class AzurePostgreSqlSinkResponse(dict):
             pulumi.set(__self__, "sink_retry_count", sink_retry_count)
         if sink_retry_wait is not None:
             pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if upsert_settings is not None:
+            pulumi.set(__self__, "upsert_settings", upsert_settings)
         if write_batch_size is not None:
             pulumi.set(__self__, "write_batch_size", write_batch_size)
         if write_batch_timeout is not None:
             pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_method is not None:
+            pulumi.set(__self__, "write_method", write_method)
 
     @property
     @pulumi.getter
@@ -14430,6 +14443,14 @@ class AzurePostgreSqlSinkResponse(dict):
         return pulumi.get(self, "sink_retry_wait")
 
     @property
+    @pulumi.getter(name="upsertSettings")
+    def upsert_settings(self) -> Optional['outputs.AzurePostgreSqlSinkResponseUpsertSettings']:
+        """
+        Azure Database for PostgreSQL upsert option settings
+        """
+        return pulumi.get(self, "upsert_settings")
+
+    @property
     @pulumi.getter(name="writeBatchSize")
     def write_batch_size(self) -> Optional[Any]:
         """
@@ -14445,11 +14466,42 @@ class AzurePostgreSqlSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
+    @property
+    @pulumi.getter(name="writeMethod")
+    def write_method(self) -> Optional[str]:
+        """
+        The write behavior for the operation. Default is Bulk Insert.
+        """
+        return pulumi.get(self, "write_method")
+
+
+@pulumi.output_type
+class AzurePostgreSqlSinkResponseUpsertSettings(dict):
+    """
+    Azure Database for PostgreSQL upsert option settings
+    """
+    def __init__(__self__, *,
+                 keys: Optional[Any] = None):
+        """
+        Azure Database for PostgreSQL upsert option settings
+        :param Any keys: Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
+        """
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Any]:
+        """
+        Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
+        """
+        return pulumi.get(self, "keys")
+
 
 @pulumi.output_type
 class AzurePostgreSqlSourceResponse(dict):
     """
-    A copy activity Azure PostgreSQL source.
+    A copy activity Azure Database for PostgreSQL source.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -14488,7 +14540,7 @@ class AzurePostgreSqlSourceResponse(dict):
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
-        A copy activity Azure PostgreSQL source.
+        A copy activity Azure Database for PostgreSQL source.
         :param str type: Copy source type.
                Expected value is 'AzurePostgreSqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -21015,6 +21067,10 @@ class CommonDataServiceForAppsSinkResponse(dict):
             suggest = "write_behavior"
         elif key == "alternateKeyName":
             suggest = "alternate_key_name"
+        elif key == "bypassBusinessLogicExecution":
+            suggest = "bypass_business_logic_execution"
+        elif key == "bypassPowerAutomateFlows":
+            suggest = "bypass_power_automate_flows"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
         elif key == "ignoreNullValues":
@@ -21045,6 +21101,8 @@ class CommonDataServiceForAppsSinkResponse(dict):
                  type: str,
                  write_behavior: str,
                  alternate_key_name: Optional[Any] = None,
+                 bypass_business_logic_execution: Optional[Any] = None,
+                 bypass_power_automate_flows: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -21058,6 +21116,8 @@ class CommonDataServiceForAppsSinkResponse(dict):
                Expected value is 'CommonDataServiceForAppsSink'.
         :param str write_behavior: The write behavior for the operation.
         :param Any alternate_key_name: The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
+        :param Any bypass_business_logic_execution: Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        :param Any bypass_power_automate_flows: Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any ignore_null_values: The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -21070,6 +21130,10 @@ class CommonDataServiceForAppsSinkResponse(dict):
         pulumi.set(__self__, "write_behavior", write_behavior)
         if alternate_key_name is not None:
             pulumi.set(__self__, "alternate_key_name", alternate_key_name)
+        if bypass_business_logic_execution is not None:
+            pulumi.set(__self__, "bypass_business_logic_execution", bypass_business_logic_execution)
+        if bypass_power_automate_flows is not None:
+            pulumi.set(__self__, "bypass_power_automate_flows", bypass_power_automate_flows)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if ignore_null_values is not None:
@@ -21109,6 +21173,22 @@ class CommonDataServiceForAppsSinkResponse(dict):
         The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "alternate_key_name")
+
+    @property
+    @pulumi.getter(name="bypassBusinessLogicExecution")
+    def bypass_business_logic_execution(self) -> Optional[Any]:
+        """
+        Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "bypass_business_logic_execution")
+
+    @property
+    @pulumi.getter(name="bypassPowerAutomateFlows")
+    def bypass_power_automate_flows(self) -> Optional[Any]:
+        """
+        Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "bypass_power_automate_flows")
 
     @property
     @pulumi.getter(name="disableMetricsCollection")
@@ -29797,6 +29877,10 @@ class DynamicsCrmSinkResponse(dict):
             suggest = "write_behavior"
         elif key == "alternateKeyName":
             suggest = "alternate_key_name"
+        elif key == "bypassBusinessLogicExecution":
+            suggest = "bypass_business_logic_execution"
+        elif key == "bypassPowerAutomateFlows":
+            suggest = "bypass_power_automate_flows"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
         elif key == "ignoreNullValues":
@@ -29827,6 +29911,8 @@ class DynamicsCrmSinkResponse(dict):
                  type: str,
                  write_behavior: str,
                  alternate_key_name: Optional[Any] = None,
+                 bypass_business_logic_execution: Optional[Any] = None,
+                 bypass_power_automate_flows: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -29840,6 +29926,8 @@ class DynamicsCrmSinkResponse(dict):
                Expected value is 'DynamicsCrmSink'.
         :param str write_behavior: The write behavior for the operation.
         :param Any alternate_key_name: The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
+        :param Any bypass_business_logic_execution: Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        :param Any bypass_power_automate_flows: Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any ignore_null_values: The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -29852,6 +29940,10 @@ class DynamicsCrmSinkResponse(dict):
         pulumi.set(__self__, "write_behavior", write_behavior)
         if alternate_key_name is not None:
             pulumi.set(__self__, "alternate_key_name", alternate_key_name)
+        if bypass_business_logic_execution is not None:
+            pulumi.set(__self__, "bypass_business_logic_execution", bypass_business_logic_execution)
+        if bypass_power_automate_flows is not None:
+            pulumi.set(__self__, "bypass_power_automate_flows", bypass_power_automate_flows)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if ignore_null_values is not None:
@@ -29891,6 +29983,22 @@ class DynamicsCrmSinkResponse(dict):
         The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "alternate_key_name")
+
+    @property
+    @pulumi.getter(name="bypassBusinessLogicExecution")
+    def bypass_business_logic_execution(self) -> Optional[Any]:
+        """
+        Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "bypass_business_logic_execution")
+
+    @property
+    @pulumi.getter(name="bypassPowerAutomateFlows")
+    def bypass_power_automate_flows(self) -> Optional[Any]:
+        """
+        Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "bypass_power_automate_flows")
 
     @property
     @pulumi.getter(name="disableMetricsCollection")
@@ -30505,6 +30613,10 @@ class DynamicsSinkResponse(dict):
             suggest = "write_behavior"
         elif key == "alternateKeyName":
             suggest = "alternate_key_name"
+        elif key == "bypassBusinessLogicExecution":
+            suggest = "bypass_business_logic_execution"
+        elif key == "bypassPowerAutomateFlows":
+            suggest = "bypass_power_automate_flows"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
         elif key == "ignoreNullValues":
@@ -30535,6 +30647,8 @@ class DynamicsSinkResponse(dict):
                  type: str,
                  write_behavior: str,
                  alternate_key_name: Optional[Any] = None,
+                 bypass_business_logic_execution: Optional[Any] = None,
+                 bypass_power_automate_flows: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -30548,6 +30662,8 @@ class DynamicsSinkResponse(dict):
                Expected value is 'DynamicsSink'.
         :param str write_behavior: The write behavior for the operation.
         :param Any alternate_key_name: The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
+        :param Any bypass_business_logic_execution: Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        :param Any bypass_power_automate_flows: Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any ignore_null_values: The flag indicating whether ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -30560,6 +30676,10 @@ class DynamicsSinkResponse(dict):
         pulumi.set(__self__, "write_behavior", write_behavior)
         if alternate_key_name is not None:
             pulumi.set(__self__, "alternate_key_name", alternate_key_name)
+        if bypass_business_logic_execution is not None:
+            pulumi.set(__self__, "bypass_business_logic_execution", bypass_business_logic_execution)
+        if bypass_power_automate_flows is not None:
+            pulumi.set(__self__, "bypass_power_automate_flows", bypass_power_automate_flows)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if ignore_null_values is not None:
@@ -30599,6 +30719,22 @@ class DynamicsSinkResponse(dict):
         The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "alternate_key_name")
+
+    @property
+    @pulumi.getter(name="bypassBusinessLogicExecution")
+    def bypass_business_logic_execution(self) -> Optional[Any]:
+        """
+        Controls the bypass of Dataverse custom business logic. Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "bypass_business_logic_execution")
+
+    @property
+    @pulumi.getter(name="bypassPowerAutomateFlows")
+    def bypass_power_automate_flows(self) -> Optional[Any]:
+        """
+        Controls the bypass of Power Automate flows. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "bypass_power_automate_flows")
 
     @property
     @pulumi.getter(name="disableMetricsCollection")
@@ -38078,7 +38214,6 @@ class GreenplumLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  host: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional[Any] = None,
                  port: Optional[Any] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  ssl_mode: Optional[Any] = None,
@@ -38099,7 +38234,6 @@ class GreenplumLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host: Host name for connection. Type: string. Only used for V2.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
         :param Any port: The port for the connection. Type: integer. Only used for V2.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer. Only used for V2.
@@ -38129,8 +38263,6 @@ class GreenplumLinkedServiceResponse(dict):
             pulumi.set(__self__, "host", host)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if pwd is not None:
@@ -38238,14 +38370,6 @@ class GreenplumLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[Any]:
-        """
-        The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
@@ -56436,6 +56560,12 @@ class Office365LinkedServiceResponse(dict):
             suggest = "connect_via"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "servicePrincipalCredentialType":
+            suggest = "service_principal_credential_type"
+        elif key == "servicePrincipalEmbeddedCert":
+            suggest = "service_principal_embedded_cert"
+        elif key == "servicePrincipalEmbeddedCertPassword":
+            suggest = "service_principal_embedded_cert_password"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in Office365LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -56459,6 +56589,9 @@ class Office365LinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 service_principal_credential_type: Optional[Any] = None,
+                 service_principal_embedded_cert: Optional[Any] = None,
+                 service_principal_embedded_cert_password: Optional[Any] = None,
                  version: Optional[str] = None):
         """
         Office365 linked service.
@@ -56473,6 +56606,9 @@ class Office365LinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Any service_principal_credential_type: The service principal credential type for authentication.'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. If not specified, 'ServicePrincipalKey' is in use. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert_password: Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "office365_tenant_id", office365_tenant_id)
@@ -56490,6 +56626,12 @@ class Office365LinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_embedded_cert is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert", service_principal_embedded_cert)
+        if service_principal_embedded_cert_password is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert_password", service_principal_embedded_cert_password)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -56573,6 +56715,30 @@ class Office365LinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type for authentication.'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. If not specified, 'ServicePrincipalKey' is in use. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCert")
+    def service_principal_embedded_cert(self) -> Optional[Any]:
+        """
+        Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCertPassword")
+    def service_principal_embedded_cert_password(self) -> Optional[Any]:
+        """
+        Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert_password")
 
     @property
     @pulumi.getter
@@ -57223,12 +57389,12 @@ class OracleLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
-        elif key == "authenticationType":
+        if key == "authenticationType":
             suggest = "authentication_type"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
         elif key == "cryptoChecksumClient":
             suggest = "crypto_checksum_client"
         elif key == "cryptoChecksumTypesClient":
@@ -57266,11 +57432,11 @@ class OracleLinkedServiceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_string: Optional[Any] = None,
                  crypto_checksum_client: Optional[Any] = None,
                  crypto_checksum_types_client: Optional[Any] = None,
                  description: Optional[str] = None,
@@ -57291,12 +57457,12 @@ class OracleLinkedServiceResponse(dict):
                  version: Optional[str] = None):
         """
         Oracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         :param str type: Type of linked service.
                Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: Authentication type for connecting to the Oracle database. Only used for Version 2.0.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         :param Any crypto_checksum_client: Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
         :param Any crypto_checksum_types_client: Specifies the crypto-checksum algorithms that client can use. Supported values are SHA1, SHA256, SHA384, SHA512, default value is (SHA512). Type: string. Only used for Version 2.0.
         :param str description: Linked service description.
@@ -57316,7 +57482,6 @@ class OracleLinkedServiceResponse(dict):
         :param Any username: The Oracle database username. Type: string. Only used for Version 2.0.
         :param str version: Version of the linked service.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Oracle')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -57324,6 +57489,8 @@ class OracleLinkedServiceResponse(dict):
             pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
         if crypto_checksum_client is not None:
             pulumi.set(__self__, "crypto_checksum_client", crypto_checksum_client)
         if crypto_checksum_types_client is not None:
@@ -57362,14 +57529,6 @@ class OracleLinkedServiceResponse(dict):
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -57401,6 +57560,14 @@ class OracleLinkedServiceResponse(dict):
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
+        """
+        return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter(name="cryptoChecksumClient")
@@ -62449,25 +62616,27 @@ class PowerQuerySourceResponse(dict):
 @pulumi.output_type
 class PrestoLinkedServiceResponse(dict):
     """
-    Presto server linked service.
+    Presto server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "authenticationType":
             suggest = "authentication_type"
-        elif key == "serverVersion":
-            suggest = "server_version"
         elif key == "allowHostNameCNMismatch":
             suggest = "allow_host_name_cn_mismatch"
         elif key == "allowSelfSignedServerCert":
             suggest = "allow_self_signed_server_cert"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "enableServerCertificateValidation":
+            suggest = "enable_server_certificate_validation"
         elif key == "enableSsl":
             suggest = "enable_ssl"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "serverVersion":
+            suggest = "server_version"
         elif key == "timeZoneID":
             suggest = "time_zone_id"
         elif key == "trustedCertPath":
@@ -62490,51 +62659,52 @@ class PrestoLinkedServiceResponse(dict):
                  authentication_type: str,
                  catalog: Any,
                  host: Any,
-                 server_version: Any,
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Any] = None,
                  allow_self_signed_server_cert: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
                  enable_ssl: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
+                 server_version: Optional[Any] = None,
                  time_zone_id: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
                  username: Optional[Any] = None,
                  version: Optional[str] = None):
         """
-        Presto server linked service.
+        Presto server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
         :param str authentication_type: The authentication mechanism used to connect to the Presto server.
         :param Any catalog: The catalog context for all request against the server.
         :param Any host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
-        :param Any server_version: The version of the Presto server. (i.e. 0.148-t)
         :param str type: Type of linked service.
                Expected value is 'Presto'.
-        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false. Only used for Version 1.0.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Only used for Version 1.0.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any enable_server_certificate_validation: Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value for legacy version is False. The default value for version 2.0 is True.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
-        :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
-        :param Any time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
-        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080 when disable SSL, default value is 443 when enable SSL.
+        :param Any server_version: The version of the Presto server. (i.e. 0.148-t) Only used for Version 1.0.
+        :param Any time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value for Version 1.0 is the client system time zone. The default value for Version 2.0 is server system timeZone
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Only used for Version 1.0.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Only used for Version 1.0.
         :param Any username: The user name used to connect to the Presto server.
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "server_version", server_version)
         pulumi.set(__self__, "type", 'Presto')
         if allow_host_name_cn_mismatch is not None:
             pulumi.set(__self__, "allow_host_name_cn_mismatch", allow_host_name_cn_mismatch)
@@ -62546,6 +62716,8 @@ class PrestoLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_server_certificate_validation is not None:
+            pulumi.set(__self__, "enable_server_certificate_validation", enable_server_certificate_validation)
         if enable_ssl is not None:
             pulumi.set(__self__, "enable_ssl", enable_ssl)
         if encrypted_credential is not None:
@@ -62556,6 +62728,8 @@ class PrestoLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
         if time_zone_id is not None:
             pulumi.set(__self__, "time_zone_id", time_zone_id)
         if trusted_cert_path is not None:
@@ -62592,14 +62766,6 @@ class PrestoLinkedServiceResponse(dict):
         return pulumi.get(self, "host")
 
     @property
-    @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Any:
-        """
-        The version of the Presto server. (i.e. 0.148-t)
-        """
-        return pulumi.get(self, "server_version")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -62612,7 +62778,7 @@ class PrestoLinkedServiceResponse(dict):
     @pulumi.getter(name="allowHostNameCNMismatch")
     def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
-        Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false. Only used for Version 1.0.
         """
         return pulumi.get(self, "allow_host_name_cn_mismatch")
 
@@ -62620,7 +62786,7 @@ class PrestoLinkedServiceResponse(dict):
     @pulumi.getter(name="allowSelfSignedServerCert")
     def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
-        Specifies whether to allow self-signed certificates from the server. The default value is false.
+        Specifies whether to allow self-signed certificates from the server. The default value is false. Only used for Version 1.0.
         """
         return pulumi.get(self, "allow_self_signed_server_cert")
 
@@ -62649,10 +62815,18 @@ class PrestoLinkedServiceResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="enableServerCertificateValidation")
+    def enable_server_certificate_validation(self) -> Optional[Any]:
+        """
+        Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        """
+        return pulumi.get(self, "enable_server_certificate_validation")
+
+    @property
     @pulumi.getter(name="enableSsl")
     def enable_ssl(self) -> Optional[Any]:
         """
-        Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        Specifies whether the connections to the server are encrypted using SSL. The default value for legacy version is False. The default value for version 2.0 is True.
         """
         return pulumi.get(self, "enable_ssl")
 
@@ -62684,15 +62858,23 @@ class PrestoLinkedServiceResponse(dict):
     @pulumi.getter
     def port(self) -> Optional[Any]:
         """
-        The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
+        The TCP port that the Presto server uses to listen for client connections. The default value is 8080 when disable SSL, default value is 443 when enable SSL.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[Any]:
+        """
+        The version of the Presto server. (i.e. 0.148-t) Only used for Version 1.0.
+        """
+        return pulumi.get(self, "server_version")
 
     @property
     @pulumi.getter(name="timeZoneID")
     def time_zone_id(self) -> Optional[Any]:
         """
-        The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
+        The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value for Version 1.0 is the client system time zone. The default value for Version 2.0 is server system timeZone
         """
         return pulumi.get(self, "time_zone_id")
 
@@ -62700,7 +62882,7 @@ class PrestoLinkedServiceResponse(dict):
     @pulumi.getter(name="trustedCertPath")
     def trusted_cert_path(self) -> Optional[Any]:
         """
-        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Only used for Version 1.0.
         """
         return pulumi.get(self, "trusted_cert_path")
 
@@ -62708,7 +62890,7 @@ class PrestoLinkedServiceResponse(dict):
     @pulumi.getter(name="useSystemTrustStore")
     def use_system_trust_store(self) -> Optional[Any]:
         """
-        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Only used for Version 1.0.
         """
         return pulumi.get(self, "use_system_trust_store")
 
@@ -75546,6 +75728,8 @@ class ServiceNowV2ObjectDatasetResponse(dict):
             suggest = "linked_service_name"
         elif key == "tableName":
             suggest = "table_name"
+        elif key == "valueType":
+            suggest = "value_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceNowV2ObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -75567,7 +75751,8 @@ class ServiceNowV2ObjectDatasetResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
-                 table_name: Optional[Any] = None):
+                 table_name: Optional[Any] = None,
+                 value_type: Optional[str] = None):
         """
         ServiceNowV2 server dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
@@ -75580,6 +75765,7 @@ class ServiceNowV2ObjectDatasetResponse(dict):
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
+        :param str value_type: Type of value copied from source.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ServiceNowV2Object')
@@ -75597,6 +75783,8 @@ class ServiceNowV2ObjectDatasetResponse(dict):
             pulumi.set(__self__, "structure", structure)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -75670,6 +75858,14 @@ class ServiceNowV2ObjectDatasetResponse(dict):
         The table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[str]:
+        """
+        Type of value copied from source.
+        """
+        return pulumi.get(self, "value_type")
 
 
 @pulumi.output_type
@@ -78739,6 +78935,8 @@ class SnowflakeV2LinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  private_key: Optional[Any] = None,
                  private_key_passphrase: Optional[Any] = None,
+                 role: Optional[Any] = None,
+                 schema: Optional[Any] = None,
                  scope: Optional[Any] = None,
                  tenant_id: Optional[Any] = None,
                  user: Optional[Any] = None,
@@ -78757,11 +78955,13 @@ class SnowflakeV2LinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
-        :param Any host: The host name of the Snowflake account.
+        :param Any host: The host name of the Snowflake account. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The Azure key vault secret reference of privateKey for KeyPair auth.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key_passphrase: The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
+        :param Any role: The default access control role to use in the Snowflake session. Type: string (or Expression with resultType string).
+        :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
         :param Any scope: The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         :param Any tenant_id: The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         :param Any user: The name of the Snowflake user.
@@ -78797,6 +78997,10 @@ class SnowflakeV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "private_key", private_key)
         if private_key_passphrase is not None:
             pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tenant_id is not None:
@@ -78899,7 +79103,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
     @pulumi.getter
     def host(self) -> Optional[Any]:
         """
-        The host name of the Snowflake account.
+        The host name of the Snowflake account. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "host")
 
@@ -78934,6 +79138,22 @@ class SnowflakeV2LinkedServiceResponse(dict):
         The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
         """
         return pulumi.get(self, "private_key_passphrase")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[Any]:
+        """
+        The default access control role to use in the Snowflake session. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Schema name for connection. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter

@@ -137,7 +137,7 @@ class ManagedCertificate(pulumi.CustomResource):
         Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class ManagedCertificate(pulumi.CustomResource):
         Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class ManagedCertificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20221101preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230401preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230501:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230502preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230801preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20231102preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20240202preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20240301:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20240802preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20241002preview:ManagedCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20221101preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230401preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230501:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230502preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20230801preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20231102preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20240202preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20240301:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20240802preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20241002preview:ManagedCertificate"), pulumi.Alias(type_="azure-native:app/v20250101:ManagedCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCertificate, __self__).__init__(
             'azure-native:app:ManagedCertificate',

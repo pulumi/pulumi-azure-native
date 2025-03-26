@@ -45,7 +45,6 @@ from .get_watchlist_item import *
 from .incident import *
 from .incident_comment import *
 from .incident_relation import *
-from .list_source_control_repositories import *
 from .mcas_data_connector import *
 from .mdatp_data_connector import *
 from .metadata import *

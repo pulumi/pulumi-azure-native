@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute
     /// Describes a Run Command
     /// Azure REST API version: 2023-10-03-preview.
     /// 
-    /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineRunCommand")]
     public partial class MachineRunCommand : global::Pulumi.CustomResource
@@ -157,6 +157,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:MachineRunCommand" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:MachineRunCommand" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

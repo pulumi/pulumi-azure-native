@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves an Active Directory connector resource
         /// Azure REST API version: 2023-01-15-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
         public static Task<GetActiveDirectoryConnectorResult> InvokeAsync(GetActiveDirectoryConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves an Active Directory connector resource
         /// Azure REST API version: 2023-01-15-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
         public static Output<GetActiveDirectoryConnectorResult> Invoke(GetActiveDirectoryConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves an Active Directory connector resource
         /// Azure REST API version: 2023-01-15-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
         public static Output<GetActiveDirectoryConnectorResult> Invoke(GetActiveDirectoryConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorInvokeArgs(), options.WithDefaults());

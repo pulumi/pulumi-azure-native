@@ -41,13 +41,13 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
         :param pulumi.Input[str] description: Description of Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name of Workspace.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
+        :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
@@ -129,7 +129,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -141,7 +141,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -177,7 +177,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -201,7 +201,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
@@ -261,14 +261,14 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
         :param pulumi.Input[str] description: Description of Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name of Workspace.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Details of the resource plan.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
@@ -340,7 +340,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:desktopvirtualization/v20240808preview:Workspace',
@@ -412,7 +412,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -428,7 +428,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -436,7 +436,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -476,7 +476,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
-        Plan for the resource.
+        Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
@@ -500,7 +500,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The resource model definition representing SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 

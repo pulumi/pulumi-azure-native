@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.DevHub.V20240801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240501preview:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20250301preview:IacProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub:IacProfile" },
                 },
             };

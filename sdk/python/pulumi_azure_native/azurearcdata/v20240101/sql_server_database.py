@@ -198,7 +198,7 @@ class SqlServerDatabase(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata:SqlServerDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20250301preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata:SqlServerDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerDatabase, __self__).__init__(
             'azure-native:azurearcdata/v20240101:SqlServerDatabase',

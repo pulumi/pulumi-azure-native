@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20250101:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount" },
                 },
             };

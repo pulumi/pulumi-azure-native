@@ -139,10 +139,10 @@ def get_private_endpoint_connection_by_workspace(private_endpoint_connection_nam
                                                  workspace_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionByWorkspaceResult:
     """
-    Get a private endpoint connection.
+    Get a PrivateEndpointConnectionWithSystemData
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+    :param str private_endpoint_connection_name: The name parameter for private endpoint
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
@@ -167,10 +167,10 @@ def get_private_endpoint_connection_by_workspace_output(private_endpoint_connect
                                                         workspace_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionByWorkspaceResult]:
     """
-    Get a private endpoint connection.
+    Get a PrivateEndpointConnectionWithSystemData
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+    :param str private_endpoint_connection_name: The name parameter for private endpoint
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """

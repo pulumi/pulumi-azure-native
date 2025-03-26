@@ -45,8 +45,6 @@ if typing.TYPE_CHECKING:
     v20220909 = __v20220909
     import pulumi_azure_native.desktopvirtualization.v20221014preview as __v20221014preview
     v20221014preview = __v20221014preview
-    import pulumi_azure_native.desktopvirtualization.v20230707preview as __v20230707preview
-    v20230707preview = __v20230707preview
     import pulumi_azure_native.desktopvirtualization.v20230905 as __v20230905
     v20230905 = __v20230905
     import pulumi_azure_native.desktopvirtualization.v20231004preview as __v20231004preview
@@ -63,13 +61,14 @@ if typing.TYPE_CHECKING:
     v20240408preview = __v20240408preview
     import pulumi_azure_native.desktopvirtualization.v20240808preview as __v20240808preview
     v20240808preview = __v20240808preview
+    import pulumi_azure_native.desktopvirtualization.v20241101preview as __v20241101preview
+    v20241101preview = __v20241101preview
 else:
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210201preview')
     v20220210preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20220210preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20220401preview')
     v20220909 = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20220909')
     v20221014preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20221014preview')
-    v20230707preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20230707preview')
     v20230905 = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20230905')
     v20231004preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20231004preview')
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20231101preview')
@@ -78,4 +77,5 @@ else:
     v20240403 = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20240403')
     v20240408preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20240408preview')
     v20240808preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20240808preview')
+    v20241101preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20241101preview')
 

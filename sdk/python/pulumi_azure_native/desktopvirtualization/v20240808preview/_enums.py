@@ -42,7 +42,13 @@ class ApplicationGroupType(str, Enum):
     Resource Type of ApplicationGroup.
     """
     REMOTE_APP = "RemoteApp"
+    """
+    Application group is Remote and can launch individual applications without a Desktop.
+    """
     DESKTOP = "Desktop"
+    """
+    Application Group delivers a full expected Desktop experience
+    """
 
 
 class CommandLineSetting(str, Enum):
@@ -50,21 +56,30 @@ class CommandLineSetting(str, Enum):
     Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
     """
     DO_NOT_ALLOW = "DoNotAllow"
+    """
+    Cannot be launched with command line arguments.
+    """
     ALLOW = "Allow"
+    """
+    Can optionally be launched with command line arguments.
+    """
     REQUIRE = "Require"
+    """
+    Required to be launched with command line arguments.
+    """
 
 
 class DayOfWeek(str, Enum):
     """
-    Day of the week.
+    Day of the week. Modeled as string
     """
-    SUNDAY = "Sunday"
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
     WEDNESDAY = "Wednesday"
     THURSDAY = "Thursday"
     FRIDAY = "Friday"
     SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
 
 
 class DirectUDP(str, Enum):
@@ -72,8 +87,17 @@ class DirectUDP(str, Enum):
     Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
     """
     DEFAULT = "Default"
+    """
+    AVD-wide settings are used to determine connection availability
+    """
     ENABLED = "Enabled"
+    """
+    UDP will attempt this connection type when making connections.
+    """
     DISABLED = "Disabled"
+    """
+    UDP will not attempt this connection type when making connections
+    """
 
 
 class FailHealthCheckOnStagingFailure(str, Enum):
@@ -81,8 +105,17 @@ class FailHealthCheckOnStagingFailure(str, Enum):
     Parameter indicating how the health check should behave if this package fails staging
     """
     UNHEALTHY = "Unhealthy"
+    """
+    Health Check will report unhealthy
+    """
     NEEDS_ASSISTANCE = "NeedsAssistance"
+    """
+    Health Check will report NeedsAssistance
+    """
     DO_NOT_FAIL = "DoNotFail"
+    """
+    Health Check will not report failure
+    """
 
 
 class HostPoolType(str, Enum):
@@ -108,9 +141,21 @@ class HostpoolPublicNetworkAccess(str, Enum):
     Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
     """
     ENABLED = "Enabled"
+    """
+    Allows this resource to be accessed from the public network
+    """
     DISABLED = "Disabled"
+    """
+    Prevents this resource from being accessed from the public network
+    """
     ENABLED_FOR_SESSION_HOSTS_ONLY = "EnabledForSessionHostsOnly"
+    """
+    Allows SessionHosts to be accessed from the public network
+    """
     ENABLED_FOR_CLIENTS_ONLY = "EnabledForClientsOnly"
+    """
+    Allows Clients to be accessed from the public network
+    """
 
 
 class LoadBalancerType(str, Enum):
@@ -118,9 +163,21 @@ class LoadBalancerType(str, Enum):
     The type of the load balancer.
     """
     BREADTH_FIRST = "BreadthFirst"
+    """
+    Uses BreadthFirst algorithm for load balancing.
+    """
     DEPTH_FIRST = "DepthFirst"
+    """
+    Uses DepthFirst algorithm for load balancing.
+    """
     PERSISTENT = "Persistent"
+    """
+    Maintains persistent connections.
+    """
     MULTIPLE_PERSISTENT = "MultiplePersistent"
+    """
+    Maintains multiple persistents connections.
+    """
 
 
 class ManagedPrivateUDP(str, Enum):
@@ -128,8 +185,17 @@ class ManagedPrivateUDP(str, Enum):
     Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
     """
     DEFAULT = "Default"
+    """
+    AVD-wide settings are used to determine connection availability
+    """
     ENABLED = "Enabled"
+    """
+    UDP will attempt this connection type when making connections.
+    """
     DISABLED = "Disabled"
+    """
+    UDP will not attempt this connection type when making connections
+    """
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -147,7 +213,13 @@ class ManagementType(str, Enum):
     The type of management for this hostpool, Automated or Standard. The default value is Automated.
     """
     AUTOMATED = "Automated"
+    """
+    Automated management of the hostpool
+    """
     STANDARD = "Standard"
+    """
+    Standard management of the hostpool
+    """
 
 
 class PackageTimestamped(str, Enum):
@@ -155,7 +227,13 @@ class PackageTimestamped(str, Enum):
     Is package timestamped so it can ignore the certificate expiry date
     """
     TIMESTAMPED = "Timestamped"
+    """
+    Package is timestamped
+    """
     NOT_TIMESTAMPED = "NotTimestamped"
+    """
+    Package is not timestamped, use certificate expiry date
+    """
 
 
 class PersonalDesktopAssignmentType(str, Enum):
@@ -163,7 +241,13 @@ class PersonalDesktopAssignmentType(str, Enum):
     PersonalDesktopAssignment type for HostPool.
     """
     AUTOMATIC = "Automatic"
+    """
+    Automatically assigns an available personal desktop to the user.
+    """
     DIRECT = "Direct"
+    """
+    Manually assigns a specific personal desktop to the user.
+    """
 
 
 class PreferredAppGroupType(str, Enum):
@@ -172,15 +256,15 @@ class PreferredAppGroupType(str, Enum):
     """
     NONE = "None"
     """
-    This value is read only, it is not accepted on input.
+    Internal Use Only
     """
     DESKTOP = "Desktop"
     """
-    Users access the full Windows desktop from a session host. Available with pooled or personal host pools.
+    Use Desktop Application Group
     """
     RAIL_APPLICATIONS = "RailApplications"
     """
-    Users access individual applications you select and publish to the application group. Available with pooled host pools only.
+    Use RailApplications (RemoteApp)
     """
 
 
@@ -189,8 +273,17 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
     PENDING = "Pending"
+    """
+    Connection is Pending
+    """
     APPROVED = "Approved"
+    """
+    Connection was Approved
+    """
     REJECTED = "Rejected"
+    """
+    Connection was rejected
+    """
 
 
 class PublicNetworkAccess(str, Enum):
@@ -198,7 +291,13 @@ class PublicNetworkAccess(str, Enum):
     Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
     """
     ENABLED = "Enabled"
+    """
+    This resource is accessible from the public network.
+    """
     DISABLED = "Disabled"
+    """
+    This resource is not accessible from the public network.
+    """
 
 
 class PublicUDP(str, Enum):
@@ -206,8 +305,17 @@ class PublicUDP(str, Enum):
     Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
     """
     DEFAULT = "Default"
+    """
+    AVD-wide settings are used to determine connection availability
+    """
     ENABLED = "Enabled"
+    """
+    UDP will attempt this connection type when making connections.
+    """
     DISABLED = "Disabled"
+    """
+    UDP will not attempt this connection type when making connections
+    """
 
 
 class RegistrationTokenOperation(str, Enum):
@@ -215,8 +323,17 @@ class RegistrationTokenOperation(str, Enum):
     The type of resetting the token.
     """
     DELETE = "Delete"
+    """
+    Delete operation
+    """
     NONE = "None"
+    """
+    No Operation
+    """
     UPDATE = "Update"
+    """
+    Update Operation
+    """
 
 
 class RelayUDP(str, Enum):
@@ -224,8 +341,17 @@ class RelayUDP(str, Enum):
     Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
     """
     DEFAULT = "Default"
+    """
+    AVD-wide settings are used to determine connection availability
+    """
     ENABLED = "Enabled"
+    """
+    UDP will attempt this connection type when making connections.
+    """
     DISABLED = "Disabled"
+    """
+    UDP will not attempt this connection type when making connections
+    """
 
 
 class RemoteApplicationType(str, Enum):
@@ -233,7 +359,13 @@ class RemoteApplicationType(str, Enum):
     Resource Type of Application.
     """
     IN_BUILT = "InBuilt"
+    """
+    Built-in applications
+    """
     MSIX_APPLICATION = "MsixApplication"
+    """
+    Imported MSIX application packages
+    """
 
 
 class SSOSecretType(str, Enum):
@@ -241,9 +373,21 @@ class SSOSecretType(str, Enum):
     The type of single sign on Secret Type.
     """
     SHARED_KEY = "SharedKey"
+    """
+    The SSO Secret is a Shared Key.
+    """
     CERTIFICATE = "Certificate"
+    """
+    The SSO Secret is a Certificate.
+    """
     SHARED_KEY_IN_KEY_VAULT = "SharedKeyInKeyVault"
+    """
+    The SSO Secret is a SharedKey that is stored in KeyVault.
+    """
     CERTIFICATE_IN_KEY_VAULT = "CertificateInKeyVault"
+    """
+    The SSO Secret is a Certificate that is stored in KeyVault.
+    """
 
 
 class ScalingHostPoolType(str, Enum):
@@ -265,8 +409,17 @@ class SessionHandlingOperation(str, Enum):
     Action to be taken after a logoff during the ramp up period.
     """
     NONE = "None"
+    """
+    No action will be taken after disconnect
+    """
     DEALLOCATE = "Deallocate"
+    """
+    Session Host will be deallocated after disconnect
+    """
     HIBERNATE = "Hibernate"
+    """
+    Session Host will hibernate after disconnect
+    """
 
 
 class SessionHostComponentUpdateType(str, Enum):
@@ -288,7 +441,13 @@ class SessionHostLoadBalancingAlgorithm(str, Enum):
     Load balancing algorithm for ramp up period.
     """
     BREADTH_FIRST = "BreadthFirst"
+    """
+    Breadth First Algorithm for Load Balancing
+    """
     DEPTH_FIRST = "DepthFirst"
+    """
+    Depth First Algorithm for Load Balancing
+    """
 
 
 class SetStartVMOnConnect(str, Enum):
@@ -296,7 +455,13 @@ class SetStartVMOnConnect(str, Enum):
     The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
     """
     ENABLE = "Enable"
+    """
+    Start VM on Connect is enabled
+    """
     DISABLE = "Disable"
+    """
+    Start VM on Connect is disabled, must use rampUpAutoStartHosts or turn on manually
+    """
 
 
 class SkuTier(str, Enum):
@@ -332,4 +497,10 @@ class StopHostsWhen(str, Enum):
     Specifies when to stop hosts during ramp down period.
     """
     ZERO_SESSIONS = "ZeroSessions"
+    """
+    Zero Total Sessions
+    """
     ZERO_ACTIVE_SESSIONS = "ZeroActiveSessions"
+    """
+    Zero Active Sessions
+    """

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Returns a Log Analytics QueryPack.
         /// Azure REST API version: 2019-09-01.
         /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+        /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
         public static Task<GetQueryPackResult> InvokeAsync(GetQueryPackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Returns a Log Analytics QueryPack.
         /// Azure REST API version: 2019-09-01.
         /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+        /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetQueryPackResult> Invoke(GetQueryPackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Returns a Log Analytics QueryPack.
         /// Azure REST API version: 2019-09-01.
         /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+        /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
         /// </summary>
         public static Output<GetQueryPackResult> Invoke(GetQueryPackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithDefaults());

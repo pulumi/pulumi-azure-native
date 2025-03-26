@@ -103,7 +103,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices/v20220301:Deployment" }, { type: "azure-native:cognitiveservices/v20221001:Deployment" }, { type: "azure-native:cognitiveservices/v20221201:Deployment" }, { type: "azure-native:cognitiveservices/v20230501:Deployment" }, { type: "azure-native:cognitiveservices/v20231001preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240401preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240601preview:Deployment" }, { type: "azure-native:cognitiveservices:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices/v20220301:Deployment" }, { type: "azure-native:cognitiveservices/v20221001:Deployment" }, { type: "azure-native:cognitiveservices/v20221201:Deployment" }, { type: "azure-native:cognitiveservices/v20230501:Deployment" }, { type: "azure-native:cognitiveservices/v20231001preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240401preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240601preview:Deployment" }, { type: "azure-native:cognitiveservices/v20250401preview:Deployment" }, { type: "azure-native:cognitiveservices:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }

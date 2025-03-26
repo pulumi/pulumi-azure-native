@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:GuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

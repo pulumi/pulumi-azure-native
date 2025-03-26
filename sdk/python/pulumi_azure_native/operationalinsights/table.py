@@ -188,7 +188,7 @@ class Table(pulumi.CustomResource):
         Workspace data table definition.
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
-        Other available API versions: 2023-09-01.
+        Other available API versions: 2023-09-01, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +212,7 @@ class Table(pulumi.CustomResource):
         Workspace data table definition.
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
-        Other available API versions: 2023-09-01.
+        Other available API versions: 2023-09-01, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -269,7 +269,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_retention_in_days_as_default"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Table")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azure-native:operationalinsights:Table',

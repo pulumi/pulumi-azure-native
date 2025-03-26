@@ -198,6 +198,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DatabaseBlobAuditingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:DatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseBlobAuditingPolicy" },

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the destination endpoints for the specified flow and stream ID.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Task<GetFlowDestinationEndpointsResult> InvokeAsync(GetFlowDestinationEndpointsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the destination endpoints for the specified flow and stream ID.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetFlowDestinationEndpointsResult> Invoke(GetFlowDestinationEndpointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the destination endpoints for the specified flow and stream ID.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetFlowDestinationEndpointsResult> Invoke(GetFlowDestinationEndpointsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsInvokeArgs(), options.WithDefaults());

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:Broker" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:Broker" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:Broker" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:Broker" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations:Broker" },
                 },
             };

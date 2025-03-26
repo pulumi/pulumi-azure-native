@@ -214,7 +214,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule" },
@@ -222,6 +221,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlanPersonalSchedule" },
                 },
             };
@@ -247,14 +247,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class ScalingPlanPersonalScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeek", required: true)]
-        private InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>>? _daysOfWeek;
+        private InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>? _daysOfWeek;
 
         /// <summary>
         /// Set of days of the week on which this schedule is active.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>> DaysOfWeek
+        public InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek> DaysOfWeek
         {
-            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>>());
+            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.DayOfWeek>());
             set => _daysOfWeek = value;
         }
 

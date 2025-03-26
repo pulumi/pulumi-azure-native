@@ -147,7 +147,7 @@ export class AutoExportJob extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adminStatus"] = (args ? args.adminStatus : undefined) ?? "Active";
+            resourceInputs["adminStatus"] = (args ? args.adminStatus : undefined) ?? "Enable";
             resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
             resourceInputs["autoExportJobName"] = args ? args.autoExportJobName : undefined;
             resourceInputs["autoExportPrefixes"] = args ? args.autoExportPrefixes : undefined;

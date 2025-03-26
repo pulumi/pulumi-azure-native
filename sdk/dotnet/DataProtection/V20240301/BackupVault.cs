@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.DataProtection.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240201preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240401:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250101:BackupVault" },
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250201:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection:BackupVault" },
                 },
             };

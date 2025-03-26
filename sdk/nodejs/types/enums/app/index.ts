@@ -13,6 +13,7 @@ import * as v20240202preview from "./v20240202preview";
 import * as v20240301 from "./v20240301";
 import * as v20240802preview from "./v20240802preview";
 import * as v20241002preview from "./v20241002preview";
+import * as v20250101 from "./v20250101";
 
 export {
     v20220101preview,
@@ -26,6 +27,7 @@ export {
     v20240301,
     v20240802preview,
     v20241002preview,
+    v20250101,
 };
 
 export const AccessMode = {

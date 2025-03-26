@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Output<bool?> MultiplePlacementGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -220,19 +220,19 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Output<string?> VmImageVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The number of nodes in the node type. &lt;br /&gt;&lt;br /&gt;**Values:** &lt;br /&gt;-1 - Use when auto scale rules are configured or sku.capacity is defined &lt;br /&gt; 0 - Not supported &lt;br /&gt; &gt;0 - Use for manual scale.
+        /// The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported &gt;0 - Use for manual scale.
         /// </summary>
         [Output("vmInstanceCount")]
         public Output<int> VmInstanceCount { get; private set; } = null!;
@@ -626,7 +626,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -671,7 +671,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -758,7 +758,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Input<string>? VmImageVersion { get; set; }
 
         /// <summary>
-        /// The number of nodes in the node type. &lt;br /&gt;&lt;br /&gt;**Values:** &lt;br /&gt;-1 - Use when auto scale rules are configured or sku.capacity is defined &lt;br /&gt; 0 - Not supported &lt;br /&gt; &gt;0 - Use for manual scale.
+        /// The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported &gt;0 - Use for manual scale.
         /// </summary>
         [Input("vmInstanceCount", required: true)]
         public Input<int> VmInstanceCount { get; set; } = null!;
@@ -819,6 +819,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
 
         public NodeTypeArgs()
         {
+            DataDiskType = "StandardSSD_LRS";
             EnableEncryptionAtHost = false;
             IsStateless = false;
             MultiplePlacementGroups = false;

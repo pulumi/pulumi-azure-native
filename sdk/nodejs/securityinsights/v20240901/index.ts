@@ -235,11 +235,6 @@ export type IncidentTask = import("./incidentTask").IncidentTask;
 export const IncidentTask: typeof import("./incidentTask").IncidentTask = null as any;
 utilities.lazyLoad(exports, ["IncidentTask"], () => require("./incidentTask"));
 
-export { ListSourceControlRepositoriesArgs, ListSourceControlRepositoriesResult, ListSourceControlRepositoriesOutputArgs } from "./listSourceControlRepositories";
-export const listSourceControlRepositories: typeof import("./listSourceControlRepositories").listSourceControlRepositories = null as any;
-export const listSourceControlRepositoriesOutput: typeof import("./listSourceControlRepositories").listSourceControlRepositoriesOutput = null as any;
-utilities.lazyLoad(exports, ["listSourceControlRepositories","listSourceControlRepositoriesOutput"], () => require("./listSourceControlRepositories"));
-
 export { MCASDataConnectorArgs } from "./mcasdataConnector";
 export type MCASDataConnector = import("./mcasdataConnector").MCASDataConnector;
 export const MCASDataConnector: typeof import("./mcasdataConnector").MCASDataConnector = null as any;

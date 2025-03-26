@@ -350,7 +350,7 @@ class IacProfile(pulumi.CustomResource):
             __props__.__dict__["pull_number"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devhub/v20240801preview:IacProfile"), pulumi.Alias(type_="azure-native:devhub:IacProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devhub/v20240801preview:IacProfile"), pulumi.Alias(type_="azure-native:devhub/v20250301preview:IacProfile"), pulumi.Alias(type_="azure-native:devhub:IacProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IacProfile, __self__).__init__(
             'azure-native:devhub/v20240501preview:IacProfile',

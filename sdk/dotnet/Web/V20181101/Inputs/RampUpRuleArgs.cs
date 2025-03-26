@@ -22,8 +22,7 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
         public Input<string>? ActionHostName { get; set; }
 
         /// <summary>
-        /// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-        /// https://www.siteextensions.net/packages/TiPCallback/
+        /// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         /// </summary>
         [Input("changeDecisionCallbackUrl")]
         public Input<string>? ChangeDecisionCallbackUrl { get; set; }

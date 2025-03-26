@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *  List of all active elastic deployments.
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
  */
 export function listConnectedPartnerResource(args: ListConnectedPartnerResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedPartnerResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,7 @@ export interface ListConnectedPartnerResourceResult {
  *  List of all active elastic deployments.
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
  */
 export function listConnectedPartnerResourceOutput(args: ListConnectedPartnerResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectedPartnerResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

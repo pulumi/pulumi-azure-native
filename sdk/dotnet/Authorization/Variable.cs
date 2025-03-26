@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// The variable.
     /// Azure REST API version: 2022-08-01-preview.
+    /// 
+    /// Other available API versions: 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:Variable")]
     public partial class Variable : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220801preview:Variable" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20241201preview:Variable" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

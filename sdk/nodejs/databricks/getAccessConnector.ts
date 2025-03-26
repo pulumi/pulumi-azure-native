@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an azure databricks accessConnector.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+ * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +73,7 @@ export interface GetAccessConnectorResult {
  * Gets an azure databricks accessConnector.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+ * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

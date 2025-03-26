@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public string NodeTypeName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> NodeTypeName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

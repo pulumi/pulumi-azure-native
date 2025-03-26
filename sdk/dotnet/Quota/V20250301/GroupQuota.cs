@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Quota.V20250301
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20230601preview:GroupQuota" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20241015preview:GroupQuota" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20241218preview:GroupQuota" },
+                    new global::Pulumi.Alias { Type = "azure-native:quota/v20250315preview:GroupQuota" },
                     new global::Pulumi.Alias { Type = "azure-native:quota:GroupQuota" },
                 },
             };

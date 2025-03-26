@@ -89,7 +89,7 @@ export class JobPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20230501preview:JobPrivateEndpoint" }, { type: "azure-native:sql/v20230801preview:JobPrivateEndpoint" }, { type: "azure-native:sql:JobPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20230501preview:JobPrivateEndpoint" }, { type: "azure-native:sql/v20230801:JobPrivateEndpoint" }, { type: "azure-native:sql/v20230801preview:JobPrivateEndpoint" }, { type: "azure-native:sql:JobPrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }

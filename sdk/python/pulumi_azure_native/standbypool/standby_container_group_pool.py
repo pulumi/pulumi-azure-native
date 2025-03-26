@@ -136,7 +136,7 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
         A StandbyContainerGroupPoolResource.
         Azure REST API version: 2023-12-01-preview.
 
-        Other available API versions: 2024-03-01, 2024-03-01-preview.
+        Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
         A StandbyContainerGroupPoolResource.
         Azure REST API version: 2023-12-01-preview.
 
-        Other available API versions: 2024-03-01, 2024-03-01-preview.
+        Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
 
         :param str resource_name: The name of the resource.
         :param StandbyContainerGroupPoolArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20231201preview:StandbyContainerGroupPool"), pulumi.Alias(type_="azure-native:standbypool/v20240301:StandbyContainerGroupPool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyContainerGroupPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20231201preview:StandbyContainerGroupPool"), pulumi.Alias(type_="azure-native:standbypool/v20240301:StandbyContainerGroupPool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyContainerGroupPool"), pulumi.Alias(type_="azure-native:standbypool/v20250301:StandbyContainerGroupPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StandbyContainerGroupPool, __self__).__init__(
             'azure-native:standbypool:StandbyContainerGroupPool',

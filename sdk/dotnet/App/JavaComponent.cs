@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Java Component.
     /// Azure REST API version: 2023-11-02-preview.
     /// 
-    /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:JavaComponent")]
     public partial class JavaComponent : global::Pulumi.CustomResource
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:JavaComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:JavaComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:JavaComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:JavaComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

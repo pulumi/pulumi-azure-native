@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
-    /// Presto server linked service.
+    /// Presto server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     /// </summary>
     public sealed class PrestoLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false. Only used for Version 1.0.
         /// </summary>
         [Input("allowHostNameCNMismatch")]
         public Input<object>? AllowHostNameCNMismatch { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow self-signed certificates from the server. The default value is false.
+        /// Specifies whether to allow self-signed certificates from the server. The default value is false. Only used for Version 1.0.
         /// </summary>
         [Input("allowSelfSignedServerCert")]
         public Input<object>? AllowSelfSignedServerCert { get; set; }
@@ -64,7 +64,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        /// Specifies whether the connections to the server will validate server certificate, the default value is True. Only used for Version 2.0
+        /// </summary>
+        [Input("enableServerCertificateValidation")]
+        public Input<object>? EnableServerCertificateValidation { get; set; }
+
+        /// <summary>
+        /// Specifies whether the connections to the server are encrypted using SSL. The default value for legacy version is False. The default value for version 2.0 is True.
         /// </summary>
         [Input("enableSsl")]
         public Input<object>? EnableSsl { get; set; }
@@ -100,25 +106,25 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
         /// <summary>
-        /// The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
+        /// The TCP port that the Presto server uses to listen for client connections. The default value is 8080 when disable SSL, default value is 443 when enable SSL.
         /// </summary>
         [Input("port")]
         public Input<object>? Port { get; set; }
 
         /// <summary>
-        /// The version of the Presto server. (i.e. 0.148-t)
+        /// The version of the Presto server. (i.e. 0.148-t) Only used for Version 1.0.
         /// </summary>
-        [Input("serverVersion", required: true)]
-        public Input<object> ServerVersion { get; set; } = null!;
+        [Input("serverVersion")]
+        public Input<object>? ServerVersion { get; set; }
 
         /// <summary>
-        /// The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
+        /// The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value for Version 1.0 is the client system time zone. The default value for Version 2.0 is server system timeZone
         /// </summary>
         [Input("timeZoneID")]
         public Input<object>? TimeZoneID { get; set; }
 
         /// <summary>
-        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Only used for Version 1.0.
         /// </summary>
         [Input("trustedCertPath")]
         public Input<object>? TrustedCertPath { get; set; }
@@ -131,7 +137,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Only used for Version 1.0.
         /// </summary>
         [Input("useSystemTrustStore")]
         public Input<object>? UseSystemTrustStore { get; set; }

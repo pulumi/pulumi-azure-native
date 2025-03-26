@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Output<bool?> EnableServicePublicIP { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource etag.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.",
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -208,13 +208,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Output<ImmutableArray<Outputs.LoadBalancingRuleResponse>> LoadBalancingRules { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -262,19 +262,19 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -566,7 +566,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         }
 
         /// <summary>
-        /// Azure resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -596,7 +596,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public Input<string>? PublicIPv6PrefixId { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -629,7 +629,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -664,6 +664,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview
         public ManagedClusterArgs()
         {
             ClientConnectionPort = 19000;
+            ClusterUpgradeMode = "Automatic";
             HttpGatewayConnectionPort = 19080;
             ZonalResiliency = false;
         }

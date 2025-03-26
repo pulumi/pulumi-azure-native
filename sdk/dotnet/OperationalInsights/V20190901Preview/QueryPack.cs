@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901:QueryPack" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:QueryPack" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:QueryPack" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:QueryPack" },
                 },
             };

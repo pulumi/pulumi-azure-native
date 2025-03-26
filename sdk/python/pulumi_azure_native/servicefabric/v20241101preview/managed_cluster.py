@@ -65,7 +65,7 @@ class ManagedClusterArgs:
         The set of arguments for constructing a ManagedCluster resource.
         :param pulumi.Input[str] admin_user_name: VM admin user name.
         :param pulumi.Input[str] dns_name: The cluster dns name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The sku of the managed cluster
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ManagedClusterAddOnFeature']]]] addon_features: List of add-on features to enable on the cluster.
         :param pulumi.Input[str] admin_password: VM admin user password.
@@ -91,13 +91,13 @@ class ManagedClusterArgs:
         :param pulumi.Input[int] http_gateway_token_auth_connection_port: The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
-        :param pulumi.Input[str] location: Azure resource location.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
         :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[str] public_i_pv6_prefix_id: Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]] service_endpoints: Service endpoints for subnets in the cluster.
         :param pulumi.Input[str] subnet_id: If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[bool] use_custom_vnet: For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
         :param pulumi.Input[bool] zonal_resiliency: Indicates if the cluster has zone resiliency.
@@ -135,6 +135,8 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if cluster_upgrade_cadence is not None:
             pulumi.set(__self__, "cluster_upgrade_cadence", cluster_upgrade_cadence)
+        if cluster_upgrade_mode is None:
+            cluster_upgrade_mode = 'Automatic'
         if cluster_upgrade_mode is not None:
             pulumi.set(__self__, "cluster_upgrade_mode", cluster_upgrade_mode)
         if ddos_protection_plan_id is not None:
@@ -212,7 +214,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -524,7 +526,7 @@ class ManagedClusterArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -596,7 +598,7 @@ class ManagedClusterArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -729,15 +731,15 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[int] http_gateway_token_auth_connection_port: The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
-        :param pulumi.Input[str] location: Azure resource location.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
         :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[str] public_i_pv6_prefix_id: Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]] service_endpoints: Service endpoints for subnets in the cluster.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the managed cluster
         :param pulumi.Input[str] subnet_id: If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[bool] use_custom_vnet: For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
         :param pulumi.Input[bool] zonal_resiliency: Indicates if the cluster has zone resiliency.
@@ -833,6 +835,8 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["cluster_code_version"] = cluster_code_version
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_upgrade_cadence"] = cluster_upgrade_cadence
+            if cluster_upgrade_mode is None:
+                cluster_upgrade_mode = 'Automatic'
             __props__.__dict__["cluster_upgrade_mode"] = cluster_upgrade_mode
             __props__.__dict__["ddos_protection_plan_id"] = ddos_protection_plan_id
             if dns_name is None and not opts.urn:
@@ -1141,7 +1145,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        Azure resource etag.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.",
         """
         return pulumi.get(self, "etag")
 
@@ -1213,7 +1217,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Azure resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -1221,7 +1225,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1285,7 +1289,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -1293,7 +1297,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -1301,7 +1305,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

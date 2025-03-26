@@ -420,7 +420,7 @@ def get_managed_instance(expand: Optional[str] = None,
     Gets a managed instance.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str expand: The child resources to include in the response.
@@ -474,7 +474,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     Gets a managed instance.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str expand: The child resources to include in the response.

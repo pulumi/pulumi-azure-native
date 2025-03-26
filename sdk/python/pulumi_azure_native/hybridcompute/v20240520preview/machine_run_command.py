@@ -402,7 +402,7 @@ class MachineRunCommand(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute:MachineRunCommand")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:MachineRunCommand"), pulumi.Alias(type_="azure-native:hybridcompute:MachineRunCommand")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineRunCommand, __self__).__init__(
             'azure-native:hybridcompute/v20240520preview:MachineRunCommand',

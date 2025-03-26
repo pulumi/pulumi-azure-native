@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20240915Preview
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:BrokerListener" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:BrokerListener" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:BrokerListener" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations:BrokerListener" },
                 },
             };

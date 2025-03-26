@@ -104,7 +104,7 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
     Gets the tenant configuration.
     Azure REST API version: 2020-09-01-preview.
 
-    Other available API versions: 2022-12-01-preview.
+    Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
 
 
     :param str configuration_name: The name of the Configuration
@@ -126,7 +126,7 @@ def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[st
     Gets the tenant configuration.
     Azure REST API version: 2020-09-01-preview.
 
-    Other available API versions: 2022-12-01-preview.
+    Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
 
 
     :param str configuration_name: The name of the Configuration

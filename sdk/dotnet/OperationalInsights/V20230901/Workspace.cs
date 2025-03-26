@@ -167,6 +167,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace" },
                 },
             };

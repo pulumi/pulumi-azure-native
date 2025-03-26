@@ -84,7 +84,7 @@ export class VariableAtManagementGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:VariableAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20241201preview:VariableAtManagementGroup" }, { type: "azure-native:authorization:VariableAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VariableAtManagementGroup.__pulumiType, name, resourceInputs, opts);
     }

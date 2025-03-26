@@ -72,7 +72,7 @@ class GetManagementPolicyResult:
     @pulumi.getter
     def policy(self) -> 'outputs.ManagementPolicySchemaResponse':
         """
-        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "policy")
 

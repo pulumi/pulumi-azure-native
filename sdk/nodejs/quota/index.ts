@@ -34,12 +34,14 @@ import * as v20230601preview from "./v20230601preview";
 import * as v20241015preview from "./v20241015preview";
 import * as v20241218preview from "./v20241218preview";
 import * as v20250301 from "./v20250301";
+import * as v20250315preview from "./v20250315preview";
 
 export {
     v20230601preview,
     v20241015preview,
     v20241218preview,
     v20250301,
+    v20250315preview,
 };
 
 const _module = {

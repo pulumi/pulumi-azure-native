@@ -154,7 +154,7 @@ def get_restore_point_collection(expand: Optional[str] = None,
     The operation to get the restore point collection.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
@@ -186,7 +186,7 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
     The operation to get the restore point collection.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.

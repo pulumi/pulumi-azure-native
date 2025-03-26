@@ -38,7 +38,7 @@ export class MSIXPackage extends pulumi.CustomResource {
     }
 
     /**
-     * User friendly Name to be displayed in the portal. 
+     * User friendly Name to be displayed in the portal.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
@@ -46,7 +46,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public readonly imagePath!: pulumi.Output<string | undefined>;
     /**
-     * Make this version of the package the active one across the hostpool. 
+     * Make this version of the package the active one across the hostpool.
      */
     public readonly isActive!: pulumi.Output<boolean | undefined>;
     /**
@@ -54,7 +54,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public readonly isRegularRegistration!: pulumi.Output<boolean | undefined>;
     /**
-     * Date Package was last updated, found in the appxmanifest.xml. 
+     * Date Package was last updated, found in the appxmanifest.xml.
      */
     public readonly lastUpdated!: pulumi.Output<string | undefined>;
     /**
@@ -62,23 +62,23 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of package applications. 
+     * List of package applications.
      */
     public readonly packageApplications!: pulumi.Output<outputs.desktopvirtualization.v20240808preview.MsixPackageApplicationsResponse[] | undefined>;
     /**
-     * List of package dependencies. 
+     * List of package dependencies.
      */
     public readonly packageDependencies!: pulumi.Output<outputs.desktopvirtualization.v20240808preview.MsixPackageDependenciesResponse[] | undefined>;
     /**
-     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
      */
     public readonly packageFamilyName!: pulumi.Output<string | undefined>;
     /**
-     * Package Name from appxmanifest.xml. 
+     * Package Name from appxmanifest.xml.
      */
     public readonly packageName!: pulumi.Output<string | undefined>;
     /**
-     * Relative Path to the package inside the image. 
+     * Relative Path to the package inside the image.
      */
     public readonly packageRelativePath!: pulumi.Output<string | undefined>;
     /**
@@ -90,7 +90,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -145,7 +145,7 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210114preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220909:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20230707preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20230905:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231004preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240306preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240403:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240408preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization:MSIXPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210114preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220909:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20230905:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231004preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240306preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240403:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240408preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20241101preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization:MSIXPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSIXPackage.__pulumiType, name, resourceInputs, opts);
     }
@@ -156,7 +156,7 @@ export class MSIXPackage extends pulumi.CustomResource {
  */
 export interface MSIXPackageArgs {
     /**
-     * User friendly Name to be displayed in the portal. 
+     * User friendly Name to be displayed in the portal.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -168,7 +168,7 @@ export interface MSIXPackageArgs {
      */
     imagePath?: pulumi.Input<string>;
     /**
-     * Make this version of the package the active one across the hostpool. 
+     * Make this version of the package the active one across the hostpool.
      */
     isActive?: pulumi.Input<boolean>;
     /**
@@ -176,7 +176,7 @@ export interface MSIXPackageArgs {
      */
     isRegularRegistration?: pulumi.Input<boolean>;
     /**
-     * Date Package was last updated, found in the appxmanifest.xml. 
+     * Date Package was last updated, found in the appxmanifest.xml.
      */
     lastUpdated?: pulumi.Input<string>;
     /**
@@ -184,23 +184,23 @@ export interface MSIXPackageArgs {
      */
     msixPackageFullName?: pulumi.Input<string>;
     /**
-     * List of package applications. 
+     * List of package applications.
      */
     packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20240808preview.MsixPackageApplicationsArgs>[]>;
     /**
-     * List of package dependencies. 
+     * List of package dependencies.
      */
     packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20240808preview.MsixPackageDependenciesArgs>[]>;
     /**
-     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
      */
     packageFamilyName?: pulumi.Input<string>;
     /**
-     * Package Name from appxmanifest.xml. 
+     * Package Name from appxmanifest.xml.
      */
     packageName?: pulumi.Input<string>;
     /**
-     * Relative Path to the package inside the image. 
+     * Relative Path to the package inside the image.
      */
     packageRelativePath?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface MSIXPackageArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml.
      */
     version?: pulumi.Input<string>;
 }

@@ -120,6 +120,8 @@ class Employee(pulumi.CustomResource):
         Employee resource
         Azure REST API version: 2021-10-01-preview.
 
+        Other available API versions: 2021-11-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] employee_name: The name of the Employee
@@ -137,6 +139,8 @@ class Employee(pulumi.CustomResource):
         """
         Employee resource
         Azure REST API version: 2021-10-01-preview.
+
+        Other available API versions: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param EmployeeArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +181,7 @@ class Employee(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:contoso/v20211001preview:Employee")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:contoso/v20211001preview:Employee"), pulumi.Alias(type_="azure-native:contoso/v20211101:Employee")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Employee, __self__).__init__(
             'azure-native:contoso:Employee',

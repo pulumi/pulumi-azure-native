@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public string EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -88,33 +88,9 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
     public sealed class GetServiceConfigurationResult
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -146,19 +122,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
 
         [OutputConstructor]
         private GetServiceConfigurationResult(
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
-
             string id,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string name,
 
@@ -174,13 +138,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
 
             string type)
         {
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
             Id = id;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             Name = name;
             Port = port;
             ProvisioningState = provisioningState;

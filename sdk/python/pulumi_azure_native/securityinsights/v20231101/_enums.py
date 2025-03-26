@@ -33,7 +33,6 @@ __all__ = [
     'Operator',
     'OwnerType',
     'PackageKind',
-    'RepositoryAccessKind',
     'SecurityMLAnalyticsSettingsKind',
     'SettingsStatus',
     'SourceKind',
@@ -785,15 +784,6 @@ class PackageKind(str, Enum):
     """
     SOLUTION = "Solution"
     STANDALONE = "Standalone"
-
-
-class RepositoryAccessKind(str, Enum):
-    """
-    The kind of repository access credentials
-    """
-    O_AUTH = "OAuth"
-    PAT = "PAT"
-    APP = "App"
 
 
 class SecurityMLAnalyticsSettingsKind(str, Enum):

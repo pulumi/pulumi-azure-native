@@ -119,6 +119,7 @@ class IdentityType(str, Enum):
     NONE = "None"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class KeyStatusEnum(str, Enum):

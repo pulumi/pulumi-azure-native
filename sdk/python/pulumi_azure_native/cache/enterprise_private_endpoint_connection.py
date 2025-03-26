@@ -102,7 +102,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01.
 
         :param str resource_name: The name of the resource.
         :param EnterprisePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +166,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210201preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210301:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210801:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20220101:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20221101preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230701:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20231001preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20231101:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240201:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240301preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240601preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240901preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20241001:EnterprisePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210201preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210301:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210801:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20220101:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20221101preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230701:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20231001preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20231101:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240201:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240301preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240601preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20240901preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20241001:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20250401:EnterprisePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnterprisePrivateEndpointConnection, __self__).__init__(
             'azure-native:cache:EnterprisePrivateEndpointConnection',

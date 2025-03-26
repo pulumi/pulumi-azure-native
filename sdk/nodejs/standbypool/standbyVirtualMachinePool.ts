@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A StandbyVirtualMachinePoolResource.
  * Azure REST API version: 2023-12-01-preview.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
  */
 export class StandbyVirtualMachinePool extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
             resourceInputs["virtualMachineState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20250301:StandbyVirtualMachinePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StandbyVirtualMachinePool.__pulumiType, name, resourceInputs, opts);
     }

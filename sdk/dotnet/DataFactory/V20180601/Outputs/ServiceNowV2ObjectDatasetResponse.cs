@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'ServiceNowV2Object'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Type of value copied from source.
+        /// </summary>
+        public readonly string? ValueType;
 
         [OutputConstructor]
         private ServiceNowV2ObjectDatasetResponse(
@@ -72,7 +76,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? tableName,
 
-            string type)
+            string type,
+
+            string? valueType)
         {
             Annotations = annotations;
             Description = description;
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Structure = structure;
             TableName = tableName;
             Type = type;
+            ValueType = valueType;
         }
     }
 }

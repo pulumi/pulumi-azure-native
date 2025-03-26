@@ -345,7 +345,7 @@ class GetNodeTypeResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -385,7 +385,7 @@ class GetNodeTypeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -481,7 +481,7 @@ class GetNodeTypeResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -489,7 +489,7 @@ class GetNodeTypeResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -497,7 +497,7 @@ class GetNodeTypeResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -593,7 +593,7 @@ class GetNodeTypeResult:
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> int:
         """
-        The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+        The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
         """
         return pulumi.get(self, "vm_instance_count")
 
@@ -720,7 +720,7 @@ def get_node_type(cluster_name: Optional[str] = None,
 
     :param str cluster_name: The name of the cluster resource.
     :param str node_type_name: The name of the node type.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -796,7 +796,7 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_name: The name of the cluster resource.
     :param str node_type_name: The name of the node type.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

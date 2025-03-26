@@ -67,7 +67,7 @@ def list_policy_set_definition_version_all(opts: Optional[pulumi.InvokeOptions] 
     This operation lists all the policy set definition versions for all policy set definitions within a subscription.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -81,7 +81,7 @@ def list_policy_set_definition_version_all_output(opts: Optional[Union[pulumi.In
     This operation lists all the policy set definition versions for all policy set definitions within a subscription.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

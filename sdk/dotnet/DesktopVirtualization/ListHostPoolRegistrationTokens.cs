@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Operation to list the RegistrationTokens associated with the HostPool.
         /// Azure REST API version: 2024-04-08-preview.
         /// 
-        /// Other available API versions: 2024-04-03, 2024-08-08-preview.
+        /// Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<ListHostPoolRegistrationTokensResult> InvokeAsync(ListHostPoolRegistrationTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListHostPoolRegistrationTokensResult>("azure-native:desktopvirtualization:listHostPoolRegistrationTokens", args ?? new ListHostPoolRegistrationTokensArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Operation to list the RegistrationTokens associated with the HostPool.
         /// Azure REST API version: 2024-04-08-preview.
         /// 
-        /// Other available API versions: 2024-04-03, 2024-08-08-preview.
+        /// Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<ListHostPoolRegistrationTokensResult> Invoke(ListHostPoolRegistrationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHostPoolRegistrationTokensResult>("azure-native:desktopvirtualization:listHostPoolRegistrationTokens", args ?? new ListHostPoolRegistrationTokensInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Operation to list the RegistrationTokens associated with the HostPool.
         /// Azure REST API version: 2024-04-08-preview.
         /// 
-        /// Other available API versions: 2024-04-03, 2024-08-08-preview.
+        /// Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<ListHostPoolRegistrationTokensResult> Invoke(ListHostPoolRegistrationTokensInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListHostPoolRegistrationTokensResult>("azure-native:desktopvirtualization:listHostPoolRegistrationTokens", args ?? new ListHostPoolRegistrationTokensInvokeArgs(), options.WithDefaults());

@@ -1394,38 +1394,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231101
     }
 
     /// <summary>
-    /// The kind of repository access credentials
-    /// </summary>
-    [EnumType]
-    public readonly struct RepositoryAccessKind : IEquatable<RepositoryAccessKind>
-    {
-        private readonly string _value;
-
-        private RepositoryAccessKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RepositoryAccessKind OAuth { get; } = new RepositoryAccessKind("OAuth");
-        public static RepositoryAccessKind PAT { get; } = new RepositoryAccessKind("PAT");
-        public static RepositoryAccessKind App { get; } = new RepositoryAccessKind("App");
-
-        public static bool operator ==(RepositoryAccessKind left, RepositoryAccessKind right) => left.Equals(right);
-        public static bool operator !=(RepositoryAccessKind left, RepositoryAccessKind right) => !left.Equals(right);
-
-        public static explicit operator string(RepositoryAccessKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RepositoryAccessKind other && Equals(other);
-        public bool Equals(RepositoryAccessKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of security ML Analytics Settings
     /// </summary>
     [EnumType]

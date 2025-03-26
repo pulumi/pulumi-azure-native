@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:PrivateEndpointConnection" },
                 },

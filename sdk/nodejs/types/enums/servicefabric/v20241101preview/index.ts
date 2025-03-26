@@ -3,7 +3,13 @@
 
 
 export const Access = {
+    /**
+     * The network traffic is allowed.
+     */
     Allow: "allow",
+    /**
+     * The network traffic is denied.
+     */
     Deny: "deny",
 } as const;
 
@@ -73,7 +79,13 @@ export const ClusterUpgradeMode = {
 export type ClusterUpgradeMode = (typeof ClusterUpgradeMode)[keyof typeof ClusterUpgradeMode];
 
 export const Direction = {
+    /**
+     * Inbound direction.
+     */
     Inbound: "inbound",
+    /**
+     * Outbound direction.
+     */
     Outbound: "outbound",
 } as const;
 
@@ -231,12 +243,33 @@ export const MoveCost = {
 export type MoveCost = (typeof MoveCost)[keyof typeof MoveCost];
 
 export const NsgProtocol = {
+    /**
+     * Protocol applies to HTTP.
+     */
     Http: "http",
+    /**
+     * Protocol applies to HTTPS.
+     */
     Https: "https",
+    /**
+     * Protocol applies to TCP.
+     */
     Tcp: "tcp",
+    /**
+     * Protocol applies to UDP.
+     */
     Udp: "udp",
+    /**
+     * Protocol applies to ICMP.
+     */
     Icmp: "icmp",
+    /**
+     * Protocol applies to AH.
+     */
     Ah: "ah",
+    /**
+     * Protocol applies to ESP.
+     */
     Esp: "esp",
 } as const;
 
@@ -261,12 +294,18 @@ export const PartitionScheme = {
 } as const;
 
 /**
- * Specifies how the service is partitioned.
+ * Enumerates the ways that a service can be partitioned.
  */
 export type PartitionScheme = (typeof PartitionScheme)[keyof typeof PartitionScheme];
 
 export const PrivateEndpointNetworkPolicies = {
+    /**
+     * Enable apply network policies on private end point in the subnet.
+     */
     Enabled: "enabled",
+    /**
+     * Disable apply network policies on private end point in the subnet.
+     */
     Disabled: "disabled",
 } as const;
 
@@ -276,7 +315,13 @@ export const PrivateEndpointNetworkPolicies = {
 export type PrivateEndpointNetworkPolicies = (typeof PrivateEndpointNetworkPolicies)[keyof typeof PrivateEndpointNetworkPolicies];
 
 export const PrivateIPAddressVersion = {
+    /**
+     * The IP configuration's private IP is IPv4.
+     */
     IPv4: "IPv4",
+    /**
+     * The IP configuration's private IP is IPv6.
+     */
     IPv6: "IPv6",
 } as const;
 
@@ -286,7 +331,13 @@ export const PrivateIPAddressVersion = {
 export type PrivateIPAddressVersion = (typeof PrivateIPAddressVersion)[keyof typeof PrivateIPAddressVersion];
 
 export const PrivateLinkServiceNetworkPolicies = {
+    /**
+     * Enable apply network policies on private link service in the subnet.
+     */
     Enabled: "enabled",
+    /**
+     * Disable apply network policies on private link service in the subnet.
+     */
     Disabled: "disabled",
 } as const;
 
@@ -296,8 +347,17 @@ export const PrivateLinkServiceNetworkPolicies = {
 export type PrivateLinkServiceNetworkPolicies = (typeof PrivateLinkServiceNetworkPolicies)[keyof typeof PrivateLinkServiceNetworkPolicies];
 
 export const ProbeProtocol = {
+    /**
+     * Probe protocol is TCP.
+     */
     Tcp: "tcp",
+    /**
+     * Probe protocol is HTTP.
+     */
     Http: "http",
+    /**
+     * Probe protocol is HTTPS.
+     */
     Https: "https",
 } as const;
 
@@ -307,7 +367,13 @@ export const ProbeProtocol = {
 export type ProbeProtocol = (typeof ProbeProtocol)[keyof typeof ProbeProtocol];
 
 export const Protocol = {
+    /**
+     * Transport protocol is TCP.
+     */
     Tcp: "tcp",
+    /**
+     * Transport protocol is UDP.
+     */
     Udp: "udp",
 } as const;
 
@@ -317,7 +383,13 @@ export const Protocol = {
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 export const PublicIPAddressVersion = {
+    /**
+     * The IP configuration's public IP is IPv4.
+     */
     IPv4: "IPv4",
+    /**
+     * The IP configuration's public IP is IPv6.
+     */
     IPv6: "IPv6",
 } as const;
 
@@ -470,7 +542,7 @@ export const ServiceScalingMechanismKind = {
 } as const;
 
 /**
- * Specifies the mechanism associated with this scaling policy.
+ * Enumerates the ways that a service can be partitioned.
  */
 export type ServiceScalingMechanismKind = (typeof ServiceScalingMechanismKind)[keyof typeof ServiceScalingMechanismKind];
 
@@ -486,7 +558,7 @@ export const ServiceScalingTriggerKind = {
 } as const;
 
 /**
- * Specifies the trigger associated with this scaling policy.
+ * Enumerates the ways that a service can be partitioned.
  */
 export type ServiceScalingTriggerKind = (typeof ServiceScalingTriggerKind)[keyof typeof ServiceScalingTriggerKind];
 

@@ -37,7 +37,6 @@ __all__ = [
     'FaultSimulationResponse',
     'FrontendConfigurationResponse',
     'IpConfigurationResponse',
-    'IpConfigurationResponsePublicIPAddressConfiguration',
     'IpTagResponse',
     'LoadBalancingRuleResponse',
     'ManagedIdentityResponse',
@@ -47,6 +46,7 @@ __all__ = [
     'NodeTypeNatConfigResponse',
     'NodeTypeSkuResponse',
     'PartitionInstanceCountScaleMechanismResponse',
+    'PublicIPAddressConfigurationResponse',
     'ResourceAzStatusResponse',
     'RollingUpgradeMonitoringPolicyResponse',
     'ScalingPolicyResponse',
@@ -77,7 +77,7 @@ __all__ = [
     'VmImagePlanResponse',
     'VmManagedIdentityResponse',
     'VmssDataDiskResponse',
-    'ZoneFaultSimulationParametersResponse',
+    'ZoneFaultSimulationContentResponse',
 ]
 
 @pulumi.output_type
@@ -271,7 +271,6 @@ class ApplicationHealthPolicyResponse(dict):
                  service_type_health_policy_map: Optional[Mapping[str, 'outputs.ServiceTypeHealthPolicyResponse']] = None):
         """
         Defines a health policy used to evaluate the health of an application or one of its children entities.
-
         :param bool consider_warning_as_error: Indicates whether warnings are treated with the same severity as errors.
         :param int max_percent_unhealthy_deployed_applications: The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
                The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
@@ -416,6 +415,8 @@ class ApplicationUpgradePolicyResponse(dict):
         """
         if application_health_policy is not None:
             pulumi.set(__self__, "application_health_policy", application_health_policy)
+        if force_restart is None:
+            force_restart = False
         if force_restart is not None:
             pulumi.set(__self__, "force_restart", force_restart)
         if instance_close_delay_duration is not None:
@@ -488,6 +489,9 @@ class ApplicationUpgradePolicyResponse(dict):
 
 @pulumi.output_type
 class ApplicationUserAssignedIdentityResponse(dict):
+    """
+    User assigned identity for the application.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -509,6 +513,7 @@ class ApplicationUserAssignedIdentityResponse(dict):
                  name: str,
                  principal_id: str):
         """
+        User assigned identity for the application.
         :param str name: The friendly name of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
@@ -903,7 +908,6 @@ class ClusterHealthPolicyResponse(dict):
                  max_percent_unhealthy_nodes: Optional[int] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-
         :param int max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -1176,6 +1180,8 @@ class ClusterUpgradePolicyResponse(dict):
         """
         if delta_health_policy is not None:
             pulumi.set(__self__, "delta_health_policy", delta_health_policy)
+        if force_restart is None:
+            force_restart = False
         if force_restart is not None:
             pulumi.set(__self__, "force_restart", force_restart)
         if health_policy is not None:
@@ -1313,13 +1319,13 @@ class FaultSimulationDetailsResponse(dict):
                  cluster_id: Optional[str] = None,
                  node_type_fault_simulation: Optional[Sequence['outputs.NodeTypeFaultSimulationResponse']] = None,
                  operation_id: Optional[str] = None,
-                 parameters: Optional['outputs.ZoneFaultSimulationParametersResponse'] = None):
+                 parameters: Optional['outputs.ZoneFaultSimulationContentResponse'] = None):
         """
         Details for Fault Simulation.
         :param str cluster_id: unique identifier for the cluster resource.
         :param Sequence['NodeTypeFaultSimulationResponse'] node_type_fault_simulation: List of node type simulations associated with the cluster fault simulation.
         :param str operation_id: unique identifier for the operation associated with the fault simulation.
-        :param 'ZoneFaultSimulationParametersResponse' parameters: Fault simulation parameters.
+        :param 'ZoneFaultSimulationContentResponse' parameters: Fault simulation parameters.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -1356,7 +1362,7 @@ class FaultSimulationDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.ZoneFaultSimulationParametersResponse']:
+    def parameters(self) -> Optional['outputs.ZoneFaultSimulationContentResponse']:
         """
         Fault simulation parameters.
         """
@@ -1469,13 +1475,15 @@ class FrontendConfigurationResponse(dict):
                  load_balancer_inbound_nat_pool_id: Optional[str] = None):
         """
         Describes the frontend configurations for the node type.
-        :param str application_gateway_backend_address_pool_id: The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
+        :param str application_gateway_backend_address_pool_id: The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{backendAddressPoolName}'.
         :param str ip_address_type: The IP address type of this frontend configuration. If omitted the default value is IPv4.
-        :param str load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
-        :param str load_balancer_inbound_nat_pool_id: The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+        :param str load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}'.
+        :param str load_balancer_inbound_nat_pool_id: The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatPools/{inboundNatPoolName}'.
         """
         if application_gateway_backend_address_pool_id is not None:
             pulumi.set(__self__, "application_gateway_backend_address_pool_id", application_gateway_backend_address_pool_id)
+        if ip_address_type is None:
+            ip_address_type = 'IPv4'
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if load_balancer_backend_address_pool_id is not None:
@@ -1487,7 +1495,7 @@ class FrontendConfigurationResponse(dict):
     @pulumi.getter(name="applicationGatewayBackendAddressPoolId")
     def application_gateway_backend_address_pool_id(self) -> Optional[str]:
         """
-        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
+        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{backendAddressPoolName}'.
         """
         return pulumi.get(self, "application_gateway_backend_address_pool_id")
 
@@ -1503,7 +1511,7 @@ class FrontendConfigurationResponse(dict):
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
     def load_balancer_backend_address_pool_id(self) -> Optional[str]:
         """
-        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}'.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
@@ -1511,7 +1519,7 @@ class FrontendConfigurationResponse(dict):
     @pulumi.getter(name="loadBalancerInboundNatPoolId")
     def load_balancer_inbound_nat_pool_id(self) -> Optional[str]:
         """
-        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatPools/{inboundNatPoolName}'.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_pool_id")
 
@@ -1552,16 +1560,16 @@ class IpConfigurationResponse(dict):
                  load_balancer_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  load_balancer_inbound_nat_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  private_ip_address_version: Optional[str] = None,
-                 public_ip_address_configuration: Optional['outputs.IpConfigurationResponsePublicIPAddressConfiguration'] = None,
+                 public_ip_address_configuration: Optional['outputs.PublicIPAddressConfigurationResponse'] = None,
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         Specifies an IP configuration of the network interface.
         :param str name: Name of the network interface.
         :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
-        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param Sequence['SubResourceResponse'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param str private_ip_address_version: Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
-        :param 'IpConfigurationResponsePublicIPAddressConfiguration' public_ip_address_configuration: The public IP address configuration of the network interface.
+        :param 'PublicIPAddressConfigurationResponse' public_ip_address_configuration: The public IP address configuration of the network interface.
         :param 'SubResourceResponse' subnet: Specifies the subnet of the network interface.
         """
         pulumi.set(__self__, "name", name)
@@ -1600,7 +1608,7 @@ class IpConfigurationResponse(dict):
     @pulumi.getter(name="loadBalancerBackendAddressPools")
     def load_balancer_backend_address_pools(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
-        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
 
@@ -1622,7 +1630,7 @@ class IpConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="publicIPAddressConfiguration")
-    def public_ip_address_configuration(self) -> Optional['outputs.IpConfigurationResponsePublicIPAddressConfiguration']:
+    def public_ip_address_configuration(self) -> Optional['outputs.PublicIPAddressConfigurationResponse']:
         """
         The public IP address configuration of the network interface.
         """
@@ -1635,73 +1643,6 @@ class IpConfigurationResponse(dict):
         Specifies the subnet of the network interface.
         """
         return pulumi.get(self, "subnet")
-
-
-@pulumi.output_type
-class IpConfigurationResponsePublicIPAddressConfiguration(dict):
-    """
-    The public IP address configuration of the network interface.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipTags":
-            suggest = "ip_tags"
-        elif key == "publicIPAddressVersion":
-            suggest = "public_ip_address_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IpConfigurationResponsePublicIPAddressConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IpConfigurationResponsePublicIPAddressConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IpConfigurationResponsePublicIPAddressConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 ip_tags: Optional[Sequence['outputs.IpTagResponse']] = None,
-                 public_ip_address_version: Optional[str] = None):
-        """
-        The public IP address configuration of the network interface.
-        :param str name: Name of the network interface.
-        :param Sequence['IpTagResponse'] ip_tags: Specifies the list of IP tags associated with the public IP address.
-        :param str public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-        pulumi.set(__self__, "name", name)
-        if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
-        if public_ip_address_version is None:
-            public_ip_address_version = 'IPv4'
-        if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the network interface.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
-        """
-        Specifies the list of IP tags associated with the public IP address.
-        """
-        return pulumi.get(self, "ip_tags")
-
-    @property
-    @pulumi.getter(name="publicIPAddressVersion")
-    def public_ip_address_version(self) -> Optional[str]:
-        """
-        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-        return pulumi.get(self, "public_ip_address_version")
 
 
 @pulumi.output_type
@@ -2215,25 +2156,32 @@ class NodeTypeFaultSimulationResponse(dict):
     Node type fault simulation object with status.
     """
     def __init__(__self__, *,
+                 operation_status: str,
                  node_type_name: Optional[str] = None,
                  operation_id: Optional[str] = None,
-                 operation_status: Optional[str] = None,
                  status: Optional[str] = None):
         """
         Node type fault simulation object with status.
+        :param str operation_status: Current or latest asynchronous operation status on the node type
         :param str node_type_name: Node type name.
         :param str operation_id: Current or latest asynchronous operation identifier on the node type.
-        :param str operation_status: Current or latest asynchronous operation status on the node type
         :param str status: Fault simulation status
         """
+        pulumi.set(__self__, "operation_status", operation_status)
         if node_type_name is not None:
             pulumi.set(__self__, "node_type_name", node_type_name)
         if operation_id is not None:
             pulumi.set(__self__, "operation_id", operation_id)
-        if operation_status is not None:
-            pulumi.set(__self__, "operation_status", operation_status)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> str:
+        """
+        Current or latest asynchronous operation status on the node type
+        """
+        return pulumi.get(self, "operation_status")
 
     @property
     @pulumi.getter(name="nodeTypeName")
@@ -2250,14 +2198,6 @@ class NodeTypeFaultSimulationResponse(dict):
         Current or latest asynchronous operation identifier on the node type.
         """
         return pulumi.get(self, "operation_id")
-
-    @property
-    @pulumi.getter(name="operationStatus")
-    def operation_status(self) -> Optional[str]:
-        """
-        Current or latest asynchronous operation status on the node type
-        """
-        return pulumi.get(self, "operation_status")
 
     @property
     @pulumi.getter
@@ -2347,9 +2287,9 @@ class NodeTypeSkuResponse(dict):
                  tier: Optional[str] = None):
         """
         Describes a node type sku.
-        :param int capacity: The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
-        :param str name: The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
-        :param str tier: Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+        :param int capacity: The number of nodes in the node type. If present in request it will override properties.vmInstanceCount.
+        :param str name: The sku name. Name is internally generated and is used in auto-scale scenarios. Property does not allow to be changed to other values than generated. To avoid deployment errors please omit the property.
+        :param str tier: Specifies the tier of the node type. Possible Values: **Standard**
         """
         pulumi.set(__self__, "capacity", capacity)
         if name is not None:
@@ -2361,7 +2301,7 @@ class NodeTypeSkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> int:
         """
-        The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+        The number of nodes in the node type. If present in request it will override properties.vmInstanceCount.
         """
         return pulumi.get(self, "capacity")
 
@@ -2369,7 +2309,7 @@ class NodeTypeSkuResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+        The sku name. Name is internally generated and is used in auto-scale scenarios. Property does not allow to be changed to other values than generated. To avoid deployment errors please omit the property.
         """
         return pulumi.get(self, "name")
 
@@ -2377,7 +2317,7 @@ class NodeTypeSkuResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[str]:
         """
-        Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+        Specifies the tier of the node type. Possible Values: **Standard**
         """
         return pulumi.get(self, "tier")
 
@@ -2458,6 +2398,73 @@ class PartitionInstanceCountScaleMechanismResponse(dict):
         The number of instances to add or remove during a scaling operation.
         """
         return pulumi.get(self, "scale_increment")
+
+
+@pulumi.output_type
+class PublicIPAddressConfigurationResponse(dict):
+    """
+    The public IP address configuration of the network interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipTags":
+            suggest = "ip_tags"
+        elif key == "publicIPAddressVersion":
+            suggest = "public_ip_address_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 ip_tags: Optional[Sequence['outputs.IpTagResponse']] = None,
+                 public_ip_address_version: Optional[str] = None):
+        """
+        The public IP address configuration of the network interface.
+        :param str name: Name of the network interface.
+        :param Sequence['IpTagResponse'] ip_tags: Specifies the list of IP tags associated with the public IP address.
+        :param str public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        pulumi.set(__self__, "name", name)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if public_ip_address_version is None:
+            public_ip_address_version = 'IPv4'
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the network interface.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
+        """
+        Specifies the list of IP tags associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[str]:
+        """
+        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "public_ip_address_version")
 
 
 @pulumi.output_type
@@ -2901,12 +2908,12 @@ class ServicePlacementInvalidDomainPolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
     """
-    The name of the domain that should used for placement as per this policy.
+    The type of placement policy for a service fabric service. Following are the possible values.
     """
     def __init__(__self__, *,
                  type: str):
         """
-        The name of the domain that should used for placement as per this policy.
+        The type of placement policy for a service fabric service. Following are the possible values.
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
@@ -2925,7 +2932,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
     """
-    Describes the policy to be used for placement of a Service Fabric service where the service's 
+    Describes the policy to be used for placement of a Service Fabric service where the service's
     Primary replicas should optimally be placed in a particular domain.
 
     This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2955,7 +2962,7 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
                  domain_name: str,
                  type: str):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2963,7 +2970,6 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
-
         :param str domain_name: The name of the domain that should used for placement as per this policy.
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
@@ -3032,7 +3038,6 @@ class ServicePlacementRequireDomainDistributionPolicyResponse(dict):
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
-
         :param str domain_name: The name of the domain that should used for placement as per this policy.
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
@@ -3142,7 +3147,6 @@ class ServiceTypeHealthPolicyResponse(dict):
                  max_percent_unhealthy_services: int):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
-
         :param int max_percent_unhealthy_partitions_per_service: The maximum allowed percentage of unhealthy partitions per service.
                
                The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
@@ -4026,7 +4030,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC).
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -4071,7 +4075,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of resource last modification (UTC).
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -4176,6 +4180,9 @@ class UniformInt64RangePartitionSchemeResponse(dict):
 
 @pulumi.output_type
 class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4199,6 +4206,7 @@ class UserAssignedIdentityResponse(dict):
                  client_id: str,
                  principal_id: str):
         """
+        User assigned identity.
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
@@ -4432,7 +4440,7 @@ class VaultCertificateResponse(dict):
                  certificate_url: str):
         """
         Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
-        :param str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        :param str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name {UppercaseThumbprint}.crt for the X509 certificate file and {UppercaseThumbprint}.prv for private key. Both of these files are .pem formatted.
         :param str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
         """
         pulumi.set(__self__, "certificate_store", certificate_store)
@@ -4442,7 +4450,7 @@ class VaultCertificateResponse(dict):
     @pulumi.getter(name="certificateStore")
     def certificate_store(self) -> str:
         """
-        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name {UppercaseThumbprint}.crt for the X509 certificate file and {UppercaseThumbprint}.prv for private key. Both of these files are .pem formatted.
         """
         return pulumi.get(self, "certificate_store")
 
@@ -4617,7 +4625,7 @@ class VmApplicationResponse(dict):
 @pulumi.output_type
 class VmImagePlanResponse(dict):
     """
-    Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+    Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started. Enter any required information and then click Save.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4642,7 +4650,7 @@ class VmImagePlanResponse(dict):
                  promotion_code: Optional[str] = None,
                  publisher: Optional[str] = None):
         """
-        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started. Enter any required information and then click Save.
         :param str name: The plan ID.
         :param str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
         :param str promotion_code: The promotion code.
@@ -4759,7 +4767,7 @@ class VmssDataDiskResponse(dict):
     def __init__(__self__, *,
                  disk_letter: str,
                  disk_size_gb: int,
-                 disk_type: str,
+                 disk_type: Optional[str] = None,
                  lun: int):
         """
         Managed data disk description.
@@ -4770,6 +4778,8 @@ class VmssDataDiskResponse(dict):
         """
         pulumi.set(__self__, "disk_letter", disk_letter)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if disk_type is None:
+            disk_type = 'StandardSSD_LRS'
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "lun", lun)
 
@@ -4807,7 +4817,7 @@ class VmssDataDiskResponse(dict):
 
 
 @pulumi.output_type
-class ZoneFaultSimulationParametersResponse(dict):
+class ZoneFaultSimulationContentResponse(dict):
     """
     Parameters for Zone Fault Simulation action.
     """

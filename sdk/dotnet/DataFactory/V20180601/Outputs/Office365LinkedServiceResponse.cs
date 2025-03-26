@@ -41,6 +41,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The service principal credential type for authentication.'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. If not specified, 'ServicePrincipalKey' is in use. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ServicePrincipalCredentialType;
+        /// <summary>
+        /// Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalEmbeddedCert;
+        /// <summary>
+        /// Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalEmbeddedCertPassword;
+        /// <summary>
         /// Specify the application's client ID. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object ServicePrincipalId;
@@ -76,6 +88,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            object? servicePrincipalCredentialType,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalEmbeddedCert,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalEmbeddedCertPassword,
+
             object servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> servicePrincipalKey,
@@ -92,6 +110,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             EncryptedCredential = encryptedCredential;
             Office365TenantId = office365TenantId;
             Parameters = parameters;
+            ServicePrincipalCredentialType = servicePrincipalCredentialType;
+            ServicePrincipalEmbeddedCert = servicePrincipalEmbeddedCert;
+            ServicePrincipalEmbeddedCertPassword = servicePrincipalEmbeddedCertPassword;
             ServicePrincipalId = servicePrincipalId;
             ServicePrincipalKey = servicePrincipalKey;
             ServicePrincipalTenantId = servicePrincipalTenantId;

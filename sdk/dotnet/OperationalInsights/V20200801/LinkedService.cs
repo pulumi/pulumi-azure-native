@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedService" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:LinkedService" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedService" },
                 },
             };

@@ -129,7 +129,7 @@ def get_sql_server_instance(resource_group_name: Optional[str] = None,
     Retrieves a SQL Server Instance resource
     Azure REST API version: 2023-01-15-preview.
 
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param str resource_group_name: The name of the Azure resource group
@@ -156,7 +156,7 @@ def get_sql_server_instance_output(resource_group_name: Optional[pulumi.Input[st
     Retrieves a SQL Server Instance resource
     Azure REST API version: 2023-01-15-preview.
 
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param str resource_group_name: The name of the Azure resource group

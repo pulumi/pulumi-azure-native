@@ -198,7 +198,13 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
-    Retrieve a Spatial Anchors Account.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
+
+     Retrieve a Spatial Anchors Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -228,7 +234,13 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
     """
-    Retrieve a Spatial Anchors Account.
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
+
+     Retrieve a Spatial Anchors Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.

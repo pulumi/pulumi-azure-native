@@ -119,7 +119,7 @@ class Catalog(pulumi.CustomResource):
         Represents a catalog.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class Catalog(pulumi.CustomResource):
         Represents a catalog.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +185,7 @@ class Catalog(pulumi.CustomResource):
             __props__.__dict__["sync_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Catalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Catalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Catalog, __self__).__init__(
             'azure-native:devcenter:Catalog',

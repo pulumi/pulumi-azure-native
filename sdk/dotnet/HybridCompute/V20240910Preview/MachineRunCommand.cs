@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20240910Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240520preview:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:MachineRunCommand" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:MachineRunCommand" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute:MachineRunCommand" },
                 },
             };

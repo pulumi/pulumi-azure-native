@@ -215,7 +215,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
     The operation that retrieves information about the capacity reservation.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -255,7 +255,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
     The operation that retrieves information about the capacity reservation.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

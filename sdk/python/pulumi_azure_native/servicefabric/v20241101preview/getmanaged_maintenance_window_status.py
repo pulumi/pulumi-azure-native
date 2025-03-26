@@ -129,7 +129,7 @@ def getmanaged_maintenance_window_status(cluster_name: Optional[str] = None,
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -153,7 +153,7 @@ def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.In
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

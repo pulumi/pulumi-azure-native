@@ -39,7 +39,7 @@ export interface GetImportJobArgs {
  */
 export interface GetImportJobResult {
     /**
-     * The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+     * The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
      */
     readonly adminStatus?: string;
     /**

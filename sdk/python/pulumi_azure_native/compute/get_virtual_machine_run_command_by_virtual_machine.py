@@ -275,7 +275,7 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
     The operation to get the run command.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -320,7 +320,7 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
     The operation to get the run command.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
     :param str expand: The expand expression to apply on the operation.

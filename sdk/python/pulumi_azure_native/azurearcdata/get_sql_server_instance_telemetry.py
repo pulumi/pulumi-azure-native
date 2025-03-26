@@ -88,7 +88,7 @@ def get_sql_server_instance_telemetry(aggregation_type: Optional[Union[str, 'Agg
     Retrieves SQL Server instance telemetry
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-05-01-preview.
+    Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param Union[str, 'AggregationType'] aggregation_type: The aggregation type to use for the numerical columns in the dataset.
@@ -129,7 +129,7 @@ def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.I
     Retrieves SQL Server instance telemetry
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-05-01-preview.
+    Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param Union[str, 'AggregationType'] aggregation_type: The aggregation type to use for the numerical columns in the dataset.

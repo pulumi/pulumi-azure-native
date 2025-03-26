@@ -86,7 +86,7 @@ export class Dra extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Dra" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Dra" }, { type: "azure-native:datareplication/v20240901:Dra" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dra.__pulumiType, name, resourceInputs, opts);
     }

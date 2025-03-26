@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
 {
 
     /// <summary>
-    /// Represents a RegistrationInfo definition.  This is not returned on HostPool GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+    /// Represents a RegistrationInfo definition.
     /// </summary>
     public sealed class RegistrationInfoArgs : global::Pulumi.ResourceArgs
     {

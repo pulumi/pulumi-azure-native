@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Storage.V20240101.Outputs
 {
 
     /// <summary>
-    /// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+    /// The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
     /// </summary>
     [OutputType]
     public sealed class ManagementPolicySchemaResponse
     {
         /// <summary>
-        /// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagementPolicyRuleResponse> Rules;
 

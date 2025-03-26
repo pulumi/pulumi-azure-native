@@ -141,7 +141,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["workloadProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:Job" }, { type: "azure-native:app/v20230401preview:Job" }, { type: "azure-native:app/v20230501:Job" }, { type: "azure-native:app/v20230502preview:Job" }, { type: "azure-native:app/v20230801preview:Job" }, { type: "azure-native:app/v20231102preview:Job" }, { type: "azure-native:app/v20240301:Job" }, { type: "azure-native:app/v20240802preview:Job" }, { type: "azure-native:app/v20241002preview:Job" }, { type: "azure-native:app:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:Job" }, { type: "azure-native:app/v20230401preview:Job" }, { type: "azure-native:app/v20230501:Job" }, { type: "azure-native:app/v20230502preview:Job" }, { type: "azure-native:app/v20230801preview:Job" }, { type: "azure-native:app/v20231102preview:Job" }, { type: "azure-native:app/v20240301:Job" }, { type: "azure-native:app/v20240802preview:Job" }, { type: "azure-native:app/v20241002preview:Job" }, { type: "azure-native:app/v20250101:Job" }, { type: "azure-native:app:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }

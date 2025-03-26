@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Contoso
     /// <summary>
     /// Employee resource
     /// Azure REST API version: 2021-10-01-preview.
+    /// 
+    /// Other available API versions: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:contoso:Employee")]
     public partial class Employee : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.Contoso
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:contoso/v20211001preview:Employee" },
+                    new global::Pulumi.Alias { Type = "azure-native:contoso/v20211101:Employee" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

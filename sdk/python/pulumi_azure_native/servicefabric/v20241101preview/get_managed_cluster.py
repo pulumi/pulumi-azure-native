@@ -364,7 +364,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        Azure resource etag.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.",
         """
         return pulumi.get(self, "etag")
 
@@ -404,7 +404,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -444,7 +444,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Azure resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -452,7 +452,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -516,7 +516,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -524,7 +524,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -532,7 +532,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -634,7 +634,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -700,7 +700,7 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

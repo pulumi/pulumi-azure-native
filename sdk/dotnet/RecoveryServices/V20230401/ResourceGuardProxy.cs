@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240430preview:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240730preview:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241001:ResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241101preview:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ResourceGuardProxy" },
                 },
             };

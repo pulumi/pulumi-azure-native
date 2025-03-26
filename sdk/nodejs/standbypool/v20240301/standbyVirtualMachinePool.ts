@@ -114,7 +114,7 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
             resourceInputs["virtualMachineState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool:StandbyVirtualMachinePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool/v20250301:StandbyVirtualMachinePool" }, { type: "azure-native:standbypool:StandbyVirtualMachinePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StandbyVirtualMachinePool.__pulumiType, name, resourceInputs, opts);
     }

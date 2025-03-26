@@ -23,9 +23,12 @@ if typing.TYPE_CHECKING:
     v20241218preview = __v20241218preview
     import pulumi_azure_native.quota.v20250301 as __v20250301
     v20250301 = __v20250301
+    import pulumi_azure_native.quota.v20250315preview as __v20250315preview
+    v20250315preview = __v20250315preview
 else:
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.quota.v20230601preview')
     v20241015preview = _utilities.lazy_import('pulumi_azure_native.quota.v20241015preview')
     v20241218preview = _utilities.lazy_import('pulumi_azure_native.quota.v20241218preview')
     v20250301 = _utilities.lazy_import('pulumi_azure_native.quota.v20250301')
+    v20250315preview = _utilities.lazy_import('pulumi_azure_native.quota.v20250315preview')
 

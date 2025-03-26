@@ -165,7 +165,7 @@ def get_data_export(data_export_name: Optional[str] = None,
     Gets a data export instance.
     Azure REST API version: 2020-08-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2023-09-01, 2025-02-01.
 
 
     :param str data_export_name: The data export rule name.
@@ -198,7 +198,7 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
     Gets a data export instance.
     Azure REST API version: 2020-08-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2023-09-01, 2025-02-01.
 
 
     :param str data_export_name: The data export rule name.

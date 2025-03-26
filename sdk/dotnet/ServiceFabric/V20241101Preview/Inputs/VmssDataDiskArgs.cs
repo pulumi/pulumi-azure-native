@@ -41,6 +41,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20241101Preview.Inputs
 
         public VmssDataDiskArgs()
         {
+            DiskType = "StandardSSD_LRS";
         }
         public static new VmssDataDiskArgs Empty => new VmssDataDiskArgs();
     }

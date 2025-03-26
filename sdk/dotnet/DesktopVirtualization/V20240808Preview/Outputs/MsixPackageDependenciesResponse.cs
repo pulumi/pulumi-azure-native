@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Outputs
     public sealed class MsixPackageDependenciesResponse
     {
         /// <summary>
-        /// Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        /// Name of package dependency.
         /// </summary>
         public readonly string? DependencyName;
         /// <summary>

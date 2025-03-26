@@ -71,7 +71,7 @@ export interface GetSecurityPoliciesInterfaceResult {
      */
     readonly type: string;
     /**
-     * Web Application Firewall Policy of the Traffic Controller Security Policy
+     * Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
      */
     readonly wafPolicy?: outputs.servicenetworking.v20250101.WafPolicyResponse;
 }

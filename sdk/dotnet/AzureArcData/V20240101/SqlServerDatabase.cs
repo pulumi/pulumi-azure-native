@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlServerDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:SqlServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlServerDatabase" },
                 },
             };

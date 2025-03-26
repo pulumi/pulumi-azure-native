@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets a replication link.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getReplicationLink(args: GetReplicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,7 +108,7 @@ export interface GetReplicationLinkResult {
  * Gets a replication link.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getReplicationLinkOutput(args: GetReplicationLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -69,7 +69,7 @@ def list_host_pool_registration_tokens(host_pool_name: Optional[str] = None,
     Operation to list the RegistrationTokens associated with the HostPool.
     Azure REST API version: 2024-04-08-preview.
 
-    Other available API versions: 2024-04-03, 2024-08-08-preview.
+    Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -91,7 +91,7 @@ def list_host_pool_registration_tokens_output(host_pool_name: Optional[pulumi.In
     Operation to list the RegistrationTokens associated with the HostPool.
     Azure REST API version: 2024-04-08-preview.
 
-    Other available API versions: 2024-04-03, 2024-08-08-preview.
+    Other available API versions: 2024-04-03, 2024-08-08-preview, 2024-11-01-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

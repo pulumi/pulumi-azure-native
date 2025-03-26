@@ -57,6 +57,8 @@ def get_flow_source_addresses(connection_name: Optional[str] = None,
     Get the source addresses for the specified flow.
     Azure REST API version: 2024-09-27.
 
+    Other available API versions: 2025-03-01-preview.
+
 
     :param str connection_name: The name for the connection that is to be requested.
     :param str flow_name: The name for the flow that is to be onboarded.
@@ -78,6 +80,8 @@ def get_flow_source_addresses_output(connection_name: Optional[pulumi.Input[str]
     """
     Get the source addresses for the specified flow.
     Azure REST API version: 2024-09-27.
+
+    Other available API versions: 2025-03-01-preview.
 
 
     :param str connection_name: The name for the connection that is to be requested.

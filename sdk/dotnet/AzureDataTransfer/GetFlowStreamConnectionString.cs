@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the connection string for the specified flow.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Task<GetFlowStreamConnectionStringResult> InvokeAsync(GetFlowStreamConnectionStringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the connection string for the specified flow.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetFlowStreamConnectionStringResult> Invoke(GetFlowStreamConnectionStringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Get the connection string for the specified flow.
         /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Other available API versions: 2025-03-01-preview.
         /// </summary>
         public static Output<GetFlowStreamConnectionStringResult> Invoke(GetFlowStreamConnectionStringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringInvokeArgs(), options.WithDefaults());

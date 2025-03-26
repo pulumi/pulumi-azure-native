@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The policy exemption.
  * Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview.
+ *
+ * Other available API versions: 2024-12-01-preview.
  */
 export class PolicyExemption extends pulumi.CustomResource {
     /**
@@ -136,7 +138,7 @@ export class PolicyExemption extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200701preview:PolicyExemption" }, { type: "azure-native:authorization/v20220701preview:PolicyExemption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200701preview:PolicyExemption" }, { type: "azure-native:authorization/v20220701preview:PolicyExemption" }, { type: "azure-native:authorization/v20241201preview:PolicyExemption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyExemption.__pulumiType, name, resourceInputs, opts);
     }

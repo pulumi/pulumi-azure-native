@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * This operation retrieves a single variable, given its name and the subscription it was created at.
  * Azure REST API version: 2022-08-01-preview.
+ *
+ * Other available API versions: 2024-12-01-preview.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +55,8 @@ export interface GetVariableResult {
 /**
  * This operation retrieves a single variable, given its name and the subscription it was created at.
  * Azure REST API version: 2022-08-01-preview.
+ *
+ * Other available API versions: 2024-12-01-preview.
  */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

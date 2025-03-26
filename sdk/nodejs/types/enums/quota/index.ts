@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20230601preview from "./v20230601preview";
 import * as v20241015preview from "./v20241015preview";
+import * as v20250315preview from "./v20250315preview";
 
 export {
     v20230601preview,
     v20241015preview,
+    v20250315preview,
 };
 
 export const GroupingIdType = {

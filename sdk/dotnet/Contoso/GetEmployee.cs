@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Contoso
         /// <summary>
         /// Get a Employee
         /// Azure REST API version: 2021-10-01-preview.
+        /// 
+        /// Other available API versions: 2021-11-01.
         /// </summary>
         public static Task<GetEmployeeResult> InvokeAsync(GetEmployeeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Contoso
         /// <summary>
         /// Get a Employee
         /// Azure REST API version: 2021-10-01-preview.
+        /// 
+        /// Other available API versions: 2021-11-01.
         /// </summary>
         public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Contoso
         /// <summary>
         /// Get a Employee
         /// Azure REST API version: 2021-10-01-preview.
+        /// 
+        /// Other available API versions: 2021-11-01.
         /// </summary>
         public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());

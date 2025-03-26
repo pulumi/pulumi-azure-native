@@ -20,8 +20,6 @@ __all__ = [
     'AgentUpdatePropertiesArgsDict',
     'AppAttachPackageInfoPropertiesArgs',
     'AppAttachPackageInfoPropertiesArgsDict',
-    'AppAttachPackagePropertiesArgs',
-    'AppAttachPackagePropertiesArgsDict',
     'MaintenanceWindowPropertiesArgs',
     'MaintenanceWindowPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
@@ -151,23 +149,23 @@ if not MYPY:
         """
         certificate_expiry: NotRequired[pulumi.Input[str]]
         """
-        Date certificate expires, found in the appxmanifest.xml. 
+        Date certificate expires, found in the appxmanifest.xml.
         """
         certificate_name: NotRequired[pulumi.Input[str]]
         """
-        Certificate name found in the appxmanifest.xml. 
+        Certificate name found in the appxmanifest.xml.
         """
         display_name: NotRequired[pulumi.Input[str]]
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         image_path: NotRequired[pulumi.Input[str]]
         """
-        VHD/CIM/APP-V image path on Network Share.
+        VHD/CIM image path on Network Share.
         """
         is_active: NotRequired[pulumi.Input[bool]]
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         is_package_timestamped: NotRequired[pulumi.Input[Union[str, 'PackageTimestamped']]]
         """
@@ -179,7 +177,7 @@ if not MYPY:
         """
         last_updated: NotRequired[pulumi.Input[str]]
         """
-        Date the package source was last updated, for Msix packages this is found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         package_alias: NotRequired[pulumi.Input[str]]
         """
@@ -187,31 +185,31 @@ if not MYPY:
         """
         package_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgsDict']]]]
         """
-        List of package applications. 
+        List of package applications.
         """
         package_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgsDict']]]]
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         package_family_name: NotRequired[pulumi.Input[str]]
         """
-        Identifier not including the package version, for Msix packages it is the family name from the appxmanifest.xml. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         package_full_name: NotRequired[pulumi.Input[str]]
         """
-        Identifier including the package version, for Msix packages it is the full name from the appxmanifest.xml. 
+        Package Full Name from appxmanifest.xml.
         """
         package_name: NotRequired[pulumi.Input[str]]
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         package_relative_path: NotRequired[pulumi.Input[str]]
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         version: NotRequired[pulumi.Input[str]]
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
 elif False:
     AppAttachPackageInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -237,22 +235,22 @@ class AppAttachPackageInfoPropertiesArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Schema for Import Package Information properties.
-        :param pulumi.Input[str] certificate_expiry: Date certificate expires, found in the appxmanifest.xml. 
-        :param pulumi.Input[str] certificate_name: Certificate name found in the appxmanifest.xml. 
-        :param pulumi.Input[str] display_name: User friendly Name to be displayed in the portal. 
-        :param pulumi.Input[str] image_path: VHD/CIM/APP-V image path on Network Share.
-        :param pulumi.Input[bool] is_active: Make this version of the package the active one across the hostpool. 
+        :param pulumi.Input[str] certificate_expiry: Date certificate expires, found in the appxmanifest.xml.
+        :param pulumi.Input[str] certificate_name: Certificate name found in the appxmanifest.xml.
+        :param pulumi.Input[str] display_name: User friendly Name to be displayed in the portal.
+        :param pulumi.Input[str] image_path: VHD/CIM image path on Network Share.
+        :param pulumi.Input[bool] is_active: Make this version of the package the active one across the hostpool.
         :param pulumi.Input[Union[str, 'PackageTimestamped']] is_package_timestamped: Is package timestamped so it can ignore the certificate expiry date
         :param pulumi.Input[bool] is_regular_registration: Specifies how to register Package in feed.
-        :param pulumi.Input[str] last_updated: Date the package source was last updated, for Msix packages this is found in the appxmanifest.xml. 
+        :param pulumi.Input[str] last_updated: Date Package was last updated, found in the appxmanifest.xml.
         :param pulumi.Input[str] package_alias: Alias of App Attach Package. Assigned at import time
-        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications. 
-        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies. 
-        :param pulumi.Input[str] package_family_name: Identifier not including the package version, for Msix packages it is the family name from the appxmanifest.xml. 
-        :param pulumi.Input[str] package_full_name: Identifier including the package version, for Msix packages it is the full name from the appxmanifest.xml. 
-        :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
-        :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
-        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications.
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies.
+        :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
+        :param pulumi.Input[str] package_full_name: Package Full Name from appxmanifest.xml.
+        :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml.
+        :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image.
+        :param pulumi.Input[str] version: Package version found in the appxmanifest.xml.
         """
         if certificate_expiry is not None:
             pulumi.set(__self__, "certificate_expiry", certificate_expiry)
@@ -291,7 +289,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="certificateExpiry")
     def certificate_expiry(self) -> Optional[pulumi.Input[str]]:
         """
-        Date certificate expires, found in the appxmanifest.xml. 
+        Date certificate expires, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_expiry")
 
@@ -303,7 +301,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate name found in the appxmanifest.xml. 
+        Certificate name found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -315,7 +313,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         return pulumi.get(self, "display_name")
 
@@ -327,7 +325,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="imagePath")
     def image_path(self) -> Optional[pulumi.Input[str]]:
         """
-        VHD/CIM/APP-V image path on Network Share.
+        VHD/CIM image path on Network Share.
         """
         return pulumi.get(self, "image_path")
 
@@ -339,7 +337,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[pulumi.Input[bool]]:
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         return pulumi.get(self, "is_active")
 
@@ -375,7 +373,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[pulumi.Input[str]]:
         """
-        Date the package source was last updated, for Msix packages this is found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "last_updated")
 
@@ -399,7 +397,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="packageApplications")
     def package_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]:
         """
-        List of package applications. 
+        List of package applications.
         """
         return pulumi.get(self, "package_applications")
 
@@ -411,7 +409,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="packageDependencies")
     def package_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]:
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         return pulumi.get(self, "package_dependencies")
 
@@ -423,7 +421,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="packageFamilyName")
     def package_family_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier not including the package version, for Msix packages it is the family name from the appxmanifest.xml. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         return pulumi.get(self, "package_family_name")
 
@@ -435,7 +433,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="packageFullName")
     def package_full_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier including the package version, for Msix packages it is the full name from the appxmanifest.xml. 
+        Package Full Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_full_name")
 
@@ -447,7 +445,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_name")
 
@@ -459,7 +457,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter(name="packageRelativePath")
     def package_relative_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         return pulumi.get(self, "package_relative_path")
 
@@ -471,169 +469,13 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
         return pulumi.get(self, "version")
 
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
-
-
-if not MYPY:
-    class AppAttachPackagePropertiesArgsDict(TypedDict):
-        """
-        Schema for App Attach Package properties.
-        """
-        custom_data: NotRequired[pulumi.Input[str]]
-        """
-        Field that can be populated with custom data and filtered on in list GET calls
-        """
-        fail_health_check_on_staging_failure: NotRequired[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]]
-        """
-        Parameter indicating how the health check should behave if this package fails staging
-        """
-        host_pool_references: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of Hostpool resource Ids.
-        """
-        image: NotRequired[pulumi.Input['AppAttachPackageInfoPropertiesArgsDict']]
-        """
-        Detailed properties for App Attach Package
-        """
-        key_vault_url: NotRequired[pulumi.Input[str]]
-        """
-        URL of keyvault location to store certificate
-        """
-        package_lookback_url: NotRequired[pulumi.Input[str]]
-        """
-        Lookback url to third party control plane, is null for native app attach packages
-        """
-        package_owner_name: NotRequired[pulumi.Input[str]]
-        """
-        Specific name of package owner, is "AppAttach" for native app attach packages
-        """
-elif False:
-    AppAttachPackagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AppAttachPackagePropertiesArgs:
-    def __init__(__self__, *,
-                 custom_data: Optional[pulumi.Input[str]] = None,
-                 fail_health_check_on_staging_failure: Optional[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]] = None,
-                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 image: Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']] = None,
-                 key_vault_url: Optional[pulumi.Input[str]] = None,
-                 package_lookback_url: Optional[pulumi.Input[str]] = None,
-                 package_owner_name: Optional[pulumi.Input[str]] = None):
-        """
-        Schema for App Attach Package properties.
-        :param pulumi.Input[str] custom_data: Field that can be populated with custom data and filtered on in list GET calls
-        :param pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']] fail_health_check_on_staging_failure: Parameter indicating how the health check should behave if this package fails staging
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_pool_references: List of Hostpool resource Ids.
-        :param pulumi.Input['AppAttachPackageInfoPropertiesArgs'] image: Detailed properties for App Attach Package
-        :param pulumi.Input[str] key_vault_url: URL of keyvault location to store certificate
-        :param pulumi.Input[str] package_lookback_url: Lookback url to third party control plane, is null for native app attach packages
-        :param pulumi.Input[str] package_owner_name: Specific name of package owner, is "AppAttach" for native app attach packages
-        """
-        if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
-        if fail_health_check_on_staging_failure is not None:
-            pulumi.set(__self__, "fail_health_check_on_staging_failure", fail_health_check_on_staging_failure)
-        if host_pool_references is not None:
-            pulumi.set(__self__, "host_pool_references", host_pool_references)
-        if image is not None:
-            pulumi.set(__self__, "image", image)
-        if key_vault_url is not None:
-            pulumi.set(__self__, "key_vault_url", key_vault_url)
-        if package_lookback_url is not None:
-            pulumi.set(__self__, "package_lookback_url", package_lookback_url)
-        if package_owner_name is not None:
-            pulumi.set(__self__, "package_owner_name", package_owner_name)
-
-    @property
-    @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Field that can be populated with custom data and filtered on in list GET calls
-        """
-        return pulumi.get(self, "custom_data")
-
-    @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_data", value)
-
-    @property
-    @pulumi.getter(name="failHealthCheckOnStagingFailure")
-    def fail_health_check_on_staging_failure(self) -> Optional[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]]:
-        """
-        Parameter indicating how the health check should behave if this package fails staging
-        """
-        return pulumi.get(self, "fail_health_check_on_staging_failure")
-
-    @fail_health_check_on_staging_failure.setter
-    def fail_health_check_on_staging_failure(self, value: Optional[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]]):
-        pulumi.set(self, "fail_health_check_on_staging_failure", value)
-
-    @property
-    @pulumi.getter(name="hostPoolReferences")
-    def host_pool_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Hostpool resource Ids.
-        """
-        return pulumi.get(self, "host_pool_references")
-
-    @host_pool_references.setter
-    def host_pool_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "host_pool_references", value)
-
-    @property
-    @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']]:
-        """
-        Detailed properties for App Attach Package
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']]):
-        pulumi.set(self, "image", value)
-
-    @property
-    @pulumi.getter(name="keyVaultURL")
-    def key_vault_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL of keyvault location to store certificate
-        """
-        return pulumi.get(self, "key_vault_url")
-
-    @key_vault_url.setter
-    def key_vault_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_vault_url", value)
-
-    @property
-    @pulumi.getter(name="packageLookbackUrl")
-    def package_lookback_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Lookback url to third party control plane, is null for native app attach packages
-        """
-        return pulumi.get(self, "package_lookback_url")
-
-    @package_lookback_url.setter
-    def package_lookback_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "package_lookback_url", value)
-
-    @property
-    @pulumi.getter(name="packageOwnerName")
-    def package_owner_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specific name of package owner, is "AppAttach" for native app attach packages
-        """
-        return pulumi.get(self, "package_owner_name")
-
-    @package_owner_name.setter
-    def package_owner_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "package_owner_name", value)
 
 
 if not MYPY:
@@ -910,7 +752,7 @@ if not MYPY:
         """
         dependency_name: NotRequired[pulumi.Input[str]]
         """
-        Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        Name of package dependency.
         """
         min_version: NotRequired[pulumi.Input[str]]
         """
@@ -931,7 +773,7 @@ class MsixPackageDependenciesArgs:
                  publisher: Optional[pulumi.Input[str]] = None):
         """
         Schema for MSIX Package Dependencies properties.
-        :param pulumi.Input[str] dependency_name: Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        :param pulumi.Input[str] dependency_name: Name of package dependency.
         :param pulumi.Input[str] min_version: Dependency version required.
         :param pulumi.Input[str] publisher: Name of dependency publisher.
         """
@@ -946,7 +788,7 @@ class MsixPackageDependenciesArgs:
     @pulumi.getter(name="dependencyName")
     def dependency_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the package dependency. For Msix packages, this is the other packages this package depends upon, for APP-V packages this is the locations of the user and deployment config files
+        Name of package dependency.
         """
         return pulumi.get(self, "dependency_name")
 
@@ -1171,7 +1013,7 @@ class PrivateLinkServiceConnectionStateArgs:
 if not MYPY:
     class RegistrationInfoArgsDict(TypedDict):
         """
-        Represents a RegistrationInfo definition.  This is not returned on HostPool GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        Represents a RegistrationInfo definition.
         """
         expiration_time: NotRequired[pulumi.Input[str]]
         """
@@ -1195,7 +1037,7 @@ class RegistrationInfoArgs:
                  registration_token_operation: Optional[pulumi.Input[Union[str, 'RegistrationTokenOperation']]] = None,
                  token: Optional[pulumi.Input[str]] = None):
         """
-        Represents a RegistrationInfo definition.  This is not returned on HostPool GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+        Represents a RegistrationInfo definition.
         :param pulumi.Input[str] expiration_time: Expiration time of registration token.
         :param pulumi.Input[Union[str, 'RegistrationTokenOperation']] registration_token_operation: The type of resetting the token.
         :param pulumi.Input[str] token: The registration token base64 encoded string.
@@ -1305,7 +1147,7 @@ if not MYPY:
         """
         A ScalingPlanPooledSchedule.
         """
-        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]]
+        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
         """
         Set of days of the week on which this schedule is active.
         """
@@ -1383,7 +1225,7 @@ elif False:
 @pulumi.input_type
 class ScalingScheduleArgs:
     def __init__(__self__, *,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
@@ -1403,7 +1245,7 @@ class ScalingScheduleArgs:
                  ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None):
         """
         A ScalingPlanPooledSchedule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_week: Set of days of the week on which this schedule is active.
         :param pulumi.Input[str] name: Name of the ScalingPlanPooledSchedule.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] off_peak_load_balancing_algorithm: Load balancing algorithm for off-peak period.
         :param pulumi.Input['TimeArgs'] off_peak_start_time: Starting time for off-peak period.
@@ -1461,14 +1303,14 @@ class ScalingScheduleArgs:
 
     @property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]]:
+    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
         """
         Set of days of the week on which this schedule is active.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]]):
+    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "days_of_week", value)
 
     @property

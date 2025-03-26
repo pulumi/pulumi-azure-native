@@ -39,15 +39,15 @@ class ListManagedClusterFaultSimulationResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[str]:
         """
-        The URL to use for getting the next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.FaultSimulationResponse']]:
+    def value(self) -> Sequence['outputs.FaultSimulationResponse']:
         """
-        The list of fault simulations.
+        The FaultSimulation items on this page
         """
         return pulumi.get(self, "value")
 
@@ -71,7 +71,7 @@ def list_managed_cluster_fault_simulation(cluster_name: Optional[str] = None,
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -91,7 +91,7 @@ def list_managed_cluster_fault_simulation_output(cluster_name: Optional[pulumi.I
 
 
     :param str cluster_name: The name of the cluster resource.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

@@ -264,7 +264,7 @@ namespace Pulumi.AzureNative.StorageCache.V20240701
 
         public AutoExportJobArgs()
         {
-            AdminStatus = "Active";
+            AdminStatus = "Enable";
         }
         public static new AutoExportJobArgs Empty => new AutoExportJobArgs();
     }

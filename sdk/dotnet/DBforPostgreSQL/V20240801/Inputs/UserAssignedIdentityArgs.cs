@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        /// the types of identities associated with this resource
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20240801.IdentityType> Type { get; set; } = null!;

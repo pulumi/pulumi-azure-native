@@ -121,8 +121,8 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
@@ -150,8 +150,8 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// Workspace resource.
     /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
     /// 
-    /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240301:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240331:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20250301preview:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -124,7 +124,7 @@ class GetSecurityPoliciesInterfaceResult:
     @pulumi.getter(name="wafPolicy")
     def waf_policy(self) -> Optional['outputs.WafPolicyResponse']:
         """
-        Web Application Firewall Policy of the Traffic Controller Security Policy
+        Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         return pulumi.get(self, "waf_policy")
 
@@ -154,7 +154,7 @@ def get_security_policies_interface(resource_group_name: Optional[str] = None,
     Get a SecurityPolicy
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2025-01-01.
+    Other available API versions: 2025-01-01, 2025-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -186,7 +186,7 @@ def get_security_policies_interface_output(resource_group_name: Optional[pulumi.
     Get a SecurityPolicy
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2025-01-01.
+    Other available API versions: 2025-01-01, 2025-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

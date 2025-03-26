@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure SQL job agent.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
  */
 export class JobAgent extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class JobAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobAgent" }, { type: "azure-native:sql/v20200202preview:JobAgent" }, { type: "azure-native:sql/v20200801preview:JobAgent" }, { type: "azure-native:sql/v20201101preview:JobAgent" }, { type: "azure-native:sql/v20210201preview:JobAgent" }, { type: "azure-native:sql/v20210501preview:JobAgent" }, { type: "azure-native:sql/v20210801preview:JobAgent" }, { type: "azure-native:sql/v20211101:JobAgent" }, { type: "azure-native:sql/v20211101preview:JobAgent" }, { type: "azure-native:sql/v20220201preview:JobAgent" }, { type: "azure-native:sql/v20220501preview:JobAgent" }, { type: "azure-native:sql/v20220801preview:JobAgent" }, { type: "azure-native:sql/v20221101preview:JobAgent" }, { type: "azure-native:sql/v20230201preview:JobAgent" }, { type: "azure-native:sql/v20230501preview:JobAgent" }, { type: "azure-native:sql/v20230801preview:JobAgent" }, { type: "azure-native:sql/v20240501preview:JobAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobAgent" }, { type: "azure-native:sql/v20200202preview:JobAgent" }, { type: "azure-native:sql/v20200801preview:JobAgent" }, { type: "azure-native:sql/v20201101preview:JobAgent" }, { type: "azure-native:sql/v20210201preview:JobAgent" }, { type: "azure-native:sql/v20210501preview:JobAgent" }, { type: "azure-native:sql/v20210801preview:JobAgent" }, { type: "azure-native:sql/v20211101:JobAgent" }, { type: "azure-native:sql/v20211101preview:JobAgent" }, { type: "azure-native:sql/v20220201preview:JobAgent" }, { type: "azure-native:sql/v20220501preview:JobAgent" }, { type: "azure-native:sql/v20220801preview:JobAgent" }, { type: "azure-native:sql/v20221101preview:JobAgent" }, { type: "azure-native:sql/v20230201preview:JobAgent" }, { type: "azure-native:sql/v20230501preview:JobAgent" }, { type: "azure-native:sql/v20230801:JobAgent" }, { type: "azure-native:sql/v20230801preview:JobAgent" }, { type: "azure-native:sql/v20240501preview:JobAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobAgent.__pulumiType, name, resourceInputs, opts);
     }

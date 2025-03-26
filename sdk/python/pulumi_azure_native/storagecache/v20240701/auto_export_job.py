@@ -43,7 +43,7 @@ class AutoExportJobArgs:
         pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admin_status is None:
-            admin_status = 'Active'
+            admin_status = 'Enable'
         if admin_status is not None:
             pulumi.set(__self__, "admin_status", admin_status)
         if auto_export_job_name is not None:
@@ -224,7 +224,7 @@ class AutoExportJob(pulumi.CustomResource):
             __props__ = AutoExportJobArgs.__new__(AutoExportJobArgs)
 
             if admin_status is None:
-                admin_status = 'Active'
+                admin_status = 'Enable'
             __props__.__dict__["admin_status"] = admin_status
             if aml_filesystem_name is None and not opts.urn:
                 raise TypeError("Missing required property 'aml_filesystem_name'")

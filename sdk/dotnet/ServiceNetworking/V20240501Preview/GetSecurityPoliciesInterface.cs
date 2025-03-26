@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20240501Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Web Application Firewall Policy of the Traffic Controller Security Policy
+        /// Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         /// </summary>
         public readonly Outputs.WafPolicyResponse? WafPolicy;
 

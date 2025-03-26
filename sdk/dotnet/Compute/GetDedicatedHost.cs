@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a dedicated host.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a dedicated host.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a dedicated host.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());

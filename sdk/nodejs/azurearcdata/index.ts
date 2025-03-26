@@ -128,11 +128,13 @@ export * from "../types/enums/azurearcdata";
 import * as v20230115preview from "./v20230115preview";
 import * as v20240101 from "./v20240101";
 import * as v20240501preview from "./v20240501preview";
+import * as v20250301preview from "./v20250301preview";
 
 export {
     v20230115preview,
     v20240101,
     v20240501preview,
+    v20250301preview,
 };
 
 const _module = {

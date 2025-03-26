@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
-        /// The host name of the Snowflake account.
+        /// The host name of the Snowflake account. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Host;
         /// <summary>
@@ -72,6 +72,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? PrivateKeyPassphrase;
+        /// <summary>
+        /// The default access control role to use in the Snowflake session. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Role;
+        /// <summary>
+        /// Schema name for connection. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Schema;
         /// <summary>
         /// The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         /// </summary>
@@ -128,6 +136,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? privateKeyPassphrase,
 
+            object? role,
+
+            object? schema,
+
             object? scope,
 
             object? tenantId,
@@ -154,6 +166,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Password = password;
             PrivateKey = privateKey;
             PrivateKeyPassphrase = privateKeyPassphrase;
+            Role = role;
+            Schema = schema;
             Scope = scope;
             TenantId = tenantId;
             Type = type;

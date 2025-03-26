@@ -5626,8 +5626,7 @@ class RampUpRuleResponse(dict):
         """
         Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
         :param str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-        :param str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-               https://www.siteextensions.net/packages/TiPCallback/
+        :param str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         :param int change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
         :param float change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
                <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
@@ -5666,8 +5665,7 @@ class RampUpRuleResponse(dict):
     @pulumi.getter(name="changeDecisionCallbackUrl")
     def change_decision_callback_url(self) -> Optional[str]:
         """
-        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-        https://www.siteextensions.net/packages/TiPCallback/
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         """
         return pulumi.get(self, "change_decision_callback_url")
 

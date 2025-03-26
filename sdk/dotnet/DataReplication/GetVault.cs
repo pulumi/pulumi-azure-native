@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the vault.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:datareplication:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the vault.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:datareplication:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the vault.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:datareplication:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

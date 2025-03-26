@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// A copy activity Azure PostgreSQL source.
+    /// A copy activity Azure Database for PostgreSQL source.
     /// </summary>
     [OutputType]
     public sealed class AzurePostgreSqlSourceResponse

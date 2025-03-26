@@ -135,7 +135,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
         Arc Sql Server Availability Group
         Azure REST API version: 2024-01-01.
 
-        Other available API versions: 2024-05-01-preview.
+        Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
         Arc Sql Server Availability Group
         Azure REST API version: 2024-01-01.
 
-        Other available API versions: 2024-05-01-preview.
+        Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SqlServerAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20250301preview:SqlServerAvailabilityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerAvailabilityGroup, __self__).__init__(
             'azure-native:azurearcdata:SqlServerAvailabilityGroup',

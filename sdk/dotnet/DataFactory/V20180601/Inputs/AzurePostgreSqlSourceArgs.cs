@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
-    /// A copy activity Azure PostgreSQL source.
+    /// A copy activity Azure Database for PostgreSQL source.
     /// </summary>
     public sealed class AzurePostgreSqlSourceArgs : global::Pulumi.ResourceArgs
     {

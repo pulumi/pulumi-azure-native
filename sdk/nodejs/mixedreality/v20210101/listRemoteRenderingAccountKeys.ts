@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * List Both of the 2 Keys of a Remote Rendering Account
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  List Both of the 2 Keys of a Remote Rendering Account
  */
 export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRemoteRenderingAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +46,13 @@ export interface ListRemoteRenderingAccountKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * List Both of the 2 Keys of a Remote Rendering Account
+ * > [!NOTE]
+ * > 
+ * > **Mixed Reality retirement**
+ * > 
+ * > The Mixed Reality service is now deprecated and will be retired.
+ *
+ *  List Both of the 2 Keys of a Remote Rendering Account
  */
 export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

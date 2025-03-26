@@ -158,7 +158,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:Application" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:Application" },
@@ -167,6 +166,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:Application" },
                 },
             };

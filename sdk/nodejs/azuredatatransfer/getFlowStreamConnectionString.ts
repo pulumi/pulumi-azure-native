@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Get the connection string for the specified flow.
  * Azure REST API version: 2024-09-27.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getFlowStreamConnectionString(args: GetFlowStreamConnectionStringArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowStreamConnectionStringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +46,8 @@ export interface GetFlowStreamConnectionStringResult {
 /**
  * Get the connection string for the specified flow.
  * Azure REST API version: 2024-09-27.
+ *
+ * Other available API versions: 2025-03-01-preview.
  */
 export function getFlowStreamConnectionStringOutput(args: GetFlowStreamConnectionStringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowStreamConnectionStringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

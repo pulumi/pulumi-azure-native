@@ -48,8 +48,6 @@ __all__ = [
     'EndpointRangeDescriptionArgsDict',
     'FrontendConfigurationArgs',
     'FrontendConfigurationArgsDict',
-    'IpConfigurationPublicIPAddressConfigurationArgs',
-    'IpConfigurationPublicIPAddressConfigurationArgsDict',
     'IpConfigurationArgs',
     'IpConfigurationArgsDict',
     'IpTagArgs',
@@ -68,6 +66,8 @@ __all__ = [
     'NodeTypeSkuArgsDict',
     'PartitionInstanceCountScaleMechanismArgs',
     'PartitionInstanceCountScaleMechanismArgsDict',
+    'PublicIPAddressConfigurationArgs',
+    'PublicIPAddressConfigurationArgsDict',
     'RollingUpgradeMonitoringPolicyArgs',
     'RollingUpgradeMonitoringPolicyArgsDict',
     'ScalingPolicyArgs',
@@ -351,7 +351,6 @@ class ApplicationHealthPolicyArgs:
                  service_type_health_policy_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]] = None):
         """
         Defines a health policy used to evaluate the health of an application or one of its children entities.
-
         :param pulumi.Input[bool] consider_warning_as_error: Indicates whether warnings are treated with the same severity as errors.
         :param pulumi.Input[int] max_percent_unhealthy_deployed_applications: The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
                The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
@@ -512,6 +511,8 @@ class ApplicationUpgradePolicyArgs:
         """
         if application_health_policy is not None:
             pulumi.set(__self__, "application_health_policy", application_health_policy)
+        if force_restart is None:
+            force_restart = False
         if force_restart is not None:
             pulumi.set(__self__, "force_restart", force_restart)
         if instance_close_delay_duration is not None:
@@ -612,6 +613,9 @@ class ApplicationUpgradePolicyArgs:
 
 if not MYPY:
     class ApplicationUserAssignedIdentityArgsDict(TypedDict):
+        """
+        User assigned identity for the application.
+        """
         name: pulumi.Input[str]
         """
         The friendly name of user assigned identity.
@@ -629,6 +633,7 @@ class ApplicationUserAssignedIdentityArgs:
                  name: pulumi.Input[str],
                  principal_id: pulumi.Input[str]):
         """
+        User assigned identity for the application.
         :param pulumi.Input[str] name: The friendly name of user assigned identity.
         :param pulumi.Input[str] principal_id: The principal id of user assigned identity.
         """
@@ -1113,7 +1118,6 @@ class ClusterHealthPolicyArgs:
                  max_percent_unhealthy_nodes: Optional[pulumi.Input[int]] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-
         :param pulumi.Input[int] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
                The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -1432,6 +1436,8 @@ class ClusterUpgradePolicyArgs:
         """
         if delta_health_policy is not None:
             pulumi.set(__self__, "delta_health_policy", delta_health_policy)
+        if force_restart is None:
+            force_restart = False
         if force_restart is not None:
             pulumi.set(__self__, "force_restart", force_restart)
         if health_policy is not None:
@@ -1566,7 +1572,7 @@ if not MYPY:
         """
         application_gateway_backend_address_pool_id: NotRequired[pulumi.Input[str]]
         """
-        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
+        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{backendAddressPoolName}'.
         """
         ip_address_type: NotRequired[pulumi.Input[Union[str, 'IPAddressType']]]
         """
@@ -1574,11 +1580,11 @@ if not MYPY:
         """
         load_balancer_backend_address_pool_id: NotRequired[pulumi.Input[str]]
         """
-        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}'.
         """
         load_balancer_inbound_nat_pool_id: NotRequired[pulumi.Input[str]]
         """
-        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatPools/{inboundNatPoolName}'.
         """
 elif False:
     FrontendConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1592,13 +1598,15 @@ class FrontendConfigurationArgs:
                  load_balancer_inbound_nat_pool_id: Optional[pulumi.Input[str]] = None):
         """
         Describes the frontend configurations for the node type.
-        :param pulumi.Input[str] application_gateway_backend_address_pool_id: The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
+        :param pulumi.Input[str] application_gateway_backend_address_pool_id: The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{backendAddressPoolName}'.
         :param pulumi.Input[Union[str, 'IPAddressType']] ip_address_type: The IP address type of this frontend configuration. If omitted the default value is IPv4.
-        :param pulumi.Input[str] load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
-        :param pulumi.Input[str] load_balancer_inbound_nat_pool_id: The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+        :param pulumi.Input[str] load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}'.
+        :param pulumi.Input[str] load_balancer_inbound_nat_pool_id: The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatPools/{inboundNatPoolName}'.
         """
         if application_gateway_backend_address_pool_id is not None:
             pulumi.set(__self__, "application_gateway_backend_address_pool_id", application_gateway_backend_address_pool_id)
+        if ip_address_type is None:
+            ip_address_type = 'IPv4'
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if load_balancer_backend_address_pool_id is not None:
@@ -1610,7 +1618,7 @@ class FrontendConfigurationArgs:
     @pulumi.getter(name="applicationGatewayBackendAddressPoolId")
     def application_gateway_backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
+        The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{backendAddressPoolName}'.
         """
         return pulumi.get(self, "application_gateway_backend_address_pool_id")
 
@@ -1634,7 +1642,7 @@ class FrontendConfigurationArgs:
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
     def load_balancer_backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
+        The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}'.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
@@ -1646,90 +1654,13 @@ class FrontendConfigurationArgs:
     @pulumi.getter(name="loadBalancerInboundNatPoolId")
     def load_balancer_inbound_nat_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/inboundNatPools/<inboundNatPoolName>'.
+        The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatPools/{inboundNatPoolName}'.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_pool_id")
 
     @load_balancer_inbound_nat_pool_id.setter
     def load_balancer_inbound_nat_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "load_balancer_inbound_nat_pool_id", value)
-
-
-if not MYPY:
-    class IpConfigurationPublicIPAddressConfigurationArgsDict(TypedDict):
-        """
-        The public IP address configuration of the network interface.
-        """
-        name: pulumi.Input[str]
-        """
-        Name of the network interface.
-        """
-        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
-        """
-        Specifies the list of IP tags associated with the public IP address.
-        """
-        public_ip_address_version: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]
-        """
-        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-elif False:
-    IpConfigurationPublicIPAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class IpConfigurationPublicIPAddressConfigurationArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
-                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]] = None):
-        """
-        The public IP address configuration of the network interface.
-        :param pulumi.Input[str] name: Name of the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: Specifies the list of IP tags associated with the public IP address.
-        :param pulumi.Input[Union[str, 'PublicIPAddressVersion']] public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-        pulumi.set(__self__, "name", name)
-        if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
-        if public_ip_address_version is None:
-            public_ip_address_version = 'IPv4'
-        if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the network interface.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
-        """
-        Specifies the list of IP tags associated with the public IP address.
-        """
-        return pulumi.get(self, "ip_tags")
-
-    @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
-        pulumi.set(self, "ip_tags", value)
-
-    @property
-    @pulumi.getter(name="publicIPAddressVersion")
-    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]:
-        """
-        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
-        """
-        return pulumi.get(self, "public_ip_address_version")
-
-    @public_ip_address_version.setter
-    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]):
-        pulumi.set(self, "public_ip_address_version", value)
 
 
 if not MYPY:
@@ -1747,7 +1678,7 @@ if not MYPY:
         """
         load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
         """
-        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         """
         load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
         """
@@ -1757,7 +1688,7 @@ if not MYPY:
         """
         Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
         """
-        public_ip_address_configuration: NotRequired[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgsDict']]
+        public_ip_address_configuration: NotRequired[pulumi.Input['PublicIPAddressConfigurationArgsDict']]
         """
         The public IP address configuration of the network interface.
         """
@@ -1776,16 +1707,16 @@ class IpConfigurationArgs:
                  load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  load_balancer_inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  private_ip_address_version: Optional[pulumi.Input[Union[str, 'PrivateIPAddressVersion']]] = None,
-                 public_ip_address_configuration: Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']] = None,
+                 public_ip_address_configuration: Optional[pulumi.Input['PublicIPAddressConfigurationArgs']] = None,
                  subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         Specifies an IP configuration of the network interface.
         :param pulumi.Input[str] name: Name of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         :param pulumi.Input[Union[str, 'PrivateIPAddressVersion']] private_ip_address_version: Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
-        :param pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs'] public_ip_address_configuration: The public IP address configuration of the network interface.
+        :param pulumi.Input['PublicIPAddressConfigurationArgs'] public_ip_address_configuration: The public IP address configuration of the network interface.
         :param pulumi.Input['SubResourceArgs'] subnet: Specifies the subnet of the network interface.
         """
         pulumi.set(__self__, "name", name)
@@ -1832,7 +1763,7 @@ class IpConfigurationArgs:
     @pulumi.getter(name="loadBalancerBackendAddressPools")
     def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
-        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
 
@@ -1866,14 +1797,14 @@ class IpConfigurationArgs:
 
     @property
     @pulumi.getter(name="publicIPAddressConfiguration")
-    def public_ip_address_configuration(self) -> Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']]:
+    def public_ip_address_configuration(self) -> Optional[pulumi.Input['PublicIPAddressConfigurationArgs']]:
         """
         The public IP address configuration of the network interface.
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
     @public_ip_address_configuration.setter
-    def public_ip_address_configuration(self, value: Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']]):
+    def public_ip_address_configuration(self, value: Optional[pulumi.Input['PublicIPAddressConfigurationArgs']]):
         pulumi.set(self, "public_ip_address_configuration", value)
 
     @property
@@ -2585,15 +2516,15 @@ if not MYPY:
         """
         capacity: pulumi.Input[int]
         """
-        The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+        The number of nodes in the node type. If present in request it will override properties.vmInstanceCount.
         """
         name: NotRequired[pulumi.Input[str]]
         """
-        The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+        The sku name. Name is internally generated and is used in auto-scale scenarios. Property does not allow to be changed to other values than generated. To avoid deployment errors please omit the property.
         """
         tier: NotRequired[pulumi.Input[str]]
         """
-        Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+        Specifies the tier of the node type. Possible Values: **Standard**
         """
 elif False:
     NodeTypeSkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -2606,9 +2537,9 @@ class NodeTypeSkuArgs:
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Describes a node type sku.
-        :param pulumi.Input[int] capacity: The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
-        :param pulumi.Input[str] name: The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
-        :param pulumi.Input[str] tier: Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+        :param pulumi.Input[int] capacity: The number of nodes in the node type. If present in request it will override properties.vmInstanceCount.
+        :param pulumi.Input[str] name: The sku name. Name is internally generated and is used in auto-scale scenarios. Property does not allow to be changed to other values than generated. To avoid deployment errors please omit the property.
+        :param pulumi.Input[str] tier: Specifies the tier of the node type. Possible Values: **Standard**
         """
         pulumi.set(__self__, "capacity", capacity)
         if name is not None:
@@ -2620,7 +2551,7 @@ class NodeTypeSkuArgs:
     @pulumi.getter
     def capacity(self) -> pulumi.Input[int]:
         """
-        The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
+        The number of nodes in the node type. If present in request it will override properties.vmInstanceCount.
         """
         return pulumi.get(self, "capacity")
 
@@ -2632,7 +2563,7 @@ class NodeTypeSkuArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
+        The sku name. Name is internally generated and is used in auto-scale scenarios. Property does not allow to be changed to other values than generated. To avoid deployment errors please omit the property.
         """
         return pulumi.get(self, "name")
 
@@ -2644,7 +2575,7 @@ class NodeTypeSkuArgs:
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
+        Specifies the tier of the node type. Possible Values: **Standard**
         """
         return pulumi.get(self, "tier")
 
@@ -2746,6 +2677,83 @@ class PartitionInstanceCountScaleMechanismArgs:
     @scale_increment.setter
     def scale_increment(self, value: pulumi.Input[int]):
         pulumi.set(self, "scale_increment", value)
+
+
+if not MYPY:
+    class PublicIPAddressConfigurationArgsDict(TypedDict):
+        """
+        The public IP address configuration of the network interface.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the network interface.
+        """
+        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
+        """
+        Specifies the list of IP tags associated with the public IP address.
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]
+        """
+        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+elif False:
+    PublicIPAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicIPAddressConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]] = None):
+        """
+        The public IP address configuration of the network interface.
+        :param pulumi.Input[str] name: Name of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: Specifies the list of IP tags associated with the public IP address.
+        :param pulumi.Input[Union[str, 'PublicIPAddressVersion']] public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        pulumi.set(__self__, "name", name)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if public_ip_address_version is None:
+            public_ip_address_version = 'IPv4'
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the network interface.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
+        """
+        Specifies the list of IP tags associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
+        pulumi.set(self, "ip_tags", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]:
+        """
+        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]):
+        pulumi.set(self, "public_ip_address_version", value)
 
 
 if not MYPY:
@@ -3216,7 +3224,7 @@ class ServicePlacementInvalidDomainPolicyArgs:
 if not MYPY:
     class ServicePlacementNonPartiallyPlaceServicePolicyArgsDict(TypedDict):
         """
-        The name of the domain that should used for placement as per this policy.
+        The type of placement policy for a service fabric service. Following are the possible values.
         """
         type: pulumi.Input[str]
         """
@@ -3231,7 +3239,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        The name of the domain that should used for placement as per this policy.
+        The type of placement policy for a service fabric service. Following are the possible values.
         :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
@@ -3254,7 +3262,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
 if not MYPY:
     class ServicePlacementPreferPrimaryDomainPolicyArgsDict(TypedDict):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -3281,7 +3289,7 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
                  domain_name: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -3289,7 +3297,6 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
-
         :param pulumi.Input[str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
@@ -3363,7 +3370,6 @@ class ServicePlacementRequireDomainDistributionPolicyArgs:
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
-
         :param pulumi.Input[str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
@@ -3497,7 +3503,6 @@ class ServiceTypeHealthPolicyArgs:
                  max_percent_unhealthy_services: pulumi.Input[int]):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
-
         :param pulumi.Input[int] max_percent_unhealthy_partitions_per_service: The maximum allowed percentage of unhealthy partitions per service.
                
                The percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.
@@ -4937,7 +4942,7 @@ if not MYPY:
         """
         certificate_store: pulumi.Input[str]
         """
-        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name {UppercaseThumbprint}.crt for the X509 certificate file and {UppercaseThumbprint}.prv for private key. Both of these files are .pem formatted.
         """
         certificate_url: pulumi.Input[str]
         """
@@ -4953,7 +4958,7 @@ class VaultCertificateArgs:
                  certificate_url: pulumi.Input[str]):
         """
         Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
-        :param pulumi.Input[str] certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        :param pulumi.Input[str] certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name {UppercaseThumbprint}.crt for the X509 certificate file and {UppercaseThumbprint}.prv for private key. Both of these files are .pem formatted.
         :param pulumi.Input[str] certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
         """
         pulumi.set(__self__, "certificate_store", certificate_store)
@@ -4963,7 +4968,7 @@ class VaultCertificateArgs:
     @pulumi.getter(name="certificateStore")
     def certificate_store(self) -> pulumi.Input[str]:
         """
-        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name {UppercaseThumbprint}.crt for the X509 certificate file and {UppercaseThumbprint}.prv for private key. Both of these files are .pem formatted.
         """
         return pulumi.get(self, "certificate_store")
 
@@ -5176,7 +5181,7 @@ class VmApplicationArgs:
 if not MYPY:
     class VmImagePlanArgsDict(TypedDict):
         """
-        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started. Enter any required information and then click Save.
         """
         name: NotRequired[pulumi.Input[str]]
         """
@@ -5205,7 +5210,7 @@ class VmImagePlanArgs:
                  promotion_code: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None):
         """
-        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started. Enter any required information and then click Save.
         :param pulumi.Input[str] name: The plan ID.
         :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
         :param pulumi.Input[str] promotion_code: The promotion code.
@@ -5334,7 +5339,7 @@ class VmssDataDiskArgs:
     def __init__(__self__, *,
                  disk_letter: pulumi.Input[str],
                  disk_size_gb: pulumi.Input[int],
-                 disk_type: pulumi.Input[Union[str, 'DiskType']],
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
                  lun: pulumi.Input[int]):
         """
         Managed data disk description.
@@ -5345,6 +5350,8 @@ class VmssDataDiskArgs:
         """
         pulumi.set(__self__, "disk_letter", disk_letter)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if disk_type is None:
+            disk_type = 'StandardSSD_LRS'
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "lun", lun)
 

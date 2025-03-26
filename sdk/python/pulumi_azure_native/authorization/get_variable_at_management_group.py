@@ -105,6 +105,8 @@ def get_variable_at_management_group(management_group_id: Optional[str] = None,
     This operation retrieves a single variable, given its name and the  management group it was created at.
     Azure REST API version: 2022-08-01-preview.
 
+    Other available API versions: 2024-12-01-preview.
+
 
     :param str management_group_id: The ID of the management group.
     :param str variable_name: The name of the variable to operate on.
@@ -127,6 +129,8 @@ def get_variable_at_management_group_output(management_group_id: Optional[pulumi
     """
     This operation retrieves a single variable, given its name and the  management group it was created at.
     Azure REST API version: 2022-08-01-preview.
+
+    Other available API versions: 2024-12-01-preview.
 
 
     :param str management_group_id: The ID of the management group.

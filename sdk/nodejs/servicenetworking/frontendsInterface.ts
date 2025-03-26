@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Frontend Subresource of Traffic Controller.
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
  */
 export class FrontendsInterface extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class FrontendsInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20230501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20231101:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20240501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20250101:FrontendsInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20230501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20231101:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20240501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20250101:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20250301preview:FrontendsInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FrontendsInterface.__pulumiType, name, resourceInputs, opts);
     }

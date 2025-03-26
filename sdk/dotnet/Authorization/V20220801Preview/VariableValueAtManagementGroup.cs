@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20241201preview:VariableValueAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization:VariableValueAtManagementGroup" },
                 },
             };

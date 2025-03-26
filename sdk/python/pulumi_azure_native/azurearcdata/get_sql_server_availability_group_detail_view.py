@@ -130,7 +130,7 @@ def get_sql_server_availability_group_detail_view(availability_group_name: Optio
     Retrieves detailed properties of the Availability Group.
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-05-01-preview.
+    Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param str availability_group_name: Name of SQL Availability Group
@@ -160,7 +160,7 @@ def get_sql_server_availability_group_detail_view_output(availability_group_name
     Retrieves detailed properties of the Availability Group.
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-05-01-preview.
+    Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
 
     :param str availability_group_name: Name of SQL Availability Group

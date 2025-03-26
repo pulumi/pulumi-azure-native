@@ -117,7 +117,7 @@ class RegistryComponentVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class RegistryComponentVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RegistryComponentVersionArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class RegistryComponentVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RegistryComponentVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RegistryComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:RegistryComponentVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistryComponentVersion, __self__).__init__(
             'azure-native:machinelearningservices:RegistryComponentVersion',

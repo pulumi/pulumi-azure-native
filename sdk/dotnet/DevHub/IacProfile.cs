@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevHub
     /// Resource representation of a IacProfile.
     /// Azure REST API version: 2024-05-01-preview.
     /// 
-    /// Other available API versions: 2024-08-01-preview.
+    /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub:IacProfile")]
     public partial class IacProfile : global::Pulumi.CustomResource
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.DevHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240501preview:IacProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240801preview:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20250301preview:IacProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

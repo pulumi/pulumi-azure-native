@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:ProjectCatalog" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:ProjectCatalog" },
                 },
             };

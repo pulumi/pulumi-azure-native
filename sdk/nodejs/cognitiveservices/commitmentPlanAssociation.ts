@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The commitment plan association.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
  */
 export class CommitmentPlanAssociation extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20231001preview:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20240401preview:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20240601preview:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20241001:CommitmentPlanAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20231001preview:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20240401preview:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20240601preview:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20241001:CommitmentPlanAssociation" }, { type: "azure-native:cognitiveservices/v20250401preview:CommitmentPlanAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommitmentPlanAssociation.__pulumiType, name, resourceInputs, opts);
     }

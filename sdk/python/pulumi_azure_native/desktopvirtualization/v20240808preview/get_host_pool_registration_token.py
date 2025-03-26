@@ -24,7 +24,7 @@ __all__ = [
 @pulumi.output_type
 class GetHostPoolRegistrationTokenResult:
     """
-    Represents a RegistrationInfo definition.  This is not returned on HostPool GET. In order to get the registration token use the retrieveRegistrationToken or listRegistrationTokens POST calls.
+    Represents a RegistrationInfo definition.
     """
     def __init__(__self__, expiration_time=None, registration_token_operation=None, token=None):
         if expiration_time and not isinstance(expiration_time, str):

@@ -60,7 +60,6 @@ __all__ = [
     'PropertyArrayConditionPropertiesResponse',
     'PropertyChangedConditionPropertiesResponse',
     'PropertyConditionPropertiesResponse',
-    'RepoResponse',
     'SecurityMLAnalyticsSettingsDataSourceResponse',
     'SystemDataResponse',
     'TIDataConnectorDataTypesResponse',
@@ -2498,65 +2497,6 @@ class PropertyConditionPropertiesResponse(dict):
     @pulumi.getter(name="conditionProperties")
     def condition_properties(self) -> Optional['outputs.AutomationRulePropertyValuesConditionResponse']:
         return pulumi.get(self, "condition_properties")
-
-
-@pulumi.output_type
-class RepoResponse(dict):
-    """
-    Represents a repository.
-    """
-    def __init__(__self__, *,
-                 branches: Optional[Sequence[str]] = None,
-                 full_name: Optional[str] = None,
-                 installation_id: Optional[float] = None,
-                 url: Optional[str] = None):
-        """
-        Represents a repository.
-        :param Sequence[str] branches: Array of branches.
-        :param str full_name: The name of the repository.
-        :param float installation_id: The installation id of the repository.
-        :param str url: The url to access the repository.
-        """
-        if branches is not None:
-            pulumi.set(__self__, "branches", branches)
-        if full_name is not None:
-            pulumi.set(__self__, "full_name", full_name)
-        if installation_id is not None:
-            pulumi.set(__self__, "installation_id", installation_id)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def branches(self) -> Optional[Sequence[str]]:
-        """
-        Array of branches.
-        """
-        return pulumi.get(self, "branches")
-
-    @property
-    @pulumi.getter(name="fullName")
-    def full_name(self) -> Optional[str]:
-        """
-        The name of the repository.
-        """
-        return pulumi.get(self, "full_name")
-
-    @property
-    @pulumi.getter(name="installationId")
-    def installation_id(self) -> Optional[float]:
-        """
-        The installation id of the repository.
-        """
-        return pulumi.get(self, "installation_id")
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[str]:
-        """
-        The url to access the repository.
-        """
-        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

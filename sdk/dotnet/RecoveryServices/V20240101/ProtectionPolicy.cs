@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240430preview:ProtectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240730preview:ProtectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241001:ProtectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241101preview:ProtectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectionPolicy" },
                 },
             };

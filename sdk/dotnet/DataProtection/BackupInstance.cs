@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection
     /// BackupInstance Resource
     /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupInstance")]
     public partial class BackupInstance : global::Pulumi.CustomResource
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.DataProtection
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240301:BackupInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240401:BackupInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250101:BackupInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250201:BackupInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -44,7 +44,7 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Load balancing algorithm for off-peak period.
      */
@@ -157,6 +157,7 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scalingPlanName'");
             }
             resourceInputs["daysOfWeek"] = args ? args.daysOfWeek : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["offPeakLoadBalancingAlgorithm"] = args ? args.offPeakLoadBalancingAlgorithm : undefined;
             resourceInputs["offPeakStartTime"] = args ? args.offPeakStartTime : undefined;
             resourceInputs["peakLoadBalancingAlgorithm"] = args ? args.peakLoadBalancingAlgorithm : undefined;
@@ -176,7 +177,6 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
             resourceInputs["scalingPlanScheduleName"] = args ? args.scalingPlanScheduleName : undefined;
-            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -202,7 +202,7 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization:ScalingPlanPooledSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20241101preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization:ScalingPlanPooledSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlanPooledSchedule.__pulumiType, name, resourceInputs, opts);
     }
@@ -215,7 +215,11 @@ export interface ScalingPlanPooledScheduleArgs {
     /**
      * Set of days of the week on which this schedule is active.
      */
-    daysOfWeek: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.v20240808preview.DayOfWeek>[]>;
+    daysOfWeek: pulumi.Input<pulumi.Input<enums.desktopvirtualization.v20240808preview.DayOfWeek>[]>;
+    /**
+     * Name of the ScalingPlanPooledSchedule
+     */
+    name?: pulumi.Input<string>;
     /**
      * Load balancing algorithm for off-peak period.
      */

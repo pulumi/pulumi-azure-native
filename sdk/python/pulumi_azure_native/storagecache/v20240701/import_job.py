@@ -34,7 +34,7 @@ class ImportJobArgs:
         The set of arguments for constructing a ImportJob resource.
         :param pulumi.Input[str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'ImportJobAdminStatus']] admin_status: The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        :param pulumi.Input[Union[str, 'ImportJobAdminStatus']] admin_status: The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         :param pulumi.Input[Union[str, 'ConflictResolutionMode']] conflict_resolution_mode: How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
         :param pulumi.Input[str] import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] import_prefixes: An array of blob paths/prefixes that get imported into the cluster namespace. It has '/' as the default value.
@@ -93,7 +93,7 @@ class ImportJobArgs:
     @pulumi.getter(name="adminStatus")
     def admin_status(self) -> Optional[pulumi.Input[Union[str, 'ImportJobAdminStatus']]]:
         """
-        The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         """
         return pulumi.get(self, "admin_status")
 
@@ -194,7 +194,7 @@ class ImportJob(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'ImportJobAdminStatus']] admin_status: The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        :param pulumi.Input[Union[str, 'ImportJobAdminStatus']] admin_status: The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         :param pulumi.Input[str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[Union[str, 'ConflictResolutionMode']] conflict_resolution_mode: How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
         :param pulumi.Input[str] import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -341,7 +341,7 @@ class ImportJob(pulumi.CustomResource):
     @pulumi.getter(name="adminStatus")
     def admin_status(self) -> pulumi.Output[Optional[str]]:
         """
-        The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+        The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
         """
         return pulumi.get(self, "admin_status")
 

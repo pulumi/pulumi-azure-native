@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * States and configurations of Cost Analysis.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
  *
- * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
  */
 export class View extends pulumi.CustomResource {
     /**
@@ -170,7 +170,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:View" }, { type: "azure-native:costmanagement/v20191101:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-native:costmanagement/v20211001:View" }, { type: "azure-native:costmanagement/v20220801preview:View" }, { type: "azure-native:costmanagement/v20221001:View" }, { type: "azure-native:costmanagement/v20221001preview:View" }, { type: "azure-native:costmanagement/v20221005preview:View" }, { type: "azure-native:costmanagement/v20230301:View" }, { type: "azure-native:costmanagement/v20230401preview:View" }, { type: "azure-native:costmanagement/v20230701preview:View" }, { type: "azure-native:costmanagement/v20230801:View" }, { type: "azure-native:costmanagement/v20230901:View" }, { type: "azure-native:costmanagement/v20231101:View" }, { type: "azure-native:costmanagement/v20240801:View" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:View" }, { type: "azure-native:costmanagement/v20191101:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-native:costmanagement/v20211001:View" }, { type: "azure-native:costmanagement/v20220801preview:View" }, { type: "azure-native:costmanagement/v20221001:View" }, { type: "azure-native:costmanagement/v20221001preview:View" }, { type: "azure-native:costmanagement/v20221005preview:View" }, { type: "azure-native:costmanagement/v20230301:View" }, { type: "azure-native:costmanagement/v20230401preview:View" }, { type: "azure-native:costmanagement/v20230701preview:View" }, { type: "azure-native:costmanagement/v20230801:View" }, { type: "azure-native:costmanagement/v20230901:View" }, { type: "azure-native:costmanagement/v20231101:View" }, { type: "azure-native:costmanagement/v20240801:View" }, { type: "azure-native:costmanagement/v20241001preview:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, resourceInputs, opts);
     }

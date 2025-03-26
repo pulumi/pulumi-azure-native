@@ -12,19 +12,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public static class GetPrivateEndpointConnectionByWorkspace
     {
         /// <summary>
-        /// Get a private endpoint connection.
+        /// Get a PrivateEndpointConnectionWithSystemData
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByWorkspaceResult> InvokeAsync(GetPrivateEndpointConnectionByWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20240808preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a private endpoint connection.
+        /// Get a PrivateEndpointConnectionWithSystemData
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20240808preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a private endpoint connection.
+        /// Get a PrivateEndpointConnectionWithSystemData
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20240808preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class GetPrivateEndpointConnectionByWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource.
+        /// The name parameter for private endpoint
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
     public sealed class GetPrivateEndpointConnectionByWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource.
+        /// The name parameter for private endpoint
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;

@@ -67,7 +67,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
         This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +84,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
         This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param GroupQuotaSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -122,7 +122,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuotaSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quota/v20230601preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241015preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20241218preview:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250301:GroupQuotaSubscription"), pulumi.Alias(type_="azure-native:quota/v20250315preview:GroupQuotaSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupQuotaSubscription, __self__).__init__(
             'azure-native:quota:GroupQuotaSubscription',

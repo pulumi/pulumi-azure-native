@@ -114,6 +114,8 @@ def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     """
     Get a CopilotSettingsResource
     Azure REST API version: 2024-04-01-preview.
+
+    Other available API versions: 2024-04-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -130,6 +132,8 @@ def get_copilot_setting_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi
     """
     Get a CopilotSettingsResource
     Azure REST API version: 2024-04-01-preview.
+
+    Other available API versions: 2024-04-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

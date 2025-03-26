@@ -29,7 +29,7 @@ export interface GetNodeTypeArgs {
      */
     nodeTypeName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -111,7 +111,7 @@ export interface GetNodeTypeResult {
      */
     readonly hostGroupId?: string;
     /**
-     * Azure resource identifier.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -131,7 +131,7 @@ export interface GetNodeTypeResult {
      */
     readonly multiplePlacementGroups?: boolean;
     /**
-     * Azure resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -179,15 +179,15 @@ export interface GetNodeTypeResult {
      */
     readonly subnetId?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.servicefabric.v20241101preview.SystemDataResponse;
     /**
-     * Azure resource tags.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -235,7 +235,7 @@ export interface GetNodeTypeResult {
      */
     readonly vmImageVersion?: string;
     /**
-     * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+     * The number of nodes in the node type. **Values:** -1 - Use when auto scale rules are configured or sku.capacity is defined 0 - Not supported >0 - Use for manual scale.
      */
     readonly vmInstanceCount: number;
     /**
@@ -285,7 +285,7 @@ export interface GetNodeTypeOutputArgs {
      */
     nodeTypeName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

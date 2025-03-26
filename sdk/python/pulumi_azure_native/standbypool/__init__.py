@@ -21,8 +21,11 @@ if typing.TYPE_CHECKING:
     v20240301 = __v20240301
     import pulumi_azure_native.standbypool.v20240301preview as __v20240301preview
     v20240301preview = __v20240301preview
+    import pulumi_azure_native.standbypool.v20250301 as __v20250301
+    v20250301 = __v20250301
 else:
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.standbypool.v20231201preview')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.standbypool.v20240301')
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.standbypool.v20240301preview')
+    v20250301 = _utilities.lazy_import('pulumi_azure_native.standbypool.v20250301')
 

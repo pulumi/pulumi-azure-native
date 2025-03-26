@@ -68,7 +68,7 @@ __all__ = [
     'VmImagePlanResponse',
     'VmManagedIdentityResponse',
     'VmssDataDiskResponse',
-    'ZoneFaultSimulationParametersResponse',
+    'ZoneFaultSimulationContentResponse',
 ]
 
 @pulumi.output_type
@@ -871,13 +871,13 @@ class FaultSimulationDetailsResponse(dict):
                  cluster_id: Optional[str] = None,
                  node_type_fault_simulation: Optional[Sequence['outputs.NodeTypeFaultSimulationResponse']] = None,
                  operation_id: Optional[str] = None,
-                 parameters: Optional['outputs.ZoneFaultSimulationParametersResponse'] = None):
+                 parameters: Optional['outputs.ZoneFaultSimulationContentResponse'] = None):
         """
         Details for Fault Simulation.
         :param str cluster_id: unique identifier for the cluster resource.
         :param Sequence['NodeTypeFaultSimulationResponse'] node_type_fault_simulation: List of node type simulations associated with the cluster fault simulation.
         :param str operation_id: unique identifier for the operation associated with the fault simulation.
-        :param 'ZoneFaultSimulationParametersResponse' parameters: Fault simulation parameters.
+        :param 'ZoneFaultSimulationContentResponse' parameters: Fault simulation parameters.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -914,7 +914,7 @@ class FaultSimulationDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.ZoneFaultSimulationParametersResponse']:
+    def parameters(self) -> Optional['outputs.ZoneFaultSimulationContentResponse']:
         """
         Fault simulation parameters.
         """
@@ -1585,25 +1585,32 @@ class NodeTypeFaultSimulationResponse(dict):
     Node type fault simulation object with status.
     """
     def __init__(__self__, *,
+                 operation_status: str,
                  node_type_name: Optional[str] = None,
                  operation_id: Optional[str] = None,
-                 operation_status: Optional[str] = None,
                  status: Optional[str] = None):
         """
         Node type fault simulation object with status.
+        :param str operation_status: Current or latest asynchronous operation status on the node type
         :param str node_type_name: Node type name.
         :param str operation_id: Current or latest asynchronous operation identifier on the node type.
-        :param str operation_status: Current or latest asynchronous operation status on the node type
         :param str status: Fault simulation status
         """
+        pulumi.set(__self__, "operation_status", operation_status)
         if node_type_name is not None:
             pulumi.set(__self__, "node_type_name", node_type_name)
         if operation_id is not None:
             pulumi.set(__self__, "operation_id", operation_id)
-        if operation_status is not None:
-            pulumi.set(__self__, "operation_status", operation_status)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> str:
+        """
+        Current or latest asynchronous operation status on the node type
+        """
+        return pulumi.get(self, "operation_status")
 
     @property
     @pulumi.getter(name="nodeTypeName")
@@ -1620,14 +1627,6 @@ class NodeTypeFaultSimulationResponse(dict):
         Current or latest asynchronous operation identifier on the node type.
         """
         return pulumi.get(self, "operation_id")
-
-    @property
-    @pulumi.getter(name="operationStatus")
-    def operation_status(self) -> Optional[str]:
-        """
-        Current or latest asynchronous operation status on the node type
-        """
-        return pulumi.get(self, "operation_status")
 
     @property
     @pulumi.getter
@@ -2192,12 +2191,12 @@ class ServicePlacementInvalidDomainPolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
     """
-    The name of the domain that should used for placement as per this policy.
+    The type of placement policy for a service fabric service. Following are the possible values.
     """
     def __init__(__self__, *,
                  type: str):
         """
-        The name of the domain that should used for placement as per this policy.
+        The type of placement policy for a service fabric service. Following are the possible values.
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
@@ -2216,7 +2215,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
     """
-    Describes the policy to be used for placement of a Service Fabric service where the service's 
+    Describes the policy to be used for placement of a Service Fabric service where the service's
     Primary replicas should optimally be placed in a particular domain.
 
     This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2246,7 +2245,7 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
                  domain_name: str,
                  type: str):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2254,7 +2253,6 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
-
         :param str domain_name: The name of the domain that should used for placement as per this policy.
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
@@ -2323,7 +2321,6 @@ class ServicePlacementRequireDomainDistributionPolicyResponse(dict):
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
-
         :param str domain_name: The name of the domain that should used for placement as per this policy.
         :param str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
@@ -3317,7 +3314,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC).
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -3362,7 +3359,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of resource last modification (UTC).
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -3977,7 +3974,7 @@ class VmssDataDiskResponse(dict):
 
 
 @pulumi.output_type
-class ZoneFaultSimulationParametersResponse(dict):
+class ZoneFaultSimulationContentResponse(dict):
     """
     Parameters for Zone Fault Simulation action.
     """

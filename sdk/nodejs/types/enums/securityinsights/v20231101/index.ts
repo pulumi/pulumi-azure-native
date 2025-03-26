@@ -800,17 +800,6 @@ export const PackageKind = {
  */
 export type PackageKind = (typeof PackageKind)[keyof typeof PackageKind];
 
-export const RepositoryAccessKind = {
-    OAuth: "OAuth",
-    PAT: "PAT",
-    App: "App",
-} as const;
-
-/**
- * The kind of repository access credentials
- */
-export type RepositoryAccessKind = (typeof RepositoryAccessKind)[keyof typeof RepositoryAccessKind];
-
 export const SecurityMLAnalyticsSettingsKind = {
     Anomaly: "Anomaly",
 } as const;

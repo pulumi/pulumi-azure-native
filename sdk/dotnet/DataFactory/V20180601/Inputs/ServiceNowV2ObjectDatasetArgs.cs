@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Type of value copied from source.
+        /// </summary>
+        [Input("valueType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ValueType>? ValueType { get; set; }
+
         public ServiceNowV2ObjectDatasetArgs()
         {
         }

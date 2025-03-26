@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the protected item.
  * Azure REST API version: 2021-02-16-preview.
+ *
+ * Other available API versions: 2024-09-01.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +62,8 @@ export interface GetProtectedItemResult {
 /**
  * Gets the details of the protected item.
  * Azure REST API version: 2021-02-16-preview.
+ *
+ * Other available API versions: 2024-09-01.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

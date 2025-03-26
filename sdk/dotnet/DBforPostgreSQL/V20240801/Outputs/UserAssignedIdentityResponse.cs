@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        /// the types of identities associated with this resource
         /// </summary>
         public readonly string Type;
         /// <summary>

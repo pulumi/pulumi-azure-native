@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.App.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:DaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app:DaprComponent" },
                 },
             };

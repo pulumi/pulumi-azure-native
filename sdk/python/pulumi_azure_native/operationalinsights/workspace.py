@@ -257,7 +257,7 @@ class Workspace(pulumi.CustomResource):
         The top level Workspace resource container.
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,7 +285,7 @@ class Workspace(pulumi.CustomResource):
         The top level Workspace resource container.
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
+        Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -348,7 +348,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:operationalinsights:Workspace',

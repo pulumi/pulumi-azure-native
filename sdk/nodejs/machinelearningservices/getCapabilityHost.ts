@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2024-10-01-preview.
+ *
+ * Other available API versions: 2025-01-01-preview.
  */
 export function getCapabilityHost(args: GetCapabilityHostArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +65,8 @@ export interface GetCapabilityHostResult {
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2024-10-01-preview.
+ *
+ * Other available API versions: 2025-01-01-preview.
  */
 export function getCapabilityHostOutput(args: GetCapabilityHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

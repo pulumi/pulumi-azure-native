@@ -136,7 +136,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
         Azure REST API version: 2022-10-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
         Azure REST API version: 2022-10-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20221001:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230501:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230801preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20231102preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20240202preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20240301:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20240802preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20241002preview:ConnectedEnvironmentsCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20221001:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230501:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20230801preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20231102preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20240202preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20240301:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20240802preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20241002preview:ConnectedEnvironmentsCertificate"), pulumi.Alias(type_="azure-native:app/v20250101:ConnectedEnvironmentsCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedEnvironmentsCertificate, __self__).__init__(
             'azure-native:app:ConnectedEnvironmentsCertificate',

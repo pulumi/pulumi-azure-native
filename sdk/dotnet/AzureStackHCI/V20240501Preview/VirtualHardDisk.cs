@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualHardDisk" },
                 },
             };

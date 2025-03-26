@@ -202,7 +202,7 @@ def get_firmware(firmware_id: Optional[str] = None,
     Get firmware.
     Azure REST API version: 2023-02-08-preview.
 
-    Other available API versions: 2024-01-10.
+    Other available API versions: 2024-01-10, 2025-04-01-preview.
 
 
     :param str firmware_id: The id of the firmware.
@@ -238,7 +238,7 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[str]] = None,
     Get firmware.
     Azure REST API version: 2023-02-08-preview.
 
-    Other available API versions: 2024-01-10.
+    Other available API versions: 2024-01-10, 2025-04-01-preview.
 
 
     :param str firmware_id: The id of the firmware.

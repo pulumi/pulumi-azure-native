@@ -16,31 +16,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
     public sealed class AppAttachPackageInfoPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date certificate expires, found in the appxmanifest.xml. 
+        /// Date certificate expires, found in the appxmanifest.xml.
         /// </summary>
         [Input("certificateExpiry")]
         public Input<string>? CertificateExpiry { get; set; }
 
         /// <summary>
-        /// Certificate name found in the appxmanifest.xml. 
+        /// Certificate name found in the appxmanifest.xml.
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
+        /// User friendly Name to be displayed in the portal.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// VHD/CIM/APP-V image path on Network Share.
+        /// VHD/CIM image path on Network Share.
         /// </summary>
         [Input("imagePath")]
         public Input<string>? ImagePath { get; set; }
 
         /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
+        /// Make this version of the package the active one across the hostpool.
         /// </summary>
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
         public Input<bool>? IsRegularRegistration { get; set; }
 
         /// <summary>
-        /// Date the package source was last updated, for Msix packages this is found in the appxmanifest.xml. 
+        /// Date Package was last updated, found in the appxmanifest.xml.
         /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
         private InputList<Inputs.MsixPackageApplicationsArgs>? _packageApplications;
 
         /// <summary>
-        /// List of package applications. 
+        /// List of package applications.
         /// </summary>
         public InputList<Inputs.MsixPackageApplicationsArgs> PackageApplications
         {
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
         private InputList<Inputs.MsixPackageDependenciesArgs>? _packageDependencies;
 
         /// <summary>
-        /// List of package dependencies. 
+        /// List of package dependencies.
         /// </summary>
         public InputList<Inputs.MsixPackageDependenciesArgs> PackageDependencies
         {
@@ -94,31 +94,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview.Inputs
         }
 
         /// <summary>
-        /// Identifier not including the package version, for Msix packages it is the family name from the appxmanifest.xml. 
+        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         /// </summary>
         [Input("packageFamilyName")]
         public Input<string>? PackageFamilyName { get; set; }
 
         /// <summary>
-        /// Identifier including the package version, for Msix packages it is the full name from the appxmanifest.xml. 
+        /// Package Full Name from appxmanifest.xml.
         /// </summary>
         [Input("packageFullName")]
         public Input<string>? PackageFullName { get; set; }
 
         /// <summary>
-        /// Package Name from appxmanifest.xml. 
+        /// Package Name from appxmanifest.xml.
         /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
 
         /// <summary>
-        /// Relative Path to the package inside the image. 
+        /// Relative Path to the package inside the image.
         /// </summary>
         [Input("packageRelativePath")]
         public Input<string>? PackageRelativePath { get; set; }
 
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

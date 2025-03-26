@@ -142,7 +142,7 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
     Get a Frontend
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
 
 
     :param str frontend_name: Frontends
@@ -173,7 +173,7 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
     Get a Frontend
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
 
 
     :param str frontend_name: Frontends

@@ -104,7 +104,7 @@ def get_connection_rai_blocklist(connection_name: Optional[str] = None,
     """
     Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
@@ -137,7 +137,7 @@ def get_connection_rai_blocklist_output(connection_name: Optional[pulumi.Input[s
     """
     Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection

@@ -42,8 +42,8 @@ class AutoExportJobAdminStatus(str, Enum):
     """
     The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
     """
-    ACTIVE = "Active"
-    CANCEL = "Cancel"
+    ENABLE = "Enable"
+    DISABLE = "Disable"
 
 
 class AutoExportStatusType(str, Enum):
@@ -79,7 +79,7 @@ class ConflictResolutionMode(str, Enum):
 
 class ImportJobAdminStatus(str, Enum):
     """
-    The administrative status of the import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will cancel the current active import job. By default it is set to 'Enable'.
+    The administrative status of the import job. Possible values: 'Active', 'Cancel'. Passing in a value of 'Cancel' will cancel the current active import job. By default it is set to 'Active'.
     """
     ACTIVE = "Active"
     CANCEL = "Cancel"

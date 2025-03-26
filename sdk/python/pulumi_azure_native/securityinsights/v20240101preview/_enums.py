@@ -1280,8 +1280,8 @@ class SourceType(str, Enum):
     """
     The sourceType of the watchlist
     """
-    LOCAL_FILE = "Local file"
-    REMOTE_STORAGE = "Remote storage"
+    LOCAL = "Local"
+    AZURE_STORAGE = "AzureStorage"
 
 
 class Status(str, Enum):

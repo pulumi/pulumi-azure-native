@@ -155,7 +155,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20250401preview:Workspace"), pulumi.Alias(type_="azure-native:iotfirmwaredefense:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:iotfirmwaredefense/v20230208preview:Workspace',
