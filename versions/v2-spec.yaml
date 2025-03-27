@@ -298,7 +298,12 @@ CodeSigning:
 CognitiveServices:
     tracking: "2023-05-01"
     additions:
+        AccountCapabilityHost: 2025-04-01-preview
+        AccountConnection: 2025-04-01-preview
         EncryptionScope: 2023-10-01-preview
+        Project: 2025-04-01-preview
+        ProjectCapabilityHost: 2025-04-01-preview
+        ProjectConnection: 2025-04-01-preview
         RaiBlocklist: 2023-10-01-preview
         RaiBlocklistItem: 2023-10-01-preview
         RaiPolicy: 2023-10-01-preview
@@ -306,6 +311,7 @@ Commerce: {}
 Communication:
     tracking: "2023-03-31"
     additions:
+        SmtpUsername: 2024-09-01-preview
         SuppressionList: 2023-06-01-preview
         SuppressionListAddress: 2023-06-01-preview
 Community:
@@ -809,6 +815,10 @@ DataProtection:
     tracking: "2023-01-01"
 DataReplication:
     tracking: 2021-02-16-preview
+    additions:
+        FabricAgent: "2024-09-01"
+        PrivateEndpointConnection: "2024-09-01"
+        PrivateEndpointConnectionProxy: "2024-09-01"
 DataShare:
     tracking: "2021-08-01"
 DatabaseFleetManager:
@@ -855,6 +865,7 @@ DevCenter:
         getEnvironmentDefinitionErrorDetails: 2023-08-01-preview
         getProjectCatalogEnvironmentDefinitionErrorDetails: "2024-02-01"
         getProjectCatalogImageDefinitionBuildDetails: 2024-07-01-preview
+        getProjectCatalogImageDefinitionErrorDetails: "2025-02-01"
         getProjectCatalogSyncErrorDetails: "2024-02-01"
         getProjectInheritedSettings: 2024-05-01-preview
         listSkusByProject: 2024-06-01-preview

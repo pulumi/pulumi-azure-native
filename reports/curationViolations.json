@@ -144,6 +144,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "DataReplication",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "DatabaseFleetManager",
     "Detail": "expected tracking stable but found preview"
   },
